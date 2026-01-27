@@ -63,12 +63,44 @@ public class CFSecJpaTenantDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaTenantHPKey ensureHPKey(ICFSecTenantHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaTenantHPKey) {
+			return( (CFSecJpaTenantHPKey)key );
+		}
+		else {
+			CFSecJpaTenantHPKey mapped = new CFSecJpaTenantHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredId( key.getRequiredId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTenantByClusterIdxKey newByClusterIdxKey() {
 	ICFSecTenantByClusterIdxKey key =
             new CFSecJpaTenantByClusterIdxKey();
 	return( key );
     }
+
+	public CFSecJpaTenantByClusterIdxKey ensureByClusterIdxKey(ICFSecTenantByClusterIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTenantByClusterIdxKey) {
+			return( (CFSecJpaTenantByClusterIdxKey)key );
+		}
+		else {
+			CFSecJpaTenantByClusterIdxKey mapped = new CFSecJpaTenantByClusterIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecTenantByUNameIdxKey newByUNameIdxKey() {
@@ -77,6 +109,21 @@ public class CFSecJpaTenantDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaTenantByUNameIdxKey ensureByUNameIdxKey(ICFSecTenantByUNameIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTenantByUNameIdxKey) {
+			return( (CFSecJpaTenantByUNameIdxKey)key );
+		}
+		else {
+			CFSecJpaTenantByUNameIdxKey mapped = new CFSecJpaTenantByUNameIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			mapped.setRequiredTenantName( key.getRequiredTenantName() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTenant newRec() {
         ICFSecTenant rec =
@@ -84,10 +131,38 @@ public class CFSecJpaTenantDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaTenant ensureRec(ICFSecTenant rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaTenant) {
+			return( (CFSecJpaTenant)rec );
+		}
+		else {
+			CFSecJpaTenant mapped = new CFSecJpaTenant();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTenantH newHRec() {
         ICFSecTenantH hrec =
             new CFSecJpaTenantH();
         return( hrec );
     }
+
+	public CFSecJpaTenantH ensureHRec(ICFSecTenantH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaTenantH) {
+			return( (CFSecJpaTenantH)hrec );
+		}
+		else {
+			CFSecJpaTenantH mapped = new CFSecJpaTenantH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

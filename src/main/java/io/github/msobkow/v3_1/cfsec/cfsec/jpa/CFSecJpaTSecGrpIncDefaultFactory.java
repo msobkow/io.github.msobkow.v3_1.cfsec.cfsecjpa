@@ -63,12 +63,44 @@ public class CFSecJpaTSecGrpIncDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaTSecGrpIncHPKey ensureHPKey(ICFSecTSecGrpIncHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaTSecGrpIncHPKey) {
+			return( (CFSecJpaTSecGrpIncHPKey)key );
+		}
+		else {
+			CFSecJpaTSecGrpIncHPKey mapped = new CFSecJpaTSecGrpIncHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredTSecGrpIncId( key.getRequiredTSecGrpIncId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTSecGrpIncByTenantIdxKey newByTenantIdxKey() {
 	ICFSecTSecGrpIncByTenantIdxKey key =
             new CFSecJpaTSecGrpIncByTenantIdxKey();
 	return( key );
     }
+
+	public CFSecJpaTSecGrpIncByTenantIdxKey ensureByTenantIdxKey(ICFSecTSecGrpIncByTenantIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTSecGrpIncByTenantIdxKey) {
+			return( (CFSecJpaTSecGrpIncByTenantIdxKey)key );
+		}
+		else {
+			CFSecJpaTSecGrpIncByTenantIdxKey mapped = new CFSecJpaTSecGrpIncByTenantIdxKey();
+			mapped.setRequiredTenantId( key.getRequiredTenantId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecTSecGrpIncByGroupIdxKey newByGroupIdxKey() {
@@ -77,12 +109,40 @@ public class CFSecJpaTSecGrpIncDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaTSecGrpIncByGroupIdxKey ensureByGroupIdxKey(ICFSecTSecGrpIncByGroupIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTSecGrpIncByGroupIdxKey) {
+			return( (CFSecJpaTSecGrpIncByGroupIdxKey)key );
+		}
+		else {
+			CFSecJpaTSecGrpIncByGroupIdxKey mapped = new CFSecJpaTSecGrpIncByGroupIdxKey();
+			mapped.setRequiredTSecGroupId( key.getRequiredTSecGroupId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTSecGrpIncByIncludeIdxKey newByIncludeIdxKey() {
 	ICFSecTSecGrpIncByIncludeIdxKey key =
             new CFSecJpaTSecGrpIncByIncludeIdxKey();
 	return( key );
     }
+
+	public CFSecJpaTSecGrpIncByIncludeIdxKey ensureByIncludeIdxKey(ICFSecTSecGrpIncByIncludeIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTSecGrpIncByIncludeIdxKey) {
+			return( (CFSecJpaTSecGrpIncByIncludeIdxKey)key );
+		}
+		else {
+			CFSecJpaTSecGrpIncByIncludeIdxKey mapped = new CFSecJpaTSecGrpIncByIncludeIdxKey();
+			mapped.setRequiredIncludeGroupId( key.getRequiredIncludeGroupId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecTSecGrpIncByUIncludeIdxKey newByUIncludeIdxKey() {
@@ -91,6 +151,22 @@ public class CFSecJpaTSecGrpIncDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaTSecGrpIncByUIncludeIdxKey ensureByUIncludeIdxKey(ICFSecTSecGrpIncByUIncludeIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTSecGrpIncByUIncludeIdxKey) {
+			return( (CFSecJpaTSecGrpIncByUIncludeIdxKey)key );
+		}
+		else {
+			CFSecJpaTSecGrpIncByUIncludeIdxKey mapped = new CFSecJpaTSecGrpIncByUIncludeIdxKey();
+			mapped.setRequiredTenantId( key.getRequiredTenantId() );
+			mapped.setRequiredTSecGroupId( key.getRequiredTSecGroupId() );
+			mapped.setRequiredIncludeGroupId( key.getRequiredIncludeGroupId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTSecGrpInc newRec() {
         ICFSecTSecGrpInc rec =
@@ -98,10 +174,38 @@ public class CFSecJpaTSecGrpIncDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaTSecGrpInc ensureRec(ICFSecTSecGrpInc rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaTSecGrpInc) {
+			return( (CFSecJpaTSecGrpInc)rec );
+		}
+		else {
+			CFSecJpaTSecGrpInc mapped = new CFSecJpaTSecGrpInc();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTSecGrpIncH newHRec() {
         ICFSecTSecGrpIncH hrec =
             new CFSecJpaTSecGrpIncH();
         return( hrec );
     }
+
+	public CFSecJpaTSecGrpIncH ensureHRec(ICFSecTSecGrpIncH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaTSecGrpIncH) {
+			return( (CFSecJpaTSecGrpIncH)hrec );
+		}
+		else {
+			CFSecJpaTSecGrpIncH mapped = new CFSecJpaTSecGrpIncH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

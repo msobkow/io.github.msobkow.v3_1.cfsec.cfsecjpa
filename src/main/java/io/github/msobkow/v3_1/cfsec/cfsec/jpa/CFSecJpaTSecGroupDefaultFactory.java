@@ -63,12 +63,44 @@ public class CFSecJpaTSecGroupDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaTSecGroupHPKey ensureHPKey(ICFSecTSecGroupHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaTSecGroupHPKey) {
+			return( (CFSecJpaTSecGroupHPKey)key );
+		}
+		else {
+			CFSecJpaTSecGroupHPKey mapped = new CFSecJpaTSecGroupHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredTSecGroupId( key.getRequiredTSecGroupId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTSecGroupByTenantIdxKey newByTenantIdxKey() {
 	ICFSecTSecGroupByTenantIdxKey key =
             new CFSecJpaTSecGroupByTenantIdxKey();
 	return( key );
     }
+
+	public CFSecJpaTSecGroupByTenantIdxKey ensureByTenantIdxKey(ICFSecTSecGroupByTenantIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTSecGroupByTenantIdxKey) {
+			return( (CFSecJpaTSecGroupByTenantIdxKey)key );
+		}
+		else {
+			CFSecJpaTSecGroupByTenantIdxKey mapped = new CFSecJpaTSecGroupByTenantIdxKey();
+			mapped.setRequiredTenantId( key.getRequiredTenantId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecTSecGroupByTenantVisIdxKey newByTenantVisIdxKey() {
@@ -77,12 +109,42 @@ public class CFSecJpaTSecGroupDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaTSecGroupByTenantVisIdxKey ensureByTenantVisIdxKey(ICFSecTSecGroupByTenantVisIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTSecGroupByTenantVisIdxKey) {
+			return( (CFSecJpaTSecGroupByTenantVisIdxKey)key );
+		}
+		else {
+			CFSecJpaTSecGroupByTenantVisIdxKey mapped = new CFSecJpaTSecGroupByTenantVisIdxKey();
+			mapped.setRequiredTenantId( key.getRequiredTenantId() );
+			mapped.setRequiredIsVisible( key.getRequiredIsVisible() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTSecGroupByUNameIdxKey newByUNameIdxKey() {
 	ICFSecTSecGroupByUNameIdxKey key =
             new CFSecJpaTSecGroupByUNameIdxKey();
 	return( key );
     }
+
+	public CFSecJpaTSecGroupByUNameIdxKey ensureByUNameIdxKey(ICFSecTSecGroupByUNameIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTSecGroupByUNameIdxKey) {
+			return( (CFSecJpaTSecGroupByUNameIdxKey)key );
+		}
+		else {
+			CFSecJpaTSecGroupByUNameIdxKey mapped = new CFSecJpaTSecGroupByUNameIdxKey();
+			mapped.setRequiredTenantId( key.getRequiredTenantId() );
+			mapped.setRequiredName( key.getRequiredName() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecTSecGroup newRec() {
@@ -91,10 +153,38 @@ public class CFSecJpaTSecGroupDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaTSecGroup ensureRec(ICFSecTSecGroup rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaTSecGroup) {
+			return( (CFSecJpaTSecGroup)rec );
+		}
+		else {
+			CFSecJpaTSecGroup mapped = new CFSecJpaTSecGroup();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecTSecGroupH newHRec() {
         ICFSecTSecGroupH hrec =
             new CFSecJpaTSecGroupH();
         return( hrec );
     }
+
+	public CFSecJpaTSecGroupH ensureHRec(ICFSecTSecGroupH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaTSecGroupH) {
+			return( (CFSecJpaTSecGroupH)hrec );
+		}
+		else {
+			CFSecJpaTSecGroupH mapped = new CFSecJpaTSecGroupH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

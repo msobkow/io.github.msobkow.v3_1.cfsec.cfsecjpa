@@ -63,12 +63,44 @@ public class CFSecJpaServiceDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaServiceHPKey ensureHPKey(ICFSecServiceHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaServiceHPKey) {
+			return( (CFSecJpaServiceHPKey)key );
+		}
+		else {
+			CFSecJpaServiceHPKey mapped = new CFSecJpaServiceHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredServiceId( key.getRequiredServiceId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecServiceByClusterIdxKey newByClusterIdxKey() {
 	ICFSecServiceByClusterIdxKey key =
             new CFSecJpaServiceByClusterIdxKey();
 	return( key );
     }
+
+	public CFSecJpaServiceByClusterIdxKey ensureByClusterIdxKey(ICFSecServiceByClusterIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaServiceByClusterIdxKey) {
+			return( (CFSecJpaServiceByClusterIdxKey)key );
+		}
+		else {
+			CFSecJpaServiceByClusterIdxKey mapped = new CFSecJpaServiceByClusterIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecServiceByHostIdxKey newByHostIdxKey() {
@@ -77,12 +109,40 @@ public class CFSecJpaServiceDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaServiceByHostIdxKey ensureByHostIdxKey(ICFSecServiceByHostIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaServiceByHostIdxKey) {
+			return( (CFSecJpaServiceByHostIdxKey)key );
+		}
+		else {
+			CFSecJpaServiceByHostIdxKey mapped = new CFSecJpaServiceByHostIdxKey();
+			mapped.setRequiredHostNodeId( key.getRequiredHostNodeId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecServiceByTypeIdxKey newByTypeIdxKey() {
 	ICFSecServiceByTypeIdxKey key =
             new CFSecJpaServiceByTypeIdxKey();
 	return( key );
     }
+
+	public CFSecJpaServiceByTypeIdxKey ensureByTypeIdxKey(ICFSecServiceByTypeIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaServiceByTypeIdxKey) {
+			return( (CFSecJpaServiceByTypeIdxKey)key );
+		}
+		else {
+			CFSecJpaServiceByTypeIdxKey mapped = new CFSecJpaServiceByTypeIdxKey();
+			mapped.setRequiredServiceTypeId( key.getRequiredServiceTypeId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecServiceByUTypeIdxKey newByUTypeIdxKey() {
@@ -91,12 +151,44 @@ public class CFSecJpaServiceDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaServiceByUTypeIdxKey ensureByUTypeIdxKey(ICFSecServiceByUTypeIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaServiceByUTypeIdxKey) {
+			return( (CFSecJpaServiceByUTypeIdxKey)key );
+		}
+		else {
+			CFSecJpaServiceByUTypeIdxKey mapped = new CFSecJpaServiceByUTypeIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			mapped.setRequiredHostNodeId( key.getRequiredHostNodeId() );
+			mapped.setRequiredServiceTypeId( key.getRequiredServiceTypeId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecServiceByUHostPortIdxKey newByUHostPortIdxKey() {
 	ICFSecServiceByUHostPortIdxKey key =
             new CFSecJpaServiceByUHostPortIdxKey();
 	return( key );
     }
+
+	public CFSecJpaServiceByUHostPortIdxKey ensureByUHostPortIdxKey(ICFSecServiceByUHostPortIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaServiceByUHostPortIdxKey) {
+			return( (CFSecJpaServiceByUHostPortIdxKey)key );
+		}
+		else {
+			CFSecJpaServiceByUHostPortIdxKey mapped = new CFSecJpaServiceByUHostPortIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			mapped.setRequiredHostNodeId( key.getRequiredHostNodeId() );
+			mapped.setRequiredHostPort( key.getRequiredHostPort() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecService newRec() {
@@ -105,10 +197,38 @@ public class CFSecJpaServiceDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaService ensureRec(ICFSecService rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaService) {
+			return( (CFSecJpaService)rec );
+		}
+		else {
+			CFSecJpaService mapped = new CFSecJpaService();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecServiceH newHRec() {
         ICFSecServiceH hrec =
             new CFSecJpaServiceH();
         return( hrec );
     }
+
+	public CFSecJpaServiceH ensureHRec(ICFSecServiceH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaServiceH) {
+			return( (CFSecJpaServiceH)hrec );
+		}
+		else {
+			CFSecJpaServiceH mapped = new CFSecJpaServiceH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

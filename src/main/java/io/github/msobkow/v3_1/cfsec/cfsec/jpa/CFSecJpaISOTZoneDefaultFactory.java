@@ -63,12 +63,45 @@ public class CFSecJpaISOTZoneDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaISOTZoneHPKey ensureHPKey(ICFSecISOTZoneHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaISOTZoneHPKey) {
+			return( (CFSecJpaISOTZoneHPKey)key );
+		}
+		else {
+			CFSecJpaISOTZoneHPKey mapped = new CFSecJpaISOTZoneHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredISOTZoneId( key.getRequiredISOTZoneId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecISOTZoneByOffsetIdxKey newByOffsetIdxKey() {
 	ICFSecISOTZoneByOffsetIdxKey key =
             new CFSecJpaISOTZoneByOffsetIdxKey();
 	return( key );
     }
+
+	public CFSecJpaISOTZoneByOffsetIdxKey ensureByOffsetIdxKey(ICFSecISOTZoneByOffsetIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaISOTZoneByOffsetIdxKey) {
+			return( (CFSecJpaISOTZoneByOffsetIdxKey)key );
+		}
+		else {
+			CFSecJpaISOTZoneByOffsetIdxKey mapped = new CFSecJpaISOTZoneByOffsetIdxKey();
+			mapped.setRequiredTZHourOffset( key.getRequiredTZHourOffset() );
+			mapped.setRequiredTZMinOffset( key.getRequiredTZMinOffset() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecISOTZoneByUTZNameIdxKey newByUTZNameIdxKey() {
@@ -77,12 +110,40 @@ public class CFSecJpaISOTZoneDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaISOTZoneByUTZNameIdxKey ensureByUTZNameIdxKey(ICFSecISOTZoneByUTZNameIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaISOTZoneByUTZNameIdxKey) {
+			return( (CFSecJpaISOTZoneByUTZNameIdxKey)key );
+		}
+		else {
+			CFSecJpaISOTZoneByUTZNameIdxKey mapped = new CFSecJpaISOTZoneByUTZNameIdxKey();
+			mapped.setRequiredTZName( key.getRequiredTZName() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecISOTZoneByIso8601IdxKey newByIso8601IdxKey() {
 	ICFSecISOTZoneByIso8601IdxKey key =
             new CFSecJpaISOTZoneByIso8601IdxKey();
 	return( key );
     }
+
+	public CFSecJpaISOTZoneByIso8601IdxKey ensureByIso8601IdxKey(ICFSecISOTZoneByIso8601IdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaISOTZoneByIso8601IdxKey) {
+			return( (CFSecJpaISOTZoneByIso8601IdxKey)key );
+		}
+		else {
+			CFSecJpaISOTZoneByIso8601IdxKey mapped = new CFSecJpaISOTZoneByIso8601IdxKey();
+			mapped.setRequiredIso8601( key.getRequiredIso8601() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecISOTZone newRec() {
@@ -91,10 +152,38 @@ public class CFSecJpaISOTZoneDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaISOTZone ensureRec(ICFSecISOTZone rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaISOTZone) {
+			return( (CFSecJpaISOTZone)rec );
+		}
+		else {
+			CFSecJpaISOTZone mapped = new CFSecJpaISOTZone();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecISOTZoneH newHRec() {
         ICFSecISOTZoneH hrec =
             new CFSecJpaISOTZoneH();
         return( hrec );
     }
+
+	public CFSecJpaISOTZoneH ensureHRec(ICFSecISOTZoneH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaISOTZoneH) {
+			return( (CFSecJpaISOTZoneH)hrec );
+		}
+		else {
+			CFSecJpaISOTZoneH mapped = new CFSecJpaISOTZoneH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

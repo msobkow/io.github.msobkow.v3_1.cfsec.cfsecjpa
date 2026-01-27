@@ -63,12 +63,44 @@ public class CFSecJpaISOCcyDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaISOCcyHPKey ensureHPKey(ICFSecISOCcyHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaISOCcyHPKey) {
+			return( (CFSecJpaISOCcyHPKey)key );
+		}
+		else {
+			CFSecJpaISOCcyHPKey mapped = new CFSecJpaISOCcyHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredISOCcyId( key.getRequiredISOCcyId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecISOCcyByCcyCdIdxKey newByCcyCdIdxKey() {
 	ICFSecISOCcyByCcyCdIdxKey key =
             new CFSecJpaISOCcyByCcyCdIdxKey();
 	return( key );
     }
+
+	public CFSecJpaISOCcyByCcyCdIdxKey ensureByCcyCdIdxKey(ICFSecISOCcyByCcyCdIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaISOCcyByCcyCdIdxKey) {
+			return( (CFSecJpaISOCcyByCcyCdIdxKey)key );
+		}
+		else {
+			CFSecJpaISOCcyByCcyCdIdxKey mapped = new CFSecJpaISOCcyByCcyCdIdxKey();
+			mapped.setRequiredISOCode( key.getRequiredISOCode() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecISOCcyByCcyNmIdxKey newByCcyNmIdxKey() {
@@ -77,6 +109,20 @@ public class CFSecJpaISOCcyDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaISOCcyByCcyNmIdxKey ensureByCcyNmIdxKey(ICFSecISOCcyByCcyNmIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaISOCcyByCcyNmIdxKey) {
+			return( (CFSecJpaISOCcyByCcyNmIdxKey)key );
+		}
+		else {
+			CFSecJpaISOCcyByCcyNmIdxKey mapped = new CFSecJpaISOCcyByCcyNmIdxKey();
+			mapped.setRequiredName( key.getRequiredName() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecISOCcy newRec() {
         ICFSecISOCcy rec =
@@ -84,10 +130,38 @@ public class CFSecJpaISOCcyDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaISOCcy ensureRec(ICFSecISOCcy rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaISOCcy) {
+			return( (CFSecJpaISOCcy)rec );
+		}
+		else {
+			CFSecJpaISOCcy mapped = new CFSecJpaISOCcy();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecISOCcyH newHRec() {
         ICFSecISOCcyH hrec =
             new CFSecJpaISOCcyH();
         return( hrec );
     }
+
+	public CFSecJpaISOCcyH ensureHRec(ICFSecISOCcyH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaISOCcyH) {
+			return( (CFSecJpaISOCcyH)hrec );
+		}
+		else {
+			CFSecJpaISOCcyH mapped = new CFSecJpaISOCcyH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

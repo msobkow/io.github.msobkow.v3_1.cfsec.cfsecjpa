@@ -63,12 +63,44 @@ public class CFSecJpaServiceTypeDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaServiceTypeHPKey ensureHPKey(ICFSecServiceTypeHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaServiceTypeHPKey) {
+			return( (CFSecJpaServiceTypeHPKey)key );
+		}
+		else {
+			CFSecJpaServiceTypeHPKey mapped = new CFSecJpaServiceTypeHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredServiceTypeId( key.getRequiredServiceTypeId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecServiceTypeByUDescrIdxKey newByUDescrIdxKey() {
 	ICFSecServiceTypeByUDescrIdxKey key =
             new CFSecJpaServiceTypeByUDescrIdxKey();
 	return( key );
     }
+
+	public CFSecJpaServiceTypeByUDescrIdxKey ensureByUDescrIdxKey(ICFSecServiceTypeByUDescrIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaServiceTypeByUDescrIdxKey) {
+			return( (CFSecJpaServiceTypeByUDescrIdxKey)key );
+		}
+		else {
+			CFSecJpaServiceTypeByUDescrIdxKey mapped = new CFSecJpaServiceTypeByUDescrIdxKey();
+			mapped.setRequiredDescription( key.getRequiredDescription() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecServiceType newRec() {
@@ -77,10 +109,38 @@ public class CFSecJpaServiceTypeDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaServiceType ensureRec(ICFSecServiceType rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaServiceType) {
+			return( (CFSecJpaServiceType)rec );
+		}
+		else {
+			CFSecJpaServiceType mapped = new CFSecJpaServiceType();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecServiceTypeH newHRec() {
         ICFSecServiceTypeH hrec =
             new CFSecJpaServiceTypeH();
         return( hrec );
     }
+
+	public CFSecJpaServiceTypeH ensureHRec(ICFSecServiceTypeH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaServiceTypeH) {
+			return( (CFSecJpaServiceTypeH)hrec );
+		}
+		else {
+			CFSecJpaServiceTypeH mapped = new CFSecJpaServiceTypeH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

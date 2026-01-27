@@ -63,10 +63,38 @@ public class CFSecJpaSysClusterDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSysClusterByClusterIdxKey ensureByClusterIdxKey(ICFSecSysClusterByClusterIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSysClusterByClusterIdxKey) {
+			return( (CFSecJpaSysClusterByClusterIdxKey)key );
+		}
+		else {
+			CFSecJpaSysClusterByClusterIdxKey mapped = new CFSecJpaSysClusterByClusterIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSysCluster newRec() {
         ICFSecSysCluster rec =
             new CFSecJpaSysCluster();
         return( rec );
     }
+
+	public CFSecJpaSysCluster ensureRec(ICFSecSysCluster rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaSysCluster) {
+			return( (CFSecJpaSysCluster)rec );
+		}
+		else {
+			CFSecJpaSysCluster mapped = new CFSecJpaSysCluster();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
 }

@@ -63,12 +63,44 @@ public class CFSecJpaClusterDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaClusterHPKey ensureHPKey(ICFSecClusterHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaClusterHPKey) {
+			return( (CFSecJpaClusterHPKey)key );
+		}
+		else {
+			CFSecJpaClusterHPKey mapped = new CFSecJpaClusterHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredId( key.getRequiredId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecClusterByUDomNameIdxKey newByUDomNameIdxKey() {
 	ICFSecClusterByUDomNameIdxKey key =
             new CFSecJpaClusterByUDomNameIdxKey();
 	return( key );
     }
+
+	public CFSecJpaClusterByUDomNameIdxKey ensureByUDomNameIdxKey(ICFSecClusterByUDomNameIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaClusterByUDomNameIdxKey) {
+			return( (CFSecJpaClusterByUDomNameIdxKey)key );
+		}
+		else {
+			CFSecJpaClusterByUDomNameIdxKey mapped = new CFSecJpaClusterByUDomNameIdxKey();
+			mapped.setRequiredFullDomName( key.getRequiredFullDomName() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecClusterByUDescrIdxKey newByUDescrIdxKey() {
@@ -77,6 +109,20 @@ public class CFSecJpaClusterDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaClusterByUDescrIdxKey ensureByUDescrIdxKey(ICFSecClusterByUDescrIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaClusterByUDescrIdxKey) {
+			return( (CFSecJpaClusterByUDescrIdxKey)key );
+		}
+		else {
+			CFSecJpaClusterByUDescrIdxKey mapped = new CFSecJpaClusterByUDescrIdxKey();
+			mapped.setRequiredDescription( key.getRequiredDescription() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecCluster newRec() {
         ICFSecCluster rec =
@@ -84,10 +130,38 @@ public class CFSecJpaClusterDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaCluster ensureRec(ICFSecCluster rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaCluster) {
+			return( (CFSecJpaCluster)rec );
+		}
+		else {
+			CFSecJpaCluster mapped = new CFSecJpaCluster();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecClusterH newHRec() {
         ICFSecClusterH hrec =
             new CFSecJpaClusterH();
         return( hrec );
     }
+
+	public CFSecJpaClusterH ensureHRec(ICFSecClusterH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaClusterH) {
+			return( (CFSecJpaClusterH)hrec );
+		}
+		else {
+			CFSecJpaClusterH mapped = new CFSecJpaClusterH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

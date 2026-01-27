@@ -63,12 +63,44 @@ public class CFSecJpaSecUserDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaSecUserHPKey ensureHPKey(ICFSecSecUserHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaSecUserHPKey) {
+			return( (CFSecJpaSecUserHPKey)key );
+		}
+		else {
+			CFSecJpaSecUserHPKey mapped = new CFSecJpaSecUserHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredSecUserId( key.getRequiredSecUserId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecUserByULoginIdxKey newByULoginIdxKey() {
 	ICFSecSecUserByULoginIdxKey key =
             new CFSecJpaSecUserByULoginIdxKey();
 	return( key );
     }
+
+	public CFSecJpaSecUserByULoginIdxKey ensureByULoginIdxKey(ICFSecSecUserByULoginIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecUserByULoginIdxKey) {
+			return( (CFSecJpaSecUserByULoginIdxKey)key );
+		}
+		else {
+			CFSecJpaSecUserByULoginIdxKey mapped = new CFSecJpaSecUserByULoginIdxKey();
+			mapped.setRequiredLoginId( key.getRequiredLoginId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecSecUserByEMConfIdxKey newByEMConfIdxKey() {
@@ -77,12 +109,40 @@ public class CFSecJpaSecUserDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSecUserByEMConfIdxKey ensureByEMConfIdxKey(ICFSecSecUserByEMConfIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecUserByEMConfIdxKey) {
+			return( (CFSecJpaSecUserByEMConfIdxKey)key );
+		}
+		else {
+			CFSecJpaSecUserByEMConfIdxKey mapped = new CFSecJpaSecUserByEMConfIdxKey();
+			mapped.setOptionalEMailConfirmUuid6( key.getOptionalEMailConfirmUuid6() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecUserByPwdResetIdxKey newByPwdResetIdxKey() {
 	ICFSecSecUserByPwdResetIdxKey key =
             new CFSecJpaSecUserByPwdResetIdxKey();
 	return( key );
     }
+
+	public CFSecJpaSecUserByPwdResetIdxKey ensureByPwdResetIdxKey(ICFSecSecUserByPwdResetIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecUserByPwdResetIdxKey) {
+			return( (CFSecJpaSecUserByPwdResetIdxKey)key );
+		}
+		else {
+			CFSecJpaSecUserByPwdResetIdxKey mapped = new CFSecJpaSecUserByPwdResetIdxKey();
+			mapped.setOptionalPasswordResetUuid6( key.getOptionalPasswordResetUuid6() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecSecUserByDefDevIdxKey newByDefDevIdxKey() {
@@ -91,6 +151,21 @@ public class CFSecJpaSecUserDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSecUserByDefDevIdxKey ensureByDefDevIdxKey(ICFSecSecUserByDefDevIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecUserByDefDevIdxKey) {
+			return( (CFSecJpaSecUserByDefDevIdxKey)key );
+		}
+		else {
+			CFSecJpaSecUserByDefDevIdxKey mapped = new CFSecJpaSecUserByDefDevIdxKey();
+			mapped.setOptionalDfltDevUserId( key.getOptionalDfltDevUserId() );
+			mapped.setOptionalDfltDevName( key.getOptionalDfltDevName() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecUser newRec() {
         ICFSecSecUser rec =
@@ -98,10 +173,38 @@ public class CFSecJpaSecUserDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaSecUser ensureRec(ICFSecSecUser rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaSecUser) {
+			return( (CFSecJpaSecUser)rec );
+		}
+		else {
+			CFSecJpaSecUser mapped = new CFSecJpaSecUser();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecUserH newHRec() {
         ICFSecSecUserH hrec =
             new CFSecJpaSecUserH();
         return( hrec );
     }
+
+	public CFSecJpaSecUserH ensureHRec(ICFSecSecUserH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaSecUserH) {
+			return( (CFSecJpaSecUserH)hrec );
+		}
+		else {
+			CFSecJpaSecUserH mapped = new CFSecJpaSecUserH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }

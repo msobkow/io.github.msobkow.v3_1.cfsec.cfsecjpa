@@ -63,12 +63,41 @@ public class CFSecJpaSecSessionDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSecSessionBySecUserIdxKey ensureBySecUserIdxKey(ICFSecSecSessionBySecUserIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecSessionBySecUserIdxKey) {
+			return( (CFSecJpaSecSessionBySecUserIdxKey)key );
+		}
+		else {
+			CFSecJpaSecSessionBySecUserIdxKey mapped = new CFSecJpaSecSessionBySecUserIdxKey();
+			mapped.setRequiredSecUserId( key.getRequiredSecUserId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecSessionBySecDevIdxKey newBySecDevIdxKey() {
 	ICFSecSecSessionBySecDevIdxKey key =
             new CFSecJpaSecSessionBySecDevIdxKey();
 	return( key );
     }
+
+	public CFSecJpaSecSessionBySecDevIdxKey ensureBySecDevIdxKey(ICFSecSecSessionBySecDevIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecSessionBySecDevIdxKey) {
+			return( (CFSecJpaSecSessionBySecDevIdxKey)key );
+		}
+		else {
+			CFSecJpaSecSessionBySecDevIdxKey mapped = new CFSecJpaSecSessionBySecDevIdxKey();
+			mapped.setRequiredSecUserId( key.getRequiredSecUserId() );
+			mapped.setOptionalSecDevName( key.getOptionalSecDevName() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecSecSessionByStartIdxKey newByStartIdxKey() {
@@ -77,12 +106,42 @@ public class CFSecJpaSecSessionDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSecSessionByStartIdxKey ensureByStartIdxKey(ICFSecSecSessionByStartIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecSessionByStartIdxKey) {
+			return( (CFSecJpaSecSessionByStartIdxKey)key );
+		}
+		else {
+			CFSecJpaSecSessionByStartIdxKey mapped = new CFSecJpaSecSessionByStartIdxKey();
+			mapped.setRequiredSecUserId( key.getRequiredSecUserId() );
+			mapped.setRequiredStart( key.getRequiredStart() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecSessionByFinishIdxKey newByFinishIdxKey() {
 	ICFSecSecSessionByFinishIdxKey key =
             new CFSecJpaSecSessionByFinishIdxKey();
 	return( key );
     }
+
+	public CFSecJpaSecSessionByFinishIdxKey ensureByFinishIdxKey(ICFSecSecSessionByFinishIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecSessionByFinishIdxKey) {
+			return( (CFSecJpaSecSessionByFinishIdxKey)key );
+		}
+		else {
+			CFSecJpaSecSessionByFinishIdxKey mapped = new CFSecJpaSecSessionByFinishIdxKey();
+			mapped.setRequiredSecUserId( key.getRequiredSecUserId() );
+			mapped.setOptionalFinish( key.getOptionalFinish() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecSecSessionBySecProxyIdxKey newBySecProxyIdxKey() {
@@ -91,10 +150,38 @@ public class CFSecJpaSecSessionDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSecSessionBySecProxyIdxKey ensureBySecProxyIdxKey(ICFSecSecSessionBySecProxyIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecSessionBySecProxyIdxKey) {
+			return( (CFSecJpaSecSessionBySecProxyIdxKey)key );
+		}
+		else {
+			CFSecJpaSecSessionBySecProxyIdxKey mapped = new CFSecJpaSecSessionBySecProxyIdxKey();
+			mapped.setOptionalSecProxyId( key.getOptionalSecProxyId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecSession newRec() {
         ICFSecSecSession rec =
             new CFSecJpaSecSession();
         return( rec );
     }
+
+	public CFSecJpaSecSession ensureRec(ICFSecSecSession rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaSecSession) {
+			return( (CFSecJpaSecSession)rec );
+		}
+		else {
+			CFSecJpaSecSession mapped = new CFSecJpaSecSession();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
 }

@@ -63,12 +63,44 @@ public class CFSecJpaSecGrpIncDefaultFactory
         return( hpkey );
     }
 
+	public CFSecJpaSecGrpIncHPKey ensureHPKey(ICFSecSecGrpIncHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaSecGrpIncHPKey) {
+			return( (CFSecJpaSecGrpIncHPKey)key );
+		}
+		else {
+			CFSecJpaSecGrpIncHPKey mapped = new CFSecJpaSecGrpIncHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredSecGrpIncId( key.getRequiredSecGrpIncId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecGrpIncByClusterIdxKey newByClusterIdxKey() {
 	ICFSecSecGrpIncByClusterIdxKey key =
             new CFSecJpaSecGrpIncByClusterIdxKey();
 	return( key );
     }
+
+	public CFSecJpaSecGrpIncByClusterIdxKey ensureByClusterIdxKey(ICFSecSecGrpIncByClusterIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecGrpIncByClusterIdxKey) {
+			return( (CFSecJpaSecGrpIncByClusterIdxKey)key );
+		}
+		else {
+			CFSecJpaSecGrpIncByClusterIdxKey mapped = new CFSecJpaSecGrpIncByClusterIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecSecGrpIncByGroupIdxKey newByGroupIdxKey() {
@@ -77,12 +109,40 @@ public class CFSecJpaSecGrpIncDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSecGrpIncByGroupIdxKey ensureByGroupIdxKey(ICFSecSecGrpIncByGroupIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecGrpIncByGroupIdxKey) {
+			return( (CFSecJpaSecGrpIncByGroupIdxKey)key );
+		}
+		else {
+			CFSecJpaSecGrpIncByGroupIdxKey mapped = new CFSecJpaSecGrpIncByGroupIdxKey();
+			mapped.setRequiredSecGroupId( key.getRequiredSecGroupId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecGrpIncByIncludeIdxKey newByIncludeIdxKey() {
 	ICFSecSecGrpIncByIncludeIdxKey key =
             new CFSecJpaSecGrpIncByIncludeIdxKey();
 	return( key );
     }
+
+	public CFSecJpaSecGrpIncByIncludeIdxKey ensureByIncludeIdxKey(ICFSecSecGrpIncByIncludeIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecGrpIncByIncludeIdxKey) {
+			return( (CFSecJpaSecGrpIncByIncludeIdxKey)key );
+		}
+		else {
+			CFSecJpaSecGrpIncByIncludeIdxKey mapped = new CFSecJpaSecGrpIncByIncludeIdxKey();
+			mapped.setRequiredIncludeGroupId( key.getRequiredIncludeGroupId() );
+			return( mapped );
+		}
+	}
 
     @Override
     public ICFSecSecGrpIncByUIncludeIdxKey newByUIncludeIdxKey() {
@@ -91,6 +151,22 @@ public class CFSecJpaSecGrpIncDefaultFactory
 	return( key );
     }
 
+	public CFSecJpaSecGrpIncByUIncludeIdxKey ensureByUIncludeIdxKey(ICFSecSecGrpIncByUIncludeIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaSecGrpIncByUIncludeIdxKey) {
+			return( (CFSecJpaSecGrpIncByUIncludeIdxKey)key );
+		}
+		else {
+			CFSecJpaSecGrpIncByUIncludeIdxKey mapped = new CFSecJpaSecGrpIncByUIncludeIdxKey();
+			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			mapped.setRequiredSecGroupId( key.getRequiredSecGroupId() );
+			mapped.setRequiredIncludeGroupId( key.getRequiredIncludeGroupId() );
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecGrpInc newRec() {
         ICFSecSecGrpInc rec =
@@ -98,10 +174,38 @@ public class CFSecJpaSecGrpIncDefaultFactory
         return( rec );
     }
 
+	public CFSecJpaSecGrpInc ensureRec(ICFSecSecGrpInc rec) {
+		if( rec == null ) {
+			return( null );
+		}
+		else if (rec instanceof CFSecJpaSecGrpInc) {
+			return( (CFSecJpaSecGrpInc)rec );
+		}
+		else {
+			CFSecJpaSecGrpInc mapped = new CFSecJpaSecGrpInc();
+			mapped.set(rec);
+			return( mapped );
+		}
+	}
+
     @Override
     public ICFSecSecGrpIncH newHRec() {
         ICFSecSecGrpIncH hrec =
             new CFSecJpaSecGrpIncH();
         return( hrec );
     }
+
+	public CFSecJpaSecGrpIncH ensureHRec(ICFSecSecGrpIncH hrec) {
+		if (hrec == null) {
+			return( null );
+		}
+		else if( hrec instanceof CFSecJpaSecGrpIncH) {
+			return( (CFSecJpaSecGrpIncH)hrec );
+		}
+		else {
+			CFSecJpaSecGrpIncH mapped = new CFSecJpaSecGrpIncH();
+			mapped.set(hrec);
+			return( mapped );
+		}
+	}
 }
