@@ -89,12 +89,9 @@ public class CFSecJpaSecDevice
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
-	@Column( name="PubKey", nullable=true, length=10000 )
-	protected String optionalPubKey;
 
 	public CFSecJpaSecDevice() {
 		pkey = new CFSecJpaSecDevicePKey();
-		optionalPubKey = null;
 	}
 
 	@Override
@@ -209,24 +206,6 @@ public class CFSecJpaSecDevice
 	}
 
 	@Override
-	public String getOptionalPubKey() {
-		return( optionalPubKey );
-	}
-
-	@Override
-	public void setOptionalPubKey( String value ) {
-		if( value != null && value.length() > 10000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setOptionalPubKey",
-				1,
-				"value.length()",
-				value.length(),
-				10000 );
-		}
-		optionalPubKey = value;
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );
@@ -275,21 +254,6 @@ public class CFSecJpaSecDevice
 					return( false );
 				}
 			}
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					if( ! getOptionalPubKey().equals( rhs.getOptionalPubKey() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
-					return( false );
-				}
-			}
 			return( true );
 		}
 		else if (obj instanceof ICFSecSecDeviceH) {
@@ -333,21 +297,6 @@ public class CFSecJpaSecDevice
 			}
 			else {
 				if( rhs.getRequiredDevName() != null ) {
-					return( false );
-				}
-			}
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					if( ! getOptionalPubKey().equals( rhs.getOptionalPubKey() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
 					return( false );
 				}
 			}
@@ -456,9 +405,6 @@ public class CFSecJpaSecDevice
 		if( getRequiredDevName() != null ) {
 			hashCode = hashCode + getRequiredDevName().hashCode();
 		}
-		if( getOptionalPubKey() != null ) {
-			hashCode = hashCode + getOptionalPubKey().hashCode();
-		}
 		return( hashCode & 0x7fffffff );
 	}
 
@@ -501,22 +447,6 @@ public class CFSecJpaSecDevice
 			cmp = getUpdatedAt().compareTo( rhs.getUpdatedAt() );
 			if( cmp != 0 ) {
 				return( cmp );
-			}
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					cmp = getOptionalPubKey().compareTo( rhs.getOptionalPubKey() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
-					return( -1 );
-				}
 			}
 			return( 0 );
 		}
@@ -598,22 +528,6 @@ public class CFSecJpaSecDevice
 			if( cmp != 0 ) {
 				return( cmp );
 			}
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					cmp = getOptionalPubKey().compareTo( rhs.getOptionalPubKey() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
-					return( -1 );
-				}
-			}
 			return( 0 );
 		}
 		else if (obj instanceof ICFSecSecDeviceByNameIdxKey) {
@@ -689,7 +603,6 @@ public class CFSecJpaSecDevice
 		setCreatedAt( src.getCreatedAt() );
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
-		setOptionalPubKey(src.getOptionalPubKey());
 	}
 
 	@Override
@@ -701,7 +614,6 @@ public class CFSecJpaSecDevice
 	public void setSecDevice( ICFSecSecDeviceH src ) {
 		setRequiredContainerSecUser(src.getRequiredSecUserId());
 		setRequiredDevName(src.getRequiredDevName());
-		setOptionalPubKey(src.getOptionalPubKey());
 	}
 
 	@Override
@@ -709,8 +621,7 @@ public class CFSecJpaSecDevice
 		String ret = pkey.getXmlAttrFragment() 
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ " RequiredSecUserId=" + "\"" + getRequiredSecUserId().toString() + "\""
-			+ " RequiredDevName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredDevName() ) + "\""
-			+ " OptionalPubKey=" + ( ( getOptionalPubKey() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalPubKey() ) + "\"" );
+			+ " RequiredDevName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredDevName() ) + "\"";
 		return( ret );
 	}
 

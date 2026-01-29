@@ -90,13 +90,10 @@ public class CFSecJpaSecDeviceH
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
-	@Column( name="PubKey", nullable=true, length=10000 )
-	protected String optionalPubKey;
 
     public CFSecJpaSecDeviceH() {
             // The primary key member attributes are initialized on construction
             pkey = new CFSecJpaSecDeviceHPKey();
-		optionalPubKey = null;
     }
 
     @Override
@@ -243,24 +240,6 @@ public class CFSecJpaSecDeviceH
         pkey.setRequiredDevName( requiredDevName );
     }
 
-	@Override
-	public String getOptionalPubKey() {
-		return( optionalPubKey );
-	}
-
-	@Override
-	public void setOptionalPubKey( String value ) {
-		if( value != null && value.length() > 10000 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setOptionalPubKey",
-				1,
-				"value.length()",
-				value.length(),
-				10000 );
-		}
-		optionalPubKey = value;
-	}
-
     @Override
     public boolean equals( Object obj ) {
         if (obj == null) {
@@ -282,21 +261,6 @@ public class CFSecJpaSecDeviceH
 			return( false );
 		}
 
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					if( ! getOptionalPubKey().equals( rhs.getOptionalPubKey() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
-					return( false );
-				}
-			}
             return( true );
         }
         else if (obj instanceof ICFSecSecDeviceH) {
@@ -315,21 +279,6 @@ public class CFSecJpaSecDeviceH
 			return( false );
 		}
 
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					if( ! getOptionalPubKey().equals( rhs.getOptionalPubKey() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
-					return( false );
-				}
-			}
             return( true );
         }
         else if (obj instanceof ICFSecSecDeviceHPKey) {
@@ -427,9 +376,6 @@ public class CFSecJpaSecDeviceH
     @Override
     public int hashCode() {
         int hashCode = pkey.hashCode();
-		if( getOptionalPubKey() != null ) {
-			hashCode = hashCode + getOptionalPubKey().hashCode();
-		}
         return( hashCode & 0x7fffffff );
     }
 
@@ -457,22 +403,6 @@ public class CFSecJpaSecDeviceH
 				return( -1 );
 			}
 		}
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					cmp = getOptionalPubKey().compareTo( rhs.getOptionalPubKey() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
-					return( -1 );
-				}
-			}
             return( 0 );
         }
         else if (obj instanceof ICFSecSecDeviceHPKey) {
@@ -501,22 +431,6 @@ public class CFSecJpaSecDeviceH
 				return( -1 );
 			}
 		}
-			if( getOptionalPubKey() != null ) {
-				if( rhs.getOptionalPubKey() != null ) {
-					cmp = getOptionalPubKey().compareTo( rhs.getOptionalPubKey() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else {
-				if( rhs.getOptionalPubKey() != null ) {
-					return( -1 );
-				}
-			}
             return( 0 );
         }
         else if (obj instanceof ICFSecSecDeviceByNameIdxKey ) {
@@ -586,7 +500,6 @@ public class CFSecJpaSecDeviceH
     public void setSecDevice( ICFSecSecDevice src ) {
 		setRequiredSecUserId( src.getRequiredSecUserId() );
 		setRequiredDevName( src.getRequiredDevName() );
-		setOptionalPubKey( src.getOptionalPubKey() );
 		setRequiredRevision( src.getRequiredRevision() );
     }
 
@@ -599,14 +512,12 @@ public class CFSecJpaSecDeviceH
     public void setSecDevice( ICFSecSecDeviceH src ) {
 		setRequiredSecUserId( src.getRequiredSecUserId() );
 		setRequiredDevName( src.getRequiredDevName() );
-		setOptionalPubKey( src.getOptionalPubKey() );
 		setRequiredRevision( src.getRequiredRevision() );
     }
 
     public String getXmlAttrFragment() {
         String ret = pkey.getXmlAttrFragment() 
-			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
-			+ " OptionalPubKey=" + ( ( getOptionalPubKey() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalPubKey() ) + "\"" );
+			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\"";
         return( ret );
     }
 

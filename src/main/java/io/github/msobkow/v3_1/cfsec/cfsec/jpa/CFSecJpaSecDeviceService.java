@@ -129,7 +129,6 @@ public class CFSecJpaSecDeviceService {
 		}
 		// Apply superior data relationships of CFSecSecDevice to existing object
 		// Apply data columns of CFSecSecDevice to existing object
-		existing.setOptionalPubKey(data.getOptionalPubKey());
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());
 		// Save the changes we've made
