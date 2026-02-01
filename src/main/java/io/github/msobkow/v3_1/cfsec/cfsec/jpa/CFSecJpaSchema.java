@@ -403,67 +403,67 @@ public class CFSecJpaSchema
 
 	@Override
 	public void wireTableTableInstances() {
-		if (tableCluster == null) {
+		if (tableCluster == null || !(tableCluster instanceof CFSecJpaClusterTable)) {
 			tableCluster = new CFSecJpaClusterTable(this);
 		}
-		if (tableHostNode == null) {
+		if (tableHostNode == null || !(tableHostNode instanceof CFSecJpaHostNodeTable)) {
 			tableHostNode = new CFSecJpaHostNodeTable(this);
 		}
-		if (tableISOCcy == null) {
+		if (tableISOCcy == null || !(tableISOCcy instanceof CFSecJpaISOCcyTable)) {
 			tableISOCcy = new CFSecJpaISOCcyTable(this);
 		}
-		if (tableISOCtry == null) {
+		if (tableISOCtry == null || !(tableISOCtry instanceof CFSecJpaISOCtryTable)) {
 			tableISOCtry = new CFSecJpaISOCtryTable(this);
 		}
-		if (tableISOCtryCcy == null) {
+		if (tableISOCtryCcy == null || !(tableISOCtryCcy instanceof CFSecJpaISOCtryCcyTable)) {
 			tableISOCtryCcy = new CFSecJpaISOCtryCcyTable(this);
 		}
-		if (tableISOCtryLang == null) {
+		if (tableISOCtryLang == null || !(tableISOCtryLang instanceof CFSecJpaISOCtryLangTable)) {
 			tableISOCtryLang = new CFSecJpaISOCtryLangTable(this);
 		}
-		if (tableISOLang == null) {
+		if (tableISOLang == null || !(tableISOLang instanceof CFSecJpaISOLangTable)) {
 			tableISOLang = new CFSecJpaISOLangTable(this);
 		}
-		if (tableISOTZone == null) {
+		if (tableISOTZone == null || !(tableISOTZone instanceof CFSecJpaISOTZoneTable)) {
 			tableISOTZone = new CFSecJpaISOTZoneTable(this);
 		}
-		if (tableSecDevice == null) {
+		if (tableSecDevice == null || !(tableSecDevice instanceof CFSecJpaSecDeviceTable)) {
 			tableSecDevice = new CFSecJpaSecDeviceTable(this);
 		}
-		if (tableSecGroup == null) {
+		if (tableSecGroup == null || !(tableSecGroup instanceof CFSecJpaSecGroupTable)) {
 			tableSecGroup = new CFSecJpaSecGroupTable(this);
 		}
-		if (tableSecGrpInc == null) {
+		if (tableSecGrpInc == null || !(tableSecGrpInc instanceof CFSecJpaSecGrpIncTable)) {
 			tableSecGrpInc = new CFSecJpaSecGrpIncTable(this);
 		}
-		if (tableSecGrpMemb == null) {
+		if (tableSecGrpMemb == null || !(tableSecGrpMemb instanceof CFSecJpaSecGrpMembTable)) {
 			tableSecGrpMemb = new CFSecJpaSecGrpMembTable(this);
 		}
-		if (tableSecSession == null) {
+		if (tableSecSession == null || !(tableSecSession instanceof CFSecJpaSecSessionTable)) {
 			tableSecSession = new CFSecJpaSecSessionTable(this);
 		}
-		if (tableSecUser == null) {
+		if (tableSecUser == null || !(tableSecUser instanceof CFSecJpaSecUserTable)) {
 			tableSecUser = new CFSecJpaSecUserTable(this);
 		}
-		if (tableService == null) {
+		if (tableService == null || !(tableService instanceof CFSecJpaServiceTable)) {
 			tableService = new CFSecJpaServiceTable(this);
 		}
-		if (tableServiceType == null) {
+		if (tableServiceType == null || !(tableServiceType instanceof CFSecJpaServiceTypeTable)) {
 			tableServiceType = new CFSecJpaServiceTypeTable(this);
 		}
-		if (tableSysCluster == null) {
+		if (tableSysCluster == null || !(tableSysCluster instanceof CFSecJpaSysClusterTable)) {
 			tableSysCluster = new CFSecJpaSysClusterTable(this);
 		}
-		if (tableTenant == null) {
+		if (tableTenant == null || !(tableTenant instanceof CFSecJpaTenantTable)) {
 			tableTenant = new CFSecJpaTenantTable(this);
 		}
-		if (tableTSecGroup == null) {
+		if (tableTSecGroup == null || !(tableTSecGroup instanceof CFSecJpaTSecGroupTable)) {
 			tableTSecGroup = new CFSecJpaTSecGroupTable(this);
 		}
-		if (tableTSecGrpInc == null) {
+		if (tableTSecGrpInc == null || !(tableTSecGrpInc instanceof CFSecJpaTSecGrpIncTable)) {
 			tableTSecGrpInc = new CFSecJpaTSecGrpIncTable(this);
 		}
-		if (tableTSecGrpMemb == null) {
+		if (tableTSecGrpMemb == null || !(tableTSecGrpMemb instanceof CFSecJpaTSecGrpMembTable)) {
 			tableTSecGrpMemb = new CFSecJpaTSecGrpMembTable(this);
 		}
 	}
