@@ -64,14 +64,12 @@ public class CFSecJpaIdGenService {
     private LocalContainerEntityManagerFactoryBean cfsecEntityManagerFactory;
 
 	/**
-	*	Generate a ClusterIdGen long id.
-	*
-	*		@return The next long value for the ClusterIdGen type.
-	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
-	@SequenceGenerator(name = "ClusterIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
-	public long generateClusterIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "generateClusterIdGen" );
+	 *	Generate a ClusterIdGen CFLibDbKeyHash256 id.
+	 *
+	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 */
+	public CFLibDbKeyHash256 generateClusterIdGen() {
+		return( new CFLibDbKeyHash256(0) );
 	}
 
 	/**

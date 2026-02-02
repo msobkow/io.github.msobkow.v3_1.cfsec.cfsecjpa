@@ -551,8 +551,9 @@ public class CFSecJpaSchema
 	}
 
 	@Override
-	public long nextClusterIdGen() {
-		throw new CFLibNotImplementedYetException( getClass(), "nextClusterIdGen" );
+	public CFLibDbKeyHash256 nextClusterIdGen() {
+		CFLibDbKeyHash256 retval = new CFLibDbKeyHash256(0);
+		return( retval );
 	}
 
 	@Override

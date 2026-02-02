@@ -245,7 +245,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public void deleteHostNodeByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		hostnodeService.deleteByClusterIdx(argClusterId);
 	}
@@ -276,7 +276,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public void deleteHostNodeByUDescrIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argDescription )
 	{
 		hostnodeService.deleteByUDescrIdx(argClusterId,
@@ -310,7 +310,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public void deleteHostNodeByHostNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argHostName )
 	{
 		hostnodeService.deleteByHostNameIdx(argClusterId,
@@ -414,7 +414,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public ICFSecHostNode[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		List<CFSecJpaHostNode> results = hostnodeService.findByClusterIdx(argClusterId);
 		ICFSecHostNode[] retset = new ICFSecHostNode[results.size()];
@@ -439,7 +439,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public ICFSecHostNode readDerivedByUDescrIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argDescription )
 	{
 		return( hostnodeService.findByUDescrIdx(argClusterId,
@@ -460,7 +460,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public ICFSecHostNode readDerivedByHostNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argHostName )
 	{
 		return( hostnodeService.findByHostNameIdx(argClusterId,
@@ -564,7 +564,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public ICFSecHostNode[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusterIdx");
 	}
@@ -585,7 +585,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public ICFSecHostNode readRecByUDescrIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argDescription )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUDescrIdx");
@@ -607,7 +607,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public ICFSecHostNode readRecByHostNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argHostName )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByHostNameIdx");
@@ -626,7 +626,7 @@ public class CFSecJpaHostNodeTable implements ICFSecHostNodeTable
 	 */
 	@Override
 	public ICFSecHostNode[] pageRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 priorHostNodeId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByClusterIdx");

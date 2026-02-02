@@ -80,7 +80,7 @@ public class CFSecJpaClusterService {
 		if (data == null) {
 			return( null );
 		}
-		long originalRequiredId = data.getRequiredId();
+		CFLibDbKeyHash256 originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
 		if(data.getRequiredFullDomName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -95,11 +95,15 @@ public class CFSecJpaClusterService {
 				"data.requiredDescription");
 		}
 		try {
+			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
+				data.setRequiredId(new CFLibDbKeyHash256(0));
+				generatedRequiredId = true;
+			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31ClusterRepository.existsById((Long)data.getPKey())) {
-				return( (CFSecJpaCluster)(cfsec31ClusterRepository.findById((Long)(data.getPKey())).get()));
+			if(data.getPKey() != null && cfsec31ClusterRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaCluster)(cfsec31ClusterRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
 			return cfsec31ClusterRepository.save(data);
 		}
@@ -145,7 +149,7 @@ public class CFSecJpaClusterService {
 				"data.requiredDescription");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaCluster existing = cfsec31ClusterRepository.findById((Long)(data.getPKey()))
+		CFSecJpaCluster existing = cfsec31ClusterRepository.findById((CFLibDbKeyHash256)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -168,7 +172,7 @@ public class CFSecJpaClusterService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster find(@Param("id") long requiredId) {
+	public CFSecJpaCluster find(@Param("id") CFLibDbKeyHash256 requiredId) {
 		return( cfsec31ClusterRepository.get(requiredId));
 	}
 
@@ -242,7 +246,7 @@ public class CFSecJpaClusterService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster lockByIdIdx(@Param("id") long requiredId) {
+	public CFSecJpaCluster lockByIdIdx(@Param("id") CFLibDbKeyHash256 requiredId) {
 		return( cfsec31ClusterRepository.lockByIdIdx(requiredId));
 	}
 
@@ -302,7 +306,7 @@ public class CFSecJpaClusterService {
 	 *		@param requiredId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("id") long requiredId) {
+	public void deleteByIdIdx(@Param("id") CFLibDbKeyHash256 requiredId) {
 		cfsec31ClusterRepository.deleteByIdIdx(requiredId);
 	}
 

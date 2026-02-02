@@ -231,7 +231,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public void deleteClusterByIdIdx( ICFSecAuthorization Authorization,
-		Long argKey )
+		CFLibDbKeyHash256 argKey )
 	{
 		clusterService.deleteByIdIdx(argKey);
 	}
@@ -307,7 +307,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster readDerived( ICFSecAuthorization Authorization,
-		Long PKey )
+		CFLibDbKeyHash256 PKey )
 	{
 		return( clusterService.find(PKey) );
 	}
@@ -324,7 +324,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster lockDerived( ICFSecAuthorization Authorization,
-		Long PKey )
+		CFLibDbKeyHash256 PKey )
 	{
 		return( clusterService.lockByIdIdx(PKey) );
 	}
@@ -359,7 +359,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		long argId )
+		CFLibDbKeyHash256 argId )
 	{
 		return( clusterService.find(argId) );
 	}
@@ -412,7 +412,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster readRec( ICFSecAuthorization Authorization,
-		Long PKey )
+		CFLibDbKeyHash256 PKey )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRec");
 	}
@@ -431,7 +431,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster lockRec( ICFSecAuthorization Authorization,
-		Long PKey )
+		CFLibDbKeyHash256 PKey )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "lockRec");
 	}
@@ -458,7 +458,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster[] pageAllRec( ICFSecAuthorization Authorization,
-		Long priorId )
+		CFLibDbKeyHash256 priorId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "pageAllRec");
 	}
@@ -477,7 +477,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster readRecByIdIdx( ICFSecAuthorization Authorization,
-		long argId )
+		CFLibDbKeyHash256 argId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}

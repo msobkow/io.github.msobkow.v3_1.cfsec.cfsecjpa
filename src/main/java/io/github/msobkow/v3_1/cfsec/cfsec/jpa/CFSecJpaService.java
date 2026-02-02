@@ -96,14 +96,16 @@ public class CFSecJpaService
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
-	@Column( name="ClusterId", nullable=false )
-	protected long requiredClusterId;
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredClusterId;
 	@Column( name="HostPort", nullable=false )
 	protected short requiredHostPort;
 
 	public CFSecJpaService() {
 		requiredServiceId = CFLibDbKeyHash256.fromHex( ICFSecService.SERVICEID_INIT_VALUE.toString() );
-		requiredClusterId = ICFSecService.CLUSTERID_INIT_VALUE;
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecService.CLUSTERID_INIT_VALUE.toString() );
 		requiredHostPort = ICFSecService.HOSTPORT_INIT_VALUE;
 	}
 
@@ -136,7 +138,7 @@ public class CFSecJpaService
 	}
 
 	@Override
-	public void setRequiredOwnerCluster(long argClusterId) {
+	public void setRequiredOwnerCluster(CFLibDbKeyHash256 argClusterId) {
 		requiredClusterId = argClusterId;
 	}
 
@@ -294,7 +296,7 @@ public class CFSecJpaService
 	}
 
 	@Override
-	public long getRequiredClusterId() {
+	public CFLibDbKeyHash256 getRequiredClusterId() {
 		return( requiredClusterId );
 	}
 
@@ -372,8 +374,20 @@ public class CFSecJpaService
 					return( false );
 				}
 			}
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
 				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
@@ -439,8 +453,20 @@ public class CFSecJpaService
 					return( false );
 				}
 			}
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
 				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
@@ -498,8 +524,20 @@ public class CFSecJpaService
 		}
 		else if (obj instanceof ICFSecServiceByClusterIdxKey) {
 			ICFSecServiceByClusterIdxKey rhs = (ICFSecServiceByClusterIdxKey)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			return( true );
 		}
@@ -543,8 +581,20 @@ public class CFSecJpaService
 		}
 		else if (obj instanceof ICFSecServiceByUTypeIdxKey) {
 			ICFSecServiceByUTypeIdxKey rhs = (ICFSecServiceByUTypeIdxKey)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
 				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
@@ -580,8 +630,20 @@ public class CFSecJpaService
 		}
 		else if (obj instanceof ICFSecServiceByUHostPortIdxKey) {
 			ICFSecServiceByUHostPortIdxKey rhs = (ICFSecServiceByUHostPortIdxKey)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
 				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
@@ -616,7 +678,7 @@ public class CFSecJpaService
 		hashCode = hashCode + getUpdatedByUserId().hashCode();
 		hashCode = hashCode + getUpdatedAt().hashCode();
 		hashCode = hashCode + getRequiredServiceId().hashCode();
-		hashCode = hashCode + (int)( getRequiredClusterId() );
+		hashCode = hashCode + getRequiredClusterId().hashCode();
 		hashCode = hashCode + getRequiredHostNodeId().hashCode();
 		hashCode = hashCode + getRequiredServiceTypeId().hashCode();
 		hashCode = ( hashCode * 0x10000 ) + getRequiredHostPort();
@@ -663,11 +725,19 @@ public class CFSecJpaService
 			if( cmp != 0 ) {
 				return( cmp );
 			}
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if (getRequiredHostNodeId() != null) {
 				if (rhs.getRequiredHostNodeId() != null) {
@@ -755,11 +825,19 @@ public class CFSecJpaService
 			if( cmp != 0 ) {
 				return( cmp );
 			}
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if (getRequiredHostNodeId() != null) {
 				if (rhs.getRequiredHostNodeId() != null) {
@@ -799,11 +877,19 @@ public class CFSecJpaService
 		}
 		else if (obj instanceof ICFSecServiceByClusterIdxKey) {
 			ICFSecServiceByClusterIdxKey rhs = (ICFSecServiceByClusterIdxKey)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			return( 0 );
 		}
@@ -845,11 +931,19 @@ public class CFSecJpaService
 		}
 		else if (obj instanceof ICFSecServiceByUTypeIdxKey) {
 			ICFSecServiceByUTypeIdxKey rhs = (ICFSecServiceByUTypeIdxKey)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if (getRequiredHostNodeId() != null) {
 				if (rhs.getRequiredHostNodeId() != null) {
@@ -883,11 +977,19 @@ public class CFSecJpaService
 		}
 		else if (obj instanceof ICFSecServiceByUHostPortIdxKey) {
 			ICFSecServiceByUHostPortIdxKey rhs = (ICFSecServiceByUHostPortIdxKey)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if (getRequiredHostNodeId() != null) {
 				if (rhs.getRequiredHostNodeId() != null) {
@@ -959,7 +1061,7 @@ public class CFSecJpaService
 			+ " RequiredServiceId=" + "\"" + getRequiredServiceId().toString() + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ " RequiredServiceId=" + "\"" + getRequiredServiceId().toString() + "\""
-			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
+			+ " RequiredClusterId=" + "\"" + getRequiredClusterId().toString() + "\""
 			+ " RequiredHostNodeId=" + "\"" + getRequiredHostNodeId().toString() + "\""
 			+ " RequiredServiceTypeId=" + "\"" + getRequiredServiceTypeId().toString() + "\""
 			+ " RequiredHostPort=" + "\"" + Short.toString( getRequiredHostPort() ) + "\"";

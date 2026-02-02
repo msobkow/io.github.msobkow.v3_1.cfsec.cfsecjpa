@@ -50,20 +50,26 @@ import io.github.msobkow.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecGroupByClusterVisIdxKey
 	implements ICFSecSecGroupByClusterVisIdxKey, Comparable<Object>, Serializable
 {
-	protected long requiredClusterId;
+	protected CFLibDbKeyHash256 requiredClusterId;
 	protected boolean requiredIsVisible;
 	public CFSecJpaSecGroupByClusterVisIdxKey() {
-		requiredClusterId = ICFSecSecGroup.CLUSTERID_INIT_VALUE;
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecGroup.CLUSTERID_INIT_VALUE.toString() );
 		requiredIsVisible = ICFSecSecGroup.ISVISIBLE_INIT_VALUE;
 	}
 
 	@Override
-	public long getRequiredClusterId() {
+	public CFLibDbKeyHash256 getRequiredClusterId() {
 		return( requiredClusterId );
 	}
 
 	@Override
-	public void setRequiredClusterId( long value ) {
+	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredClusterId",
+				1,
+				"value" );
+		}
 		requiredClusterId = value;
 	}
 
@@ -84,8 +90,20 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 		}
 		else if (obj instanceof ICFSecSecGroupByClusterVisIdxKey) {
 			ICFSecSecGroupByClusterVisIdxKey rhs = (ICFSecSecGroupByClusterVisIdxKey)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredIsVisible() != rhs.getRequiredIsVisible() ) {
 				return( false );
@@ -94,8 +112,20 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 		}
 		else if (obj instanceof ICFSecSecGroup) {
 			ICFSecSecGroup rhs = (ICFSecSecGroup)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredIsVisible() != rhs.getRequiredIsVisible() ) {
 				return( false );
@@ -104,8 +134,20 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 		}
 		else if (obj instanceof ICFSecSecGroupH) {
 			ICFSecSecGroupH rhs = (ICFSecSecGroupH)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredIsVisible() != rhs.getRequiredIsVisible() ) {
 				return( false );
@@ -120,7 +162,7 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 	@Override
 	public int hashCode() {
 		int hashCode = 0;
-		hashCode = hashCode + (int)( getRequiredClusterId() );
+		hashCode = hashCode + getRequiredClusterId().hashCode();
 		if( getRequiredIsVisible() ) {
 			hashCode = ( hashCode * 2 ) + 1;
 		}
@@ -138,11 +180,19 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 		}
 		else if (obj instanceof ICFSecSecGroupByClusterVisIdxKey) {
 			ICFSecSecGroupByClusterVisIdxKey rhs = (ICFSecSecGroupByClusterVisIdxKey)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if( getRequiredIsVisible() ) {
 				if( ! rhs.getRequiredIsVisible() ) {
@@ -158,11 +208,19 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 		}
 		else if (obj instanceof ICFSecSecGroup) {
 			ICFSecSecGroup rhs = (ICFSecSecGroup)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if( getRequiredIsVisible() ) {
 				if( ! rhs.getRequiredIsVisible() ) {
@@ -178,11 +236,19 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 		}
 		else if (obj instanceof ICFSecSecGroupH) {
 			ICFSecSecGroupH rhs = (ICFSecSecGroupH)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if( getRequiredIsVisible() ) {
 				if( ! rhs.getRequiredIsVisible() ) {
@@ -207,7 +273,7 @@ public class CFSecJpaSecGroupByClusterVisIdxKey
 
 	public String getXmlAttrFragment() {
 		String ret = "" 
-			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
+			+ " RequiredClusterId=" + "\"" + getRequiredClusterId().toString() + "\""
 			+ " RequiredIsVisible=" + (( getRequiredIsVisible() ) ? "\"true\"" : "\"false\"" );
 		return( ret );
 	}

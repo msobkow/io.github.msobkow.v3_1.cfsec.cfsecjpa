@@ -64,10 +64,10 @@ public class CFSecJpaCluster
 		Serializable
 {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ClusterIdGenSeq")
-	@SequenceGenerator(name = "ClusterIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
-	@Column( name="Id", nullable=false )
-	protected long requiredId;
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCluster")
 	protected Set<CFSecJpaHostNode> optionalComponentsHostNode;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCluster")
@@ -101,7 +101,7 @@ public class CFSecJpaCluster
 	protected String requiredDescription;
 
 	public CFSecJpaCluster() {
-		requiredId = ICFSecCluster.ID_INIT_VALUE;
+		requiredId = CFLibDbKeyHash256.fromHex( ICFSecCluster.ID_INIT_VALUE.toString() );
 		requiredFullDomName = ICFSecCluster.FULLDOMNAME_INIT_VALUE;
 		requiredDescription = ICFSecCluster.DESCRIPTION_INIT_VALUE;
 	}
@@ -196,24 +196,30 @@ public class CFSecJpaCluster
 	}
 
 	@Override
-	public Long getPKey() {
+	public CFLibDbKeyHash256 getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(Long requiredId) {
+	public void setPKey(CFLibDbKeyHash256 requiredId) {
 		if (requiredId != null) {
 			setRequiredId(requiredId);
 		}
 	}
 	
 	@Override
-	public long getRequiredId() {
+	public CFLibDbKeyHash256 getRequiredId() {
 		return( requiredId );
 	}
 
 	@Override
-	public void setRequiredId( long value ) {
+	public void setRequiredId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredId",
+				1,
+				"value" );
+		}
 		requiredId = value;
 	}
 
@@ -295,8 +301,20 @@ public class CFSecJpaCluster
 			if( ! getUpdatedAt().equals( rhs.getUpdatedAt() ) ) {
 				return( false );
 			}
-			if( getRequiredId() != rhs.getRequiredId() ) {
-				return( false );
+			if( getRequiredId() != null && !getRequiredId().isNull() ) {
+				if( rhs.getRequiredId() != null && !rhs.getRequiredId().isNull() ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null && !getRequiredId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredFullDomName() != null ) {
 				if( rhs.getRequiredFullDomName() != null ) {
@@ -344,8 +362,20 @@ public class CFSecJpaCluster
 			if( ! getUpdatedAt().equals( rhs.getUpdatedAt() ) ) {
 				return( false );
 			}
-			if( getRequiredId() != rhs.getRequiredId() ) {
-				return( false );
+			if( getRequiredId() != null && !getRequiredId().isNull() ) {
+				if( rhs.getRequiredId() != null && !rhs.getRequiredId().isNull() ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null && !getRequiredId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredFullDomName() != null ) {
 				if( rhs.getRequiredFullDomName() != null ) {
@@ -381,8 +411,20 @@ public class CFSecJpaCluster
 		}
 		else if (obj instanceof ICFSecClusterHPKey) {
 			ICFSecClusterHPKey rhs = (ICFSecClusterHPKey)obj;
-			if( getRequiredId() != rhs.getRequiredId() ) {
-				return( false );
+			if( getRequiredId() != null && !getRequiredId().isNull() ) {
+				if( rhs.getRequiredId() != null && !rhs.getRequiredId().isNull() ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null && !getRequiredId().isNull()) {
+					return( false );
+				}
 			}
 			return( true );
 		}
@@ -436,7 +478,7 @@ public class CFSecJpaCluster
 		hashCode = hashCode + getCreatedAt().hashCode();
 		hashCode = hashCode + getUpdatedByUserId().hashCode();
 		hashCode = hashCode + getUpdatedAt().hashCode();
-		hashCode = hashCode + (int)( getRequiredId() );
+		hashCode = hashCode + getRequiredId().hashCode();
 		if( getRequiredFullDomName() != null ) {
 			hashCode = hashCode + getRequiredFullDomName().hashCode();
 		}
@@ -518,21 +560,37 @@ public class CFSecJpaCluster
 		}
 		else if (obj instanceof ICFSecClusterHPKey) {
 			ICFSecClusterHPKey rhs = (ICFSecClusterHPKey)obj;
-			if( getRequiredId() < rhs.getRequiredId() ) {
-				return( -1 );
+			if (getRequiredId() != null) {
+				if (rhs.getRequiredId() != null) {
+					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredId() > rhs.getRequiredId() ) {
-				return( 1 );
+			else if (rhs.getRequiredId() != null) {
+				return( -1 );
 			}
 			return( 0 );
 		}
 		else if( obj instanceof ICFSecClusterH ) {
 			ICFSecClusterH rhs = (ICFSecClusterH)obj;
-			if( getRequiredId() < rhs.getRequiredId() ) {
-				return( -1 );
+			if (getRequiredId() != null) {
+				if (rhs.getRequiredId() != null) {
+					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredId() > rhs.getRequiredId() ) {
-				return( 1 );
+			else if (rhs.getRequiredId() != null) {
+				return( -1 );
 			}
 			cmp = getCreatedByUserId().compareTo( rhs.getCreatedByUserId() );
 			if( cmp != 0 ) {
@@ -657,9 +715,9 @@ public class CFSecJpaCluster
 	@Override
 	public String getXmlAttrFragment() {
 		String ret = ""
-			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
+			+ " RequiredId=" + "\"" + getRequiredId().toString() + "\""
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
-			+ " RequiredId=" + "\"" + Long.toString( getRequiredId() ) + "\""
+			+ " RequiredId=" + "\"" + getRequiredId().toString() + "\""
 			+ " RequiredFullDomName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredFullDomName() ) + "\""
 			+ " RequiredDescription=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredDescription() ) + "\"";
 		return( ret );

@@ -65,12 +65,12 @@ public class CFSecJpaClusterH
     implements ICFSecClusterH, Comparable<Object>, Serializable
 {
 	@AttributeOverrides({
-		@AttributeOverride(name="auditClusterId", column = @Column( name="auditClusterId", nullable=false ) ),
+		@AttributeOverride(name="auditClusterId", column = @Column( name="auditClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) ),
 		@AttributeOverride(name="auditStamp", column = @Column( name="auditStamp", nullable=false ) ),
 		@AttributeOverride(name="auditAction", column = @Column( name="auditAction", nullable=false ) ),
 		@AttributeOverride(name="requiredRevision", column = @Column( name="requiredRevision", nullable=false ) ),
 		@AttributeOverride(name="auditSessionId", column = @Column( name="auditSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) ),
-		@AttributeOverride(name="Id", column = @Column( name="Id", nullable=false ) )
+		@AttributeOverride(name="Id", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     @EmbeddedId
     protected CFSecJpaClusterHPKey pkey;
@@ -176,12 +176,12 @@ public class CFSecJpaClusterH
     }
 
     @Override
-    public long getAuditClusterId() {
+    public CFLibDbKeyHash256 getAuditClusterId() {
         return pkey.getAuditClusterId();
     }
 
     @Override
-    public void setAuditClusterId(long auditClusterId) {
+    public void setAuditClusterId(CFLibDbKeyHash256 auditClusterId) {
         pkey.setAuditClusterId(auditClusterId);
     }
 
@@ -226,12 +226,12 @@ public class CFSecJpaClusterH
     }
 
     @Override
-    public long getRequiredId() {
+    public CFLibDbKeyHash256 getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( long requiredId ) {
+    public void setRequiredId( CFLibDbKeyHash256 requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 
@@ -386,8 +386,20 @@ public class CFSecJpaClusterH
         }
         else if (obj instanceof ICFSecClusterHPKey) {
 		ICFSecClusterHPKey rhs = (ICFSecClusterHPKey)obj;
-			if( getRequiredId() != rhs.getRequiredId() ) {
-				return( false );
+			if( getRequiredId() != null && !getRequiredId().isNull() ) {
+				if( rhs.getRequiredId() != null && !rhs.getRequiredId().isNull() ) {
+					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredId() != null && !getRequiredId().isNull()) {
+					return( false );
+				}
 			}
 		return( true );
         }

@@ -245,7 +245,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public void deleteSysClusterByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		sysclusterService.deleteByClusterIdx(argClusterId);
 	}
@@ -346,7 +346,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public ICFSecSysCluster[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		List<CFSecJpaSysCluster> results = sysclusterService.findByClusterIdx(argClusterId);
 		ICFSecSysCluster[] retset = new ICFSecSysCluster[results.size()];
@@ -440,7 +440,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public ICFSecSysCluster[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusterIdx");
 	}

@@ -82,6 +82,12 @@ public class CFSecJpaSecGrpIncService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecGrpIncId = data.getRequiredSecGrpIncId();
 		boolean generatedRequiredSecGrpIncId = false;
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
+		}
 		if(data.getRequiredSecGroupId() == null || data.getRequiredSecGroupId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -135,6 +141,12 @@ public class CFSecJpaSecGrpIncService {
 				S_ProcName,
 				0,
 				"data.getPKey()");
+		}
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
 		}
 		if(data.getRequiredSecGroupId() == null || data.getRequiredSecGroupId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -197,7 +209,7 @@ public class CFSecJpaSecGrpIncService {
 	 *		@return List&lt;CFSecJpaSecGrpInc&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecGrpInc> findByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaSecGrpInc> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31SecGrpIncRepository.findByClusterIdx(requiredClusterId));
 	}
 
@@ -271,7 +283,7 @@ public class CFSecJpaSecGrpIncService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecGrpInc findByUIncludeIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaSecGrpInc findByUIncludeIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("includeGroupId") CFLibDbKeyHash256 requiredIncludeGroupId) {
 		return( cfsec31SecGrpIncRepository.findByUIncludeIdx(requiredClusterId,
@@ -313,7 +325,7 @@ public class CFSecJpaSecGrpIncService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecGrpInc> lockByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaSecGrpInc> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31SecGrpIncRepository.lockByClusterIdx(requiredClusterId));
 	}
 
@@ -387,7 +399,7 @@ public class CFSecJpaSecGrpIncService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecGrpInc lockByUIncludeIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaSecGrpInc lockByUIncludeIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("includeGroupId") CFLibDbKeyHash256 requiredIncludeGroupId) {
 		return( cfsec31SecGrpIncRepository.lockByUIncludeIdx(requiredClusterId,
@@ -425,7 +437,7 @@ public class CFSecJpaSecGrpIncService {
 	 *		@param requiredClusterId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		cfsec31SecGrpIncRepository.deleteByClusterIdx(requiredClusterId);
 	}
 
@@ -487,7 +499,7 @@ public class CFSecJpaSecGrpIncService {
 	 *		@param requiredIncludeGroupId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUIncludeIdx(@Param("clusterId") long requiredClusterId,
+	public void deleteByUIncludeIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("includeGroupId") CFLibDbKeyHash256 requiredIncludeGroupId) {
 		cfsec31SecGrpIncRepository.deleteByUIncludeIdx(requiredClusterId,

@@ -50,20 +50,26 @@ import io.github.msobkow.v3_1.cfsec.cfsec.*;
 public class CFSecJpaHostNodeByHostNameIdxKey
 	implements ICFSecHostNodeByHostNameIdxKey, Comparable<Object>, Serializable
 {
-	protected long requiredClusterId;
+	protected CFLibDbKeyHash256 requiredClusterId;
 	protected String requiredHostName;
 	public CFSecJpaHostNodeByHostNameIdxKey() {
-		requiredClusterId = ICFSecHostNode.CLUSTERID_INIT_VALUE;
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecHostNode.CLUSTERID_INIT_VALUE.toString() );
 		requiredHostName = ICFSecHostNode.HOSTNAME_INIT_VALUE;
 	}
 
 	@Override
-	public long getRequiredClusterId() {
+	public CFLibDbKeyHash256 getRequiredClusterId() {
 		return( requiredClusterId );
 	}
 
 	@Override
-	public void setRequiredClusterId( long value ) {
+	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredClusterId",
+				1,
+				"value" );
+		}
 		requiredClusterId = value;
 	}
 
@@ -98,8 +104,20 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 		}
 		else if (obj instanceof ICFSecHostNodeByHostNameIdxKey) {
 			ICFSecHostNodeByHostNameIdxKey rhs = (ICFSecHostNodeByHostNameIdxKey)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredHostName() != null ) {
 				if( rhs.getRequiredHostName() != null ) {
@@ -120,8 +138,20 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 		}
 		else if (obj instanceof ICFSecHostNode) {
 			ICFSecHostNode rhs = (ICFSecHostNode)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredHostName() != null ) {
 				if( rhs.getRequiredHostName() != null ) {
@@ -142,8 +172,20 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 		}
 		else if (obj instanceof ICFSecHostNodeH) {
 			ICFSecHostNodeH rhs = (ICFSecHostNodeH)obj;
-			if( getRequiredClusterId() != rhs.getRequiredClusterId() ) {
-				return( false );
+			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
+				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+					return( false );
+				}
 			}
 			if( getRequiredHostName() != null ) {
 				if( rhs.getRequiredHostName() != null ) {
@@ -170,7 +212,7 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 	@Override
 	public int hashCode() {
 		int hashCode = 0;
-		hashCode = hashCode + (int)( getRequiredClusterId() );
+		hashCode = hashCode + getRequiredClusterId().hashCode();
 		if( getRequiredHostName() != null ) {
 			hashCode = hashCode + getRequiredHostName().hashCode();
 		}
@@ -185,11 +227,19 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 		}
 		else if (obj instanceof ICFSecHostNodeByHostNameIdxKey) {
 			ICFSecHostNodeByHostNameIdxKey rhs = (ICFSecHostNodeByHostNameIdxKey)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if (getRequiredHostName() != null) {
 				if (rhs.getRequiredHostName() != null) {
@@ -209,11 +259,19 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 		}
 		else if (obj instanceof ICFSecHostNode) {
 			ICFSecHostNode rhs = (ICFSecHostNode)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if (getRequiredHostName() != null) {
 				if (rhs.getRequiredHostName() != null) {
@@ -233,11 +291,19 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 		}
 		else if (obj instanceof ICFSecHostNodeH) {
 			ICFSecHostNodeH rhs = (ICFSecHostNodeH)obj;
-			if( getRequiredClusterId() < rhs.getRequiredClusterId() ) {
-				return( -1 );
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredClusterId() > rhs.getRequiredClusterId() ) {
-				return( 1 );
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
 			}
 			if (getRequiredHostName() != null) {
 				if (rhs.getRequiredHostName() != null) {
@@ -266,7 +332,7 @@ public class CFSecJpaHostNodeByHostNameIdxKey
 
 	public String getXmlAttrFragment() {
 		String ret = "" 
-			+ " RequiredClusterId=" + "\"" + Long.toString( getRequiredClusterId() ) + "\""
+			+ " RequiredClusterId=" + "\"" + getRequiredClusterId().toString() + "\""
 			+ " RequiredHostName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredHostName() ) + "\"";
 		return( ret );
 	}

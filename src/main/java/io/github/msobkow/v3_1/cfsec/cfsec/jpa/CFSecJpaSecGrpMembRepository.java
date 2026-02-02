@@ -79,7 +79,7 @@ public interface CFSecJpaSecGrpMembRepository extends JpaRepository<CFSecJpaSecG
 	 *		@return List&lt;CFSecJpaSecGrpMemb&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecGrpMemb r where r.requiredClusterId = :clusterId")
-	List<CFSecJpaSecGrpMemb> findByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSecGrpMemb> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGrpMembByClusterIdxKey entity list reader convenience method for object-based access.
@@ -144,7 +144,7 @@ public interface CFSecJpaSecGrpMembRepository extends JpaRepository<CFSecJpaSecG
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecGrpMemb r where r.requiredClusterId = :clusterId and r.requiredContainerGroup.requiredSecGroupId = :secGroupId and r.requiredParentUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecGrpMemb findByUUserIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaSecGrpMemb findByUUserIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId);
 
@@ -183,7 +183,7 @@ public interface CFSecJpaSecGrpMembRepository extends JpaRepository<CFSecJpaSecG
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecGrpMemb r where r.requiredClusterId = :clusterId")
-	List<CFSecJpaSecGrpMemb> lockByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSecGrpMemb> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGrpMembByClusterIdxKey based lock method for object-based access.
@@ -254,7 +254,7 @@ public interface CFSecJpaSecGrpMembRepository extends JpaRepository<CFSecJpaSecG
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecGrpMemb r where r.requiredClusterId = :clusterId and r.requiredContainerGroup.requiredSecGroupId = :secGroupId and r.requiredParentUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecGrpMemb lockByUUserIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaSecGrpMemb lockByUUserIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId);
 
@@ -289,7 +289,7 @@ public interface CFSecJpaSecGrpMembRepository extends JpaRepository<CFSecJpaSecG
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecGrpMemb r where r.requiredClusterId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") long requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGrpMembByClusterIdxKey based lock method for object-based access.
@@ -348,7 +348,7 @@ public interface CFSecJpaSecGrpMembRepository extends JpaRepository<CFSecJpaSecG
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecGrpMemb r where r.requiredClusterId = :clusterId and r.requiredContainerGroup.requiredSecGroupId = :secGroupId and r.requiredParentUser.requiredSecUserId = :secUserId")
-	void deleteByUUserIdx(@Param("clusterId") long requiredClusterId,
+	void deleteByUUserIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId);
 

@@ -57,7 +57,7 @@ import io.github.msobkow.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster, Long> {
+public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster, CFLibDbKeyHash256> {
 
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
@@ -67,7 +67,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaCluster r where r.requiredId = :id")
-	CFSecJpaCluster get(@Param("id") long requiredId);
+	CFSecJpaCluster get(@Param("id") CFLibDbKeyHash256 requiredId);
 
 	// CFSecJpaCluster specified index readers
 
@@ -125,7 +125,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaCluster r where r.requiredId = :id")
-	CFSecJpaCluster lockByIdIdx(@Param("id") long requiredId);
+	CFSecJpaCluster lockByIdIdx(@Param("id") CFLibDbKeyHash256 requiredId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -183,7 +183,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaCluster r where r.requiredId = :id")
-	void deleteByIdIdx(@Param("id") long requiredId);
+	void deleteByIdIdx(@Param("id") CFLibDbKeyHash256 requiredId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.

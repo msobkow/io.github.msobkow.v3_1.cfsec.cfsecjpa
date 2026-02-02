@@ -79,7 +79,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	 *		@return List&lt;CFSecJpaHostNode&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaHostNode> findByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaHostNode> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecHostNodeByClusterIdxKey entity list reader convenience method for object-based access.
@@ -101,7 +101,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredDescription = :description")
-	CFSecJpaHostNode findByUDescrIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaHostNode findByUDescrIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("description") String requiredDescription);
 
 	/**
@@ -124,7 +124,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredHostName = :hostName")
-	CFSecJpaHostNode findByHostNameIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaHostNode findByHostNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("hostName") String requiredHostName);
 
 	/**
@@ -162,7 +162,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaHostNode> lockByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaHostNode> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecHostNodeByClusterIdxKey based lock method for object-based access.
@@ -186,7 +186,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredDescription = :description")
-	CFSecJpaHostNode lockByUDescrIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaHostNode lockByUDescrIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("description") String requiredDescription);
 
 	/**
@@ -211,7 +211,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredHostName = :hostName")
-	CFSecJpaHostNode lockByHostNameIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaHostNode lockByHostNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("hostName") String requiredHostName);
 
 	/**
@@ -245,7 +245,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") long requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecHostNodeByClusterIdxKey based lock method for object-based access.
@@ -265,7 +265,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredDescription = :description")
-	void deleteByUDescrIdx(@Param("clusterId") long requiredClusterId,
+	void deleteByUDescrIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("description") String requiredDescription);
 
 	/**
@@ -286,7 +286,7 @@ public interface CFSecJpaHostNodeRepository extends JpaRepository<CFSecJpaHostNo
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaHostNode r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredHostName = :hostName")
-	void deleteByHostNameIdx(@Param("clusterId") long requiredClusterId,
+	void deleteByHostNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("hostName") String requiredHostName);
 
 	/**

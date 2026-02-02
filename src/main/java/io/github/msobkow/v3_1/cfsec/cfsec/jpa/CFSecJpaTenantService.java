@@ -82,6 +82,12 @@ public class CFSecJpaTenantService {
 		}
 		CFLibDbKeyHash256 originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
+		}
 		if(data.getRequiredTenantName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -129,6 +135,12 @@ public class CFSecJpaTenantService {
 				S_ProcName,
 				0,
 				"data.getPKey()");
+		}
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
 		}
 		if(data.getRequiredTenantName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -184,7 +196,7 @@ public class CFSecJpaTenantService {
 	 *		@return List&lt;CFSecJpaTenant&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaTenant> findByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaTenant> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31TenantRepository.findByClusterIdx(requiredClusterId));
 	}
 
@@ -209,7 +221,7 @@ public class CFSecJpaTenantService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTenant findByUNameIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaTenant findByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("tenantName") String requiredTenantName) {
 		return( cfsec31TenantRepository.findByUNameIdx(requiredClusterId,
 			requiredTenantName));
@@ -249,7 +261,7 @@ public class CFSecJpaTenantService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaTenant> lockByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaTenant> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31TenantRepository.lockByClusterIdx(requiredClusterId));
 	}
 
@@ -274,7 +286,7 @@ public class CFSecJpaTenantService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTenant lockByUNameIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaTenant lockByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("tenantName") String requiredTenantName) {
 		return( cfsec31TenantRepository.lockByUNameIdx(requiredClusterId,
 			requiredTenantName));
@@ -310,7 +322,7 @@ public class CFSecJpaTenantService {
 	 *		@param requiredClusterId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		cfsec31TenantRepository.deleteByClusterIdx(requiredClusterId);
 	}
 
@@ -331,7 +343,7 @@ public class CFSecJpaTenantService {
 	 *		@param requiredTenantName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUNameIdx(@Param("clusterId") long requiredClusterId,
+	public void deleteByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("tenantName") String requiredTenantName) {
 		cfsec31TenantRepository.deleteByUNameIdx(requiredClusterId,
 			requiredTenantName);

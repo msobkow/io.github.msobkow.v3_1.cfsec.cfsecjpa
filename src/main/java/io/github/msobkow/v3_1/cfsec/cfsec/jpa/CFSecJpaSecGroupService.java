@@ -82,6 +82,12 @@ public class CFSecJpaSecGroupService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecGroupId = data.getRequiredSecGroupId();
 		boolean generatedRequiredSecGroupId = false;
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
+		}
 		if(data.getRequiredName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -129,6 +135,12 @@ public class CFSecJpaSecGroupService {
 				S_ProcName,
 				0,
 				"data.getPKey()");
+		}
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
 		}
 		if(data.getRequiredName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -185,7 +197,7 @@ public class CFSecJpaSecGroupService {
 	 *		@return List&lt;CFSecJpaSecGroup&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecGroup> findByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaSecGroup> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31SecGroupRepository.findByClusterIdx(requiredClusterId));
 	}
 
@@ -210,7 +222,7 @@ public class CFSecJpaSecGroupService {
 	 *		@return List&lt;CFSecJpaSecGroup&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecGroup> findByClusterVisIdx(@Param("clusterId") long requiredClusterId,
+	public List<CFSecJpaSecGroup> findByClusterVisIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("isVisible") boolean requiredIsVisible) {
 		return( cfsec31SecGroupRepository.findByClusterVisIdx(requiredClusterId,
 			requiredIsVisible));
@@ -237,7 +249,7 @@ public class CFSecJpaSecGroupService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecGroup findByUNameIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaSecGroup findByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName) {
 		return( cfsec31SecGroupRepository.findByUNameIdx(requiredClusterId,
 			requiredName));
@@ -277,7 +289,7 @@ public class CFSecJpaSecGroupService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecGroup> lockByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaSecGroup> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31SecGroupRepository.lockByClusterIdx(requiredClusterId));
 	}
 
@@ -302,7 +314,7 @@ public class CFSecJpaSecGroupService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecGroup> lockByClusterVisIdx(@Param("clusterId") long requiredClusterId,
+	public List<CFSecJpaSecGroup> lockByClusterVisIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("isVisible") boolean requiredIsVisible) {
 		return( cfsec31SecGroupRepository.lockByClusterVisIdx(requiredClusterId,
 			requiredIsVisible));
@@ -329,7 +341,7 @@ public class CFSecJpaSecGroupService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecGroup lockByUNameIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaSecGroup lockByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName) {
 		return( cfsec31SecGroupRepository.lockByUNameIdx(requiredClusterId,
 			requiredName));
@@ -365,7 +377,7 @@ public class CFSecJpaSecGroupService {
 	 *		@param requiredClusterId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		cfsec31SecGroupRepository.deleteByClusterIdx(requiredClusterId);
 	}
 
@@ -386,7 +398,7 @@ public class CFSecJpaSecGroupService {
 	 *		@param requiredIsVisible
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusterVisIdx(@Param("clusterId") long requiredClusterId,
+	public void deleteByClusterVisIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("isVisible") boolean requiredIsVisible) {
 		cfsec31SecGroupRepository.deleteByClusterVisIdx(requiredClusterId,
 			requiredIsVisible);
@@ -409,7 +421,7 @@ public class CFSecJpaSecGroupService {
 	 *		@param requiredName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUNameIdx(@Param("clusterId") long requiredClusterId,
+	public void deleteByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName) {
 		cfsec31SecGroupRepository.deleteByUNameIdx(requiredClusterId,
 			requiredName);

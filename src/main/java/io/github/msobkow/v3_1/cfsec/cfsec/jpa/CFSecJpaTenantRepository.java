@@ -79,7 +79,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	 *		@return List&lt;CFSecJpaTenant&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaTenant> findByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaTenant> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecTenantByClusterIdxKey entity list reader convenience method for object-based access.
@@ -101,7 +101,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredTenantName = :tenantName")
-	CFSecJpaTenant findByUNameIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaTenant findByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("tenantName") String requiredTenantName);
 
 	/**
@@ -139,7 +139,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaTenant> lockByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaTenant> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecTenantByClusterIdxKey based lock method for object-based access.
@@ -163,7 +163,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredTenantName = :tenantName")
-	CFSecJpaTenant lockByUNameIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaTenant lockByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("tenantName") String requiredTenantName);
 
 	/**
@@ -197,7 +197,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") long requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecTenantByClusterIdxKey based lock method for object-based access.
@@ -217,7 +217,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredTenantName = :tenantName")
-	void deleteByUNameIdx(@Param("clusterId") long requiredClusterId,
+	void deleteByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("tenantName") String requiredTenantName);
 
 	/**

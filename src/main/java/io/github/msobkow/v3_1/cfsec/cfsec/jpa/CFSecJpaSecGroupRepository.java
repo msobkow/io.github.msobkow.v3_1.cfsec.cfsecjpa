@@ -79,7 +79,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	 *		@return List&lt;CFSecJpaSecGroup&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaSecGroup> findByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSecGroup> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGroupByClusterIdxKey entity list reader convenience method for object-based access.
@@ -101,7 +101,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	 *		@return List&lt;CFSecJpaSecGroup&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredIsVisible = :isVisible")
-	List<CFSecJpaSecGroup> findByClusterVisIdx(@Param("clusterId") long requiredClusterId,
+	List<CFSecJpaSecGroup> findByClusterVisIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("isVisible") boolean requiredIsVisible);
 
 	/**
@@ -124,7 +124,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredName = :name")
-	CFSecJpaSecGroup findByUNameIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaSecGroup findByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 
 	/**
@@ -162,7 +162,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaSecGroup> lockByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSecGroup> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGroupByClusterIdxKey based lock method for object-based access.
@@ -186,7 +186,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredIsVisible = :isVisible")
-	List<CFSecJpaSecGroup> lockByClusterVisIdx(@Param("clusterId") long requiredClusterId,
+	List<CFSecJpaSecGroup> lockByClusterVisIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("isVisible") boolean requiredIsVisible);
 
 	/**
@@ -211,7 +211,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredName = :name")
-	CFSecJpaSecGroup lockByUNameIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaSecGroup lockByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 
 	/**
@@ -245,7 +245,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") long requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGroupByClusterIdxKey based lock method for object-based access.
@@ -265,7 +265,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredIsVisible = :isVisible")
-	void deleteByClusterVisIdx(@Param("clusterId") long requiredClusterId,
+	void deleteByClusterVisIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("isVisible") boolean requiredIsVisible);
 
 	/**
@@ -286,7 +286,7 @@ public interface CFSecJpaSecGroupRepository extends JpaRepository<CFSecJpaSecGro
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecGroup r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredName = :name")
-	void deleteByUNameIdx(@Param("clusterId") long requiredClusterId,
+	void deleteByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 
 	/**

@@ -245,7 +245,7 @@ public class CFSecJpaSecGrpMembTable implements ICFSecSecGrpMembTable
 	 */
 	@Override
 	public void deleteSecGrpMembByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		secgrpmembService.deleteByClusterIdx(argClusterId);
 	}
@@ -336,7 +336,7 @@ public class CFSecJpaSecGrpMembTable implements ICFSecSecGrpMembTable
 	 */
 	@Override
 	public void deleteSecGrpMembByUUserIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argSecGroupId,
 		CFLibDbKeyHash256 argSecUserId )
 	{
@@ -443,7 +443,7 @@ public class CFSecJpaSecGrpMembTable implements ICFSecSecGrpMembTable
 	 */
 	@Override
 	public ICFSecSecGrpMemb[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		List<CFSecJpaSecGrpMemb> results = secgrpmembService.findByClusterIdx(argClusterId);
 		ICFSecSecGrpMemb[] retset = new ICFSecSecGrpMemb[results.size()];
@@ -514,7 +514,7 @@ public class CFSecJpaSecGrpMembTable implements ICFSecSecGrpMembTable
 	 */
 	@Override
 	public ICFSecSecGrpMemb readDerivedByUUserIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argSecGroupId,
 		CFLibDbKeyHash256 argSecUserId )
 	{
@@ -620,7 +620,7 @@ public class CFSecJpaSecGrpMembTable implements ICFSecSecGrpMembTable
 	 */
 	@Override
 	public ICFSecSecGrpMemb[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusterIdx");
 	}
@@ -679,7 +679,7 @@ public class CFSecJpaSecGrpMembTable implements ICFSecSecGrpMembTable
 	 */
 	@Override
 	public ICFSecSecGrpMemb readRecByUUserIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argSecGroupId,
 		CFLibDbKeyHash256 argSecUserId )
 	{
@@ -699,7 +699,7 @@ public class CFSecJpaSecGrpMembTable implements ICFSecSecGrpMembTable
 	 */
 	@Override
 	public ICFSecSecGrpMemb[] pageRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 priorSecGrpMembId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByClusterIdx");

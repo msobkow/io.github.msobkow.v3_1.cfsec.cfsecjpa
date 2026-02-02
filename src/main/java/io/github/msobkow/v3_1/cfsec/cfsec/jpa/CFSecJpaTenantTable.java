@@ -245,7 +245,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public void deleteTenantByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		tenantService.deleteByClusterIdx(argClusterId);
 	}
@@ -276,7 +276,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public void deleteTenantByUNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argTenantName )
 	{
 		tenantService.deleteByUNameIdx(argClusterId,
@@ -380,7 +380,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		List<CFSecJpaTenant> results = tenantService.findByClusterIdx(argClusterId);
 		ICFSecTenant[] retset = new ICFSecTenant[results.size()];
@@ -405,7 +405,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argTenantName )
 	{
 		return( tenantService.findByUNameIdx(argClusterId,
@@ -509,7 +509,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusterIdx");
 	}
@@ -530,7 +530,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readRecByUNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argTenantName )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUNameIdx");
@@ -549,7 +549,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant[] pageRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 priorId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByClusterIdx");

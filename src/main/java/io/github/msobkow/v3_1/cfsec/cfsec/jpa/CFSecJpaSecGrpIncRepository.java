@@ -79,7 +79,7 @@ public interface CFSecJpaSecGrpIncRepository extends JpaRepository<CFSecJpaSecGr
 	 *		@return List&lt;CFSecJpaSecGrpInc&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecGrpInc r where r.requiredClusterId = :clusterId")
-	List<CFSecJpaSecGrpInc> findByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSecGrpInc> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGrpIncByClusterIdxKey entity list reader convenience method for object-based access.
@@ -144,7 +144,7 @@ public interface CFSecJpaSecGrpIncRepository extends JpaRepository<CFSecJpaSecGr
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecGrpInc r where r.requiredClusterId = :clusterId and r.requiredContainerGroup.requiredSecGroupId = :secGroupId and r.requiredParentSubGroup.requiredSecGroupId = :includeGroupId")
-	CFSecJpaSecGrpInc findByUIncludeIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaSecGrpInc findByUIncludeIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("includeGroupId") CFLibDbKeyHash256 requiredIncludeGroupId);
 
@@ -183,7 +183,7 @@ public interface CFSecJpaSecGrpIncRepository extends JpaRepository<CFSecJpaSecGr
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecGrpInc r where r.requiredClusterId = :clusterId")
-	List<CFSecJpaSecGrpInc> lockByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSecGrpInc> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGrpIncByClusterIdxKey based lock method for object-based access.
@@ -254,7 +254,7 @@ public interface CFSecJpaSecGrpIncRepository extends JpaRepository<CFSecJpaSecGr
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecGrpInc r where r.requiredClusterId = :clusterId and r.requiredContainerGroup.requiredSecGroupId = :secGroupId and r.requiredParentSubGroup.requiredSecGroupId = :includeGroupId")
-	CFSecJpaSecGrpInc lockByUIncludeIdx(@Param("clusterId") long requiredClusterId,
+	CFSecJpaSecGrpInc lockByUIncludeIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("includeGroupId") CFLibDbKeyHash256 requiredIncludeGroupId);
 
@@ -289,7 +289,7 @@ public interface CFSecJpaSecGrpIncRepository extends JpaRepository<CFSecJpaSecGr
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecGrpInc r where r.requiredClusterId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") long requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSecGrpIncByClusterIdxKey based lock method for object-based access.
@@ -348,7 +348,7 @@ public interface CFSecJpaSecGrpIncRepository extends JpaRepository<CFSecJpaSecGr
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecGrpInc r where r.requiredClusterId = :clusterId and r.requiredContainerGroup.requiredSecGroupId = :secGroupId and r.requiredParentSubGroup.requiredSecGroupId = :includeGroupId")
-	void deleteByUIncludeIdx(@Param("clusterId") long requiredClusterId,
+	void deleteByUIncludeIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("secGroupId") CFLibDbKeyHash256 requiredSecGroupId,
 		@Param("includeGroupId") CFLibDbKeyHash256 requiredIncludeGroupId);
 

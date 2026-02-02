@@ -245,7 +245,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public void deleteSecGroupByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		secgroupService.deleteByClusterIdx(argClusterId);
 	}
@@ -276,7 +276,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public void deleteSecGroupByClusterVisIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		boolean argIsVisible )
 	{
 		secgroupService.deleteByClusterVisIdx(argClusterId,
@@ -310,7 +310,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public void deleteSecGroupByUNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argName )
 	{
 		secgroupService.deleteByUNameIdx(argClusterId,
@@ -414,7 +414,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public ICFSecSecGroup[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		List<CFSecJpaSecGroup> results = secgroupService.findByClusterIdx(argClusterId);
 		ICFSecSecGroup[] retset = new ICFSecSecGroup[results.size()];
@@ -438,7 +438,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public ICFSecSecGroup[] readDerivedByClusterVisIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		boolean argIsVisible )
 	{
 		List<CFSecJpaSecGroup> results = secgroupService.findByClusterVisIdx(argClusterId,
@@ -465,7 +465,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public ICFSecSecGroup readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argName )
 	{
 		return( secgroupService.findByUNameIdx(argClusterId,
@@ -555,7 +555,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public ICFSecSecGroup[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusterIdx");
 	}
@@ -575,7 +575,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public ICFSecSecGroup[] readRecByClusterVisIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		boolean argIsVisible )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusterVisIdx");
@@ -597,7 +597,7 @@ public class CFSecJpaSecGroupTable implements ICFSecSecGroupTable
 	 */
 	@Override
 	public ICFSecSecGroup readRecByUNameIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		String argName )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUNameIdx");

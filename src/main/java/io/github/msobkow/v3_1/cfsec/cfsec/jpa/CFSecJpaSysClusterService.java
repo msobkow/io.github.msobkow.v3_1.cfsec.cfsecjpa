@@ -80,6 +80,12 @@ public class CFSecJpaSysClusterService {
 		if (data == null) {
 			return( null );
 		}
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
+		}
 		try {
 			if(data.getPKey() != null && cfsec31SysClusterRepository.existsById((Integer)data.getPKey())) {
 				return( (CFSecJpaSysCluster)(cfsec31SysClusterRepository.findById((Integer)(data.getPKey())).get()));
@@ -111,6 +117,12 @@ public class CFSecJpaSysClusterService {
 				S_ProcName,
 				0,
 				"data.getPKey()");
+		}
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
 		}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaSysCluster existing = cfsec31SysClusterRepository.findById((Integer)(data.getPKey()))
@@ -157,7 +169,7 @@ public class CFSecJpaSysClusterService {
 	 *		@return List&lt;CFSecJpaSysCluster&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31SysClusterRepository.findByClusterIdx(requiredClusterId));
 	}
 
@@ -195,7 +207,7 @@ public class CFSecJpaSysClusterService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31SysClusterRepository.lockByClusterIdx(requiredClusterId));
 	}
 
@@ -229,7 +241,7 @@ public class CFSecJpaSysClusterService {
 	 *		@param requiredClusterId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		cfsec31SysClusterRepository.deleteByClusterIdx(requiredClusterId);
 	}
 

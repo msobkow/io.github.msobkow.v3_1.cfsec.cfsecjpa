@@ -245,7 +245,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public void deleteServiceByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		serviceService.deleteByClusterIdx(argClusterId);
 	}
@@ -336,7 +336,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public void deleteServiceByUTypeIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argHostNodeId,
 		CFLibDbKeyHash256 argServiceTypeId )
 	{
@@ -375,7 +375,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public void deleteServiceByUHostPortIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argHostNodeId,
 		short argHostPort )
 	{
@@ -482,7 +482,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public ICFSecService[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		List<CFSecJpaService> results = serviceService.findByClusterIdx(argClusterId);
 		ICFSecService[] retset = new ICFSecService[results.size()];
@@ -553,7 +553,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public ICFSecService readDerivedByUTypeIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argHostNodeId,
 		CFLibDbKeyHash256 argServiceTypeId )
 	{
@@ -578,7 +578,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public ICFSecService readDerivedByUHostPortIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argHostNodeId,
 		short argHostPort )
 	{
@@ -684,7 +684,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public ICFSecService[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId )
+		CFLibDbKeyHash256 argClusterId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusterIdx");
 	}
@@ -743,7 +743,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public ICFSecService readRecByUTypeIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argHostNodeId,
 		CFLibDbKeyHash256 argServiceTypeId )
 	{
@@ -768,7 +768,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public ICFSecService readRecByUHostPortIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 argHostNodeId,
 		short argHostPort )
 	{
@@ -788,7 +788,7 @@ public class CFSecJpaServiceTable implements ICFSecServiceTable
 	 */
 	@Override
 	public ICFSecService[] pageRecByClusterIdx( ICFSecAuthorization Authorization,
-		long argClusterId,
+		CFLibDbKeyHash256 argClusterId,
 		CFLibDbKeyHash256 priorServiceId )
 	{
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByClusterIdx");

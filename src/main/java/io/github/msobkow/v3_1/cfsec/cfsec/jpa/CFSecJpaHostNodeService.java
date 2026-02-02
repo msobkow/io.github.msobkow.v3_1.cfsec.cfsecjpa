@@ -82,6 +82,12 @@ public class CFSecJpaHostNodeService {
 		}
 		CFLibDbKeyHash256 originalRequiredHostNodeId = data.getRequiredHostNodeId();
 		boolean generatedRequiredHostNodeId = false;
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
+		}
 		if(data.getRequiredDescription() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -135,6 +141,12 @@ public class CFSecJpaHostNodeService {
 				S_ProcName,
 				0,
 				"data.getPKey()");
+		}
+		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
+			throw new CFLibNullArgumentException(getClass(),
+				S_ProcName,
+				0,
+				"data.requiredClusterId");
 		}
 		if(data.getRequiredDescription() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -197,7 +209,7 @@ public class CFSecJpaHostNodeService {
 	 *		@return List&lt;CFSecJpaHostNode&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaHostNode> findByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaHostNode> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31HostNodeRepository.findByClusterIdx(requiredClusterId));
 	}
 
@@ -222,7 +234,7 @@ public class CFSecJpaHostNodeService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaHostNode findByUDescrIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaHostNode findByUDescrIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("description") String requiredDescription) {
 		return( cfsec31HostNodeRepository.findByUDescrIdx(requiredClusterId,
 			requiredDescription));
@@ -249,7 +261,7 @@ public class CFSecJpaHostNodeService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaHostNode findByHostNameIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaHostNode findByHostNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("hostName") String requiredHostName) {
 		return( cfsec31HostNodeRepository.findByHostNameIdx(requiredClusterId,
 			requiredHostName));
@@ -289,7 +301,7 @@ public class CFSecJpaHostNodeService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaHostNode> lockByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public List<CFSecJpaHostNode> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		return( cfsec31HostNodeRepository.lockByClusterIdx(requiredClusterId));
 	}
 
@@ -314,7 +326,7 @@ public class CFSecJpaHostNodeService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaHostNode lockByUDescrIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaHostNode lockByUDescrIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("description") String requiredDescription) {
 		return( cfsec31HostNodeRepository.lockByUDescrIdx(requiredClusterId,
 			requiredDescription));
@@ -341,7 +353,7 @@ public class CFSecJpaHostNodeService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaHostNode lockByHostNameIdx(@Param("clusterId") long requiredClusterId,
+	public CFSecJpaHostNode lockByHostNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("hostName") String requiredHostName) {
 		return( cfsec31HostNodeRepository.lockByHostNameIdx(requiredClusterId,
 			requiredHostName));
@@ -377,7 +389,7 @@ public class CFSecJpaHostNodeService {
 	 *		@param requiredClusterId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusterIdx(@Param("clusterId") long requiredClusterId) {
+	public void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId) {
 		cfsec31HostNodeRepository.deleteByClusterIdx(requiredClusterId);
 	}
 
@@ -398,7 +410,7 @@ public class CFSecJpaHostNodeService {
 	 *		@param requiredDescription
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUDescrIdx(@Param("clusterId") long requiredClusterId,
+	public void deleteByUDescrIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("description") String requiredDescription) {
 		cfsec31HostNodeRepository.deleteByUDescrIdx(requiredClusterId,
 			requiredDescription);
@@ -421,7 +433,7 @@ public class CFSecJpaHostNodeService {
 	 *		@param requiredHostName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByHostNameIdx(@Param("clusterId") long requiredClusterId,
+	public void deleteByHostNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("hostName") String requiredHostName) {
 		cfsec31HostNodeRepository.deleteByHostNameIdx(requiredClusterId,
 			requiredHostName);

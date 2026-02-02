@@ -79,7 +79,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	 *		@return List&lt;CFSecJpaSysCluster&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSysCluster r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSysClusterByClusterIdxKey entity list reader convenience method for object-based access.
@@ -116,7 +116,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSysCluster r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") long requiredClusterId);
+	List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSysClusterByClusterIdxKey based lock method for object-based access.
@@ -149,7 +149,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSysCluster r where r.requiredContainerCluster.requiredId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") long requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
 	 *	CFSecSysClusterByClusterIdxKey based lock method for object-based access.
