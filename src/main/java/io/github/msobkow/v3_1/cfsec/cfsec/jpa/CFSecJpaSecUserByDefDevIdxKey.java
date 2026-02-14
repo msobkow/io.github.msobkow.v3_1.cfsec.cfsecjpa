@@ -92,8 +92,8 @@ public class CFSecJpaSecUserByDefDevIdxKey
 		}
 		else if (obj instanceof ICFSecSecUserByDefDevIdxKey) {
 			ICFSecSecUserByDefDevIdxKey rhs = (ICFSecSecUserByDefDevIdxKey)obj;
-			if( getOptionalDfltDevUserId() != null && !getOptionalDfltDevUserId().isNull() ) {
-				if( rhs.getOptionalDfltDevUserId() != null && !rhs.getOptionalDfltDevUserId().isNull() ) {
+			if( getOptionalDfltDevUserId() != null ) {
+				if( rhs.getOptionalDfltDevUserId() != null ) {
 					if( ! getOptionalDfltDevUserId().equals( rhs.getOptionalDfltDevUserId() ) ) {
 						return( false );
 					}
@@ -103,7 +103,7 @@ public class CFSecJpaSecUserByDefDevIdxKey
 				}
 			}
 			else {
-				if( rhs.getOptionalDfltDevUserId() != null && !getOptionalDfltDevUserId().isNull()) {
+				if( rhs.getOptionalDfltDevUserId() != null ) {
 					return( false );
 				}
 			}
@@ -126,8 +126,8 @@ public class CFSecJpaSecUserByDefDevIdxKey
 		}
 		else if (obj instanceof ICFSecSecUser) {
 			ICFSecSecUser rhs = (ICFSecSecUser)obj;
-			if( getOptionalDfltDevUserId() != null && !getOptionalDfltDevUserId().isNull() ) {
-				if( rhs.getOptionalDfltDevUserId() != null && !rhs.getOptionalDfltDevUserId().isNull() ) {
+			if( getOptionalDfltDevUserId() != null ) {
+				if( rhs.getOptionalDfltDevUserId() != null ) {
 					if( ! getOptionalDfltDevUserId().equals( rhs.getOptionalDfltDevUserId() ) ) {
 						return( false );
 					}
@@ -137,7 +137,7 @@ public class CFSecJpaSecUserByDefDevIdxKey
 				}
 			}
 			else {
-				if( rhs.getOptionalDfltDevUserId() != null && !getOptionalDfltDevUserId().isNull()) {
+				if( rhs.getOptionalDfltDevUserId() != null ) {
 					return( false );
 				}
 			}
@@ -160,8 +160,8 @@ public class CFSecJpaSecUserByDefDevIdxKey
 		}
 		else if (obj instanceof ICFSecSecUserH) {
 			ICFSecSecUserH rhs = (ICFSecSecUserH)obj;
-			if( getOptionalDfltDevUserId() != null && !getOptionalDfltDevUserId().isNull() ) {
-				if( rhs.getOptionalDfltDevUserId() != null && !rhs.getOptionalDfltDevUserId().isNull() ) {
+			if( getOptionalDfltDevUserId() != null ) {
+				if( rhs.getOptionalDfltDevUserId() != null ) {
 					if( ! getOptionalDfltDevUserId().equals( rhs.getOptionalDfltDevUserId() ) ) {
 						return( false );
 					}
@@ -171,7 +171,7 @@ public class CFSecJpaSecUserByDefDevIdxKey
 				}
 			}
 			else {
-				if( rhs.getOptionalDfltDevUserId() != null && !getOptionalDfltDevUserId().isNull()) {
+				if( rhs.getOptionalDfltDevUserId() != null ) {
 					return( false );
 				}
 			}

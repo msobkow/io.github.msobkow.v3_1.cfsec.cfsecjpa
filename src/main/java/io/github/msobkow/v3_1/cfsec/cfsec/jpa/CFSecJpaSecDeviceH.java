@@ -283,8 +283,8 @@ public class CFSecJpaSecDeviceH
         }
         else if (obj instanceof ICFSecSecDeviceHPKey) {
 		ICFSecSecDeviceHPKey rhs = (ICFSecSecDeviceHPKey)obj;
-			if( getRequiredSecUserId() != null && !getRequiredSecUserId().isNull() ) {
-				if( rhs.getRequiredSecUserId() != null && !rhs.getRequiredSecUserId().isNull() ) {
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
 					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 						return( false );
 					}
@@ -294,7 +294,7 @@ public class CFSecJpaSecDeviceH
 				}
 			}
 			else {
-				if( rhs.getRequiredSecUserId() != null && !getRequiredSecUserId().isNull()) {
+				if( rhs.getRequiredSecUserId() != null ) {
 					return( false );
 				}
 			}
@@ -317,8 +317,8 @@ public class CFSecJpaSecDeviceH
         }
         else if (obj instanceof ICFSecSecDeviceByNameIdxKey) {
             ICFSecSecDeviceByNameIdxKey rhs = (ICFSecSecDeviceByNameIdxKey)obj;
-			if( getRequiredSecUserId() != null && !getRequiredSecUserId().isNull() ) {
-				if( rhs.getRequiredSecUserId() != null && !rhs.getRequiredSecUserId().isNull() ) {
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
 					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 						return( false );
 					}
@@ -328,7 +328,7 @@ public class CFSecJpaSecDeviceH
 				}
 			}
 			else {
-				if( rhs.getRequiredSecUserId() != null && !getRequiredSecUserId().isNull()) {
+				if( rhs.getRequiredSecUserId() != null ) {
 					return( false );
 				}
 			}
@@ -351,8 +351,8 @@ public class CFSecJpaSecDeviceH
         }
         else if (obj instanceof ICFSecSecDeviceByUserIdxKey) {
             ICFSecSecDeviceByUserIdxKey rhs = (ICFSecSecDeviceByUserIdxKey)obj;
-			if( getRequiredSecUserId() != null && !getRequiredSecUserId().isNull() ) {
-				if( rhs.getRequiredSecUserId() != null && !rhs.getRequiredSecUserId().isNull() ) {
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
 					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
 						return( false );
 					}
@@ -362,7 +362,7 @@ public class CFSecJpaSecDeviceH
 				}
 			}
 			else {
-				if( rhs.getRequiredSecUserId() != null && !getRequiredSecUserId().isNull()) {
+				if( rhs.getRequiredSecUserId() != null ) {
 					return( false );
 				}
 			}

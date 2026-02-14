@@ -78,8 +78,8 @@ public class CFSecJpaServiceByTypeIdxKey
 		}
 		else if (obj instanceof ICFSecServiceByTypeIdxKey) {
 			ICFSecServiceByTypeIdxKey rhs = (ICFSecServiceByTypeIdxKey)obj;
-			if( getRequiredServiceTypeId() != null && !getRequiredServiceTypeId().isNull() ) {
-				if( rhs.getRequiredServiceTypeId() != null && !rhs.getRequiredServiceTypeId().isNull() ) {
+			if( getRequiredServiceTypeId() != null ) {
+				if( rhs.getRequiredServiceTypeId() != null ) {
 					if( ! getRequiredServiceTypeId().equals( rhs.getRequiredServiceTypeId() ) ) {
 						return( false );
 					}
@@ -89,7 +89,7 @@ public class CFSecJpaServiceByTypeIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredServiceTypeId() != null && !getRequiredServiceTypeId().isNull()) {
+				if( rhs.getRequiredServiceTypeId() != null ) {
 					return( false );
 				}
 			}
@@ -97,8 +97,8 @@ public class CFSecJpaServiceByTypeIdxKey
 		}
 		else if (obj instanceof ICFSecService) {
 			ICFSecService rhs = (ICFSecService)obj;
-			if( getRequiredServiceTypeId() != null && !getRequiredServiceTypeId().isNull() ) {
-				if( rhs.getRequiredServiceTypeId() != null && !rhs.getRequiredServiceTypeId().isNull() ) {
+			if( getRequiredServiceTypeId() != null ) {
+				if( rhs.getRequiredServiceTypeId() != null ) {
 					if( ! getRequiredServiceTypeId().equals( rhs.getRequiredServiceTypeId() ) ) {
 						return( false );
 					}
@@ -108,7 +108,7 @@ public class CFSecJpaServiceByTypeIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredServiceTypeId() != null && !getRequiredServiceTypeId().isNull()) {
+				if( rhs.getRequiredServiceTypeId() != null ) {
 					return( false );
 				}
 			}
@@ -116,8 +116,8 @@ public class CFSecJpaServiceByTypeIdxKey
 		}
 		else if (obj instanceof ICFSecServiceH) {
 			ICFSecServiceH rhs = (ICFSecServiceH)obj;
-			if( getRequiredServiceTypeId() != null && !getRequiredServiceTypeId().isNull() ) {
-				if( rhs.getRequiredServiceTypeId() != null && !rhs.getRequiredServiceTypeId().isNull() ) {
+			if( getRequiredServiceTypeId() != null ) {
+				if( rhs.getRequiredServiceTypeId() != null ) {
 					if( ! getRequiredServiceTypeId().equals( rhs.getRequiredServiceTypeId() ) ) {
 						return( false );
 					}
@@ -127,7 +127,7 @@ public class CFSecJpaServiceByTypeIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredServiceTypeId() != null && !getRequiredServiceTypeId().isNull()) {
+				if( rhs.getRequiredServiceTypeId() != null ) {
 					return( false );
 				}
 			}

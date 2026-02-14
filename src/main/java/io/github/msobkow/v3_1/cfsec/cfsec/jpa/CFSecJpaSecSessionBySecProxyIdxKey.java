@@ -72,8 +72,8 @@ public class CFSecJpaSecSessionBySecProxyIdxKey
 		}
 		else if (obj instanceof ICFSecSecSessionBySecProxyIdxKey) {
 			ICFSecSecSessionBySecProxyIdxKey rhs = (ICFSecSecSessionBySecProxyIdxKey)obj;
-			if( getOptionalSecProxyId() != null && !getOptionalSecProxyId().isNull() ) {
-				if( rhs.getOptionalSecProxyId() != null && !rhs.getOptionalSecProxyId().isNull() ) {
+			if( getOptionalSecProxyId() != null ) {
+				if( rhs.getOptionalSecProxyId() != null ) {
 					if( ! getOptionalSecProxyId().equals( rhs.getOptionalSecProxyId() ) ) {
 						return( false );
 					}
@@ -83,7 +83,7 @@ public class CFSecJpaSecSessionBySecProxyIdxKey
 				}
 			}
 			else {
-				if( rhs.getOptionalSecProxyId() != null && !getOptionalSecProxyId().isNull()) {
+				if( rhs.getOptionalSecProxyId() != null ) {
 					return( false );
 				}
 			}
@@ -91,8 +91,8 @@ public class CFSecJpaSecSessionBySecProxyIdxKey
 		}
 		else if (obj instanceof ICFSecSecSession) {
 			ICFSecSecSession rhs = (ICFSecSecSession)obj;
-			if( getOptionalSecProxyId() != null && !getOptionalSecProxyId().isNull() ) {
-				if( rhs.getOptionalSecProxyId() != null && !rhs.getOptionalSecProxyId().isNull() ) {
+			if( getOptionalSecProxyId() != null ) {
+				if( rhs.getOptionalSecProxyId() != null ) {
 					if( ! getOptionalSecProxyId().equals( rhs.getOptionalSecProxyId() ) ) {
 						return( false );
 					}
@@ -102,7 +102,7 @@ public class CFSecJpaSecSessionBySecProxyIdxKey
 				}
 			}
 			else {
-				if( rhs.getOptionalSecProxyId() != null && !getOptionalSecProxyId().isNull()) {
+				if( rhs.getOptionalSecProxyId() != null ) {
 					return( false );
 				}
 			}

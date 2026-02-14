@@ -160,8 +160,8 @@ public class CFSecJpaHostNodeHPKey
 		}
 		else if (obj instanceof ICFSecHostNode) {
 			ICFSecHostNode rhs = (ICFSecHostNode)obj;
-			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
-				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
+			if( getRequiredHostNodeId() != null ) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					if( ! getRequiredHostNodeId().equals( rhs.getRequiredHostNodeId() ) ) {
 						return( false );
 					}
@@ -171,7 +171,7 @@ public class CFSecJpaHostNodeHPKey
 				}
 			}
 			else {
-				if( rhs.getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull()) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					return( false );
 				}
 			}
@@ -224,8 +224,8 @@ public class CFSecJpaHostNodeHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
-				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
+			if( getRequiredHostNodeId() != null ) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					if( ! getRequiredHostNodeId().equals( rhs.getRequiredHostNodeId() ) ) {
 						return( false );
 					}
@@ -235,7 +235,7 @@ public class CFSecJpaHostNodeHPKey
 				}
 			}
 			else {
-				if( rhs.getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull()) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					return( false );
 				}
 			}
@@ -288,8 +288,8 @@ public class CFSecJpaHostNodeHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
-				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
+			if( getRequiredHostNodeId() != null ) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					if( ! getRequiredHostNodeId().equals( rhs.getRequiredHostNodeId() ) ) {
 						return( false );
 					}
@@ -299,7 +299,7 @@ public class CFSecJpaHostNodeHPKey
 				}
 			}
 			else {
-				if( rhs.getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull()) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					return( false );
 				}
 			}

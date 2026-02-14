@@ -160,8 +160,8 @@ public class CFSecJpaSecGrpIncHPKey
 		}
 		else if (obj instanceof ICFSecSecGrpInc) {
 			ICFSecSecGrpInc rhs = (ICFSecSecGrpInc)obj;
-			if( getRequiredSecGrpIncId() != null && !getRequiredSecGrpIncId().isNull() ) {
-				if( rhs.getRequiredSecGrpIncId() != null && !rhs.getRequiredSecGrpIncId().isNull() ) {
+			if( getRequiredSecGrpIncId() != null ) {
+				if( rhs.getRequiredSecGrpIncId() != null ) {
 					if( ! getRequiredSecGrpIncId().equals( rhs.getRequiredSecGrpIncId() ) ) {
 						return( false );
 					}
@@ -171,7 +171,7 @@ public class CFSecJpaSecGrpIncHPKey
 				}
 			}
 			else {
-				if( rhs.getRequiredSecGrpIncId() != null && !getRequiredSecGrpIncId().isNull()) {
+				if( rhs.getRequiredSecGrpIncId() != null ) {
 					return( false );
 				}
 			}
@@ -224,8 +224,8 @@ public class CFSecJpaSecGrpIncHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredSecGrpIncId() != null && !getRequiredSecGrpIncId().isNull() ) {
-				if( rhs.getRequiredSecGrpIncId() != null && !rhs.getRequiredSecGrpIncId().isNull() ) {
+			if( getRequiredSecGrpIncId() != null ) {
+				if( rhs.getRequiredSecGrpIncId() != null ) {
 					if( ! getRequiredSecGrpIncId().equals( rhs.getRequiredSecGrpIncId() ) ) {
 						return( false );
 					}
@@ -235,7 +235,7 @@ public class CFSecJpaSecGrpIncHPKey
 				}
 			}
 			else {
-				if( rhs.getRequiredSecGrpIncId() != null && !getRequiredSecGrpIncId().isNull()) {
+				if( rhs.getRequiredSecGrpIncId() != null ) {
 					return( false );
 				}
 			}
@@ -288,8 +288,8 @@ public class CFSecJpaSecGrpIncHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredSecGrpIncId() != null && !getRequiredSecGrpIncId().isNull() ) {
-				if( rhs.getRequiredSecGrpIncId() != null && !rhs.getRequiredSecGrpIncId().isNull() ) {
+			if( getRequiredSecGrpIncId() != null ) {
+				if( rhs.getRequiredSecGrpIncId() != null ) {
 					if( ! getRequiredSecGrpIncId().equals( rhs.getRequiredSecGrpIncId() ) ) {
 						return( false );
 					}
@@ -299,7 +299,7 @@ public class CFSecJpaSecGrpIncHPKey
 				}
 			}
 			else {
-				if( rhs.getRequiredSecGrpIncId() != null && !getRequiredSecGrpIncId().isNull()) {
+				if( rhs.getRequiredSecGrpIncId() != null ) {
 					return( false );
 				}
 			}

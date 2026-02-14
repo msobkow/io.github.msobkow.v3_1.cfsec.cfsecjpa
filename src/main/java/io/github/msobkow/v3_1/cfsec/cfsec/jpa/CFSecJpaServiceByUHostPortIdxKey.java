@@ -116,8 +116,8 @@ public class CFSecJpaServiceByUHostPortIdxKey
 		}
 		else if (obj instanceof ICFSecServiceByUHostPortIdxKey) {
 			ICFSecServiceByUHostPortIdxKey rhs = (ICFSecServiceByUHostPortIdxKey)obj;
-			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
-				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+			if( getRequiredClusterId() != null ) {
+				if( rhs.getRequiredClusterId() != null ) {
 					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
 						return( false );
 					}
@@ -127,12 +127,12 @@ public class CFSecJpaServiceByUHostPortIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+				if( rhs.getRequiredClusterId() != null ) {
 					return( false );
 				}
 			}
-			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
-				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
+			if( getRequiredHostNodeId() != null ) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					if( ! getRequiredHostNodeId().equals( rhs.getRequiredHostNodeId() ) ) {
 						return( false );
 					}
@@ -142,7 +142,7 @@ public class CFSecJpaServiceByUHostPortIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull()) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					return( false );
 				}
 			}
@@ -153,8 +153,8 @@ public class CFSecJpaServiceByUHostPortIdxKey
 		}
 		else if (obj instanceof ICFSecService) {
 			ICFSecService rhs = (ICFSecService)obj;
-			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
-				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+			if( getRequiredClusterId() != null ) {
+				if( rhs.getRequiredClusterId() != null ) {
 					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
 						return( false );
 					}
@@ -164,12 +164,12 @@ public class CFSecJpaServiceByUHostPortIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+				if( rhs.getRequiredClusterId() != null ) {
 					return( false );
 				}
 			}
-			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
-				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
+			if( getRequiredHostNodeId() != null ) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					if( ! getRequiredHostNodeId().equals( rhs.getRequiredHostNodeId() ) ) {
 						return( false );
 					}
@@ -179,7 +179,7 @@ public class CFSecJpaServiceByUHostPortIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull()) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					return( false );
 				}
 			}
@@ -190,8 +190,8 @@ public class CFSecJpaServiceByUHostPortIdxKey
 		}
 		else if (obj instanceof ICFSecServiceH) {
 			ICFSecServiceH rhs = (ICFSecServiceH)obj;
-			if( getRequiredClusterId() != null && !getRequiredClusterId().isNull() ) {
-				if( rhs.getRequiredClusterId() != null && !rhs.getRequiredClusterId().isNull() ) {
+			if( getRequiredClusterId() != null ) {
+				if( rhs.getRequiredClusterId() != null ) {
 					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
 						return( false );
 					}
@@ -201,12 +201,12 @@ public class CFSecJpaServiceByUHostPortIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredClusterId() != null && !getRequiredClusterId().isNull()) {
+				if( rhs.getRequiredClusterId() != null ) {
 					return( false );
 				}
 			}
-			if( getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull() ) {
-				if( rhs.getRequiredHostNodeId() != null && !rhs.getRequiredHostNodeId().isNull() ) {
+			if( getRequiredHostNodeId() != null ) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					if( ! getRequiredHostNodeId().equals( rhs.getRequiredHostNodeId() ) ) {
 						return( false );
 					}
@@ -216,7 +216,7 @@ public class CFSecJpaServiceByUHostPortIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredHostNodeId() != null && !getRequiredHostNodeId().isNull()) {
+				if( rhs.getRequiredHostNodeId() != null ) {
 					return( false );
 				}
 			}

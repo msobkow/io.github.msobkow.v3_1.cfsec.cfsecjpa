@@ -78,8 +78,8 @@ public class CFSecJpaTSecGrpIncByGroupIdxKey
 		}
 		else if (obj instanceof ICFSecTSecGrpIncByGroupIdxKey) {
 			ICFSecTSecGrpIncByGroupIdxKey rhs = (ICFSecTSecGrpIncByGroupIdxKey)obj;
-			if( getRequiredTSecGroupId() != null && !getRequiredTSecGroupId().isNull() ) {
-				if( rhs.getRequiredTSecGroupId() != null && !rhs.getRequiredTSecGroupId().isNull() ) {
+			if( getRequiredTSecGroupId() != null ) {
+				if( rhs.getRequiredTSecGroupId() != null ) {
 					if( ! getRequiredTSecGroupId().equals( rhs.getRequiredTSecGroupId() ) ) {
 						return( false );
 					}
@@ -89,7 +89,7 @@ public class CFSecJpaTSecGrpIncByGroupIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredTSecGroupId() != null && !getRequiredTSecGroupId().isNull()) {
+				if( rhs.getRequiredTSecGroupId() != null ) {
 					return( false );
 				}
 			}
@@ -97,8 +97,8 @@ public class CFSecJpaTSecGrpIncByGroupIdxKey
 		}
 		else if (obj instanceof ICFSecTSecGrpInc) {
 			ICFSecTSecGrpInc rhs = (ICFSecTSecGrpInc)obj;
-			if( getRequiredTSecGroupId() != null && !getRequiredTSecGroupId().isNull() ) {
-				if( rhs.getRequiredTSecGroupId() != null && !rhs.getRequiredTSecGroupId().isNull() ) {
+			if( getRequiredTSecGroupId() != null ) {
+				if( rhs.getRequiredTSecGroupId() != null ) {
 					if( ! getRequiredTSecGroupId().equals( rhs.getRequiredTSecGroupId() ) ) {
 						return( false );
 					}
@@ -108,7 +108,7 @@ public class CFSecJpaTSecGrpIncByGroupIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredTSecGroupId() != null && !getRequiredTSecGroupId().isNull()) {
+				if( rhs.getRequiredTSecGroupId() != null ) {
 					return( false );
 				}
 			}
@@ -116,8 +116,8 @@ public class CFSecJpaTSecGrpIncByGroupIdxKey
 		}
 		else if (obj instanceof ICFSecTSecGrpIncH) {
 			ICFSecTSecGrpIncH rhs = (ICFSecTSecGrpIncH)obj;
-			if( getRequiredTSecGroupId() != null && !getRequiredTSecGroupId().isNull() ) {
-				if( rhs.getRequiredTSecGroupId() != null && !rhs.getRequiredTSecGroupId().isNull() ) {
+			if( getRequiredTSecGroupId() != null ) {
+				if( rhs.getRequiredTSecGroupId() != null ) {
 					if( ! getRequiredTSecGroupId().equals( rhs.getRequiredTSecGroupId() ) ) {
 						return( false );
 					}
@@ -127,7 +127,7 @@ public class CFSecJpaTSecGrpIncByGroupIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredTSecGroupId() != null && !getRequiredTSecGroupId().isNull()) {
+				if( rhs.getRequiredTSecGroupId() != null ) {
 					return( false );
 				}
 			}

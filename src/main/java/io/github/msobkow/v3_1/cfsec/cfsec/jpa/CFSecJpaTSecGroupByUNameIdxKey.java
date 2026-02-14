@@ -104,8 +104,8 @@ public class CFSecJpaTSecGroupByUNameIdxKey
 		}
 		else if (obj instanceof ICFSecTSecGroupByUNameIdxKey) {
 			ICFSecTSecGroupByUNameIdxKey rhs = (ICFSecTSecGroupByUNameIdxKey)obj;
-			if( getRequiredTenantId() != null && !getRequiredTenantId().isNull() ) {
-				if( rhs.getRequiredTenantId() != null && !rhs.getRequiredTenantId().isNull() ) {
+			if( getRequiredTenantId() != null ) {
+				if( rhs.getRequiredTenantId() != null ) {
 					if( ! getRequiredTenantId().equals( rhs.getRequiredTenantId() ) ) {
 						return( false );
 					}
@@ -115,7 +115,7 @@ public class CFSecJpaTSecGroupByUNameIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredTenantId() != null && !getRequiredTenantId().isNull()) {
+				if( rhs.getRequiredTenantId() != null ) {
 					return( false );
 				}
 			}
@@ -138,8 +138,8 @@ public class CFSecJpaTSecGroupByUNameIdxKey
 		}
 		else if (obj instanceof ICFSecTSecGroup) {
 			ICFSecTSecGroup rhs = (ICFSecTSecGroup)obj;
-			if( getRequiredTenantId() != null && !getRequiredTenantId().isNull() ) {
-				if( rhs.getRequiredTenantId() != null && !rhs.getRequiredTenantId().isNull() ) {
+			if( getRequiredTenantId() != null ) {
+				if( rhs.getRequiredTenantId() != null ) {
 					if( ! getRequiredTenantId().equals( rhs.getRequiredTenantId() ) ) {
 						return( false );
 					}
@@ -149,7 +149,7 @@ public class CFSecJpaTSecGroupByUNameIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredTenantId() != null && !getRequiredTenantId().isNull()) {
+				if( rhs.getRequiredTenantId() != null ) {
 					return( false );
 				}
 			}
@@ -172,8 +172,8 @@ public class CFSecJpaTSecGroupByUNameIdxKey
 		}
 		else if (obj instanceof ICFSecTSecGroupH) {
 			ICFSecTSecGroupH rhs = (ICFSecTSecGroupH)obj;
-			if( getRequiredTenantId() != null && !getRequiredTenantId().isNull() ) {
-				if( rhs.getRequiredTenantId() != null && !rhs.getRequiredTenantId().isNull() ) {
+			if( getRequiredTenantId() != null ) {
+				if( rhs.getRequiredTenantId() != null ) {
 					if( ! getRequiredTenantId().equals( rhs.getRequiredTenantId() ) ) {
 						return( false );
 					}
@@ -183,7 +183,7 @@ public class CFSecJpaTSecGroupByUNameIdxKey
 				}
 			}
 			else {
-				if( rhs.getRequiredTenantId() != null && !getRequiredTenantId().isNull()) {
+				if( rhs.getRequiredTenantId() != null ) {
 					return( false );
 				}
 			}
