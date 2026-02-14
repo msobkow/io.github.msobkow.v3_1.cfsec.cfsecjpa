@@ -71,7 +71,6 @@ public class CFSecJpaSecSession
 		@AttributeOverride(name="bytes", column = @Column( name="SecSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecSessionId;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)

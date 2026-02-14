@@ -72,7 +72,6 @@ public class CFSecJpaISOCtry
 	protected Set<CFSecJpaISOCtryCcy> optionalComponentsCcy;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerCtry")
 	protected Set<CFSecJpaISOCtryLang> optionalComponentsLang;
-	@Version
 	protected int requiredRevision;
 
 

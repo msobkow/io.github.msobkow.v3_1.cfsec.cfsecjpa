@@ -75,7 +75,6 @@ public class CFSecJpaSecGroup
 	protected Set<CFSecJpaSecGrpMemb> optionalComponentsMember;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSubGroup")
 	protected Set<CFSecJpaSecGrpInc> requiredChildrenIncByGroup;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)

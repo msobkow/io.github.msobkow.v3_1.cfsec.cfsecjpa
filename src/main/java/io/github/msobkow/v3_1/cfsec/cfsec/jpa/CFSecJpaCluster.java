@@ -76,7 +76,6 @@ public class CFSecJpaCluster
 	protected Set<CFSecJpaSecGroup> optionalComponentsSecGroup;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCluster")
 	protected Set<CFSecJpaSysCluster> optionalComponentsSysCluster;
-	@Version
 	protected int requiredRevision;
 
 

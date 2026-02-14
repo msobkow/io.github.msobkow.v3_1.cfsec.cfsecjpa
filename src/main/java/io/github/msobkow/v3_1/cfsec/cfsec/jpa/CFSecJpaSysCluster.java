@@ -65,7 +65,6 @@ public class CFSecJpaSysCluster
 	@Id
 	@Column( name="sgltn_id", nullable=false )
 	protected int requiredSingletonId;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)

@@ -70,7 +70,6 @@ public class CFSecJpaSecGrpMemb
 		@AttributeOverride(name="bytes", column = @Column( name="SecGrpMembId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecGrpMembId;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)

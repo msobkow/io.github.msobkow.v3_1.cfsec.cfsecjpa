@@ -70,7 +70,6 @@ public class CFSecJpaTenant
 	protected CFLibDbKeyHash256 requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerTenant")
 	protected Set<CFSecJpaTSecGroup> optionalComponentsTSecGroup;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)

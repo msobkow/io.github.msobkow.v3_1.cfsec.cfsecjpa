@@ -71,7 +71,6 @@ public class CFSecJpaService
 		@AttributeOverride(name="bytes", column = @Column( name="ServiceId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredServiceId;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=true)

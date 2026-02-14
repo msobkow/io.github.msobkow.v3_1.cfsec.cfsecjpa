@@ -80,7 +80,6 @@ public class CFSecJpaSecUser
 	protected Set<CFSecJpaSecGrpMemb> optionalChildrenSecGrpMemb;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentUser")
 	protected Set<CFSecJpaTSecGrpMemb> optionalChildrenTSecGrpMemb;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=true)

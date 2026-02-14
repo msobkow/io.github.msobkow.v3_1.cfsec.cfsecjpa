@@ -70,7 +70,6 @@ public class CFSecJpaISOCcy
 	protected short requiredISOCcyId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentCcy")
 	protected Set<CFSecJpaISOCtryCcy> optionalChildrenCtry;
-	@Version
 	protected int requiredRevision;
 
 

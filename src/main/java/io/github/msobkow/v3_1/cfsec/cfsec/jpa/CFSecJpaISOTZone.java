@@ -69,7 +69,6 @@ public class CFSecJpaISOTZone
 	@SequenceGenerator(name = "ISOTZoneIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOTZoneId", nullable=false )
 	protected short requiredISOTZoneId;
-	@Version
 	protected int requiredRevision;
 
 

@@ -70,7 +70,6 @@ public class CFSecJpaISOLang
 	protected short requiredISOLangId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentLang")
 	protected Set<CFSecJpaISOCtryLang> optionalChildrenCtry;
-	@Version
 	protected int requiredRevision;
 
 

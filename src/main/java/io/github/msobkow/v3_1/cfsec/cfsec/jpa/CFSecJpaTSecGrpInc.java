@@ -70,7 +70,6 @@ public class CFSecJpaTSecGrpInc
 		@AttributeOverride(name="bytes", column = @Column( name="TSecGrpIncId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredTSecGrpIncId;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)

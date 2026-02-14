@@ -70,7 +70,6 @@ public class CFSecJpaSecDevice
 	})
 	@EmbeddedId
 	CFSecJpaSecDevicePKey pkey = new CFSecJpaSecDevicePKey();
-	@Version
 	protected int requiredRevision;
 
 

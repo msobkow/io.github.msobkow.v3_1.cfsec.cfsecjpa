@@ -69,7 +69,6 @@ public class CFSecJpaServiceType
 	protected CFLibDbKeyHash256 requiredServiceTypeId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="optionalParentServiceType")
 	protected Set<CFSecJpaService> optionalChildrenDeployed;
-	@Version
 	protected int requiredRevision;
 
 

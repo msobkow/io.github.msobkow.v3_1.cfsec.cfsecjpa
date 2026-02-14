@@ -70,7 +70,6 @@ public class CFSecJpaISOCtryCcy
 	})
 	@EmbeddedId
 	CFSecJpaISOCtryCcyPKey pkey = new CFSecJpaISOCtryCcyPKey();
-	@Version
 	protected int requiredRevision;
 
 

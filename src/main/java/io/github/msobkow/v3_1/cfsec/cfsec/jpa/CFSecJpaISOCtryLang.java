@@ -70,7 +70,6 @@ public class CFSecJpaISOCtryLang
 	})
 	@EmbeddedId
 	CFSecJpaISOCtryLangPKey pkey = new CFSecJpaISOCtryLangPKey();
-	@Version
 	protected int requiredRevision;
 
 

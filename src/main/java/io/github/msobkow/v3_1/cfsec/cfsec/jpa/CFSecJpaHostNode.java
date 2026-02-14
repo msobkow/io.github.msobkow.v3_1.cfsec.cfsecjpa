@@ -71,7 +71,6 @@ public class CFSecJpaHostNode
 	protected CFLibDbKeyHash256 requiredHostNodeId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="optionalContainerHost")
 	protected Set<CFSecJpaService> optionalComponentsService;
-	@Version
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
