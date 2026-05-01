@@ -65,6 +65,11 @@ public class CFSecJpaSchema
 	protected ICFSecSecClusGrpTable tableSecClusGrp;
 	protected ICFSecSecClusGrpIncTable tableSecClusGrpInc;
 	protected ICFSecSecClusGrpMembTable tableSecClusGrpMemb;
+	protected ICFSecSecClusRoleTable tableSecClusRole;
+	protected ICFSecSecClusRoleMembTable tableSecClusRoleMemb;
+	protected ICFSecSecRoleTable tableSecRole;
+	protected ICFSecSecRoleEnablesTable tableSecRoleEnables;
+	protected ICFSecSecRoleMembTable tableSecRoleMemb;
 	protected ICFSecSecSessionTable tableSecSession;
 	protected ICFSecSecSysGrpTable tableSecSysGrp;
 	protected ICFSecSecSysGrpIncTable tableSecSysGrpInc;
@@ -72,6 +77,8 @@ public class CFSecJpaSchema
 	protected ICFSecSecTentGrpTable tableSecTentGrp;
 	protected ICFSecSecTentGrpIncTable tableSecTentGrpInc;
 	protected ICFSecSecTentGrpMembTable tableSecTentGrpMemb;
+	protected ICFSecSecTentRoleTable tableSecTentRole;
+	protected ICFSecSecTentRoleMembTable tableSecTentRoleMemb;
 	protected ICFSecSecUserTable tableSecUser;
 	protected ICFSecSecUserEMConfTable tableSecUserEMConf;
 	protected ICFSecSecUserPWHistoryTable tableSecUserPWHistory;
@@ -90,6 +97,11 @@ public class CFSecJpaSchema
 	protected ICFSecSecClusGrpFactory factorySecClusGrp;
 	protected ICFSecSecClusGrpIncFactory factorySecClusGrpInc;
 	protected ICFSecSecClusGrpMembFactory factorySecClusGrpMemb;
+	protected ICFSecSecClusRoleFactory factorySecClusRole;
+	protected ICFSecSecClusRoleMembFactory factorySecClusRoleMemb;
+	protected ICFSecSecRoleFactory factorySecRole;
+	protected ICFSecSecRoleEnablesFactory factorySecRoleEnables;
+	protected ICFSecSecRoleMembFactory factorySecRoleMemb;
 	protected ICFSecSecSessionFactory factorySecSession;
 	protected ICFSecSecSysGrpFactory factorySecSysGrp;
 	protected ICFSecSecSysGrpIncFactory factorySecSysGrpInc;
@@ -97,6 +109,8 @@ public class CFSecJpaSchema
 	protected ICFSecSecTentGrpFactory factorySecTentGrp;
 	protected ICFSecSecTentGrpIncFactory factorySecTentGrpInc;
 	protected ICFSecSecTentGrpMembFactory factorySecTentGrpMemb;
+	protected ICFSecSecTentRoleFactory factorySecTentRole;
+	protected ICFSecSecTentRoleMembFactory factorySecTentRoleMemb;
 	protected ICFSecSecUserFactory factorySecUser;
 	protected ICFSecSecUserEMConfFactory factorySecUserEMConf;
 	protected ICFSecSecUserPWHistoryFactory factorySecUserPWHistory;
@@ -422,6 +436,104 @@ public class CFSecJpaSchema
 			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecTentGrpMemb.CLASS_CODE)[" + ICFSecSecTentGrpMemb.CLASS_CODE + "]");
 		}
 	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecRole.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecSecRole ret = new CFSecJpaSecRole();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecRole.CLASS_CODE)[" + ICFSecSecRole.CLASS_CODE + "]");
+		}
+	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecRoleEnables.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecSecRoleEnables ret = new CFSecJpaSecRoleEnables();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecRoleEnables.CLASS_CODE)[" + ICFSecSecRoleEnables.CLASS_CODE + "]");
+		}
+	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecRoleMemb.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecSecRoleMemb ret = new CFSecJpaSecRoleMemb();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecRoleMemb.CLASS_CODE)[" + ICFSecSecRoleMemb.CLASS_CODE + "]");
+		}
+	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecClusRole.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecSecClusRole ret = new CFSecJpaSecClusRole();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecClusRole.CLASS_CODE)[" + ICFSecSecClusRole.CLASS_CODE + "]");
+		}
+	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecClusRoleMemb.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecSecClusRoleMemb ret = new CFSecJpaSecClusRoleMemb();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecClusRoleMemb.CLASS_CODE)[" + ICFSecSecClusRoleMemb.CLASS_CODE + "]");
+		}
+	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecTentRole.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecSecTentRole ret = new CFSecJpaSecTentRole();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecTentRole.CLASS_CODE)[" + ICFSecSecTentRole.CLASS_CODE + "]");
+		}
+	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecTentRoleMemb.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecSecTentRoleMemb ret = new CFSecJpaSecTentRoleMemb();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecTentRoleMemb.CLASS_CODE)[" + ICFSecSecTentRoleMemb.CLASS_CODE + "]");
+		}
+	
 		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecSecSession.CLASS_CODE);
 		if (entry != null) {
 			entry.setBackingRecConstructor( new BackingRecConstructor() {
@@ -520,6 +632,27 @@ public class CFSecJpaSchema
 		if (tableSecTentGrpMemb == null || !(tableSecTentGrpMemb instanceof CFSecJpaSecTentGrpMembTable)) {
 			tableSecTentGrpMemb = new CFSecJpaSecTentGrpMembTable(this);
 		}
+		if (tableSecRole == null || !(tableSecRole instanceof CFSecJpaSecRoleTable)) {
+			tableSecRole = new CFSecJpaSecRoleTable(this);
+		}
+		if (tableSecRoleEnables == null || !(tableSecRoleEnables instanceof CFSecJpaSecRoleEnablesTable)) {
+			tableSecRoleEnables = new CFSecJpaSecRoleEnablesTable(this);
+		}
+		if (tableSecRoleMemb == null || !(tableSecRoleMemb instanceof CFSecJpaSecRoleMembTable)) {
+			tableSecRoleMemb = new CFSecJpaSecRoleMembTable(this);
+		}
+		if (tableSecClusRole == null || !(tableSecClusRole instanceof CFSecJpaSecClusRoleTable)) {
+			tableSecClusRole = new CFSecJpaSecClusRoleTable(this);
+		}
+		if (tableSecClusRoleMemb == null || !(tableSecClusRoleMemb instanceof CFSecJpaSecClusRoleMembTable)) {
+			tableSecClusRoleMemb = new CFSecJpaSecClusRoleMembTable(this);
+		}
+		if (tableSecTentRole == null || !(tableSecTentRole instanceof CFSecJpaSecTentRoleTable)) {
+			tableSecTentRole = new CFSecJpaSecTentRoleTable(this);
+		}
+		if (tableSecTentRoleMemb == null || !(tableSecTentRoleMemb instanceof CFSecJpaSecTentRoleMembTable)) {
+			tableSecTentRoleMemb = new CFSecJpaSecTentRoleMembTable(this);
+		}
 		if (tableSecSession == null || !(tableSecSession instanceof CFSecJpaSecSessionTable)) {
 			tableSecSession = new CFSecJpaSecSessionTable(this);
 		}
@@ -563,6 +696,11 @@ public class CFSecJpaSchema
 		tableSecClusGrp = null;
 		tableSecClusGrpInc = null;
 		tableSecClusGrpMemb = null;
+		tableSecClusRole = null;
+		tableSecClusRoleMemb = null;
+		tableSecRole = null;
+		tableSecRoleEnables = null;
+		tableSecRoleMemb = null;
 		tableSecSession = null;
 		tableSecSysGrp = null;
 		tableSecSysGrpInc = null;
@@ -570,6 +708,8 @@ public class CFSecJpaSchema
 		tableSecTentGrp = null;
 		tableSecTentGrpInc = null;
 		tableSecTentGrpMemb = null;
+		tableSecTentRole = null;
+		tableSecTentRoleMemb = null;
 		tableSecUser = null;
 		tableSecUserEMConf = null;
 		tableSecUserPWHistory = null;
@@ -588,6 +728,11 @@ public class CFSecJpaSchema
 		factorySecClusGrp = new CFSecJpaSecClusGrpDefaultFactory();
 		factorySecClusGrpInc = new CFSecJpaSecClusGrpIncDefaultFactory();
 		factorySecClusGrpMemb = new CFSecJpaSecClusGrpMembDefaultFactory();
+		factorySecClusRole = new CFSecJpaSecClusRoleDefaultFactory();
+		factorySecClusRoleMemb = new CFSecJpaSecClusRoleMembDefaultFactory();
+		factorySecRole = new CFSecJpaSecRoleDefaultFactory();
+		factorySecRoleEnables = new CFSecJpaSecRoleEnablesDefaultFactory();
+		factorySecRoleMemb = new CFSecJpaSecRoleMembDefaultFactory();
 		factorySecSession = new CFSecJpaSecSessionDefaultFactory();
 		factorySecSysGrp = new CFSecJpaSecSysGrpDefaultFactory();
 		factorySecSysGrpInc = new CFSecJpaSecSysGrpIncDefaultFactory();
@@ -595,6 +740,8 @@ public class CFSecJpaSchema
 		factorySecTentGrp = new CFSecJpaSecTentGrpDefaultFactory();
 		factorySecTentGrpInc = new CFSecJpaSecTentGrpIncDefaultFactory();
 		factorySecTentGrpMemb = new CFSecJpaSecTentGrpMembDefaultFactory();
+		factorySecTentRole = new CFSecJpaSecTentRoleDefaultFactory();
+		factorySecTentRoleMemb = new CFSecJpaSecTentRoleMembDefaultFactory();
 		factorySecUser = new CFSecJpaSecUserDefaultFactory();
 		factorySecUserEMConf = new CFSecJpaSecUserEMConfDefaultFactory();
 		factorySecUserPWHistory = new CFSecJpaSecUserPWHistoryDefaultFactory();
@@ -606,42 +753,6 @@ public class CFSecJpaSchema
 	@Override
 	public ICFSecSchema newSchema() {
 		throw new CFLibMustOverrideException( getClass(), "newSchema" );
-	}
-
-	@Override
-	public boolean isMemberOfTenantGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, String permissionName) {
-		// Dummied out for now
-		return( true );
-	}
-
-	@Override
-	public boolean isMemberOfTenantGroup(String userLogin, CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, String permissionName) {
-		// Dummied out for now
-		return( true );
-	}
-
-	@Override
-	public boolean isMemberOfClusterGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, String permissionName) {
-		// Dummied out for now
-		return( true );
-	}
-
-	@Override
-	public boolean isMemberOfClusterGroup(String userLogin, CFLibDbKeyHash256 clusterId, String permissionName) {
-		// Dummied out for now
-		return( true );
-	}
-
-	@Override
-	public boolean isMemberOfSystemGroup(CFLibDbKeyHash256 userId, String permissionName) {
-		// Dummied out for now
-		return( true );
-	}
-
-	@Override
-	public boolean isMemberOfSystemGroup(String userLogin, String permissionName) {
-		// Dummied out for now
-		return( true );
 	}
 
 	@Override
@@ -701,7 +812,19 @@ public class CFSecJpaSchema
 	}
 
 	@Override
+	public CFLibDbKeyHash256 nextSecClusRoleIdGen() {
+		CFLibDbKeyHash256 retval = new CFLibDbKeyHash256(0);
+		return( retval );
+	}
+
+	@Override
 	public CFLibDbKeyHash256 nextSecTentGrpIdGen() {
+		CFLibDbKeyHash256 retval = new CFLibDbKeyHash256(0);
+		return( retval );
+	}
+
+	@Override
+	public CFLibDbKeyHash256 nextSecTentRoleIdGen() {
 		CFLibDbKeyHash256 retval = new CFLibDbKeyHash256(0);
 		return( retval );
 	}
@@ -866,6 +989,86 @@ public class CFSecJpaSchema
 		factorySecClusGrpMemb = value;
 	}
 
+	public ICFSecSecClusRoleTable getTableSecClusRole() {
+		return( tableSecClusRole );
+	}
+
+	public void setTableSecClusRole( ICFSecSecClusRoleTable value ) {
+		tableSecClusRole = value;
+	}
+
+	public ICFSecSecClusRoleFactory getFactorySecClusRole() {
+		return( factorySecClusRole );
+	}
+
+	public void setFactorySecClusRole( ICFSecSecClusRoleFactory value ) {
+		factorySecClusRole = value;
+	}
+
+	public ICFSecSecClusRoleMembTable getTableSecClusRoleMemb() {
+		return( tableSecClusRoleMemb );
+	}
+
+	public void setTableSecClusRoleMemb( ICFSecSecClusRoleMembTable value ) {
+		tableSecClusRoleMemb = value;
+	}
+
+	public ICFSecSecClusRoleMembFactory getFactorySecClusRoleMemb() {
+		return( factorySecClusRoleMemb );
+	}
+
+	public void setFactorySecClusRoleMemb( ICFSecSecClusRoleMembFactory value ) {
+		factorySecClusRoleMemb = value;
+	}
+
+	public ICFSecSecRoleTable getTableSecRole() {
+		return( tableSecRole );
+	}
+
+	public void setTableSecRole( ICFSecSecRoleTable value ) {
+		tableSecRole = value;
+	}
+
+	public ICFSecSecRoleFactory getFactorySecRole() {
+		return( factorySecRole );
+	}
+
+	public void setFactorySecRole( ICFSecSecRoleFactory value ) {
+		factorySecRole = value;
+	}
+
+	public ICFSecSecRoleEnablesTable getTableSecRoleEnables() {
+		return( tableSecRoleEnables );
+	}
+
+	public void setTableSecRoleEnables( ICFSecSecRoleEnablesTable value ) {
+		tableSecRoleEnables = value;
+	}
+
+	public ICFSecSecRoleEnablesFactory getFactorySecRoleEnables() {
+		return( factorySecRoleEnables );
+	}
+
+	public void setFactorySecRoleEnables( ICFSecSecRoleEnablesFactory value ) {
+		factorySecRoleEnables = value;
+	}
+
+	public ICFSecSecRoleMembTable getTableSecRoleMemb() {
+		return( tableSecRoleMemb );
+	}
+
+	public void setTableSecRoleMemb( ICFSecSecRoleMembTable value ) {
+		tableSecRoleMemb = value;
+	}
+
+	public ICFSecSecRoleMembFactory getFactorySecRoleMemb() {
+		return( factorySecRoleMemb );
+	}
+
+	public void setFactorySecRoleMemb( ICFSecSecRoleMembFactory value ) {
+		factorySecRoleMemb = value;
+	}
+
 	public ICFSecSecSessionTable getTableSecSession() {
 		return( tableSecSession );
 	}
@@ -978,6 +1181,38 @@ public class CFSecJpaSchema
 		factorySecTentGrpMemb = value;
 	}
 
+	public ICFSecSecTentRoleTable getTableSecTentRole() {
+		return( tableSecTentRole );
+	}
+
+	public void setTableSecTentRole( ICFSecSecTentRoleTable value ) {
+		tableSecTentRole = value;
+	}
+
+	public ICFSecSecTentRoleFactory getFactorySecTentRole() {
+		return( factorySecTentRole );
+	}
+
+	public void setFactorySecTentRole( ICFSecSecTentRoleFactory value ) {
+		factorySecTentRole = value;
+	}
+
+	public ICFSecSecTentRoleMembTable getTableSecTentRoleMemb() {
+		return( tableSecTentRoleMemb );
+	}
+
+	public void setTableSecTentRoleMemb( ICFSecSecTentRoleMembTable value ) {
+		tableSecTentRoleMemb = value;
+	}
+
+	public ICFSecSecTentRoleMembFactory getFactorySecTentRoleMemb() {
+		return( factorySecTentRoleMemb );
+	}
+
+	public void setFactorySecTentRoleMemb( ICFSecSecTentRoleMembFactory value ) {
+		factorySecTentRoleMemb = value;
+	}
+
 	public ICFSecSecUserTable getTableSecUser() {
 		return( tableSecUser );
 	}
@@ -1088,42 +1323,6 @@ public class CFSecJpaSchema
 
 	public void setFactoryTenant( ICFSecTenantFactory value ) {
 		factoryTenant = value;
-	}
-
-	/**
-	 *	Get the Table Permissions interface for the schema.
-	 *
-	 *	@return	The Table Permissions interface for the schema.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public static ICFSecTablePerms getTablePerms() {
-		return(tablePerms);
-	}
-
-	/**
-	 *	Get the Table Permissions interface cast to this schema's implementation.
-	 *
-	 *	@return The Table Permissions interface for this schema.
-	 */
-	public static ICFSecTablePerms getCFSecTablePerms() {
-		return (ICFSecTablePerms)getTablePerms();
-	}
-
-	/**
-	 *	Set the Table Permissions interface for the schema.  All fractal subclasses of
-	 *	the ICFSecTablePerms implement at least that interface plus their own
-	 *	accessors.
-	 *
-	 *	@param	value	The Table Permissions interface to be used by the schema.
-	 *
-	 *	@throws CFLibNotSupportedException thrown by client-side implementations.
-	 */
-	public static void setTablePerms( ICFSecTablePerms value ) {
-		if(value == null) {
-			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "setTablePerms", 1, "value");
-		}
-		tablePerms = value;
 	}
 
 	public void bootstrapSchema(CFSecTableInfo tableInfo[]) {

@@ -124,6 +124,27 @@ public class CFSecJpaSchemaService {
 	private CFSecJpaSecTentGrpMembService sectentgrpmembService;
 
 	@Autowired
+	private CFSecJpaSecRoleService secroleService;
+
+	@Autowired
+	private CFSecJpaSecRoleEnablesService secroleenablesService;
+
+	@Autowired
+	private CFSecJpaSecRoleMembService secrolemembService;
+
+	@Autowired
+	private CFSecJpaSecClusRoleService secclusroleService;
+
+	@Autowired
+	private CFSecJpaSecClusRoleMembService secclusrolemembService;
+
+	@Autowired
+	private CFSecJpaSecTentRoleService sectentroleService;
+
+	@Autowired
+	private CFSecJpaSecTentRoleMembService sectentrolemembService;
+
+	@Autowired
 	private CFSecJpaSecSessionService secsessionService;
 
 	@Autowired

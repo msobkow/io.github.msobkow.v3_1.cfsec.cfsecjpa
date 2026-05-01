@@ -155,11 +155,29 @@ public class CFSecJpaIdGenService {
 	}
 
 	/**
+	 *	Generate a SecClusRoleIdGen CFLibDbKeyHash256 id.
+	 *
+	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 */
+	public CFLibDbKeyHash256 generateSecClusRoleIdGen() {
+		return( new CFLibDbKeyHash256(0) );
+	}
+
+	/**
 	 *	Generate a SecTentGrpIdGen CFLibDbKeyHash256 id.
 	 *
 	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecTentGrpIdGen() {
+		return( new CFLibDbKeyHash256(0) );
+	}
+
+	/**
+	 *	Generate a SecTentRoleIdGen CFLibDbKeyHash256 id.
+	 *
+	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 */
+	public CFLibDbKeyHash256 generateSecTentRoleIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
 

@@ -124,6 +124,27 @@ public class CFSecJpaHooksSchema {
 	private CFSecJpaSecTentGrpMembRepository secTentGrpMembRepository;
 
 	@Autowired
+	private CFSecJpaSecRoleRepository secRoleRepository;
+
+	@Autowired
+	private CFSecJpaSecRoleEnablesRepository secRoleEnablesRepository;
+
+	@Autowired
+	private CFSecJpaSecRoleMembRepository secRoleMembRepository;
+
+	@Autowired
+	private CFSecJpaSecClusRoleRepository secClusRoleRepository;
+
+	@Autowired
+	private CFSecJpaSecClusRoleMembRepository secClusRoleMembRepository;
+
+	@Autowired
+	private CFSecJpaSecTentRoleRepository secTentRoleRepository;
+
+	@Autowired
+	private CFSecJpaSecTentRoleMembRepository secTentRoleMembRepository;
+
+	@Autowired
 	private CFSecJpaSecSessionRepository secSessionRepository;
 
 	@Autowired
@@ -224,6 +245,34 @@ public class CFSecJpaHooksSchema {
 	@Autowired
 	@Qualifier("cfsec31JpaSecTentGrpMembService")
 	private CFSecJpaSecTentGrpMembService secTentGrpMembService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaSecRoleService")
+	private CFSecJpaSecRoleService secRoleService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaSecRoleEnablesService")
+	private CFSecJpaSecRoleEnablesService secRoleEnablesService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaSecRoleMembService")
+	private CFSecJpaSecRoleMembService secRoleMembService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaSecClusRoleService")
+	private CFSecJpaSecClusRoleService secClusRoleService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaSecClusRoleMembService")
+	private CFSecJpaSecClusRoleMembService secClusRoleMembService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaSecTentRoleService")
+	private CFSecJpaSecTentRoleService secTentRoleService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaSecTentRoleMembService")
+	private CFSecJpaSecTentRoleMembService secTentRoleMembService;
 
 	@Autowired
 	@Qualifier("cfsec31JpaSecSessionService")
@@ -483,6 +532,76 @@ public class CFSecJpaHooksSchema {
 		return( secTentGrpMembRepository );
 	}
 
+	public CFSecJpaSecRoleRepository getSecRoleRepository() {
+		if ( secRoleRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getSecRoleRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secRoleRepository );
+	}
+
+	public CFSecJpaSecRoleEnablesRepository getSecRoleEnablesRepository() {
+		if ( secRoleEnablesRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getSecRoleEnablesRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secRoleEnablesRepository );
+	}
+
+	public CFSecJpaSecRoleMembRepository getSecRoleMembRepository() {
+		if ( secRoleMembRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getSecRoleMembRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secRoleMembRepository );
+	}
+
+	public CFSecJpaSecClusRoleRepository getSecClusRoleRepository() {
+		if ( secClusRoleRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getSecClusRoleRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secClusRoleRepository );
+	}
+
+	public CFSecJpaSecClusRoleMembRepository getSecClusRoleMembRepository() {
+		if ( secClusRoleMembRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getSecClusRoleMembRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secClusRoleMembRepository );
+	}
+
+	public CFSecJpaSecTentRoleRepository getSecTentRoleRepository() {
+		if ( secTentRoleRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getSecTentRoleRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secTentRoleRepository );
+	}
+
+	public CFSecJpaSecTentRoleMembRepository getSecTentRoleMembRepository() {
+		if ( secTentRoleMembRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getSecTentRoleMembRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secTentRoleMembRepository );
+	}
+
 	public CFSecJpaSecSessionRepository getSecSessionRepository() {
 		if ( secSessionRepository == null ) {
 			// Dynamically resolve the repository by interface type
@@ -721,6 +840,76 @@ public class CFSecJpaHooksSchema {
 				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
 		}
 		return( secTentGrpMembService );
+	}
+
+	public CFSecJpaSecRoleService getSecRoleService() {
+		if ( secRoleService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getSecRoleService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secRoleService );
+	}
+
+	public CFSecJpaSecRoleEnablesService getSecRoleEnablesService() {
+		if ( secRoleEnablesService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getSecRoleEnablesService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secRoleEnablesService );
+	}
+
+	public CFSecJpaSecRoleMembService getSecRoleMembService() {
+		if ( secRoleMembService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getSecRoleMembService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secRoleMembService );
+	}
+
+	public CFSecJpaSecClusRoleService getSecClusRoleService() {
+		if ( secClusRoleService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getSecClusRoleService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secClusRoleService );
+	}
+
+	public CFSecJpaSecClusRoleMembService getSecClusRoleMembService() {
+		if ( secClusRoleMembService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getSecClusRoleMembService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secClusRoleMembService );
+	}
+
+	public CFSecJpaSecTentRoleService getSecTentRoleService() {
+		if ( secTentRoleService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getSecTentRoleService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secTentRoleService );
+	}
+
+	public CFSecJpaSecTentRoleMembService getSecTentRoleMembService() {
+		if ( secTentRoleMembService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getSecTentRoleMembService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( secTentRoleMembService );
 	}
 
 	public CFSecJpaSecSessionService getSecSessionService() {

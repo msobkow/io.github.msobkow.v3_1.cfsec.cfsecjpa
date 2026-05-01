@@ -65,14 +65,31 @@ public class CFSecJpaSecSysGrp
 	protected Set<CFSecJpaSecSysGrpInc> optionalChildrenIncByGrp;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerGroup")
 	protected Set<CFSecJpaSecSysGrpMemb> optionalChildrenMembByGrp;
+		
+	@OneToOne(fetch=FetchType.LAZY, optional=true)
+	@JoinColumn( name="SecSysGrpId" )
+	protected CFSecJpaSecRole optionalChildrenImplRole;
 	protected int requiredRevision;
 
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
+	protected Set<CFSecJpaSecClusGrp> optionalChildrenImplClusGrp;
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
+	protected Set<CFSecJpaSecTentGrp> optionalChildrenImplTentGrp;
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
+	protected Set<CFSecJpaSecClusRole> optionalChildrenImplClusRole;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerRole")
+	protected Set<CFSecJpaSecTentRole> optionalChildrenImplTentRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentSubGroup")
 	protected Set<CFSecJpaSecSysGrpInc> optionalChildrenSysGrpByName;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentSubGroup")
 	protected Set<CFSecJpaSecClusGrpInc> optionalChildrenClusGrpByName;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentSubGroup")
 	protected Set<CFSecJpaSecTentGrpInc> optionalChildrenTentGrpByName;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentEnableGroup")
+	protected Set<CFSecJpaSecRoleEnables> optionalChildrenRoleByEnableName;
 
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
@@ -122,6 +139,42 @@ public class CFSecJpaSecSysGrp
 		return( retlist );
 	}
 	@Override
+	public ICFSecSecRole getOptionalChildrenImplRole() {
+		return( optionalChildrenImplRole );
+	}
+	@Override
+	public List<ICFSecSecClusGrp> getOptionalChildrenImplClusGrp() {
+		List<ICFSecSecClusGrp> retlist = new ArrayList<>(optionalChildrenImplClusGrp.size());
+		for (CFSecJpaSecClusGrp cur: optionalChildrenImplClusGrp) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
+	public List<ICFSecSecTentGrp> getOptionalChildrenImplTentGrp() {
+		List<ICFSecSecTentGrp> retlist = new ArrayList<>(optionalChildrenImplTentGrp.size());
+		for (CFSecJpaSecTentGrp cur: optionalChildrenImplTentGrp) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
+	public List<ICFSecSecClusRole> getOptionalChildrenImplClusRole() {
+		List<ICFSecSecClusRole> retlist = new ArrayList<>(optionalChildrenImplClusRole.size());
+		for (CFSecJpaSecClusRole cur: optionalChildrenImplClusRole) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
+	public List<ICFSecSecTentRole> getOptionalChildrenImplTentRole() {
+		List<ICFSecSecTentRole> retlist = new ArrayList<>(optionalChildrenImplTentRole.size());
+		for (CFSecJpaSecTentRole cur: optionalChildrenImplTentRole) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
 	public List<ICFSecSecSysGrpInc> getOptionalChildrenSysGrpByName() {
 		List<ICFSecSecSysGrpInc> retlist = new ArrayList<>(optionalChildrenSysGrpByName.size());
 		for (CFSecJpaSecSysGrpInc cur: optionalChildrenSysGrpByName) {
@@ -141,6 +194,14 @@ public class CFSecJpaSecSysGrp
 	public List<ICFSecSecTentGrpInc> getOptionalChildrenTentGrpByName() {
 		List<ICFSecSecTentGrpInc> retlist = new ArrayList<>(optionalChildrenTentGrpByName.size());
 		for (CFSecJpaSecTentGrpInc cur: optionalChildrenTentGrpByName) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
+	public List<ICFSecSecRoleEnables> getOptionalChildrenRoleByEnableName() {
+		List<ICFSecSecRoleEnables> retlist = new ArrayList<>(optionalChildrenRoleByEnableName.size());
+		for (CFSecJpaSecRoleEnables cur: optionalChildrenRoleByEnableName) {
 			retlist.add(cur);
 		}
 		return( retlist );

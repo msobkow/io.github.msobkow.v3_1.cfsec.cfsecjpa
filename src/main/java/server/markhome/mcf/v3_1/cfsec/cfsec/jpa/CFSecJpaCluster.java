@@ -65,6 +65,9 @@ public class CFSecJpaCluster
 	protected Set<CFSecJpaTenant> optionalComponentsTenant;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerCluster")
 	protected Set<CFSecJpaSecClusGrp> optionalComponentsSecGroup;
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn( name="Id", referencedColumnName="ClusterId" )
+	protected Set<CFSecJpaSecClusRole> optionalComponentsSecRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCluster")
 	protected Set<CFSecJpaSysCluster> optionalComponentsSysCluster;
 	protected int requiredRevision;
@@ -113,6 +116,14 @@ public class CFSecJpaCluster
 	public List<ICFSecSecClusGrp> getOptionalComponentsSecGroup() {
 		List<ICFSecSecClusGrp> retlist = new ArrayList<>(optionalComponentsSecGroup.size());
 		for (CFSecJpaSecClusGrp cur: optionalComponentsSecGroup) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
+	public List<ICFSecSecClusRole> getOptionalComponentsSecRole() {
+		List<ICFSecSecClusRole> retlist = new ArrayList<>(optionalComponentsSecRole.size());
+		for (CFSecJpaSecClusRole cur: optionalComponentsSecRole) {
 			retlist.add(cur);
 		}
 		return( retlist );
