@@ -67,4 +67,75 @@ public class CFSecJpaSecurityCache extends CFSecSecurityCache
 	public CFSecJpaSecurityCache() {
 		super();
 	}
+
+	/***** Backend methods to be implemented by concrete subclass */
+
+	/**
+	 *	Map the userLogin string to a userId DbKey.
+	 *
+	 *	@param userLogin 
+	 *	@return null if the userLogin does not exist, is null, is empty, or is blank. Otherwise the DbKey for the user.
+	 */
+	@Override
+	public CFLibDbKeyHash256 mapUserLoginToUserId(String userLogin) {
+		throw new CFLibNotImplementedYetException(getClass(), "mapUserLoginToUserId");
+	}
+
+	/**
+	 *	Map the userId DbKey to the userLogin string.
+	 *
+	 *	@param userId
+	 *	@return null if the userId does not exist or is null. Otherwise the userLogin for the user.
+	 */
+	@Override
+	public String mapUserIdToUserLogin(CFLibDbKeyHash256 userId) {
+		throw new CFLibNotImplementedYetException(getClass(), "mapUserIdToUserLogin");
+	}
+
+	/**
+	 *	Probe the back-end SecRole*, SecTent* security tables, then the SecClus* security tables, and finally the SecSys* tables
+	 *	in order until a probe authorizes the users access to the permission role or group.  The probed value is then "acquired" by
+	 *	the cache and kept until it expires or is forgotten by the cache.
+	 *
+	 *	@param userId The user id for the SecUser object this query is for.
+	 *	@param clusterId The cluster id of the cluster that contains the tenant being queried.
+	 *	@param tenantId The tenant id being queried.
+	 *	@param permissionName The name of the permission role or group being queried.
+	 *
+	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
+	 */
+	@Override
+	public boolean probeMemberOfTenantGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, String permissionName) {
+		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfTenantGroup");
+	}
+
+	/**
+	 *	Probe the back-end SecRole*, SecClus* security tables, and finally the SecSys* tables in order until a probe authorizes
+	 *	the users access to the permission role or group.  The probed value is then "acquired" by the cache and kept until it
+	 *	expires or is forgotten by the cache.
+	 *
+	 *	@param userId The user id for the SecUser object this query is for.
+	 *	@param clusterId The cluster id of the cluster that contains the tenant being queried.
+	 *	@param permissionName The name of the permission role or group being queried.
+	 *
+	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
+	 */
+	@Override
+	public boolean probeMemberOfClusterGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, String permissionName) {
+		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfClusterGroup");
+	}
+
+	/**
+	 *	Probe the back-end SecRole*, and SecSys* tables until a probe authorizes the users access to the permission role or group.
+	 *	The probed value is then "acquired" by the cache and kept until it expires or is forgotten by the cache.
+	 *
+	 *	@param userId The user id for the SecUser object this query is for.
+	 *	@param permissionName The name of the permission role or group being queried.
+	 *
+	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
+	 */
+	@Override
+	public boolean probeMemberOfSystemGroup(CFLibDbKeyHash256 userId, String permissionName) {
+		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfSystemGroup");
+	}
 }
