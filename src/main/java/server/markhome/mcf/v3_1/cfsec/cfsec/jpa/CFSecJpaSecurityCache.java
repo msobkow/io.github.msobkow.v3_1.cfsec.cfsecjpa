@@ -27,26 +27,8 @@
 
 package server.markhome.mcf.v3_1.cfsec.cfsec.jpa;
 
-import java.io.Serializable;
-import java.math.*;
-import java.time.*;
-import java.net.InetAddress;
-import java.util.*;
-import jakarta.persistence.*;
-import jakarta.transaction.Transactional;
-import org.apache.commons.codec.binary.Base64;
-import org.apache.commons.text.StringEscapeUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import java.util.concurrent.atomic.*;
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
-import server.markhome.mcf.v3_1.cflib.inz.Inz;
-import server.markhome.mcf.v3_1.cflib.xml.CFLibXmlUtil;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
-import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaHooksSchema;
 
 /*
  *	The CFSecJpaSecurityCache is the implementation of a security cache specialized to access the JPA security
@@ -78,7 +60,7 @@ public class CFSecJpaSecurityCache extends CFSecSecurityCache
 	 */
 	@Override
 	public CFLibDbKeyHash256 mapUserLoginToUserId(String userLogin) {
-		throw new CFLibNotImplementedYetException(getClass(), "mapUserLoginToUserId");
+		return(((CFSecJpaSchema)(ICFSecSchema.getBackingCFSec())).getSchemaService().mapUserLoginToUserId(userLogin));
 	}
 
 	/**
@@ -89,7 +71,7 @@ public class CFSecJpaSecurityCache extends CFSecSecurityCache
 	 */
 	@Override
 	public String mapUserIdToUserLogin(CFLibDbKeyHash256 userId) {
-		throw new CFLibNotImplementedYetException(getClass(), "mapUserIdToUserLogin");
+		return(((CFSecJpaSchema)(ICFSecSchema.getBackingCFSec())).getSchemaService().mapUserIdToUserLogin(userId));
 	}
 
 	/**
@@ -106,7 +88,7 @@ public class CFSecJpaSecurityCache extends CFSecSecurityCache
 	 */
 	@Override
 	public boolean probeMemberOfTenantGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, String permissionName) {
-		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfTenantGroup");
+		return(((CFSecJpaSchema)(ICFSecSchema.getBackingCFSec())).getSchemaService().probeMemberOfTenantGroup(userId, clusterId, tenantId, permissionName));
 	}
 
 	/**
@@ -122,7 +104,7 @@ public class CFSecJpaSecurityCache extends CFSecSecurityCache
 	 */
 	@Override
 	public boolean probeMemberOfClusterGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, String permissionName) {
-		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfClusterGroup");
+		return(((CFSecJpaSchema)(ICFSecSchema.getBackingCFSec())).getSchemaService().probeMemberOfClusterGroup(userId, clusterId, permissionName));
 	}
 
 	/**
@@ -136,6 +118,6 @@ public class CFSecJpaSecurityCache extends CFSecSecurityCache
 	 */
 	@Override
 	public boolean probeMemberOfSystemGroup(CFLibDbKeyHash256 userId, String permissionName) {
-		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfSystemGroup");
+		return(((CFSecJpaSchema)(ICFSecSchema.getBackingCFSec())).getSchemaService().probeMemberOfSystemGroup(userId, permissionName));
 	}
 }
