@@ -551,11 +551,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		String argInclName )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecSecClusGrpInc retval = schema.getJpaHooksSchema().getSecClusGrpIncService().find(argSecClusGrpId,
 		argInclName);
 		if(retval != null) {
@@ -582,11 +584,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		CFLibDbKeyHash256 argSecClusGrpId )
 	{
 		final String S_ProcName = "readDerivedByClusGrpIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFSecJpaSecClusGrpInc> retlist = schema.getJpaHooksSchema().getSecClusGrpIncService().findByClusGrpIdx(argSecClusGrpId);
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecClusGrpInc> finallist = new ArrayList<>();
@@ -623,11 +627,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		String argInclName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFSecJpaSecClusGrpInc> retlist = schema.getJpaHooksSchema().getSecClusGrpIncService().findByNameIdx(argInclName);
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecClusGrpInc> finallist = new ArrayList<>();
@@ -786,11 +792,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		String argInclName )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -810,11 +818,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		CFLibDbKeyHash256 argSecClusGrpId )
 	{
 		final String S_ProcName = "readRecByClusGrpIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusGrpIdx");
 	}
 
@@ -834,11 +844,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		String argInclName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByNameIdx");
 	}
 
@@ -860,11 +872,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		String priorInclName )
 	{
 		final String S_ProcName = "pageRecByClusGrpIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByClusGrpIdx");
 	}
 
@@ -886,11 +900,13 @@ public class CFSecJpaSecClusGrpIncTable implements ICFSecSecClusGrpIncTable
 		String priorInclName )
 	{
 		final String S_ProcName = "pageRecByNameIdx";
-		boolean permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecClusGrpInc(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpIncTable.TABLE_NAME, "readsecclusgrpinc", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByNameIdx");
 	}
 }

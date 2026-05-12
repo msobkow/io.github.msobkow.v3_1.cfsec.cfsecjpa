@@ -496,11 +496,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		short argISOTZoneId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().find(argISOTZoneId);
 		return( retval );
 	}
@@ -522,11 +524,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		short argTZMinOffset )
 	{
 		final String S_ProcName = "readDerivedByOffsetIdx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFSecJpaISOTZone> retlist = schema.getJpaHooksSchema().getISOTZoneService().findByOffsetIdx(argTZHourOffset,
 		argTZMinOffset);
 		ICFSecISOTZone[] retset = new ICFSecISOTZone[retlist.size()];
@@ -552,11 +556,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		String argTZName )
 	{
 		final String S_ProcName = "readDerivedByUTZNameIdx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().findByUTZNameIdx(argTZName);
 		return( retval );
 	}
@@ -575,11 +581,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		String argIso8601 )
 	{
 		final String S_ProcName = "readDerivedByIso8601Idx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		List<CFSecJpaISOTZone> retlist = schema.getJpaHooksSchema().getISOTZoneService().findByIso8601Idx(argIso8601);
 		ICFSecISOTZone[] retset = new ICFSecISOTZone[retlist.size()];
 		int idx = 0;
@@ -675,11 +683,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		short argISOTZoneId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -702,11 +712,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		short argTZMinOffset )
 	{
 		final String S_ProcName = "readRecByOffsetIdx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByOffsetIdx");
 	}
 
@@ -727,11 +739,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		String argTZName )
 	{
 		final String S_ProcName = "readRecByUTZNameIdx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUTZNameIdx");
 	}
 
@@ -751,11 +765,13 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		String argIso8601 )
 	{
 		final String S_ProcName = "readRecByIso8601Idx";
-		boolean permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOTZone(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, "readisotzone", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIso8601Idx");
 	}
 }

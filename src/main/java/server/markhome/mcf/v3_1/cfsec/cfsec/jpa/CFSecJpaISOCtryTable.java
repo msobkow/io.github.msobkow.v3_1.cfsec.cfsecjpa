@@ -450,11 +450,13 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		short argISOCtryId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, "readisoctry", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().find(argISOCtryId);
 		return( retval );
 	}
@@ -474,11 +476,13 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		String argISOCode )
 	{
 		final String S_ProcName = "readDerivedByISOCodeIdx";
-		boolean permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, "readisoctry", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().findByISOCodeIdx(argISOCode);
 		return( retval );
 	}
@@ -498,11 +502,13 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
-		boolean permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, "readisoctry", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().findByNameIdx(argName);
 		return( retval );
 	}
@@ -593,11 +599,13 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		short argISOCtryId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, "readisoctry", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -618,11 +626,13 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		String argISOCode )
 	{
 		final String S_ProcName = "readRecByISOCodeIdx";
-		boolean permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, "readisoctry", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByISOCodeIdx");
 	}
 
@@ -643,11 +653,13 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
-		boolean permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadISOCtry(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, "readisoctry", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByNameIdx");
 	}
 }

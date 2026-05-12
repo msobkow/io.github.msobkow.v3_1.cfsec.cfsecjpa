@@ -50,7 +50,7 @@ public class CFSecJpaSecSysGrpIncPKey
 	implements ICFSecSecSysGrpIncPKey, Comparable<ICFSecSecSysGrpIncPKey>, Serializable
 {
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecSysGrpId" )
+	@JoinColumn( name="SecSysGrpId", referencedColumnName="SecSysGrpId" )
 	protected CFSecJpaSecSysGrp requiredContainerGroup;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="inc_name", referencedColumnName="safe_name" )

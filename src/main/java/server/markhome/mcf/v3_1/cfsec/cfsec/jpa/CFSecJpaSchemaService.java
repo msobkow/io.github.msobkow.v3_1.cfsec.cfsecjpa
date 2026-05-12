@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	Services for schema CFSec defined in server.markhome.mcf.v3_1.cfsec.cfsec.jpa
  *	using the CFSec*Repository objects to access the data directly, bypassing normal application security for the bootstrap and login processing.
  */
-@Service("cfsec31JpaSchemaService")
+@Service("cfsecJpaSchemaService")
 public class CFSecJpaSchemaService {
 
 	@Autowired
@@ -150,13 +150,16 @@ public class CFSecJpaSchemaService {
 	@Autowired
 	private CFSecJpaSysClusterService sysclusterService;
 
+	@Autowired
+	private CFSecJpaSecUserRepository secuserRepository;
+
 
 	public void bootstrapSchema(CFSecTableInfo tableInfo[]) {
 		bootstrapSecurity();
 		bootstrapAllTablesSecurity(tableInfo);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$secschemadbname$TransactionManager")
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapSecurity() {
 		CFSecJpaSysCluster sysCluster;
 		CFLibDbKeyHash256 systemClusterID;
@@ -600,7 +603,7 @@ public class CFSecJpaSchemaService {
 		}
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$secschemadbname$TransactionManager")
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapTableSecurity(ICFSecAuthorization auth,
 		LocalDateTime now,
 		String tableName,
@@ -1494,12 +1497,12 @@ public class CFSecJpaSchemaService {
 		}
 	}		
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$secschemadbname$TransactionManager")
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapAllTablesSecurity(CFSecTableInfo tableInfo[]) {
 		bootstrapAllTablesSecurity(ICFSecSchema.getSysClusterId(), ICFSecSchema.getSysTenantId(), tableInfo);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$secschemadbname$TransactionManager")
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableInfo tableInfo[]) {
 		LocalDateTime now = LocalDateTime.now();
 		ICFSecSecSession bootstrapSession;
@@ -1553,7 +1556,7 @@ public class CFSecJpaSchemaService {
 		}
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "$secschemadbname$TransactionManager")
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapAllTablesSecurity(ICFSecAuthorization auth,
 		CFLibDbKeyHash256 systemUID,
 		ICFSecSecSession bootstrapSession,
@@ -1731,8 +1734,19 @@ public class CFSecJpaSchemaService {
 	 *	@param userLogin 
 	 *	@return null if the userLogin does not exist, is null, is empty, or is blank. Otherwise the DbKey for the user.
 	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFLibDbKeyHash256 mapUserLoginToUserId(String userLogin) {
-		throw new CFLibNotImplementedYetException(getClass(), "mapUserLoginToUserId");
+		final String S_ProcName = "mapUserLoginToUserId";
+		if (userLogin == null || userLogin.isEmpty() || userLogin.isBlank()) {
+			return(null);
+		}
+		CFSecJpaSecUser rec = secuserService.findByULoginIdx(userLogin);
+		if (rec == null) {
+			return(null);
+		}
+		else {
+			return(rec.getPKey());
+		}
 	}
 
 	/**
@@ -1741,8 +1755,19 @@ public class CFSecJpaSchemaService {
 	 *	@param userId
 	 *	@return null if the userId does not exist or is null. Otherwise the userLogin for the user.
 	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public String mapUserIdToUserLogin(CFLibDbKeyHash256 userId) {
-		throw new CFLibNotImplementedYetException(getClass(), "mapUserIdToUserLogin");
+		final String S_ProcName = "mapUserIdToUserLogin";
+		if (userId == null || userId.isNull()) {
+			return(null);
+		}
+		CFSecJpaSecUser rec = secuserService.find(userId);
+		if (rec == null) {
+			return(null);
+		}
+		else {
+			return(rec.getRequiredLoginId());
+		}
 	}
 
 	/**
@@ -1757,6 +1782,7 @@ public class CFSecJpaSchemaService {
 	 *
 	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
 	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfTenantGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, String permissionName) {
 		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfTenantGroup");
 	}
@@ -1772,6 +1798,7 @@ public class CFSecJpaSchemaService {
 	 *
 	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
 	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfClusterGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, String permissionName) {
 		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfClusterGroup");
 	}
@@ -1785,8 +1812,15 @@ public class CFSecJpaSchemaService {
 	 *
 	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
 	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfSystemGroup(CFLibDbKeyHash256 userId, String permissionName) {
-		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfSystemGroup");
+		if (userId == null || userId.isNull()) {
+			return(false);
+		}
+		if (permissionName == null || permissionName.isEmpty() || permissionName.isBlank()) {
+			return(false);
+		}
+		return(secuserRepository.countSysSecurityPermsByUserId(permissionName, userId) > 0);
 	}
 
 		// Customized schematweak [CFSec::CFSec].JpaSchemaServiceCustomServices

@@ -66,7 +66,7 @@ public class CFSecJpaTenant
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ClusterId" )
+	@JoinColumn( name="ClusterId", referencedColumnName="Id" )
 	protected CFSecJpaCluster requiredContainerCluster;
 
 	@AttributeOverrides({

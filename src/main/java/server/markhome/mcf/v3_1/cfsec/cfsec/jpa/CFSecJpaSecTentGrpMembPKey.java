@@ -50,7 +50,7 @@ public class CFSecJpaSecTentGrpMembPKey
 	implements ICFSecSecTentGrpMembPKey, Comparable<ICFSecSecTentGrpMembPKey>, Serializable
 {
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecTentGrpId" )
+	@JoinColumn( name="SecTentGrpId", referencedColumnName="SecTentGrpId" )
 	protected CFSecJpaSecTentGrp requiredContainerGroup;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="login_id", referencedColumnName="login_id" )

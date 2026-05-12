@@ -50,7 +50,7 @@ public class CFSecJpaSecTentRoleMembPKey
 	implements ICFSecSecTentRoleMembPKey, Comparable<ICFSecSecTentRoleMembPKey>, Serializable
 {
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecTentRoleId" )
+	@JoinColumn( name="SecTentRoleId", referencedColumnName="SecTentRoleId" )
 	protected CFSecJpaSecTentRole requiredContainerRole;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="login_id", referencedColumnName="login_id" )

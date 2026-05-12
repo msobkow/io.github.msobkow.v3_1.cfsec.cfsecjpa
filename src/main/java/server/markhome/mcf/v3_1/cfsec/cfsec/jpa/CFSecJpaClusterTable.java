@@ -450,11 +450,13 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadCluster(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, "readcluster", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().find(argId);
 		return( retval );
 	}
@@ -474,11 +476,16 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		String argFullDomName )
 	{
 		final String S_ProcName = "readDerivedByUDomNameIdx";
-		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted && "system".equals(argFullDomName)) {
+			permissionGranted = true;
+		}
+		if (!permissionGranted) {
+			permissionGranted = canReadCluster(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, "readcluster", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().findByUDomNameIdx(argFullDomName);
 		return( retval );
 	}
@@ -498,11 +505,13 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		String argDescription )
 	{
 		final String S_ProcName = "readDerivedByUDescrIdx";
-		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadCluster(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, "readcluster", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().findByUDescrIdx(argDescription);
 		return( retval );
 	}
@@ -613,11 +622,13 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		CFLibDbKeyHash256 argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadCluster(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, "readcluster", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -638,11 +649,16 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		String argFullDomName )
 	{
 		final String S_ProcName = "readRecByUDomNameIdx";
-		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted && "system".equals(argFullDomName)) {
+			permissionGranted = true;
+		}
+		if (!permissionGranted) {
+			permissionGranted = canReadCluster(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, "readcluster", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUDomNameIdx");
 	}
 
@@ -663,11 +679,13 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		String argDescription )
 	{
 		final String S_ProcName = "readRecByUDescrIdx";
-		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadCluster(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, "readcluster", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUDescrIdx");
 	}
 }

@@ -69,7 +69,7 @@ public class CFSecJpaSecTentGrp
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TenantId" )
+	@JoinColumn( name="TenantId", referencedColumnName="Id" )
 	protected CFSecJpaTenant requiredOwnerTenant;
 
 	@AttributeOverrides({

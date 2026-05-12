@@ -67,7 +67,7 @@ public class CFSecJpaSecSysGrp
 	protected Set<CFSecJpaSecSysGrpMemb> optionalChildrenMembByGrp;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
-	@JoinColumn( name="SecSysGrpId" )
+	@JoinColumn( name="SecSysGrpId", referencedColumnName="SecRoleId" )
 	protected CFSecJpaSecRole optionalChildrenImplRole;
 	protected int requiredRevision;
 

@@ -544,11 +544,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		LocalDateTime argPWSetStamp )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().find(argSecUserId,
 		argPWSetStamp);
 		return( retval );
@@ -569,11 +571,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		CFLibDbKeyHash256 argSecUserId )
 	{
 		final String S_ProcName = "readDerivedByUserIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().findByUserIdx(argSecUserId);
 		return( retval );
 	}
@@ -593,11 +597,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		LocalDateTime argPWSetStamp )
 	{
 		final String S_ProcName = "readDerivedBySetStampIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().findBySetStampIdx(argPWSetStamp);
 		return( retval );
 	}
@@ -617,11 +623,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		LocalDateTime argPWReplacedStamp )
 	{
 		final String S_ProcName = "readDerivedByReplacedStampIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().findByReplacedStampIdx(argPWReplacedStamp);
 		return( retval );
 	}
@@ -762,11 +770,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		LocalDateTime argPWSetStamp )
 	{
 		final String S_ProcName = "readRecByIdIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
 
@@ -787,11 +797,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		CFLibDbKeyHash256 argSecUserId )
 	{
 		final String S_ProcName = "readRecByUserIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUserIdx");
 	}
 
@@ -812,11 +824,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		LocalDateTime argPWSetStamp )
 	{
 		final String S_ProcName = "readRecBySetStampIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecBySetStampIdx");
 	}
 
@@ -837,11 +851,13 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		LocalDateTime argPWReplacedStamp )
 	{
 		final String S_ProcName = "readRecByReplacedStampIdx";
-		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
+		}
 		if (!permissionGranted) {
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, "readsecuserpwhistory", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
-
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByReplacedStampIdx");
 	}
 }

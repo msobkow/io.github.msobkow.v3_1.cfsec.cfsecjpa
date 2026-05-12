@@ -50,10 +50,10 @@ public class CFSecJpaISOCtryLangPKey
 	implements ICFSecISOCtryLangPKey, Comparable<ICFSecISOCtryLangPKey>, Serializable
 {
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOCtryId" )
+	@JoinColumn( name="ISOCtryId", referencedColumnName="ISOCtryId" )
 	protected CFSecJpaISOCtry requiredContainerCtry;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOLangId" )
+	@JoinColumn( name="ISOLangId", referencedColumnName="ISOLangId" )
 	protected CFSecJpaISOLang requiredParentLang;
 
 	public CFSecJpaISOCtryLangPKey() {

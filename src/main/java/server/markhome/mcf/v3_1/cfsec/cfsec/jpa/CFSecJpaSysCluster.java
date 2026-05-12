@@ -61,7 +61,7 @@ public class CFSecJpaSysCluster
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="sys_clus_id" )
+	@JoinColumn( name="sys_clus_id", referencedColumnName="Id" )
 	protected CFSecJpaCluster requiredContainerCluster;
 
 

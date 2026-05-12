@@ -50,10 +50,10 @@ public class CFSecJpaISOCtryCcyPKey
 	implements ICFSecISOCtryCcyPKey, Comparable<ICFSecISOCtryCcyPKey>, Serializable
 {
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOCtryId" )
+	@JoinColumn( name="ISOCtryId", referencedColumnName="ISOCtryId" )
 	protected CFSecJpaISOCtry requiredContainerCtry;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOCcyId" )
+	@JoinColumn( name="ISOCcyId", referencedColumnName="ISOCcyId" )
 	protected CFSecJpaISOCcy requiredParentCcy;
 
 	public CFSecJpaISOCtryCcyPKey() {

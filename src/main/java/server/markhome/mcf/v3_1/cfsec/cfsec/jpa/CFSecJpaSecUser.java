@@ -63,15 +63,15 @@ public class CFSecJpaSecUser
 	protected CFLibDbKeyHash256 requiredSecUserId;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
-	@JoinColumn( name="SecUserId" )
+	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserPassword optionalComponentsPassword;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
-	@JoinColumn( name="SecUserId" )
+	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserEMConf optionalComponentsEMConf;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
-	@JoinColumn( name="SecUserId" )
+	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserPWReset optionalComponentsPWReset;
 	protected int requiredRevision;
 

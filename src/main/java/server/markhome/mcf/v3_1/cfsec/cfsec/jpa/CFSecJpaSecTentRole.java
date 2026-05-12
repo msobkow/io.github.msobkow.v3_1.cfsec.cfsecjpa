@@ -70,7 +70,7 @@ public class CFSecJpaSecTentRole
 	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
 	protected CFSecJpaSecSysGrp requiredContainerRole;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TenantId" )
+	@JoinColumn( name="TenantId", referencedColumnName="Id" )
 	protected CFSecJpaTenant requiredOwnerTenant;
 
 	@AttributeOverrides({

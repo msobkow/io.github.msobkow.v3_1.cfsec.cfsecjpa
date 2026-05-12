@@ -64,7 +64,7 @@ public class CFSecJpaSecUserPWReset
 	protected CFLibDbKeyHash256 requiredSecUserId;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecUserId" )
+	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
 	protected int requiredRevision;
 

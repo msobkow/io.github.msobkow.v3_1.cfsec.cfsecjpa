@@ -50,7 +50,7 @@ public class CFSecJpaSecRoleEnablesPKey
 	implements ICFSecSecRoleEnablesPKey, Comparable<ICFSecSecRoleEnablesPKey>, Serializable
 {
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecRoleId" )
+	@JoinColumn( name="SecRoleId", referencedColumnName="SecRoleId" )
 	protected CFSecJpaSecRole requiredContainerRole;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="enable_name", referencedColumnName="safe_name" )
