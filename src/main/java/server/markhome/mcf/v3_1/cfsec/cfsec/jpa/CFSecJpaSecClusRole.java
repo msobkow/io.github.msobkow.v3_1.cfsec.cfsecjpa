@@ -62,8 +62,13 @@ public class CFSecJpaSecClusRole
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecClusRoleId;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerRole")
+	protected Set<CFSecJpaSecClusRoleMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
 
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="ClusterId", referencedColumnName="Id" )
+	protected CFSecJpaCluster requiredOwnerCluster;
 
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
@@ -80,22 +85,56 @@ public class CFSecJpaSecClusRole
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
-	})
-	protected CFLibDbKeyHash256 requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
 	protected String requiredName;
 
 	public CFSecJpaSecClusRole() {
 		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRole.SECCLUSROLEID_INIT_VALUE.toString() );
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRole.CLUSTERID_INIT_VALUE.toString() );
 		requiredName = ICFSecSecClusRole.NAME_INIT_VALUE;
 	}
 
 	@Override
 	public int getClassCode() {
 		return( ICFSecSecClusRole.CLASS_CODE );
+	}
+
+	@Override
+	public List<ICFSecSecClusRoleMemb> getOptionalChildrenMembByGrp() {
+		List<ICFSecSecClusRoleMemb> retlist = new ArrayList<>(optionalChildrenMembByGrp.size());
+		for (CFSecJpaSecClusRoleMemb cur: optionalChildrenMembByGrp) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
+	public ICFSecCluster getRequiredOwnerCluster() {
+		return( requiredOwnerCluster );
+	}
+	@Override
+	public void setRequiredOwnerCluster(ICFSecCluster argObj) {
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setOwnerCluster", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaCluster) {
+			requiredOwnerCluster = (CFSecJpaCluster)argObj;
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setOwnerCluster", "argObj", argObj, "CFSecJpaCluster");
+		}
+	}
+
+	@Override
+	public void setRequiredOwnerCluster(CFLibDbKeyHash256 argClusterId) {
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerCluster", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecClusterTable targetTable = targetBackingSchema.getTableCluster();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerCluster", 0, "ICFSecSchema.getBackingCFSec().getTableCluster()");
+		}
+		ICFSecCluster targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argClusterId);
+		setRequiredOwnerCluster(targetRec);
 	}
 
 	@Override
@@ -189,18 +228,13 @@ public class CFSecJpaSecClusRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return( requiredClusterId );
-	}
-
-	@Override
-	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredClusterId",
-				1,
-				"value" );
+		ICFSecCluster result = getRequiredOwnerCluster();
+		if (result != null) {
+			return result.getRequiredId();
 		}
-		requiredClusterId = value;
+		else {
+			return( ICFSecCluster.ID_INIT_VALUE );
+		}
 	}
 
 	@Override
@@ -705,7 +739,7 @@ public class CFSecJpaSecClusRole
 		setCreatedAt( src.getCreatedAt() );
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
-		setRequiredClusterId(src.getRequiredClusterId());
+		setRequiredOwnerCluster(src.getRequiredOwnerCluster());
 		setRequiredName(src.getRequiredName());
 	}
 
@@ -717,7 +751,7 @@ public class CFSecJpaSecClusRole
 	@Override
 	public void setSecClusRole( ICFSecSecClusRoleH src ) {
 		setRequiredSecClusRoleId(src.getRequiredSecClusRoleId());
-		setRequiredClusterId(src.getRequiredClusterId());
+		setRequiredOwnerCluster(src.getRequiredClusterId());
 		setRequiredName(src.getRequiredName());
 	}
 

@@ -65,8 +65,7 @@ public class CFSecJpaCluster
 	protected Set<CFSecJpaTenant> optionalComponentsTenant;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerCluster")
 	protected Set<CFSecJpaSecClusGrp> optionalComponentsSecGroup;
-	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn( name="Id", referencedColumnName="ClusterId" )
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerCluster")
 	protected Set<CFSecJpaSecClusRole> optionalComponentsSecRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCluster")
 	protected Set<CFSecJpaSysCluster> optionalComponentsSysCluster;

@@ -49,56 +49,100 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecClusRoleMembPKey
 	implements ICFSecSecClusRoleMembPKey, Comparable<ICFSecSecClusRoleMembPKey>, Serializable
 {
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="SecClusRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
-	})
-	protected CFLibDbKeyHash256 requiredSecClusRoleId;
-	@Column( name="login_id", nullable=false, length=32 )
-	protected String requiredLoginId;
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="SecClusRoleId", referencedColumnName="SecClusRoleId" )
+	protected CFSecJpaSecClusRole requiredContainerRole;
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="login_id", referencedColumnName="login_id" )
+	protected CFSecJpaSecUser requiredParentUser;
 
 	public CFSecJpaSecClusRoleMembPKey() {
-		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
-		requiredLoginId = ICFSecSecClusRoleMemb.LOGINID_INIT_VALUE;
+		requiredContainerRole = null;
+		requiredParentUser = null;
 	}
 
+	@Override
+	public ICFSecSecClusRole getRequiredContainerRole() {
+		return( requiredContainerRole );
+	}
+	@Override
+	public void setRequiredContainerRole(ICFSecSecClusRole argObj) {
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setContainerRole", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaSecClusRole) {
+			requiredContainerRole = (CFSecJpaSecClusRole)argObj;
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setContainerRole", "argObj", argObj, "CFSecJpaSecClusRole");
+		}
+	
+	}
+
+	@Override
+	public void setRequiredContainerRole(CFLibDbKeyHash256 argSecClusRoleId) {
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerRole", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecSecClusRoleTable targetTable = targetBackingSchema.getTableSecClusRole();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecClusRole()");
+		}
+		ICFSecSecClusRole targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecClusRoleId);
+		setRequiredContainerRole(targetRec);
+	}
+	@Override
+	public ICFSecSecUser getRequiredParentUser() {
+		return( requiredParentUser );
+	}
+	@Override
+	public void setRequiredParentUser(ICFSecSecUser argObj) {
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setParentUser", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaSecUser) {
+			requiredParentUser = (CFSecJpaSecUser)argObj;
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setParentUser", "argObj", argObj, "CFSecJpaSecUser");
+		}
+	
+	}
+
+	@Override
+	public void setRequiredParentUser(String argLoginId) {
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecSecUserTable targetTable = targetBackingSchema.getTableSecUser();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec().getTableSecUser()");
+		}
+		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argLoginId);
+		setRequiredParentUser(targetRec);
+	}
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return( requiredSecClusRoleId );
-	}
-
-	@Override
-	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecClusRoleId",
-				1,
-				"value" );
+		ICFSecSecClusRole result = getRequiredContainerRole();
+		if (result != null) {
+			return result.getRequiredSecClusRoleId();
 		}
-		requiredSecClusRoleId = value;
+		else {
+			throw new CFLibNullArgumentException(getClass(), "getRequiredSecClusRoleId", 0, "getRequiredContainerRole()");
+		}
 	}
 
 	@Override
 	public String getRequiredLoginId() {
-		return( requiredLoginId );
-	}
-
-	@Override
-	public void setRequiredLoginId( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value" );
+		ICFSecSecUser result = getRequiredParentUser();
+		if (result != null) {
+			return result.getRequiredLoginId();
 		}
-		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value.length()",
-				value.length(),
-				32 );
+		else {
+			throw new CFLibNullArgumentException(getClass(), "getRequiredLoginId", 0, "getRequiredParentUser()");
 		}
-		requiredLoginId = value;
 	}
 
 	@Override

@@ -89,7 +89,7 @@ public class CFSecJpaSecRoleMembPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecRole()");
 		}
-		ICFSecSecRole targetRec = targetTable.readDerivedByIdIdx(null, argSecRoleId);
+		ICFSecSecRole targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecRoleId);
 		setRequiredContainerRole(targetRec);
 	}
 	@Override
@@ -120,7 +120,7 @@ public class CFSecJpaSecRoleMembPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec().getTableSecUser()");
 		}
-		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(null, argLoginId);
+		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argLoginId);
 		setRequiredParentUser(targetRec);
 	}
 	@Override

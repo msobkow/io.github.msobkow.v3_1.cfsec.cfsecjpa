@@ -92,6 +92,32 @@ public class CFSecJpaSecClusRoleMemb
 	}
 
 	@Override
+	public ICFSecSecClusRole getRequiredContainerRole() {
+		return( pkey.getRequiredContainerRole() );
+	}
+	@Override
+	public void setRequiredContainerRole(ICFSecSecClusRole argObj) {
+		pkey.setRequiredContainerRole(argObj);
+	}
+
+	@Override
+	public void setRequiredContainerRole(CFLibDbKeyHash256 argSecClusRoleId) {
+		pkey.setRequiredContainerRole(argSecClusRoleId);
+	}
+	@Override
+	public ICFSecSecUser getRequiredParentUser() {
+		return( pkey.getRequiredParentUser() );
+	}
+	@Override
+	public void setRequiredParentUser(ICFSecSecUser argObj) {
+		pkey.setRequiredParentUser(argObj);
+	}
+
+	@Override
+	public void setRequiredParentUser(String argLoginId) {
+		pkey.setRequiredParentUser(argLoginId);
+	}
+	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
 	}
@@ -165,18 +191,8 @@ public class CFSecJpaSecClusRoleMemb
 	}
 
 	@Override
-	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 requiredSecClusRoleId ) {
-		pkey.setRequiredSecClusRoleId( requiredSecClusRoleId );
-	}
-
-	@Override
 	public String getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
-	}
-
-	@Override
-	public void setRequiredLoginId( String requiredLoginId ) {
-		pkey.setRequiredLoginId( requiredLoginId );
 	}
 
 	@Override
@@ -551,8 +567,8 @@ public class CFSecJpaSecClusRoleMemb
 
 	@Override
 	public void setSecClusRoleMemb( ICFSecSecClusRoleMemb src ) {
-		setRequiredSecClusRoleId(src.getRequiredSecClusRoleId());
-		setRequiredLoginId(src.getRequiredLoginId());
+		setRequiredContainerRole(src.getRequiredContainerRole());
+		setRequiredParentUser(src.getRequiredParentUser());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -567,8 +583,8 @@ public class CFSecJpaSecClusRoleMemb
 
 	@Override
 	public void setSecClusRoleMemb( ICFSecSecClusRoleMembH src ) {
-		setRequiredSecClusRoleId(src.getRequiredSecClusRoleId());
-		setRequiredLoginId(src.getRequiredLoginId());
+		setRequiredContainerRole(src.getRequiredSecClusRoleId());
+		setRequiredParentUser(src.getRequiredLoginId());
 	}
 
 	@Override

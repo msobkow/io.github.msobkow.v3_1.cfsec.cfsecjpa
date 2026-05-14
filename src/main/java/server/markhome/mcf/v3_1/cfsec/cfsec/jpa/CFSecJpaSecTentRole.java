@@ -133,7 +133,7 @@ public class CFSecJpaSecTentRole
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
 		}
-		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(null, argName);
+		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argName);
 		setRequiredContainerRole(targetRec);
 	}
 
@@ -164,7 +164,7 @@ public class CFSecJpaSecTentRole
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
 		}
-		ICFSecTenant targetRec = targetTable.readDerived(null, argTenantId);
+		ICFSecTenant targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argTenantId);
 		setRequiredOwnerTenant(targetRec);
 	}
 

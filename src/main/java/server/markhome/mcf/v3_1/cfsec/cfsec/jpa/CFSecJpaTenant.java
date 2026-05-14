@@ -132,7 +132,7 @@ public class CFSecJpaTenant
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCluster", 0, "ICFSecSchema.getBackingCFSec().getTableCluster()");
 		}
-		ICFSecCluster targetRec = targetTable.readDerived(null, argClusterId);
+		ICFSecCluster targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argClusterId);
 		setRequiredContainerCluster(targetRec);
 	}
 

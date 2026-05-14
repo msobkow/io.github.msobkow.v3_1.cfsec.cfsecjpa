@@ -89,7 +89,7 @@ public class CFSecJpaISOCtryCcyPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec().getTableISOCtry()");
 		}
-		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(null, argISOCtryId);
+		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCtryId);
 		setRequiredContainerCtry(targetRec);
 	}
 	@Override
@@ -120,7 +120,7 @@ public class CFSecJpaISOCtryCcyPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentCcy", 0, "ICFSecSchema.getBackingCFSec().getTableISOCcy()");
 		}
-		ICFSecISOCcy targetRec = targetTable.readDerivedByIdIdx(null, argISOCcyId);
+		ICFSecISOCcy targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCcyId);
 		setRequiredParentCcy(targetRec);
 	}
 	@Override

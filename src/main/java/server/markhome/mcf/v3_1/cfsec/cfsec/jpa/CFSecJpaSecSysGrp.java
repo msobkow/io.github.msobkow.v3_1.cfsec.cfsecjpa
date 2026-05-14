@@ -72,13 +72,10 @@ public class CFSecJpaSecSysGrp
 	protected int requiredRevision;
 
 	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
 	protected Set<CFSecJpaSecClusGrp> optionalChildrenImplClusGrp;
 	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
 	protected Set<CFSecJpaSecTentGrp> optionalChildrenImplTentGrp;
 	@OneToMany(fetch=FetchType.LAZY)
-	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
 	protected Set<CFSecJpaSecClusRole> optionalChildrenImplClusRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerRole")
 	protected Set<CFSecJpaSecTentRole> optionalChildrenImplTentRole;

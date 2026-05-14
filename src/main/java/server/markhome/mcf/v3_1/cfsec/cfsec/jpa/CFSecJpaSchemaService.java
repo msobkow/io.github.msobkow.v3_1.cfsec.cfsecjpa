@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	Services for schema CFSec defined in server.markhome.mcf.v3_1.cfsec.cfsec.jpa
  *	using the CFSec*Repository objects to access the data directly, bypassing normal application security for the bootstrap and login processing.
  */
-@Service("cfsecJpaSchemaService")
+@Service("cfsec31JpaSchemaService")
 public class CFSecJpaSchemaService {
 
 	@Autowired
@@ -433,7 +433,7 @@ public class CFSecJpaSchemaService {
 				systemAdminUserPassword = new CFSecJpaSecUserPassword();
 				systemAdminUserPassword.setRequiredRevision(1);
 				systemAdminUserPassword.setPKey(systemAdminUID);
-				systemAdminUserPassword.setRequiredContainerUser(systemAdminUID);
+				systemAdminUserPassword.setRequiredContainerUser(systemAdminUser);
 				systemAdminUserPassword.setRequiredPWSetStamp(now);
 				systemAdminUserPassword.setRequiredPasswordHash(ICFSecSchema.getPasswordHash("ChangeOnInstall"));
 				systemAdminUserPassword = secuserpasswordService.create(systemAdminUserPassword);

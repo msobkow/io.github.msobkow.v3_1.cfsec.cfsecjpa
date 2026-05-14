@@ -143,7 +143,7 @@ public class CFSecJpaSecClusGrp
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerCluster", 0, "ICFSecSchema.getBackingCFSec().getTableCluster()");
 		}
-		ICFSecCluster targetRec = targetTable.readDerived(null, argClusterId);
+		ICFSecCluster targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argClusterId);
 		setRequiredOwnerCluster(targetRec);
 	}
 

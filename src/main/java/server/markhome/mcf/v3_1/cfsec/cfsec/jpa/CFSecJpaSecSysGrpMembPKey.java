@@ -89,7 +89,7 @@ public class CFSecJpaSecSysGrpMembPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerGroup", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
 		}
-		ICFSecSecSysGrp targetRec = targetTable.readDerivedByIdIdx(null, argSecSysGrpId);
+		ICFSecSecSysGrp targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecSysGrpId);
 		setRequiredContainerGroup(targetRec);
 	}
 	@Override
@@ -120,7 +120,7 @@ public class CFSecJpaSecSysGrpMembPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec().getTableSecUser()");
 		}
-		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(null, argLoginId);
+		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argLoginId);
 		setRequiredParentUser(targetRec);
 	}
 	@Override

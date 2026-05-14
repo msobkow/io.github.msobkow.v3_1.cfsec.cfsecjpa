@@ -89,7 +89,7 @@ public class CFSecJpaISOCtryLangPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec().getTableISOCtry()");
 		}
-		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(null, argISOCtryId);
+		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCtryId);
 		setRequiredContainerCtry(targetRec);
 	}
 	@Override
@@ -120,7 +120,7 @@ public class CFSecJpaISOCtryLangPKey
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentLang", 0, "ICFSecSchema.getBackingCFSec().getTableISOLang()");
 		}
-		ICFSecISOLang targetRec = targetTable.readDerivedByIdIdx(null, argISOLangId);
+		ICFSecISOLang targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOLangId);
 		setRequiredParentLang(targetRec);
 	}
 	@Override

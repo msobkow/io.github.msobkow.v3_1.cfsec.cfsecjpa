@@ -132,7 +132,7 @@ public class CFSecJpaSecUserPWReset
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerUser", 0, "ICFSecSchema.getBackingCFSec().getTableSecUser()");
 		}
-		ICFSecSecUser targetRec = targetTable.readDerivedByIdIdx(null, argSecUserId);
+		ICFSecSecUser targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecUserId);
 		setRequiredContainerUser(targetRec);
 	}
 	@Override

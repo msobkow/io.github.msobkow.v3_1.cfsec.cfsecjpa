@@ -143,7 +143,7 @@ public class CFSecJpaSecTentGrp
 		if (targetTable == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
 		}
-		ICFSecTenant targetRec = targetTable.readDerived(null, argTenantId);
+		ICFSecTenant targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argTenantId);
 		setRequiredOwnerTenant(targetRec);
 	}
 
