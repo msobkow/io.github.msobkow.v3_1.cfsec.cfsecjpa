@@ -88,12 +88,12 @@ public class CFSecJpaISOLangService {
 				"data.requiredEnglishName");
 		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfsec31ISOLangRepository.existsById((Short)data.getPKey())) {
 				return( (CFSecJpaISOLang)(cfsec31ISOLangRepository.findById((Short)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfsec31ISOLangRepository.save(data);
 		}
 		catch(Exception ex) {

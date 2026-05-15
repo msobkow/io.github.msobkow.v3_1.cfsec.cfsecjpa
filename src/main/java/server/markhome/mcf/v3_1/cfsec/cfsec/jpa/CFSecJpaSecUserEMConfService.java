@@ -92,12 +92,12 @@ public class CFSecJpaSecUserEMConfService {
 				"data.requiredEMConfirmationUuid6");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserEMConfRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecUserEMConf)(cfsec31SecUserEMConfRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecUserEMConfRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecUserEMConf)(cfsec31SecUserEMConfRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecUserEMConfRepository.save(data);
 		}
 		catch(Exception ex) {

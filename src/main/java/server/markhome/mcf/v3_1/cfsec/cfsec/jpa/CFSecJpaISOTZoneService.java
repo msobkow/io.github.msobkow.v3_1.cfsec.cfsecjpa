@@ -126,12 +126,12 @@ public class CFSecJpaISOTZoneService {
 				"data.requiredDescription");
 		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfsec31ISOTZoneRepository.existsById((Short)data.getPKey())) {
 				return( (CFSecJpaISOTZone)(cfsec31ISOTZoneRepository.findById((Short)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfsec31ISOTZoneRepository.save(data);
 		}
 		catch(Exception ex) {

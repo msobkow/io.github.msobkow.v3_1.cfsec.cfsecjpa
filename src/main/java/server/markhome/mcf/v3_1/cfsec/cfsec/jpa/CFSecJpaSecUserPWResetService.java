@@ -86,12 +86,12 @@ public class CFSecJpaSecUserPWResetService {
 				"data.requiredPasswordResetUuid6");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserPWResetRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecUserPWReset)(cfsec31SecUserPWResetRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecUserPWResetRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecUserPWReset)(cfsec31SecUserPWResetRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecUserPWResetRepository.save(data);
 		}
 		catch(Exception ex) {

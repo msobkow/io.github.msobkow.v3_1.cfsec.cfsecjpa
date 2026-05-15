@@ -88,6 +88,9 @@ public class CFSecJpaSecClusGrpService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecClusGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecClusGrp)(cfsec31SecClusGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredSecClusGrpId() == null || data.getRequiredSecClusGrpId().isNull()) {
 				data.setRequiredSecClusGrpId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecClusGrpId = true;
@@ -95,9 +98,6 @@ public class CFSecJpaSecClusGrpService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecClusGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecClusGrp)(cfsec31SecClusGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecClusGrpRepository.save(data);
 		}
 		catch(Exception ex) {

@@ -94,6 +94,9 @@ public class CFSecJpaSecUserService {
 				"data.requiredEMailAddress");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecUser)(cfsec31SecUserRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredSecUserId() == null || data.getRequiredSecUserId().isNull()) {
 				data.setRequiredSecUserId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecUserId = true;
@@ -101,9 +104,6 @@ public class CFSecJpaSecUserService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecUserRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecUser)(cfsec31SecUserRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecUserRepository.save(data);
 		}
 		catch(Exception ex) {

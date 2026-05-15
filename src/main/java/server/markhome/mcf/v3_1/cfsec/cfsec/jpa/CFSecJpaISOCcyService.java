@@ -104,12 +104,12 @@ public class CFSecJpaISOCcyService {
 				ICFSecISOCcy.PRECIS_MAX_VALUE );
 		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfsec31ISOCcyRepository.existsById((Short)data.getPKey())) {
 				return( (CFSecJpaISOCcy)(cfsec31ISOCcyRepository.findById((Short)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfsec31ISOCcyRepository.save(data);
 		}
 		catch(Exception ex) {

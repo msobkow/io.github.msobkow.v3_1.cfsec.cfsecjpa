@@ -73,19 +73,13 @@ public class CFSecJpaISOCtryLangService {
 		if (data == null) {
 			return( null );
 		}
-		if (data.getPKey() == null) {
-			throw new CFLibNullArgumentException(getClass(),
-				S_ProcName,
-				0,
-				"data.getPKey()");
-		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfsec31ISOCtryLangRepository.existsById((CFSecJpaISOCtryLangPKey)data.getPKey())) {
 				return( (CFSecJpaISOCtryLang)(cfsec31ISOCtryLangRepository.findById((CFSecJpaISOCtryLangPKey)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfsec31ISOCtryLangRepository.save(data);
 		}
 		catch(Exception ex) {

@@ -88,6 +88,9 @@ public class CFSecJpaClusterService {
 				"data.requiredDescription");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31ClusterRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaCluster)(cfsec31ClusterRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
 				generatedRequiredId = true;
@@ -95,9 +98,6 @@ public class CFSecJpaClusterService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31ClusterRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaCluster)(cfsec31ClusterRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31ClusterRepository.save(data);
 		}
 		catch(Exception ex) {

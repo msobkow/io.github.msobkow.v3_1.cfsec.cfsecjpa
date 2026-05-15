@@ -394,7 +394,7 @@ public class CFSecJpaSchemaService {
 			systemCluster.setCreatedAt(now);
 			systemCluster.setUpdatedAt(now);
 			systemCluster.setRequiredFullDomName(fqdn);
-			systemCluster.setRequiredDescription("System cluster for " + fqdn);
+			systemCluster.setRequiredDescription("system");
 			systemCluster = clusterService.create(systemCluster);
 			systemClusterID = systemCluster.getPKey();
 		}
@@ -464,7 +464,21 @@ public class CFSecJpaSchemaService {
 			bootstrapSession.setOptionalFinish(null);
 			bootstrapSession = secsessionService.create(bootstrapSession);
 		}
-			
+
+		ICFSecSchema.setAuthorizationCallback( new ICFSecAuthorizationCallback() {
+			CFSecAuthorization auth = new CFSecAuthorization();
+			@Override
+			public ICFSecAuthorization getEffectiveAuthorization() {
+				return(auth);
+			}
+		});
+		CFSecAuthorization auth = (CFSecAuthorization)ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization();
+		auth.setAuthUuid6(CFLibUuid6.generateUuid6());
+		auth.setSecSessionId(bootstrapSessionID);
+		auth.setSecClusterId(systemClusterID);
+		auth.setSecTenantId(systemTenantID);
+		auth.setSecUserId(systemUID);
+
 		if (sysCluster == null) {
 			sysCluster = new CFSecJpaSysCluster();
 			sysCluster.setRequiredContainerCluster(systemClusterID);
@@ -600,6 +614,12 @@ public class CFSecJpaSchemaService {
 		if (bootstrapSession != null && bootstrapSessionID != null && !bootstrapSessionID.isNull() && bootstrapSession.getOptionalFinish() == null) {
 			bootstrapSession.setOptionalFinish(LocalDateTime.now());
 			bootstrapSession = secsessionService.update(bootstrapSession);
+			ICFSecSchema.setAuthorizationCallback( new ICFSecAuthorizationCallback() {
+				@Override
+				public ICFSecAuthorization getEffectiveAuthorization() {
+					return(null);
+				}
+			});
 		}
 	}
 
@@ -1507,15 +1527,21 @@ public class CFSecJpaSchemaService {
 		LocalDateTime now = LocalDateTime.now();
 		ICFSecSecSession bootstrapSession;
 		CFLibDbKeyHash256 bootstrapSessionID = new CFLibDbKeyHash256(0);
+		CFLibDbKeyHash256 systemUID = ICFSecSchema.getSystemId();
 
-		ICFSecAuthorization auth = new CFSecAuthorization();
-		auth.setSecUserId(ICFSecSchema.getSystemId());
+		ICFSecSchema.setAuthorizationCallback( new ICFSecAuthorizationCallback() {
+			CFSecAuthorization auth = new CFSecAuthorization();
+			@Override
+			public ICFSecAuthorization getEffectiveAuthorization() {
+				return(auth);
+			}
+		});
+		CFSecAuthorization auth = (CFSecAuthorization)ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization();
+		auth.setSecUserId(systemUID);
 		auth.setAuthUuid6(CFLibUuid6.generateUuid6());
 		auth.setSecClusterId(clusterId);
 		auth.setSecTenantId(tenantId);
 		auth.setSecSessionId(bootstrapSessionID);
-
-		CFLibDbKeyHash256 systemUID = ICFSecSchema.getSystemId();
 
 //ICFSecSchema.getSysTenantId(), ICFSecSchema.getSystemId()
 		bootstrapSession = ICFSecSchema.getBackingCFSec().getFactorySecSession().newRec();
@@ -1553,6 +1579,12 @@ public class CFSecJpaSchemaService {
 		if (bootstrapSession != null && bootstrapSessionID != null && !bootstrapSessionID.isNull() && bootstrapSession.getOptionalFinish() == null) {
 			bootstrapSession.setOptionalFinish(LocalDateTime.now());
 			bootstrapSession = ICFSecSchema.getBackingCFSec().getTableSecSession().updateSecSession(auth, bootstrapSession);
+			ICFSecSchema.setAuthorizationCallback( new ICFSecAuthorizationCallback() {
+				@Override
+				public ICFSecAuthorization getEffectiveAuthorization() {
+					return(null);
+				}
+			});
 		}
 	}
 
@@ -1717,11 +1749,6 @@ public class CFSecJpaSchemaService {
 	
 		for( CFSecTableInfo info: tableInfo) {
 			bootstrapTableSecurity(auth, LocalDateTime.now(), info.getTableName(), info.hasHistory(), info.isMutable(), info.getScope(), secSysGroupPublic, secSystemAdminGroup, secClusGroupSysAdmin, secTentGroupSysAdmin);
-		}
-
-		if (bootstrapSession != null && bootstrapSessionID != null && !bootstrapSessionID.isNull() && bootstrapSession.getOptionalFinish() == null) {
-			bootstrapSession.setOptionalFinish(LocalDateTime.now());
-			bootstrapSession = ICFSecSchema.getBackingCFSec().getTableSecSession().updateSecSession(auth, bootstrapSession);
 		}
 	}
 

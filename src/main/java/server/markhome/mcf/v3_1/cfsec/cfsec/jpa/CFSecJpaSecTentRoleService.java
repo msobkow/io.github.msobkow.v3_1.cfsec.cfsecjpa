@@ -88,6 +88,9 @@ public class CFSecJpaSecTentRoleService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecTentRoleRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecTentRole)(cfsec31SecTentRoleRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredSecTentRoleId() == null || data.getRequiredSecTentRoleId().isNull()) {
 				data.setRequiredSecTentRoleId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecTentRoleId = true;
@@ -95,9 +98,6 @@ public class CFSecJpaSecTentRoleService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecTentRoleRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecTentRole)(cfsec31SecTentRoleRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecTentRoleRepository.save(data);
 		}
 		catch(Exception ex) {

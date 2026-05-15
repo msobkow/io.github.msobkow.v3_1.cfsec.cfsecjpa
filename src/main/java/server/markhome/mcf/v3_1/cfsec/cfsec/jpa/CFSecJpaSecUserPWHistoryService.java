@@ -73,12 +73,6 @@ public class CFSecJpaSecUserPWHistoryService {
 		if (data == null) {
 			return( null );
 		}
-		if (data.getPKey() == null) {
-			throw new CFLibNullArgumentException(getClass(),
-				S_ProcName,
-				0,
-				"data.getPKey()");
-		}
 		if(data.getRequiredPWReplacedStamp() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

@@ -86,7 +86,7 @@ public class CFSecJpaSecUserPasswordService {
 				"data.requiredPasswordHash");
 		}
 		try {
-			if(data.getPKey() != null && cfsec31SecUserPasswordRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserPasswordRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecUserPassword)(cfsec31SecUserPasswordRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
 			return cfsec31SecUserPasswordRepository.save(data);

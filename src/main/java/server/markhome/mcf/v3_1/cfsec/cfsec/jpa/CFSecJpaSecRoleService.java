@@ -82,6 +82,9 @@ public class CFSecJpaSecRoleService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecRoleRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecRole)(cfsec31SecRoleRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredSecRoleId() == null || data.getRequiredSecRoleId().isNull()) {
 				data.setRequiredSecRoleId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecRoleId = true;
@@ -89,9 +92,6 @@ public class CFSecJpaSecRoleService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecRoleRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecRole)(cfsec31SecRoleRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecRoleRepository.save(data);
 		}
 		catch(Exception ex) {

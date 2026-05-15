@@ -88,6 +88,9 @@ public class CFSecJpaSecTentGrpService {
 				"data.requiredName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecTentGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecTentGrp)(cfsec31SecTentGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredSecTentGrpId() == null || data.getRequiredSecTentGrpId().isNull()) {
 				data.setRequiredSecTentGrpId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecTentGrpId = true;
@@ -95,9 +98,6 @@ public class CFSecJpaSecTentGrpService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecTentGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecTentGrp)(cfsec31SecTentGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecTentGrpRepository.save(data);
 		}
 		catch(Exception ex) {

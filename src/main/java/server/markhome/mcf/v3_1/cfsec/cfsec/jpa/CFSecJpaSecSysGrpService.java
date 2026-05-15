@@ -88,6 +88,9 @@ public class CFSecJpaSecSysGrpService {
 				"data.requiredSecLevel");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecSysGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaSecSysGrp)(cfsec31SecSysGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredSecSysGrpId() == null || data.getRequiredSecSysGrpId().isNull()) {
 				data.setRequiredSecSysGrpId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecSysGrpId = true;
@@ -95,9 +98,6 @@ public class CFSecJpaSecSysGrpService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31SecSysGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecSysGrp)(cfsec31SecSysGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31SecSysGrpRepository.save(data);
 		}
 		catch(Exception ex) {

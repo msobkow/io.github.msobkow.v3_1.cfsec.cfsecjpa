@@ -88,6 +88,9 @@ public class CFSecJpaTenantService {
 				"data.requiredTenantName");
 		}
 		try {
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31TenantRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
+				return( (CFSecJpaTenant)(cfsec31TenantRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
 				generatedRequiredId = true;
@@ -95,9 +98,6 @@ public class CFSecJpaTenantService {
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);
-			if(data.getPKey() != null && cfsec31TenantRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
-				return( (CFSecJpaTenant)(cfsec31TenantRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
-			}
 			return cfsec31TenantRepository.save(data);
 		}
 		catch(Exception ex) {

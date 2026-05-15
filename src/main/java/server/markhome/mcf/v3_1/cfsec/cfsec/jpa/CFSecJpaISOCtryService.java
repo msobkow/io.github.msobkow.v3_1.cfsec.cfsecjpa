@@ -88,12 +88,12 @@ public class CFSecJpaISOCtryService {
 				"data.requiredName");
 		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfsec31ISOCtryRepository.existsById((Short)data.getPKey())) {
 				return( (CFSecJpaISOCtry)(cfsec31ISOCtryRepository.findById((Short)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfsec31ISOCtryRepository.save(data);
 		}
 		catch(Exception ex) {

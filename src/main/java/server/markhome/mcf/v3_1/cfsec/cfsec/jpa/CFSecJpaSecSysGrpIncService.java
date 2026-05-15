@@ -73,19 +73,13 @@ public class CFSecJpaSecSysGrpIncService {
 		if (data == null) {
 			return( null );
 		}
-		if (data.getPKey() == null) {
-			throw new CFLibNullArgumentException(getClass(),
-				S_ProcName,
-				0,
-				"data.getPKey()");
-		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfsec31SecSysGrpIncRepository.existsById((CFSecJpaSecSysGrpIncPKey)data.getPKey())) {
 				return( (CFSecJpaSecSysGrpInc)(cfsec31SecSysGrpIncRepository.findById((CFSecJpaSecSysGrpIncPKey)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfsec31SecSysGrpIncRepository.save(data);
 		}
 		catch(Exception ex) {

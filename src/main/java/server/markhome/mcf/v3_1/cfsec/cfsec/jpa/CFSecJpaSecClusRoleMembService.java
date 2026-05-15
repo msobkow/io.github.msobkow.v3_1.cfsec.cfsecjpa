@@ -73,19 +73,13 @@ public class CFSecJpaSecClusRoleMembService {
 		if (data == null) {
 			return( null );
 		}
-		if (data.getPKey() == null) {
-			throw new CFLibNullArgumentException(getClass(),
-				S_ProcName,
-				0,
-				"data.getPKey()");
-		}
 		try {
-			LocalDateTime now = LocalDateTime.now();
-			data.setCreatedAt(now);
-			data.setUpdatedAt(now);
 			if(data.getPKey() != null && cfsec31SecClusRoleMembRepository.existsById((CFSecJpaSecClusRoleMembPKey)data.getPKey())) {
 				return( (CFSecJpaSecClusRoleMemb)(cfsec31SecClusRoleMembRepository.findById((CFSecJpaSecClusRoleMembPKey)(data.getPKey())).get()));
 			}
+			LocalDateTime now = LocalDateTime.now();
+			data.setCreatedAt(now);
+			data.setUpdatedAt(now);
 			return cfsec31SecClusRoleMembRepository.save(data);
 		}
 		catch(Exception ex) {
