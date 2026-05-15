@@ -224,14 +224,18 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
 	 */
 	@Query("select count(*) from ("
-		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenMembByGrp mb0 where sg0.requiredName = :parmPermName and mb0.pkey.requiredParentUser.requiredLoginId = :parmLoginId"
-		+ " union select sg1.requiredName as requiredName from CFSecJpaSecSysGrp sg1 join sg1.optionalChildrenIncByGrp ig1 join ig1.pkey.requiredParentSubGroup sg1a join sg1a.optionalChildrenMembByGrp mb1 where sg1.requiredName = :parmPermName and mb1.pkey.requiredParentUser.requiredLoginId = :parmLoginId"
-		+ " union select sg2.requiredName as requiredName from CFSecJpaSecSysGrp sg2 join sg2.optionalChildrenIncByGrp ig2 join ig2.pkey.requiredParentSubGroup sg2a join sg2a.optionalChildrenIncByGrp ig2a join ig2a.pkey.requiredParentSubGroup sg2b join sg2b.optionalChildrenMembByGrp mb2 where sg2.requiredName = :parmPermName and mb2.pkey.requiredParentUser.requiredLoginId = :parmLoginId"
-		+ " union select sg3.requiredName as requiredName from CFSecJpaSecSysGrp sg3 join sg3.optionalChildrenIncByGrp ig3 join ig3.pkey.requiredParentSubGroup sg3a join sg3a.optionalChildrenIncByGrp ig3a join ig3a.pkey.requiredParentSubGroup sg3b join sg3b.optionalChildrenIncByGrp ig3b join ig3b.pkey.requiredParentSubGroup sg3c join sg3c.optionalChildrenMembByGrp mb3 where sg3.requiredName = :parmPermName and mb3.pkey.requiredParentUser.requiredLoginId = :parmLoginId)")
+		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and pu0.requiredLoginId = :parmLoginId"
+		+ " union select sg1.requiredName as requiredName from CFSecJpaSecSysGrp sg1 join sg1.optionalChildrenIncByGrp ig1 join ig1.pkey.requiredParentSubGroup sg1a join sg1a.optionalChildrenMembByGrp mb1 join mb1.pkey.requiredParentUser pu1 where sg1.requiredName = :parmPermName and pu1.requiredLoginId = :parmLoginId"
+		+ " union select sg2.requiredName as requiredName from CFSecJpaSecSysGrp sg2 join sg2.optionalChildrenIncByGrp ig2 join ig2.pkey.requiredParentSubGroup sg2a join sg2a.optionalChildrenIncByGrp ig2a join ig2a.pkey.requiredParentSubGroup sg2b join sg2b.optionalChildrenMembByGrp mb2 join mb2.pkey.requiredParentUser pu2 where sg2.requiredName = :parmPermName and pu2.requiredLoginId = :parmLoginId"
+		+ " union select sg3.requiredName as requiredName from CFSecJpaSecSysGrp sg3 join sg3.optionalChildrenIncByGrp ig3 join ig3.pkey.requiredParentSubGroup sg3a join sg3a.optionalChildrenIncByGrp ig3a join ig3a.pkey.requiredParentSubGroup sg3b join sg3b.optionalChildrenIncByGrp ig3b join ig3b.pkey.requiredParentSubGroup sg3c join sg3c.optionalChildrenMembByGrp mb3 join mb3.pkey.requiredParentUser pu3 where sg3.requiredName = :parmPermName and pu3.requiredLoginId = :parmLoginId"
+		+ " union select sg4.requiredName as requiredName from CFSecJpaSecSysGrp sg4 join sg4.optionalChildrenIncByGrp ig4 join ig4.pkey.requiredParentSubGroup sg4a join sg4a.optionalChildrenIncByGrp ig4a join ig4a.pkey.requiredParentSubGroup sg4b join sg4b.optionalChildrenIncByGrp ig4b join ig4b.pkey.requiredParentSubGroup sg4c join sg4c.optionalChildrenIncByGrp ig4c join ig4c.pkey.requiredParentSubGroup sg4d join sg4d.optionalChildrenMembByGrp mb4 join mb4.pkey.requiredParentUser pu4 where sg4.requiredName = :parmPermName and pu4.requiredLoginId = :parmLoginId"
+		+ " union select sg5.requiredName as requiredName from CFSecJpaSecSysGrp sg5 join sg5.optionalChildrenIncByGrp ig5 join ig5.pkey.requiredParentSubGroup sg5a join sg5a.optionalChildrenIncByGrp ig5a join ig5a.pkey.requiredParentSubGroup sg5b join sg5b.optionalChildrenIncByGrp ig5b join ig5b.pkey.requiredParentSubGroup sg5c join sg5c.optionalChildrenIncByGrp ig5c join ig5c.pkey.requiredParentSubGroup sg5d join sg5d.optionalChildrenIncByGrp ig5d join ig5d.pkey.requiredParentSubGroup sg5e join sg5e.optionalChildrenMembByGrp mb5 join mb5.pkey.requiredParentUser pu5 where sg5.requiredName = :parmPermName and pu5.requiredLoginId = :parmLoginId"
+		+ " union select sg6.requiredName as requiredName from CFSecJpaSecSysGrp sg6 join sg6.optionalChildrenIncByGrp ig6 join ig6.pkey.requiredParentSubGroup sg6a join sg6a.optionalChildrenIncByGrp ig6a join ig6a.pkey.requiredParentSubGroup sg6b join sg6b.optionalChildrenIncByGrp ig6b join ig6b.pkey.requiredParentSubGroup sg6c join sg6c.optionalChildrenIncByGrp ig6c join ig6c.pkey.requiredParentSubGroup sg6d join sg6d.optionalChildrenIncByGrp ig6d join ig6d.pkey.requiredParentSubGroup sg6e join sg6e.optionalChildrenIncByGrp ig6e join ig6e.pkey.requiredParentSubGroup sg6f join sg6f.optionalChildrenMembByGrp mb6 join mb6.pkey.requiredParentUser pu6 where sg6.requiredName = :parmPermName and pu6.requiredLoginId = :parmLoginId"
+		+ " union select sg7.requiredName as requiredName from CFSecJpaSecSysGrp sg7 join sg7.optionalChildrenIncByGrp ig7 join ig7.pkey.requiredParentSubGroup sg7a join sg7a.optionalChildrenIncByGrp ig7a join ig7a.pkey.requiredParentSubGroup sg7b join sg7b.optionalChildrenIncByGrp ig7b join ig7b.pkey.requiredParentSubGroup sg7c join sg7c.optionalChildrenIncByGrp ig7c join ig7c.pkey.requiredParentSubGroup sg7d join sg7d.optionalChildrenIncByGrp ig7d join ig7d.pkey.requiredParentSubGroup sg7e join sg7e.optionalChildrenIncByGrp ig7e join ig7e.pkey.requiredParentSubGroup sg7f join sg7f.optionalChildrenIncByGrp ig7f join ig7f.pkey.requiredParentSubGroup sg7g join sg7g.optionalChildrenMembByGrp mb7 join mb7.pkey.requiredParentUser pu7 where sg7.requiredName = :parmPermName and pu7.requiredLoginId = :parmLoginId)")
 	long countSysSecurityPermsByLoginId(@Param("parmPermName") String parmPermName, @Param("parmLoginId") String parmLoginId);
 
 	/**
-	 *	Count system-level security access for permission granted to a specific user by UserId.
+	 *	Count system-level security access for permission granted to a specific user by SecUserId.
 	 *
 	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
 	 *		@param parmUserId The UserId of the user being authorized.
@@ -241,7 +245,59 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and pu0.requiredSecUserId = :parmUserId"
 		+ " union select sg1.requiredName as requiredName from CFSecJpaSecSysGrp sg1 join sg1.optionalChildrenIncByGrp ig1 join ig1.pkey.requiredParentSubGroup sg1a join sg1a.optionalChildrenMembByGrp mb1 join mb1.pkey.requiredParentUser pu1 where sg1.requiredName = :parmPermName and pu1.requiredSecUserId = :parmUserId"
 		+ " union select sg2.requiredName as requiredName from CFSecJpaSecSysGrp sg2 join sg2.optionalChildrenIncByGrp ig2 join ig2.pkey.requiredParentSubGroup sg2a join sg2a.optionalChildrenIncByGrp ig2a join ig2a.pkey.requiredParentSubGroup sg2b join sg2b.optionalChildrenMembByGrp mb2 join mb2.pkey.requiredParentUser pu2 where sg2.requiredName = :parmPermName and pu2.requiredSecUserId = :parmUserId"
-		+ " union select sg3.requiredName as requiredName from CFSecJpaSecSysGrp sg3 join sg3.optionalChildrenIncByGrp ig3 join ig3.pkey.requiredParentSubGroup sg3a join sg3a.optionalChildrenIncByGrp ig3a join ig3a.pkey.requiredParentSubGroup sg3b join sg3b.optionalChildrenIncByGrp ig3b join ig3b.pkey.requiredParentSubGroup sg3c join sg3c.optionalChildrenMembByGrp mb3 join mb3.pkey.requiredParentUser pu3 where sg3.requiredName = :parmPermName and pu3.requiredSecUserId = :parmUserId)")
+		+ " union select sg3.requiredName as requiredName from CFSecJpaSecSysGrp sg3 join sg3.optionalChildrenIncByGrp ig3 join ig3.pkey.requiredParentSubGroup sg3a join sg3a.optionalChildrenIncByGrp ig3a join ig3a.pkey.requiredParentSubGroup sg3b join sg3b.optionalChildrenIncByGrp ig3b join ig3b.pkey.requiredParentSubGroup sg3c join sg3c.optionalChildrenMembByGrp mb3 join mb3.pkey.requiredParentUser pu3 where sg3.requiredName = :parmPermName and pu3.requiredSecUserId = :parmUserId"
+		+ " union select sg4.requiredName as requiredName from CFSecJpaSecSysGrp sg4 join sg4.optionalChildrenIncByGrp ig4 join ig4.pkey.requiredParentSubGroup sg4a join sg4a.optionalChildrenIncByGrp ig4a join ig4a.pkey.requiredParentSubGroup sg4b join sg4b.optionalChildrenIncByGrp ig4b join ig4b.pkey.requiredParentSubGroup sg4c join sg4c.optionalChildrenIncByGrp ig4c join ig4c.pkey.requiredParentSubGroup sg4d join sg4d.optionalChildrenMembByGrp mb4 join mb4.pkey.requiredParentUser pu4 where sg4.requiredName = :parmPermName and pu4.requiredSecUserId = :parmUserId"
+		+ " union select sg5.requiredName as requiredName from CFSecJpaSecSysGrp sg5 join sg5.optionalChildrenIncByGrp ig5 join ig5.pkey.requiredParentSubGroup sg5a join sg5a.optionalChildrenIncByGrp ig5a join ig5a.pkey.requiredParentSubGroup sg5b join sg5b.optionalChildrenIncByGrp ig5b join ig5b.pkey.requiredParentSubGroup sg5c join sg5c.optionalChildrenIncByGrp ig5c join ig5c.pkey.requiredParentSubGroup sg5d join sg5d.optionalChildrenIncByGrp ig5d join ig5d.pkey.requiredParentSubGroup sg5e join sg5e.optionalChildrenMembByGrp mb5 join mb5.pkey.requiredParentUser pu5 where sg5.requiredName = :parmPermName and pu5.requiredSecUserId = :parmUserId"
+		+ " union select sg6.requiredName as requiredName from CFSecJpaSecSysGrp sg6 join sg6.optionalChildrenIncByGrp ig6 join ig6.pkey.requiredParentSubGroup sg6a join sg6a.optionalChildrenIncByGrp ig6a join ig6a.pkey.requiredParentSubGroup sg6b join sg6b.optionalChildrenIncByGrp ig6b join ig6b.pkey.requiredParentSubGroup sg6c join sg6c.optionalChildrenIncByGrp ig6c join ig6c.pkey.requiredParentSubGroup sg6d join sg6d.optionalChildrenIncByGrp ig6d join ig6d.pkey.requiredParentSubGroup sg6e join sg6e.optionalChildrenIncByGrp ig6e join ig6e.pkey.requiredParentSubGroup sg6f join sg6f.optionalChildrenMembByGrp mb6 join mb6.pkey.requiredParentUser pu6 where sg6.requiredName = :parmPermName and pu6.requiredSecUserId = :parmUserId"
+		+ " union select sg7.requiredName as requiredName from CFSecJpaSecSysGrp sg7 join sg7.optionalChildrenIncByGrp ig7 join ig7.pkey.requiredParentSubGroup sg7a join sg7a.optionalChildrenIncByGrp ig7a join ig7a.pkey.requiredParentSubGroup sg7b join sg7b.optionalChildrenIncByGrp ig7b join ig7b.pkey.requiredParentSubGroup sg7c join sg7c.optionalChildrenIncByGrp ig7c join ig7c.pkey.requiredParentSubGroup sg7d join sg7d.optionalChildrenIncByGrp ig7d join ig7d.pkey.requiredParentSubGroup sg7e join sg7e.optionalChildrenIncByGrp ig7e join ig7e.pkey.requiredParentSubGroup sg7f join sg7f.optionalChildrenIncByGrp ig7f join ig7f.pkey.requiredParentSubGroup sg7g join sg7g.optionalChildrenMembByGrp mb7 join mb7.pkey.requiredParentUser pu7 where sg7.requiredName = :parmPermName and pu7.requiredSecUserId = :parmUserId)")
 	long countSysSecurityPermsByUserId(@Param("parmPermName") String parmPermName, @Param("parmUserId") CFLibDbKeyHash256 parmUserId);
+
+	/**
+	 *	Count cluster-level security access for permission granted to a specific user by LoginId for the specified ClusterId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmClusterId The ClusterId of the permission to be checked (not necessarily the user's current cluster)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Query("select count(*) from ("
+		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplClusGrp cg0 join cg0.requiredOwnerCluster cl0 join cg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and cl0.requiredId = :parmClusterId and pu0.requiredLoginId = :parmLoginId)")
+	long countClusSecurityPermsByLoginId(@Param("parmPermName") String parmPermName, @Param("parmLoginId") String parmLoginId, @Param("parmClusterId") CFLibDbKeyHash256 parmClusterId);
+
+	/**
+	 *	Count cluster-level security access for permission granted to a specific user by SecUserId for the specified ClusterId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmClusterId The ClusterId of the permission to be checked (not necessarily the user's current cluster)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Query("select count(*) from ("
+		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplClusGrp cg0 join cg0.requiredOwnerCluster cl0 join cg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and cl0.requiredId = :parmClusterId and pu0.requiredSecUserId = :parmUserId)")
+	long countClusSecurityPermsByUserId(@Param("parmPermName") String parmPermName, @Param("parmUserId") CFLibDbKeyHash256 parmUserId, @Param("parmClusterId") CFLibDbKeyHash256 parmClusterId);
+
+	/**
+	 *	Count tenant-level security access for permission granted to a specific user by LoginId for the specified TenantId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmTenantId The TenantId of the permission to be checked (not necessarily the user's current tenant)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Query("select count(*) from ("
+		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplTentGrp tg0 join tg0.requiredOwnerTenant tn0 join tg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and tg0.requiredId = :parmTenantId and pu0.requiredLoginId = :parmLoginId)")
+	long countTentSecurityPermsByLoginId(@Param("parmPermName") String parmPermName, @Param("parmLoginId") String parmLoginId, @Param("parmTenantId") CFLibDbKeyHash256 parmTenantId);
+
+	/**
+	 *	Count tenant-level security access for permission granted to a specific user by SecUserId for the specified TenantId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmTenantId The TenantId of the permission to be checked (not necessarily the user's current tenant)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Query("select count(*) from ("
+		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplTentGrp tg0 join tg0.requiredOwnerTenant tn0 join tg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and tg0.requiredId = :parmTenantId and pu0.requiredSecUserId = :parmUserId)")
+	long countTentSecurityPermsByUserId(@Param("parmPermName") String parmPermName, @Param("parmUserId") CFLibDbKeyHash256 parmUserId, @Param("parmTenantId") CFLibDbKeyHash256 parmTenantId);
 
 }

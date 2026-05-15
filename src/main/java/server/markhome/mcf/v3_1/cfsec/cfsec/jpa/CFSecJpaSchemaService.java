@@ -1811,7 +1811,31 @@ public class CFSecJpaSchemaService {
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfTenantGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, String permissionName) {
-		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfTenantGroup");
+		if (userId == null || userId.isNull()) {
+			return(false);
+		}
+		if (permissionName == null || permissionName.isEmpty() || permissionName.isBlank()) {
+			return(false);
+		}
+		if (clusterId == null || clusterId.isNull()) {
+			return(false);
+		}
+		if (tenantId == null || tenantId.isNull()) {
+			return(false);
+		}
+		long granted = secuserRepository.countTentSecurityPermsByUserId(permissionName, userId, tenantId);
+		if (granted > 0) {
+			return(true);
+		}
+		granted = secuserRepository.countClusSecurityPermsByUserId(permissionName, userId, clusterId);
+		if (granted > 0) {
+			return(true);
+		}
+		granted = secuserRepository.countSysSecurityPermsByUserId(permissionName, userId);
+		if (granted > 0) {
+			return(true);
+		}
+		return(false);
 	}
 
 	/**
@@ -1827,7 +1851,24 @@ public class CFSecJpaSchemaService {
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfClusterGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, String permissionName) {
-		throw new CFLibNotImplementedYetException(getClass(), "probeMemberOfClusterGroup");
+		if (userId == null || userId.isNull()) {
+			return(false);
+		}
+		if (permissionName == null || permissionName.isEmpty() || permissionName.isBlank()) {
+			return(false);
+		}
+		if (clusterId == null || clusterId.isNull()) {
+			return(false);
+		}
+		long granted = secuserRepository.countClusSecurityPermsByUserId(permissionName, userId, clusterId);
+		if (granted > 0) {
+			return(true);
+		}
+		granted = secuserRepository.countSysSecurityPermsByUserId(permissionName, userId);
+		if (granted > 0) {
+			return(true);
+		}
+		return(false);
 	}
 
 	/**
@@ -1847,7 +1888,11 @@ public class CFSecJpaSchemaService {
 		if (permissionName == null || permissionName.isEmpty() || permissionName.isBlank()) {
 			return(false);
 		}
-		return(secuserRepository.countSysSecurityPermsByUserId(permissionName, userId) > 0);
+		long granted = secuserRepository.countSysSecurityPermsByUserId(permissionName, userId);
+		if (granted > 0) {
+			return(true);
+		}
+		return(false);
 	}
 
 		// Customized schematweak [CFSec::CFSec].JpaSchemaServiceCustomServices
