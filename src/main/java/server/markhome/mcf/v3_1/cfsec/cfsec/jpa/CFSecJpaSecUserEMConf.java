@@ -119,7 +119,12 @@ public class CFSecJpaSecUserEMConf
 		}
 		else if (argObj instanceof CFSecJpaSecUser) {
 			requiredContainerUser = (CFSecJpaSecUser)argObj;
-			requiredSecUserId = requiredContainerUser.getRequiredSecUserId();
+			if (requiredContainerUser != null) {
+				requiredSecUserId = requiredContainerUser.getRequiredSecUserId();
+			}
+			else {
+				requiredSecUserId = ICFSecSecUserEMConf.SECUSERID_INIT_VALUE;
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerUser", "argObj", argObj, "CFSecJpaSecUser");
