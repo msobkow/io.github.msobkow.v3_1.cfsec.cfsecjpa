@@ -150,9 +150,6 @@ public class CFSecJpaSchemaService {
 	@Autowired
 	private CFSecJpaSysClusterService sysclusterService;
 
-	@Autowired
-	private CFSecJpaSecUserRepository secuserRepository;
-
 
 	public void bootstrapSchema(CFSecTableInfo tableInfo[]) {
 		bootstrapSecurity();
@@ -1753,6 +1750,154 @@ public class CFSecJpaSchemaService {
 	}
 
 
+	/***** Internal low-level security service methods to satisfy SecurityCache implementations */
+
+	/**
+	 *	Count system-level security access for permission granted to a specific user by LoginId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	long countSysSecurityPermsByLoginId(String parmPermName, String parmLoginId) {
+		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
+		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countSysSecurityPermsByLoginId", Long.class);
+		query.setParameter("parmPermName", parmPermName);
+		query.setParameter("parmLoginId", parmLoginId);
+		Long val = query.getSingleResult();
+		em.close();
+		if (val != null) {
+			return(val);
+		}
+		else {
+			return(0L);
+		}
+	}
+
+	/**
+	 *	Count system-level security access for permission granted to a specific user by SecUserId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmUserId The UserId of the user being authorized.
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	long countSysSecurityPermsByUserId(String parmPermName, CFLibDbKeyHash256 parmUserId) {
+		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
+		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countSysSecurityPermsByUserId", Long.class);
+		query.setParameter("parmPermName", parmPermName);
+		query.setParameter("parmUserId", parmUserId);
+		Long val = query.getSingleResult();
+		em.close();
+		if (val != null) {
+			return(val);
+		}
+		else {
+			return(0L);
+		}
+	}
+
+	/**
+	 *	Count cluster-level security access for permission granted to a specific user by LoginId for the specified ClusterId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmClusterId The ClusterId of the permission to be checked (not necessarily the user's current cluster)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	long countClusSecurityPermsByLoginId(String parmPermName, String parmLoginId, CFLibDbKeyHash256 parmClusterId) {
+		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
+		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countClusSecurityPermsByLoginId", Long.class);
+		query.setParameter("parmPermName", parmPermName);
+		query.setParameter("parmLoginId", parmLoginId);
+		query.setParameter("parmClusterId", parmClusterId);
+		Long val = query.getSingleResult();
+		em.close();
+		if (val != null) {
+			return(val);
+		}
+		else {
+			return(0L);
+		}
+	}
+
+	/**
+	 *	Count cluster-level security access for permission granted to a specific user by SecUserId for the specified ClusterId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmClusterId The ClusterId of the permission to be checked (not necessarily the user's current cluster)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	long countClusSecurityPermsByUserId(String parmPermName, CFLibDbKeyHash256 parmUserId, CFLibDbKeyHash256 parmClusterId) {
+		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
+		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countClusSecurityPermsByUserId", Long.class);
+		query.setParameter("parmPermName", parmPermName);
+		query.setParameter("parmUserId", parmUserId);
+		query.setParameter("parmClusterId", parmClusterId);
+		Long val = query.getSingleResult();
+		em.close();
+		if (val != null) {
+			return(val);
+		}
+		else {
+			return(0L);
+		}
+	}
+
+	/**
+	 *	Count tenant-level security access for permission granted to a specific user by LoginId for the specified TenantId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmTenantId The TenantId of the permission to be checked (not necessarily the user's current tenant)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	long countTentSecurityPermsByLoginId(String parmPermName, String parmLoginId, CFLibDbKeyHash256 parmTenantId) {
+		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
+		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countTentSecurityPermsByLoginId", Long.class);
+		query.setParameter("parmPermName", parmPermName);
+		query.setParameter("parmLoginId", parmLoginId);
+		query.setParameter("parmTenantId", parmTenantId);
+		Long val = query.getSingleResult();
+		em.close();
+		if (val != null) {
+			return(val);
+		}
+		else {
+			return(0L);
+		}
+	}
+
+	/**
+	 *	Count tenant-level security access for permission granted to a specific user by SecUserId for the specified TenantId.
+	 *
+	 *		@param parmPermName The name of the permission to be checked (all lowercase in the case of generated permission names; custom roles might be mixed-case)
+	 *		@param parmLoginId The LoginId of the user being authorized.
+	 *		@param parmTenantId The TenantId of the permission to be checked (not necessarily the user's current tenant)
+	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	long countTentSecurityPermsByUserId(String parmPermName, CFLibDbKeyHash256 parmUserId, CFLibDbKeyHash256 parmTenantId) {
+		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
+		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countTentSecurityPermsByUserId", Long.class);
+		query.setParameter("parmPermName", parmPermName);
+		query.setParameter("parmUserId", parmUserId);
+		query.setParameter("parmTenantId", parmTenantId);
+		Long val = query.getSingleResult();
+		em.close();
+		if (val != null) {
+			return(val);
+		}
+		else {
+			return(0L);
+		}
+	}
+
 	/***** Backend security service methods */
 
 	/**
@@ -1823,15 +1968,15 @@ public class CFSecJpaSchemaService {
 		if (tenantId == null || tenantId.isNull()) {
 			return(false);
 		}
-		long granted = secuserRepository.countTentSecurityPermsByUserId(permissionName, userId, tenantId);
+		long granted = countTentSecurityPermsByUserId(permissionName, userId, tenantId);
 		if (granted > 0) {
 			return(true);
 		}
-		granted = secuserRepository.countClusSecurityPermsByUserId(permissionName, userId, clusterId);
+		granted = countClusSecurityPermsByUserId(permissionName, userId, clusterId);
 		if (granted > 0) {
 			return(true);
 		}
-		granted = secuserRepository.countSysSecurityPermsByUserId(permissionName, userId);
+		granted = countSysSecurityPermsByUserId(permissionName, userId);
 		if (granted > 0) {
 			return(true);
 		}
@@ -1860,11 +2005,11 @@ public class CFSecJpaSchemaService {
 		if (clusterId == null || clusterId.isNull()) {
 			return(false);
 		}
-		long granted = secuserRepository.countClusSecurityPermsByUserId(permissionName, userId, clusterId);
+		long granted = countClusSecurityPermsByUserId(permissionName, userId, clusterId);
 		if (granted > 0) {
 			return(true);
 		}
-		granted = secuserRepository.countSysSecurityPermsByUserId(permissionName, userId);
+		granted = countSysSecurityPermsByUserId(permissionName, userId);
 		if (granted > 0) {
 			return(true);
 		}
@@ -1888,7 +2033,7 @@ public class CFSecJpaSchemaService {
 		if (permissionName == null || permissionName.isEmpty() || permissionName.isBlank()) {
 			return(false);
 		}
-		long granted = secuserRepository.countSysSecurityPermsByUserId(permissionName, userId);
+		long granted = countSysSecurityPermsByUserId(permissionName, userId);
 		if (granted > 0) {
 			return(true);
 		}
