@@ -92,7 +92,7 @@ public interface CFSecJpaSecClusGrpRepository extends JpaRepository<CFSecJpaSecC
 	 *
 	 *		@return List&lt;CFSecJpaSecClusGrp&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecClusGrp r where r.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusGrp r where r.requiredParentSysGrp.requiredName = :name")
 	List<CFSecJpaSecClusGrp> findByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -114,7 +114,7 @@ public interface CFSecJpaSecClusGrpRepository extends JpaRepository<CFSecJpaSecC
 	 *
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaSecClusGrp r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusGrp r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredParentSysGrp.requiredName = :name")
 	CFSecJpaSecClusGrp findByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 
@@ -175,7 +175,7 @@ public interface CFSecJpaSecClusGrpRepository extends JpaRepository<CFSecJpaSecC
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecClusGrp r where r.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusGrp r where r.requiredParentSysGrp.requiredName = :name")
 	List<CFSecJpaSecClusGrp> lockByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -199,7 +199,7 @@ public interface CFSecJpaSecClusGrpRepository extends JpaRepository<CFSecJpaSecC
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecClusGrp r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusGrp r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredParentSysGrp.requiredName = :name")
 	CFSecJpaSecClusGrp lockByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 
@@ -252,7 +252,7 @@ public interface CFSecJpaSecClusGrpRepository extends JpaRepository<CFSecJpaSecC
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecClusGrp r where r.requiredName = :name")
+	@Query("delete from CFSecJpaSecClusGrp r where r.requiredParentSysGrp.requiredName = :name")
 	void deleteByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -272,7 +272,7 @@ public interface CFSecJpaSecClusGrpRepository extends JpaRepository<CFSecJpaSecC
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecClusGrp r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredName = :name")
+	@Query("delete from CFSecJpaSecClusGrp r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredParentSysGrp.requiredName = :name")
 	void deleteByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 

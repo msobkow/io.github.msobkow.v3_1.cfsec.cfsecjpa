@@ -149,8 +149,8 @@ public class CFSecJpaSecClusGrpService {
 		}
 		// Apply superior data relationships of CFSecSecClusGrp to existing object
 		existing.setRequiredOwnerCluster(data.getRequiredOwnerCluster());
+		existing.setRequiredParentSysGrp(data.getRequiredParentSysGrp());
 		// Apply data columns of CFSecSecClusGrp to existing object
-		existing.setRequiredName(data.getRequiredName());
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());
 		// Save the changes we've made

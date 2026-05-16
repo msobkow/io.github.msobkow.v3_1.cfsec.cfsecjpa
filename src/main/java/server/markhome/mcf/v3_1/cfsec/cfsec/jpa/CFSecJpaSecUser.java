@@ -78,10 +78,10 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplClusGrp cg0 join cg0.requiredOwnerCluster cl0 join cg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and cl0.requiredId = :parmClusterId and pu0.requiredSecUserId = :parmUserId)")
 @NamedQuery(name="cFSec31SecUser.countTentSecurityPermsByLoginId",
 	query="select count(*) from ("
-		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplTentGrp tg0 join tg0.requiredOwnerTenant tn0 join tg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and tg0.requiredId = :parmTenantId and pu0.requiredLoginId = :parmLoginId)")
+		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplTentGrp tg0 join tg0.requiredOwnerTenant tn0 join tg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and tn0.requiredId = :parmTenantId and pu0.requiredLoginId = :parmLoginId)")
 @NamedQuery(name="cFSec31SecUser.countTentSecurityPermsByUserId",
 	query="select count(*) from ("
-		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplTentGrp tg0 join tg0.requiredOwnerTenant tn0 join tg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and tg0.requiredId = :parmTenantId and pu0.requiredSecUserId = :parmUserId)")
+		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenImplTentGrp tg0 join tg0.requiredOwnerTenant tn0 join tg0.optionalChildrenMembByGrp mb0 join mb0.pkey.requiredParentUser pu0 where sg0.requiredName = :parmPermName and tn0.requiredId = :parmTenantId and pu0.requiredSecUserId = :parmUserId)")
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecUser
 	implements Comparable<Object>,

@@ -71,6 +71,9 @@ public class CFSecJpaSecClusGrp
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="ClusterId", referencedColumnName="Id" )
 	protected CFSecJpaCluster requiredOwnerCluster;
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
+	protected CFSecJpaSecSysGrp requiredParentSysGrp;
 
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
@@ -87,12 +90,9 @@ public class CFSecJpaSecClusGrp
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
-	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
 
 	public CFSecJpaSecClusGrp() {
 		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
-		requiredName = ICFSecSecClusGrp.NAME_INIT_VALUE;
 	}
 
 	@Override
@@ -145,6 +145,37 @@ public class CFSecJpaSecClusGrp
 		}
 		ICFSecCluster targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argClusterId);
 		setRequiredOwnerCluster(targetRec);
+	}
+
+	@Override
+	public ICFSecSecSysGrp getRequiredParentSysGrp() {
+		return( requiredParentSysGrp );
+	}
+	@Override
+	public void setRequiredParentSysGrp(ICFSecSecSysGrp argObj) {
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setParentSysGrp", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaSecSysGrp) {
+			requiredParentSysGrp = (CFSecJpaSecSysGrp)argObj;
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setParentSysGrp", "argObj", argObj, "CFSecJpaSecSysGrp");
+		}
+	}
+
+	@Override
+	public void setRequiredParentSysGrp(String argName) {
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysGrp", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecSecSysGrpTable targetTable = targetBackingSchema.getTableSecSysGrp();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysGrp", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
+		}
+		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argName);
+		setRequiredParentSysGrp(targetRec);
 	}
 
 	@Override
@@ -249,26 +280,13 @@ public class CFSecJpaSecClusGrp
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
-	}
-
-	@Override
-	public void setRequiredName( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredName",
-				1,
-				"value" );
+		ICFSecSecSysGrp result = getRequiredParentSysGrp();
+		if (result != null) {
+			return result.getRequiredName();
 		}
-		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredName",
-				1,
-				"value.length()",
-				value.length(),
-				64 );
+		else {
+			return( ICFSecSecSysGrp.NAME_INIT_VALUE );
 		}
-		requiredName = value;
 	}
 
 	@Override
@@ -750,7 +768,7 @@ public class CFSecJpaSecClusGrp
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
 		setRequiredOwnerCluster(src.getRequiredOwnerCluster());
-		setRequiredName(src.getRequiredName());
+		setRequiredParentSysGrp(src.getRequiredParentSysGrp());
 	}
 
 	@Override
@@ -762,7 +780,7 @@ public class CFSecJpaSecClusGrp
 	public void setSecClusGrp( ICFSecSecClusGrpH src ) {
 		setRequiredSecClusGrpId(src.getRequiredSecClusGrpId());
 		setRequiredOwnerCluster(src.getRequiredClusterId());
-		setRequiredName(src.getRequiredName());
+		setRequiredParentSysGrp(src.getRequiredName());
 	}
 
 	@Override
