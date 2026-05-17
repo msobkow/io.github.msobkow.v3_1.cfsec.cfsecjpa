@@ -149,8 +149,8 @@ public class CFSecJpaSecClusRoleService {
 		}
 		// Apply superior data relationships of CFSecSecClusRole to existing object
 		existing.setRequiredOwnerCluster(data.getRequiredOwnerCluster());
+		existing.setRequiredContainerSysRole(data.getRequiredContainerSysRole());
 		// Apply data columns of CFSecSecClusRole to existing object
-		existing.setRequiredName(data.getRequiredName());
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());
 		// Save the changes we've made

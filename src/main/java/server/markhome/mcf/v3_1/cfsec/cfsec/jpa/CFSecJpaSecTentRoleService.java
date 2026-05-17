@@ -148,8 +148,8 @@ public class CFSecJpaSecTentRoleService {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
 		}
 		// Apply superior data relationships of CFSecSecTentRole to existing object
-		existing.setRequiredContainerRole(data.getRequiredContainerRole());
 		existing.setRequiredOwnerTenant(data.getRequiredOwnerTenant());
+		existing.setRequiredContainerSysRole(data.getRequiredContainerSysRole());
 		// Apply data columns of CFSecSecTentRole to existing object
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());

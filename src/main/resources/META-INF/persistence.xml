@@ -36,22 +36,18 @@
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysGrpMembH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrp</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpH</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpInc</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpIncH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpMemb</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpMembH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrp</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpH</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpInc</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpIncH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpMemb</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpMembH</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecRole</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecRoleH</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecRoleEnables</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecRoleEnablesH</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecRoleMemb</class>
-        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecRoleMembH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRole</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleEnables</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleEnablesH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleMemb</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleMembH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusRole</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusRoleH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusRoleMemb</class>

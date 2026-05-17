@@ -63,8 +63,6 @@ public class CFSecJpaSecClusGrp
 	})
 	protected CFLibDbKeyHash256 requiredSecClusGrpId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerGroup")
-	protected Set<CFSecJpaSecClusGrpInc> optionalChildrenIncByGrp;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerGroup")
 	protected Set<CFSecJpaSecClusGrpMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
 
@@ -100,14 +98,6 @@ public class CFSecJpaSecClusGrp
 		return( ICFSecSecClusGrp.CLASS_CODE );
 	}
 
-	@Override
-	public List<ICFSecSecClusGrpInc> getOptionalChildrenIncByGrp() {
-		List<ICFSecSecClusGrpInc> retlist = new ArrayList<>(optionalChildrenIncByGrp.size());
-		for (CFSecJpaSecClusGrpInc cur: optionalChildrenIncByGrp) {
-			retlist.add(cur);
-		}
-		return( retlist );
-	}
 	@Override
 	public List<ICFSecSecClusGrpMemb> getOptionalChildrenMembByGrp() {
 		List<ICFSecSecClusGrpMemb> retlist = new ArrayList<>(optionalChildrenMembByGrp.size());
