@@ -47,7 +47,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecUserPWResetIdIdx", columnList = "SecUserId", unique = true),
 		@Index(name = "SecUserPWResetUuid6Idx", columnList = "pwdrstuuid6", unique = true),
 		@Index(name = "SecUserPWResetSentToEMailAddrIdx", columnList = "sent_emailaddr", unique = false),
-		@Index(name = "SecUserPWResetNewAcctIdx", columnList = "newacct", unique = false)
+		@Index(name = "SecUserPWResetNewAcctIdx", columnList = "newacct", unique = false),
+		@Index(name = "SecUserPWResetIdIdxUser", columnList = "SecUserIdUser", unique = true)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -64,7 +65,7 @@ public class CFSecJpaSecUserPWReset
 	protected CFLibDbKeyHash256 requiredSecUserId;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
+	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
 	protected int requiredRevision;
 

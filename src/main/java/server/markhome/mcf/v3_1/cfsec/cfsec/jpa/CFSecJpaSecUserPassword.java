@@ -45,7 +45,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 	name = "SecUserPW", schema = "CFSec31",
 	indexes = {
 		@Index(name = "SecUserPasswordIdIdx", columnList = "SecUserId", unique = true),
-		@Index(name = "SecUserPasswordSetStampIdx", columnList = "PWSetStamp", unique = false)
+		@Index(name = "SecUserPasswordSetStampIdx", columnList = "PWSetStamp", unique = false),
+		@Index(name = "SecUserPasswordIdIdxUser", columnList = "SecUserIdUser", unique = true)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -62,7 +63,7 @@ public class CFSecJpaSecUserPassword
 	protected CFLibDbKeyHash256 requiredSecUserId;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
+	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
 	protected int requiredRevision;
 
