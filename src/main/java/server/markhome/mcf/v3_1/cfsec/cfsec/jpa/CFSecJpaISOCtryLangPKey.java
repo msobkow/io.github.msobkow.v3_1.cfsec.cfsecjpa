@@ -49,12 +49,10 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOCtryLangPKey
 	implements ICFSecISOCtryLangPKey, Comparable<ICFSecISOCtryLangPKey>, Serializable
 {
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOCtryId", referencedColumnName="ISOCtryId" )
-	protected CFSecJpaISOCtry requiredContainerCtry;
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOLangId", referencedColumnName="ISOLangId" )
-	protected CFSecJpaISOLang requiredParentLang;
+	@Column( name="ISOCtryId", nullable=false )
+	protected short requiredISOCtryId;
+	@Column( name="ISOLangId", nullable=false )
+	protected short requiredISOLangId;
 
 	public CFSecJpaISOCtryLangPKey() {
 		requiredContainerCtry = null;
@@ -62,87 +60,39 @@ public class CFSecJpaISOCtryLangPKey
 	}
 
 	@Override
-	public ICFSecISOCtry getRequiredContainerCtry() {
-		return( requiredContainerCtry );
-	}
-	@Override
-	public void setRequiredContainerCtry(ICFSecISOCtry argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setContainerCtry", 1, "argObj");
-		}
-		else if (argObj instanceof CFSecJpaISOCtry) {
-			requiredContainerCtry = (CFSecJpaISOCtry)argObj;
-		}
-		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setContainerCtry", "argObj", argObj, "CFSecJpaISOCtry");
-		}
-	
-	}
-
-	@Override
-	public void setRequiredContainerCtry(short argISOCtryId) {
-		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec()");
-		}
-		ICFSecISOCtryTable targetTable = targetBackingSchema.getTableISOCtry();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec().getTableISOCtry()");
-		}
-		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCtryId);
-		setRequiredContainerCtry(targetRec);
-	}
-	@Override
-	public ICFSecISOLang getRequiredParentLang() {
-		return( requiredParentLang );
-	}
-	@Override
-	public void setRequiredParentLang(ICFSecISOLang argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setParentLang", 1, "argObj");
-		}
-		else if (argObj instanceof CFSecJpaISOLang) {
-			requiredParentLang = (CFSecJpaISOLang)argObj;
-		}
-		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setParentLang", "argObj", argObj, "CFSecJpaISOLang");
-		}
-	
-	}
-
-	@Override
-	public void setRequiredParentLang(short argISOLangId) {
-		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentLang", 0, "ICFSecSchema.getBackingCFSec()");
-		}
-		ICFSecISOLangTable targetTable = targetBackingSchema.getTableISOLang();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentLang", 0, "ICFSecSchema.getBackingCFSec().getTableISOLang()");
-		}
-		ICFSecISOLang targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOLangId);
-		setRequiredParentLang(targetRec);
-	}
-	@Override
 	public short getRequiredISOCtryId() {
-		ICFSecISOCtry result = getRequiredContainerCtry();
-		if (result != null) {
-			return result.getRequiredISOCtryId();
+		return( requiredISOCtryId );
+	}
+
+	@Override
+	public void setRequiredISOCtryId( short value ) {
+		if( value < ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE );
 		}
-		else {
-			throw new CFLibNullArgumentException(getClass(), "getRequiredISOCtryId", 0, "getRequiredContainerCtry()");
-		}
+		requiredISOCtryId = value;
 	}
 
 	@Override
 	public short getRequiredISOLangId() {
-		ICFSecISOLang result = getRequiredParentLang();
-		if (result != null) {
-			return result.getRequiredISOLangId();
+		return( requiredISOLangId );
+	}
+
+	@Override
+	public void setRequiredISOLangId( short value ) {
+		if( value < ICFSecISOCtryLang.ISOLANGID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOLangId",
+				1,
+				"value",
+				value,
+				ICFSecISOCtryLang.ISOLANGID_MIN_VALUE );
 		}
-		else {
-			throw new CFLibNullArgumentException(getClass(), "getRequiredISOLangId", 0, "getRequiredParentLang()");
-		}
+		requiredISOLangId = value;
 	}
 
 	@Override

@@ -49,12 +49,12 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSysRoleEnablesPKey
 	implements ICFSecSecSysRoleEnablesPKey, Comparable<ICFSecSecSysRoleEnablesPKey>, Serializable
 {
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="SecSysRoleId", referencedColumnName="SecSysRoleId" )
-	protected CFSecJpaSecSysRole requiredContainerSysRole;
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="enable_name", referencedColumnName="safe_name" )
-	protected CFSecJpaSecSysGrp requiredParentEnableGroup;
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredSecSysRoleId;
+	@Column( name="enable_name", nullable=false, length=64 )
+	protected String requiredEnableName;
 
 	public CFSecJpaSecSysRoleEnablesPKey() {
 		requiredContainerSysRole = null;
@@ -62,87 +62,43 @@ public class CFSecJpaSecSysRoleEnablesPKey
 	}
 
 	@Override
-	public ICFSecSecSysRole getRequiredContainerSysRole() {
-		return( requiredContainerSysRole );
-	}
-	@Override
-	public void setRequiredContainerSysRole(ICFSecSecSysRole argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setContainerSysRole", 1, "argObj");
-		}
-		else if (argObj instanceof CFSecJpaSecSysRole) {
-			requiredContainerSysRole = (CFSecJpaSecSysRole)argObj;
-		}
-		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setContainerSysRole", "argObj", argObj, "CFSecJpaSecSysRole");
-		}
-	
-	}
-
-	@Override
-	public void setRequiredContainerSysRole(CFLibDbKeyHash256 argSecSysRoleId) {
-		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
-		}
-		ICFSecSecSysRoleTable targetTable = targetBackingSchema.getTableSecSysRole();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysRole()");
-		}
-		ICFSecSecSysRole targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecSysRoleId);
-		setRequiredContainerSysRole(targetRec);
-	}
-	@Override
-	public ICFSecSecSysGrp getRequiredParentEnableGroup() {
-		return( requiredParentEnableGroup );
-	}
-	@Override
-	public void setRequiredParentEnableGroup(ICFSecSecSysGrp argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setParentEnableGroup", 1, "argObj");
-		}
-		else if (argObj instanceof CFSecJpaSecSysGrp) {
-			requiredParentEnableGroup = (CFSecJpaSecSysGrp)argObj;
-		}
-		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setParentEnableGroup", "argObj", argObj, "CFSecJpaSecSysGrp");
-		}
-	
-	}
-
-	@Override
-	public void setRequiredParentEnableGroup(String argEnableName) {
-		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentEnableGroup", 0, "ICFSecSchema.getBackingCFSec()");
-		}
-		ICFSecSecSysGrpTable targetTable = targetBackingSchema.getTableSecSysGrp();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentEnableGroup", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
-		}
-		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argEnableName);
-		setRequiredParentEnableGroup(targetRec);
-	}
-	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
-		ICFSecSecSysRole result = getRequiredContainerSysRole();
-		if (result != null) {
-			return result.getRequiredSecSysRoleId();
+		return( requiredSecSysRoleId );
+	}
+
+	@Override
+	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecSysRoleId",
+				1,
+				"value" );
 		}
-		else {
-			throw new CFLibNullArgumentException(getClass(), "getRequiredSecSysRoleId", 0, "getRequiredContainerSysRole()");
-		}
+		requiredSecSysRoleId = value;
 	}
 
 	@Override
 	public String getRequiredEnableName() {
-		ICFSecSecSysGrp result = getRequiredParentEnableGroup();
-		if (result != null) {
-			return result.getRequiredName();
+		return( requiredEnableName );
+	}
+
+	@Override
+	public void setRequiredEnableName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredEnableName",
+				1,
+				"value" );
 		}
-		else {
-			throw new CFLibNullArgumentException(getClass(), "getRequiredEnableName", 0, "getRequiredParentEnableGroup()");
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredEnableName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
 		}
+		requiredEnableName = value;
 	}
 
 	@Override

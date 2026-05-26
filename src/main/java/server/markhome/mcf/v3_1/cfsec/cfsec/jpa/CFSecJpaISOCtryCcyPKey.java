@@ -49,12 +49,10 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOCtryCcyPKey
 	implements ICFSecISOCtryCcyPKey, Comparable<ICFSecISOCtryCcyPKey>, Serializable
 {
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOCtryId", referencedColumnName="ISOCtryId" )
-	protected CFSecJpaISOCtry requiredContainerCtry;
-	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ISOCcyId", referencedColumnName="ISOCcyId" )
-	protected CFSecJpaISOCcy requiredParentCcy;
+	@Column( name="ISOCtryId", nullable=false )
+	protected short requiredISOCtryId;
+	@Column( name="ISOCcyId", nullable=false )
+	protected short requiredISOCcyId;
 
 	public CFSecJpaISOCtryCcyPKey() {
 		requiredContainerCtry = null;
@@ -62,87 +60,39 @@ public class CFSecJpaISOCtryCcyPKey
 	}
 
 	@Override
-	public ICFSecISOCtry getRequiredContainerCtry() {
-		return( requiredContainerCtry );
-	}
-	@Override
-	public void setRequiredContainerCtry(ICFSecISOCtry argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setContainerCtry", 1, "argObj");
-		}
-		else if (argObj instanceof CFSecJpaISOCtry) {
-			requiredContainerCtry = (CFSecJpaISOCtry)argObj;
-		}
-		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setContainerCtry", "argObj", argObj, "CFSecJpaISOCtry");
-		}
-	
-	}
-
-	@Override
-	public void setRequiredContainerCtry(short argISOCtryId) {
-		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec()");
-		}
-		ICFSecISOCtryTable targetTable = targetBackingSchema.getTableISOCtry();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec().getTableISOCtry()");
-		}
-		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCtryId);
-		setRequiredContainerCtry(targetRec);
-	}
-	@Override
-	public ICFSecISOCcy getRequiredParentCcy() {
-		return( requiredParentCcy );
-	}
-	@Override
-	public void setRequiredParentCcy(ICFSecISOCcy argObj) {
-		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setParentCcy", 1, "argObj");
-		}
-		else if (argObj instanceof CFSecJpaISOCcy) {
-			requiredParentCcy = (CFSecJpaISOCcy)argObj;
-		}
-		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setParentCcy", "argObj", argObj, "CFSecJpaISOCcy");
-		}
-	
-	}
-
-	@Override
-	public void setRequiredParentCcy(short argISOCcyId) {
-		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
-		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentCcy", 0, "ICFSecSchema.getBackingCFSec()");
-		}
-		ICFSecISOCcyTable targetTable = targetBackingSchema.getTableISOCcy();
-		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentCcy", 0, "ICFSecSchema.getBackingCFSec().getTableISOCcy()");
-		}
-		ICFSecISOCcy targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCcyId);
-		setRequiredParentCcy(targetRec);
-	}
-	@Override
 	public short getRequiredISOCtryId() {
-		ICFSecISOCtry result = getRequiredContainerCtry();
-		if (result != null) {
-			return result.getRequiredISOCtryId();
+		return( requiredISOCtryId );
+	}
+
+	@Override
+	public void setRequiredISOCtryId( short value ) {
+		if( value < ICFSecISOCtryCcy.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecISOCtryCcy.ISOCTRYID_MIN_VALUE );
 		}
-		else {
-			throw new CFLibNullArgumentException(getClass(), "getRequiredISOCtryId", 0, "getRequiredContainerCtry()");
-		}
+		requiredISOCtryId = value;
 	}
 
 	@Override
 	public short getRequiredISOCcyId() {
-		ICFSecISOCcy result = getRequiredParentCcy();
-		if (result != null) {
-			return result.getRequiredISOCcyId();
+		return( requiredISOCcyId );
+	}
+
+	@Override
+	public void setRequiredISOCcyId( short value ) {
+		if( value < ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCcyId",
+				1,
+				"value",
+				value,
+				ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE );
 		}
-		else {
-			throw new CFLibNullArgumentException(getClass(), "getRequiredISOCcyId", 0, "getRequiredParentCcy()");
-		}
+		requiredISOCcyId = value;
 	}
 
 	@Override
