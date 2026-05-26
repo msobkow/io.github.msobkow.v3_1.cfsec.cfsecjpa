@@ -67,6 +67,8 @@ public class CFSecJpaISOCtryLangDefaultFactory
 			CFSecJpaISOCtryLangPKey mapped = new CFSecJpaISOCtryLangPKey();
 			mapped.setRequiredContainerCtry( key.getRequiredISOCtryId() );
 			mapped.setRequiredParentLang( key.getRequiredISOLangId() );
+			mapped.setRequiredISOCtryId( key.getRequiredISOCtryId() );
+			mapped.setRequiredISOLangId( key.getRequiredISOLangId() );
 			return( mapped );
 		}
 	}

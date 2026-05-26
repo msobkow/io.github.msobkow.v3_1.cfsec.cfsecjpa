@@ -67,6 +67,8 @@ public class CFSecJpaISOCtryCcyDefaultFactory
 			CFSecJpaISOCtryCcyPKey mapped = new CFSecJpaISOCtryCcyPKey();
 			mapped.setRequiredContainerCtry( key.getRequiredISOCtryId() );
 			mapped.setRequiredParentCcy( key.getRequiredISOCcyId() );
+			mapped.setRequiredISOCtryId( key.getRequiredISOCtryId() );
+			mapped.setRequiredISOCcyId( key.getRequiredISOCcyId() );
 			return( mapped );
 		}
 	}
