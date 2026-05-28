@@ -75,9 +75,9 @@ public class CFSecJpaSecSysGrp
 	protected Set<CFSecJpaSecClusGrp> optionalChildrenImplClusGrp;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysGrp")
 	protected Set<CFSecJpaSecTentGrp> optionalChildrenImplTentGrp;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysRole")
 	protected Set<CFSecJpaSecClusRole> optionalChildrenImplClusRole;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysRole")
 	protected Set<CFSecJpaSecTentRole> optionalChildrenImplTentRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentSubGroup")
 	protected Set<CFSecJpaSecSysGrpInc> optionalChildrenSysGrpByName;

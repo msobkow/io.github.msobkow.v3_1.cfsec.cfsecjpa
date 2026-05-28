@@ -61,8 +61,10 @@ public class CFSecJpaTenant
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerTenant")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerTenant")
 	protected Set<CFSecJpaSecTentGrp> optionalComponentsSecGroup;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerTenant")
+	protected Set<CFSecJpaSecTentRole> optionalComponentsSecRole;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -101,6 +103,14 @@ public class CFSecJpaTenant
 	public List<ICFSecSecTentGrp> getOptionalComponentsSecGroup() {
 		List<ICFSecSecTentGrp> retlist = new ArrayList<>(optionalComponentsSecGroup.size());
 		for (CFSecJpaSecTentGrp cur: optionalComponentsSecGroup) {
+			retlist.add(cur);
+		}
+		return( retlist );
+	}
+	@Override
+	public List<ICFSecSecTentRole> getOptionalComponentsSecRole() {
+		List<ICFSecSecTentRole> retlist = new ArrayList<>(optionalComponentsSecRole.size());
+		for (CFSecJpaSecTentRole cur: optionalComponentsSecRole) {
 			retlist.add(cur);
 		}
 		return( retlist );

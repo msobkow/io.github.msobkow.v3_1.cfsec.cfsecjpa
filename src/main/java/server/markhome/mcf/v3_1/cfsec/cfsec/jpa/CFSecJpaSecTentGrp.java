@@ -68,7 +68,7 @@ public class CFSecJpaSecTentGrp
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="TenantId", referencedColumnName="Id" )
-	protected CFSecJpaTenant requiredOwnerTenant;
+	protected CFSecJpaTenant requiredContainerTenant;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
 	protected CFSecJpaSecSysGrp requiredParentSysGrp;
@@ -107,34 +107,34 @@ public class CFSecJpaSecTentGrp
 		return( retlist );
 	}
 	@Override
-	public ICFSecTenant getRequiredOwnerTenant() {
-		return( requiredOwnerTenant );
+	public ICFSecTenant getRequiredContainerTenant() {
+		return( requiredContainerTenant );
 	}
 	@Override
-	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
+	public void setRequiredContainerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setOwnerTenant", 1, "argObj");
+			throw new CFLibNullArgumentException(getClass(), "setContainerTenant", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaTenant) {
-			requiredOwnerTenant = (CFSecJpaTenant)argObj;
+			requiredContainerTenant = (CFSecJpaTenant)argObj;
 		}
 		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setOwnerTenant", "argObj", argObj, "CFSecJpaTenant");
+			throw new CFLibUnsupportedClassException(getClass(), "setContainerTenant", "argObj", argObj, "CFSecJpaTenant");
 		}
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
+	public void setRequiredContainerTenant(CFLibDbKeyHash256 argTenantId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTenant", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecTenantTable targetTable = targetBackingSchema.getTableTenant();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
 		}
 		ICFSecTenant targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argTenantId);
-		setRequiredOwnerTenant(targetRec);
+		setRequiredContainerTenant(targetRec);
 	}
 
 	@Override
@@ -259,7 +259,7 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		ICFSecTenant result = getRequiredOwnerTenant();
+		ICFSecTenant result = getRequiredContainerTenant();
 		if (result != null) {
 			return result.getRequiredId();
 		}
@@ -757,7 +757,7 @@ public class CFSecJpaSecTentGrp
 		setCreatedAt( src.getCreatedAt() );
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
-		setRequiredOwnerTenant(src.getRequiredOwnerTenant());
+		setRequiredContainerTenant(src.getRequiredContainerTenant());
 		setRequiredParentSysGrp(src.getRequiredParentSysGrp());
 	}
 
@@ -769,7 +769,7 @@ public class CFSecJpaSecTentGrp
 	@Override
 	public void setSecTentGrp( ICFSecSecTentGrpH src ) {
 		setRequiredSecTentGrpId(src.getRequiredSecTentGrpId());
-		setRequiredOwnerTenant(src.getRequiredTenantId());
+		setRequiredContainerTenant(src.getRequiredTenantId());
 		setRequiredParentSysGrp(src.getRequiredName());
 	}
 

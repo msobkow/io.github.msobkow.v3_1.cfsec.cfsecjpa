@@ -71,7 +71,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 *
 	 *		@return List&lt;CFSecJpaSecClusRole&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecClusRole r where r.requiredOwnerCluster.requiredId = :clusterId")
+	@Query("select r from CFSecJpaSecClusRole r where r.requiredContainerCluster.requiredId = :clusterId")
 	List<CFSecJpaSecClusRole> findByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
@@ -92,7 +92,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 *
 	 *		@return List&lt;CFSecJpaSecClusRole&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecClusRole r where r.requiredContainerSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusRole r where r.requiredParentSysRole.requiredName = :name")
 	List<CFSecJpaSecClusRole> findByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -114,7 +114,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 *
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaSecClusRole r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredContainerSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusRole r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredParentSysRole.requiredName = :name")
 	CFSecJpaSecClusRole findByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 
@@ -152,7 +152,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecClusRole r where r.requiredOwnerCluster.requiredId = :clusterId")
+	@Query("select r from CFSecJpaSecClusRole r where r.requiredContainerCluster.requiredId = :clusterId")
 	List<CFSecJpaSecClusRole> lockByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
@@ -175,7 +175,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecClusRole r where r.requiredContainerSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusRole r where r.requiredParentSysRole.requiredName = :name")
 	List<CFSecJpaSecClusRole> lockByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -199,7 +199,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecClusRole r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredContainerSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecClusRole r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredParentSysRole.requiredName = :name")
 	CFSecJpaSecClusRole lockByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 
@@ -233,7 +233,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecClusRole r where r.requiredOwnerCluster.requiredId = :clusterId")
+	@Query("delete from CFSecJpaSecClusRole r where r.requiredContainerCluster.requiredId = :clusterId")
 	void deleteByClusterIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId);
 
 	/**
@@ -252,7 +252,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecClusRole r where r.requiredContainerSysRole.requiredName = :name")
+	@Query("delete from CFSecJpaSecClusRole r where r.requiredParentSysRole.requiredName = :name")
 	void deleteByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -272,7 +272,7 @@ public interface CFSecJpaSecClusRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecClusRole r where r.requiredOwnerCluster.requiredId = :clusterId and r.requiredContainerSysRole.requiredName = :name")
+	@Query("delete from CFSecJpaSecClusRole r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredParentSysRole.requiredName = :name")
 	void deleteByUNameIdx(@Param("clusterId") CFLibDbKeyHash256 requiredClusterId,
 		@Param("name") String requiredName);
 

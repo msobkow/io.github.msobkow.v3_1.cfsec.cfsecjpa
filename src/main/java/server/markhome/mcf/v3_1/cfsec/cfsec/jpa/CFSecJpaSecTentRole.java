@@ -68,10 +68,10 @@ public class CFSecJpaSecTentRole
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="TenantId", referencedColumnName="Id" )
-	protected CFSecJpaTenant requiredOwnerTenant;
+	protected CFSecJpaTenant requiredContainerTenant;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
-	protected CFSecJpaSecSysGrp requiredContainerSysRole;
+	protected CFSecJpaSecSysGrp requiredParentSysRole;
 
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
@@ -107,65 +107,65 @@ public class CFSecJpaSecTentRole
 		return( retlist );
 	}
 	@Override
-	public ICFSecTenant getRequiredOwnerTenant() {
-		return( requiredOwnerTenant );
+	public ICFSecTenant getRequiredContainerTenant() {
+		return( requiredContainerTenant );
 	}
 	@Override
-	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
+	public void setRequiredContainerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setOwnerTenant", 1, "argObj");
+			throw new CFLibNullArgumentException(getClass(), "setContainerTenant", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaTenant) {
-			requiredOwnerTenant = (CFSecJpaTenant)argObj;
+			requiredContainerTenant = (CFSecJpaTenant)argObj;
 		}
 		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setOwnerTenant", "argObj", argObj, "CFSecJpaTenant");
+			throw new CFLibUnsupportedClassException(getClass(), "setContainerTenant", "argObj", argObj, "CFSecJpaTenant");
 		}
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
+	public void setRequiredContainerTenant(CFLibDbKeyHash256 argTenantId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTenant", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecTenantTable targetTable = targetBackingSchema.getTableTenant();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
 		}
 		ICFSecTenant targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argTenantId);
-		setRequiredOwnerTenant(targetRec);
+		setRequiredContainerTenant(targetRec);
 	}
 
 	@Override
-	public ICFSecSecSysGrp getRequiredContainerSysRole() {
-		return( requiredContainerSysRole );
+	public ICFSecSecSysGrp getRequiredParentSysRole() {
+		return( requiredParentSysRole );
 	}
 	@Override
-	public void setRequiredContainerSysRole(ICFSecSecSysGrp argObj) {
+	public void setRequiredParentSysRole(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setContainerSysRole", 1, "argObj");
+			throw new CFLibNullArgumentException(getClass(), "setParentSysRole", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
-			requiredContainerSysRole = (CFSecJpaSecSysGrp)argObj;
+			requiredParentSysRole = (CFSecJpaSecSysGrp)argObj;
 		}
 		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setContainerSysRole", "argObj", argObj, "CFSecJpaSecSysGrp");
+			throw new CFLibUnsupportedClassException(getClass(), "setParentSysRole", "argObj", argObj, "CFSecJpaSecSysGrp");
 		}
 	}
 
 	@Override
-	public void setRequiredContainerSysRole(String argName) {
+	public void setRequiredParentSysRole(String argName) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysRole", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecSysGrpTable targetTable = targetBackingSchema.getTableSecSysGrp();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
 		}
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argName);
-		setRequiredContainerSysRole(targetRec);
+		setRequiredParentSysRole(targetRec);
 	}
 
 	@Override
@@ -259,7 +259,7 @@ public class CFSecJpaSecTentRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		ICFSecTenant result = getRequiredOwnerTenant();
+		ICFSecTenant result = getRequiredContainerTenant();
 		if (result != null) {
 			return result.getRequiredId();
 		}
@@ -270,7 +270,7 @@ public class CFSecJpaSecTentRole
 
 	@Override
 	public String getRequiredName() {
-		ICFSecSecSysGrp result = getRequiredContainerSysRole();
+		ICFSecSecSysGrp result = getRequiredParentSysRole();
 		if (result != null) {
 			return result.getRequiredName();
 		}
@@ -757,8 +757,8 @@ public class CFSecJpaSecTentRole
 		setCreatedAt( src.getCreatedAt() );
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
-		setRequiredOwnerTenant(src.getRequiredOwnerTenant());
-		setRequiredContainerSysRole(src.getRequiredContainerSysRole());
+		setRequiredContainerTenant(src.getRequiredContainerTenant());
+		setRequiredParentSysRole(src.getRequiredParentSysRole());
 	}
 
 	@Override
@@ -769,8 +769,8 @@ public class CFSecJpaSecTentRole
 	@Override
 	public void setSecTentRole( ICFSecSecTentRoleH src ) {
 		setRequiredSecTentRoleId(src.getRequiredSecTentRoleId());
-		setRequiredOwnerTenant(src.getRequiredTenantId());
-		setRequiredContainerSysRole(src.getRequiredName());
+		setRequiredContainerTenant(src.getRequiredTenantId());
+		setRequiredParentSysRole(src.getRequiredName());
 	}
 
 	@Override

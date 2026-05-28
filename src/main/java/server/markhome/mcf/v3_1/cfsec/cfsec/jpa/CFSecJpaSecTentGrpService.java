@@ -148,7 +148,7 @@ public class CFSecJpaSecTentGrpService {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
 		}
 		// Apply superior data relationships of CFSecSecTentGrp to existing object
-		existing.setRequiredOwnerTenant(data.getRequiredOwnerTenant());
+		existing.setRequiredContainerTenant(data.getRequiredContainerTenant());
 		existing.setRequiredParentSysGrp(data.getRequiredParentSysGrp());
 		// Apply data columns of CFSecSecTentGrp to existing object
 		// Update the audit columns

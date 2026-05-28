@@ -148,8 +148,8 @@ public class CFSecJpaSecClusRoleService {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
 		}
 		// Apply superior data relationships of CFSecSecClusRole to existing object
-		existing.setRequiredOwnerCluster(data.getRequiredOwnerCluster());
-		existing.setRequiredContainerSysRole(data.getRequiredContainerSysRole());
+		existing.setRequiredContainerCluster(data.getRequiredContainerCluster());
+		existing.setRequiredParentSysRole(data.getRequiredParentSysRole());
 		// Apply data columns of CFSecSecClusRole to existing object
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());
