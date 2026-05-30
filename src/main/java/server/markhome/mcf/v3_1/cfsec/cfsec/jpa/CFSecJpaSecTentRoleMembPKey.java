@@ -57,8 +57,8 @@ public class CFSecJpaSecTentRoleMembPKey
 	protected String requiredLoginId;
 
 	public CFSecJpaSecTentRoleMembPKey() {
-		requiredContainerRole = null;
-		requiredParentUser = null;
+		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecTentRoleMemb.SECTENTROLEID_INIT_VALUE.toString() );
+		requiredLoginId = ICFSecSecTentRoleMemb.LOGINID_INIT_VALUE;
 	}
 
 	@Override

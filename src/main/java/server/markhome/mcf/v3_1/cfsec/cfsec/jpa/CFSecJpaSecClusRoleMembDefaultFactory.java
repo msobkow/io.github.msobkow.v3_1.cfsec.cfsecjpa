@@ -65,8 +65,6 @@ public class CFSecJpaSecClusRoleMembDefaultFactory
 		}
 		else {
 			CFSecJpaSecClusRoleMembPKey mapped = new CFSecJpaSecClusRoleMembPKey();
-			mapped.setRequiredContainerRole( key.getRequiredSecClusRoleId() );
-			mapped.setRequiredParentUser( key.getRequiredLoginId() );
 			mapped.setRequiredSecClusRoleId( key.getRequiredSecClusRoleId() );
 			mapped.setRequiredLoginId( key.getRequiredLoginId() );
 			return( mapped );

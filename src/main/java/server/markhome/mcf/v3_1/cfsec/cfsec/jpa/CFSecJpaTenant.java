@@ -46,7 +46,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 	indexes = {
 		@Index(name = "TenantIdIdx", columnList = "Id", unique = true),
 		@Index(name = "TenantClusterIdx", columnList = "ClusterId", unique = false),
-		@Index(name = "TenantUNameIdx", columnList = "ClusterId, TenantName", unique = true)
+		@Index(name = "TenantUNameIdx", columnList = "ClusterId, TenantName", unique = true),
+		@Index(name = "TenantClusterIdxCluster", columnList = "ClusterIdCluster", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -68,7 +69,7 @@ public class CFSecJpaTenant
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ClusterId", referencedColumnName="Id" )
+	@JoinColumn( name="ClusterIdCluster", referencedColumnName="Id" )
 	protected CFSecJpaCluster requiredContainerCluster;
 
 	@AttributeOverrides({
@@ -101,23 +102,17 @@ public class CFSecJpaTenant
 
 	@Override
 	public List<ICFSecSecTentGrp> getOptionalComponentsSecGroup() {
-		List<ICFSecSecTentGrp> retlist = new ArrayList<>(optionalComponentsSecGroup.size());
-		for (CFSecJpaSecTentGrp cur: optionalComponentsSecGroup) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecTentGrp> retlist = (optionalComponentsSecGroup != null) ? new ArrayList<>(optionalComponentsSecGroup) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentRole> getOptionalComponentsSecRole() {
-		List<ICFSecSecTentRole> retlist = new ArrayList<>(optionalComponentsSecRole.size());
-		for (CFSecJpaSecTentRole cur: optionalComponentsSecRole) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecTentRole> retlist = (optionalComponentsSecRole != null) ? new ArrayList<>(optionalComponentsSecRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public ICFSecCluster getRequiredContainerCluster() {
-		return( requiredContainerCluster );
+		return(requiredContainerCluster);
 	}
 	@Override
 	public void setRequiredContainerCluster(ICFSecCluster argObj) {

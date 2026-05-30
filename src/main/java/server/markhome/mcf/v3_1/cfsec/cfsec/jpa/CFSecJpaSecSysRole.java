@@ -97,18 +97,12 @@ public class CFSecJpaSecSysRole
 
 	@Override
 	public List<ICFSecSecSysRoleEnables> getOptionalChildrenEnabledByRole() {
-		List<ICFSecSecSysRoleEnables> retlist = new ArrayList<>(optionalChildrenEnabledByRole.size());
-		for (CFSecJpaSecSysRoleEnables cur: optionalChildrenEnabledByRole) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecSysRoleEnables> retlist = (optionalChildrenEnabledByRole != null) ? new ArrayList<>(optionalChildrenEnabledByRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysRoleMemb> getOptionalChildrenMembByRole() {
-		List<ICFSecSecSysRoleMemb> retlist = new ArrayList<>(optionalChildrenMembByRole.size());
-		for (CFSecJpaSecSysRoleMemb cur: optionalChildrenMembByRole) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecSysRoleMemb> retlist = (optionalChildrenMembByRole != null) ? new ArrayList<>(optionalChildrenMembByRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

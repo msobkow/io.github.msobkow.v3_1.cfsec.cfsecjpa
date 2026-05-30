@@ -47,7 +47,9 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecTentGrpIdIdx", columnList = "SecTentGrpId", unique = true),
 		@Index(name = "SecTentGrpTenantIdx", columnList = "TenantId", unique = false),
 		@Index(name = "SecTentGrpNameIdx", columnList = "safe_name", unique = false),
-		@Index(name = "SecTentGrpUNameIdx", columnList = "TenantId, safe_name", unique = true)
+		@Index(name = "SecTentGrpUNameIdx", columnList = "TenantId, safe_name", unique = true),
+		@Index(name = "SecTentGrpTenantIdxTenant", columnList = "TenantIdTenant", unique = false),
+		@Index(name = "SecTentGrpNameIdxSysGrp", columnList = "safe_nameSysGrp", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -67,10 +69,10 @@ public class CFSecJpaSecTentGrp
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="TenantId", referencedColumnName="Id" )
+	@JoinColumn( name="TenantIdTenant", referencedColumnName="Id" )
 	protected CFSecJpaTenant requiredContainerTenant;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
+	@JoinColumn( name="safe_nameSysGrp", referencedColumnName="safe_name" )
 	protected CFSecJpaSecSysGrp requiredParentSysGrp;
 
 	@AttributeOverrides({
@@ -100,15 +102,12 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public List<ICFSecSecTentGrpMemb> getOptionalChildrenMembByGrp() {
-		List<ICFSecSecTentGrpMemb> retlist = new ArrayList<>(optionalChildrenMembByGrp.size());
-		for (CFSecJpaSecTentGrpMemb cur: optionalChildrenMembByGrp) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecTentGrpMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public ICFSecTenant getRequiredContainerTenant() {
-		return( requiredContainerTenant );
+		return(requiredContainerTenant);
 	}
 	@Override
 	public void setRequiredContainerTenant(ICFSecTenant argObj) {
@@ -139,7 +138,7 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public ICFSecSecSysGrp getRequiredParentSysGrp() {
-		return( requiredParentSysGrp );
+		return(requiredParentSysGrp);
 	}
 	@Override
 	public void setRequiredParentSysGrp(ICFSecSecSysGrp argObj) {

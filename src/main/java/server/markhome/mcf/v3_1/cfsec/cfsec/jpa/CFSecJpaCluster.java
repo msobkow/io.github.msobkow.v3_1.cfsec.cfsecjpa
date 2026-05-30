@@ -105,34 +105,22 @@ public class CFSecJpaCluster
 
 	@Override
 	public List<ICFSecTenant> getOptionalComponentsTenant() {
-		List<ICFSecTenant> retlist = new ArrayList<>(optionalComponentsTenant.size());
-		for (CFSecJpaTenant cur: optionalComponentsTenant) {
-			retlist.add(cur);
-		}
+		List<ICFSecTenant> retlist = (optionalComponentsTenant != null) ? new ArrayList<>(optionalComponentsTenant) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusGrp> getOptionalComponentsSecGroup() {
-		List<ICFSecSecClusGrp> retlist = new ArrayList<>(optionalComponentsSecGroup.size());
-		for (CFSecJpaSecClusGrp cur: optionalComponentsSecGroup) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecClusGrp> retlist = (optionalComponentsSecGroup != null) ? new ArrayList<>(optionalComponentsSecGroup) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusRole> getOptionalComponentsSecRole() {
-		List<ICFSecSecClusRole> retlist = new ArrayList<>(optionalComponentsSecRole.size());
-		for (CFSecJpaSecClusRole cur: optionalComponentsSecRole) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecClusRole> retlist = (optionalComponentsSecRole != null) ? new ArrayList<>(optionalComponentsSecRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSysCluster> getOptionalComponentsSysCluster() {
-		List<ICFSecSysCluster> retlist = new ArrayList<>(optionalComponentsSysCluster.size());
-		for (CFSecJpaSysCluster cur: optionalComponentsSysCluster) {
-			retlist.add(cur);
-		}
+		List<ICFSecSysCluster> retlist = (optionalComponentsSysCluster != null) ? new ArrayList<>(optionalComponentsSysCluster) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

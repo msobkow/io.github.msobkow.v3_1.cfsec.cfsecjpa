@@ -57,8 +57,8 @@ public class CFSecJpaSecSysGrpIncPKey
 	protected String requiredInclName;
 
 	public CFSecJpaSecSysGrpIncPKey() {
-		requiredContainerGroup = null;
-		requiredParentSubGroup = null;
+		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
+		requiredInclName = ICFSecSecSysGrpInc.INCLNAME_INIT_VALUE;
 	}
 
 	@Override

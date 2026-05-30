@@ -46,7 +46,9 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 	indexes = {
 		@Index(name = "SecSysRoleMembIdIdx", columnList = "SecSysRoleId, login_id", unique = true),
 		@Index(name = "SecSysRoleMembSysRoleIdx", columnList = "SecSysRoleId", unique = false),
-		@Index(name = "SecSysRoleMembLoginIdx", columnList = "login_id", unique = false)
+		@Index(name = "SecSysRoleMembLoginIdx", columnList = "login_id", unique = false),
+		@Index(name = "SecSysRoleMembSysRoleIdxSysRole", columnList = "SecSysRoleIdSysRole", unique = false),
+		@Index(name = "SecSysRoleMembLoginIdxUser", columnList = "login_idUser", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -63,6 +65,12 @@ public class CFSecJpaSecSysRoleMemb
 	})
 	@EmbeddedId
 	CFSecJpaSecSysRoleMembPKey pkey = new CFSecJpaSecSysRoleMembPKey();
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="SecSysRoleIdSysRole", referencedColumnName="SecSysRoleId" )
+	protected CFSecJpaSecSysRole requiredContainerSysRole;
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="login_idUser", referencedColumnName="login_id" )
+	protected CFSecJpaSecUser requiredParentUser;
 	protected int requiredRevision;
 
 
@@ -93,29 +101,75 @@ public class CFSecJpaSecSysRoleMemb
 
 	@Override
 	public ICFSecSecSysRole getRequiredContainerSysRole() {
-		return( pkey.getRequiredContainerSysRole() );
+		return(requiredContainerSysRole);
 	}
 	@Override
 	public void setRequiredContainerSysRole(ICFSecSecSysRole argObj) {
-		pkey.setRequiredContainerSysRole(argObj);
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setContainerSysRole", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaSecSysRole) {
+			requiredContainerSysRole = (CFSecJpaSecSysRole)argObj;
+			if (requiredContainerSysRole != null) {
+				getPKey().setRequiredSecSysRoleId(requiredContainerSysRole.getRequiredSecSysRoleId());
+			}
+			else {
+			}
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setContainerSysRole", "argObj", argObj, "CFSecJpaSecSysRole");
+		}
+	
 	}
 
 	@Override
 	public void setRequiredContainerSysRole(CFLibDbKeyHash256 argSecSysRoleId) {
-		pkey.setRequiredContainerSysRole(argSecSysRoleId);
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecSecSysRoleTable targetTable = targetBackingSchema.getTableSecSysRole();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysRole()");
+		}
+		ICFSecSecSysRole targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecSysRoleId);
+		setRequiredContainerSysRole(targetRec);
 	}
 	@Override
 	public ICFSecSecUser getRequiredParentUser() {
-		return( pkey.getRequiredParentUser() );
+		return(requiredParentUser);
 	}
 	@Override
 	public void setRequiredParentUser(ICFSecSecUser argObj) {
-		pkey.setRequiredParentUser(argObj);
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setParentUser", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaSecUser) {
+			requiredParentUser = (CFSecJpaSecUser)argObj;
+			if (requiredParentUser != null) {
+				getPKey().setRequiredLoginId(requiredParentUser.getRequiredLoginId());
+			}
+			else {
+			}
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setParentUser", "argObj", argObj, "CFSecJpaSecUser");
+		}
+	
 	}
 
 	@Override
 	public void setRequiredParentUser(String argLoginId) {
-		pkey.setRequiredParentUser(argLoginId);
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecSecUserTable targetTable = targetBackingSchema.getTableSecUser();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec().getTableSecUser()");
+		}
+		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argLoginId);
+		setRequiredParentUser(targetRec);
 	}
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {

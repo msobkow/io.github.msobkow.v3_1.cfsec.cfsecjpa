@@ -46,7 +46,9 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 	indexes = {
 		@Index(name = "ISOCtryLangIdIdx", columnList = "ISOCtryId, ISOLangId", unique = true),
 		@Index(name = "ISOCtryLangCtryIdx", columnList = "ISOCtryId", unique = false),
-		@Index(name = "ISOCtryLangLangIdx", columnList = "ISOLangId", unique = false)
+		@Index(name = "ISOCtryLangLangIdx", columnList = "ISOLangId", unique = false),
+		@Index(name = "ISOCtryLangCtryIdxCtry", columnList = "ISOCtryIdCtry", unique = false),
+		@Index(name = "ISOCtryLangLangIdxLang", columnList = "ISOLangIdLang", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -63,6 +65,12 @@ public class CFSecJpaISOCtryLang
 	})
 	@EmbeddedId
 	CFSecJpaISOCtryLangPKey pkey = new CFSecJpaISOCtryLangPKey();
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="ISOCtryIdCtry", referencedColumnName="ISOCtryId" )
+	protected CFSecJpaISOCtry requiredContainerCtry;
+	@ManyToOne(fetch=FetchType.LAZY, optional=false)
+	@JoinColumn( name="ISOLangIdLang", referencedColumnName="ISOLangId" )
+	protected CFSecJpaISOLang requiredParentLang;
 	protected int requiredRevision;
 
 
@@ -93,29 +101,75 @@ public class CFSecJpaISOCtryLang
 
 	@Override
 	public ICFSecISOCtry getRequiredContainerCtry() {
-		return( pkey.getRequiredContainerCtry() );
+		return(requiredContainerCtry);
 	}
 	@Override
 	public void setRequiredContainerCtry(ICFSecISOCtry argObj) {
-		pkey.setRequiredContainerCtry(argObj);
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setContainerCtry", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaISOCtry) {
+			requiredContainerCtry = (CFSecJpaISOCtry)argObj;
+			if (requiredContainerCtry != null) {
+				getPKey().setRequiredISOCtryId(requiredContainerCtry.getRequiredISOCtryId());
+			}
+			else {
+			}
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setContainerCtry", "argObj", argObj, "CFSecJpaISOCtry");
+		}
+	
 	}
 
 	@Override
 	public void setRequiredContainerCtry(short argISOCtryId) {
-		pkey.setRequiredContainerCtry(argISOCtryId);
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecISOCtryTable targetTable = targetBackingSchema.getTableISOCtry();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec().getTableISOCtry()");
+		}
+		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCtryId);
+		setRequiredContainerCtry(targetRec);
 	}
 	@Override
 	public ICFSecISOLang getRequiredParentLang() {
-		return( pkey.getRequiredParentLang() );
+		return(requiredParentLang);
 	}
 	@Override
 	public void setRequiredParentLang(ICFSecISOLang argObj) {
-		pkey.setRequiredParentLang(argObj);
+		if(argObj == null) {
+			throw new CFLibNullArgumentException(getClass(), "setParentLang", 1, "argObj");
+		}
+		else if (argObj instanceof CFSecJpaISOLang) {
+			requiredParentLang = (CFSecJpaISOLang)argObj;
+			if (requiredParentLang != null) {
+				getPKey().setRequiredISOLangId(requiredParentLang.getRequiredISOLangId());
+			}
+			else {
+			}
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setParentLang", "argObj", argObj, "CFSecJpaISOLang");
+		}
+	
 	}
 
 	@Override
 	public void setRequiredParentLang(short argISOLangId) {
-		pkey.setRequiredParentLang(argISOLangId);
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentLang", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecISOLangTable targetTable = targetBackingSchema.getTableISOLang();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setRequiredParentLang", 0, "ICFSecSchema.getBackingCFSec().getTableISOLang()");
+		}
+		ICFSecISOLang targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOLangId);
+		setRequiredParentLang(targetRec);
 	}
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {

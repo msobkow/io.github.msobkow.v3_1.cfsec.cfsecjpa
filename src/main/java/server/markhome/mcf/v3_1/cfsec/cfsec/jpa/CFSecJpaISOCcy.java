@@ -105,10 +105,7 @@ public class CFSecJpaISOCcy
 
 	@Override
 	public List<ICFSecISOCtryCcy> getOptionalChildrenCtry() {
-		List<ICFSecISOCtryCcy> retlist = new ArrayList<>(optionalChildrenCtry.size());
-		for (CFSecJpaISOCtryCcy cur: optionalChildrenCtry) {
-			retlist.add(cur);
-		}
+		List<ICFSecISOCtryCcy> retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

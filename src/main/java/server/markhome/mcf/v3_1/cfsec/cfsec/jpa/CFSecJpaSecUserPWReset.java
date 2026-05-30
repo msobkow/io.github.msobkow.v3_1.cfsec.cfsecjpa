@@ -107,7 +107,7 @@ public class CFSecJpaSecUserPWReset
 
 	@Override
 	public ICFSecSecUser getRequiredContainerUser() {
-		return( requiredContainerUser );
+		return(requiredContainerUser);
 	}
 	@Override
 	public void setRequiredContainerUser(ICFSecSecUser argObj) {
@@ -120,7 +120,6 @@ public class CFSecJpaSecUserPWReset
 				requiredSecUserId = requiredContainerUser.getRequiredSecUserId();
 			}
 			else {
-				requiredSecUserId = ICFSecSecUserPWReset.SECUSERID_INIT_VALUE;
 			}
 		}
 		else {

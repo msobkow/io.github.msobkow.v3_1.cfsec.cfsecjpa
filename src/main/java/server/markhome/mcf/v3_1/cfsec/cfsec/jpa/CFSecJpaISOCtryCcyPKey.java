@@ -55,8 +55,8 @@ public class CFSecJpaISOCtryCcyPKey
 	protected short requiredISOCcyId;
 
 	public CFSecJpaISOCtryCcyPKey() {
-		requiredContainerCtry = null;
-		requiredParentCcy = null;
+		requiredISOCtryId = ICFSecISOCtryCcy.ISOCTRYID_INIT_VALUE;
+		requiredISOCcyId = ICFSecISOCtryCcy.ISOCCYID_INIT_VALUE;
 	}
 
 	@Override

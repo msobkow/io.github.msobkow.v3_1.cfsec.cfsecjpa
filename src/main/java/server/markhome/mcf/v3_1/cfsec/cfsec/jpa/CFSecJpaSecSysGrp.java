@@ -117,70 +117,46 @@ public class CFSecJpaSecSysGrp
 
 	@Override
 	public List<ICFSecSecSysGrpInc> getOptionalChildrenIncByGrp() {
-		List<ICFSecSecSysGrpInc> retlist = new ArrayList<>(optionalChildrenIncByGrp.size());
-		for (CFSecJpaSecSysGrpInc cur: optionalChildrenIncByGrp) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecSysGrpInc> retlist = (optionalChildrenIncByGrp != null) ? new ArrayList<>(optionalChildrenIncByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysGrpMemb> getOptionalChildrenMembByGrp() {
-		List<ICFSecSecSysGrpMemb> retlist = new ArrayList<>(optionalChildrenMembByGrp.size());
-		for (CFSecJpaSecSysGrpMemb cur: optionalChildrenMembByGrp) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecSysGrpMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public ICFSecSecSysRole getOptionalChildrenImplSysRole() {
-		return( optionalChildrenImplSysRole );
+		return(optionalChildrenImplSysRole);
 	}
 	@Override
 	public List<ICFSecSecClusGrp> getOptionalChildrenImplClusGrp() {
-		List<ICFSecSecClusGrp> retlist = new ArrayList<>(optionalChildrenImplClusGrp.size());
-		for (CFSecJpaSecClusGrp cur: optionalChildrenImplClusGrp) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecClusGrp> retlist = (optionalChildrenImplClusGrp != null) ? new ArrayList<>(optionalChildrenImplClusGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentGrp> getOptionalChildrenImplTentGrp() {
-		List<ICFSecSecTentGrp> retlist = new ArrayList<>(optionalChildrenImplTentGrp.size());
-		for (CFSecJpaSecTentGrp cur: optionalChildrenImplTentGrp) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecTentGrp> retlist = (optionalChildrenImplTentGrp != null) ? new ArrayList<>(optionalChildrenImplTentGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusRole> getOptionalChildrenImplClusRole() {
-		List<ICFSecSecClusRole> retlist = new ArrayList<>(optionalChildrenImplClusRole.size());
-		for (CFSecJpaSecClusRole cur: optionalChildrenImplClusRole) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecClusRole> retlist = (optionalChildrenImplClusRole != null) ? new ArrayList<>(optionalChildrenImplClusRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentRole> getOptionalChildrenImplTentRole() {
-		List<ICFSecSecTentRole> retlist = new ArrayList<>(optionalChildrenImplTentRole.size());
-		for (CFSecJpaSecTentRole cur: optionalChildrenImplTentRole) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecTentRole> retlist = (optionalChildrenImplTentRole != null) ? new ArrayList<>(optionalChildrenImplTentRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysGrpInc> getOptionalChildrenSysGrpByName() {
-		List<ICFSecSecSysGrpInc> retlist = new ArrayList<>(optionalChildrenSysGrpByName.size());
-		for (CFSecJpaSecSysGrpInc cur: optionalChildrenSysGrpByName) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecSysGrpInc> retlist = (optionalChildrenSysGrpByName != null) ? new ArrayList<>(optionalChildrenSysGrpByName) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysRoleEnables> getOptionalChildrenRoleByEnableName() {
-		List<ICFSecSecSysRoleEnables> retlist = new ArrayList<>(optionalChildrenRoleByEnableName.size());
-		for (CFSecJpaSecSysRoleEnables cur: optionalChildrenRoleByEnableName) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecSysRoleEnables> retlist = (optionalChildrenRoleByEnableName != null) ? new ArrayList<>(optionalChildrenRoleByEnableName) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

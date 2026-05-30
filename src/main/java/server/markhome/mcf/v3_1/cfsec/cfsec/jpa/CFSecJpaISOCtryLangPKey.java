@@ -55,8 +55,8 @@ public class CFSecJpaISOCtryLangPKey
 	protected short requiredISOLangId;
 
 	public CFSecJpaISOCtryLangPKey() {
-		requiredContainerCtry = null;
-		requiredParentLang = null;
+		requiredISOCtryId = ICFSecISOCtryLang.ISOCTRYID_INIT_VALUE;
+		requiredISOLangId = ICFSecISOCtryLang.ISOLANGID_INIT_VALUE;
 	}
 
 	@Override

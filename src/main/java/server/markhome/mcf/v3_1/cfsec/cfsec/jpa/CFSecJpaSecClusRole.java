@@ -47,7 +47,9 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecClusRoleIdIdx", columnList = "SecClusRoleId", unique = true),
 		@Index(name = "SecClusRoleClusterIdx", columnList = "ClusterId", unique = false),
 		@Index(name = "SecClusRoleNameIdx", columnList = "safe_name", unique = false),
-		@Index(name = "SecClusRoleUNameIdx", columnList = "ClusterId, safe_name", unique = true)
+		@Index(name = "SecClusRoleUNameIdx", columnList = "ClusterId, safe_name", unique = true),
+		@Index(name = "SecClusRoleClusterIdxCluster", columnList = "ClusterIdCluster", unique = false),
+		@Index(name = "SecClusRoleNameIdxSysRole", columnList = "safe_nameSysRole", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -67,10 +69,10 @@ public class CFSecJpaSecClusRole
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="ClusterId", referencedColumnName="Id" )
+	@JoinColumn( name="ClusterIdCluster", referencedColumnName="Id" )
 	protected CFSecJpaCluster requiredContainerCluster;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="safe_name", referencedColumnName="safe_name" )
+	@JoinColumn( name="safe_nameSysRole", referencedColumnName="safe_name" )
 	protected CFSecJpaSecSysGrp requiredParentSysRole;
 
 	@AttributeOverrides({
@@ -100,15 +102,12 @@ public class CFSecJpaSecClusRole
 
 	@Override
 	public List<ICFSecSecClusRoleMemb> getOptionalChildrenMembByGrp() {
-		List<ICFSecSecClusRoleMemb> retlist = new ArrayList<>(optionalChildrenMembByGrp.size());
-		for (CFSecJpaSecClusRoleMemb cur: optionalChildrenMembByGrp) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecClusRoleMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public ICFSecCluster getRequiredContainerCluster() {
-		return( requiredContainerCluster );
+		return(requiredContainerCluster);
 	}
 	@Override
 	public void setRequiredContainerCluster(ICFSecCluster argObj) {
@@ -139,7 +138,7 @@ public class CFSecJpaSecClusRole
 
 	@Override
 	public ICFSecSecSysGrp getRequiredParentSysRole() {
-		return( requiredParentSysRole );
+		return(requiredParentSysRole);
 	}
 	@Override
 	public void setRequiredParentSysRole(ICFSecSecSysGrp argObj) {

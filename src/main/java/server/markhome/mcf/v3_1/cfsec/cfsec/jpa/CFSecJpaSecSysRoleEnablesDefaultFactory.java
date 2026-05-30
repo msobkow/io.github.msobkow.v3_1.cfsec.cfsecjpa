@@ -65,8 +65,6 @@ public class CFSecJpaSecSysRoleEnablesDefaultFactory
 		}
 		else {
 			CFSecJpaSecSysRoleEnablesPKey mapped = new CFSecJpaSecSysRoleEnablesPKey();
-			mapped.setRequiredContainerSysRole( key.getRequiredSecSysRoleId() );
-			mapped.setRequiredParentEnableGroup( key.getRequiredEnableName() );
 			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
 			mapped.setRequiredEnableName( key.getRequiredEnableName() );
 			return( mapped );

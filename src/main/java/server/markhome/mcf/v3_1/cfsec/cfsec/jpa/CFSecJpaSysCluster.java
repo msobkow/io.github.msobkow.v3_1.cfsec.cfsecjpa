@@ -45,7 +45,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 	name = "sysclus", schema = "CFSec31",
 	indexes = {
 		@Index(name = "SysClusterIdIdx", columnList = "sgltn_id", unique = true),
-		@Index(name = "SysClusterClusterIdx", columnList = "sys_clus_id", unique = false)
+		@Index(name = "SysClusterClusterIdx", columnList = "sys_clus_id", unique = false),
+		@Index(name = "SysClusterClusterIdxCluster", columnList = "sys_clus_idCluster", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -61,7 +62,7 @@ public class CFSecJpaSysCluster
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
-	@JoinColumn( name="sys_clus_id", referencedColumnName="Id" )
+	@JoinColumn( name="sys_clus_idCluster", referencedColumnName="Id" )
 	protected CFSecJpaCluster requiredContainerCluster;
 
 
@@ -76,7 +77,7 @@ public class CFSecJpaSysCluster
 
 	@Override
 	public ICFSecCluster getRequiredContainerCluster() {
-		return( requiredContainerCluster );
+		return(requiredContainerCluster);
 	}
 	@Override
 	public void setRequiredContainerCluster(ICFSecCluster argObj) {

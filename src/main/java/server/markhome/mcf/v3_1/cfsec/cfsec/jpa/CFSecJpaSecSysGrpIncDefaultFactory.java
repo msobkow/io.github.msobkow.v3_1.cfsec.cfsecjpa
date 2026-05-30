@@ -65,8 +65,6 @@ public class CFSecJpaSecSysGrpIncDefaultFactory
 		}
 		else {
 			CFSecJpaSecSysGrpIncPKey mapped = new CFSecJpaSecSysGrpIncPKey();
-			mapped.setRequiredContainerGroup( key.getRequiredSecSysGrpId() );
-			mapped.setRequiredParentSubGroup( key.getRequiredInclName() );
 			mapped.setRequiredSecSysGrpId( key.getRequiredSecSysGrpId() );
 			mapped.setRequiredInclName( key.getRequiredInclName() );
 			return( mapped );

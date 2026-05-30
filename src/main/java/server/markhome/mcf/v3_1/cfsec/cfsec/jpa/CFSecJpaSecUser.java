@@ -191,38 +191,29 @@ public class CFSecJpaSecUser
 
 	@Override
 	public ICFSecSecUserPassword getOptionalComponentsPassword() {
-		return( optionalComponentsPassword );
+		return(optionalComponentsPassword);
 	}
 	@Override
 	public ICFSecSecUserEMConf getOptionalComponentsEMConf() {
-		return( optionalComponentsEMConf );
+		return(optionalComponentsEMConf);
 	}
 	@Override
 	public ICFSecSecUserPWReset getOptionalComponentsPWReset() {
-		return( optionalComponentsPWReset );
+		return(optionalComponentsPWReset);
 	}
 	@Override
 	public List<ICFSecSecSysGrpMemb> getOptionalChildrenSysSecGrpMemb() {
-		List<ICFSecSecSysGrpMemb> retlist = new ArrayList<>(optionalChildrenSysSecGrpMemb.size());
-		for (CFSecJpaSecSysGrpMemb cur: optionalChildrenSysSecGrpMemb) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecSysGrpMemb> retlist = (optionalChildrenSysSecGrpMemb != null) ? new ArrayList<>(optionalChildrenSysSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusGrpMemb> getOptionalChildrenClusSecGrpMemb() {
-		List<ICFSecSecClusGrpMemb> retlist = new ArrayList<>(optionalChildrenClusSecGrpMemb.size());
-		for (CFSecJpaSecClusGrpMemb cur: optionalChildrenClusSecGrpMemb) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecClusGrpMemb> retlist = (optionalChildrenClusSecGrpMemb != null) ? new ArrayList<>(optionalChildrenClusSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentGrpMemb> getOptionalChildrenTentSecGrpMemb() {
-		List<ICFSecSecTentGrpMemb> retlist = new ArrayList<>(optionalChildrenTentSecGrpMemb.size());
-		for (CFSecJpaSecTentGrpMemb cur: optionalChildrenTentSecGrpMemb) {
-			retlist.add(cur);
-		}
+		List<ICFSecSecTentGrpMemb> retlist = (optionalChildrenTentSecGrpMemb != null) ? new ArrayList<>(optionalChildrenTentSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

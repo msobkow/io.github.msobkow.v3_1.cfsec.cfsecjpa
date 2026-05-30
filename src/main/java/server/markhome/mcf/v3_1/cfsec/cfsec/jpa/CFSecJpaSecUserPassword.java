@@ -85,7 +85,7 @@ public class CFSecJpaSecUserPassword
 
 	@Override
 	public ICFSecSecUser getRequiredContainerUser() {
-		return( requiredContainerUser );
+		return(requiredContainerUser);
 	}
 	@Override
 	public void setRequiredContainerUser(ICFSecSecUser argObj) {
@@ -98,7 +98,6 @@ public class CFSecJpaSecUserPassword
 				requiredSecUserId = requiredContainerUser.getRequiredSecUserId();
 			}
 			else {
-				requiredSecUserId = ICFSecSecUserPassword.SECUSERID_INIT_VALUE;
 			}
 		}
 		else {

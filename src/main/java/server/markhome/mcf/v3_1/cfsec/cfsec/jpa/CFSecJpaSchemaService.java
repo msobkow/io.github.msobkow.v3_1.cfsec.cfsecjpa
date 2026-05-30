@@ -569,7 +569,7 @@ public class CFSecJpaSchemaService {
 			secSysTentGroupSysAdmin.setUpdatedAt(now);
 			secSysTentGroupSysAdmin.setUpdatedByUserId(systemUID);
 			secSysTentGroupSysAdmin.setRequiredParentSysGrp("systemtenantadmin");
-			secSysTentGroupSysAdmin.setRequiredOwnerTenant(systemTenantID);
+			secSysTentGroupSysAdmin.setRequiredContainerTenant(systemTenantID);
 			secSysTentGroupSysAdmin.setRequiredRevision(1);
 			secSysTentGroupSysAdmin = (CFSecJpaSecTentGrp)(sectentgrpService.create(secSysTentGroupSysAdmin));
 			secSysTentGroupSysAdminID = secSysTentGroupSysAdmin.getRequiredSecTentGrpId();
@@ -1216,7 +1216,7 @@ public class CFSecJpaSchemaService {
 				tsecGroupCreate.setUpdatedByUserId(auth.getSecUserId());
 				tsecGroupCreate.setRequiredParentSysGrp(createPermName);
 				tsecGroupCreate.setRequiredSecTentGrpId(tsecGroupCreateID);
-				tsecGroupCreate.setRequiredOwnerTenant(secSysTentGroupSysAdmin.getRequiredOwnerTenant());
+				tsecGroupCreate.setRequiredContainerTenant(secSysTentGroupSysAdmin.getRequiredContainerTenant());
 				tsecGroupCreate = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().createSecTentGrp(auth, tsecGroupCreate);
 				tsecGroupCreateID = tsecGroupCreate.getRequiredSecTentGrpId();
 			}
@@ -1230,7 +1230,7 @@ public class CFSecJpaSchemaService {
 				tsecGroupRead.setUpdatedByUserId(auth.getSecUserId());
 				tsecGroupRead.setRequiredParentSysGrp(readPermName);
 				tsecGroupRead.setRequiredSecTentGrpId(tsecGroupReadID);
-				tsecGroupRead.setRequiredOwnerTenant(secSysTentGroupSysAdmin.getRequiredOwnerTenant());
+				tsecGroupRead.setRequiredContainerTenant(secSysTentGroupSysAdmin.getRequiredContainerTenant());
 				tsecGroupRead = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().createSecTentGrp(auth, tsecGroupRead);
 				tsecGroupReadID = tsecGroupRead.getRequiredSecTentGrpId();
 			}
@@ -1244,7 +1244,7 @@ public class CFSecJpaSchemaService {
 				tsecGroupUpdate.setUpdatedByUserId(auth.getSecUserId());
 				tsecGroupUpdate.setRequiredParentSysGrp(updatePermName);
 				tsecGroupUpdate.setRequiredSecTentGrpId(tsecGroupUpdateID);
-				tsecGroupUpdate.setRequiredOwnerTenant(secSysTentGroupSysAdmin.getRequiredOwnerTenant());
+				tsecGroupUpdate.setRequiredContainerTenant(secSysTentGroupSysAdmin.getRequiredContainerTenant());
 				tsecGroupUpdate = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().createSecTentGrp(auth, tsecGroupUpdate);
 				tsecGroupUpdateID = tsecGroupUpdate.getRequiredSecTentGrpId();
 			}
@@ -1258,7 +1258,7 @@ public class CFSecJpaSchemaService {
 				tsecGroupDelete.setUpdatedByUserId(auth.getSecUserId());
 				tsecGroupDelete.setRequiredParentSysGrp(deletePermName);
 				tsecGroupDelete.setRequiredSecTentGrpId(tsecGroupDeleteID);
-				tsecGroupDelete.setRequiredOwnerTenant(secSysTentGroupSysAdmin.getRequiredOwnerTenant());
+				tsecGroupDelete.setRequiredContainerTenant(secSysTentGroupSysAdmin.getRequiredContainerTenant());
 				tsecGroupDelete = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().createSecTentGrp(auth, tsecGroupDelete);
 				tsecGroupDeleteID = tsecGroupDelete.getRequiredSecTentGrpId();
 			}
@@ -1273,7 +1273,7 @@ public class CFSecJpaSchemaService {
 					tsecGroupRestore.setUpdatedByUserId(auth.getSecUserId());
 					tsecGroupRestore.setRequiredParentSysGrp(restorePermName);
 					tsecGroupRestore.setRequiredSecTentGrpId(tsecGroupRestoreID);
-					tsecGroupRestore.setRequiredOwnerTenant(secSysTentGroupSysAdmin.getRequiredOwnerTenant());
+					tsecGroupRestore.setRequiredContainerTenant(secSysTentGroupSysAdmin.getRequiredContainerTenant());
 					tsecGroupRestore = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().createSecTentGrp(auth, tsecGroupRestore);
 					tsecGroupRestoreID = tsecGroupRestore.getRequiredSecTentGrpId();
 				}
@@ -1289,7 +1289,7 @@ public class CFSecJpaSchemaService {
 					tsecGroupMutate.setUpdatedByUserId(auth.getSecUserId());
 					tsecGroupMutate.setRequiredParentSysGrp(mutatePermName);
 					tsecGroupMutate.setRequiredSecTentGrpId(tsecGroupMutateID);
-					tsecGroupMutate.setRequiredOwnerTenant(secSysTentGroupSysAdmin.getRequiredOwnerTenant());
+					tsecGroupMutate.setRequiredContainerTenant(secSysTentGroupSysAdmin.getRequiredContainerTenant());
 					tsecGroupMutate = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().createSecTentGrp(auth, tsecGroupMutate);
 					tsecGroupMutateID = tsecGroupMutate.getRequiredSecTentGrpId();
 				}
@@ -1456,7 +1456,7 @@ public class CFSecJpaSchemaService {
 			secTentGroupSysAdmin.setUpdatedAt(now);
 			secTentGroupSysAdmin.setUpdatedByUserId(systemUID);
 			secTentGroupSysAdmin.setRequiredParentSysGrp(secTenant.getRequiredTenantName().toLowerCase() + "tenantadmin");
-			secTentGroupSysAdmin.setRequiredOwnerTenant(secTenant);
+			secTentGroupSysAdmin.setRequiredContainerTenant(secTenant);
 			secTentGroupSysAdmin.setRequiredRevision(1);
 			secTentGroupSysAdmin = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().createSecTentGrp(auth, secTentGroupSysAdmin);
 		}

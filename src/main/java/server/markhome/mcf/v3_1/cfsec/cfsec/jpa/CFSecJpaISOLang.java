@@ -102,10 +102,7 @@ public class CFSecJpaISOLang
 
 	@Override
 	public List<ICFSecISOCtryLang> getOptionalChildrenCtry() {
-		List<ICFSecISOCtryLang> retlist = new ArrayList<>(optionalChildrenCtry.size());
-		for (CFSecJpaISOCtryLang cur: optionalChildrenCtry) {
-			retlist.add(cur);
-		}
+		List<ICFSecISOCtryLang> retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
