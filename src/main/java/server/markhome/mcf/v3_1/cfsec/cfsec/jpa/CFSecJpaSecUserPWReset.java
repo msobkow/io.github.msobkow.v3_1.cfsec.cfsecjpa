@@ -205,13 +205,7 @@ public class CFSecJpaSecUserPWReset
 	
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		ICFSecSecUser result = getRequiredContainerUser();
-		if (result != null) {
-			return result.getRequiredSecUserId();
-		}
-		else {
-			return( ICFSecSecUser.SECUSERID_INIT_VALUE );
-		}
+		return( requiredSecUserId );
 	}
 
 	

@@ -183,7 +183,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "createSecTentGrpMemb";
 		boolean permissionGranted = canCreateSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "createsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "createsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -193,9 +193,10 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			CFSecJpaSecTentGrpMemb jparec = (CFSecJpaSecTentGrpMemb)rec;
 			CFSecJpaSecTentGrpMemb retval = schema.getJpaHooksSchema().getSecTentGrpMembService().create(jparec);
 		if(retval != null) {
-			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readsectentgrpmemb'), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-			CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
 				retval = null;
 			}
@@ -222,7 +223,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "updateSecTentGrpMemb";
 		boolean permissionGranted = canUpdateSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "updatesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -232,9 +233,10 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			CFSecJpaSecTentGrpMemb jparec = (CFSecJpaSecTentGrpMemb)rec;
 			CFSecJpaSecTentGrpMemb retval = schema.getJpaHooksSchema().getSecTentGrpMembService().update(jparec);
 		if(retval != null) {
-			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readsectentgrpmemb'), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-			CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
 				retval = null;
 			}
@@ -260,7 +262,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "deleteSecTentGrpMemb";
 		boolean permissionGranted = canDeleteSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "deletesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -294,7 +296,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "deleteSecTentGrpMembByIdIdx";
 		boolean permissionGranted = canDeleteSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "deletesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecTentGrpMembService().deleteByIdIdx(argSecTentGrpId,
@@ -315,7 +317,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "deleteSecTentGrpMembByIdIdx";
 		boolean permissionGranted = canDeleteSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "deletesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecTentGrpMembService().deleteByIdIdx(argKey.getRequiredSecTentGrpId(),
@@ -336,7 +338,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "deleteSecTentGrpMembByTentGrpIdx";
 		boolean permissionGranted = canDeleteSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "deletesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecTentGrpMembService().deleteByTentGrpIdx(argSecTentGrpId);
@@ -357,7 +359,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "deleteSecTentGrpMembByTentGrpIdx";
 		boolean permissionGranted = canDeleteSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "deletesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecTentGrpMembService().deleteByTentGrpIdx(argKey.getRequiredSecTentGrpId());
@@ -377,7 +379,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "deleteSecTentGrpMembByUserIdx";
 		boolean permissionGranted = canDeleteSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "deletesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecTentGrpMembService().deleteByUserIdx(argLoginId);
@@ -398,7 +400,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "deleteSecTentGrpMembByUserIdx";
 		boolean permissionGranted = canDeleteSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "deletesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecTentGrpMembService().deleteByUserIdx(argKey.getRequiredLoginId());
@@ -422,14 +424,15 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecTentGrpMemb retval = schema.getJpaHooksSchema().getSecTentGrpMembService().find(PKey);
 		if(retval != null) {
-			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readsectentgrpmemb'), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-			CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
 				retval = null;
 			}
@@ -453,15 +456,16 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecTentGrpMemb retval = schema.getJpaHooksSchema().getSecTentGrpMembService().find(argSecTentGrpId,
 		argLoginId);
 		if(retval != null) {
-			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readsectentgrpmemb'), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-			CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
 				retval = null;
 			}
@@ -486,14 +490,15 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "updatesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecTentGrpMemb retval = schema.getJpaHooksSchema().getSecTentGrpMembService().lockByIdIdx(PKey);
 		if(retval != null) {
-			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readsectentgrpmemb'), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-			CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
 				retval = null;
 			}
@@ -513,19 +518,19 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "readAllDerived";
 		boolean permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		List<CFSecJpaSecTentGrpMemb> retlist = schema.getJpaHooksSchema().getSecTentGrpMembService().findAll();
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecTentGrpMemb> finallist = new ArrayList<>();
 			for (var retval: retlist) {
-				if(retval != null) {
-					CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-					CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
-					if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
-						finallist.add(retval);
-					}
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
+				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
+					finallist.add(retval);
 				}
 			}
 			retlist = finallist;
@@ -561,14 +566,15 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecTentGrpMemb retval = schema.getJpaHooksSchema().getSecTentGrpMembService().find(argSecTentGrpId,
 		argLoginId);
 		if(retval != null) {
-			// Retrieve the TenantId from retval and check ICFSec.backingSchema().isMemberOfTenantGroup(auth,ClusterId,TenantId,'readsectentgrpmemb'), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-			CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
 				retval = null;
 			}
@@ -595,18 +601,18 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecTentGrpMemb> retlist = schema.getJpaHooksSchema().getSecTentGrpMembService().findByTentGrpIdx(argSecTentGrpId);
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecTentGrpMemb> finallist = new ArrayList<>();
 			for (var retval: retlist) {
-				if(retval != null) {
-					CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-					CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
-					if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
-						finallist.add(retval);
-					}
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
+				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
+					finallist.add(retval);
 				}
 			}
 			retlist = finallist;
@@ -638,18 +644,18 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecTentGrpMemb> retlist = schema.getJpaHooksSchema().getSecTentGrpMembService().findByUserIdx(argLoginId);
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecTentGrpMemb> finallist = new ArrayList<>();
 			for (var retval: retlist) {
-				if(retval != null) {
-					CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-					CFLibDbKeyHash256 effTenantId = CFLibDbKeyHash256.nullGet();
-					if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
-						finallist.add(retval);
-					}
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredContainerTenant();
+				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
+				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
+				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentgrpmemb")) {
+					finallist.add(retval);
 				}
 			}
 			retlist = finallist;
@@ -681,7 +687,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec");
@@ -707,7 +713,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec-args");
@@ -732,7 +738,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "updatesectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "lockRec");
@@ -750,7 +756,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "readAllRec";
 		boolean permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readAllRec");
@@ -772,7 +778,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "pageAllRec");
@@ -803,7 +809,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
@@ -829,7 +835,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTentGrpIdx");
 	}
@@ -855,7 +861,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUserIdx");
 	}
@@ -883,7 +889,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByTentGrpIdx");
 	}
@@ -911,7 +917,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 			permissionGranted = canReadSecTentGrpMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, "readsectentgrpmemb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByUserIdx");
 	}

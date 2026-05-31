@@ -183,7 +183,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "createSecSysRole";
 		boolean permissionGranted = canCreateSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "createsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "createsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -214,7 +214,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "updateSecSysRole";
 		boolean permissionGranted = canUpdateSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "updatesecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -244,7 +244,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "deleteSecSysRole";
 		boolean permissionGranted = canDeleteSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "deletesecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -275,7 +275,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "deleteSecSysRoleByIdIdx";
 		boolean permissionGranted = canDeleteSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "deletesecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecSysRoleService().deleteByIdIdx(argKey);
@@ -295,7 +295,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "deleteSecSysRoleByUNameIdx";
 		boolean permissionGranted = canDeleteSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "deletesecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecSysRoleService().deleteByUNameIdx(argName);
@@ -316,7 +316,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "deleteSecSysRoleByUNameIdx";
 		boolean permissionGranted = canDeleteSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "deletesecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecSysRoleService().deleteByUNameIdx(argKey.getRequiredName());
@@ -340,7 +340,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().find(PKey);
@@ -364,7 +364,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "updatesecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().lockByIdIdx(PKey);
@@ -383,7 +383,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "readAllDerived";
 		boolean permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		List<CFSecJpaSecSysRole> retlist = schema.getJpaHooksSchema().getSecSysRoleService().findAll();
@@ -415,7 +415,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 			permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().find(argSecSysRoleId);
 		return( retval );
@@ -441,7 +441,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 			permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().findByUNameIdx(argName);
 		return( retval );
@@ -466,7 +466,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec");
@@ -491,7 +491,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "updatesecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "lockRec");
@@ -509,7 +509,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		final String S_ProcName = "readAllRec";
 		boolean permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readAllRec");
@@ -538,7 +538,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 			permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
@@ -565,7 +565,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 			permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, "readsecsysrole", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUNameIdx");
 	}

@@ -64,7 +64,7 @@ public class CFSecJpaSecTentGrp
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecTentGrpId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerGroup")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecTentGrpMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
 
@@ -90,9 +90,17 @@ public class CFSecJpaSecTentGrp
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredTenantId;
+	@Column( name="safe_name", nullable=false, length=64 )
+	protected String requiredName;
 
 	public CFSecJpaSecTentGrp() {
 		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecTentGrp.SECTENTGRPID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecSecTentGrp.TENANTID_INIT_VALUE.toString() );
+		requiredName = ICFSecSecTentGrp.NAME_INIT_VALUE;
 	}
 
 	@Override
@@ -116,6 +124,11 @@ public class CFSecJpaSecTentGrp
 		}
 		else if (argObj instanceof CFSecJpaTenant) {
 			requiredContainerTenant = (CFSecJpaTenant)argObj;
+			if (requiredContainerTenant != null) {
+				requiredTenantId = requiredContainerTenant.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerTenant", "argObj", argObj, "CFSecJpaTenant");
@@ -147,6 +160,11 @@ public class CFSecJpaSecTentGrp
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
 			requiredParentSysGrp = (CFSecJpaSecSysGrp)argObj;
+			if (requiredParentSysGrp != null) {
+				requiredName = requiredParentSysGrp.getRequiredName();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setParentSysGrp", "argObj", argObj, "CFSecJpaSecSysGrp");
@@ -258,24 +276,12 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		ICFSecTenant result = getRequiredContainerTenant();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFSecTenant.ID_INIT_VALUE );
-		}
+		return( requiredTenantId );
 	}
 
 	@Override
 	public String getRequiredName() {
-		ICFSecSecSysGrp result = getRequiredParentSysGrp();
-		if (result != null) {
-			return result.getRequiredName();
-		}
-		else {
-			return( ICFSecSecSysGrp.NAME_INIT_VALUE );
-		}
+		return( requiredName );
 	}
 
 	@Override

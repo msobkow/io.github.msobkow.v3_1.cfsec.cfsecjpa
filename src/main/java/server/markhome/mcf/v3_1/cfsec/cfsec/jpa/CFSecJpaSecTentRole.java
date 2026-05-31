@@ -64,7 +64,7 @@ public class CFSecJpaSecTentRole
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecTentRoleId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerRole")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerRole")
 	protected Set<CFSecJpaSecTentRoleMemb> optionalChildrenMembByRole;
 	protected int requiredRevision;
 
@@ -90,9 +90,17 @@ public class CFSecJpaSecTentRole
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredTenantId;
+	@Column( name="safe_name", nullable=false, length=64 )
+	protected String requiredName;
 
 	public CFSecJpaSecTentRole() {
 		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecTentRole.SECTENTROLEID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecSecTentRole.TENANTID_INIT_VALUE.toString() );
+		requiredName = ICFSecSecTentRole.NAME_INIT_VALUE;
 	}
 
 	@Override
@@ -116,6 +124,11 @@ public class CFSecJpaSecTentRole
 		}
 		else if (argObj instanceof CFSecJpaTenant) {
 			requiredContainerTenant = (CFSecJpaTenant)argObj;
+			if (requiredContainerTenant != null) {
+				requiredTenantId = requiredContainerTenant.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerTenant", "argObj", argObj, "CFSecJpaTenant");
@@ -147,6 +160,11 @@ public class CFSecJpaSecTentRole
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
 			requiredParentSysRole = (CFSecJpaSecSysGrp)argObj;
+			if (requiredParentSysRole != null) {
+				requiredName = requiredParentSysRole.getRequiredName();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setParentSysRole", "argObj", argObj, "CFSecJpaSecSysGrp");
@@ -258,24 +276,12 @@ public class CFSecJpaSecTentRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		ICFSecTenant result = getRequiredContainerTenant();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFSecTenant.ID_INIT_VALUE );
-		}
+		return( requiredTenantId );
 	}
 
 	@Override
 	public String getRequiredName() {
-		ICFSecSecSysGrp result = getRequiredParentSysRole();
-		if (result != null) {
-			return result.getRequiredName();
-		}
-		else {
-			return( ICFSecSecSysGrp.NAME_INIT_VALUE );
-		}
+		return( requiredName );
 	}
 
 	@Override

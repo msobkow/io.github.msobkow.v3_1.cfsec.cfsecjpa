@@ -60,9 +60,9 @@ public class CFSecJpaSecSysRole
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecSysRoleId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerSysRole")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
 	protected Set<CFSecJpaSecSysRoleEnables> optionalChildrenEnabledByRole;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerSysRole")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
 	protected Set<CFSecJpaSecSysRoleMemb> optionalChildrenMembByRole;
 	protected int requiredRevision;
 

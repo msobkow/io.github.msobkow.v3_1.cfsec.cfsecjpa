@@ -64,7 +64,7 @@ public class CFSecJpaSecClusRole
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecClusRoleId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerRole")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerRole")
 	protected Set<CFSecJpaSecClusRoleMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
 
@@ -90,9 +90,17 @@ public class CFSecJpaSecClusRole
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredClusterId;
+	@Column( name="safe_name", nullable=false, length=64 )
+	protected String requiredName;
 
 	public CFSecJpaSecClusRole() {
 		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRole.SECCLUSROLEID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRole.CLUSTERID_INIT_VALUE.toString() );
+		requiredName = ICFSecSecClusRole.NAME_INIT_VALUE;
 	}
 
 	@Override
@@ -116,6 +124,11 @@ public class CFSecJpaSecClusRole
 		}
 		else if (argObj instanceof CFSecJpaCluster) {
 			requiredContainerCluster = (CFSecJpaCluster)argObj;
+			if (requiredContainerCluster != null) {
+				requiredClusterId = requiredContainerCluster.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerCluster", "argObj", argObj, "CFSecJpaCluster");
@@ -147,6 +160,11 @@ public class CFSecJpaSecClusRole
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
 			requiredParentSysRole = (CFSecJpaSecSysGrp)argObj;
+			if (requiredParentSysRole != null) {
+				requiredName = requiredParentSysRole.getRequiredName();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setParentSysRole", "argObj", argObj, "CFSecJpaSecSysGrp");
@@ -258,24 +276,12 @@ public class CFSecJpaSecClusRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		ICFSecCluster result = getRequiredContainerCluster();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFSecCluster.ID_INIT_VALUE );
-		}
+		return( requiredClusterId );
 	}
 
 	@Override
 	public String getRequiredName() {
-		ICFSecSecSysGrp result = getRequiredParentSysRole();
-		if (result != null) {
-			return result.getRequiredName();
-		}
-		else {
-			return( ICFSecSecSysGrp.NAME_INIT_VALUE );
-		}
+		return( requiredName );
 	}
 
 	@Override

@@ -61,7 +61,7 @@ public class CFSecJpaISOCcy
 	@SequenceGenerator(name = "ISOCcyIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOCcyId", nullable=false )
 	protected short requiredISOCcyId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentCcy")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentCcy")
 	protected Set<CFSecJpaISOCtryCcy> optionalChildrenCtry;
 	protected int requiredRevision;
 

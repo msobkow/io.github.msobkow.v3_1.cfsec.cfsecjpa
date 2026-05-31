@@ -183,7 +183,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "createSecClusRoleMemb";
 		boolean permissionGranted = canCreateSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "createsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "createsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -193,8 +193,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			CFSecJpaSecClusRoleMemb jparec = (CFSecJpaSecClusRoleMemb)rec;
 			CFSecJpaSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().create(jparec);
 		if(retval != null) {
-			// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
 				retval = null;
 			}
@@ -221,7 +221,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "updateSecClusRoleMemb";
 		boolean permissionGranted = canUpdateSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "updatesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -231,8 +231,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			CFSecJpaSecClusRoleMemb jparec = (CFSecJpaSecClusRoleMemb)rec;
 			CFSecJpaSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().update(jparec);
 		if(retval != null) {
-			// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
 				retval = null;
 			}
@@ -258,7 +258,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "deleteSecClusRoleMemb";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "deletesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -292,7 +292,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "deleteSecClusRoleMembByIdIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "deletesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecClusRoleMembService().deleteByIdIdx(argSecClusRoleId,
@@ -313,7 +313,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "deleteSecClusRoleMembByIdIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "deletesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecClusRoleMembService().deleteByIdIdx(argKey.getRequiredSecClusRoleId(),
@@ -334,7 +334,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "deleteSecClusRoleMembByClusRoleIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "deletesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecClusRoleMembService().deleteByClusRoleIdx(argSecClusRoleId);
@@ -355,7 +355,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "deleteSecClusRoleMembByClusRoleIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "deletesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecClusRoleMembService().deleteByClusRoleIdx(argKey.getRequiredSecClusRoleId());
@@ -375,7 +375,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "deleteSecClusRoleMembByLoginIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "deletesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecClusRoleMembService().deleteByLoginIdx(argLoginId);
@@ -396,7 +396,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "deleteSecClusRoleMembByLoginIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "deletesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecClusRoleMembService().deleteByLoginIdx(argKey.getRequiredLoginId());
@@ -420,13 +420,13 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().find(PKey);
 		if(retval != null) {
-			// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
 				retval = null;
 			}
@@ -450,14 +450,14 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().find(argSecClusRoleId,
 		argLoginId);
 		if(retval != null) {
-			// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
 				retval = null;
 			}
@@ -482,13 +482,13 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "updatesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().lockByIdIdx(PKey);
 		if(retval != null) {
-			// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
 				retval = null;
 			}
@@ -508,19 +508,17 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "readAllDerived";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		List<CFSecJpaSecClusRoleMemb> retlist = schema.getJpaHooksSchema().getSecClusRoleMembService().findAll();
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecClusRoleMemb> finallist = new ArrayList<>();
 			for (var retval: retlist) {
-				if(retval != null) {
-					// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-					CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-					if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
-						finallist.add(retval);
-					}
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
+					finallist.add(retval);
 				}
 			}
 			retlist = finallist;
@@ -556,13 +554,13 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().find(argSecClusRoleId,
 		argLoginId);
 		if(retval != null) {
-			// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-			CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
 				retval = null;
 			}
@@ -589,18 +587,16 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecClusRoleMemb> retlist = schema.getJpaHooksSchema().getSecClusRoleMembService().findByClusRoleIdx(argSecClusRoleId);
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecClusRoleMemb> finallist = new ArrayList<>();
 			for (var retval: retlist) {
-				if(retval != null) {
-					// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-					CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-					if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
-						finallist.add(retval);
-					}
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
+					finallist.add(retval);
 				}
 			}
 			retlist = finallist;
@@ -632,18 +628,16 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecClusRoleMemb> retlist = schema.getJpaHooksSchema().getSecClusRoleMembService().findByLoginIdx(argLoginId);
 		if(retlist != null) {
 			ArrayList<CFSecJpaSecClusRoleMemb> finallist = new ArrayList<>();
 			for (var retval: retlist) {
-				if(retval != null) {
-					// Retrieve the ClusterId for the record and check ICFSec.backingSchema().isMemberOfClusterGroup(auth,ClusterId,"readsecclusrolememb"), clear retval to null if not a member
-					CFLibDbKeyHash256 effClusterId = CFLibDbKeyHash256.nullGet();
-					if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
-						finallist.add(retval);
-					}
+				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
+				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
+				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrolememb")) {
+					finallist.add(retval);
 				}
 			}
 			retlist = finallist;
@@ -675,7 +669,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec");
@@ -701,7 +695,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec-args");
@@ -726,7 +720,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "updatesecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "lockRec");
@@ -744,7 +738,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "readAllRec";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readAllRec");
@@ -766,7 +760,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "pageAllRec");
@@ -797,7 +791,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
@@ -823,7 +817,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByClusRoleIdx");
 	}
@@ -849,7 +843,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByLoginIdx");
 	}
@@ -877,7 +871,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByClusRoleIdx");
 	}
@@ -905,7 +899,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 			permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, "readsecclusrolememb", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByLoginIdx");
 	}

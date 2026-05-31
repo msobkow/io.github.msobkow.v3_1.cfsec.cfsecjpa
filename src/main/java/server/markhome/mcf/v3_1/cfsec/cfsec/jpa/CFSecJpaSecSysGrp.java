@@ -61,9 +61,9 @@ public class CFSecJpaSecSysGrp
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecSysGrpId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerGroup")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecSysGrpInc> optionalChildrenIncByGrp;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerGroup")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecSysGrpMemb> optionalChildrenMembByGrp;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
@@ -79,9 +79,9 @@ public class CFSecJpaSecSysGrp
 	protected Set<CFSecJpaSecClusRole> optionalChildrenImplClusRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysRole")
 	protected Set<CFSecJpaSecTentRole> optionalChildrenImplTentRole;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentSubGroup")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSubGroup")
 	protected Set<CFSecJpaSecSysGrpInc> optionalChildrenSysGrpByName;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentEnableGroup")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentEnableGroup")
 	protected Set<CFSecJpaSecSysRoleEnables> optionalChildrenRoleByEnableName;
 
 	@AttributeOverrides({

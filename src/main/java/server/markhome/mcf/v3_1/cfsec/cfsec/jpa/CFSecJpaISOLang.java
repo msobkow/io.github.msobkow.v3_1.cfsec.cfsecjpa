@@ -61,7 +61,7 @@ public class CFSecJpaISOLang
 	@SequenceGenerator(name = "ISOLangIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOLangId", nullable=false )
 	protected short requiredISOLangId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredParentLang")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentLang")
 	protected Set<CFSecJpaISOCtryLang> optionalChildrenCtry;
 	protected int requiredRevision;
 

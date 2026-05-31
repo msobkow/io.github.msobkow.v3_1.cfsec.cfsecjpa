@@ -183,7 +183,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "createSecUserPWReset";
 		boolean permissionGranted = canCreateSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "createsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "createsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -214,7 +214,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "updateSecUserPWReset";
 		boolean permissionGranted = canUpdateSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "updatesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -244,7 +244,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWReset";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -275,7 +275,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWResetByIdIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecUserPWResetService().deleteByIdIdx(argKey);
@@ -295,7 +295,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWResetByUUuid6Idx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecUserPWResetService().deleteByUUuid6Idx(argPasswordResetUuid6);
@@ -316,7 +316,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWResetByUUuid6Idx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecUserPWResetService().deleteByUUuid6Idx(argKey.getRequiredPasswordResetUuid6());
@@ -336,7 +336,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWResetBySentEMAddrIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecUserPWResetService().deleteBySentEMAddrIdx(argSentToEMailAddr);
@@ -357,7 +357,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWResetBySentEMAddrIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecUserPWResetService().deleteBySentEMAddrIdx(argKey.getRequiredSentToEMailAddr());
@@ -377,7 +377,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWResetByNewAcctIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecUserPWResetService().deleteByNewAcctIdx(argNewAccount);
@@ -398,7 +398,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "deleteSecUserPWResetByNewAcctIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "deletesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getSecUserPWResetService().deleteByNewAcctIdx(argKey.getRequiredNewAccount());
@@ -422,7 +422,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().find(PKey);
@@ -446,7 +446,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "updatesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().lockByIdIdx(PKey);
@@ -465,7 +465,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "readAllDerived";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		List<CFSecJpaSecUserPWReset> retlist = schema.getJpaHooksSchema().getSecUserPWResetService().findAll();
@@ -497,7 +497,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().find(argSecUserId);
 		return( retval );
@@ -523,7 +523,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().findByUUuid6Idx(argPasswordResetUuid6);
 		return( retval );
@@ -548,7 +548,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecUserPWReset> retlist = schema.getJpaHooksSchema().getSecUserPWResetService().findBySentEMAddrIdx(argSentToEMailAddr);
 		ICFSecSecUserPWReset[] retset = new ICFSecSecUserPWReset[retlist.size()];
@@ -578,7 +578,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecUserPWReset> retlist = schema.getJpaHooksSchema().getSecUserPWResetService().findByNewAcctIdx(argNewAccount);
 		ICFSecSecUserPWReset[] retset = new ICFSecSecUserPWReset[retlist.size()];
@@ -608,7 +608,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec");
@@ -633,7 +633,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "updatesecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updatesecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "lockRec");
@@ -651,7 +651,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "readAllRec";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readAllRec");
@@ -672,7 +672,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "pageAllRec");
@@ -700,7 +700,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
@@ -727,7 +727,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByUUuid6Idx");
 	}
@@ -753,7 +753,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecBySentEMAddrIdx");
 	}
@@ -779,7 +779,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByNewAcctIdx");
 	}
@@ -806,7 +806,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecBySentEMAddrIdx");
 	}
@@ -833,7 +833,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, "readsecuserpwreset", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "pageRecByNewAcctIdx");
 	}

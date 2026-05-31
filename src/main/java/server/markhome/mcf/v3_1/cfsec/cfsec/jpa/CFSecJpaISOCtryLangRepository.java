@@ -60,7 +60,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 *
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaISOCtryLang r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.pkey.requiredParentLang.requiredISOLangId = :iSOLangId")
+	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentLang.requiredISOLangId = :iSOLangId")
 	CFSecJpaISOCtryLang get(@Param("iSOCtryId") short requiredISOCtryId,
 		@Param("iSOLangId") short requiredISOLangId);
 
@@ -84,7 +84,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 *
 	 *		@return List&lt;CFSecJpaISOCtryLang&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaISOCtryLang r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
+	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
 	List<CFSecJpaISOCtryLang> findByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
 
 	/**
@@ -105,7 +105,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 *
 	 *		@return List&lt;CFSecJpaISOCtryLang&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaISOCtryLang r where r.pkey.requiredParentLang.requiredISOLangId = :iSOLangId")
+	@Query("select r from CFSecJpaISOCtryLang r where r.requiredParentLang.requiredISOLangId = :iSOLangId")
 	List<CFSecJpaISOCtryLang> findByLangIdx(@Param("iSOLangId") short requiredISOLangId);
 
 	/**
@@ -131,7 +131,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaISOCtryLang r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.pkey.requiredParentLang.requiredISOLangId = :iSOLangId")
+	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentLang.requiredISOLangId = :iSOLangId")
 	CFSecJpaISOCtryLang lockByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
 		@Param("iSOLangId") short requiredISOLangId);
 
@@ -155,7 +155,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaISOCtryLang r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
+	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
 	List<CFSecJpaISOCtryLang> lockByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
 
 	/**
@@ -178,7 +178,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaISOCtryLang r where r.pkey.requiredParentLang.requiredISOLangId = :iSOLangId")
+	@Query("select r from CFSecJpaISOCtryLang r where r.requiredParentLang.requiredISOLangId = :iSOLangId")
 	List<CFSecJpaISOCtryLang> lockByLangIdx(@Param("iSOLangId") short requiredISOLangId);
 
 	/**
@@ -202,7 +202,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaISOCtryLang r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.pkey.requiredParentLang.requiredISOLangId = :iSOLangId")
+	@Query("delete from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentLang.requiredISOLangId = :iSOLangId")
 	void deleteByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
 		@Param("iSOLangId") short requiredISOLangId);
 
@@ -222,7 +222,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaISOCtryLang r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
+	@Query("delete from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
 	void deleteByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
 
 	/**
@@ -241,7 +241,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaISOCtryLang r where r.pkey.requiredParentLang.requiredISOLangId = :iSOLangId")
+	@Query("delete from CFSecJpaISOCtryLang r where r.requiredParentLang.requiredISOLangId = :iSOLangId")
 	void deleteByLangIdx(@Param("iSOLangId") short requiredISOLangId);
 
 	/**

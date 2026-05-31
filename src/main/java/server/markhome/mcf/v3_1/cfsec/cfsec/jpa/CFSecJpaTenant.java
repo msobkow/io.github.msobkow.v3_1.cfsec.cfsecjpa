@@ -87,11 +87,16 @@ public class CFSecJpaTenant
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredClusterId;
 	@Column( name="TenantName", nullable=false, length=192 )
 	protected String requiredTenantName;
 
 	public CFSecJpaTenant() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFSecTenant.ID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecTenant.CLUSTERID_INIT_VALUE.toString() );
 		requiredTenantName = ICFSecTenant.TENANTNAME_INIT_VALUE;
 	}
 
@@ -121,6 +126,11 @@ public class CFSecJpaTenant
 		}
 		else if (argObj instanceof CFSecJpaCluster) {
 			requiredContainerCluster = (CFSecJpaCluster)argObj;
+			if (requiredContainerCluster != null) {
+				requiredClusterId = requiredContainerCluster.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerCluster", "argObj", argObj, "CFSecJpaCluster");
@@ -232,13 +242,7 @@ public class CFSecJpaTenant
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		ICFSecCluster result = getRequiredContainerCluster();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFSecCluster.ID_INIT_VALUE );
-		}
+		return( requiredClusterId );
 	}
 
 	@Override

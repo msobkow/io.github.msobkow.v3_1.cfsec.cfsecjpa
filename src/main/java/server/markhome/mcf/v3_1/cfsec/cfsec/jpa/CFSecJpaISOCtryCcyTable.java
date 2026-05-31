@@ -182,7 +182,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "createISOCtryCcy";
 		boolean permissionGranted = canCreateISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "createisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "createisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -213,7 +213,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "updateISOCtryCcy";
 		boolean permissionGranted = canUpdateISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "updateisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updateisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -243,7 +243,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "deleteISOCtryCcy";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "deleteisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deleteisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		if (rec == null) {
@@ -277,7 +277,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "deleteISOCtryCcyByIdIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "deleteisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deleteisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getISOCtryCcyService().deleteByIdIdx(argISOCtryId,
@@ -298,7 +298,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "deleteISOCtryCcyByIdIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "deleteisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deleteisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getISOCtryCcyService().deleteByIdIdx(argKey.getRequiredISOCtryId(),
@@ -319,7 +319,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "deleteISOCtryCcyByCtryIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "deleteisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deleteisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getISOCtryCcyService().deleteByCtryIdx(argISOCtryId);
@@ -340,7 +340,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "deleteISOCtryCcyByCtryIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "deleteisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deleteisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getISOCtryCcyService().deleteByCtryIdx(argKey.getRequiredISOCtryId());
@@ -360,7 +360,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "deleteISOCtryCcyByCcyIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "deleteisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deleteisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getISOCtryCcyService().deleteByCcyIdx(argISOCcyId);
@@ -381,7 +381,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "deleteISOCtryCcyByCcyIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "deleteisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deleteisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		schema.getJpaHooksSchema().getISOCtryCcyService().deleteByCcyIdx(argKey.getRequiredISOCcyId());
@@ -405,7 +405,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().find(PKey);
@@ -428,7 +428,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().find(argISOCtryId,
@@ -453,7 +453,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "updateisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updateisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().lockByIdIdx(PKey);
@@ -472,7 +472,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "readAllDerived";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		List<CFSecJpaISOCtryCcy> retlist = schema.getJpaHooksSchema().getISOCtryCcyService().findAll();
@@ -507,7 +507,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 			permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().find(argISOCtryId,
 		argISOCcyId);
@@ -533,7 +533,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 			permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaISOCtryCcy> retlist = schema.getJpaHooksSchema().getISOCtryCcyService().findByCtryIdx(argISOCtryId);
 		ICFSecISOCtryCcy[] retset = new ICFSecISOCtryCcy[retlist.size()];
@@ -563,7 +563,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 			permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaISOCtryCcy> retlist = schema.getJpaHooksSchema().getISOCtryCcyService().findByCcyIdx(argISOCcyId);
 		ICFSecISOCtryCcy[] retset = new ICFSecISOCtryCcy[retlist.size()];
@@ -593,7 +593,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec");
@@ -619,7 +619,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readRec-args");
@@ -644,7 +644,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "updateisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "updateisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "lockRec");
@@ -662,7 +662,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		final String S_ProcName = "readAllRec";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 
 		throw new CFLibNotImplementedYetException(getClass(), "readAllRec");
@@ -694,7 +694,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 			permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByIdIdx");
 	}
@@ -720,7 +720,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 			permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByCtryIdx");
 	}
@@ -746,7 +746,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 			permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
 		}
 		if (!permissionGranted) {
-			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, "readisoctryccy", Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctryccy", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryCcyTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByCcyIdx");
 	}

@@ -61,9 +61,9 @@ public class CFSecJpaISOCtry
 	@SequenceGenerator(name = "ISOCtryIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOCtryId", nullable=false )
 	protected short requiredISOCtryId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerCtry")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCtry")
 	protected Set<CFSecJpaISOCtryCcy> optionalComponentsCcy;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerCtry")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCtry")
 	protected Set<CFSecJpaISOCtryLang> optionalComponentsLang;
 	protected int requiredRevision;
 

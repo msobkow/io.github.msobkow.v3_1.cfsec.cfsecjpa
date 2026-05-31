@@ -60,7 +60,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 *
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaSecSysGrpMemb r where r.pkey.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId and r.pkey.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysGrpMemb r where r.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId and r.requiredParentUser.requiredLoginId = :loginId")
 	CFSecJpaSecSysGrpMemb get(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId,
 		@Param("loginId") String requiredLoginId);
 
@@ -84,7 +84,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 *
 	 *		@return List&lt;CFSecJpaSecSysGrpMemb&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecSysGrpMemb r where r.pkey.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId")
+	@Query("select r from CFSecJpaSecSysGrpMemb r where r.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId")
 	List<CFSecJpaSecSysGrpMemb> findBySysGrpIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId);
 
 	/**
@@ -105,7 +105,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 *
 	 *		@return List&lt;CFSecJpaSecSysGrpMemb&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecSysGrpMemb r where r.pkey.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysGrpMemb r where r.requiredParentUser.requiredLoginId = :loginId")
 	List<CFSecJpaSecSysGrpMemb> findByLoginIdx(@Param("loginId") String requiredLoginId);
 
 	/**
@@ -131,7 +131,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSysGrpMemb r where r.pkey.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId and r.pkey.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysGrpMemb r where r.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId and r.requiredParentUser.requiredLoginId = :loginId")
 	CFSecJpaSecSysGrpMemb lockByIdIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId,
 		@Param("loginId") String requiredLoginId);
 
@@ -155,7 +155,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSysGrpMemb r where r.pkey.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId")
+	@Query("select r from CFSecJpaSecSysGrpMemb r where r.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId")
 	List<CFSecJpaSecSysGrpMemb> lockBySysGrpIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId);
 
 	/**
@@ -178,7 +178,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSysGrpMemb r where r.pkey.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysGrpMemb r where r.requiredParentUser.requiredLoginId = :loginId")
 	List<CFSecJpaSecSysGrpMemb> lockByLoginIdx(@Param("loginId") String requiredLoginId);
 
 	/**
@@ -202,7 +202,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSysGrpMemb r where r.pkey.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId and r.pkey.requiredParentUser.requiredLoginId = :loginId")
+	@Query("delete from CFSecJpaSecSysGrpMemb r where r.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId and r.requiredParentUser.requiredLoginId = :loginId")
 	void deleteByIdIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId,
 		@Param("loginId") String requiredLoginId);
 
@@ -222,7 +222,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSysGrpMemb r where r.pkey.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId")
+	@Query("delete from CFSecJpaSecSysGrpMemb r where r.requiredContainerGroup.requiredSecSysGrpId = :secSysGrpId")
 	void deleteBySysGrpIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId);
 
 	/**
@@ -241,7 +241,7 @@ public interface CFSecJpaSecSysGrpMembRepository extends JpaRepository<CFSecJpaS
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSysGrpMemb r where r.pkey.requiredParentUser.requiredLoginId = :loginId")
+	@Query("delete from CFSecJpaSecSysGrpMemb r where r.requiredParentUser.requiredLoginId = :loginId")
 	void deleteByLoginIdx(@Param("loginId") String requiredLoginId);
 
 	/**

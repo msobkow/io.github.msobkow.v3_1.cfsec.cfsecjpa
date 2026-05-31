@@ -64,7 +64,7 @@ public class CFSecJpaSecClusGrp
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecClusGrpId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="pkey.requiredContainerGroup")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecClusGrpMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
 
@@ -90,9 +90,17 @@ public class CFSecJpaSecClusGrp
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 requiredClusterId;
+	@Column( name="safe_name", nullable=false, length=64 )
+	protected String requiredName;
 
 	public CFSecJpaSecClusGrp() {
 		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.CLUSTERID_INIT_VALUE.toString() );
+		requiredName = ICFSecSecClusGrp.NAME_INIT_VALUE;
 	}
 
 	@Override
@@ -116,6 +124,11 @@ public class CFSecJpaSecClusGrp
 		}
 		else if (argObj instanceof CFSecJpaCluster) {
 			requiredOwnerCluster = (CFSecJpaCluster)argObj;
+			if (requiredOwnerCluster != null) {
+				requiredClusterId = requiredOwnerCluster.getRequiredId();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setOwnerCluster", "argObj", argObj, "CFSecJpaCluster");
@@ -147,6 +160,11 @@ public class CFSecJpaSecClusGrp
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
 			requiredParentSysGrp = (CFSecJpaSecSysGrp)argObj;
+			if (requiredParentSysGrp != null) {
+				requiredName = requiredParentSysGrp.getRequiredName();
+			}
+			else {
+			}
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setParentSysGrp", "argObj", argObj, "CFSecJpaSecSysGrp");
@@ -258,24 +276,12 @@ public class CFSecJpaSecClusGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		ICFSecCluster result = getRequiredOwnerCluster();
-		if (result != null) {
-			return result.getRequiredId();
-		}
-		else {
-			return( ICFSecCluster.ID_INIT_VALUE );
-		}
+		return( requiredClusterId );
 	}
 
 	@Override
 	public String getRequiredName() {
-		ICFSecSecSysGrp result = getRequiredParentSysGrp();
-		if (result != null) {
-			return result.getRequiredName();
-		}
-		else {
-			return( ICFSecSecSysGrp.NAME_INIT_VALUE );
-		}
+		return( requiredName );
 	}
 
 	@Override

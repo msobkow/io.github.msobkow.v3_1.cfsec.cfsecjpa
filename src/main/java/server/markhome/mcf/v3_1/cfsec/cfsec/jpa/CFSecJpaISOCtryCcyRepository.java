@@ -60,7 +60,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 *
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaISOCtryCcy r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.pkey.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
+	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
 	CFSecJpaISOCtryCcy get(@Param("iSOCtryId") short requiredISOCtryId,
 		@Param("iSOCcyId") short requiredISOCcyId);
 
@@ -84,7 +84,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 *
 	 *		@return List&lt;CFSecJpaISOCtryCcy&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaISOCtryCcy r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
+	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
 	List<CFSecJpaISOCtryCcy> findByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
 
 	/**
@@ -105,7 +105,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 *
 	 *		@return List&lt;CFSecJpaISOCtryCcy&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaISOCtryCcy r where r.pkey.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
+	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
 	List<CFSecJpaISOCtryCcy> findByCcyIdx(@Param("iSOCcyId") short requiredISOCcyId);
 
 	/**
@@ -131,7 +131,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaISOCtryCcy r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.pkey.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
+	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
 	CFSecJpaISOCtryCcy lockByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
 		@Param("iSOCcyId") short requiredISOCcyId);
 
@@ -155,7 +155,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaISOCtryCcy r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
+	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
 	List<CFSecJpaISOCtryCcy> lockByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
 
 	/**
@@ -178,7 +178,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaISOCtryCcy r where r.pkey.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
+	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
 	List<CFSecJpaISOCtryCcy> lockByCcyIdx(@Param("iSOCcyId") short requiredISOCcyId);
 
 	/**
@@ -202,7 +202,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaISOCtryCcy r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.pkey.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
+	@Query("delete from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
 	void deleteByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
 		@Param("iSOCcyId") short requiredISOCcyId);
 
@@ -222,7 +222,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaISOCtryCcy r where r.pkey.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
+	@Query("delete from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
 	void deleteByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
 
 	/**
@@ -241,7 +241,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaISOCtryCcy r where r.pkey.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
+	@Query("delete from CFSecJpaISOCtryCcy r where r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
 	void deleteByCcyIdx(@Param("iSOCcyId") short requiredISOCcyId);
 
 	/**
