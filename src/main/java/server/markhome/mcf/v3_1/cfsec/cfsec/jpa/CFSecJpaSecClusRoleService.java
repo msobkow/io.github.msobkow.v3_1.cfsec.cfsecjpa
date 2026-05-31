@@ -75,6 +75,18 @@ public class CFSecJpaSecClusRoleService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecClusRoleId = data.getRequiredSecClusRoleId();
 		boolean generatedRequiredSecClusRoleId = false;
+			if (data.getRequiredContainerCluster() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCluster()");
+			}
+			if (data.getRequiredParentSysRole() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentSysRole()");
+			}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -129,6 +141,18 @@ public class CFSecJpaSecClusRoleService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredContainerCluster() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCluster()");
+			}
+			if (data.getRequiredParentSysRole() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentSysRole()");
+			}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

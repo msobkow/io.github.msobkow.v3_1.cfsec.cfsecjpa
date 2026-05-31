@@ -73,6 +73,18 @@ public class CFSecJpaSecClusRoleMembService {
 		if (data == null) {
 			return( null );
 		}
+			if (data.getRequiredContainerRole() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerRole()");
+			}
+			if (data.getRequiredParentUser() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentUser()");
+			}
 		try {
 			if(data.getPKey() != null && cfsec31SecClusRoleMembRepository.existsById((CFSecJpaSecClusRoleMembPKey)data.getPKey())) {
 				return( (CFSecJpaSecClusRoleMemb)(cfsec31SecClusRoleMembRepository.findById((CFSecJpaSecClusRoleMembPKey)(data.getPKey())).get()));
@@ -108,6 +120,18 @@ public class CFSecJpaSecClusRoleMembService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredContainerRole() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerRole()");
+			}
+			if (data.getRequiredParentUser() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentUser()");
+			}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaSecClusRoleMemb existing = cfsec31SecClusRoleMembRepository.findById((CFSecJpaSecClusRoleMembPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));

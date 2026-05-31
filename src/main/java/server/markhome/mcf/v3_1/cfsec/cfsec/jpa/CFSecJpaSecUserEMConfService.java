@@ -73,6 +73,12 @@ public class CFSecJpaSecUserEMConfService {
 		if (data == null) {
 			return( null );
 		}
+			if (data.getRequiredContainerUser() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerUser()");
+			}
 		if(data.getRequiredConfirmEMailAddr() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -126,6 +132,12 @@ public class CFSecJpaSecUserEMConfService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredContainerUser() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerUser()");
+			}
 		if(data.getRequiredConfirmEMailAddr() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

@@ -73,6 +73,12 @@ public class CFSecJpaSysClusterService {
 		if (data == null) {
 			return( null );
 		}
+			if (data.getRequiredContainerCluster() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCluster()");
+			}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -111,6 +117,12 @@ public class CFSecJpaSysClusterService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredContainerCluster() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCluster()");
+			}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

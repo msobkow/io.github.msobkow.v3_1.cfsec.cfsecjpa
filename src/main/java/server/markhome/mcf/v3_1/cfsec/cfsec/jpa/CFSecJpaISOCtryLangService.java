@@ -73,6 +73,18 @@ public class CFSecJpaISOCtryLangService {
 		if (data == null) {
 			return( null );
 		}
+			if (data.getRequiredContainerCtry() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCtry()");
+			}
+			if (data.getRequiredParentLang() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentLang()");
+			}
 		try {
 			if(data.getPKey() != null && cfsec31ISOCtryLangRepository.existsById((CFSecJpaISOCtryLangPKey)data.getPKey())) {
 				return( (CFSecJpaISOCtryLang)(cfsec31ISOCtryLangRepository.findById((CFSecJpaISOCtryLangPKey)(data.getPKey())).get()));
@@ -108,6 +120,18 @@ public class CFSecJpaISOCtryLangService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredContainerCtry() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCtry()");
+			}
+			if (data.getRequiredParentLang() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentLang()");
+			}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaISOCtryLang existing = cfsec31ISOCtryLangRepository.findById((CFSecJpaISOCtryLangPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));

@@ -75,6 +75,18 @@ public class CFSecJpaSecClusGrpService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecClusGrpId = data.getRequiredSecClusGrpId();
 		boolean generatedRequiredSecClusGrpId = false;
+			if (data.getRequiredOwnerCluster() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredOwnerCluster()");
+			}
+			if (data.getRequiredParentSysGrp() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentSysGrp()");
+			}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -129,6 +141,18 @@ public class CFSecJpaSecClusGrpService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredOwnerCluster() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredOwnerCluster()");
+			}
+			if (data.getRequiredParentSysGrp() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentSysGrp()");
+			}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

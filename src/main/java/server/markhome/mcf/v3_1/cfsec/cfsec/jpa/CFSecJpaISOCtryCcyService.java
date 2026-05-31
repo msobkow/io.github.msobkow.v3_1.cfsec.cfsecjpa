@@ -73,6 +73,18 @@ public class CFSecJpaISOCtryCcyService {
 		if (data == null) {
 			return( null );
 		}
+			if (data.getRequiredContainerCtry() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCtry()");
+			}
+			if (data.getRequiredParentCcy() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentCcy()");
+			}
 		try {
 			if(data.getPKey() != null && cfsec31ISOCtryCcyRepository.existsById((CFSecJpaISOCtryCcyPKey)data.getPKey())) {
 				return( (CFSecJpaISOCtryCcy)(cfsec31ISOCtryCcyRepository.findById((CFSecJpaISOCtryCcyPKey)(data.getPKey())).get()));
@@ -108,6 +120,18 @@ public class CFSecJpaISOCtryCcyService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredContainerCtry() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerCtry()");
+			}
+			if (data.getRequiredParentCcy() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentCcy()");
+			}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaISOCtryCcy existing = cfsec31ISOCtryCcyRepository.findById((CFSecJpaISOCtryCcyPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));

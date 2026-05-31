@@ -73,6 +73,18 @@ public class CFSecJpaSecSysGrpIncService {
 		if (data == null) {
 			return( null );
 		}
+			if (data.getRequiredContainerGroup() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerGroup()");
+			}
+			if (data.getRequiredParentSubGroup() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentSubGroup()");
+			}
 		try {
 			if(data.getPKey() != null && cfsec31SecSysGrpIncRepository.existsById((CFSecJpaSecSysGrpIncPKey)data.getPKey())) {
 				return( (CFSecJpaSecSysGrpInc)(cfsec31SecSysGrpIncRepository.findById((CFSecJpaSecSysGrpIncPKey)(data.getPKey())).get()));
@@ -108,6 +120,18 @@ public class CFSecJpaSecSysGrpIncService {
 				0,
 				"data.getPKey()");
 		}
+			if (data.getRequiredContainerGroup() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredContainerGroup()");
+			}
+			if (data.getRequiredParentSubGroup() == null) {
+				throw new CFLibNullArgumentException(getClass(),
+					S_ProcName,
+					0,
+					"data.getRequiredParentSubGroup()");
+			}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaSecSysGrpInc existing = cfsec31SecSysGrpIncRepository.findById((CFSecJpaSecSysGrpIncPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
