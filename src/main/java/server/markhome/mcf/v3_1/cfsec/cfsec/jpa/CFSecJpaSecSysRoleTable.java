@@ -191,8 +191,12 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		}
 		else if (rec instanceof CFSecJpaSecSysRole) {
 			CFSecJpaSecSysRole jparec = (CFSecJpaSecSysRole)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecSysRole", "rec", rec, "CFSecJpaSecSysRole");
@@ -222,8 +226,10 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		}
 		else if (rec instanceof CFSecJpaSecSysRole) {
 			CFSecJpaSecSysRole jparec = (CFSecJpaSecSysRole)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecSysRole", "rec", rec, "CFSecJpaSecSysRole");
@@ -344,7 +350,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		}
 
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -368,7 +374,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 		}
 
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -418,7 +424,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().find(argSecSysRoleId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -444,7 +450,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecSysRole retval = schema.getJpaHooksSchema().getSecSysRoleService().findByUNameIdx(argName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

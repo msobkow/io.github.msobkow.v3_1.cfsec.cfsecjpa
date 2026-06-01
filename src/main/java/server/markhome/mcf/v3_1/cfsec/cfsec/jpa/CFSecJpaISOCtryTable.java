@@ -190,8 +190,12 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		}
 		else if (rec instanceof CFSecJpaISOCtry) {
 			CFSecJpaISOCtry jparec = (CFSecJpaISOCtry)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createISOCtry", "rec", rec, "CFSecJpaISOCtry");
@@ -221,8 +225,10 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		}
 		else if (rec instanceof CFSecJpaISOCtry) {
 			CFSecJpaISOCtry jparec = (CFSecJpaISOCtry)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateISOCtry", "rec", rec, "CFSecJpaISOCtry");
@@ -384,7 +390,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		}
 
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -408,7 +414,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 		}
 
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -458,7 +464,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctry", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().find(argISOCtryId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -484,7 +490,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctry", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().findByISOCodeIdx(argISOCode);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -510,7 +516,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisoctry", ICFSecSchema.SCHEMA_NAME, ICFSecISOCtryTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOCtry retval = schema.getJpaHooksSchema().getISOCtryService().findByNameIdx(argName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

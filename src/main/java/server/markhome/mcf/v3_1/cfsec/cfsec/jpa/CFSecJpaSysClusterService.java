@@ -73,12 +73,17 @@ public class CFSecJpaSysClusterService {
 		if (data == null) {
 			return( null );
 		}
-			if (data.getRequiredContainerCluster() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerCluster()");
-			}
+		if (data.getRequiredContainerCluster() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerCluster",
+				"data.requiredContainerCluster",
+				"Cluster",
+				"Cluster",
+				null);
+		}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -88,6 +93,9 @@ public class CFSecJpaSysClusterService {
 		try {
 			if(data.getPKey() != null && cfsec31SysClusterRepository.existsById((Integer)data.getPKey())) {
 				return( (CFSecJpaSysCluster)(cfsec31SysClusterRepository.findById((Integer)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			return cfsec31SysClusterRepository.save(data);
 		}
@@ -117,12 +125,17 @@ public class CFSecJpaSysClusterService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerCluster() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerCluster()");
-			}
+		if (data.getRequiredContainerCluster() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerCluster",
+				"data.requiredContainerCluster",
+				"Cluster",
+				"Cluster",
+				null);
+		}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

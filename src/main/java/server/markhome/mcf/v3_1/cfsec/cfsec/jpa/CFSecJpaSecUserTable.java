@@ -191,8 +191,12 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 		}
 		else if (rec instanceof CFSecJpaSecUser) {
 			CFSecJpaSecUser jparec = (CFSecJpaSecUser)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecUser retval = schema.getJpaHooksSchema().getSecUserService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecUser", "rec", rec, "CFSecJpaSecUser");
@@ -222,8 +226,10 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 		}
 		else if (rec instanceof CFSecJpaSecUser) {
 			CFSecJpaSecUser jparec = (CFSecJpaSecUser)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecUser retval = schema.getJpaHooksSchema().getSecUserService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecUser", "rec", rec, "CFSecJpaSecUser");
@@ -385,7 +391,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 		}
 
 		ICFSecSecUser retval = schema.getJpaHooksSchema().getSecUserService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -409,7 +415,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 		}
 
 		ICFSecSecUser retval = schema.getJpaHooksSchema().getSecUserService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -459,7 +465,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuser", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUser retval = schema.getJpaHooksSchema().getSecUserService().find(argSecUserId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -488,7 +494,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuser", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUser retval = schema.getJpaHooksSchema().getSecUserService().findByULoginIdx(argLoginId);
-		return( retval );
+		return(retval);
 	}
 
 	/**

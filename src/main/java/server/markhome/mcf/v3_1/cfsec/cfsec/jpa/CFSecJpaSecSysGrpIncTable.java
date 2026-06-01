@@ -191,8 +191,12 @@ public class CFSecJpaSecSysGrpIncTable implements ICFSecSecSysGrpIncTable
 		}
 		else if (rec instanceof CFSecJpaSecSysGrpInc) {
 			CFSecJpaSecSysGrpInc jparec = (CFSecJpaSecSysGrpInc)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysGrpInc retval = schema.getJpaHooksSchema().getSecSysGrpIncService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecSysGrpInc", "rec", rec, "CFSecJpaSecSysGrpInc");
@@ -222,8 +226,10 @@ public class CFSecJpaSecSysGrpIncTable implements ICFSecSecSysGrpIncTable
 		}
 		else if (rec instanceof CFSecJpaSecSysGrpInc) {
 			CFSecJpaSecSysGrpInc jparec = (CFSecJpaSecSysGrpInc)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysGrpInc retval = schema.getJpaHooksSchema().getSecSysGrpIncService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecSysGrpInc", "rec", rec, "CFSecJpaSecSysGrpInc");
@@ -410,7 +416,7 @@ public class CFSecJpaSecSysGrpIncTable implements ICFSecSecSysGrpIncTable
 		}
 
 		ICFSecSecSysGrpInc retval = schema.getJpaHooksSchema().getSecSysGrpIncService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -434,7 +440,7 @@ public class CFSecJpaSecSysGrpIncTable implements ICFSecSecSysGrpIncTable
 
 		ICFSecSecSysGrpInc retval = schema.getJpaHooksSchema().getSecSysGrpIncService().find(argSecSysGrpId,
 		argInclName);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -458,7 +464,7 @@ public class CFSecJpaSecSysGrpIncTable implements ICFSecSecSysGrpIncTable
 		}
 
 		ICFSecSecSysGrpInc retval = schema.getJpaHooksSchema().getSecSysGrpIncService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -512,7 +518,7 @@ public class CFSecJpaSecSysGrpIncTable implements ICFSecSecSysGrpIncTable
 		}
 		ICFSecSecSysGrpInc retval = schema.getJpaHooksSchema().getSecSysGrpIncService().find(argSecSysGrpId,
 		argInclName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

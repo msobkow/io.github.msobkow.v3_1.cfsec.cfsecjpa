@@ -190,8 +190,12 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		}
 		else if (rec instanceof CFSecJpaISOCtryCcy) {
 			CFSecJpaISOCtryCcy jparec = (CFSecJpaISOCtryCcy)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createISOCtryCcy", "rec", rec, "CFSecJpaISOCtryCcy");
@@ -221,8 +225,10 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		}
 		else if (rec instanceof CFSecJpaISOCtryCcy) {
 			CFSecJpaISOCtryCcy jparec = (CFSecJpaISOCtryCcy)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateISOCtryCcy", "rec", rec, "CFSecJpaISOCtryCcy");
@@ -409,7 +415,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		}
 
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -433,7 +439,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().find(argISOCtryId,
 		argISOCcyId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -457,7 +463,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		}
 
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -511,7 +517,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 		}
 		ICFSecISOCtryCcy retval = schema.getJpaHooksSchema().getISOCtryCcyService().find(argISOCtryId,
 		argISOCcyId);
-		return( retval );
+		return(retval);
 	}
 
 	/**

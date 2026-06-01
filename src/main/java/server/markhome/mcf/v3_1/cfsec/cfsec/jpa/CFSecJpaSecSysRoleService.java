@@ -85,6 +85,9 @@ public class CFSecJpaSecSysRoleService {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecSysRoleRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecSysRole)(cfsec31SecSysRoleRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			if (data.getRequiredSecSysRoleId() == null || data.getRequiredSecSysRoleId().isNull()) {
 				data.setRequiredSecSysRoleId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecSysRoleId = true;

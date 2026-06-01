@@ -73,12 +73,17 @@ public class CFSecJpaSecUserEMConfService {
 		if (data == null) {
 			return( null );
 		}
-			if (data.getRequiredContainerUser() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerUser()");
-			}
+		if (data.getRequiredContainerUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerUser",
+				"data.requiredContainerUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		if(data.getRequiredConfirmEMailAddr() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -100,6 +105,9 @@ public class CFSecJpaSecUserEMConfService {
 		try {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserEMConfRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecUserEMConf)(cfsec31SecUserEMConfRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
@@ -132,12 +140,17 @@ public class CFSecJpaSecUserEMConfService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerUser() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerUser()");
-			}
+		if (data.getRequiredContainerUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerUser",
+				"data.requiredContainerUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		if(data.getRequiredConfirmEMailAddr() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

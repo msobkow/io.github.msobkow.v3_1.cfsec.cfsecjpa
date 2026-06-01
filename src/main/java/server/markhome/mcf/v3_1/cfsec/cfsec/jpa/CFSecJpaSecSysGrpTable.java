@@ -191,8 +191,12 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 		}
 		else if (rec instanceof CFSecJpaSecSysGrp) {
 			CFSecJpaSecSysGrp jparec = (CFSecJpaSecSysGrp)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysGrp retval = schema.getJpaHooksSchema().getSecSysGrpService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecSysGrp", "rec", rec, "CFSecJpaSecSysGrp");
@@ -222,8 +226,10 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 		}
 		else if (rec instanceof CFSecJpaSecSysGrp) {
 			CFSecJpaSecSysGrp jparec = (CFSecJpaSecSysGrp)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysGrp retval = schema.getJpaHooksSchema().getSecSysGrpService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecSysGrp", "rec", rec, "CFSecJpaSecSysGrp");
@@ -385,7 +391,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 		}
 
 		ICFSecSecSysGrp retval = schema.getJpaHooksSchema().getSecSysGrpService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -409,7 +415,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 		}
 
 		ICFSecSecSysGrp retval = schema.getJpaHooksSchema().getSecSysGrpService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -459,7 +465,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysgrp", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysGrpTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecSysGrp retval = schema.getJpaHooksSchema().getSecSysGrpService().find(argSecSysGrpId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -485,7 +491,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsysgrp", ICFSecSchema.SCHEMA_NAME, ICFSecSecSysGrpTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecSysGrp retval = schema.getJpaHooksSchema().getSecSysGrpService().findByUNameIdx(argName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

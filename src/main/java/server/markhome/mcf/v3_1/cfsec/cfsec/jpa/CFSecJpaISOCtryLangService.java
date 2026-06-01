@@ -73,21 +73,34 @@ public class CFSecJpaISOCtryLangService {
 		if (data == null) {
 			return( null );
 		}
-			if (data.getRequiredContainerCtry() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerCtry()");
-			}
-			if (data.getRequiredParentLang() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentLang()");
-			}
+		if (data.getRequiredContainerCtry() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerCtry",
+				"data.requiredContainerCtry",
+				"ISOCtry",
+				"ISOCtry",
+				null);
+		}
+		if (data.getRequiredParentLang() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentLang",
+				"data.requiredParentLang",
+				"ISOLang",
+				"ISOLang",
+				null);
+		}
 		try {
 			if(data.getPKey() != null && cfsec31ISOCtryLangRepository.existsById((CFSecJpaISOCtryLangPKey)data.getPKey())) {
 				return( (CFSecJpaISOCtryLang)(cfsec31ISOCtryLangRepository.findById((CFSecJpaISOCtryLangPKey)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
@@ -120,18 +133,28 @@ public class CFSecJpaISOCtryLangService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerCtry() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerCtry()");
-			}
-			if (data.getRequiredParentLang() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentLang()");
-			}
+		if (data.getRequiredContainerCtry() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerCtry",
+				"data.requiredContainerCtry",
+				"ISOCtry",
+				"ISOCtry",
+				null);
+		}
+		if (data.getRequiredParentLang() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentLang",
+				"data.requiredParentLang",
+				"ISOLang",
+				"ISOLang",
+				null);
+		}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaISOCtryLang existing = cfsec31ISOCtryLangRepository.findById((CFSecJpaISOCtryLangPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));

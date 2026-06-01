@@ -191,6 +191,10 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 		}
 		else if (rec instanceof CFSecJpaSecTentGrp) {
 			CFSecJpaSecTentGrp jparec = (CFSecJpaSecTentGrp)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecTentGrp retval = schema.getJpaHooksSchema().getSecTentGrpService().create(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredContainerTenant();
@@ -201,7 +205,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecTentGrp", "rec", rec, "CFSecJpaSecTentGrp");
@@ -231,6 +235,8 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 		}
 		else if (rec instanceof CFSecJpaSecTentGrp) {
 			CFSecJpaSecTentGrp jparec = (CFSecJpaSecTentGrp)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecTentGrp retval = schema.getJpaHooksSchema().getSecTentGrpService().update(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredContainerTenant();
@@ -241,7 +247,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecTentGrp", "rec", rec, "CFSecJpaSecTentGrp");
@@ -458,7 +464,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +497,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -563,7 +569,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -688,7 +694,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

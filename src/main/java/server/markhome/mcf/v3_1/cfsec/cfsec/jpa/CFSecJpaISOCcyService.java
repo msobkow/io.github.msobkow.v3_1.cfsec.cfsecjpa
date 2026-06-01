@@ -107,6 +107,9 @@ public class CFSecJpaISOCcyService {
 			if(data.getPKey() != null && cfsec31ISOCcyRepository.existsById((Short)data.getPKey())) {
 				return( (CFSecJpaISOCcy)(cfsec31ISOCcyRepository.findById((Short)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);

@@ -190,8 +190,12 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 		}
 		else if (rec instanceof CFSecJpaISOLang) {
 			CFSecJpaISOLang jparec = (CFSecJpaISOLang)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOLang retval = schema.getJpaHooksSchema().getISOLangService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createISOLang", "rec", rec, "CFSecJpaISOLang");
@@ -221,8 +225,10 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 		}
 		else if (rec instanceof CFSecJpaISOLang) {
 			CFSecJpaISOLang jparec = (CFSecJpaISOLang)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOLang retval = schema.getJpaHooksSchema().getISOLangService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateISOLang", "rec", rec, "CFSecJpaISOLang");
@@ -384,7 +390,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 		}
 
 		ICFSecISOLang retval = schema.getJpaHooksSchema().getISOLangService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -408,7 +414,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 		}
 
 		ICFSecISOLang retval = schema.getJpaHooksSchema().getISOLangService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -458,7 +464,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisolang", ICFSecSchema.SCHEMA_NAME, ICFSecISOLangTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOLang retval = schema.getJpaHooksSchema().getISOLangService().find(argISOLangId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -484,7 +490,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisolang", ICFSecSchema.SCHEMA_NAME, ICFSecISOLangTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOLang retval = schema.getJpaHooksSchema().getISOLangService().findByCode3Idx(argISO6392Code);
-		return( retval );
+		return(retval);
 	}
 
 	/**

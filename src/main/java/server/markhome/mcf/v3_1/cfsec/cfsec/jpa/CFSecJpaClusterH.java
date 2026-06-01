@@ -42,14 +42,15 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
  *  CFSecJpaClusterH provides history objects matching the CFSecCluster change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "clus_h", schema = "CFSec31",
     indexes = {
         @Index(name = "ClusterIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, Id", unique = true),
-        @Index(name = "ClusterUDomNameIdx_h", columnList = "FullDomName", unique = true),
-        @Index(name = "ClusterUDescrNameIdx_h", columnList = "Description", unique = true)
+        @Index(name = "ClusterUDomNameIdx_h", columnList = "FullDomName", unique = false),
+        @Index(name = "ClusterUDescrNameIdx_h", columnList = "Description", unique = false)
     }
 )
 @Transactional(Transactional.TxType.SUPPORTS)

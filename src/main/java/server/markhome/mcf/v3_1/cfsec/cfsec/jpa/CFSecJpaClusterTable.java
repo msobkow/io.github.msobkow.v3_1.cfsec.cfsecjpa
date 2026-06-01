@@ -190,8 +190,12 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		}
 		else if (rec instanceof CFSecJpaCluster) {
 			CFSecJpaCluster jparec = (CFSecJpaCluster)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaCluster retval = schema.getJpaHooksSchema().getClusterService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createCluster", "rec", rec, "CFSecJpaCluster");
@@ -221,8 +225,10 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		}
 		else if (rec instanceof CFSecJpaCluster) {
 			CFSecJpaCluster jparec = (CFSecJpaCluster)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaCluster retval = schema.getJpaHooksSchema().getClusterService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateCluster", "rec", rec, "CFSecJpaCluster");
@@ -384,7 +390,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		}
 
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -408,7 +414,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 		}
 
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -458,7 +464,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readcluster", ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().find(argId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -487,7 +493,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readcluster", ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().findByUDomNameIdx(argFullDomName);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -513,7 +519,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readcluster", ICFSecSchema.SCHEMA_NAME, ICFSecClusterTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecCluster retval = schema.getJpaHooksSchema().getClusterService().findByUDescrIdx(argDescription);
-		return( retval );
+		return(retval);
 	}
 
 	/**

@@ -191,6 +191,10 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 		}
 		else if (rec instanceof CFSecJpaSecTentRole) {
 			CFSecJpaSecTentRole jparec = (CFSecJpaSecTentRole)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecTentRole retval = schema.getJpaHooksSchema().getSecTentRoleService().create(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredContainerTenant();
@@ -201,7 +205,7 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecTentRole", "rec", rec, "CFSecJpaSecTentRole");
@@ -231,6 +235,8 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 		}
 		else if (rec instanceof CFSecJpaSecTentRole) {
 			CFSecJpaSecTentRole jparec = (CFSecJpaSecTentRole)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecTentRole retval = schema.getJpaHooksSchema().getSecTentRoleService().update(jparec);
 		if(retval != null) {
 				ICFSecTenant tenant = retval.getRequiredContainerTenant();
@@ -241,7 +247,7 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecTentRole", "rec", rec, "CFSecJpaSecTentRole");
@@ -458,7 +464,7 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +497,7 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -563,7 +569,7 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -688,7 +694,7 @@ public class CFSecJpaSecTentRoleTable implements ICFSecSecTentRoleTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

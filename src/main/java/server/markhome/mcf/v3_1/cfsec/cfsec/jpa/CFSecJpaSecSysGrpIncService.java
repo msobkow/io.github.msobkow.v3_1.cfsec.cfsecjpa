@@ -73,21 +73,34 @@ public class CFSecJpaSecSysGrpIncService {
 		if (data == null) {
 			return( null );
 		}
-			if (data.getRequiredContainerGroup() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerGroup()");
-			}
-			if (data.getRequiredParentSubGroup() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentSubGroup()");
-			}
+		if (data.getRequiredContainerGroup() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerGroup",
+				"data.requiredContainerGroup",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
+		if (data.getRequiredParentSubGroup() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSubGroup",
+				"data.requiredParentSubGroup",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		try {
 			if(data.getPKey() != null && cfsec31SecSysGrpIncRepository.existsById((CFSecJpaSecSysGrpIncPKey)data.getPKey())) {
 				return( (CFSecJpaSecSysGrpInc)(cfsec31SecSysGrpIncRepository.findById((CFSecJpaSecSysGrpIncPKey)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
@@ -120,18 +133,28 @@ public class CFSecJpaSecSysGrpIncService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerGroup() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerGroup()");
-			}
-			if (data.getRequiredParentSubGroup() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentSubGroup()");
-			}
+		if (data.getRequiredContainerGroup() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerGroup",
+				"data.requiredContainerGroup",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
+		if (data.getRequiredParentSubGroup() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSubGroup",
+				"data.requiredParentSubGroup",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaSecSysGrpInc existing = cfsec31SecSysGrpIncRepository.findById((CFSecJpaSecSysGrpIncPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));

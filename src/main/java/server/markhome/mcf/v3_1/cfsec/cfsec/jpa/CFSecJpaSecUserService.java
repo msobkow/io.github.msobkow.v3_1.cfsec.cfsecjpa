@@ -97,6 +97,9 @@ public class CFSecJpaSecUserService {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecUser)(cfsec31SecUserRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			if (data.getRequiredSecUserId() == null || data.getRequiredSecUserId().isNull()) {
 				data.setRequiredSecUserId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecUserId = true;

@@ -52,6 +52,10 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 @Transactional(readOnly = true)
 public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecSession, CFLibDbKeyHash256> {
 
+	@Transactional
+	@Modifying
+	CFSecJpaSecSession save(CFSecJpaSecSession obj);
+
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
 	 *

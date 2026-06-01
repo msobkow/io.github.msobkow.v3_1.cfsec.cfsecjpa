@@ -75,12 +75,17 @@ public class CFSecJpaTenantService {
 		}
 		CFLibDbKeyHash256 originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
-			if (data.getRequiredContainerCluster() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerCluster()");
-			}
+		if (data.getRequiredContainerCluster() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerCluster",
+				"data.requiredContainerCluster",
+				"Cluster",
+				"Cluster",
+				null);
+		}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -96,6 +101,9 @@ public class CFSecJpaTenantService {
 		try {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31TenantRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaTenant)(cfsec31TenantRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
@@ -135,12 +143,17 @@ public class CFSecJpaTenantService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerCluster() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerCluster()");
-			}
+		if (data.getRequiredContainerCluster() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerCluster",
+				"data.requiredContainerCluster",
+				"Cluster",
+				"Cluster",
+				null);
+		}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

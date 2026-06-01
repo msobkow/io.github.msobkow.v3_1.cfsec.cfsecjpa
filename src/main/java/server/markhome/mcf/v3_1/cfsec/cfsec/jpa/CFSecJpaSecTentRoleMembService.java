@@ -73,21 +73,34 @@ public class CFSecJpaSecTentRoleMembService {
 		if (data == null) {
 			return( null );
 		}
-			if (data.getRequiredContainerRole() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerRole()");
-			}
-			if (data.getRequiredParentUser() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentUser()");
-			}
+		if (data.getRequiredContainerRole() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerRole",
+				"data.requiredContainerRole",
+				"SecTentRole",
+				"SecTentRole",
+				null);
+		}
+		if (data.getRequiredParentUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentUser",
+				"data.requiredParentUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		try {
 			if(data.getPKey() != null && cfsec31SecTentRoleMembRepository.existsById((CFSecJpaSecTentRoleMembPKey)data.getPKey())) {
 				return( (CFSecJpaSecTentRoleMemb)(cfsec31SecTentRoleMembRepository.findById((CFSecJpaSecTentRoleMembPKey)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
@@ -120,18 +133,28 @@ public class CFSecJpaSecTentRoleMembService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerRole() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerRole()");
-			}
-			if (data.getRequiredParentUser() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentUser()");
-			}
+		if (data.getRequiredContainerRole() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerRole",
+				"data.requiredContainerRole",
+				"SecTentRole",
+				"SecTentRole",
+				null);
+		}
+		if (data.getRequiredParentUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentUser",
+				"data.requiredParentUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaSecTentRoleMemb existing = cfsec31SecTentRoleMembRepository.findById((CFSecJpaSecTentRoleMembPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));

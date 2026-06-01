@@ -42,6 +42,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
  *  CFSecJpaISOTZoneH provides history objects matching the CFSecISOTZone change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
@@ -49,7 +50,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
     indexes = {
         @Index(name = "ISOTZoneIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, ISOTZoneId", unique = true),
         @Index(name = "ISOTZoneOffsetIdx_h", columnList = "TZHourOffset, TZMinOffset", unique = false),
-        @Index(name = "ISOTZoneUTZNameIdx_h", columnList = "TZName", unique = true),
+        @Index(name = "ISOTZoneUTZNameIdx_h", columnList = "TZName", unique = false),
         @Index(name = "ISOTZoneIso8601Idx_h", columnList = "Iso8601", unique = false)
     }
 )

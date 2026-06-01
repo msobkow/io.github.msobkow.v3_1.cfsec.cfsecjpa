@@ -191,8 +191,12 @@ public class CFSecJpaSecSysRoleMembTable implements ICFSecSecSysRoleMembTable
 		}
 		else if (rec instanceof CFSecJpaSecSysRoleMemb) {
 			CFSecJpaSecSysRoleMemb jparec = (CFSecJpaSecSysRoleMemb)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysRoleMemb retval = schema.getJpaHooksSchema().getSecSysRoleMembService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecSysRoleMemb", "rec", rec, "CFSecJpaSecSysRoleMemb");
@@ -222,8 +226,10 @@ public class CFSecJpaSecSysRoleMembTable implements ICFSecSecSysRoleMembTable
 		}
 		else if (rec instanceof CFSecJpaSecSysRoleMemb) {
 			CFSecJpaSecSysRoleMemb jparec = (CFSecJpaSecSysRoleMemb)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysRoleMemb retval = schema.getJpaHooksSchema().getSecSysRoleMembService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecSysRoleMemb", "rec", rec, "CFSecJpaSecSysRoleMemb");
@@ -410,7 +416,7 @@ public class CFSecJpaSecSysRoleMembTable implements ICFSecSecSysRoleMembTable
 		}
 
 		ICFSecSecSysRoleMemb retval = schema.getJpaHooksSchema().getSecSysRoleMembService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -434,7 +440,7 @@ public class CFSecJpaSecSysRoleMembTable implements ICFSecSecSysRoleMembTable
 
 		ICFSecSecSysRoleMemb retval = schema.getJpaHooksSchema().getSecSysRoleMembService().find(argSecSysRoleId,
 		argLoginId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -458,7 +464,7 @@ public class CFSecJpaSecSysRoleMembTable implements ICFSecSecSysRoleMembTable
 		}
 
 		ICFSecSecSysRoleMemb retval = schema.getJpaHooksSchema().getSecSysRoleMembService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -512,7 +518,7 @@ public class CFSecJpaSecSysRoleMembTable implements ICFSecSecSysRoleMembTable
 		}
 		ICFSecSecSysRoleMemb retval = schema.getJpaHooksSchema().getSecSysRoleMembService().find(argSecSysRoleId,
 		argLoginId);
-		return( retval );
+		return(retval);
 	}
 
 	/**

@@ -191,8 +191,12 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		}
 		else if (rec instanceof CFSecJpaSecUserPWReset) {
 			CFSecJpaSecUserPWReset jparec = (CFSecJpaSecUserPWReset)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecUserPWReset", "rec", rec, "CFSecJpaSecUserPWReset");
@@ -222,8 +226,10 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		}
 		else if (rec instanceof CFSecJpaSecUserPWReset) {
 			CFSecJpaSecUserPWReset jparec = (CFSecJpaSecUserPWReset)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecUserPWReset", "rec", rec, "CFSecJpaSecUserPWReset");
@@ -426,7 +432,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		}
 
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -450,7 +456,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 		}
 
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -500,7 +506,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().find(argSecUserId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -526,7 +532,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwreset", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWResetTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPWReset retval = schema.getJpaHooksSchema().getSecUserPWResetService().findByUUuid6Idx(argPasswordResetUuid6);
-		return( retval );
+		return(retval);
 	}
 
 	/**

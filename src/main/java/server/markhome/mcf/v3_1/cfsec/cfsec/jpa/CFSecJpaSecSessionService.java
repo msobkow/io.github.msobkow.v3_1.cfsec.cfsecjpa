@@ -91,6 +91,9 @@ public class CFSecJpaSecSessionService {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecSessionRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecSession)(cfsec31SecSessionRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			if (data.getRequiredSecSessionId() == null || data.getRequiredSecSessionId().isNull()) {
 				data.setRequiredSecSessionId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecSessionId = true;

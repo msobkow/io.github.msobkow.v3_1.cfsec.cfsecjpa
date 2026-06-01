@@ -434,7 +434,7 @@ public class CFSecJpaSchemaService {
 			if (systemAdminUserPassword == null) {
 				systemAdminUserPassword = new CFSecJpaSecUserPassword();
 				systemAdminUserPassword.setRequiredRevision(1);
-				// systemAdminUserPassword.setPKey(systemAdminUID);
+				systemAdminUserPassword.setPKey(systemAdminUID);
 				systemAdminUserPassword.setRequiredContainerUser(systemAdminUser);
 				systemAdminUserPassword.setRequiredPWSetStamp(now);
 				systemAdminUserPassword.setRequiredPasswordHash(ICFSecSchema.getPasswordHash("ChangeOnInstall"));
@@ -475,6 +475,7 @@ public class CFSecJpaSchemaService {
 
 		if (secSystemAdminGroup == null) {
 			secSystemAdminGroup = new CFSecJpaSecSysGrp();
+			secSystemAdminGroup.setPKey(secSystemAdminGroupID);
 			secSystemAdminGroup.setRequiredRevision(1);
 			secSystemAdminGroup.setCreatedAt(now);
 			secSystemAdminGroup.setCreatedByUserId(systemUID);

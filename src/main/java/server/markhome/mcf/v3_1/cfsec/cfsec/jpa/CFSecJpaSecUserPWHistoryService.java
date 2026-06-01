@@ -89,6 +89,9 @@ public class CFSecJpaSecUserPWHistoryService {
 			if(data.getPKey() != null && cfsec31SecUserPWHistoryRepository.existsById((CFSecJpaSecUserPWHistoryPKey)data.getPKey())) {
 				return( (CFSecJpaSecUserPWHistory)(cfsec31SecUserPWHistoryRepository.findById((CFSecJpaSecUserPWHistoryPKey)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			return cfsec31SecUserPWHistoryRepository.save(data);
 		}
 		catch(Exception ex) {

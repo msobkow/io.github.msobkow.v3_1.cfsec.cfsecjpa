@@ -52,6 +52,10 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 @Transactional(readOnly = true)
 public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpaSecTentGrpMemb, CFSecJpaSecTentGrpMembPKey> {
 
+	@Transactional
+	@Modifying
+	CFSecJpaSecTentGrpMemb save(CFSecJpaSecTentGrpMemb obj);
+
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
 	 *

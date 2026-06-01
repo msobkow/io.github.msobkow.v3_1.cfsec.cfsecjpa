@@ -73,12 +73,17 @@ public class CFSecJpaSecUserPasswordService {
 		if (data == null) {
 			return( null );
 		}
-			if (data.getRequiredContainerUser() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerUser()");
-			}
+		if (data.getRequiredContainerUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerUser",
+				"data.requiredContainerUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		if(data.getRequiredPWSetStamp() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -94,6 +99,9 @@ public class CFSecJpaSecUserPasswordService {
 		try {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserPasswordRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecUserPassword)(cfsec31SecUserPasswordRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			return cfsec31SecUserPasswordRepository.save(data);
 		}
@@ -123,12 +131,17 @@ public class CFSecJpaSecUserPasswordService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerUser() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerUser()");
-			}
+		if (data.getRequiredContainerUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerUser",
+				"data.requiredContainerUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		if(data.getRequiredPWSetStamp() == null) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

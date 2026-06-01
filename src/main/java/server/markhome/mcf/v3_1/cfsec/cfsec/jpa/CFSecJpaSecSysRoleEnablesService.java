@@ -73,21 +73,34 @@ public class CFSecJpaSecSysRoleEnablesService {
 		if (data == null) {
 			return( null );
 		}
-			if (data.getRequiredContainerSysRole() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerSysRole()");
-			}
-			if (data.getRequiredParentEnableGroup() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentEnableGroup()");
-			}
+		if (data.getRequiredContainerSysRole() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerSysRole",
+				"data.requiredContainerSysRole",
+				"SecSysRole",
+				"SecSysRole",
+				null);
+		}
+		if (data.getRequiredParentEnableGroup() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentEnableGroup",
+				"data.requiredParentEnableGroup",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		try {
 			if(data.getPKey() != null && cfsec31SecSysRoleEnablesRepository.existsById((CFSecJpaSecSysRoleEnablesPKey)data.getPKey())) {
 				return( (CFSecJpaSecSysRoleEnables)(cfsec31SecSysRoleEnablesRepository.findById((CFSecJpaSecSysRoleEnablesPKey)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
@@ -120,18 +133,28 @@ public class CFSecJpaSecSysRoleEnablesService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerSysRole() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerSysRole()");
-			}
-			if (data.getRequiredParentEnableGroup() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentEnableGroup()");
-			}
+		if (data.getRequiredContainerSysRole() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerSysRole",
+				"data.requiredContainerSysRole",
+				"SecSysRole",
+				"SecSysRole",
+				null);
+		}
+		if (data.getRequiredParentEnableGroup() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentEnableGroup",
+				"data.requiredParentEnableGroup",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		// Ensure the entity exists and that the revision matches
 		CFSecJpaSecSysRoleEnables existing = cfsec31SecSysRoleEnablesRepository.findById((CFSecJpaSecSysRoleEnablesPKey)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));

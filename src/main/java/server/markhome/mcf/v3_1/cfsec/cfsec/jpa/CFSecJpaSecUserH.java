@@ -42,13 +42,14 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
  *  CFSecJpaSecUserH provides history objects matching the CFSecSecUser change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "SecUser_h", schema = "CFSec31",
     indexes = {
         @Index(name = "SecUserIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, SecUserId", unique = true),
-        @Index(name = "SecUserLoginIdx_h", columnList = "login_id", unique = true),
+        @Index(name = "SecUserLoginIdx_h", columnList = "login_id", unique = false),
         @Index(name = "SecUserUEMailAddrIdx_h", columnList = "email_addr", unique = false)
     }
 )

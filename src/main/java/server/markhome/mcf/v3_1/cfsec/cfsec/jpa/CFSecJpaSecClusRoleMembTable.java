@@ -191,6 +191,10 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		}
 		else if (rec instanceof CFSecJpaSecClusRoleMemb) {
 			CFSecJpaSecClusRoleMemb jparec = (CFSecJpaSecClusRoleMemb)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().create(jparec);
 		if(retval != null) {
 				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
@@ -199,7 +203,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecClusRoleMemb", "rec", rec, "CFSecJpaSecClusRoleMemb");
@@ -229,6 +233,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 		}
 		else if (rec instanceof CFSecJpaSecClusRoleMemb) {
 			CFSecJpaSecClusRoleMemb jparec = (CFSecJpaSecClusRoleMemb)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecClusRoleMemb retval = schema.getJpaHooksSchema().getSecClusRoleMembService().update(jparec);
 		if(retval != null) {
 				ICFSecCluster cluster = retval.getRequiredContainerRole().getRequiredContainerCluster();
@@ -237,7 +243,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecClusRoleMemb", "rec", rec, "CFSecJpaSecClusRoleMemb");
@@ -431,7 +437,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -462,7 +468,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -493,7 +499,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -565,7 +571,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 				retval = null;
 			}
 		}
-		return( retval );
+		return(retval);
 	}
 
 	/**

@@ -75,18 +75,28 @@ public class CFSecJpaSecTentRoleService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecTentRoleId = data.getRequiredSecTentRoleId();
 		boolean generatedRequiredSecTentRoleId = false;
-			if (data.getRequiredContainerTenant() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerTenant()");
-			}
-			if (data.getRequiredParentSysRole() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentSysRole()");
-			}
+		if (data.getRequiredContainerTenant() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerTenant",
+				"data.requiredContainerTenant",
+				"Tenant",
+				"Tenant",
+				null);
+		}
+		if (data.getRequiredParentSysRole() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSysRole",
+				"data.requiredParentSysRole",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		if(data.getRequiredTenantId() == null || data.getRequiredTenantId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -102,6 +112,9 @@ public class CFSecJpaSecTentRoleService {
 		try {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecTentRoleRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecTentRole)(cfsec31SecTentRoleRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			if (data.getRequiredSecTentRoleId() == null || data.getRequiredSecTentRoleId().isNull()) {
 				data.setRequiredSecTentRoleId(new CFLibDbKeyHash256(0));
@@ -141,18 +154,28 @@ public class CFSecJpaSecTentRoleService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredContainerTenant() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredContainerTenant()");
-			}
-			if (data.getRequiredParentSysRole() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentSysRole()");
-			}
+		if (data.getRequiredContainerTenant() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerTenant",
+				"data.requiredContainerTenant",
+				"Tenant",
+				"Tenant",
+				null);
+		}
+		if (data.getRequiredParentSysRole() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSysRole",
+				"data.requiredParentSysRole",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		if(data.getRequiredTenantId() == null || data.getRequiredTenantId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

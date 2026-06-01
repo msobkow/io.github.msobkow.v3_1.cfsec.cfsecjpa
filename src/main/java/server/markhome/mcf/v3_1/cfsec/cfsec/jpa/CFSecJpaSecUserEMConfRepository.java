@@ -52,6 +52,10 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 @Transactional(readOnly = true)
 public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaSecUserEMConf, CFLibDbKeyHash256> {
 
+	@Transactional
+	@Modifying
+	CFSecJpaSecUserEMConf save(CFSecJpaSecUserEMConf obj);
+
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
 	 *

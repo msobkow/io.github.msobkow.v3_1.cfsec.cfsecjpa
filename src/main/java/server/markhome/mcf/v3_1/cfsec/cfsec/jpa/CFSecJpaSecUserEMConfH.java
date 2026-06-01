@@ -42,13 +42,14 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
  *  CFSecJpaSecUserEMConfH provides history objects matching the CFSecSecUserEMConf change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "secusremcnf_h", schema = "CFSec31",
     indexes = {
         @Index(name = "SecUserEMConfIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, SecUserId", unique = true),
-        @Index(name = "SecUserEMConfUuid6Idx_h", columnList = "conf_uuid6", unique = true),
+        @Index(name = "SecUserEMConfUuid6Idx_h", columnList = "conf_uuid6", unique = false),
         @Index(name = "SecUserEMConfConfirmingAddrIdx_h", columnList = "conf_emailaddr", unique = false),
         @Index(name = "SecUserEMConfSentStampIdx_h", columnList = "conf_sent", unique = false),
         @Index(name = "SecUserEMConfNewAcctIdx_h", columnList = "conf_newacct", unique = false)

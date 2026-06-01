@@ -75,18 +75,28 @@ public class CFSecJpaSecClusGrpService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecClusGrpId = data.getRequiredSecClusGrpId();
 		boolean generatedRequiredSecClusGrpId = false;
-			if (data.getRequiredOwnerCluster() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredOwnerCluster()");
-			}
-			if (data.getRequiredParentSysGrp() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentSysGrp()");
-			}
+		if (data.getRequiredOwnerCluster() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Owner",
+				"Owner",
+				"data.requiredOwnerCluster",
+				"data.requiredOwnerCluster",
+				"Cluster",
+				"Cluster",
+				null);
+		}
+		if (data.getRequiredParentSysGrp() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSysGrp",
+				"data.requiredParentSysGrp",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -102,6 +112,9 @@ public class CFSecJpaSecClusGrpService {
 		try {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecClusGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecClusGrp)(cfsec31SecClusGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
+			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
 			}
 			if (data.getRequiredSecClusGrpId() == null || data.getRequiredSecClusGrpId().isNull()) {
 				data.setRequiredSecClusGrpId(new CFLibDbKeyHash256(0));
@@ -141,18 +154,28 @@ public class CFSecJpaSecClusGrpService {
 				0,
 				"data.getPKey()");
 		}
-			if (data.getRequiredOwnerCluster() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredOwnerCluster()");
-			}
-			if (data.getRequiredParentSysGrp() == null) {
-				throw new CFLibNullArgumentException(getClass(),
-					S_ProcName,
-					0,
-					"data.getRequiredParentSysGrp()");
-			}
+		if (data.getRequiredOwnerCluster() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Owner",
+				"Owner",
+				"data.requiredOwnerCluster",
+				"data.requiredOwnerCluster",
+				"Cluster",
+				"Cluster",
+				null);
+		}
+		if (data.getRequiredParentSysGrp() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSysGrp",
+				"data.requiredParentSysGrp",
+				"SecSysGrp",
+				"SecSysGrp",
+				null);
+		}
 		if(data.getRequiredClusterId() == null || data.getRequiredClusterId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,

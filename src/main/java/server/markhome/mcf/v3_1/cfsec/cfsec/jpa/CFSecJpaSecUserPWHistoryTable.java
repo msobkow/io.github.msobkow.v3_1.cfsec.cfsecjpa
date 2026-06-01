@@ -192,7 +192,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		else if (rec instanceof CFSecJpaSecUserPWHistory) {
 			CFSecJpaSecUserPWHistory jparec = (CFSecJpaSecUserPWHistory)rec;
 			CFSecJpaSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecUserPWHistory", "rec", rec, "CFSecJpaSecUserPWHistory");
@@ -223,7 +223,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		else if (rec instanceof CFSecJpaSecUserPWHistory) {
 			CFSecJpaSecUserPWHistory jparec = (CFSecJpaSecUserPWHistory)rec;
 			CFSecJpaSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecUserPWHistory", "rec", rec, "CFSecJpaSecUserPWHistory");
@@ -451,7 +451,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		}
 
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -475,7 +475,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().find(argSecUserId,
 		argPWSetStamp);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -499,7 +499,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		}
 
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -553,7 +553,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 		}
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().find(argSecUserId,
 		argPWSetStamp);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -579,7 +579,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwhistory", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().findByUserIdx(argSecUserId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -605,7 +605,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwhistory", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().findBySetStampIdx(argPWSetStamp);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -631,7 +631,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpwhistory", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPWHistoryTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPWHistory retval = schema.getJpaHooksSchema().getSecUserPWHistoryService().findByReplacedStampIdx(argPWReplacedStamp);
-		return( retval );
+		return(retval);
 	}
 
 	/**

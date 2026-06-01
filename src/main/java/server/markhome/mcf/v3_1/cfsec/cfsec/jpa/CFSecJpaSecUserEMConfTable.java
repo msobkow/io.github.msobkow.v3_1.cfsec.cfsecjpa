@@ -191,8 +191,12 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 		}
 		else if (rec instanceof CFSecJpaSecUserEMConf) {
 			CFSecJpaSecUserEMConf jparec = (CFSecJpaSecUserEMConf)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecUserEMConf retval = schema.getJpaHooksSchema().getSecUserEMConfService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecUserEMConf", "rec", rec, "CFSecJpaSecUserEMConf");
@@ -222,8 +226,10 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 		}
 		else if (rec instanceof CFSecJpaSecUserEMConf) {
 			CFSecJpaSecUserEMConf jparec = (CFSecJpaSecUserEMConf)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecUserEMConf retval = schema.getJpaHooksSchema().getSecUserEMConfService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecUserEMConf", "rec", rec, "CFSecJpaSecUserEMConf");
@@ -467,7 +473,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 		}
 
 		ICFSecSecUserEMConf retval = schema.getJpaHooksSchema().getSecUserEMConfService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -491,7 +497,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 		}
 
 		ICFSecSecUserEMConf retval = schema.getJpaHooksSchema().getSecUserEMConfService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -541,7 +547,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuseremconf", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserEMConfTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserEMConf retval = schema.getJpaHooksSchema().getSecUserEMConfService().find(argSecUserId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -567,7 +573,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuseremconf", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserEMConfTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserEMConf retval = schema.getJpaHooksSchema().getSecUserEMConfService().findByUUuid6Idx(argEMConfirmationUuid6);
-		return( retval );
+		return(retval);
 	}
 
 	/**

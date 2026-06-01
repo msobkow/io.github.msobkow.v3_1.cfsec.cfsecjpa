@@ -91,6 +91,9 @@ public class CFSecJpaSecSysGrpService {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecSysGrpRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaSecSysGrp)(cfsec31SecSysGrpRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			if (data.getRequiredSecSysGrpId() == null || data.getRequiredSecSysGrpId().isNull()) {
 				data.setRequiredSecSysGrpId(new CFLibDbKeyHash256(0));
 				generatedRequiredSecSysGrpId = true;

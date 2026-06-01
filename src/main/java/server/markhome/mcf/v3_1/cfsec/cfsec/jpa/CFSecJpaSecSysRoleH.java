@@ -42,13 +42,14 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
  *  CFSecJpaSecSysRoleH provides history objects matching the CFSecSecSysRole change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "SecSysRole_h", schema = "CFSec31",
     indexes = {
         @Index(name = "SecSysRoleIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, SecSysRoleId", unique = true),
-        @Index(name = "SecSysRoleUNameIdx_h", columnList = "safe_name", unique = true)
+        @Index(name = "SecSysRoleUNameIdx_h", columnList = "safe_name", unique = false)
     }
 )
 @Transactional(Transactional.TxType.SUPPORTS)

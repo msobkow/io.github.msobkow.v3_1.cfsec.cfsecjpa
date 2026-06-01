@@ -42,14 +42,15 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
  *  CFSecJpaISOCtryH provides history objects matching the CFSecISOCtry change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "iso_cntry_h", schema = "CFSec31",
     indexes = {
         @Index(name = "ISOCtryIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, ISOCtryId", unique = true),
-        @Index(name = "ISOCtryCodeIdx_h", columnList = "iso_code", unique = true),
-        @Index(name = "ISOCtryNameIdx_h", columnList = "country_name", unique = true)
+        @Index(name = "ISOCtryCodeIdx_h", columnList = "iso_code", unique = false),
+        @Index(name = "ISOCtryNameIdx_h", columnList = "country_name", unique = false)
     }
 )
 @Transactional(Transactional.TxType.SUPPORTS)

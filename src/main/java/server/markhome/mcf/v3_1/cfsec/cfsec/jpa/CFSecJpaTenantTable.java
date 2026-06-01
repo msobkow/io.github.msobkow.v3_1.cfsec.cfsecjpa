@@ -191,8 +191,12 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 		}
 		else if (rec instanceof CFSecJpaTenant) {
 			CFSecJpaTenant jparec = (CFSecJpaTenant)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaTenant retval = schema.getJpaHooksSchema().getTenantService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createTenant", "rec", rec, "CFSecJpaTenant");
@@ -222,8 +226,10 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 		}
 		else if (rec instanceof CFSecJpaTenant) {
 			CFSecJpaTenant jparec = (CFSecJpaTenant)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaTenant retval = schema.getJpaHooksSchema().getTenantService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateTenant", "rec", rec, "CFSecJpaTenant");
@@ -390,7 +396,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 		}
 
 		ICFSecTenant retval = schema.getJpaHooksSchema().getTenantService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -414,7 +420,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 		}
 
 		ICFSecTenant retval = schema.getJpaHooksSchema().getTenantService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -464,7 +470,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readtenant", ICFSecSchema.SCHEMA_NAME, ICFSecTenantTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecTenant retval = schema.getJpaHooksSchema().getTenantService().find(argId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -527,7 +533,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 		}
 		ICFSecTenant retval = schema.getJpaHooksSchema().getTenantService().findByUNameIdx(argClusterId,
 		argTenantName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

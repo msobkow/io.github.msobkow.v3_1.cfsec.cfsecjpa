@@ -52,6 +52,10 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 @Transactional(readOnly = true)
 public interface CFSecJpaISOCcyRepository extends JpaRepository<CFSecJpaISOCcy, Short> {
 
+	@Transactional
+	@Modifying
+	CFSecJpaISOCcy save(CFSecJpaISOCcy obj);
+
 	/**
 	 *	Argument-based get database instance for compatibility with the current MSS code factory code base.
 	 *

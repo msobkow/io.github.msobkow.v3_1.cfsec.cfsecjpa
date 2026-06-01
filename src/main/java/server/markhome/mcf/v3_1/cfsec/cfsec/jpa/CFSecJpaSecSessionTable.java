@@ -192,7 +192,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 		else if (rec instanceof CFSecJpaSecSession) {
 			CFSecJpaSecSession jparec = (CFSecJpaSecSession)rec;
 			CFSecJpaSecSession retval = schema.getJpaHooksSchema().getSecSessionService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecSession", "rec", rec, "CFSecJpaSecSession");
@@ -223,7 +223,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 		else if (rec instanceof CFSecJpaSecSession) {
 			CFSecJpaSecSession jparec = (CFSecJpaSecSession)rec;
 			CFSecJpaSecSession retval = schema.getJpaHooksSchema().getSecSessionService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecSession", "rec", rec, "CFSecJpaSecSession");
@@ -477,7 +477,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 		}
 
 		ICFSecSecSession retval = schema.getJpaHooksSchema().getSecSessionService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -501,7 +501,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 		}
 
 		ICFSecSecSession retval = schema.getJpaHooksSchema().getSecSessionService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -551,7 +551,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecsession", ICFSecSchema.SCHEMA_NAME, ICFSecSecSessionTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecSession retval = schema.getJpaHooksSchema().getSecSessionService().find(argSecSessionId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -611,7 +611,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 		}
 		ICFSecSecSession retval = schema.getJpaHooksSchema().getSecSessionService().findByStartIdx(argSecUserId,
 		argStart);
-		return( retval );
+		return(retval);
 	}
 
 	/**

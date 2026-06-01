@@ -42,14 +42,15 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
  *  CFSecJpaISOCcyH provides history objects matching the CFSecISOCcy change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
  */
 @Entity
 @Table(
     name = "iso_ccy_h", schema = "CFSec31",
     indexes = {
         @Index(name = "ISOCcyIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, ISOCcyId", unique = true),
-        @Index(name = "ISOCcyCodeIdx_h", columnList = "iso_code", unique = true),
-        @Index(name = "ISOCcyNameIdx_h", columnList = "ccy_name", unique = true)
+        @Index(name = "ISOCcyCodeIdx_h", columnList = "iso_code", unique = false),
+        @Index(name = "ISOCcyNameIdx_h", columnList = "ccy_name", unique = false)
     }
 )
 @Transactional(Transactional.TxType.SUPPORTS)

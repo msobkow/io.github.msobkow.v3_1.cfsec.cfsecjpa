@@ -192,7 +192,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 		else if (rec instanceof CFSecJpaSecUserPassword) {
 			CFSecJpaSecUserPassword jparec = (CFSecJpaSecUserPassword)rec;
 			CFSecJpaSecUserPassword retval = schema.getJpaHooksSchema().getSecUserPasswordService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecUserPassword", "rec", rec, "CFSecJpaSecUserPassword");
@@ -223,7 +223,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 		else if (rec instanceof CFSecJpaSecUserPassword) {
 			CFSecJpaSecUserPassword jparec = (CFSecJpaSecUserPassword)rec;
 			CFSecJpaSecUserPassword retval = schema.getJpaHooksSchema().getSecUserPasswordService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecUserPassword", "rec", rec, "CFSecJpaSecUserPassword");
@@ -344,7 +344,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 		}
 
 		ICFSecSecUserPassword retval = schema.getJpaHooksSchema().getSecUserPasswordService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -368,7 +368,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 		}
 
 		ICFSecSecUserPassword retval = schema.getJpaHooksSchema().getSecUserPasswordService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -418,7 +418,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecuserpassword", ICFSecSchema.SCHEMA_NAME, ICFSecSecUserPasswordTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecUserPassword retval = schema.getJpaHooksSchema().getSecUserPasswordService().find(argSecUserId);
-		return( retval );
+		return(retval);
 	}
 
 	/**

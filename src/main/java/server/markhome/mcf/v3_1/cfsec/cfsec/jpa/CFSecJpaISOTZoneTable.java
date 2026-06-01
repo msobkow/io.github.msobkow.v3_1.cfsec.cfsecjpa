@@ -190,8 +190,12 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		}
 		else if (rec instanceof CFSecJpaISOTZone) {
 			CFSecJpaISOTZone jparec = (CFSecJpaISOTZone)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createISOTZone", "rec", rec, "CFSecJpaISOTZone");
@@ -221,8 +225,10 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		}
 		else if (rec instanceof CFSecJpaISOTZone) {
 			CFSecJpaISOTZone jparec = (CFSecJpaISOTZone)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateISOTZone", "rec", rec, "CFSecJpaISOTZone");
@@ -430,7 +436,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		}
 
 		ICFSecISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -454,7 +460,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 		}
 
 		ICFSecISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -504,7 +510,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisotzone", ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().find(argISOTZoneId);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -564,7 +570,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readisotzone", ICFSecSchema.SCHEMA_NAME, ICFSecISOTZoneTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecISOTZone retval = schema.getJpaHooksSchema().getISOTZoneService().findByUTZNameIdx(argTZName);
-		return( retval );
+		return(retval);
 	}
 
 	/**

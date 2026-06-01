@@ -91,6 +91,9 @@ public class CFSecJpaISOCtryService {
 			if(data.getPKey() != null && cfsec31ISOCtryRepository.existsById((Short)data.getPKey())) {
 				return( (CFSecJpaISOCtry)(cfsec31ISOCtryRepository.findById((Short)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			LocalDateTime now = LocalDateTime.now();
 			data.setCreatedAt(now);
 			data.setUpdatedAt(now);

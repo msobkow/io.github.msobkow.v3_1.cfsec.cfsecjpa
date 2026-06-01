@@ -91,6 +91,9 @@ public class CFSecJpaClusterService {
 			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31ClusterRepository.existsById((CFLibDbKeyHash256)data.getPKey())) {
 				return( (CFSecJpaCluster)(cfsec31ClusterRepository.findById((CFLibDbKeyHash256)(data.getPKey())).get()));
 			}
+			if (data.getRequiredRevision() <= 0) {
+				data.setRequiredRevision(1);
+			}
 			if (data.getRequiredId() == null || data.getRequiredId().isNull()) {
 				data.setRequiredId(new CFLibDbKeyHash256(0));
 				generatedRequiredId = true;

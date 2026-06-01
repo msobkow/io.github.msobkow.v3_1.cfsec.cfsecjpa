@@ -191,8 +191,12 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 		}
 		else if (rec instanceof CFSecJpaSecSysRoleEnables) {
 			CFSecJpaSecSysRoleEnables jparec = (CFSecJpaSecSysRoleEnables)rec;
+			jparec.setCreatedAt(LocalDateTime.now());
+			jparec.setUpdatedAt(jparec.getCreatedAt());
+			jparec.setCreatedByUserId(Authorization.getSecUserId());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysRoleEnables retval = schema.getJpaHooksSchema().getSecSysRoleEnablesService().create(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "createSecSysRoleEnables", "rec", rec, "CFSecJpaSecSysRoleEnables");
@@ -222,8 +226,10 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 		}
 		else if (rec instanceof CFSecJpaSecSysRoleEnables) {
 			CFSecJpaSecSysRoleEnables jparec = (CFSecJpaSecSysRoleEnables)rec;
+			jparec.setUpdatedAt(LocalDateTime.now());
+			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecSysRoleEnables retval = schema.getJpaHooksSchema().getSecSysRoleEnablesService().update(jparec);
-		return( retval );
+		return(retval);
 		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "updateSecSysRoleEnables", "rec", rec, "CFSecJpaSecSysRoleEnables");
@@ -410,7 +416,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 		}
 
 		ICFSecSecSysRoleEnables retval = schema.getJpaHooksSchema().getSecSysRoleEnablesService().find(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -434,7 +440,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 
 		ICFSecSecSysRoleEnables retval = schema.getJpaHooksSchema().getSecSysRoleEnablesService().find(argSecSysRoleId,
 		argEnableName);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -458,7 +464,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 		}
 
 		ICFSecSecSysRoleEnables retval = schema.getJpaHooksSchema().getSecSysRoleEnablesService().lockByIdIdx(PKey);
-		return( retval );
+		return(retval);
 	}
 
 	/**
@@ -512,7 +518,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 		}
 		ICFSecSecSysRoleEnables retval = schema.getJpaHooksSchema().getSecSysRoleEnablesService().find(argSecSysRoleId,
 		argEnableName);
-		return( retval );
+		return(retval);
 	}
 
 	/**
