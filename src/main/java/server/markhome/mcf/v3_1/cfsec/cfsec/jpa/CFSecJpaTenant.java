@@ -62,9 +62,9 @@ public class CFSecJpaTenant
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerTenant")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerTenant")
 	protected Set<CFSecJpaSecTentGrp> optionalComponentsSecGroup;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerTenant")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerTenant")
 	protected Set<CFSecJpaSecTentRole> optionalComponentsSecRole;
 	protected int requiredRevision;
 

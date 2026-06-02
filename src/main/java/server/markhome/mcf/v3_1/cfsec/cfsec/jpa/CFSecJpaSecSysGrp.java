@@ -62,23 +62,23 @@ public class CFSecJpaSecSysGrp
 	})
 	protected CFLibDbKeyHash256 requiredSecSysGrpId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
-	protected Set<CFSecJpaSecSysGrpInc> optionalChildrenIncByGrp;
+	protected Set<CFSecJpaSecSysGrpInc> optionalComponentsIncByGrp;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecSysGrpMemb> optionalChildrenMembByGrp;
 		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn( name="SecSysGrpId", referencedColumnName="SecSysRoleId" )
-	protected CFSecJpaSecSysRole optionalChildrenImplSysRole;
+	protected CFSecJpaSecSysRole optionalComponentsImplSysRole;
 	protected int requiredRevision;
 
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysGrp")
-	protected Set<CFSecJpaSecClusGrp> optionalChildrenImplClusGrp;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysGrp")
-	protected Set<CFSecJpaSecTentGrp> optionalChildrenImplTentGrp;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysRole")
-	protected Set<CFSecJpaSecClusRole> optionalChildrenImplClusRole;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSysRole")
-	protected Set<CFSecJpaSecTentRole> optionalChildrenImplTentRole;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysGrp")
+	protected Set<CFSecJpaSecClusGrp> optionalComponentsImplClusGrp;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysGrp")
+	protected Set<CFSecJpaSecTentGrp> optionalComponentsImplTentGrp;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
+	protected Set<CFSecJpaSecClusRole> optionalComponentsImplClusRole;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
+	protected Set<CFSecJpaSecTentRole> optionalComponentsImplTentRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSubGroup")
 	protected Set<CFSecJpaSecSysGrpInc> optionalChildrenSysGrpByName;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentEnableGroup")
@@ -116,8 +116,8 @@ public class CFSecJpaSecSysGrp
 	}
 
 	@Override
-	public List<ICFSecSecSysGrpInc> getOptionalChildrenIncByGrp() {
-		List<ICFSecSecSysGrpInc> retlist = (optionalChildrenIncByGrp != null) ? new ArrayList<>(optionalChildrenIncByGrp) : new ArrayList<>();
+	public List<ICFSecSecSysGrpInc> getOptionalComponentsIncByGrp() {
+		List<ICFSecSecSysGrpInc> retlist = (optionalComponentsIncByGrp != null) ? new ArrayList<>(optionalComponentsIncByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
@@ -126,27 +126,27 @@ public class CFSecJpaSecSysGrp
 		return( retlist );
 	}
 	@Override
-	public ICFSecSecSysRole getOptionalChildrenImplSysRole() {
-		return(optionalChildrenImplSysRole);
+	public ICFSecSecSysRole getOptionalComponentsImplSysRole() {
+		return(optionalComponentsImplSysRole);
 	}
 	@Override
-	public List<ICFSecSecClusGrp> getOptionalChildrenImplClusGrp() {
-		List<ICFSecSecClusGrp> retlist = (optionalChildrenImplClusGrp != null) ? new ArrayList<>(optionalChildrenImplClusGrp) : new ArrayList<>();
+	public List<ICFSecSecClusGrp> getOptionalComponentsImplClusGrp() {
+		List<ICFSecSecClusGrp> retlist = (optionalComponentsImplClusGrp != null) ? new ArrayList<>(optionalComponentsImplClusGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
-	public List<ICFSecSecTentGrp> getOptionalChildrenImplTentGrp() {
-		List<ICFSecSecTentGrp> retlist = (optionalChildrenImplTentGrp != null) ? new ArrayList<>(optionalChildrenImplTentGrp) : new ArrayList<>();
+	public List<ICFSecSecTentGrp> getOptionalComponentsImplTentGrp() {
+		List<ICFSecSecTentGrp> retlist = (optionalComponentsImplTentGrp != null) ? new ArrayList<>(optionalComponentsImplTentGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
-	public List<ICFSecSecClusRole> getOptionalChildrenImplClusRole() {
-		List<ICFSecSecClusRole> retlist = (optionalChildrenImplClusRole != null) ? new ArrayList<>(optionalChildrenImplClusRole) : new ArrayList<>();
+	public List<ICFSecSecClusRole> getOptionalComponentsImplClusRole() {
+		List<ICFSecSecClusRole> retlist = (optionalComponentsImplClusRole != null) ? new ArrayList<>(optionalComponentsImplClusRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
-	public List<ICFSecSecTentRole> getOptionalChildrenImplTentRole() {
-		List<ICFSecSecTentRole> retlist = (optionalChildrenImplTentRole != null) ? new ArrayList<>(optionalChildrenImplTentRole) : new ArrayList<>();
+	public List<ICFSecSecTentRole> getOptionalComponentsImplTentRole() {
+		List<ICFSecSecTentRole> retlist = (optionalComponentsImplTentRole != null) ? new ArrayList<>(optionalComponentsImplTentRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

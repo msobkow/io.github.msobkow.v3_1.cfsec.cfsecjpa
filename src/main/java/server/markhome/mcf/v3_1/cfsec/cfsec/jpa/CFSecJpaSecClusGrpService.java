@@ -86,13 +86,13 @@ public class CFSecJpaSecClusGrpService {
 				"Cluster",
 				null);
 		}
-		if (data.getRequiredParentSysGrp() == null) {
+		if (data.getRequiredContainerSysGrp() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
-				"Parent",
-				"Parent",
-				"data.requiredParentSysGrp",
-				"data.requiredParentSysGrp",
+				"Container",
+				"Container",
+				"data.requiredContainerSysGrp",
+				"data.requiredContainerSysGrp",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
@@ -165,13 +165,13 @@ public class CFSecJpaSecClusGrpService {
 				"Cluster",
 				null);
 		}
-		if (data.getRequiredParentSysGrp() == null) {
+		if (data.getRequiredContainerSysGrp() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
-				"Parent",
-				"Parent",
-				"data.requiredParentSysGrp",
-				"data.requiredParentSysGrp",
+				"Container",
+				"Container",
+				"data.requiredContainerSysGrp",
+				"data.requiredContainerSysGrp",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
@@ -196,7 +196,7 @@ public class CFSecJpaSecClusGrpService {
 		}
 		// Apply superior data relationships of CFSecSecClusGrp to existing object
 		existing.setRequiredOwnerCluster(data.getRequiredOwnerCluster());
-		existing.setRequiredParentSysGrp(data.getRequiredParentSysGrp());
+		existing.setRequiredContainerSysGrp(data.getRequiredContainerSysGrp());
 		// Apply data columns of CFSecSecClusGrp to existing object
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());

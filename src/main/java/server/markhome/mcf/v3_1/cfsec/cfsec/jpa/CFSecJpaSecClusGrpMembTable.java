@@ -196,13 +196,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 			jparec.setCreatedByUserId(Authorization.getSecUserId());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecClusGrpMemb retval = schema.getJpaHooksSchema().getSecClusGrpMembService().create(jparec);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -236,13 +229,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 			jparec.setUpdatedAt(LocalDateTime.now());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecClusGrpMemb retval = schema.getJpaHooksSchema().getSecClusGrpMembService().update(jparec);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -430,13 +416,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 		}
 
 		ICFSecSecClusGrpMemb retval = schema.getJpaHooksSchema().getSecClusGrpMembService().find(PKey);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -461,13 +440,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 
 		ICFSecSecClusGrpMemb retval = schema.getJpaHooksSchema().getSecClusGrpMembService().find(argSecClusGrpId,
 		argLoginId);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -492,13 +464,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 		}
 
 		ICFSecSecClusGrpMemb retval = schema.getJpaHooksSchema().getSecClusGrpMembService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -518,17 +483,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 		}
 
 		List<CFSecJpaSecClusGrpMemb> retlist = schema.getJpaHooksSchema().getSecClusGrpMembService().findAll();
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecClusGrpMemb> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecClusGrpMemb[] retset = new ICFSecSecClusGrpMemb[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecClusGrpMemb cur: retlist) {
@@ -564,7 +518,7 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 		}
 		ICFSecSecClusGrpMemb retval = schema.getJpaHooksSchema().getSecClusGrpMembService().find(argSecClusGrpId,
 		argLoginId);
-		if(retval != null) {
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
 				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
@@ -596,17 +550,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecClusGrpMemb> retlist = schema.getJpaHooksSchema().getSecClusGrpMembService().findByClusGrpIdx(argSecClusGrpId);
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecClusGrpMemb> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecClusGrpMemb[] retset = new ICFSecSecClusGrpMemb[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecClusGrpMemb cur: retlist) {
@@ -637,17 +580,6 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusgrpmemb", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusGrpMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecClusGrpMemb> retlist = schema.getJpaHooksSchema().getSecClusGrpMembService().findByLoginIdx(argLoginId);
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecClusGrpMemb> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecCluster cluster = retval.getRequiredContainerGroup().getRequiredOwnerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusgrpmemb")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecClusGrpMemb[] retset = new ICFSecSecClusGrpMemb[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecClusGrpMemb cur: retlist) {

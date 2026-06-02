@@ -73,7 +73,7 @@ public class CFSecJpaSecClusGrp
 	protected CFSecJpaCluster requiredOwnerCluster;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="safe_nameSysGrp", referencedColumnName="safe_name" )
-	protected CFSecJpaSecSysGrp requiredParentSysGrp;
+	protected CFSecJpaSecSysGrp requiredContainerSysGrp;
 
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
@@ -150,39 +150,39 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public ICFSecSecSysGrp getRequiredParentSysGrp() {
-		return(requiredParentSysGrp);
+	public ICFSecSecSysGrp getRequiredContainerSysGrp() {
+		return(requiredContainerSysGrp);
 	}
 	@Override
-	public void setRequiredParentSysGrp(ICFSecSecSysGrp argObj) {
+	public void setRequiredContainerSysGrp(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setParentSysGrp", 1, "argObj");
+			throw new CFLibNullArgumentException(getClass(), "setContainerSysGrp", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
-			requiredParentSysGrp = (CFSecJpaSecSysGrp)argObj;
-			if (requiredParentSysGrp != null) {
-				requiredName = requiredParentSysGrp.getRequiredName();
+			requiredContainerSysGrp = (CFSecJpaSecSysGrp)argObj;
+			if (requiredContainerSysGrp != null) {
+				requiredName = requiredContainerSysGrp.getRequiredName();
 			}
 			else {
 			}
 		}
 		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setParentSysGrp", "argObj", argObj, "CFSecJpaSecSysGrp");
+			throw new CFLibUnsupportedClassException(getClass(), "setContainerSysGrp", "argObj", argObj, "CFSecJpaSecSysGrp");
 		}
 	}
 
 	@Override
-	public void setRequiredParentSysGrp(String argName) {
+	public void setRequiredContainerSysGrp(String argName) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysGrp", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysGrp", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecSysGrpTable targetTable = targetBackingSchema.getTableSecSysGrp();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysGrp", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysGrp", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
 		}
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argName);
-		setRequiredParentSysGrp(targetRec);
+		setRequiredContainerSysGrp(targetRec);
 	}
 
 	@Override
@@ -763,7 +763,7 @@ public class CFSecJpaSecClusGrp
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
 		setRequiredOwnerCluster(src.getRequiredOwnerCluster());
-		setRequiredParentSysGrp(src.getRequiredParentSysGrp());
+		setRequiredContainerSysGrp(src.getRequiredContainerSysGrp());
 	}
 
 	@Override
@@ -775,7 +775,7 @@ public class CFSecJpaSecClusGrp
 	public void setSecClusGrp( ICFSecSecClusGrpH src ) {
 		setRequiredSecClusGrpId(src.getRequiredSecClusGrpId());
 		setRequiredOwnerCluster(src.getRequiredClusterId());
-		setRequiredParentSysGrp(src.getRequiredName());
+		setRequiredContainerSysGrp(src.getRequiredName());
 	}
 
 	@Override

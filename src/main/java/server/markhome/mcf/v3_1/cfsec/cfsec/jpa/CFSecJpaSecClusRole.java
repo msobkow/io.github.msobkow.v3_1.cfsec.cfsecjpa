@@ -70,10 +70,10 @@ public class CFSecJpaSecClusRole
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="ClusterIdCluster", referencedColumnName="Id" )
-	protected CFSecJpaCluster requiredContainerCluster;
+	protected CFSecJpaCluster requiredOwnerCluster;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="safe_nameSysRole", referencedColumnName="safe_name" )
-	protected CFSecJpaSecSysGrp requiredParentSysRole;
+	protected CFSecJpaSecSysGrp requiredContainerSysRole;
 
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
@@ -114,75 +114,75 @@ public class CFSecJpaSecClusRole
 		return( retlist );
 	}
 	@Override
-	public ICFSecCluster getRequiredContainerCluster() {
-		return(requiredContainerCluster);
+	public ICFSecCluster getRequiredOwnerCluster() {
+		return(requiredOwnerCluster);
 	}
 	@Override
-	public void setRequiredContainerCluster(ICFSecCluster argObj) {
+	public void setRequiredOwnerCluster(ICFSecCluster argObj) {
 		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setContainerCluster", 1, "argObj");
+			throw new CFLibNullArgumentException(getClass(), "setOwnerCluster", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaCluster) {
-			requiredContainerCluster = (CFSecJpaCluster)argObj;
-			if (requiredContainerCluster != null) {
-				requiredClusterId = requiredContainerCluster.getRequiredId();
+			requiredOwnerCluster = (CFSecJpaCluster)argObj;
+			if (requiredOwnerCluster != null) {
+				requiredClusterId = requiredOwnerCluster.getRequiredId();
 			}
 			else {
 			}
 		}
 		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setContainerCluster", "argObj", argObj, "CFSecJpaCluster");
+			throw new CFLibUnsupportedClassException(getClass(), "setOwnerCluster", "argObj", argObj, "CFSecJpaCluster");
 		}
 	}
 
 	@Override
-	public void setRequiredContainerCluster(CFLibDbKeyHash256 argClusterId) {
+	public void setRequiredOwnerCluster(CFLibDbKeyHash256 argClusterId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCluster", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerCluster", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecClusterTable targetTable = targetBackingSchema.getTableCluster();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCluster", 0, "ICFSecSchema.getBackingCFSec().getTableCluster()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerCluster", 0, "ICFSecSchema.getBackingCFSec().getTableCluster()");
 		}
 		ICFSecCluster targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argClusterId);
-		setRequiredContainerCluster(targetRec);
+		setRequiredOwnerCluster(targetRec);
 	}
 
 	@Override
-	public ICFSecSecSysGrp getRequiredParentSysRole() {
-		return(requiredParentSysRole);
+	public ICFSecSecSysGrp getRequiredContainerSysRole() {
+		return(requiredContainerSysRole);
 	}
 	@Override
-	public void setRequiredParentSysRole(ICFSecSecSysGrp argObj) {
+	public void setRequiredContainerSysRole(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
-			throw new CFLibNullArgumentException(getClass(), "setParentSysRole", 1, "argObj");
+			throw new CFLibNullArgumentException(getClass(), "setContainerSysRole", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
-			requiredParentSysRole = (CFSecJpaSecSysGrp)argObj;
-			if (requiredParentSysRole != null) {
-				requiredName = requiredParentSysRole.getRequiredName();
+			requiredContainerSysRole = (CFSecJpaSecSysGrp)argObj;
+			if (requiredContainerSysRole != null) {
+				requiredName = requiredContainerSysRole.getRequiredName();
 			}
 			else {
 			}
 		}
 		else {
-			throw new CFLibUnsupportedClassException(getClass(), "setParentSysRole", "argObj", argObj, "CFSecJpaSecSysGrp");
+			throw new CFLibUnsupportedClassException(getClass(), "setContainerSysRole", "argObj", argObj, "CFSecJpaSecSysGrp");
 		}
 	}
 
 	@Override
-	public void setRequiredParentSysRole(String argName) {
+	public void setRequiredContainerSysRole(String argName) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysRole", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecSysGrpTable targetTable = targetBackingSchema.getTableSecSysGrp();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
+			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
 		}
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argName);
-		setRequiredParentSysRole(targetRec);
+		setRequiredContainerSysRole(targetRec);
 	}
 
 	@Override
@@ -762,8 +762,8 @@ public class CFSecJpaSecClusRole
 		setCreatedAt( src.getCreatedAt() );
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
-		setRequiredContainerCluster(src.getRequiredContainerCluster());
-		setRequiredParentSysRole(src.getRequiredParentSysRole());
+		setRequiredOwnerCluster(src.getRequiredOwnerCluster());
+		setRequiredContainerSysRole(src.getRequiredContainerSysRole());
 	}
 
 	@Override
@@ -774,8 +774,8 @@ public class CFSecJpaSecClusRole
 	@Override
 	public void setSecClusRole( ICFSecSecClusRoleH src ) {
 		setRequiredSecClusRoleId(src.getRequiredSecClusRoleId());
-		setRequiredContainerCluster(src.getRequiredClusterId());
-		setRequiredParentSysRole(src.getRequiredName());
+		setRequiredOwnerCluster(src.getRequiredClusterId());
+		setRequiredContainerSysRole(src.getRequiredName());
 	}
 
 	@Override

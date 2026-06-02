@@ -75,7 +75,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 *
 	 *		@return List&lt;CFSecJpaSecTentRole&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerTenant.requiredId = :tenantId")
+	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId")
 	List<CFSecJpaSecTentRole> findByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -96,7 +96,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 *
 	 *		@return List&lt;CFSecJpaSecTentRole&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecTentRole r where r.requiredParentSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerSysRole.requiredName = :name")
 	List<CFSecJpaSecTentRole> findByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -118,7 +118,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 *
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerTenant.requiredId = :tenantId and r.requiredParentSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysRole.requiredName = :name")
 	CFSecJpaSecTentRole findByUNameIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId,
 		@Param("name") String requiredName);
 
@@ -156,7 +156,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerTenant.requiredId = :tenantId")
+	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId")
 	List<CFSecJpaSecTentRole> lockByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -179,7 +179,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecTentRole r where r.requiredParentSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerSysRole.requiredName = :name")
 	List<CFSecJpaSecTentRole> lockByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -203,7 +203,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerTenant.requiredId = :tenantId and r.requiredParentSysRole.requiredName = :name")
+	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysRole.requiredName = :name")
 	CFSecJpaSecTentRole lockByUNameIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId,
 		@Param("name") String requiredName);
 
@@ -237,7 +237,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecTentRole r where r.requiredContainerTenant.requiredId = :tenantId")
+	@Query("delete from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId")
 	void deleteByTenantIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId);
 
 	/**
@@ -256,7 +256,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecTentRole r where r.requiredParentSysRole.requiredName = :name")
+	@Query("delete from CFSecJpaSecTentRole r where r.requiredContainerSysRole.requiredName = :name")
 	void deleteByNameIdx(@Param("name") String requiredName);
 
 	/**
@@ -276,7 +276,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecTentRole r where r.requiredContainerTenant.requiredId = :tenantId and r.requiredParentSysRole.requiredName = :name")
+	@Query("delete from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysRole.requiredName = :name")
 	void deleteByUNameIdx(@Param("tenantId") CFLibDbKeyHash256 requiredTenantId,
 		@Param("name") String requiredName);
 

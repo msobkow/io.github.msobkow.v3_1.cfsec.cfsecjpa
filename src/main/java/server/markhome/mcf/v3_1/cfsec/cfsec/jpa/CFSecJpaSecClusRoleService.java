@@ -75,24 +75,24 @@ public class CFSecJpaSecClusRoleService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecClusRoleId = data.getRequiredSecClusRoleId();
 		boolean generatedRequiredSecClusRoleId = false;
-		if (data.getRequiredContainerCluster() == null) {
+		if (data.getRequiredOwnerCluster() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
-				"Container",
-				"Container",
-				"data.requiredContainerCluster",
-				"data.requiredContainerCluster",
+				"Owner",
+				"Owner",
+				"data.requiredOwnerCluster",
+				"data.requiredOwnerCluster",
 				"Cluster",
 				"Cluster",
 				null);
 		}
-		if (data.getRequiredParentSysRole() == null) {
+		if (data.getRequiredContainerSysRole() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
-				"Parent",
-				"Parent",
-				"data.requiredParentSysRole",
-				"data.requiredParentSysRole",
+				"Container",
+				"Container",
+				"data.requiredContainerSysRole",
+				"data.requiredContainerSysRole",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
@@ -154,24 +154,24 @@ public class CFSecJpaSecClusRoleService {
 				0,
 				"data.getPKey()");
 		}
-		if (data.getRequiredContainerCluster() == null) {
+		if (data.getRequiredOwnerCluster() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
-				"Container",
-				"Container",
-				"data.requiredContainerCluster",
-				"data.requiredContainerCluster",
+				"Owner",
+				"Owner",
+				"data.requiredOwnerCluster",
+				"data.requiredOwnerCluster",
 				"Cluster",
 				"Cluster",
 				null);
 		}
-		if (data.getRequiredParentSysRole() == null) {
+		if (data.getRequiredContainerSysRole() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
-				"Parent",
-				"Parent",
-				"data.requiredParentSysRole",
-				"data.requiredParentSysRole",
+				"Container",
+				"Container",
+				"data.requiredContainerSysRole",
+				"data.requiredContainerSysRole",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
@@ -195,8 +195,8 @@ public class CFSecJpaSecClusRoleService {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
 		}
 		// Apply superior data relationships of CFSecSecClusRole to existing object
-		existing.setRequiredContainerCluster(data.getRequiredContainerCluster());
-		existing.setRequiredParentSysRole(data.getRequiredParentSysRole());
+		existing.setRequiredOwnerCluster(data.getRequiredOwnerCluster());
+		existing.setRequiredContainerSysRole(data.getRequiredContainerSysRole());
 		// Apply data columns of CFSecSecClusRole to existing object
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());

@@ -196,13 +196,6 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 			jparec.setCreatedByUserId(Authorization.getSecUserId());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecClusRole retval = schema.getJpaHooksSchema().getSecClusRoleService().create(jparec);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -236,13 +229,6 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 			jparec.setUpdatedAt(LocalDateTime.now());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecClusRole retval = schema.getJpaHooksSchema().getSecClusRoleService().update(jparec);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -451,13 +437,6 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 		}
 
 		ICFSecSecClusRole retval = schema.getJpaHooksSchema().getSecClusRoleService().find(PKey);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -482,13 +461,6 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 		}
 
 		ICFSecSecClusRole retval = schema.getJpaHooksSchema().getSecClusRoleService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -508,17 +480,6 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 		}
 
 		List<CFSecJpaSecClusRole> retlist = schema.getJpaHooksSchema().getSecClusRoleService().findAll();
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecClusRole> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecClusRole[] retset = new ICFSecSecClusRole[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecClusRole cur: retlist) {
@@ -550,8 +511,8 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		ICFSecSecClusRole retval = schema.getJpaHooksSchema().getSecClusRoleService().find(argSecClusRoleId);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
+				ICFSecCluster cluster = retval.getRequiredOwnerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
 				retval = null;
@@ -582,17 +543,6 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecClusRole> retlist = schema.getJpaHooksSchema().getSecClusRoleService().findByClusterIdx(argClusterId);
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecClusRole> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecClusRole[] retset = new ICFSecSecClusRole[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecClusRole cur: retlist) {
@@ -623,17 +573,6 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsecclusrole", ICFSecSchema.SCHEMA_NAME, ICFSecSecClusRoleTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecClusRole> retlist = schema.getJpaHooksSchema().getSecClusRoleService().findByNameIdx(argName);
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecClusRole> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecClusRole[] retset = new ICFSecSecClusRole[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecClusRole cur: retlist) {
@@ -669,8 +608,8 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 		}
 		ICFSecSecClusRole retval = schema.getJpaHooksSchema().getSecClusRoleService().findByUNameIdx(argClusterId,
 		argName);
-		if(retval != null) {
-				ICFSecCluster cluster = retval.getRequiredContainerCluster();
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
+				ICFSecCluster cluster = retval.getRequiredOwnerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			if (!ICFSecSchema.getSecurityService().isMemberOfClusterGroup(Authorization.getSecUserId(), effClusterId, "readsecclusrole")) {
 				retval = null;

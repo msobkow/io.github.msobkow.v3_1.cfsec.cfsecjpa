@@ -196,15 +196,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 			jparec.setCreatedByUserId(Authorization.getSecUserId());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecTentRoleMemb retval = schema.getJpaHooksSchema().getSecTentRoleMembService().create(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -238,15 +229,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 			jparec.setUpdatedAt(LocalDateTime.now());
 			jparec.setUpdatedByUserId(Authorization.getSecUserId());
 			CFSecJpaSecTentRoleMemb retval = schema.getJpaHooksSchema().getSecTentRoleMembService().update(jparec);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 		}
 		else {
@@ -434,15 +416,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 		}
 
 		ICFSecSecTentRoleMemb retval = schema.getJpaHooksSchema().getSecTentRoleMembService().find(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -467,15 +440,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 
 		ICFSecSecTentRoleMemb retval = schema.getJpaHooksSchema().getSecTentRoleMembService().find(argSecTentRoleId,
 		argLoginId);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -500,15 +464,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 		}
 
 		ICFSecSecTentRoleMemb retval = schema.getJpaHooksSchema().getSecTentRoleMembService().lockByIdIdx(PKey);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-			if (!ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-				retval = null;
-			}
-		}
 		return(retval);
 	}
 
@@ -528,19 +483,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 		}
 
 		List<CFSecJpaSecTentRoleMemb> retlist = schema.getJpaHooksSchema().getSecTentRoleMembService().findAll();
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecTentRoleMemb> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecTentRoleMemb[] retset = new ICFSecSecTentRoleMemb[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecTentRoleMemb cur: retlist) {
@@ -576,8 +518,8 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 		}
 		ICFSecSecTentRoleMemb retval = schema.getJpaHooksSchema().getSecTentRoleMembService().find(argSecTentRoleId,
 		argLoginId);
-		if(retval != null) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
+		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
+				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
@@ -610,19 +552,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecTentRoleMemb> retlist = schema.getJpaHooksSchema().getSecTentRoleMembService().findByTentRoleIdx(argSecTentRoleId);
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecTentRoleMemb> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecTentRoleMemb[] retset = new ICFSecSecTentRoleMemb[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecTentRoleMemb cur: retlist) {
@@ -653,19 +582,6 @@ public class CFSecJpaSecTentRoleMembTable implements ICFSecSecTentRoleMembTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readsectentrolememb", ICFSecSchema.SCHEMA_NAME, ICFSecSecTentRoleMembTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		List<CFSecJpaSecTentRoleMemb> retlist = schema.getJpaHooksSchema().getSecTentRoleMembService().findByUserIdx(argLoginId);
-		if(retlist != null) {
-			ArrayList<CFSecJpaSecTentRoleMemb> finallist = new ArrayList<>();
-			for (var retval: retlist) {
-				ICFSecTenant tenant = retval.getRequiredContainerRole().getRequiredContainerTenant();
-				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
-				CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
-				CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
-				if (ICFSecSchema.getSecurityService().isMemberOfTenantGroup(Authorization.getSecUserId(), effClusterId, effTenantId, "readsectentrolememb")) {
-					finallist.add(retval);
-				}
-			}
-			retlist = finallist;
-		}
 		ICFSecSecTentRoleMemb[] retset = new ICFSecSecTentRoleMemb[retlist.size()];
 		int idx = 0;
 		for (CFSecJpaSecTentRoleMemb cur: retlist) {
