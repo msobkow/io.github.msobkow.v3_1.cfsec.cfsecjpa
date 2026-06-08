@@ -83,6 +83,7 @@ public class CFSecJpaSchema
 	protected ICFSecSecUserPWResetTable tableSecUserPWReset;
 	protected ICFSecSecUserPasswordTable tableSecUserPassword;
 	protected ICFSecSysClusterTable tableSysCluster;
+	protected ICFSecTableInfoTable tableTableInfo;
 	protected ICFSecTenantTable tableTenant;
 
 	protected ICFSecClusterFactory factoryCluster;
@@ -113,6 +114,7 @@ public class CFSecJpaSchema
 	protected ICFSecSecUserPWResetFactory factorySecUserPWReset;
 	protected ICFSecSecUserPasswordFactory factorySecUserPassword;
 	protected ICFSecSysClusterFactory factorySysCluster;
+	protected ICFSecTableInfoFactory factoryTableInfo;
 	protected ICFSecTenantFactory factoryTenant;
 
 
@@ -150,6 +152,20 @@ public class CFSecJpaSchema
 		}
 		else {
 			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecTenant.CLASS_CODE)[" + ICFSecTenant.CLASS_CODE + "]");
+		}
+	
+		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecTableInfo.CLASS_CODE);
+		if (entry != null) {
+			entry.setBackingRecConstructor( new BackingRecConstructor() {
+				@Override
+				public Object instantiate() {
+					ICFSecTableInfo ret = new CFSecJpaTableInfo();
+					return(ret);
+				}
+			});
+		}
+		else {
+			throw new CFLibNullArgumentException(CFSecJpaSchema.class, "wireRecConstructors", 0, "ICFSecSchema.getClassMapByBackingClassCode(ICFSecTableInfo.CLASS_CODE)[" + ICFSecTableInfo.CLASS_CODE + "]");
 		}
 	
 		entry = ICFSecSchema.getClassMapByBackingClassCode(ICFSecISOCcy.CLASS_CODE);
@@ -540,6 +556,9 @@ public class CFSecJpaSchema
 		if (tableTenant == null || !(tableTenant instanceof CFSecJpaTenantTable)) {
 			tableTenant = new CFSecJpaTenantTable(this);
 		}
+		if (tableTableInfo == null || !(tableTableInfo instanceof CFSecJpaTableInfoTable)) {
+			tableTableInfo = new CFSecJpaTableInfoTable(this);
+		}
 		if (tableISOCcy == null || !(tableISOCcy instanceof CFSecJpaISOCcyTable)) {
 			tableISOCcy = new CFSecJpaISOCcyTable(this);
 		}
@@ -676,6 +695,7 @@ public class CFSecJpaSchema
 		tableSecUserPWReset = null;
 		tableSecUserPassword = null;
 		tableSysCluster = null;
+		tableTableInfo = null;
 		tableTenant = null;
 
 		factoryCluster = new CFSecJpaClusterDefaultFactory();
@@ -706,6 +726,7 @@ public class CFSecJpaSchema
 		factorySecUserPWReset = new CFSecJpaSecUserPWResetDefaultFactory();
 		factorySecUserPassword = new CFSecJpaSecUserPasswordDefaultFactory();
 		factorySysCluster = new CFSecJpaSysClusterDefaultFactory();
+		factoryTableInfo = new CFSecJpaTableInfoDefaultFactory();
 		factoryTenant = new CFSecJpaTenantDefaultFactory();	}
 
 	@Override
@@ -731,6 +752,11 @@ public class CFSecJpaSchema
 	@Override
 	public short nextISOTZoneIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "nextISOTZoneIdGen" );
+	}
+
+	@Override
+	public int nextTableInfoIdGen() {
+		throw new CFLibNotImplementedYetException( getClass(), "nextTableInfoIdGen" );
 	}
 
 	@Override
@@ -1233,6 +1259,22 @@ public class CFSecJpaSchema
 
 	public void setFactorySysCluster( ICFSecSysClusterFactory value ) {
 		factorySysCluster = value;
+	}
+
+	public ICFSecTableInfoTable getTableTableInfo() {
+		return( tableTableInfo );
+	}
+
+	public void setTableTableInfo( ICFSecTableInfoTable value ) {
+		tableTableInfo = value;
+	}
+
+	public ICFSecTableInfoFactory getFactoryTableInfo() {
+		return( factoryTableInfo );
+	}
+
+	public void setFactoryTableInfo( ICFSecTableInfoFactory value ) {
+		factoryTableInfo = value;
 	}
 
 	public ICFSecTenantTable getTableTenant() {

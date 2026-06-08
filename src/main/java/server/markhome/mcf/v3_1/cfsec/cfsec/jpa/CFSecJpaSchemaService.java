@@ -64,6 +64,9 @@ public class CFSecJpaSchemaService {
 	private CFSecJpaTenantService tenantService;
 
 	@Autowired
+	private CFSecJpaTableInfoService tableinfoService;
+
+	@Autowired
 	private CFSecJpaISOCcyService isoccyService;
 
 	@Autowired

@@ -77,6 +77,17 @@ public class CFSecJpaIdGenService {
 	}
 
 	/**
+	*	Generate a TableInfoIdGen integer id.
+	*
+	*		@return The next integer value for the TableInfoIdGen type.
+	*/
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
+	@SequenceGenerator(name = "cfsec_tblinfoidgenseq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
+	public int generateTableInfoIdGen() {
+		throw new CFLibNotImplementedYetException( getClass(), "generateTableInfoIdGen" );
+	}
+
+	/**
 	*	Generate a ISOCtryIdGen short id.
 	*
 	*		@return The next short value for the ISOCtryIdGen type.

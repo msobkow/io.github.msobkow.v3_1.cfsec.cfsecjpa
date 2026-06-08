@@ -8,6 +8,8 @@
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaClusterH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTenant</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTenantH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTableInfo</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTableInfoH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCcy</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCcyH</class>
         <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCtry</class>

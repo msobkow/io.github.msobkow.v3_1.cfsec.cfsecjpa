@@ -64,6 +64,9 @@ public class CFSecJpaHooksSchema {
 	private CFSecJpaTenantRepository tenantRepository;
 
 	@Autowired
+	private CFSecJpaTableInfoRepository tableInfoRepository;
+
+	@Autowired
 	private CFSecJpaISOCcyRepository iSOCcyRepository;
 
 	@Autowired
@@ -159,6 +162,10 @@ public class CFSecJpaHooksSchema {
 	@Autowired
 	@Qualifier("cfsec31JpaTenantService")
 	private CFSecJpaTenantService tenantService;
+
+	@Autowired
+	@Qualifier("cfsec31JpaTableInfoService")
+	private CFSecJpaTableInfoService tableInfoService;
 
 	@Autowired
 	@Qualifier("cfsec31JpaISOCcyService")
@@ -316,6 +323,16 @@ public class CFSecJpaHooksSchema {
 				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
 		}
 		return( tenantRepository );
+	}
+
+	public CFSecJpaTableInfoRepository getTableInfoRepository() {
+		if ( tableInfoRepository == null ) {
+			// Dynamically resolve the repository by interface type
+			throw new CFLibNotImplementedYetException( getClass(), "getTableInfoRepository",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( tableInfoRepository );
 	}
 
 	public CFSecJpaISOCcyRepository getISOCcyRepository() {
@@ -606,6 +623,16 @@ public class CFSecJpaHooksSchema {
 				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
 		}
 		return( tenantService );
+	}
+
+	public CFSecJpaTableInfoService getTableInfoService() {
+		if ( tableInfoService == null ) {
+			// Dynamically resolve the repository by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getTableInfoService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( tableInfoService );
 	}
 
 	public CFSecJpaISOCcyService getISOCcyService() {
