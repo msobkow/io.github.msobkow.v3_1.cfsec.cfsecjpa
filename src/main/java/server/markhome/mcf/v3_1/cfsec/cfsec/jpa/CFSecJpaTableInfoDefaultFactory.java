@@ -96,6 +96,27 @@ public class CFSecJpaTableInfoDefaultFactory
 	}
 
     @Override
+    public ICFSecTableInfoBySuperNameIdxKey newBySuperNameIdxKey() {
+	ICFSecTableInfoBySuperNameIdxKey key =
+            new CFSecJpaTableInfoBySuperNameIdxKey();
+	return( key );
+    }
+
+	public CFSecJpaTableInfoBySuperNameIdxKey ensureBySuperNameIdxKey(ICFSecTableInfoBySuperNameIdxKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if (key instanceof CFSecJpaTableInfoBySuperNameIdxKey) {
+			return( (CFSecJpaTableInfoBySuperNameIdxKey)key );
+		}
+		else {
+			CFSecJpaTableInfoBySuperNameIdxKey mapped = new CFSecJpaTableInfoBySuperNameIdxKey();
+			mapped.setOptionalSuperName( key.getOptionalSuperName() );
+			return( mapped );
+		}
+	}
+
+    @Override
     public ICFSecTableInfoBySchemaNameIdxKey newBySchemaNameIdxKey() {
 	ICFSecTableInfoBySchemaNameIdxKey key =
             new CFSecJpaTableInfoBySchemaNameIdxKey();

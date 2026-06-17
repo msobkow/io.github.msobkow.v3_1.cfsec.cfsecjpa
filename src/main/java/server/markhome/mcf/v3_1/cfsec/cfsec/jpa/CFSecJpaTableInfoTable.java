@@ -322,6 +322,47 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	}
 
 	/**
+	 *	Delete the TableInfo instances identified by the key SuperNameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	SuperName	The TableInfo key attribute of the instance generating the id.
+	 */
+	@Override
+	public void deleteTableInfoBySuperNameIdx( ICFSecAuthorization Authorization,
+		String argSuperName )
+	{
+		final String S_ProcName = "deleteTableInfoBySuperNameIdx";
+		boolean permissionGranted = canDeleteTableInfo(S_ProcName, Authorization);
+		if (!permissionGranted) {
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletetableinfo", ICFSecSchema.SCHEMA_NAME, ICFSecTableInfoTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+		}
+
+		schema.getJpaHooksSchema().getTableInfoService().deleteBySuperNameIdx(argSuperName);
+	}
+
+
+	/**
+	 *	Delete the TableInfo instances identified by the key SuperNameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	argKey	The key identifying the instances to be deleted.
+	 */
+	@Override
+	public void deleteTableInfoBySuperNameIdx( ICFSecAuthorization Authorization,
+		ICFSecTableInfoBySuperNameIdxKey argKey )
+	{
+		final String S_ProcName = "deleteTableInfoBySuperNameIdx";
+		boolean permissionGranted = canDeleteTableInfo(S_ProcName, Authorization);
+		if (!permissionGranted) {
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "deletetableinfo", ICFSecSchema.SCHEMA_NAME, ICFSecTableInfoTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+		}
+
+		schema.getJpaHooksSchema().getTableInfoService().deleteBySuperNameIdx(argKey.getOptionalSuperName());
+	}
+
+	/**
 	 *	Delete the TableInfo instances identified by the key SchemaNameIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -575,6 +616,36 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	}
 
 	/**
+	 *	Read an array of the derived TableInfo record instances identified by the duplicate key SuperNameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	SuperName	The TableInfo key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived instances for the specified key, potentially with 0 elements in the set.
+	 */
+	@Override
+	public ICFSecTableInfo[] readDerivedBySuperNameIdx( ICFSecAuthorization Authorization,
+		String argSuperName )
+	{
+		final String S_ProcName = "readDerivedBySuperNameIdx";
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTableInfo(S_ProcName, Authorization);
+		}
+		if (!permissionGranted) {
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readtableinfo", ICFSecSchema.SCHEMA_NAME, ICFSecTableInfoTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+		}
+		List<CFSecJpaTableInfo> retlist = schema.getJpaHooksSchema().getTableInfoService().findBySuperNameIdx(argSuperName);
+		ICFSecTableInfo[] retset = new ICFSecTableInfo[retlist.size()];
+		int idx = 0;
+		for (CFSecJpaTableInfo cur: retlist) {
+			retset[idx++] = cur;
+		}
+		return( retset );
+	}
+
+	/**
 	 *	Read an array of the derived TableInfo record instances identified by the duplicate key SchemaNameIdx.
 	 *
 	 *	@param	Authorization	The session authorization information.
@@ -781,6 +852,32 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readtableinfo", ICFSecSchema.SCHEMA_NAME, ICFSecTableInfoTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
 		}
 		throw new CFLibNotImplementedYetException(getClass(), "readRecByTableNameIdx");
+	}
+
+	/**
+	 *	Read an array of the specific TableInfo record instances identified by the duplicate key SuperNameIdx.
+	 *
+	 *	@param	Authorization	The session authorization information.
+	 *
+	 *	@param	SuperName	The TableInfo key attribute of the instance generating the id.
+	 *
+	 *	@return An array of derived record instances for the specified key, potentially with 0 elements in the set.
+	 *
+	 *	@throws	CFLibNotSupportedException thrown by client-side implementations.
+	 */
+	@Override
+	public ICFSecTableInfo[] readRecBySuperNameIdx( ICFSecAuthorization Authorization,
+		String argSuperName )
+	{
+		final String S_ProcName = "readRecBySuperNameIdx";
+		boolean permissionGranted = false;
+		if (!permissionGranted) {
+			permissionGranted = canReadTableInfo(S_ProcName, Authorization);
+		}
+		if (!permissionGranted) {
+			throw new CFLibPermissionDeniedException(getClass(), S_ProcName, "readtableinfo", ICFSecSchema.SCHEMA_NAME, ICFSecTableInfoTable.TABLE_NAME, Authorization.getAuthUuid6().toString());//"Permission '%4$s' denied attempting to access %1$s.%2$s for user id %3$s"
+		}
+		throw new CFLibNotImplementedYetException(getClass(), "readRecBySuperNameIdx");
 	}
 
 	/**

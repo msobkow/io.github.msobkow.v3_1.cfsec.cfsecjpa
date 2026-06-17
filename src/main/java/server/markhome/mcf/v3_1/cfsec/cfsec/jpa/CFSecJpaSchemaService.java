@@ -148,9 +148,9 @@ public class CFSecJpaSchemaService {
 	private CFSecJpaSysClusterService sysclusterService;
 
 
-	public void bootstrapSchema(CFSecTableInfo tableInfo[]) {
+	public void bootstrapSchema(CFSecTableData tableData[]) {
 		bootstrapSecurity();
-		bootstrapAllTablesSecurity(tableInfo);
+		bootstrapAllTablesSecurity(tableData);
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
@@ -1195,12 +1195,12 @@ public class CFSecJpaSchemaService {
 	}		
 
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void bootstrapAllTablesSecurity(CFSecTableInfo tableInfo[]) {
-		bootstrapAllTablesSecurity(ICFSecSchema.getSysClusterId(), ICFSecSchema.getSysTenantId(), tableInfo);
+	public void bootstrapAllTablesSecurity(CFSecTableData tableData[]) {
+		bootstrapAllTablesSecurity(ICFSecSchema.getSysClusterId(), ICFSecSchema.getSysTenantId(), tableData);
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableInfo tableInfo[]) {
+	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableData tableData[]) {
 		LocalDateTime now = LocalDateTime.now();
 		ICFSecSecSession bootstrapSession;
 		CFLibDbKeyHash256 bootstrapSessionID = new CFLibDbKeyHash256(0);
@@ -1251,7 +1251,7 @@ public class CFSecJpaSchemaService {
 			throw new CFLibNullArgumentException(getClass(), "bootstrapAllTablesSecurity", 0, "secTenant<" + tenantId.toString() + ">");
 		}
 	
-		bootstrapAllTablesSecurity(auth, systemUID, bootstrapSession, secSystemAdminGroup, secSysGroupPublic, secCluster, secTenant, tableInfo);
+		bootstrapAllTablesSecurity(auth, systemUID, bootstrapSession, secSystemAdminGroup, secSysGroupPublic, secCluster, secTenant, tableData);
 
 		if (bootstrapSession != null && bootstrapSessionID != null && !bootstrapSessionID.isNull() && bootstrapSession.getOptionalFinish() == null) {
 			bootstrapSession.setOptionalFinish(LocalDateTime.now());
@@ -1273,7 +1273,7 @@ public class CFSecJpaSchemaService {
 		ICFSecSecSysGrp secSysGroupPublic,
 		ICFSecCluster secCluster,
 		ICFSecTenant secTenant,
-		CFSecTableInfo tableInfo[])
+		CFSecTableData tableData[])
 	{
 		LocalDateTime now = LocalDateTime.now();
 
@@ -1367,8 +1367,8 @@ public class CFSecJpaSchemaService {
 			secTentGroupMembSystemAdmin = (CFSecJpaSecTentGrpMemb)(sectentgrpmembService.create((CFSecJpaSecTentGrpMemb)secTentGroupMembSystemAdmin));
 		}
 
-		for( CFSecTableInfo info: tableInfo) {
-			bootstrapTableSecurity(auth, LocalDateTime.now(), info.getTableName(), info.hasHistory(), info.isMutable(), info.getScope(), secSysGroupPublic, secSystemAdminGroup, secClusGroupSysAdmin, secTentGroupSysAdmin);
+		for( CFSecTableData data: tableData) {
+			bootstrapTableSecurity(auth, LocalDateTime.now(), data.getTableName(), data.hasHistory(), data.isMutable(), data.getScope(), secSysGroupPublic, secSystemAdminGroup, secClusGroupSysAdmin, secTentGroupSysAdmin);
 		}
 	}
 

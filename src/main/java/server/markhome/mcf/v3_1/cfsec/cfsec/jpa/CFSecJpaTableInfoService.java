@@ -200,6 +200,7 @@ public class CFSecJpaTableInfoService {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
 		}
 		// Apply superior data relationships of CFSecTableInfo to existing object
+		existing.setOptionalParentSuperRef(data.getOptionalParentSuperRef());
 		// Apply data columns of CFSecTableInfo to existing object
 		existing.setRequiredSchemaName(data.getRequiredSchemaName());
 		existing.setRequiredTableName(data.getRequiredTableName());
@@ -259,6 +260,30 @@ public class CFSecJpaTableInfoService {
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfo findByTableNameIdx(ICFSecTableInfoByTableNameIdxKey key) {
 		return( cfsec31TableInfoRepository.findByTableNameIdx(key.getRequiredTableName()));
+	}
+
+	/**
+	 *	Find zero or more entities into a List using the columns of the ICFSecTableInfoBySuperNameIdxKey as arguments.
+	 *
+	 *		@param optionalSuperName
+	 *
+	 *		@return List&lt;CFSecJpaTableInfo&gt; of the found entities, or an empty list if no such entities exist.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	public List<CFSecJpaTableInfo> findBySuperNameIdx(@Param("superName") String optionalSuperName) {
+		return( cfsec31TableInfoRepository.findBySuperNameIdx(optionalSuperName));
+	}
+
+	/**
+	 *	ICFSecTableInfoBySuperNameIdxKey entity list finder convenience method for object-based access.
+	 *
+	 *		@param key The ICFSecTableInfoBySuperNameIdxKey instance to use for the query arguments.
+	 *
+	 *		@return The found entity list, which may be empty.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	public List<CFSecJpaTableInfo> findBySuperNameIdx(ICFSecTableInfoBySuperNameIdxKey key) {
+		return( cfsec31TableInfoRepository.findBySuperNameIdx(key.getOptionalSuperName()));
 	}
 
 	/**
@@ -377,6 +402,30 @@ public class CFSecJpaTableInfoService {
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
 	 *
+	 *		@param optionalSuperName
+	 *
+	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	public List<CFSecJpaTableInfo> lockBySuperNameIdx(@Param("superName") String optionalSuperName) {
+		return( cfsec31TableInfoRepository.lockBySuperNameIdx(optionalSuperName));
+	}
+
+	/**
+	 *	ICFSecTableInfoBySuperNameIdxKey based lock method for object-based access.
+	 *
+	 *		@param key The key of the entity to be locked.
+	 *
+	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	public List<CFSecJpaTableInfo> lockBySuperNameIdx(ICFSecTableInfoBySuperNameIdxKey key) {
+		return( cfsec31TableInfoRepository.lockBySuperNameIdx(key.getOptionalSuperName()));
+	}
+
+	/**
+	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
+	 *
 	 *		@param requiredSchemaName
 	 *
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
@@ -479,6 +528,26 @@ public class CFSecJpaTableInfoService {
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void deleteByTableNameIdx(ICFSecTableInfoByTableNameIdxKey key) {
 		cfsec31TableInfoRepository.deleteByTableNameIdx(key.getRequiredTableName());
+	}
+
+	/**
+	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
+	 *
+	 *		@param optionalSuperName
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	public void deleteBySuperNameIdx(@Param("superName") String optionalSuperName) {
+		cfsec31TableInfoRepository.deleteBySuperNameIdx(optionalSuperName);
+	}
+
+	/**
+	 *	ICFSecTableInfoBySuperNameIdxKey based lock method for object-based access.
+	 *
+	 *		@param key The ICFSecTableInfoBySuperNameIdxKey of the entity to be locked.
+	 */
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	public void deleteBySuperNameIdx(ICFSecTableInfoBySuperNameIdxKey key) {
+		cfsec31TableInfoRepository.deleteBySuperNameIdx(key.getOptionalSuperName());
 	}
 
 	/**

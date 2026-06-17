@@ -46,9 +46,11 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 	indexes = {
 		@Index(name = "TableInfoIdIdx", columnList = "TableInfoId", unique = true),
 		@Index(name = "TableInfoTableNameIdx", columnList = "tbl_name", unique = true),
+		@Index(name = "TableInfoSuperNameIdx", columnList = "sup_name", unique = false),
 		@Index(name = "TableInfoSchemaNameIdx", columnList = "sch_name", unique = false),
 		@Index(name = "TableInfoSchemaBkCodeIdx", columnList = "sch_name, back_clscode", unique = true),
-		@Index(name = "TableInfoSchemaRTCodeIdx", columnList = "runtm_clscode", unique = true)
+		@Index(name = "TableInfoSchemaRTCodeIdx", columnList = "runtm_clscode", unique = true),
+		@Index(name = "TableInfoSuperNameIdxSuperRef", columnList = "sup_nameSuperRef", unique = false)
 	}
 )
 @Transactional(Transactional.TxType.SUPPORTS)
@@ -65,11 +67,18 @@ public class CFSecJpaTableInfo
 	protected int requiredTableInfoId;
 	protected int requiredRevision;
 
+	@ManyToOne(fetch=FetchType.LAZY, optional=true)
+	@JoinColumn( name="sup_nameSuperRef", referencedColumnName="tbl_name" )
+	protected CFSecJpaTableInfo optionalParentSuperRef;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="optionalParentSuperRef")
+	protected Set<CFSecJpaTableInfo> optionalChildrenSubRefs;
 
 	@Column( name="sch_name", nullable=false, length=32 )
 	protected String requiredSchemaName;
 	@Column( name="tbl_name", nullable=false, length=64 )
 	protected String requiredTableName;
+	@Column( name="sup_name", nullable=true, length=64 )
+	protected String optionalSuperName;
 	@Column( name="back_clscode", nullable=false )
 	protected int requiredBackingClassCode;
 	@Column( name="runtm_clscode", nullable=false )
@@ -87,6 +96,7 @@ public class CFSecJpaTableInfo
 		requiredTableInfoId = ICFSecTableInfo.TABLEINFOID_INIT_VALUE;
 		requiredSchemaName = ICFSecTableInfo.SCHEMANAME_INIT_VALUE;
 		requiredTableName = ICFSecTableInfo.TABLENAME_INIT_VALUE;
+		optionalSuperName = null;
 		requiredBackingClassCode = ICFSecTableInfo.BACKINGCLASSCODE_INIT_VALUE;
 		requiredRuntimeClassCode = ICFSecTableInfo.RUNTIMECLASSCODE_INIT_VALUE;
 		requiredHasHistory = ICFSecTableInfo.HASHISTORY_INIT_VALUE;
@@ -100,6 +110,48 @@ public class CFSecJpaTableInfo
 		return( ICFSecTableInfo.CLASS_CODE );
 	}
 
+	@Override
+	public ICFSecTableInfo getOptionalParentSuperRef() {
+		return(optionalParentSuperRef);
+	}
+	@Override
+	public void setOptionalParentSuperRef(ICFSecTableInfo argObj) {
+		if(argObj == null) {
+			optionalParentSuperRef = null;
+		}
+		else if (argObj instanceof CFSecJpaTableInfo) {
+			optionalParentSuperRef = (CFSecJpaTableInfo)argObj;
+			if (optionalParentSuperRef != null) {
+				optionalSuperName = optionalParentSuperRef.getRequiredTableName();
+			}
+			else {
+				optionalSuperName = null;
+			}
+		}
+		else {
+			throw new CFLibUnsupportedClassException(getClass(), "setParentSuperRef", "argObj", argObj, "CFSecJpaTableInfo");
+		}
+	}
+
+	@Override
+	public void setOptionalParentSuperRef(String argSuperName) {
+		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
+		if (targetBackingSchema == null) {
+			throw new CFLibNullArgumentException(getClass(), "setOptionalParentSuperRef", 0, "ICFSecSchema.getBackingCFSec()");
+		}
+		ICFSecTableInfoTable targetTable = targetBackingSchema.getTableTableInfo();
+		if (targetTable == null) {
+			throw new CFLibNullArgumentException(getClass(), "setOptionalParentSuperRef", 0, "ICFSecSchema.getBackingCFSec().getTableTableInfo()");
+		}
+		ICFSecTableInfo targetRec = targetTable.readDerivedByTableNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSuperName);
+		setOptionalParentSuperRef(targetRec);
+	}
+
+	@Override
+	public List<ICFSecTableInfo> getOptionalChildrenSubRefs() {
+		List<ICFSecTableInfo> retlist = (optionalChildrenSubRefs != null) ? new ArrayList<>(optionalChildrenSubRefs) : new ArrayList<>();
+		return( retlist );
+	}
 	@Override
 	public Integer getPKey() {
 		return getRequiredTableInfoId();
@@ -185,6 +237,11 @@ public class CFSecJpaTableInfo
 				64 );
 		}
 		requiredTableName = value;
+	}
+
+	@Override
+	public String getOptionalSuperName() {
+		return( optionalSuperName );
 	}
 
 	@Override
@@ -331,6 +388,21 @@ public class CFSecJpaTableInfo
 					return( false );
 				}
 			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					if( ! getOptionalSuperName().equals( rhs.getOptionalSuperName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( false );
+				}
+			}
 			if( getRequiredBackingClassCode() != rhs.getRequiredBackingClassCode() ) {
 				return( false );
 			}
@@ -410,6 +482,21 @@ public class CFSecJpaTableInfo
 					return( false );
 				}
 			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					if( ! getOptionalSuperName().equals( rhs.getOptionalSuperName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( false );
+				}
+			}
 			if( getRequiredBackingClassCode() != rhs.getRequiredBackingClassCode() ) {
 				return( false );
 			}
@@ -480,6 +567,25 @@ public class CFSecJpaTableInfo
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecTableInfoBySuperNameIdxKey) {
+			ICFSecTableInfoBySuperNameIdxKey rhs = (ICFSecTableInfoBySuperNameIdxKey)obj;
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					if( ! getOptionalSuperName().equals( rhs.getOptionalSuperName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else if (obj instanceof ICFSecTableInfoBySchemaNameIdxKey) {
 			ICFSecTableInfoBySchemaNameIdxKey rhs = (ICFSecTableInfoBySchemaNameIdxKey)obj;
 			if( getRequiredSchemaName() != null ) {
@@ -542,6 +648,9 @@ public class CFSecJpaTableInfo
 		}
 		if( getRequiredTableName() != null ) {
 			hashCode = hashCode + getRequiredTableName().hashCode();
+		}
+		if( getOptionalSuperName() != null ) {
+			hashCode = hashCode + getOptionalSuperName().hashCode();
 		}
 		hashCode = hashCode + getRequiredBackingClassCode();
 		hashCode = hashCode + getRequiredRuntimeClassCode();
@@ -617,6 +726,22 @@ public class CFSecJpaTableInfo
 			}
 			else if (rhs.getRequiredTableName() != null) {
 				return( -1 );
+			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					cmp = getOptionalSuperName().compareTo( rhs.getOptionalSuperName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( -1 );
+				}
 			}
 			if( getRequiredBackingClassCode() < rhs.getRequiredBackingClassCode() ) {
 				return( -1 );
@@ -726,6 +851,22 @@ public class CFSecJpaTableInfo
 			else if (rhs.getRequiredTableName() != null) {
 				return( -1 );
 			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					cmp = getOptionalSuperName().compareTo( rhs.getOptionalSuperName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( -1 );
+				}
+			}
 			if( getRequiredBackingClassCode() < rhs.getRequiredBackingClassCode() ) {
 				return( -1 );
 			}
@@ -806,6 +947,26 @@ public class CFSecJpaTableInfo
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecTableInfoBySuperNameIdxKey) {
+			ICFSecTableInfoBySuperNameIdxKey rhs = (ICFSecTableInfoBySuperNameIdxKey)obj;
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					cmp = getOptionalSuperName().compareTo( rhs.getOptionalSuperName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( -1 );
+				}
+			}
+			return( 0 );
+		}
 		else if (obj instanceof ICFSecTableInfoBySchemaNameIdxKey) {
 			ICFSecTableInfoBySchemaNameIdxKey rhs = (ICFSecTableInfoBySchemaNameIdxKey)obj;
 			if (getRequiredSchemaName() != null) {
@@ -876,6 +1037,7 @@ public class CFSecJpaTableInfo
 	public void setTableInfo( ICFSecTableInfo src ) {
 		setRequiredTableInfoId(src.getRequiredTableInfoId());
 		setRequiredRevision( src.getRequiredRevision() );
+		setOptionalParentSuperRef(src.getOptionalParentSuperRef());
 		setRequiredSchemaName(src.getRequiredSchemaName());
 		setRequiredTableName(src.getRequiredTableName());
 		setRequiredBackingClassCode(src.getRequiredBackingClassCode());
@@ -894,6 +1056,7 @@ public class CFSecJpaTableInfo
 	@Override
 	public void setTableInfo( ICFSecTableInfoH src ) {
 		setRequiredTableInfoId(src.getRequiredTableInfoId());
+		setOptionalParentSuperRef(src.getOptionalSuperName());
 		setRequiredSchemaName(src.getRequiredSchemaName());
 		setRequiredTableName(src.getRequiredTableName());
 		setRequiredBackingClassCode(src.getRequiredBackingClassCode());
@@ -912,6 +1075,7 @@ public class CFSecJpaTableInfo
 			+ " RequiredTableInfoId=" + "\"" + Integer.toString( getRequiredTableInfoId() ) + "\""
 			+ " RequiredSchemaName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredSchemaName() ) + "\""
 			+ " RequiredTableName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredTableName() ) + "\""
+			+ " OptionalSuperName=" + ( ( getOptionalSuperName() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalSuperName() ) + "\"" )
 			+ " RequiredBackingClassCode=" + "\"" + Integer.toString( getRequiredBackingClassCode() ) + "\""
 			+ " RequiredRuntimeClassCode=" + "\"" + Integer.toString( getRequiredRuntimeClassCode() ) + "\""
 			+ " RequiredHasHistory=" + (( getRequiredHasHistory() ) ? "\"true\"" : "\"false\"" )

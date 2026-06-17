@@ -1293,11 +1293,11 @@ public class CFSecJpaSchema
 		factoryTenant = value;
 	}
 
-	public void bootstrapSchema(CFSecTableInfo tableInfo[]) {
-		getSchemaService().bootstrapSchema(tableInfo);
+	public void bootstrapSchema(CFSecTableData tableData[]) {
+		getSchemaService().bootstrapSchema(tableData);
 	}
 
-	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableInfo tableInfo[]) {
-		getSchemaService().bootstrapAllTablesSecurity(clusterId, tenantId, tableInfo);
+	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableData tableData[]) {
+		getSchemaService().bootstrapAllTablesSecurity(clusterId, tenantId, tableData);
 	}
 }

@@ -90,6 +90,27 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	}
 
 	/**
+	 *	Read zero or more entities into a List using the columns of the CFSecTableInfoBySuperNameIdxKey as arguments.
+	 *
+	 *		@param optionalSuperName
+	 *
+	 *		@return List&lt;CFSecJpaTableInfo&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
+	 */
+	@Query("select r from CFSecJpaTableInfo r where r.optionalParentSuperRef.requiredTableName = :superName")
+	List<CFSecJpaTableInfo> findBySuperNameIdx(@Param("superName") String optionalSuperName);
+
+	/**
+	 *	CFSecTableInfoBySuperNameIdxKey entity list reader convenience method for object-based access.
+	 *
+	 *		@param key The CFSecTableInfoBySuperNameIdxKey instance to use for the query arguments.
+	 *
+	 *		@return The found entity list, which may be empty, typically populated from the JPA cache.
+	 */
+	default List<CFSecJpaTableInfo> findBySuperNameIdx(ICFSecTableInfoBySuperNameIdxKey key) {
+		return( findBySuperNameIdx(key.getOptionalSuperName()));
+	}
+
+	/**
 	 *	Read zero or more entities into a List using the columns of the CFSecTableInfoBySchemaNameIdxKey as arguments.
 	 *
 	 *		@param requiredSchemaName
@@ -194,6 +215,29 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
 	 *
+	 *		@param optionalSuperName
+	 *
+	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
+	 */
+	@Transactional
+	@Lock(LockModeType.WRITE)
+	@Query("select r from CFSecJpaTableInfo r where r.optionalParentSuperRef.requiredTableName = :superName")
+	List<CFSecJpaTableInfo> lockBySuperNameIdx(@Param("superName") String optionalSuperName);
+
+	/**
+	 *	CFSecTableInfoBySuperNameIdxKey based lock method for object-based access.
+	 *
+	 *		@param key The key of the entity to be locked.
+	 *
+	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
+	 */
+	default List<CFSecJpaTableInfo> lockBySuperNameIdx(ICFSecTableInfoBySuperNameIdxKey key) {
+		return( lockBySuperNameIdx(key.getOptionalSuperName()));
+	}
+
+	/**
+	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
+	 *
 	 *		@param requiredSchemaName
 	 *
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
@@ -291,6 +335,25 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	 */
 	default void deleteByTableNameIdx(ICFSecTableInfoByTableNameIdxKey key) {
 		deleteByTableNameIdx(key.getRequiredTableName());
+	}
+
+	/**
+	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
+	 *
+	 *		@param optionalSuperName
+	 */
+	@Transactional
+	@Modifying
+	@Query("delete from CFSecJpaTableInfo r where r.optionalParentSuperRef.requiredTableName = :superName")
+	void deleteBySuperNameIdx(@Param("superName") String optionalSuperName);
+
+	/**
+	 *	CFSecTableInfoBySuperNameIdxKey based lock method for object-based access.
+	 *
+	 *		@param key The CFSecTableInfoBySuperNameIdxKey of the entity to be locked.
+	 */
+	default void deleteBySuperNameIdx(ICFSecTableInfoBySuperNameIdxKey key) {
+		deleteBySuperNameIdx(key.getOptionalSuperName());
 	}
 
 	/**

@@ -50,6 +50,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
     indexes = {
         @Index(name = "TableInfoIdIdx_h", columnList = "auditClusterId, auditStamp, auditAction, requiredRevision, auditSessionId, TableInfoId", unique = true),
         @Index(name = "TableInfoTableNameIdx_h", columnList = "tbl_name", unique = false),
+        @Index(name = "TableInfoSuperNameIdx_h", columnList = "sup_name", unique = false),
         @Index(name = "TableInfoSchemaNameIdx_h", columnList = "sch_name", unique = false),
         @Index(name = "TableInfoSchemaBkCodeIdx_h", columnList = "sch_name, back_clscode", unique = false),
         @Index(name = "TableInfoSchemaRTCodeIdx_h", columnList = "runtm_clscode", unique = false)
@@ -74,6 +75,8 @@ public class CFSecJpaTableInfoH
 	protected String requiredSchemaName;
 	@Column( name="tbl_name", nullable=false, length=64 )
 	protected String requiredTableName;
+	@Column( name="sup_name", nullable=true, length=64 )
+	protected String optionalSuperName;
 	@Column( name="back_clscode", nullable=false )
 	protected int requiredBackingClassCode;
 	@Column( name="runtm_clscode", nullable=false )
@@ -92,6 +95,7 @@ public class CFSecJpaTableInfoH
             pkey = new CFSecJpaTableInfoHPKey();
 		requiredSchemaName = ICFSecTableInfo.SCHEMANAME_INIT_VALUE;
 		requiredTableName = ICFSecTableInfo.TABLENAME_INIT_VALUE;
+		optionalSuperName = null;
 		requiredBackingClassCode = ICFSecTableInfo.BACKINGCLASSCODE_INIT_VALUE;
 		requiredRuntimeClassCode = ICFSecTableInfo.RUNTIMECLASSCODE_INIT_VALUE;
 		requiredHasHistory = ICFSecTableInfo.HASHISTORY_INIT_VALUE;
@@ -228,6 +232,24 @@ public class CFSecJpaTableInfoH
 				64 );
 		}
 		requiredTableName = value;
+	}
+
+	@Override
+	public String getOptionalSuperName() {
+		return( optionalSuperName );
+	}
+
+	@Override
+	public void setOptionalSuperName( String value ) {
+		if( value != null && value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setOptionalSuperName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		optionalSuperName = value;
 	}
 
 	@Override
@@ -385,6 +407,21 @@ public class CFSecJpaTableInfoH
 					return( false );
 				}
 			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					if( ! getOptionalSuperName().equals( rhs.getOptionalSuperName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( false );
+				}
+			}
 			if( getRequiredBackingClassCode() != rhs.getRequiredBackingClassCode() ) {
 				return( false );
 			}
@@ -475,6 +512,21 @@ public class CFSecJpaTableInfoH
 					return( false );
 				}
 			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					if( ! getOptionalSuperName().equals( rhs.getOptionalSuperName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( false );
+				}
+			}
 			if( getRequiredBackingClassCode() != rhs.getRequiredBackingClassCode() ) {
 				return( false );
 			}
@@ -545,6 +597,25 @@ public class CFSecJpaTableInfoH
 			}
             return( true );
         }
+        else if (obj instanceof ICFSecTableInfoBySuperNameIdxKey) {
+            ICFSecTableInfoBySuperNameIdxKey rhs = (ICFSecTableInfoBySuperNameIdxKey)obj;
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					if( ! getOptionalSuperName().equals( rhs.getOptionalSuperName() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( false );
+				}
+			}
+            return( true );
+        }
         else if (obj instanceof ICFSecTableInfoBySchemaNameIdxKey) {
             ICFSecTableInfoBySchemaNameIdxKey rhs = (ICFSecTableInfoBySchemaNameIdxKey)obj;
 			if( getRequiredSchemaName() != null ) {
@@ -606,6 +677,9 @@ public class CFSecJpaTableInfoH
 		}
 		if( getRequiredTableName() != null ) {
 			hashCode = hashCode + getRequiredTableName().hashCode();
+		}
+		if( getOptionalSuperName() != null ) {
+			hashCode = hashCode + getOptionalSuperName().hashCode();
 		}
 		hashCode = hashCode + getRequiredBackingClassCode();
 		hashCode = hashCode + getRequiredRuntimeClassCode();
@@ -681,6 +755,22 @@ public class CFSecJpaTableInfoH
 			}
 			else if (rhs.getRequiredTableName() != null) {
 				return( -1 );
+			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					cmp = getOptionalSuperName().compareTo( rhs.getOptionalSuperName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( -1 );
+				}
 			}
 			if( getRequiredBackingClassCode() < rhs.getRequiredBackingClassCode() ) {
 				return( -1 );
@@ -798,6 +888,22 @@ public class CFSecJpaTableInfoH
 			else if (rhs.getRequiredTableName() != null) {
 				return( -1 );
 			}
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					cmp = getOptionalSuperName().compareTo( rhs.getOptionalSuperName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( -1 );
+				}
+			}
 			if( getRequiredBackingClassCode() < rhs.getRequiredBackingClassCode() ) {
 				return( -1 );
 			}
@@ -878,6 +984,26 @@ public class CFSecJpaTableInfoH
 			}
             return( 0 );
         }
+        else if (obj instanceof ICFSecTableInfoBySuperNameIdxKey ) {
+            ICFSecTableInfoBySuperNameIdxKey rhs = (ICFSecTableInfoBySuperNameIdxKey)obj;
+			if( getOptionalSuperName() != null ) {
+				if( rhs.getOptionalSuperName() != null ) {
+					cmp = getOptionalSuperName().compareTo( rhs.getOptionalSuperName() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalSuperName() != null ) {
+					return( -1 );
+				}
+			}
+            return( 0 );
+        }
         else if (obj instanceof ICFSecTableInfoBySchemaNameIdxKey ) {
             ICFSecTableInfoBySchemaNameIdxKey rhs = (ICFSecTableInfoBySchemaNameIdxKey)obj;
 			if (getRequiredSchemaName() != null) {
@@ -948,6 +1074,7 @@ public class CFSecJpaTableInfoH
 		setRequiredTableInfoId( src.getRequiredTableInfoId() );
 		setRequiredSchemaName( src.getRequiredSchemaName() );
 		setRequiredTableName( src.getRequiredTableName() );
+		setOptionalSuperName( src.getOptionalSuperName() );
 		setRequiredBackingClassCode( src.getRequiredBackingClassCode() );
 		setRequiredRuntimeClassCode( src.getRequiredRuntimeClassCode() );
 		setRequiredHasHistory( src.getRequiredHasHistory() );
@@ -967,6 +1094,7 @@ public class CFSecJpaTableInfoH
 		setRequiredTableInfoId( src.getRequiredTableInfoId() );
 		setRequiredSchemaName( src.getRequiredSchemaName() );
 		setRequiredTableName( src.getRequiredTableName() );
+		setOptionalSuperName( src.getOptionalSuperName() );
 		setRequiredBackingClassCode( src.getRequiredBackingClassCode() );
 		setRequiredRuntimeClassCode( src.getRequiredRuntimeClassCode() );
 		setRequiredHasHistory( src.getRequiredHasHistory() );
@@ -981,6 +1109,7 @@ public class CFSecJpaTableInfoH
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ " RequiredSchemaName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredSchemaName() ) + "\""
 			+ " RequiredTableName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredTableName() ) + "\""
+			+ " OptionalSuperName=" + ( ( getOptionalSuperName() == null ) ? "null" : "\"" + StringEscapeUtils.escapeXml11( getOptionalSuperName() ) + "\"" )
 			+ " RequiredBackingClassCode=" + "\"" + Integer.toString( getRequiredBackingClassCode() ) + "\""
 			+ " RequiredRuntimeClassCode=" + "\"" + Integer.toString( getRequiredRuntimeClassCode() ) + "\""
 			+ " RequiredHasHistory=" + (( getRequiredHasHistory() ) ? "\"true\"" : "\"false\"" )
