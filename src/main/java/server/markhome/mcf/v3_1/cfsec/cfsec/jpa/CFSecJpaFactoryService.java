@@ -178,152 +178,272 @@ public class CFSecJpaFactoryService
 	public CFSecJpaFactoryService() { }
 
 	@Override
-	public ICFSecClusterFactoryService getClusterFactoryService() {
+	public ICFSecClusterFactory getFactoryCluster() {
+		return(clusterFactoryService);
+	}
+
+	public CFSecJpaClusterFactoryService getClusterFactoryService() {
 		return(clusterFactoryService);
 	}
 
 	@Override
-	public ICFSecTenantFactoryService getTenantFactoryService() {
+	public ICFSecTenantFactory getFactoryTenant() {
+		return(tenantFactoryService);
+	}
+
+	public CFSecJpaTenantFactoryService getTenantFactoryService() {
 		return(tenantFactoryService);
 	}
 
 	@Override
-	public ICFSecTableInfoFactoryService getTableInfoFactoryService() {
+	public ICFSecTableInfoFactory getFactoryTableInfo() {
+		return(tableinfoFactoryService);
+	}
+
+	public CFSecJpaTableInfoFactoryService getTableInfoFactoryService() {
 		return(tableinfoFactoryService);
 	}
 
 	@Override
-	public ICFSecISOCcyFactoryService getISOCcyFactoryService() {
+	public ICFSecISOCcyFactory getFactoryISOCcy() {
+		return(isoccyFactoryService);
+	}
+
+	public CFSecJpaISOCcyFactoryService getISOCcyFactoryService() {
 		return(isoccyFactoryService);
 	}
 
 	@Override
-	public ICFSecISOCtryFactoryService getISOCtryFactoryService() {
+	public ICFSecISOCtryFactory getFactoryISOCtry() {
+		return(isoctryFactoryService);
+	}
+
+	public CFSecJpaISOCtryFactoryService getISOCtryFactoryService() {
 		return(isoctryFactoryService);
 	}
 
 	@Override
-	public ICFSecISOCtryCcyFactoryService getISOCtryCcyFactoryService() {
+	public ICFSecISOCtryCcyFactory getFactoryISOCtryCcy() {
+		return(isoctryccyFactoryService);
+	}
+
+	public CFSecJpaISOCtryCcyFactoryService getISOCtryCcyFactoryService() {
 		return(isoctryccyFactoryService);
 	}
 
 	@Override
-	public ICFSecISOCtryLangFactoryService getISOCtryLangFactoryService() {
+	public ICFSecISOCtryLangFactory getFactoryISOCtryLang() {
+		return(isoctrylangFactoryService);
+	}
+
+	public CFSecJpaISOCtryLangFactoryService getISOCtryLangFactoryService() {
 		return(isoctrylangFactoryService);
 	}
 
 	@Override
-	public ICFSecISOLangFactoryService getISOLangFactoryService() {
+	public ICFSecISOLangFactory getFactoryISOLang() {
+		return(isolangFactoryService);
+	}
+
+	public CFSecJpaISOLangFactoryService getISOLangFactoryService() {
 		return(isolangFactoryService);
 	}
 
 	@Override
-	public ICFSecISOTZoneFactoryService getISOTZoneFactoryService() {
+	public ICFSecISOTZoneFactory getFactoryISOTZone() {
+		return(isotzoneFactoryService);
+	}
+
+	public CFSecJpaISOTZoneFactoryService getISOTZoneFactoryService() {
 		return(isotzoneFactoryService);
 	}
 
 	@Override
-	public ICFSecSecUserFactoryService getSecUserFactoryService() {
+	public ICFSecSecUserFactory getFactorySecUser() {
+		return(secuserFactoryService);
+	}
+
+	public CFSecJpaSecUserFactoryService getSecUserFactoryService() {
 		return(secuserFactoryService);
 	}
 
 	@Override
-	public ICFSecSecUserPasswordFactoryService getSecUserPasswordFactoryService() {
+	public ICFSecSecUserPasswordFactory getFactorySecUserPassword() {
+		return(secuserpasswordFactoryService);
+	}
+
+	public CFSecJpaSecUserPasswordFactoryService getSecUserPasswordFactoryService() {
 		return(secuserpasswordFactoryService);
 	}
 
 	@Override
-	public ICFSecSecUserEMConfFactoryService getSecUserEMConfFactoryService() {
+	public ICFSecSecUserEMConfFactory getFactorySecUserEMConf() {
+		return(secuseremconfFactoryService);
+	}
+
+	public CFSecJpaSecUserEMConfFactoryService getSecUserEMConfFactoryService() {
 		return(secuseremconfFactoryService);
 	}
 
 	@Override
-	public ICFSecSecUserPWResetFactoryService getSecUserPWResetFactoryService() {
+	public ICFSecSecUserPWResetFactory getFactorySecUserPWReset() {
+		return(secuserpwresetFactoryService);
+	}
+
+	public CFSecJpaSecUserPWResetFactoryService getSecUserPWResetFactoryService() {
 		return(secuserpwresetFactoryService);
 	}
 
 	@Override
-	public ICFSecSecUserPWHistoryFactoryService getSecUserPWHistoryFactoryService() {
+	public ICFSecSecUserPWHistoryFactory getFactorySecUserPWHistory() {
+		return(secuserpwhistoryFactoryService);
+	}
+
+	public CFSecJpaSecUserPWHistoryFactoryService getSecUserPWHistoryFactoryService() {
 		return(secuserpwhistoryFactoryService);
 	}
 
 	@Override
-	public ICFSecSecSysGrpFactoryService getSecSysGrpFactoryService() {
+	public ICFSecSecSysGrpFactory getFactorySecSysGrp() {
+		return(secsysgrpFactoryService);
+	}
+
+	public CFSecJpaSecSysGrpFactoryService getSecSysGrpFactoryService() {
 		return(secsysgrpFactoryService);
 	}
 
 	@Override
-	public ICFSecSecSysGrpIncFactoryService getSecSysGrpIncFactoryService() {
+	public ICFSecSecSysGrpIncFactory getFactorySecSysGrpInc() {
+		return(secsysgrpincFactoryService);
+	}
+
+	public CFSecJpaSecSysGrpIncFactoryService getSecSysGrpIncFactoryService() {
 		return(secsysgrpincFactoryService);
 	}
 
 	@Override
-	public ICFSecSecSysGrpMembFactoryService getSecSysGrpMembFactoryService() {
+	public ICFSecSecSysGrpMembFactory getFactorySecSysGrpMemb() {
+		return(secsysgrpmembFactoryService);
+	}
+
+	public CFSecJpaSecSysGrpMembFactoryService getSecSysGrpMembFactoryService() {
 		return(secsysgrpmembFactoryService);
 	}
 
 	@Override
-	public ICFSecSecClusGrpFactoryService getSecClusGrpFactoryService() {
+	public ICFSecSecClusGrpFactory getFactorySecClusGrp() {
+		return(secclusgrpFactoryService);
+	}
+
+	public CFSecJpaSecClusGrpFactoryService getSecClusGrpFactoryService() {
 		return(secclusgrpFactoryService);
 	}
 
 	@Override
-	public ICFSecSecClusGrpMembFactoryService getSecClusGrpMembFactoryService() {
+	public ICFSecSecClusGrpMembFactory getFactorySecClusGrpMemb() {
+		return(secclusgrpmembFactoryService);
+	}
+
+	public CFSecJpaSecClusGrpMembFactoryService getSecClusGrpMembFactoryService() {
 		return(secclusgrpmembFactoryService);
 	}
 
 	@Override
-	public ICFSecSecTentGrpFactoryService getSecTentGrpFactoryService() {
+	public ICFSecSecTentGrpFactory getFactorySecTentGrp() {
+		return(sectentgrpFactoryService);
+	}
+
+	public CFSecJpaSecTentGrpFactoryService getSecTentGrpFactoryService() {
 		return(sectentgrpFactoryService);
 	}
 
 	@Override
-	public ICFSecSecTentGrpMembFactoryService getSecTentGrpMembFactoryService() {
+	public ICFSecSecTentGrpMembFactory getFactorySecTentGrpMemb() {
+		return(sectentgrpmembFactoryService);
+	}
+
+	public CFSecJpaSecTentGrpMembFactoryService getSecTentGrpMembFactoryService() {
 		return(sectentgrpmembFactoryService);
 	}
 
 	@Override
-	public ICFSecSecSysRoleFactoryService getSecSysRoleFactoryService() {
+	public ICFSecSecSysRoleFactory getFactorySecSysRole() {
+		return(secsysroleFactoryService);
+	}
+
+	public CFSecJpaSecSysRoleFactoryService getSecSysRoleFactoryService() {
 		return(secsysroleFactoryService);
 	}
 
 	@Override
-	public ICFSecSecSysRoleEnablesFactoryService getSecSysRoleEnablesFactoryService() {
+	public ICFSecSecSysRoleEnablesFactory getFactorySecSysRoleEnables() {
+		return(secsysroleenablesFactoryService);
+	}
+
+	public CFSecJpaSecSysRoleEnablesFactoryService getSecSysRoleEnablesFactoryService() {
 		return(secsysroleenablesFactoryService);
 	}
 
 	@Override
-	public ICFSecSecSysRoleMembFactoryService getSecSysRoleMembFactoryService() {
+	public ICFSecSecSysRoleMembFactory getFactorySecSysRoleMemb() {
+		return(secsysrolemembFactoryService);
+	}
+
+	public CFSecJpaSecSysRoleMembFactoryService getSecSysRoleMembFactoryService() {
 		return(secsysrolemembFactoryService);
 	}
 
 	@Override
-	public ICFSecSecClusRoleFactoryService getSecClusRoleFactoryService() {
+	public ICFSecSecClusRoleFactory getFactorySecClusRole() {
+		return(secclusroleFactoryService);
+	}
+
+	public CFSecJpaSecClusRoleFactoryService getSecClusRoleFactoryService() {
 		return(secclusroleFactoryService);
 	}
 
 	@Override
-	public ICFSecSecClusRoleMembFactoryService getSecClusRoleMembFactoryService() {
+	public ICFSecSecClusRoleMembFactory getFactorySecClusRoleMemb() {
+		return(secclusrolemembFactoryService);
+	}
+
+	public CFSecJpaSecClusRoleMembFactoryService getSecClusRoleMembFactoryService() {
 		return(secclusrolemembFactoryService);
 	}
 
 	@Override
-	public ICFSecSecTentRoleFactoryService getSecTentRoleFactoryService() {
+	public ICFSecSecTentRoleFactory getFactorySecTentRole() {
+		return(sectentroleFactoryService);
+	}
+
+	public CFSecJpaSecTentRoleFactoryService getSecTentRoleFactoryService() {
 		return(sectentroleFactoryService);
 	}
 
 	@Override
-	public ICFSecSecTentRoleMembFactoryService getSecTentRoleMembFactoryService() {
+	public ICFSecSecTentRoleMembFactory getFactorySecTentRoleMemb() {
+		return(sectentrolemembFactoryService);
+	}
+
+	public CFSecJpaSecTentRoleMembFactoryService getSecTentRoleMembFactoryService() {
 		return(sectentrolemembFactoryService);
 	}
 
 	@Override
-	public ICFSecSecSessionFactoryService getSecSessionFactoryService() {
+	public ICFSecSecSessionFactory getFactorySecSession() {
+		return(secsessionFactoryService);
+	}
+
+	public CFSecJpaSecSessionFactoryService getSecSessionFactoryService() {
 		return(secsessionFactoryService);
 	}
 
 	@Override
-	public ICFSecSysClusterFactoryService getSysClusterFactoryService() {
+	public ICFSecSysClusterFactory getFactorySysCluster() {
+		return(sysclusterFactoryService);
+	}
+
+	public CFSecJpaSysClusterFactoryService getSysClusterFactoryService() {
 		return(sysclusterFactoryService);
 	}
 
