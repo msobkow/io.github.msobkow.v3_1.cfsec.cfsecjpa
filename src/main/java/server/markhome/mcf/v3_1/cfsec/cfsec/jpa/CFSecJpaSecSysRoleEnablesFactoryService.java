@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecSysRoleEnables.
+// Description: Java 25 Factory service implementation for SecSysRoleEnables JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecSysRoleEnablesFactory JPA implementation for SecSysRoleEnables
+ *	Java 25 Factory service implementation for SecSysRoleEnables JPA objects.
  */
-public class CFSecJpaSecSysRoleEnablesDefaultFactory
+public class CFSecJpaSecSysRoleEnablesFactoryService
     implements ICFSecSecSysRoleEnablesFactory
 {
-    public CFSecJpaSecSysRoleEnablesDefaultFactory() {
-    }
+    public CFSecJpaSecSysRoleEnablesFactoryService() { }
 
     @Override
     public ICFSecSecSysRoleEnablesPKey newPKey() {
-        ICFSecSecSysRoleEnablesPKey pkey =
-            new CFSecJpaSecSysRoleEnablesPKey();
+        ICFSecSecSysRoleEnablesPKey pkey = new CFSecJpaSecSysRoleEnablesPKey();
         return( pkey );
     }
 
@@ -73,8 +74,7 @@ public class CFSecJpaSecSysRoleEnablesDefaultFactory
 
     @Override
     public ICFSecSecSysRoleEnablesHPKey newHPKey() {
-        ICFSecSecSysRoleEnablesHPKey hpkey =
-            new CFSecJpaSecSysRoleEnablesHPKey();
+        ICFSecSecSysRoleEnablesHPKey hpkey = new CFSecJpaSecSysRoleEnablesHPKey();
         return( hpkey );
     }
 
@@ -99,8 +99,7 @@ public class CFSecJpaSecSysRoleEnablesDefaultFactory
 
     @Override
     public ICFSecSecSysRoleEnablesBySysRoleIdxKey newBySysRoleIdxKey() {
-	ICFSecSecSysRoleEnablesBySysRoleIdxKey key =
-            new CFSecJpaSecSysRoleEnablesBySysRoleIdxKey();
+		ICFSecSecSysRoleEnablesBySysRoleIdxKey key = new CFSecJpaSecSysRoleEnablesBySysRoleIdxKey();
 	return( key );
     }
 
@@ -120,8 +119,7 @@ public class CFSecJpaSecSysRoleEnablesDefaultFactory
 
     @Override
     public ICFSecSecSysRoleEnablesByNameIdxKey newByNameIdxKey() {
-	ICFSecSecSysRoleEnablesByNameIdxKey key =
-            new CFSecJpaSecSysRoleEnablesByNameIdxKey();
+		ICFSecSecSysRoleEnablesByNameIdxKey key = new CFSecJpaSecSysRoleEnablesByNameIdxKey();
 	return( key );
     }
 
@@ -141,8 +139,7 @@ public class CFSecJpaSecSysRoleEnablesDefaultFactory
 
     @Override
     public ICFSecSecSysRoleEnables newRec() {
-        ICFSecSecSysRoleEnables rec =
-            new CFSecJpaSecSysRoleEnables();
+        ICFSecSecSysRoleEnables rec = new CFSecJpaSecSysRoleEnables();
         return( rec );
     }
 
@@ -162,8 +159,7 @@ public class CFSecJpaSecSysRoleEnablesDefaultFactory
 
     @Override
     public ICFSecSecSysRoleEnablesH newHRec() {
-        ICFSecSecSysRoleEnablesH hrec =
-            new CFSecJpaSecSysRoleEnablesH();
+        ICFSecSecSysRoleEnablesH hrec = new CFSecJpaSecSysRoleEnablesH();
         return( hrec );
     }
 

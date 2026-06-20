@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecUserPWHistory.
+// Description: Java 25 Factory service implementation for SecUserPWHistory JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecUserPWHistoryFactory JPA implementation for SecUserPWHistory
+ *	Java 25 Factory service implementation for SecUserPWHistory JPA objects.
  */
-public class CFSecJpaSecUserPWHistoryDefaultFactory
+public class CFSecJpaSecUserPWHistoryFactoryService
     implements ICFSecSecUserPWHistoryFactory
 {
-    public CFSecJpaSecUserPWHistoryDefaultFactory() {
-    }
+    public CFSecJpaSecUserPWHistoryFactoryService() { }
 
     @Override
     public ICFSecSecUserPWHistoryPKey newPKey() {
-        ICFSecSecUserPWHistoryPKey pkey =
-            new CFSecJpaSecUserPWHistoryPKey();
+        ICFSecSecUserPWHistoryPKey pkey = new CFSecJpaSecUserPWHistoryPKey();
         return( pkey );
     }
 
@@ -73,8 +74,7 @@ public class CFSecJpaSecUserPWHistoryDefaultFactory
 
     @Override
     public ICFSecSecUserPWHistoryByUserIdxKey newByUserIdxKey() {
-	ICFSecSecUserPWHistoryByUserIdxKey key =
-            new CFSecJpaSecUserPWHistoryByUserIdxKey();
+		ICFSecSecUserPWHistoryByUserIdxKey key = new CFSecJpaSecUserPWHistoryByUserIdxKey();
 	return( key );
     }
 
@@ -94,8 +94,7 @@ public class CFSecJpaSecUserPWHistoryDefaultFactory
 
     @Override
     public ICFSecSecUserPWHistoryBySetStampIdxKey newBySetStampIdxKey() {
-	ICFSecSecUserPWHistoryBySetStampIdxKey key =
-            new CFSecJpaSecUserPWHistoryBySetStampIdxKey();
+		ICFSecSecUserPWHistoryBySetStampIdxKey key = new CFSecJpaSecUserPWHistoryBySetStampIdxKey();
 	return( key );
     }
 
@@ -115,8 +114,7 @@ public class CFSecJpaSecUserPWHistoryDefaultFactory
 
     @Override
     public ICFSecSecUserPWHistoryByReplacedStampIdxKey newByReplacedStampIdxKey() {
-	ICFSecSecUserPWHistoryByReplacedStampIdxKey key =
-            new CFSecJpaSecUserPWHistoryByReplacedStampIdxKey();
+		ICFSecSecUserPWHistoryByReplacedStampIdxKey key = new CFSecJpaSecUserPWHistoryByReplacedStampIdxKey();
 	return( key );
     }
 
@@ -136,8 +134,7 @@ public class CFSecJpaSecUserPWHistoryDefaultFactory
 
     @Override
     public ICFSecSecUserPWHistory newRec() {
-        ICFSecSecUserPWHistory rec =
-            new CFSecJpaSecUserPWHistory();
+        ICFSecSecUserPWHistory rec = new CFSecJpaSecUserPWHistory();
         return( rec );
     }
 

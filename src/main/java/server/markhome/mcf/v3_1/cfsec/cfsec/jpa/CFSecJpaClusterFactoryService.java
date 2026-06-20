@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for Cluster.
+// Description: Java 25 Factory service implementation for Cluster JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecClusterFactory JPA implementation for Cluster
+ *	Java 25 Factory service implementation for Cluster JPA objects.
  */
-public class CFSecJpaClusterDefaultFactory
+public class CFSecJpaClusterFactoryService
     implements ICFSecClusterFactory
 {
-    public CFSecJpaClusterDefaultFactory() {
-    }
+    public CFSecJpaClusterFactoryService() { }
 
     @Override
     public ICFSecClusterHPKey newHPKey() {
-        ICFSecClusterHPKey hpkey =
-            new CFSecJpaClusterHPKey();
+        ICFSecClusterHPKey hpkey = new CFSecJpaClusterHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaClusterDefaultFactory
 
     @Override
     public ICFSecClusterByUDomNameIdxKey newByUDomNameIdxKey() {
-	ICFSecClusterByUDomNameIdxKey key =
-            new CFSecJpaClusterByUDomNameIdxKey();
+		ICFSecClusterByUDomNameIdxKey key = new CFSecJpaClusterByUDomNameIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaClusterDefaultFactory
 
     @Override
     public ICFSecClusterByUDescrIdxKey newByUDescrIdxKey() {
-	ICFSecClusterByUDescrIdxKey key =
-            new CFSecJpaClusterByUDescrIdxKey();
+		ICFSecClusterByUDescrIdxKey key = new CFSecJpaClusterByUDescrIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaClusterDefaultFactory
 
     @Override
     public ICFSecCluster newRec() {
-        ICFSecCluster rec =
-            new CFSecJpaCluster();
+        ICFSecCluster rec = new CFSecJpaCluster();
         return( rec );
     }
 
@@ -139,8 +137,7 @@ public class CFSecJpaClusterDefaultFactory
 
     @Override
     public ICFSecClusterH newHRec() {
-        ICFSecClusterH hrec =
-            new CFSecJpaClusterH();
+        ICFSecClusterH hrec = new CFSecJpaClusterH();
         return( hrec );
     }
 

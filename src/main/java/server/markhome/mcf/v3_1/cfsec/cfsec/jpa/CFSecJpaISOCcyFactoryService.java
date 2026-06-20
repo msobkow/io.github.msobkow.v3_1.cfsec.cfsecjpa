@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for ISOCtry.
+// Description: Java 25 Factory service implementation for ISOCcy JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,123 +36,120 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecISOCtryFactory JPA implementation for ISOCtry
+ *	Java 25 Factory service implementation for ISOCcy JPA objects.
  */
-public class CFSecJpaISOCtryDefaultFactory
-    implements ICFSecISOCtryFactory
+public class CFSecJpaISOCcyFactoryService
+    implements ICFSecISOCcyFactory
 {
-    public CFSecJpaISOCtryDefaultFactory() {
-    }
+    public CFSecJpaISOCcyFactoryService() { }
 
     @Override
-    public ICFSecISOCtryHPKey newHPKey() {
-        ICFSecISOCtryHPKey hpkey =
-            new CFSecJpaISOCtryHPKey();
+    public ICFSecISOCcyHPKey newHPKey() {
+        ICFSecISOCcyHPKey hpkey = new CFSecJpaISOCcyHPKey();
         return( hpkey );
     }
 
-	public CFSecJpaISOCtryHPKey ensureHPKey(ICFSecISOCtryHPKey key) {
+	public CFSecJpaISOCcyHPKey ensureHPKey(ICFSecISOCcyHPKey key) {
 		if (key == null) {
 			return( null );
 		}
-		else if( key instanceof CFSecJpaISOCtryHPKey) {
-			return( (CFSecJpaISOCtryHPKey)key );
+		else if( key instanceof CFSecJpaISOCcyHPKey) {
+			return( (CFSecJpaISOCcyHPKey)key );
 		}
 		else {
-			CFSecJpaISOCtryHPKey mapped = new CFSecJpaISOCtryHPKey();
+			CFSecJpaISOCcyHPKey mapped = new CFSecJpaISOCcyHPKey();
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
 			mapped.setAuditStamp(key.getAuditStamp());
-			mapped.setRequiredISOCtryId( key.getRequiredISOCtryId() );
+			mapped.setRequiredISOCcyId( key.getRequiredISOCcyId() );
 			return( mapped );
 		}
 	}
 
     @Override
-    public ICFSecISOCtryByISOCodeIdxKey newByISOCodeIdxKey() {
-	ICFSecISOCtryByISOCodeIdxKey key =
-            new CFSecJpaISOCtryByISOCodeIdxKey();
+    public ICFSecISOCcyByCcyCdIdxKey newByCcyCdIdxKey() {
+		ICFSecISOCcyByCcyCdIdxKey key = new CFSecJpaISOCcyByCcyCdIdxKey();
 	return( key );
     }
 
-	public CFSecJpaISOCtryByISOCodeIdxKey ensureByISOCodeIdxKey(ICFSecISOCtryByISOCodeIdxKey key) {
+	public CFSecJpaISOCcyByCcyCdIdxKey ensureByCcyCdIdxKey(ICFSecISOCcyByCcyCdIdxKey key) {
 		if (key == null) {
 			return( null );
 		}
-		else if (key instanceof CFSecJpaISOCtryByISOCodeIdxKey) {
-			return( (CFSecJpaISOCtryByISOCodeIdxKey)key );
+		else if (key instanceof CFSecJpaISOCcyByCcyCdIdxKey) {
+			return( (CFSecJpaISOCcyByCcyCdIdxKey)key );
 		}
 		else {
-			CFSecJpaISOCtryByISOCodeIdxKey mapped = new CFSecJpaISOCtryByISOCodeIdxKey();
+			CFSecJpaISOCcyByCcyCdIdxKey mapped = new CFSecJpaISOCcyByCcyCdIdxKey();
 			mapped.setRequiredISOCode( key.getRequiredISOCode() );
 			return( mapped );
 		}
 	}
 
     @Override
-    public ICFSecISOCtryByNameIdxKey newByNameIdxKey() {
-	ICFSecISOCtryByNameIdxKey key =
-            new CFSecJpaISOCtryByNameIdxKey();
+    public ICFSecISOCcyByCcyNmIdxKey newByCcyNmIdxKey() {
+		ICFSecISOCcyByCcyNmIdxKey key = new CFSecJpaISOCcyByCcyNmIdxKey();
 	return( key );
     }
 
-	public CFSecJpaISOCtryByNameIdxKey ensureByNameIdxKey(ICFSecISOCtryByNameIdxKey key) {
+	public CFSecJpaISOCcyByCcyNmIdxKey ensureByCcyNmIdxKey(ICFSecISOCcyByCcyNmIdxKey key) {
 		if (key == null) {
 			return( null );
 		}
-		else if (key instanceof CFSecJpaISOCtryByNameIdxKey) {
-			return( (CFSecJpaISOCtryByNameIdxKey)key );
+		else if (key instanceof CFSecJpaISOCcyByCcyNmIdxKey) {
+			return( (CFSecJpaISOCcyByCcyNmIdxKey)key );
 		}
 		else {
-			CFSecJpaISOCtryByNameIdxKey mapped = new CFSecJpaISOCtryByNameIdxKey();
+			CFSecJpaISOCcyByCcyNmIdxKey mapped = new CFSecJpaISOCcyByCcyNmIdxKey();
 			mapped.setRequiredName( key.getRequiredName() );
 			return( mapped );
 		}
 	}
 
     @Override
-    public ICFSecISOCtry newRec() {
-        ICFSecISOCtry rec =
-            new CFSecJpaISOCtry();
+    public ICFSecISOCcy newRec() {
+        ICFSecISOCcy rec = new CFSecJpaISOCcy();
         return( rec );
     }
 
-	public CFSecJpaISOCtry ensureRec(ICFSecISOCtry rec) {
+	public CFSecJpaISOCcy ensureRec(ICFSecISOCcy rec) {
 		if( rec == null ) {
 			return( null );
 		}
-		else if (rec instanceof CFSecJpaISOCtry) {
-			return( (CFSecJpaISOCtry)rec );
+		else if (rec instanceof CFSecJpaISOCcy) {
+			return( (CFSecJpaISOCcy)rec );
 		}
 		else {
-			CFSecJpaISOCtry mapped = new CFSecJpaISOCtry();
+			CFSecJpaISOCcy mapped = new CFSecJpaISOCcy();
 			mapped.set(rec);
 			return( mapped );
 		}
 	}
 
     @Override
-    public ICFSecISOCtryH newHRec() {
-        ICFSecISOCtryH hrec =
-            new CFSecJpaISOCtryH();
+    public ICFSecISOCcyH newHRec() {
+        ICFSecISOCcyH hrec = new CFSecJpaISOCcyH();
         return( hrec );
     }
 
-	public CFSecJpaISOCtryH ensureHRec(ICFSecISOCtryH hrec) {
+	public CFSecJpaISOCcyH ensureHRec(ICFSecISOCcyH hrec) {
 		if (hrec == null) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaISOCtryH) {
-			return( (CFSecJpaISOCtryH)hrec );
+		else if( hrec instanceof CFSecJpaISOCcyH) {
+			return( (CFSecJpaISOCcyH)hrec );
 		}
 		else {
-			CFSecJpaISOCtryH mapped = new CFSecJpaISOCtryH();
+			CFSecJpaISOCcyH mapped = new CFSecJpaISOCcyH();
 			mapped.set(hrec);
 			return( mapped );
 		}

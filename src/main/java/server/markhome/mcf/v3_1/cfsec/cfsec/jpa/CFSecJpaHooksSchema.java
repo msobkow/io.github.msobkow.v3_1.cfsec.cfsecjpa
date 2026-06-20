@@ -152,7 +152,11 @@ public class CFSecJpaHooksSchema {
 	private CFSecJpaSchemaService schemaService;
 
 	@Autowired
-	@Qualifier("CFSecJpaIdGenService")
+	@Qualifier("cfsec31JpaFactory")
+	private CFSecJpaFactoryService factoryService;
+
+	@Autowired
+	@Qualifier("CFSec31JpaIdGenService")
 	private CFSecJpaIdGenService idGenService;
 
 	@Autowired
@@ -293,6 +297,16 @@ public class CFSecJpaHooksSchema {
 				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
 		}
 		return( schemaService );
+	}
+
+	public CFSecJpaFactoryService getFactoryService() {
+		if ( factoryService == null ) {
+			// Dynamically resolve the factory by qualifier name
+			throw new CFLibNotImplementedYetException( getClass(), "getFactoryService",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either",
+				"ERROR - do not know how to dynamically resolve Spring beans from POJO code yet and AspectJ did not resolve it either" );
+		}
+		return( factoryService );
 	}
 
 	public CFSecJpaIdGenService getIdGenService() {

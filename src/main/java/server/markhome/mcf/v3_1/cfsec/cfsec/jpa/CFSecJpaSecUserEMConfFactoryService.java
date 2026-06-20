@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecUserEMConf.
+// Description: Java 25 Factory service implementation for SecUserEMConf JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecUserEMConfFactory JPA implementation for SecUserEMConf
+ *	Java 25 Factory service implementation for SecUserEMConf JPA objects.
  */
-public class CFSecJpaSecUserEMConfDefaultFactory
+public class CFSecJpaSecUserEMConfFactoryService
     implements ICFSecSecUserEMConfFactory
 {
-    public CFSecJpaSecUserEMConfDefaultFactory() {
-    }
+    public CFSecJpaSecUserEMConfFactoryService() { }
 
     @Override
     public ICFSecSecUserEMConfHPKey newHPKey() {
-        ICFSecSecUserEMConfHPKey hpkey =
-            new CFSecJpaSecUserEMConfHPKey();
+        ICFSecSecUserEMConfHPKey hpkey = new CFSecJpaSecUserEMConfHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaSecUserEMConfDefaultFactory
 
     @Override
     public ICFSecSecUserEMConfByUUuid6IdxKey newByUUuid6IdxKey() {
-	ICFSecSecUserEMConfByUUuid6IdxKey key =
-            new CFSecJpaSecUserEMConfByUUuid6IdxKey();
+		ICFSecSecUserEMConfByUUuid6IdxKey key = new CFSecJpaSecUserEMConfByUUuid6IdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaSecUserEMConfDefaultFactory
 
     @Override
     public ICFSecSecUserEMConfByConfEMAddrIdxKey newByConfEMAddrIdxKey() {
-	ICFSecSecUserEMConfByConfEMAddrIdxKey key =
-            new CFSecJpaSecUserEMConfByConfEMAddrIdxKey();
+		ICFSecSecUserEMConfByConfEMAddrIdxKey key = new CFSecJpaSecUserEMConfByConfEMAddrIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaSecUserEMConfDefaultFactory
 
     @Override
     public ICFSecSecUserEMConfBySentStampIdxKey newBySentStampIdxKey() {
-	ICFSecSecUserEMConfBySentStampIdxKey key =
-            new CFSecJpaSecUserEMConfBySentStampIdxKey();
+		ICFSecSecUserEMConfBySentStampIdxKey key = new CFSecJpaSecUserEMConfBySentStampIdxKey();
 	return( key );
     }
 
@@ -139,8 +137,7 @@ public class CFSecJpaSecUserEMConfDefaultFactory
 
     @Override
     public ICFSecSecUserEMConfByNewAcctIdxKey newByNewAcctIdxKey() {
-	ICFSecSecUserEMConfByNewAcctIdxKey key =
-            new CFSecJpaSecUserEMConfByNewAcctIdxKey();
+		ICFSecSecUserEMConfByNewAcctIdxKey key = new CFSecJpaSecUserEMConfByNewAcctIdxKey();
 	return( key );
     }
 
@@ -160,8 +157,7 @@ public class CFSecJpaSecUserEMConfDefaultFactory
 
     @Override
     public ICFSecSecUserEMConf newRec() {
-        ICFSecSecUserEMConf rec =
-            new CFSecJpaSecUserEMConf();
+        ICFSecSecUserEMConf rec = new CFSecJpaSecUserEMConf();
         return( rec );
     }
 
@@ -181,8 +177,7 @@ public class CFSecJpaSecUserEMConfDefaultFactory
 
     @Override
     public ICFSecSecUserEMConfH newHRec() {
-        ICFSecSecUserEMConfH hrec =
-            new CFSecJpaSecUserEMConfH();
+        ICFSecSecUserEMConfH hrec = new CFSecJpaSecUserEMConfH();
         return( hrec );
     }
 

@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecTentRole.
+// Description: Java 25 Factory service implementation for SecTentRole JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecTentRoleFactory JPA implementation for SecTentRole
+ *	Java 25 Factory service implementation for SecTentRole JPA objects.
  */
-public class CFSecJpaSecTentRoleDefaultFactory
+public class CFSecJpaSecTentRoleFactoryService
     implements ICFSecSecTentRoleFactory
 {
-    public CFSecJpaSecTentRoleDefaultFactory() {
-    }
+    public CFSecJpaSecTentRoleFactoryService() { }
 
     @Override
     public ICFSecSecTentRoleHPKey newHPKey() {
-        ICFSecSecTentRoleHPKey hpkey =
-            new CFSecJpaSecTentRoleHPKey();
+        ICFSecSecTentRoleHPKey hpkey = new CFSecJpaSecTentRoleHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaSecTentRoleDefaultFactory
 
     @Override
     public ICFSecSecTentRoleByTenantIdxKey newByTenantIdxKey() {
-	ICFSecSecTentRoleByTenantIdxKey key =
-            new CFSecJpaSecTentRoleByTenantIdxKey();
+		ICFSecSecTentRoleByTenantIdxKey key = new CFSecJpaSecTentRoleByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaSecTentRoleDefaultFactory
 
     @Override
     public ICFSecSecTentRoleByNameIdxKey newByNameIdxKey() {
-	ICFSecSecTentRoleByNameIdxKey key =
-            new CFSecJpaSecTentRoleByNameIdxKey();
+		ICFSecSecTentRoleByNameIdxKey key = new CFSecJpaSecTentRoleByNameIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaSecTentRoleDefaultFactory
 
     @Override
     public ICFSecSecTentRoleByUNameIdxKey newByUNameIdxKey() {
-	ICFSecSecTentRoleByUNameIdxKey key =
-            new CFSecJpaSecTentRoleByUNameIdxKey();
+		ICFSecSecTentRoleByUNameIdxKey key = new CFSecJpaSecTentRoleByUNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFSecJpaSecTentRoleDefaultFactory
 
     @Override
     public ICFSecSecTentRole newRec() {
-        ICFSecSecTentRole rec =
-            new CFSecJpaSecTentRole();
+        ICFSecSecTentRole rec = new CFSecJpaSecTentRole();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFSecJpaSecTentRoleDefaultFactory
 
     @Override
     public ICFSecSecTentRoleH newHRec() {
-        ICFSecSecTentRoleH hrec =
-            new CFSecJpaSecTentRoleH();
+        ICFSecSecTentRoleH hrec = new CFSecJpaSecTentRoleH();
         return( hrec );
     }
 

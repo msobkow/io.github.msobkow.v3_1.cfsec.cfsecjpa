@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for Tenant.
+// Description: Java 25 Factory service implementation for Tenant JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecTenantFactory JPA implementation for Tenant
+ *	Java 25 Factory service implementation for Tenant JPA objects.
  */
-public class CFSecJpaTenantDefaultFactory
+public class CFSecJpaTenantFactoryService
     implements ICFSecTenantFactory
 {
-    public CFSecJpaTenantDefaultFactory() {
-    }
+    public CFSecJpaTenantFactoryService() { }
 
     @Override
     public ICFSecTenantHPKey newHPKey() {
-        ICFSecTenantHPKey hpkey =
-            new CFSecJpaTenantHPKey();
+        ICFSecTenantHPKey hpkey = new CFSecJpaTenantHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaTenantDefaultFactory
 
     @Override
     public ICFSecTenantByClusterIdxKey newByClusterIdxKey() {
-	ICFSecTenantByClusterIdxKey key =
-            new CFSecJpaTenantByClusterIdxKey();
+		ICFSecTenantByClusterIdxKey key = new CFSecJpaTenantByClusterIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaTenantDefaultFactory
 
     @Override
     public ICFSecTenantByUNameIdxKey newByUNameIdxKey() {
-	ICFSecTenantByUNameIdxKey key =
-            new CFSecJpaTenantByUNameIdxKey();
+		ICFSecTenantByUNameIdxKey key = new CFSecJpaTenantByUNameIdxKey();
 	return( key );
     }
 
@@ -119,8 +118,7 @@ public class CFSecJpaTenantDefaultFactory
 
     @Override
     public ICFSecTenant newRec() {
-        ICFSecTenant rec =
-            new CFSecJpaTenant();
+        ICFSecTenant rec = new CFSecJpaTenant();
         return( rec );
     }
 
@@ -140,8 +138,7 @@ public class CFSecJpaTenantDefaultFactory
 
     @Override
     public ICFSecTenantH newHRec() {
-        ICFSecTenantH hrec =
-            new CFSecJpaTenantH();
+        ICFSecTenantH hrec = new CFSecJpaTenantH();
         return( hrec );
     }
 

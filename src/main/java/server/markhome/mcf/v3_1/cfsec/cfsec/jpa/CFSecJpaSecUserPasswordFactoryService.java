@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SysCluster.
+// Description: Java 25 Factory service implementation for SecUserPassword JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,56 +36,56 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSysClusterFactory JPA implementation for SysCluster
+ *	Java 25 Factory service implementation for SecUserPassword JPA objects.
  */
-public class CFSecJpaSysClusterDefaultFactory
-    implements ICFSecSysClusterFactory
+public class CFSecJpaSecUserPasswordFactoryService
+    implements ICFSecSecUserPasswordFactory
 {
-    public CFSecJpaSysClusterDefaultFactory() {
-    }
+    public CFSecJpaSecUserPasswordFactoryService() { }
 
     @Override
-    public ICFSecSysClusterByClusterIdxKey newByClusterIdxKey() {
-	ICFSecSysClusterByClusterIdxKey key =
-            new CFSecJpaSysClusterByClusterIdxKey();
+    public ICFSecSecUserPasswordBySetStampIdxKey newBySetStampIdxKey() {
+		ICFSecSecUserPasswordBySetStampIdxKey key = new CFSecJpaSecUserPasswordBySetStampIdxKey();
 	return( key );
     }
 
-	public CFSecJpaSysClusterByClusterIdxKey ensureByClusterIdxKey(ICFSecSysClusterByClusterIdxKey key) {
+	public CFSecJpaSecUserPasswordBySetStampIdxKey ensureBySetStampIdxKey(ICFSecSecUserPasswordBySetStampIdxKey key) {
 		if (key == null) {
 			return( null );
 		}
-		else if (key instanceof CFSecJpaSysClusterByClusterIdxKey) {
-			return( (CFSecJpaSysClusterByClusterIdxKey)key );
+		else if (key instanceof CFSecJpaSecUserPasswordBySetStampIdxKey) {
+			return( (CFSecJpaSecUserPasswordBySetStampIdxKey)key );
 		}
 		else {
-			CFSecJpaSysClusterByClusterIdxKey mapped = new CFSecJpaSysClusterByClusterIdxKey();
-			mapped.setRequiredClusterId( key.getRequiredClusterId() );
+			CFSecJpaSecUserPasswordBySetStampIdxKey mapped = new CFSecJpaSecUserPasswordBySetStampIdxKey();
+			mapped.setRequiredPWSetStamp( key.getRequiredPWSetStamp() );
 			return( mapped );
 		}
 	}
 
     @Override
-    public ICFSecSysCluster newRec() {
-        ICFSecSysCluster rec =
-            new CFSecJpaSysCluster();
+    public ICFSecSecUserPassword newRec() {
+        ICFSecSecUserPassword rec = new CFSecJpaSecUserPassword();
         return( rec );
     }
 
-	public CFSecJpaSysCluster ensureRec(ICFSecSysCluster rec) {
+	public CFSecJpaSecUserPassword ensureRec(ICFSecSecUserPassword rec) {
 		if( rec == null ) {
 			return( null );
 		}
-		else if (rec instanceof CFSecJpaSysCluster) {
-			return( (CFSecJpaSysCluster)rec );
+		else if (rec instanceof CFSecJpaSecUserPassword) {
+			return( (CFSecJpaSecUserPassword)rec );
 		}
 		else {
-			CFSecJpaSysCluster mapped = new CFSecJpaSysCluster();
+			CFSecJpaSecUserPassword mapped = new CFSecJpaSecUserPassword();
 			mapped.set(rec);
 			return( mapped );
 		}

@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecUser.
+// Description: Java 25 Factory service implementation for SecUser JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecUserFactory JPA implementation for SecUser
+ *	Java 25 Factory service implementation for SecUser JPA objects.
  */
-public class CFSecJpaSecUserDefaultFactory
+public class CFSecJpaSecUserFactoryService
     implements ICFSecSecUserFactory
 {
-    public CFSecJpaSecUserDefaultFactory() {
-    }
+    public CFSecJpaSecUserFactoryService() { }
 
     @Override
     public ICFSecSecUserHPKey newHPKey() {
-        ICFSecSecUserHPKey hpkey =
-            new CFSecJpaSecUserHPKey();
+        ICFSecSecUserHPKey hpkey = new CFSecJpaSecUserHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaSecUserDefaultFactory
 
     @Override
     public ICFSecSecUserByULoginIdxKey newByULoginIdxKey() {
-	ICFSecSecUserByULoginIdxKey key =
-            new CFSecJpaSecUserByULoginIdxKey();
+		ICFSecSecUserByULoginIdxKey key = new CFSecJpaSecUserByULoginIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaSecUserDefaultFactory
 
     @Override
     public ICFSecSecUserByEMAddrIdxKey newByEMAddrIdxKey() {
-	ICFSecSecUserByEMAddrIdxKey key =
-            new CFSecJpaSecUserByEMAddrIdxKey();
+		ICFSecSecUserByEMAddrIdxKey key = new CFSecJpaSecUserByEMAddrIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaSecUserDefaultFactory
 
     @Override
     public ICFSecSecUser newRec() {
-        ICFSecSecUser rec =
-            new CFSecJpaSecUser();
+        ICFSecSecUser rec = new CFSecJpaSecUser();
         return( rec );
     }
 
@@ -139,8 +137,7 @@ public class CFSecJpaSecUserDefaultFactory
 
     @Override
     public ICFSecSecUserH newHRec() {
-        ICFSecSecUserH hrec =
-            new CFSecJpaSecUserH();
+        ICFSecSecUserH hrec = new CFSecJpaSecUserH();
         return( hrec );
     }
 

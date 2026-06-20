@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecClusRole.
+// Description: Java 25 Factory service implementation for SecClusRole JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecClusRoleFactory JPA implementation for SecClusRole
+ *	Java 25 Factory service implementation for SecClusRole JPA objects.
  */
-public class CFSecJpaSecClusRoleDefaultFactory
+public class CFSecJpaSecClusRoleFactoryService
     implements ICFSecSecClusRoleFactory
 {
-    public CFSecJpaSecClusRoleDefaultFactory() {
-    }
+    public CFSecJpaSecClusRoleFactoryService() { }
 
     @Override
     public ICFSecSecClusRoleHPKey newHPKey() {
-        ICFSecSecClusRoleHPKey hpkey =
-            new CFSecJpaSecClusRoleHPKey();
+        ICFSecSecClusRoleHPKey hpkey = new CFSecJpaSecClusRoleHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaSecClusRoleDefaultFactory
 
     @Override
     public ICFSecSecClusRoleByClusterIdxKey newByClusterIdxKey() {
-	ICFSecSecClusRoleByClusterIdxKey key =
-            new CFSecJpaSecClusRoleByClusterIdxKey();
+		ICFSecSecClusRoleByClusterIdxKey key = new CFSecJpaSecClusRoleByClusterIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaSecClusRoleDefaultFactory
 
     @Override
     public ICFSecSecClusRoleByNameIdxKey newByNameIdxKey() {
-	ICFSecSecClusRoleByNameIdxKey key =
-            new CFSecJpaSecClusRoleByNameIdxKey();
+		ICFSecSecClusRoleByNameIdxKey key = new CFSecJpaSecClusRoleByNameIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaSecClusRoleDefaultFactory
 
     @Override
     public ICFSecSecClusRoleByUNameIdxKey newByUNameIdxKey() {
-	ICFSecSecClusRoleByUNameIdxKey key =
-            new CFSecJpaSecClusRoleByUNameIdxKey();
+		ICFSecSecClusRoleByUNameIdxKey key = new CFSecJpaSecClusRoleByUNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFSecJpaSecClusRoleDefaultFactory
 
     @Override
     public ICFSecSecClusRole newRec() {
-        ICFSecSecClusRole rec =
-            new CFSecJpaSecClusRole();
+        ICFSecSecClusRole rec = new CFSecJpaSecClusRole();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFSecJpaSecClusRoleDefaultFactory
 
     @Override
     public ICFSecSecClusRoleH newHRec() {
-        ICFSecSecClusRoleH hrec =
-            new CFSecJpaSecClusRoleH();
+        ICFSecSecClusRoleH hrec = new CFSecJpaSecClusRoleH();
         return( hrec );
     }
 

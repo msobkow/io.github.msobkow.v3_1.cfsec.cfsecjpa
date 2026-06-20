@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecClusRoleMemb.
+// Description: Java 25 Factory service implementation for SecClusRoleMemb JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecClusRoleMembFactory JPA implementation for SecClusRoleMemb
+ *	Java 25 Factory service implementation for SecClusRoleMemb JPA objects.
  */
-public class CFSecJpaSecClusRoleMembDefaultFactory
+public class CFSecJpaSecClusRoleMembFactoryService
     implements ICFSecSecClusRoleMembFactory
 {
-    public CFSecJpaSecClusRoleMembDefaultFactory() {
-    }
+    public CFSecJpaSecClusRoleMembFactoryService() { }
 
     @Override
     public ICFSecSecClusRoleMembPKey newPKey() {
-        ICFSecSecClusRoleMembPKey pkey =
-            new CFSecJpaSecClusRoleMembPKey();
+        ICFSecSecClusRoleMembPKey pkey = new CFSecJpaSecClusRoleMembPKey();
         return( pkey );
     }
 
@@ -73,8 +74,7 @@ public class CFSecJpaSecClusRoleMembDefaultFactory
 
     @Override
     public ICFSecSecClusRoleMembHPKey newHPKey() {
-        ICFSecSecClusRoleMembHPKey hpkey =
-            new CFSecJpaSecClusRoleMembHPKey();
+        ICFSecSecClusRoleMembHPKey hpkey = new CFSecJpaSecClusRoleMembHPKey();
         return( hpkey );
     }
 
@@ -99,8 +99,7 @@ public class CFSecJpaSecClusRoleMembDefaultFactory
 
     @Override
     public ICFSecSecClusRoleMembByClusRoleIdxKey newByClusRoleIdxKey() {
-	ICFSecSecClusRoleMembByClusRoleIdxKey key =
-            new CFSecJpaSecClusRoleMembByClusRoleIdxKey();
+		ICFSecSecClusRoleMembByClusRoleIdxKey key = new CFSecJpaSecClusRoleMembByClusRoleIdxKey();
 	return( key );
     }
 
@@ -120,8 +119,7 @@ public class CFSecJpaSecClusRoleMembDefaultFactory
 
     @Override
     public ICFSecSecClusRoleMembByLoginIdxKey newByLoginIdxKey() {
-	ICFSecSecClusRoleMembByLoginIdxKey key =
-            new CFSecJpaSecClusRoleMembByLoginIdxKey();
+		ICFSecSecClusRoleMembByLoginIdxKey key = new CFSecJpaSecClusRoleMembByLoginIdxKey();
 	return( key );
     }
 
@@ -141,8 +139,7 @@ public class CFSecJpaSecClusRoleMembDefaultFactory
 
     @Override
     public ICFSecSecClusRoleMemb newRec() {
-        ICFSecSecClusRoleMemb rec =
-            new CFSecJpaSecClusRoleMemb();
+        ICFSecSecClusRoleMemb rec = new CFSecJpaSecClusRoleMemb();
         return( rec );
     }
 
@@ -162,8 +159,7 @@ public class CFSecJpaSecClusRoleMembDefaultFactory
 
     @Override
     public ICFSecSecClusRoleMembH newHRec() {
-        ICFSecSecClusRoleMembH hrec =
-            new CFSecJpaSecClusRoleMembH();
+        ICFSecSecClusRoleMembH hrec = new CFSecJpaSecClusRoleMembH();
         return( hrec );
     }
 

@@ -49,7 +49,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 /**
  *	Service for the CFSecId generation methods defined in server.markhome.mcf.v3_1.cfsec.cfsec application model.
  */
-@Service("CFSecJpaIdGenService")
+@Service("CFSec31JpaIdGenService")
 public class CFSecJpaIdGenService {
 
     @Autowired
@@ -59,7 +59,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a ClusterIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateClusterIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -123,7 +123,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a SecSessionIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecSessionIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -132,7 +132,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a SecUserIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecUserIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -141,7 +141,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a TenantIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateTenantIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -150,7 +150,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a SecSysGrpIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecSysGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -159,7 +159,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a SecClusGrpIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecClusGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -168,7 +168,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a SecClusRoleIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecClusRoleIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -177,7 +177,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a SecTentGrpIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecTentGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
@@ -186,7 +186,7 @@ public class CFSecJpaIdGenService {
 	/**
 	 *	Generate a SecTentRoleIdGen CFLibDbKeyHash256 id.
 	 *
-	 *		@return A pseudo-randomly generated CFLibDBKeyHash128 value
+	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
 	public CFLibDbKeyHash256 generateSecTentRoleIdGen() {
 		return( new CFLibDbKeyHash256(0) );

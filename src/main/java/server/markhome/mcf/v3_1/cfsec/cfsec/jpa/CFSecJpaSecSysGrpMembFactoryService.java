@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecSysGrpMemb.
+// Description: Java 25 Factory service implementation for SecSysGrpMemb JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecSysGrpMembFactory JPA implementation for SecSysGrpMemb
+ *	Java 25 Factory service implementation for SecSysGrpMemb JPA objects.
  */
-public class CFSecJpaSecSysGrpMembDefaultFactory
+public class CFSecJpaSecSysGrpMembFactoryService
     implements ICFSecSecSysGrpMembFactory
 {
-    public CFSecJpaSecSysGrpMembDefaultFactory() {
-    }
+    public CFSecJpaSecSysGrpMembFactoryService() { }
 
     @Override
     public ICFSecSecSysGrpMembPKey newPKey() {
-        ICFSecSecSysGrpMembPKey pkey =
-            new CFSecJpaSecSysGrpMembPKey();
+        ICFSecSecSysGrpMembPKey pkey = new CFSecJpaSecSysGrpMembPKey();
         return( pkey );
     }
 
@@ -73,8 +74,7 @@ public class CFSecJpaSecSysGrpMembDefaultFactory
 
     @Override
     public ICFSecSecSysGrpMembHPKey newHPKey() {
-        ICFSecSecSysGrpMembHPKey hpkey =
-            new CFSecJpaSecSysGrpMembHPKey();
+        ICFSecSecSysGrpMembHPKey hpkey = new CFSecJpaSecSysGrpMembHPKey();
         return( hpkey );
     }
 
@@ -99,8 +99,7 @@ public class CFSecJpaSecSysGrpMembDefaultFactory
 
     @Override
     public ICFSecSecSysGrpMembBySysGrpIdxKey newBySysGrpIdxKey() {
-	ICFSecSecSysGrpMembBySysGrpIdxKey key =
-            new CFSecJpaSecSysGrpMembBySysGrpIdxKey();
+		ICFSecSecSysGrpMembBySysGrpIdxKey key = new CFSecJpaSecSysGrpMembBySysGrpIdxKey();
 	return( key );
     }
 
@@ -120,8 +119,7 @@ public class CFSecJpaSecSysGrpMembDefaultFactory
 
     @Override
     public ICFSecSecSysGrpMembByLoginIdxKey newByLoginIdxKey() {
-	ICFSecSecSysGrpMembByLoginIdxKey key =
-            new CFSecJpaSecSysGrpMembByLoginIdxKey();
+		ICFSecSecSysGrpMembByLoginIdxKey key = new CFSecJpaSecSysGrpMembByLoginIdxKey();
 	return( key );
     }
 
@@ -141,8 +139,7 @@ public class CFSecJpaSecSysGrpMembDefaultFactory
 
     @Override
     public ICFSecSecSysGrpMemb newRec() {
-        ICFSecSecSysGrpMemb rec =
-            new CFSecJpaSecSysGrpMemb();
+        ICFSecSecSysGrpMemb rec = new CFSecJpaSecSysGrpMemb();
         return( rec );
     }
 
@@ -162,8 +159,7 @@ public class CFSecJpaSecSysGrpMembDefaultFactory
 
     @Override
     public ICFSecSecSysGrpMembH newHRec() {
-        ICFSecSecSysGrpMembH hrec =
-            new CFSecJpaSecSysGrpMembH();
+        ICFSecSecSysGrpMembH hrec = new CFSecJpaSecSysGrpMembH();
         return( hrec );
     }
 

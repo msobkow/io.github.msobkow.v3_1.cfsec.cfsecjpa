@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecClusGrp.
+// Description: Java 25 Factory service implementation for SecClusGrp JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecClusGrpFactory JPA implementation for SecClusGrp
+ *	Java 25 Factory service implementation for SecClusGrp JPA objects.
  */
-public class CFSecJpaSecClusGrpDefaultFactory
+public class CFSecJpaSecClusGrpFactoryService
     implements ICFSecSecClusGrpFactory
 {
-    public CFSecJpaSecClusGrpDefaultFactory() {
-    }
+    public CFSecJpaSecClusGrpFactoryService() { }
 
     @Override
     public ICFSecSecClusGrpHPKey newHPKey() {
-        ICFSecSecClusGrpHPKey hpkey =
-            new CFSecJpaSecClusGrpHPKey();
+        ICFSecSecClusGrpHPKey hpkey = new CFSecJpaSecClusGrpHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaSecClusGrpDefaultFactory
 
     @Override
     public ICFSecSecClusGrpByClusterIdxKey newByClusterIdxKey() {
-	ICFSecSecClusGrpByClusterIdxKey key =
-            new CFSecJpaSecClusGrpByClusterIdxKey();
+		ICFSecSecClusGrpByClusterIdxKey key = new CFSecJpaSecClusGrpByClusterIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaSecClusGrpDefaultFactory
 
     @Override
     public ICFSecSecClusGrpByNameIdxKey newByNameIdxKey() {
-	ICFSecSecClusGrpByNameIdxKey key =
-            new CFSecJpaSecClusGrpByNameIdxKey();
+		ICFSecSecClusGrpByNameIdxKey key = new CFSecJpaSecClusGrpByNameIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaSecClusGrpDefaultFactory
 
     @Override
     public ICFSecSecClusGrpByUNameIdxKey newByUNameIdxKey() {
-	ICFSecSecClusGrpByUNameIdxKey key =
-            new CFSecJpaSecClusGrpByUNameIdxKey();
+		ICFSecSecClusGrpByUNameIdxKey key = new CFSecJpaSecClusGrpByUNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFSecJpaSecClusGrpDefaultFactory
 
     @Override
     public ICFSecSecClusGrp newRec() {
-        ICFSecSecClusGrp rec =
-            new CFSecJpaSecClusGrp();
+        ICFSecSecClusGrp rec = new CFSecJpaSecClusGrp();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFSecJpaSecClusGrpDefaultFactory
 
     @Override
     public ICFSecSecClusGrpH newHRec() {
-        ICFSecSecClusGrpH hrec =
-            new CFSecJpaSecClusGrpH();
+        ICFSecSecClusGrpH hrec = new CFSecJpaSecClusGrpH();
         return( hrec );
     }
 

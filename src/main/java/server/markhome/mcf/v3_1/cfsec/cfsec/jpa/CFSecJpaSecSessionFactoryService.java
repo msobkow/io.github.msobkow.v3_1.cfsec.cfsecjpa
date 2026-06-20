@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecSession.
+// Description: Java 25 Factory service implementation for SecSession JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecSessionFactory JPA implementation for SecSession
+ *	Java 25 Factory service implementation for SecSession JPA objects.
  */
-public class CFSecJpaSecSessionDefaultFactory
+public class CFSecJpaSecSessionFactoryService
     implements ICFSecSecSessionFactory
 {
-    public CFSecJpaSecSessionDefaultFactory() {
-    }
+    public CFSecJpaSecSessionFactoryService() { }
 
     @Override
     public ICFSecSecSessionBySecUserIdxKey newBySecUserIdxKey() {
-	ICFSecSecSessionBySecUserIdxKey key =
-            new CFSecJpaSecSessionBySecUserIdxKey();
+		ICFSecSecSessionBySecUserIdxKey key = new CFSecJpaSecSessionBySecUserIdxKey();
 	return( key );
     }
 
@@ -72,8 +73,7 @@ public class CFSecJpaSecSessionDefaultFactory
 
     @Override
     public ICFSecSecSessionByStartIdxKey newByStartIdxKey() {
-	ICFSecSecSessionByStartIdxKey key =
-            new CFSecJpaSecSessionByStartIdxKey();
+		ICFSecSecSessionByStartIdxKey key = new CFSecJpaSecSessionByStartIdxKey();
 	return( key );
     }
 
@@ -94,8 +94,7 @@ public class CFSecJpaSecSessionDefaultFactory
 
     @Override
     public ICFSecSecSessionByFinishIdxKey newByFinishIdxKey() {
-	ICFSecSecSessionByFinishIdxKey key =
-            new CFSecJpaSecSessionByFinishIdxKey();
+		ICFSecSecSessionByFinishIdxKey key = new CFSecJpaSecSessionByFinishIdxKey();
 	return( key );
     }
 
@@ -116,8 +115,7 @@ public class CFSecJpaSecSessionDefaultFactory
 
     @Override
     public ICFSecSecSessionBySecProxyIdxKey newBySecProxyIdxKey() {
-	ICFSecSecSessionBySecProxyIdxKey key =
-            new CFSecJpaSecSessionBySecProxyIdxKey();
+		ICFSecSecSessionBySecProxyIdxKey key = new CFSecJpaSecSessionBySecProxyIdxKey();
 	return( key );
     }
 
@@ -137,8 +135,7 @@ public class CFSecJpaSecSessionDefaultFactory
 
     @Override
     public ICFSecSecSession newRec() {
-        ICFSecSecSession rec =
-            new CFSecJpaSecSession();
+        ICFSecSecSession rec = new CFSecJpaSecSession();
         return( rec );
     }
 

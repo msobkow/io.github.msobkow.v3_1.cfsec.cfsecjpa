@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for TableInfo.
+// Description: Java 25 Factory service implementation for TableInfo JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecTableInfoFactory JPA implementation for TableInfo
+ *	Java 25 Factory service implementation for TableInfo JPA objects.
  */
-public class CFSecJpaTableInfoDefaultFactory
+public class CFSecJpaTableInfoFactoryService
     implements ICFSecTableInfoFactory
 {
-    public CFSecJpaTableInfoDefaultFactory() {
-    }
+    public CFSecJpaTableInfoFactoryService() { }
 
     @Override
     public ICFSecTableInfoHPKey newHPKey() {
-        ICFSecTableInfoHPKey hpkey =
-            new CFSecJpaTableInfoHPKey();
+        ICFSecTableInfoHPKey hpkey = new CFSecJpaTableInfoHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaTableInfoDefaultFactory
 
     @Override
     public ICFSecTableInfoByTableNameIdxKey newByTableNameIdxKey() {
-	ICFSecTableInfoByTableNameIdxKey key =
-            new CFSecJpaTableInfoByTableNameIdxKey();
+		ICFSecTableInfoByTableNameIdxKey key = new CFSecJpaTableInfoByTableNameIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaTableInfoDefaultFactory
 
     @Override
     public ICFSecTableInfoBySuperNameIdxKey newBySuperNameIdxKey() {
-	ICFSecTableInfoBySuperNameIdxKey key =
-            new CFSecJpaTableInfoBySuperNameIdxKey();
+		ICFSecTableInfoBySuperNameIdxKey key = new CFSecJpaTableInfoBySuperNameIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaTableInfoDefaultFactory
 
     @Override
     public ICFSecTableInfoBySchemaNameIdxKey newBySchemaNameIdxKey() {
-	ICFSecTableInfoBySchemaNameIdxKey key =
-            new CFSecJpaTableInfoBySchemaNameIdxKey();
+		ICFSecTableInfoBySchemaNameIdxKey key = new CFSecJpaTableInfoBySchemaNameIdxKey();
 	return( key );
     }
 
@@ -139,8 +137,7 @@ public class CFSecJpaTableInfoDefaultFactory
 
     @Override
     public ICFSecTableInfoBySchemaBkCodeIdxKey newBySchemaBkCodeIdxKey() {
-	ICFSecTableInfoBySchemaBkCodeIdxKey key =
-            new CFSecJpaTableInfoBySchemaBkCodeIdxKey();
+		ICFSecTableInfoBySchemaBkCodeIdxKey key = new CFSecJpaTableInfoBySchemaBkCodeIdxKey();
 	return( key );
     }
 
@@ -161,8 +158,7 @@ public class CFSecJpaTableInfoDefaultFactory
 
     @Override
     public ICFSecTableInfoBySchemaRTCodeIdxKey newBySchemaRTCodeIdxKey() {
-	ICFSecTableInfoBySchemaRTCodeIdxKey key =
-            new CFSecJpaTableInfoBySchemaRTCodeIdxKey();
+		ICFSecTableInfoBySchemaRTCodeIdxKey key = new CFSecJpaTableInfoBySchemaRTCodeIdxKey();
 	return( key );
     }
 
@@ -182,8 +178,7 @@ public class CFSecJpaTableInfoDefaultFactory
 
     @Override
     public ICFSecTableInfo newRec() {
-        ICFSecTableInfo rec =
-            new CFSecJpaTableInfo();
+        ICFSecTableInfo rec = new CFSecJpaTableInfo();
         return( rec );
     }
 
@@ -203,8 +198,7 @@ public class CFSecJpaTableInfoDefaultFactory
 
     @Override
     public ICFSecTableInfoH newHRec() {
-        ICFSecTableInfoH hrec =
-            new CFSecJpaTableInfoH();
+        ICFSecTableInfoH hrec = new CFSecJpaTableInfoH();
         return( hrec );
     }
 

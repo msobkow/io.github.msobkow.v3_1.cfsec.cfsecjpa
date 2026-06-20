@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for ISOCtryLang.
+// Description: Java 25 Factory service implementation for ISOCtryLang JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecISOCtryLangFactory JPA implementation for ISOCtryLang
+ *	Java 25 Factory service implementation for ISOCtryLang JPA objects.
  */
-public class CFSecJpaISOCtryLangDefaultFactory
+public class CFSecJpaISOCtryLangFactoryService
     implements ICFSecISOCtryLangFactory
 {
-    public CFSecJpaISOCtryLangDefaultFactory() {
-    }
+    public CFSecJpaISOCtryLangFactoryService() { }
 
     @Override
     public ICFSecISOCtryLangPKey newPKey() {
-        ICFSecISOCtryLangPKey pkey =
-            new CFSecJpaISOCtryLangPKey();
+        ICFSecISOCtryLangPKey pkey = new CFSecJpaISOCtryLangPKey();
         return( pkey );
     }
 
@@ -73,8 +74,7 @@ public class CFSecJpaISOCtryLangDefaultFactory
 
     @Override
     public ICFSecISOCtryLangHPKey newHPKey() {
-        ICFSecISOCtryLangHPKey hpkey =
-            new CFSecJpaISOCtryLangHPKey();
+        ICFSecISOCtryLangHPKey hpkey = new CFSecJpaISOCtryLangHPKey();
         return( hpkey );
     }
 
@@ -99,8 +99,7 @@ public class CFSecJpaISOCtryLangDefaultFactory
 
     @Override
     public ICFSecISOCtryLangByCtryIdxKey newByCtryIdxKey() {
-	ICFSecISOCtryLangByCtryIdxKey key =
-            new CFSecJpaISOCtryLangByCtryIdxKey();
+		ICFSecISOCtryLangByCtryIdxKey key = new CFSecJpaISOCtryLangByCtryIdxKey();
 	return( key );
     }
 
@@ -120,8 +119,7 @@ public class CFSecJpaISOCtryLangDefaultFactory
 
     @Override
     public ICFSecISOCtryLangByLangIdxKey newByLangIdxKey() {
-	ICFSecISOCtryLangByLangIdxKey key =
-            new CFSecJpaISOCtryLangByLangIdxKey();
+		ICFSecISOCtryLangByLangIdxKey key = new CFSecJpaISOCtryLangByLangIdxKey();
 	return( key );
     }
 
@@ -141,8 +139,7 @@ public class CFSecJpaISOCtryLangDefaultFactory
 
     @Override
     public ICFSecISOCtryLang newRec() {
-        ICFSecISOCtryLang rec =
-            new CFSecJpaISOCtryLang();
+        ICFSecISOCtryLang rec = new CFSecJpaISOCtryLang();
         return( rec );
     }
 
@@ -162,8 +159,7 @@ public class CFSecJpaISOCtryLangDefaultFactory
 
     @Override
     public ICFSecISOCtryLangH newHRec() {
-        ICFSecISOCtryLangH hrec =
-            new CFSecJpaISOCtryLangH();
+        ICFSecISOCtryLangH hrec = new CFSecJpaISOCtryLangH();
         return( hrec );
     }
 

@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecTentGrp.
+// Description: Java 25 Factory service implementation for SecTentGrp JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecTentGrpFactory JPA implementation for SecTentGrp
+ *	Java 25 Factory service implementation for SecTentGrp JPA objects.
  */
-public class CFSecJpaSecTentGrpDefaultFactory
+public class CFSecJpaSecTentGrpFactoryService
     implements ICFSecSecTentGrpFactory
 {
-    public CFSecJpaSecTentGrpDefaultFactory() {
-    }
+    public CFSecJpaSecTentGrpFactoryService() { }
 
     @Override
     public ICFSecSecTentGrpHPKey newHPKey() {
-        ICFSecSecTentGrpHPKey hpkey =
-            new CFSecJpaSecTentGrpHPKey();
+        ICFSecSecTentGrpHPKey hpkey = new CFSecJpaSecTentGrpHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaSecTentGrpDefaultFactory
 
     @Override
     public ICFSecSecTentGrpByTenantIdxKey newByTenantIdxKey() {
-	ICFSecSecTentGrpByTenantIdxKey key =
-            new CFSecJpaSecTentGrpByTenantIdxKey();
+		ICFSecSecTentGrpByTenantIdxKey key = new CFSecJpaSecTentGrpByTenantIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaSecTentGrpDefaultFactory
 
     @Override
     public ICFSecSecTentGrpByNameIdxKey newByNameIdxKey() {
-	ICFSecSecTentGrpByNameIdxKey key =
-            new CFSecJpaSecTentGrpByNameIdxKey();
+		ICFSecSecTentGrpByNameIdxKey key = new CFSecJpaSecTentGrpByNameIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaSecTentGrpDefaultFactory
 
     @Override
     public ICFSecSecTentGrpByUNameIdxKey newByUNameIdxKey() {
-	ICFSecSecTentGrpByUNameIdxKey key =
-            new CFSecJpaSecTentGrpByUNameIdxKey();
+		ICFSecSecTentGrpByUNameIdxKey key = new CFSecJpaSecTentGrpByUNameIdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFSecJpaSecTentGrpDefaultFactory
 
     @Override
     public ICFSecSecTentGrp newRec() {
-        ICFSecSecTentGrp rec =
-            new CFSecJpaSecTentGrp();
+        ICFSecSecTentGrp rec = new CFSecJpaSecTentGrp();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFSecJpaSecTentGrpDefaultFactory
 
     @Override
     public ICFSecSecTentGrpH newHRec() {
-        ICFSecSecTentGrpH hrec =
-            new CFSecJpaSecTentGrpH();
+        ICFSecSecTentGrpH hrec = new CFSecJpaSecTentGrpH();
         return( hrec );
     }
 

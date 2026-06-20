@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for ISOCtryCcy.
+// Description: Java 25 Factory service implementation for ISOCtryCcy JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecISOCtryCcyFactory JPA implementation for ISOCtryCcy
+ *	Java 25 Factory service implementation for ISOCtryCcy JPA objects.
  */
-public class CFSecJpaISOCtryCcyDefaultFactory
+public class CFSecJpaISOCtryCcyFactoryService
     implements ICFSecISOCtryCcyFactory
 {
-    public CFSecJpaISOCtryCcyDefaultFactory() {
-    }
+    public CFSecJpaISOCtryCcyFactoryService() { }
 
     @Override
     public ICFSecISOCtryCcyPKey newPKey() {
-        ICFSecISOCtryCcyPKey pkey =
-            new CFSecJpaISOCtryCcyPKey();
+        ICFSecISOCtryCcyPKey pkey = new CFSecJpaISOCtryCcyPKey();
         return( pkey );
     }
 
@@ -73,8 +74,7 @@ public class CFSecJpaISOCtryCcyDefaultFactory
 
     @Override
     public ICFSecISOCtryCcyHPKey newHPKey() {
-        ICFSecISOCtryCcyHPKey hpkey =
-            new CFSecJpaISOCtryCcyHPKey();
+        ICFSecISOCtryCcyHPKey hpkey = new CFSecJpaISOCtryCcyHPKey();
         return( hpkey );
     }
 
@@ -99,8 +99,7 @@ public class CFSecJpaISOCtryCcyDefaultFactory
 
     @Override
     public ICFSecISOCtryCcyByCtryIdxKey newByCtryIdxKey() {
-	ICFSecISOCtryCcyByCtryIdxKey key =
-            new CFSecJpaISOCtryCcyByCtryIdxKey();
+		ICFSecISOCtryCcyByCtryIdxKey key = new CFSecJpaISOCtryCcyByCtryIdxKey();
 	return( key );
     }
 
@@ -120,8 +119,7 @@ public class CFSecJpaISOCtryCcyDefaultFactory
 
     @Override
     public ICFSecISOCtryCcyByCcyIdxKey newByCcyIdxKey() {
-	ICFSecISOCtryCcyByCcyIdxKey key =
-            new CFSecJpaISOCtryCcyByCcyIdxKey();
+		ICFSecISOCtryCcyByCcyIdxKey key = new CFSecJpaISOCtryCcyByCcyIdxKey();
 	return( key );
     }
 
@@ -141,8 +139,7 @@ public class CFSecJpaISOCtryCcyDefaultFactory
 
     @Override
     public ICFSecISOCtryCcy newRec() {
-        ICFSecISOCtryCcy rec =
-            new CFSecJpaISOCtryCcy();
+        ICFSecISOCtryCcy rec = new CFSecJpaISOCtryCcy();
         return( rec );
     }
 
@@ -162,8 +159,7 @@ public class CFSecJpaISOCtryCcyDefaultFactory
 
     @Override
     public ICFSecISOCtryCcyH newHRec() {
-        ICFSecISOCtryCcyH hrec =
-            new CFSecJpaISOCtryCcyH();
+        ICFSecISOCtryCcyH hrec = new CFSecJpaISOCtryCcyH();
         return( hrec );
     }
 

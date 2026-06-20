@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for SecSysGrp.
+// Description: Java 25 Factory service implementation for SecSysGrp JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecSecSysGrpFactory JPA implementation for SecSysGrp
+ *	Java 25 Factory service implementation for SecSysGrp JPA objects.
  */
-public class CFSecJpaSecSysGrpDefaultFactory
+public class CFSecJpaSecSysGrpFactoryService
     implements ICFSecSecSysGrpFactory
 {
-    public CFSecJpaSecSysGrpDefaultFactory() {
-    }
+    public CFSecJpaSecSysGrpFactoryService() { }
 
     @Override
     public ICFSecSecSysGrpHPKey newHPKey() {
-        ICFSecSecSysGrpHPKey hpkey =
-            new CFSecJpaSecSysGrpHPKey();
+        ICFSecSecSysGrpHPKey hpkey = new CFSecJpaSecSysGrpHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaSecSysGrpDefaultFactory
 
     @Override
     public ICFSecSecSysGrpByUNameIdxKey newByUNameIdxKey() {
-	ICFSecSecSysGrpByUNameIdxKey key =
-            new CFSecJpaSecSysGrpByUNameIdxKey();
+		ICFSecSecSysGrpByUNameIdxKey key = new CFSecJpaSecSysGrpByUNameIdxKey();
 	return( key );
     }
 
@@ -97,8 +97,7 @@ public class CFSecJpaSecSysGrpDefaultFactory
 
     @Override
     public ICFSecSecSysGrpBySecLevelIdxKey newBySecLevelIdxKey() {
-	ICFSecSecSysGrpBySecLevelIdxKey key =
-            new CFSecJpaSecSysGrpBySecLevelIdxKey();
+		ICFSecSecSysGrpBySecLevelIdxKey key = new CFSecJpaSecSysGrpBySecLevelIdxKey();
 	return( key );
     }
 
@@ -118,8 +117,7 @@ public class CFSecJpaSecSysGrpDefaultFactory
 
     @Override
     public ICFSecSecSysGrp newRec() {
-        ICFSecSecSysGrp rec =
-            new CFSecJpaSecSysGrp();
+        ICFSecSecSysGrp rec = new CFSecJpaSecSysGrp();
         return( rec );
     }
 
@@ -139,8 +137,7 @@ public class CFSecJpaSecSysGrpDefaultFactory
 
     @Override
     public ICFSecSecSysGrpH newHRec() {
-        ICFSecSecSysGrpH hrec =
-            new CFSecJpaSecSysGrpH();
+        ICFSecSecSysGrpH hrec = new CFSecJpaSecSysGrpH();
         return( hrec );
     }
 

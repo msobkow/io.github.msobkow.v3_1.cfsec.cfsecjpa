@@ -1,5 +1,5 @@
 
-// Description: Java 25 JPA Default Factory implementation for ISOTZone.
+// Description: Java 25 Factory service implementation for ISOTZone JPA objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -36,23 +36,24 @@ import java.text.*;
 import java.util.*;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /*
- *	CFSecISOTZoneFactory JPA implementation for ISOTZone
+ *	Java 25 Factory service implementation for ISOTZone JPA objects.
  */
-public class CFSecJpaISOTZoneDefaultFactory
+public class CFSecJpaISOTZoneFactoryService
     implements ICFSecISOTZoneFactory
 {
-    public CFSecJpaISOTZoneDefaultFactory() {
-    }
+    public CFSecJpaISOTZoneFactoryService() { }
 
     @Override
     public ICFSecISOTZoneHPKey newHPKey() {
-        ICFSecISOTZoneHPKey hpkey =
-            new CFSecJpaISOTZoneHPKey();
+        ICFSecISOTZoneHPKey hpkey = new CFSecJpaISOTZoneHPKey();
         return( hpkey );
     }
 
@@ -76,8 +77,7 @@ public class CFSecJpaISOTZoneDefaultFactory
 
     @Override
     public ICFSecISOTZoneByOffsetIdxKey newByOffsetIdxKey() {
-	ICFSecISOTZoneByOffsetIdxKey key =
-            new CFSecJpaISOTZoneByOffsetIdxKey();
+		ICFSecISOTZoneByOffsetIdxKey key = new CFSecJpaISOTZoneByOffsetIdxKey();
 	return( key );
     }
 
@@ -98,8 +98,7 @@ public class CFSecJpaISOTZoneDefaultFactory
 
     @Override
     public ICFSecISOTZoneByUTZNameIdxKey newByUTZNameIdxKey() {
-	ICFSecISOTZoneByUTZNameIdxKey key =
-            new CFSecJpaISOTZoneByUTZNameIdxKey();
+		ICFSecISOTZoneByUTZNameIdxKey key = new CFSecJpaISOTZoneByUTZNameIdxKey();
 	return( key );
     }
 
@@ -119,8 +118,7 @@ public class CFSecJpaISOTZoneDefaultFactory
 
     @Override
     public ICFSecISOTZoneByIso8601IdxKey newByIso8601IdxKey() {
-	ICFSecISOTZoneByIso8601IdxKey key =
-            new CFSecJpaISOTZoneByIso8601IdxKey();
+		ICFSecISOTZoneByIso8601IdxKey key = new CFSecJpaISOTZoneByIso8601IdxKey();
 	return( key );
     }
 
@@ -140,8 +138,7 @@ public class CFSecJpaISOTZoneDefaultFactory
 
     @Override
     public ICFSecISOTZone newRec() {
-        ICFSecISOTZone rec =
-            new CFSecJpaISOTZone();
+        ICFSecISOTZone rec = new CFSecJpaISOTZone();
         return( rec );
     }
 
@@ -161,8 +158,7 @@ public class CFSecJpaISOTZoneDefaultFactory
 
     @Override
     public ICFSecISOTZoneH newHRec() {
-        ICFSecISOTZoneH hrec =
-            new CFSecJpaISOTZoneH();
+        ICFSecISOTZoneH hrec = new CFSecJpaISOTZoneH();
         return( hrec );
     }
 
