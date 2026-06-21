@@ -52,6 +52,30 @@ public class CFSecJpaSecUserPasswordFactoryService
     public CFSecJpaSecUserPasswordFactoryService() { }
 
     @Override
+    public ICFSecSecUserPasswordHPKey newHPKey() {
+        ICFSecSecUserPasswordHPKey hpkey = new CFSecJpaSecUserPasswordHPKey();
+        return( hpkey );
+    }
+
+	public CFSecJpaSecUserPasswordHPKey ensureHPKey(ICFSecSecUserPasswordHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaSecUserPasswordHPKey) {
+			return( (CFSecJpaSecUserPasswordHPKey)key );
+		}
+		else {
+			CFSecJpaSecUserPasswordHPKey mapped = new CFSecJpaSecUserPasswordHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredSecUserId( key.getRequiredSecUserId() );
+			return( mapped );
+		}
+	}
+
+    @Override
     public ICFSecSecUserPasswordBySetStampIdxKey newBySetStampIdxKey() {
 		ICFSecSecUserPasswordBySetStampIdxKey key = new CFSecJpaSecUserPasswordBySetStampIdxKey();
 	return( key );
@@ -94,6 +118,33 @@ public class CFSecJpaSecUserPasswordFactoryService
 					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
 						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUserPassword",
 						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUserPassword");
+			}
+		}
+	}
+
+    @Override
+    public ICFSecSecUserPasswordH newHRec() {
+        ICFSecSecUserPasswordH hrec = new CFSecJpaSecUserPasswordH();
+        return( hrec );
+    }
+
+	public CFSecJpaSecUserPasswordH ensureHRec(ICFSecSecUserPasswordH hrec) {
+		if( hrec == null ) {
+			return( null );
+		}
+		else if (hrec instanceof CFSecJpaSecUserPasswordH) {
+			return( (CFSecJpaSecUserPasswordH)hrec );
+		}
+		else {
+			switch(hrec.getClassCode()) {
+				case ICFSecSecUserPassword.CLASS_CODE: {
+					CFSecJpaSecUserPasswordH mapped = new CFSecJpaSecUserPasswordH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecUserPassword",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecUserPassword");
 			}
 		}
 	}

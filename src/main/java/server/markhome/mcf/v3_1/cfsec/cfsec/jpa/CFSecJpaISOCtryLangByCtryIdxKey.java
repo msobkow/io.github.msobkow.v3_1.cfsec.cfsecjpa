@@ -145,7 +145,7 @@ public class CFSecJpaISOCtryLangByCtryIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOCtryLangByCtryIdxKey, ICFSecISOCtryLang, ICFSecISOCtryLangH");
+				"ICFSecISOCtryLangByCtryIdxKey, ICFSecISOCtryLang$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

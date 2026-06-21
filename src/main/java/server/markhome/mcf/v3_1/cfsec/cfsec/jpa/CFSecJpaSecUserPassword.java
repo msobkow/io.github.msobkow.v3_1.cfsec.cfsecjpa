@@ -239,6 +239,74 @@ public class CFSecJpaSecUserPassword
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSecUserPasswordH) {
+			ICFSecSecUserPasswordH rhs = (ICFSecSecUserPasswordH)obj;
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredPWSetStamp() != null ) {
+				if( rhs.getRequiredPWSetStamp() != null ) {
+					if( ! getRequiredPWSetStamp().equals( rhs.getRequiredPWSetStamp() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredPWSetStamp() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredPasswordHash() != null ) {
+				if( rhs.getRequiredPasswordHash() != null ) {
+					if( ! getRequiredPasswordHash().equals( rhs.getRequiredPasswordHash() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredPasswordHash() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if (obj instanceof ICFSecSecUserPasswordHPKey) {
+			ICFSecSecUserPasswordHPKey rhs = (ICFSecSecUserPasswordHPKey)obj;
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else if (obj instanceof ICFSecSecUserPasswordBySetStampIdxKey) {
 			ICFSecSecUserPasswordBySetStampIdxKey rhs = (ICFSecSecUserPasswordBySetStampIdxKey)obj;
 			if( getRequiredPWSetStamp() != null ) {
@@ -330,6 +398,70 @@ public class CFSecJpaSecUserPassword
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSecUserPasswordHPKey) {
+			ICFSecSecUserPasswordHPKey rhs = (ICFSecSecUserPasswordHPKey)obj;
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
+		else if( obj instanceof ICFSecSecUserPasswordH ) {
+			ICFSecSecUserPasswordH rhs = (ICFSecSecUserPasswordH)obj;
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
+			}
+			if (getRequiredPWSetStamp() != null) {
+				if (rhs.getRequiredPWSetStamp() != null) {
+					cmp = getRequiredPWSetStamp().compareTo( rhs.getRequiredPWSetStamp() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPWSetStamp() != null) {
+				return( -1 );
+			}
+			if (getRequiredPasswordHash() != null) {
+				if (rhs.getRequiredPasswordHash() != null) {
+					cmp = getRequiredPasswordHash().compareTo( rhs.getRequiredPasswordHash() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPasswordHash() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else if (obj instanceof ICFSecSecUserPasswordBySetStampIdxKey) {
 			ICFSecSecUserPasswordBySetStampIdxKey rhs = (ICFSecSecUserPasswordBySetStampIdxKey)obj;
 			if (getRequiredPWSetStamp() != null) {
@@ -366,6 +498,18 @@ public class CFSecJpaSecUserPassword
 	public void setSecUserPassword( ICFSecSecUserPassword src ) {
 		setRequiredContainerUser(src.getRequiredContainerUser());
 		setRequiredRevision( src.getRequiredRevision() );
+		setRequiredPWSetStamp(src.getRequiredPWSetStamp());
+		setRequiredPasswordHash(src.getRequiredPasswordHash());
+	}
+
+	@Override
+	public void set( ICFSecSecUserPasswordH src ) {
+		setSecUserPassword( src );
+	}
+
+	@Override
+	public void setSecUserPassword( ICFSecSecUserPasswordH src ) {
+		setRequiredContainerUser(src.getRequiredSecUserId());
 		setRequiredPWSetStamp(src.getRequiredPWSetStamp());
 		setRequiredPasswordHash(src.getRequiredPasswordHash());
 	}

@@ -494,7 +494,7 @@ public class CFSecJpaSecTentGrpHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecTentGrpPKey, ICFSecSecTentGrp, ICFSecSecTentGrpHPKey, ICFSecSecTentGrpH" );
+				"ICFSecSecTentGrpPKey, ICFSecSecTentGrp$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

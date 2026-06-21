@@ -52,6 +52,30 @@ public class CFSecJpaSysClusterFactoryService
     public CFSecJpaSysClusterFactoryService() { }
 
     @Override
+    public ICFSecSysClusterHPKey newHPKey() {
+        ICFSecSysClusterHPKey hpkey = new CFSecJpaSysClusterHPKey();
+        return( hpkey );
+    }
+
+	public CFSecJpaSysClusterHPKey ensureHPKey(ICFSecSysClusterHPKey key) {
+		if (key == null) {
+			return( null );
+		}
+		else if( key instanceof CFSecJpaSysClusterHPKey) {
+			return( (CFSecJpaSysClusterHPKey)key );
+		}
+		else {
+			CFSecJpaSysClusterHPKey mapped = new CFSecJpaSysClusterHPKey();
+			mapped.setAuditClusterId(key.getAuditClusterId());
+			mapped.setAuditActionId(key.getAuditActionId());
+			mapped.setAuditSessionId(key.getAuditSessionId());
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredSingletonId( key.getRequiredSingletonId() );
+			return( mapped );
+		}
+	}
+
+    @Override
     public ICFSecSysClusterByClusterIdxKey newByClusterIdxKey() {
 		ICFSecSysClusterByClusterIdxKey key = new CFSecJpaSysClusterByClusterIdxKey();
 	return( key );
@@ -94,6 +118,33 @@ public class CFSecJpaSysClusterFactoryService
 					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
 						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSysCluster",
 						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSysCluster");
+			}
+		}
+	}
+
+    @Override
+    public ICFSecSysClusterH newHRec() {
+        ICFSecSysClusterH hrec = new CFSecJpaSysClusterH();
+        return( hrec );
+    }
+
+	public CFSecJpaSysClusterH ensureHRec(ICFSecSysClusterH hrec) {
+		if( hrec == null ) {
+			return( null );
+		}
+		else if (hrec instanceof CFSecJpaSysClusterH) {
+			return( (CFSecJpaSysClusterH)hrec );
+		}
+		else {
+			switch(hrec.getClassCode()) {
+				case ICFSecSysCluster.CLASS_CODE: {
+					CFSecJpaSysClusterH mapped = new CFSecJpaSysClusterH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSysCluster",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSysCluster");
 			}
 		}
 	}

@@ -145,7 +145,7 @@ public class CFSecJpaTableInfoBySchemaRTCodeIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecTableInfoBySchemaRTCodeIdxKey, ICFSecTableInfo, ICFSecTableInfoH");
+				"ICFSecTableInfoBySchemaRTCodeIdxKey, ICFSecTableInfo$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

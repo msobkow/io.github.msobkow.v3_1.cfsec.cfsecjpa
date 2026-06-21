@@ -149,6 +149,40 @@ public class CFSecJpaSecSessionByFinishIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSecSessionH) {
+			ICFSecSecSessionH rhs = (ICFSecSecSessionH)obj;
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
+			}
+			if( getOptionalFinish() != null ) {
+				if( rhs.getOptionalFinish() != null ) {
+					if( ! getOptionalFinish().equals( rhs.getOptionalFinish() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalFinish() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -238,12 +272,46 @@ public class CFSecJpaSecSessionByFinishIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSecSessionH) {
+			ICFSecSecSessionH rhs = (ICFSecSecSessionH)obj;
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
+			}
+			if( getOptionalFinish() != null ) {
+				if( rhs.getOptionalFinish() != null ) {
+					cmp = getOptionalFinish().compareTo( rhs.getOptionalFinish() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalFinish() != null ) {
+					return( -1 );
+				}
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSessionByFinishIdxKey, ICFSecSecSession");
+				"ICFSecSecSessionByFinishIdxKey, ICFSecSecSession$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

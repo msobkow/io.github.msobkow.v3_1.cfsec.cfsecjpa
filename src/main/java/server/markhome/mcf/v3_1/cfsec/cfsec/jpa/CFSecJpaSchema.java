@@ -49,6 +49,9 @@ import server.markhome.mcf.v3_1.cflib.xml.CFLibXmlUtil;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaHooksSchema;
 
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSchema;
+import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffFactoryService;
+
 public class CFSecJpaSchema
 	implements ICFSecSchema
 {
@@ -633,6 +636,11 @@ public class CFSecJpaSchema
 	@Override
 	public ICFSecFactory getCFSecFactory() {
 		return(CFSecJpaSchema.getJpaHooksSchema().getFactoryService());
+	}
+
+	@Override
+	public CFSecBuffFactoryService getCFSecBuffFactory() {
+		return((CFSecBuffFactoryService)(CFSecBuffSchema.getBuffHooksSchema().getFactoryService()));
 	}
 
 	public CFSecJpaSchemaService getSchemaService() {

@@ -202,7 +202,7 @@ public class CFSecJpaSecUserPWResetByUUuid6IdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWResetByUUuid6IdxKey, ICFSecSecUserPWReset, ICFSecSecUserPWResetH");
+				"ICFSecSecUserPWResetByUUuid6IdxKey, ICFSecSecUserPWReset$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

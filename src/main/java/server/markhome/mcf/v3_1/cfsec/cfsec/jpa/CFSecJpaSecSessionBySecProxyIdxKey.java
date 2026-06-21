@@ -101,6 +101,25 @@ public class CFSecJpaSecSessionBySecProxyIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSecSessionH) {
+			ICFSecSecSessionH rhs = (ICFSecSecSessionH)obj;
+			if( getOptionalSecProxyId() != null ) {
+				if( rhs.getOptionalSecProxyId() != null ) {
+					if( ! getOptionalSecProxyId().equals( rhs.getOptionalSecProxyId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getOptionalSecProxyId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -161,12 +180,32 @@ public class CFSecJpaSecSessionBySecProxyIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSecSessionH) {
+			ICFSecSecSessionH rhs = (ICFSecSecSessionH)obj;
+			if( getOptionalSecProxyId() != null ) {
+				if( rhs.getOptionalSecProxyId() != null ) {
+					cmp = getOptionalSecProxyId().compareTo( rhs.getOptionalSecProxyId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else {
+				if( rhs.getOptionalSecProxyId() != null ) {
+					return( -1 );
+				}
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSessionBySecProxyIdxKey, ICFSecSecSession");
+				"ICFSecSecSessionBySecProxyIdxKey, ICFSecSecSession$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

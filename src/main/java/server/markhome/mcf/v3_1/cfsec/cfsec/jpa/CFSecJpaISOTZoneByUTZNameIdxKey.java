@@ -213,7 +213,7 @@ public class CFSecJpaISOTZoneByUTZNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOTZoneByUTZNameIdxKey, ICFSecISOTZone, ICFSecISOTZoneH");
+				"ICFSecISOTZoneByUTZNameIdxKey, ICFSecISOTZone$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

@@ -195,6 +195,35 @@ public class CFSecJpaSysCluster
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSysClusterH) {
+			ICFSecSysClusterH rhs = (ICFSecSysClusterH)obj;
+			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
+				return( false );
+			}
+			if( getRequiredClusterId() != null ) {
+				if( rhs.getRequiredClusterId() != null ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
+		else if (obj instanceof ICFSecSysClusterHPKey) {
+			ICFSecSysClusterHPKey rhs = (ICFSecSysClusterHPKey)obj;
+			if( getRequiredSingletonId() != rhs.getRequiredSingletonId() ) {
+				return( false );
+			}
+			return( true );
+		}
 		else if (obj instanceof ICFSecSysClusterByClusterIdxKey) {
 			ICFSecSysClusterByClusterIdxKey rhs = (ICFSecSysClusterByClusterIdxKey)obj;
 			if( getRequiredClusterId() != null ) {
@@ -267,6 +296,40 @@ public class CFSecJpaSysCluster
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSysClusterHPKey) {
+			ICFSecSysClusterHPKey rhs = (ICFSecSysClusterHPKey)obj;
+			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
+				return( -1 );
+			}
+			else if( getRequiredSingletonId() > rhs.getRequiredSingletonId() ) {
+				return( 1 );
+			}
+			return( 0 );
+		}
+		else if( obj instanceof ICFSecSysClusterH ) {
+			ICFSecSysClusterH rhs = (ICFSecSysClusterH)obj;
+			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
+				return( -1 );
+			}
+			else if( getRequiredSingletonId() > rhs.getRequiredSingletonId() ) {
+				return( 1 );
+			}
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else if (obj instanceof ICFSecSysClusterByClusterIdxKey) {
 			ICFSecSysClusterByClusterIdxKey rhs = (ICFSecSysClusterByClusterIdxKey)obj;
 			if (getRequiredClusterId() != null) {
@@ -304,6 +367,17 @@ public class CFSecJpaSysCluster
 		setRequiredSingletonId(src.getRequiredSingletonId());
 		setRequiredRevision( src.getRequiredRevision() );
 		setRequiredContainerCluster(src.getRequiredContainerCluster());
+	}
+
+	@Override
+	public void set( ICFSecSysClusterH src ) {
+		setSysCluster( src );
+	}
+
+	@Override
+	public void setSysCluster( ICFSecSysClusterH src ) {
+		setRequiredSingletonId(src.getRequiredSingletonId());
+		setRequiredContainerCluster(src.getRequiredClusterId());
 	}
 
 	@Override

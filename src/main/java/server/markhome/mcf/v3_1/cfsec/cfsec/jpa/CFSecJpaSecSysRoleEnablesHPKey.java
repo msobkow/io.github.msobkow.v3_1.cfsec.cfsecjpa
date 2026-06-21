@@ -612,7 +612,7 @@ public class CFSecJpaSecSysRoleEnablesHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSysRoleEnablesPKey, ICFSecSecSysRoleEnables, ICFSecSecSysRoleEnablesHPKey, ICFSecSecSysRoleEnablesH" );
+				"ICFSecSecSysRoleEnablesPKey, ICFSecSecSysRoleEnables$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

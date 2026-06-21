@@ -154,7 +154,7 @@ public class CFSecJpaSecUserEMConfByNewAcctIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserEMConfByNewAcctIdxKey, ICFSecSecUserEMConf, ICFSecSecUserEMConfH");
+				"ICFSecSecUserEMConfByNewAcctIdxKey, ICFSecSecUserEMConf$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

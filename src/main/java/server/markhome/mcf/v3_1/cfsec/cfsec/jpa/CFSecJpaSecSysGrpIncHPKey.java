@@ -612,7 +612,7 @@ public class CFSecJpaSecSysGrpIncHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSysGrpIncPKey, ICFSecSecSysGrpInc, ICFSecSecSysGrpIncHPKey, ICFSecSecSysGrpIncH" );
+				"ICFSecSecSysGrpIncPKey, ICFSecSecSysGrpInc$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

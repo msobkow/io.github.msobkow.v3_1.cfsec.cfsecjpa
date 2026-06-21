@@ -434,7 +434,7 @@ public class CFSecJpaTableInfoHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecTableInfoPKey, ICFSecTableInfo, ICFSecTableInfoHPKey, ICFSecTableInfoH" );
+				"ICFSecTableInfoPKey, ICFSecTableInfo$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

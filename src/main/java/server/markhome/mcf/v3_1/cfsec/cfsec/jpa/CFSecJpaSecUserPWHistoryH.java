@@ -1,4 +1,4 @@
-// Description: Java 25 JPA implementation of a SecUserPWHistory entity definition object.
+// Description: Java 25 JPA implementation of SecUserPWHistory history objects
 
 /*
  *	server.markhome.mcf.CFSec
@@ -40,93 +40,123 @@ import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cflib.xml.CFLibXmlUtil;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
-@Entity
-@Table(
-	name = "SecUserPWHistory", schema = "CFSec31",
-	indexes = {
-		@Index(name = "SecUserPWHistIdIdx", columnList = "SecUserId, PWSetStamp", unique = true),
-		@Index(name = "SecUserPWHistUserIdx", columnList = "SecUserId", unique = true),
-		@Index(name = "SecUserPWHistSetStampIdx", columnList = "PWSetStamp", unique = true),
-		@Index(name = "SecUserPWHistReplacedStampIdx", columnList = "PWReplacedStamp", unique = true)
-	}
-)
-@Transactional(Transactional.TxType.SUPPORTS)
-@PersistenceContext(unitName = "CFSecPU")
-public class CFSecJpaSecUserPWHistory
-	implements Comparable<Object>,
-		ICFSecSecUserPWHistory,
-		Serializable
+/**
+ *  CFSecJpaSecUserPWHistoryH provides history objects matching the CFSecSecUserPWHistory change history.
+ *	Note that because all indexes are historical with multiple instances of history records, the only key that can be unique is the primary key of a history table.
+ */
+public class CFSecJpaSecUserPWHistoryH
+    implements ICFSecSecUserPWHistoryH, Comparable<Object>, Serializable
 {
-	// Embedded id's are package-accessible so that the Repository can dereference the attributes of the primary key
 	@AttributeOverrides({
+		@AttributeOverride(name="auditClusterId", column = @Column( name="auditClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) ),
+		@AttributeOverride(name="auditStamp", column = @Column( name="auditStamp", nullable=false ) ),
+		@AttributeOverride(name="auditAction", column = @Column( name="auditAction", nullable=false ) ),
+		@AttributeOverride(name="requiredRevision", column = @Column( name="requiredRevision", nullable=false ) ),
+		@AttributeOverride(name="auditSessionId", column = @Column( name="auditSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) ),
 		@AttributeOverride(name="SecUserId", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) ),
 		@AttributeOverride(name="PWSetStamp", column = @Column( name="PWSetStamp", nullable=false ) )
 	})
-	@EmbeddedId
-	CFSecJpaSecUserPWHistoryPKey pkey = new CFSecJpaSecUserPWHistoryPKey();
-	protected int requiredRevision;
-
-
-	@Column( name="PWReplacedStamp", nullable=false )
+    protected CFSecJpaSecUserPWHistoryHPKey pkey;
 	protected LocalDateTime requiredPWReplacedStamp;
-	@Column( name="pwd_hash", nullable=false, length=256 )
 	protected String requiredPasswordHash;
 
-	public CFSecJpaSecUserPWHistory() {
-		pkey = new CFSecJpaSecUserPWHistoryPKey();
+    public CFSecJpaSecUserPWHistoryH() {
+            // The primary key member attributes are initialized on construction
+            pkey = new CFSecJpaSecUserPWHistoryHPKey();
 		requiredPWReplacedStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
-	}
+    }
 
-	@Override
-	public int getClassCode() {
-		return( ICFSecSecUserPWHistory.CLASS_CODE );
-	}
+    @Override
+    public int getClassCode() {
+            return( ICFSecSecUserPWHistory.CLASS_CODE );
+    }
 
-	@Override
-	public ICFSecSecUserPWHistoryPKey getPKey() {
-		return pkey;
-	}
+    @Override
+    public ICFSecSecUserPWHistoryHPKey getPKey() {
+        return( pkey );
+    }
 
-	@Override
-	public void setPKey(ICFSecSecUserPWHistoryPKey pkey ) {
-		if (pkey == null) {
-			throw new CFLibNullArgumentException(getClass(), "setPKey", 1, "pkey");
-		}
-		else if (!(pkey instanceof CFSecJpaSecUserPWHistoryPKey)) {
-			throw new CFLibUnsupportedClassException(getClass(), "setPKey", "pkey", pkey, "CFSecJpaSecUserPWHistoryPKey");
-		}
-		this.pkey = (CFSecJpaSecUserPWHistoryPKey)pkey;
-	}
+    @Override
+    public void setPKey( ICFSecSecUserPWHistoryHPKey pkey ) {
+        if (pkey != null) {
+            if (pkey instanceof CFSecJpaSecUserPWHistoryHPKey) {
+                this.pkey = (CFSecJpaSecUserPWHistoryHPKey)pkey;
+            }
+            else {
+                throw new CFLibUnsupportedClassException(getClass(), "setPKey", "pkey", pkey, "CFSecJpaSecUserPWHistoryHPKey");
+            }
+        }
+    }
 
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( pkey.getRequiredSecUserId() );
-	}
+    @Override
+    public CFLibDbKeyHash256 getAuditClusterId() {
+        return pkey.getAuditClusterId();
+    }
 
-	@Override
-	public void setRequiredSecUserId( CFLibDbKeyHash256 requiredSecUserId ) {
-		pkey.setRequiredSecUserId( requiredSecUserId );
-	}
+    @Override
+    public void setAuditClusterId(CFLibDbKeyHash256 auditClusterId) {
+        pkey.setAuditClusterId(auditClusterId);
+    }
 
-	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
-		return( pkey.getRequiredPWSetStamp() );
-	}
+    @Override
+    public LocalDateTime getAuditStamp() {
+        return pkey.getAuditStamp();
+    }
 
-	@Override
-	public void setRequiredPWSetStamp( LocalDateTime requiredPWSetStamp ) {
-		pkey.setRequiredPWSetStamp( requiredPWSetStamp );
-	}
+    @Override
+    public void setAuditStamp(LocalDateTime auditStamp) {
+        pkey.setAuditStamp(auditStamp);
+    }
 
-	@Override
-	public int getRequiredRevision() {
-		return( requiredRevision );
-	}
+    @Override
+    public short getAuditActionId() {
+        return pkey.getAuditActionId();
+    }
 
-	@Override
-	public void setRequiredRevision( int value ) {
-		requiredRevision = value;
-	}
+    @Override
+    public void setAuditActionId(short auditActionId) {
+        pkey.setAuditActionId(auditActionId);
+    }
+
+    @Override
+    public int getRequiredRevision() {
+        return pkey.getRequiredRevision();
+    }
+
+    @Override
+    public void setRequiredRevision(int revision) {
+        pkey.setRequiredRevision(revision);
+    }
+
+    @Override
+    public CFLibDbKeyHash256 getAuditSessionId() {
+        return pkey.getAuditSessionId();
+    }
+
+    @Override
+    public void setAuditSessionId(CFLibDbKeyHash256 auditSessionId) {
+        pkey.setAuditSessionId(auditSessionId);
+    }
+
+    @Override
+    public CFLibDbKeyHash256 getRequiredSecUserId() {
+        return( pkey.getRequiredSecUserId() );
+    }
+
+    @Override
+    public void setRequiredSecUserId( CFLibDbKeyHash256 requiredSecUserId ) {
+        pkey.setRequiredSecUserId( requiredSecUserId );
+    }
+
+    @Override
+    public LocalDateTime getRequiredPWSetStamp() {
+        return( pkey.getRequiredPWSetStamp() );
+    }
+
+    @Override
+    public void setRequiredPWSetStamp( LocalDateTime requiredPWSetStamp ) {
+        pkey.setRequiredPWSetStamp( requiredPWSetStamp );
+    }
 
 	@Override
 	public LocalDateTime getRequiredPWReplacedStamp() {
@@ -168,43 +198,27 @@ public class CFSecJpaSecUserPWHistory
 		requiredPasswordHash = value;
 	}
 
-	@Override
-	public boolean equals( Object obj ) {
-		if (obj == null) {
+    @Override
+    public boolean equals( Object obj ) {
+        if (obj == null) {
+            return( false );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistory) {
+            ICFSecSecUserPWHistory rhs = (ICFSecSecUserPWHistory)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() != null) {
+				if (!getPKey().equals(rhs.getPKey())) {
+					return( false );
+				}
+			}
+			else {
+				return( false );
+			}
+		}
+		else if (rhs.getPKey() != null) {
 			return( false );
 		}
-		else if (obj instanceof ICFSecSecUserPWHistory) {
-			ICFSecSecUserPWHistory rhs = (ICFSecSecUserPWHistory)obj;
-			if( getRequiredSecUserId() != null ) {
-				if( rhs.getRequiredSecUserId() != null ) {
-					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredSecUserId() != null ) {
-					return( false );
-				}
-			}
-			if( getRequiredPWSetStamp() != null ) {
-				if( rhs.getRequiredPWSetStamp() != null ) {
-					if( ! getRequiredPWSetStamp().equals( rhs.getRequiredPWSetStamp() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredPWSetStamp() != null ) {
-					return( false );
-				}
-			}
+
 			if( getRequiredPWReplacedStamp() != null ) {
 				if( rhs.getRequiredPWReplacedStamp() != null ) {
 					if( ! getRequiredPWReplacedStamp().equals( rhs.getRequiredPWReplacedStamp() ) ) {
@@ -235,40 +249,24 @@ public class CFSecJpaSecUserPWHistory
 					return( false );
 				}
 			}
-			return( true );
+            return( true );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryH) {
+            ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() != null) {
+				if (!getPKey().equals(rhs.getPKey())) {
+					return( false );
+				}
+			}
+			else {
+				return( false );
+			}
 		}
-		else if (obj instanceof ICFSecSecUserPWHistoryH) {
-			ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
-			if( getRequiredSecUserId() != null ) {
-				if( rhs.getRequiredSecUserId() != null ) {
-					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredSecUserId() != null ) {
-					return( false );
-				}
-			}
-			if( getRequiredPWSetStamp() != null ) {
-				if( rhs.getRequiredPWSetStamp() != null ) {
-					if( ! getRequiredPWSetStamp().equals( rhs.getRequiredPWSetStamp() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredPWSetStamp() != null ) {
-					return( false );
-				}
-			}
+		else if (rhs.getPKey() != null) {
+			return( false );
+		}
+
 			if( getRequiredPWReplacedStamp() != null ) {
 				if( rhs.getRequiredPWReplacedStamp() != null ) {
 					if( ! getRequiredPWReplacedStamp().equals( rhs.getRequiredPWReplacedStamp() ) ) {
@@ -299,10 +297,10 @@ public class CFSecJpaSecUserPWHistory
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryHPKey) {
-			ICFSecSecUserPWHistoryHPKey rhs = (ICFSecSecUserPWHistoryHPKey)obj;
+            return( true );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryHPKey) {
+		ICFSecSecUserPWHistoryHPKey rhs = (ICFSecSecUserPWHistoryHPKey)obj;
 			if( getRequiredSecUserId() != null ) {
 				if( rhs.getRequiredSecUserId() != null ) {
 					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
@@ -333,10 +331,10 @@ public class CFSecJpaSecUserPWHistory
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryByUserIdxKey) {
-			ICFSecSecUserPWHistoryByUserIdxKey rhs = (ICFSecSecUserPWHistoryByUserIdxKey)obj;
+		return( true );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryByUserIdxKey) {
+            ICFSecSecUserPWHistoryByUserIdxKey rhs = (ICFSecSecUserPWHistoryByUserIdxKey)obj;
 			if( getRequiredSecUserId() != null ) {
 				if( rhs.getRequiredSecUserId() != null ) {
 					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
@@ -352,10 +350,10 @@ public class CFSecJpaSecUserPWHistory
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryBySetStampIdxKey) {
-			ICFSecSecUserPWHistoryBySetStampIdxKey rhs = (ICFSecSecUserPWHistoryBySetStampIdxKey)obj;
+            return( true );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryBySetStampIdxKey) {
+            ICFSecSecUserPWHistoryBySetStampIdxKey rhs = (ICFSecSecUserPWHistoryBySetStampIdxKey)obj;
 			if( getRequiredPWSetStamp() != null ) {
 				if( rhs.getRequiredPWSetStamp() != null ) {
 					if( ! getRequiredPWSetStamp().equals( rhs.getRequiredPWSetStamp() ) ) {
@@ -371,10 +369,10 @@ public class CFSecJpaSecUserPWHistory
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryByReplacedStampIdxKey) {
-			ICFSecSecUserPWHistoryByReplacedStampIdxKey rhs = (ICFSecSecUserPWHistoryByReplacedStampIdxKey)obj;
+            return( true );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryByReplacedStampIdxKey) {
+            ICFSecSecUserPWHistoryByReplacedStampIdxKey rhs = (ICFSecSecUserPWHistoryByReplacedStampIdxKey)obj;
 			if( getRequiredPWReplacedStamp() != null ) {
 				if( rhs.getRequiredPWReplacedStamp() != null ) {
 					if( ! getRequiredPWReplacedStamp().equals( rhs.getRequiredPWReplacedStamp() ) ) {
@@ -390,279 +388,235 @@ public class CFSecJpaSecUserPWHistory
 					return( false );
 				}
 			}
-			return( true );
-		}
-		else {
+            return( true );
+        }
+        else {
 			return( false );
-		}
-	}
-	
-	@Override
-	public int hashCode() {
-		int hashCode = getPKey().hashCode();
-		hashCode = hashCode + getRequiredSecUserId().hashCode();
-		if( getRequiredPWSetStamp() != null ) {
-			hashCode = hashCode + getRequiredPWSetStamp().hashCode();
-		}
+        }
+    }
+    
+    @Override
+    public int hashCode() {
+        int hashCode = pkey.hashCode();
 		if( getRequiredPWReplacedStamp() != null ) {
 			hashCode = hashCode + getRequiredPWReplacedStamp().hashCode();
 		}
 		if( getRequiredPasswordHash() != null ) {
 			hashCode = hashCode + getRequiredPasswordHash().hashCode();
 		}
-		return( hashCode & 0x7fffffff );
-	}
+        return( hashCode & 0x7fffffff );
+    }
 
-	@Override
-	public int compareTo( Object obj ) {
-		int cmp;
-		if (obj == null) {
-			return( 1 );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistory) {
-			ICFSecSecUserPWHistory rhs = (ICFSecSecUserPWHistory)obj;
-			if (getPKey() == null) {
-				if (rhs.getPKey() != null) {
-					return( -1 );
-				}
+    @Override
+    public int compareTo( Object obj ) {
+        int cmp;
+        if (obj == null) {
+            return( 1 );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistory) {
+		ICFSecSecUserPWHistory rhs = (ICFSecSecUserPWHistory)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() == null) {
+				return( 1 );
 			}
 			else {
-				if (rhs.getPKey() == null) {
-					return( 1 );
-				}
-				else {
-					cmp = getPKey().compareTo(rhs.getPKey());
-					if (cmp != 0) {
-						return( cmp );
-					}
+				cmp = getPKey().compareTo(rhs.getPKey());
+				if (cmp != 0) {
+					return( cmp );
 				}
 			}
-			if (getRequiredPWReplacedStamp() != null) {
-				if (rhs.getRequiredPWReplacedStamp() != null) {
-					cmp = getRequiredPWReplacedStamp().compareTo( rhs.getRequiredPWReplacedStamp() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPWReplacedStamp() != null) {
-				return( -1 );
-			}
-			if (getRequiredPasswordHash() != null) {
-				if (rhs.getRequiredPasswordHash() != null) {
-					cmp = getRequiredPasswordHash().compareTo( rhs.getRequiredPasswordHash() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPasswordHash() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryHPKey) {
-			ICFSecSecUserPWHistoryHPKey rhs = (ICFSecSecUserPWHistoryHPKey)obj;
-			if (getRequiredSecUserId() != null) {
-				if (rhs.getRequiredSecUserId() != null) {
-					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecUserId() != null) {
-				return( -1 );
-			}
-			if (getRequiredPWSetStamp() != null) {
-				if (rhs.getRequiredPWSetStamp() != null) {
-					cmp = getRequiredPWSetStamp().compareTo( rhs.getRequiredPWSetStamp() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPWSetStamp() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if( obj instanceof ICFSecSecUserPWHistoryH ) {
-			ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
-			if (getRequiredSecUserId() != null) {
-				if (rhs.getRequiredSecUserId() != null) {
-					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecUserId() != null) {
-				return( -1 );
-			}
-			if (getRequiredPWSetStamp() != null) {
-				if (rhs.getRequiredPWSetStamp() != null) {
-					cmp = getRequiredPWSetStamp().compareTo( rhs.getRequiredPWSetStamp() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPWSetStamp() != null) {
-				return( -1 );
-			}
-			if (getRequiredPWReplacedStamp() != null) {
-				if (rhs.getRequiredPWReplacedStamp() != null) {
-					cmp = getRequiredPWReplacedStamp().compareTo( rhs.getRequiredPWReplacedStamp() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPWReplacedStamp() != null) {
-				return( -1 );
-			}
-			if (getRequiredPasswordHash() != null) {
-				if (rhs.getRequiredPasswordHash() != null) {
-					cmp = getRequiredPasswordHash().compareTo( rhs.getRequiredPasswordHash() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPasswordHash() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryByUserIdxKey) {
-			ICFSecSecUserPWHistoryByUserIdxKey rhs = (ICFSecSecUserPWHistoryByUserIdxKey)obj;
-			if (getRequiredSecUserId() != null) {
-				if (rhs.getRequiredSecUserId() != null) {
-					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecUserId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryBySetStampIdxKey) {
-			ICFSecSecUserPWHistoryBySetStampIdxKey rhs = (ICFSecSecUserPWHistoryBySetStampIdxKey)obj;
-			if (getRequiredPWSetStamp() != null) {
-				if (rhs.getRequiredPWSetStamp() != null) {
-					cmp = getRequiredPWSetStamp().compareTo( rhs.getRequiredPWSetStamp() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPWSetStamp() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecSecUserPWHistoryByReplacedStampIdxKey) {
-			ICFSecSecUserPWHistoryByReplacedStampIdxKey rhs = (ICFSecSecUserPWHistoryByReplacedStampIdxKey)obj;
-			if (getRequiredPWReplacedStamp() != null) {
-				if (rhs.getRequiredPWReplacedStamp() != null) {
-					cmp = getRequiredPWReplacedStamp().compareTo( rhs.getRequiredPWReplacedStamp() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredPWReplacedStamp() != null) {
-				return( -1 );
-			}
-			return( 0 );
 		}
 		else {
-			throw new CFLibUnsupportedClassException( getClass(),
-				"compareTo",
-				"obj",
-				obj,
-				null );
+			if (rhs.getPKey() != null) {
+				return( -1 );
+			}
 		}
-	}
-
+			if (getRequiredPWReplacedStamp() != null) {
+				if (rhs.getRequiredPWReplacedStamp() != null) {
+					cmp = getRequiredPWReplacedStamp().compareTo( rhs.getRequiredPWReplacedStamp() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPWReplacedStamp() != null) {
+				return( -1 );
+			}
+			if (getRequiredPasswordHash() != null) {
+				if (rhs.getRequiredPasswordHash() != null) {
+					cmp = getRequiredPasswordHash().compareTo( rhs.getRequiredPasswordHash() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPasswordHash() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryHPKey) {
+        if (getPKey() != null) {
+            return( getPKey().compareTo( obj ));
+        }
+        else {
+            return( -1 );
+        }
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryH) {
+		ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
+		if (getPKey() != null) {
+			if (rhs.getPKey() == null) {
+				return( 1 );
+			}
+			else {
+				cmp = getPKey().compareTo(rhs.getPKey());
+				if (cmp != 0) {
+					return( cmp );
+				}
+			}
+		}
+		else {
+			if (rhs.getPKey() != null) {
+				return( -1 );
+			}
+		}
+			if (getRequiredPWReplacedStamp() != null) {
+				if (rhs.getRequiredPWReplacedStamp() != null) {
+					cmp = getRequiredPWReplacedStamp().compareTo( rhs.getRequiredPWReplacedStamp() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPWReplacedStamp() != null) {
+				return( -1 );
+			}
+			if (getRequiredPasswordHash() != null) {
+				if (rhs.getRequiredPasswordHash() != null) {
+					cmp = getRequiredPasswordHash().compareTo( rhs.getRequiredPasswordHash() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPasswordHash() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryByUserIdxKey ) {
+            ICFSecSecUserPWHistoryByUserIdxKey rhs = (ICFSecSecUserPWHistoryByUserIdxKey)obj;
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryBySetStampIdxKey ) {
+            ICFSecSecUserPWHistoryBySetStampIdxKey rhs = (ICFSecSecUserPWHistoryBySetStampIdxKey)obj;
+			if (getRequiredPWSetStamp() != null) {
+				if (rhs.getRequiredPWSetStamp() != null) {
+					cmp = getRequiredPWSetStamp().compareTo( rhs.getRequiredPWSetStamp() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPWSetStamp() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else if (obj instanceof ICFSecSecUserPWHistoryByReplacedStampIdxKey ) {
+            ICFSecSecUserPWHistoryByReplacedStampIdxKey rhs = (ICFSecSecUserPWHistoryByReplacedStampIdxKey)obj;
+			if (getRequiredPWReplacedStamp() != null) {
+				if (rhs.getRequiredPWReplacedStamp() != null) {
+					cmp = getRequiredPWReplacedStamp().compareTo( rhs.getRequiredPWReplacedStamp() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPWReplacedStamp() != null) {
+				return( -1 );
+			}
+            return( 0 );
+        }
+        else {
+            throw new CFLibUnsupportedClassException( getClass(),
+                "compareTo",
+                "obj",
+                obj,
+                null );
+        }
+    }
 	@Override
-	public void set( ICFSecSecUserPWHistory src ) {
+    public void set( ICFSecSecUserPWHistory src ) {
 		setSecUserPWHistory( src );
-	}
+    }
 
 	@Override
-	public void setSecUserPWHistory( ICFSecSecUserPWHistory src ) {
-		setRequiredSecUserId(src.getRequiredSecUserId());
-		setRequiredPWSetStamp(src.getRequiredPWSetStamp());
+    public void setSecUserPWHistory( ICFSecSecUserPWHistory src ) {
+		setRequiredSecUserId( src.getRequiredSecUserId() );
+		setRequiredPWSetStamp( src.getRequiredPWSetStamp() );
+		setRequiredPWReplacedStamp( src.getRequiredPWReplacedStamp() );
+		setRequiredPasswordHash( src.getRequiredPasswordHash() );
 		setRequiredRevision( src.getRequiredRevision() );
-		setRequiredPWReplacedStamp(src.getRequiredPWReplacedStamp());
-		setRequiredPasswordHash(src.getRequiredPasswordHash());
-	}
+    }
 
 	@Override
-	public void set( ICFSecSecUserPWHistoryH src ) {
+    public void set( ICFSecSecUserPWHistoryH src ) {
 		setSecUserPWHistory( src );
-	}
+    }
 
 	@Override
-	public void setSecUserPWHistory( ICFSecSecUserPWHistoryH src ) {
-		setRequiredSecUserId(src.getRequiredSecUserId());
-		setRequiredPWSetStamp(src.getRequiredPWSetStamp());
-		setRequiredPWReplacedStamp(src.getRequiredPWReplacedStamp());
-		setRequiredPasswordHash(src.getRequiredPasswordHash());
-	}
+    public void setSecUserPWHistory( ICFSecSecUserPWHistoryH src ) {
+		setRequiredSecUserId( src.getRequiredSecUserId() );
+		setRequiredPWSetStamp( src.getRequiredPWSetStamp() );
+		setRequiredPWReplacedStamp( src.getRequiredPWReplacedStamp() );
+		setRequiredPasswordHash( src.getRequiredPasswordHash() );
+		setRequiredRevision( src.getRequiredRevision() );
+    }
 
-	@Override
-	public String getXmlAttrFragment() {
-		String ret = pkey.getXmlAttrFragment() 
+    public String getXmlAttrFragment() {
+        String ret = pkey.getXmlAttrFragment() 
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
-			+ " RequiredSecUserId=" + "\"" + getRequiredSecUserId().toString() + "\""
-			+ " RequiredPWSetStamp=" + "\"" + getRequiredPWSetStamp().toString() + "\""
 			+ " RequiredPWReplacedStamp=" + "\"" + getRequiredPWReplacedStamp().toString() + "\""
 			+ " RequiredPasswordHash=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredPasswordHash() ) + "\"";
-		return( ret );
-	}
+        return( ret );
+    }
 
-	@Override
-	public String toString() {
-		String ret = "<CFSecJpaSecUserPWHistory" + getXmlAttrFragment() + "/>";
-		return( ret );
-	}
+    public String toString() {
+        String ret = "<CFSecJpaSecUserPWHistoryH" + getXmlAttrFragment() + "/>";
+        return( ret );
+    }
 }

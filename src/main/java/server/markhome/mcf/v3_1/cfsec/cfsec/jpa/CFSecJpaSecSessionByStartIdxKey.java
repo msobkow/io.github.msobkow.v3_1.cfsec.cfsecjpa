@@ -155,6 +155,40 @@ public class CFSecJpaSecSessionByStartIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSecSessionH) {
+			ICFSecSecSessionH rhs = (ICFSecSecSessionH)obj;
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
+			}
+			if( getRequiredStart() != null ) {
+				if( rhs.getRequiredStart() != null ) {
+					if( ! getRequiredStart().equals( rhs.getRequiredStart() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredStart() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -240,12 +274,44 @@ public class CFSecJpaSecSessionByStartIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSecSessionH) {
+			ICFSecSecSessionH rhs = (ICFSecSecSessionH)obj;
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
+			}
+			if (getRequiredStart() != null) {
+				if (rhs.getRequiredStart() != null) {
+					cmp = getRequiredStart().compareTo( rhs.getRequiredStart() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredStart() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSessionByStartIdxKey, ICFSecSecSession");
+				"ICFSecSecSessionByStartIdxKey, ICFSecSecSession$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

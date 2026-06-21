@@ -434,7 +434,7 @@ public class CFSecJpaISOLangHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOLangPKey, ICFSecISOLang, ICFSecISOLangHPKey, ICFSecISOLangH" );
+				"ICFSecISOLangPKey, ICFSecISOLang$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

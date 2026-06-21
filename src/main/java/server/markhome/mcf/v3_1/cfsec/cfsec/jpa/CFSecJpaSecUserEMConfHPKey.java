@@ -494,7 +494,7 @@ public class CFSecJpaSecUserEMConfHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserEMConfPKey, ICFSecSecUserEMConf, ICFSecSecUserEMConfHPKey, ICFSecSecUserEMConfH" );
+				"ICFSecSecUserEMConfPKey, ICFSecSecUserEMConf$emitHPKeyHistoryClassNames$" );
 		}
 	}
 

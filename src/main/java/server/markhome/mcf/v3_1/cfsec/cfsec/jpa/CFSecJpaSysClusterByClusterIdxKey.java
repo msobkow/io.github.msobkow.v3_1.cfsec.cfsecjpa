@@ -107,6 +107,25 @@ public class CFSecJpaSysClusterByClusterIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSysClusterH) {
+			ICFSecSysClusterH rhs = (ICFSecSysClusterH)obj;
+			if( getRequiredClusterId() != null ) {
+				if( rhs.getRequiredClusterId() != null ) {
+					if( ! getRequiredClusterId().equals( rhs.getRequiredClusterId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredClusterId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -161,12 +180,30 @@ public class CFSecJpaSysClusterByClusterIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSysClusterH) {
+			ICFSecSysClusterH rhs = (ICFSecSysClusterH)obj;
+			if (getRequiredClusterId() != null) {
+				if (rhs.getRequiredClusterId() != null) {
+					cmp = getRequiredClusterId().compareTo( rhs.getRequiredClusterId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredClusterId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSysClusterByClusterIdxKey, ICFSecSysCluster");
+				"ICFSecSysClusterByClusterIdxKey, ICFSecSysCluster$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

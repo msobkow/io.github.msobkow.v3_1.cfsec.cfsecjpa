@@ -213,7 +213,7 @@ public class CFSecJpaSecSysGrpIncByNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSysGrpIncByNameIdxKey, ICFSecSecSysGrpInc, ICFSecSecSysGrpIncH");
+				"ICFSecSecSysGrpIncByNameIdxKey, ICFSecSecSysGrpInc$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

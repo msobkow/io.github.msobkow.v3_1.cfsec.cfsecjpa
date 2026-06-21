@@ -213,7 +213,7 @@ public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSysRoleEnablesByNameIdxKey, ICFSecSecSysRoleEnables, ICFSecSecSysRoleEnablesH");
+				"ICFSecSecSysRoleEnablesByNameIdxKey, ICFSecSecSysRoleEnables$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

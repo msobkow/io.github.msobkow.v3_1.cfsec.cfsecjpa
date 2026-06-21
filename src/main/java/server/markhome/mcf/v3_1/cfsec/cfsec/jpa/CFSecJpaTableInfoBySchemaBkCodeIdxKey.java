@@ -261,7 +261,7 @@ public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecTableInfoBySchemaBkCodeIdxKey, ICFSecTableInfo, ICFSecTableInfoH");
+				"ICFSecTableInfoBySchemaBkCodeIdxKey, ICFSecTableInfo$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

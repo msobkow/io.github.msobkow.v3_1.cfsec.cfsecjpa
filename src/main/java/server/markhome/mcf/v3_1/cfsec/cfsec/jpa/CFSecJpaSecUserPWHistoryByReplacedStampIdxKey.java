@@ -107,6 +107,25 @@ public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSecUserPWHistoryH) {
+			ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
+			if( getRequiredPWReplacedStamp() != null ) {
+				if( rhs.getRequiredPWReplacedStamp() != null ) {
+					if( ! getRequiredPWReplacedStamp().equals( rhs.getRequiredPWReplacedStamp() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredPWReplacedStamp() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -163,12 +182,30 @@ public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSecUserPWHistoryH) {
+			ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
+			if (getRequiredPWReplacedStamp() != null) {
+				if (rhs.getRequiredPWReplacedStamp() != null) {
+					cmp = getRequiredPWReplacedStamp().compareTo( rhs.getRequiredPWReplacedStamp() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredPWReplacedStamp() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWHistoryByReplacedStampIdxKey, ICFSecSecUserPWHistory");
+				"ICFSecSecUserPWHistoryByReplacedStampIdxKey, ICFSecSecUserPWHistory$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

@@ -203,7 +203,7 @@ public class CFSecJpaSecClusGrpMembByClusGrpIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecClusGrpMembByClusGrpIdxKey, ICFSecSecClusGrpMemb, ICFSecSecClusGrpMembH");
+				"ICFSecSecClusGrpMembByClusGrpIdxKey, ICFSecSecClusGrpMemb$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

@@ -107,6 +107,25 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 			}
 			return( true );
 		}
+		else if (obj instanceof ICFSecSecUserPWHistoryH) {
+			ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
+			}
+			return( true );
+		}
 		else {
 			return( false );
 		}
@@ -161,12 +180,30 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecSecUserPWHistoryH) {
+			ICFSecSecUserPWHistoryH rhs = (ICFSecSecUserPWHistoryH)obj;
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else {
 			throw new CFLibUnsupportedClassException(getClass(),
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWHistoryByUserIdxKey, ICFSecSecUserPWHistory");
+				"ICFSecSecUserPWHistoryByUserIdxKey, ICFSecSecUserPWHistory$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

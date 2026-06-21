@@ -203,7 +203,7 @@ public class CFSecJpaTenantByClusterIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecTenantByClusterIdxKey, ICFSecTenant, ICFSecTenantH");
+				"ICFSecTenantByClusterIdxKey, ICFSecTenant$emitIndexKeyEqualsHistoryClass$");
 		}
 	}
 

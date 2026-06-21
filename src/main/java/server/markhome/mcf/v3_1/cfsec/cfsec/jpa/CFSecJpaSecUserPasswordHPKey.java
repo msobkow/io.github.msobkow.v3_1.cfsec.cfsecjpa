@@ -1,4 +1,4 @@
-// Description: Java 25 JPA implementation of a ISOTZone history primary key object.
+// Description: Java 25 JPA implementation of a SecUserPassword history primary key object.
 
 /*
  *	server.markhome.mcf.CFSec
@@ -41,41 +41,31 @@ import server.markhome.mcf.v3_1.cflib.xml.CFLibXmlUtil;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 
 /**
- *	CFSecJpaISOTZoneHPKey History Primary Key for ISOTZone
- *		requiredISOTZoneId	Required object attribute ISOTZoneId.
+ *	CFSecJpaSecUserPasswordHPKey History Primary Key for SecUserPassword
+ *		requiredSecUserId	Required object attribute SecUserId.
  */
-public class CFSecJpaISOTZoneHPKey
-	implements ICFSecISOTZoneHPKey, Comparable<Object>, Serializable
+public class CFSecJpaSecUserPasswordHPKey
+	implements ICFSecSecUserPasswordHPKey, Comparable<Object>, Serializable
 {
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column=@Column(name="auditClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH) )
-	})
 	protected CFLibDbKeyHash256 auditClusterId;
 
-	@Column(name="auditStamp", nullable=false)
 	protected LocalDateTime auditStamp;
 
-	@Column(name="auditAction", nullable=false)
 	protected short auditActionId;
 
-	@Column(name="requiredRevision", nullable=false)
 	protected int requiredRevision;
 
-	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column=@Column(name="auditSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH) )
-	})
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	@Column( name="ISOTZoneId", nullable=false )
-	protected short requiredISOTZoneId;
+	protected CFLibDbKeyHash256 requiredSecUserId;
 
-	public CFSecJpaISOTZoneHPKey() {
+	public CFSecJpaSecUserPasswordHPKey() {
 		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredISOTZoneId = ICFSecISOTZone.ISOTZONEID_INIT_VALUE;
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPassword.SECUSERID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -129,21 +119,19 @@ public class CFSecJpaISOTZoneHPKey
 	}
 
 	@Override
-	public short getRequiredISOTZoneId() {
-		return( requiredISOTZoneId );
+	public CFLibDbKeyHash256 getRequiredSecUserId() {
+		return( requiredSecUserId );
 	}
 
 	@Override
-	public void setRequiredISOTZoneId( short value ) {
-		if( value < ICFSecISOTZone.ISOTZONEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOTZoneId",
+	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecUserId",
 				1,
-				"value",
-				value,
-				ICFSecISOTZone.ISOTZONEID_MIN_VALUE );
+				"value" );
 		}
-		requiredISOTZoneId = value;
+		requiredSecUserId = value;
 	}
 
 	@Override
@@ -151,15 +139,27 @@ public class CFSecJpaISOTZoneHPKey
 		if (obj == null) {
 			return( false );
 		}
-		else if (obj instanceof ICFSecISOTZone) {
-			ICFSecISOTZone rhs = (ICFSecISOTZone)obj;
-			if( getRequiredISOTZoneId() != rhs.getRequiredISOTZoneId() ) {
-				return( false );
+		else if (obj instanceof ICFSecSecUserPassword) {
+			ICFSecSecUserPassword rhs = (ICFSecSecUserPassword)obj;
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecISOTZoneHPKey) {
-			ICFSecISOTZoneHPKey rhs = (ICFSecISOTZoneHPKey)obj;
+		else if (obj instanceof ICFSecSecUserPasswordHPKey) {
+			ICFSecSecUserPasswordHPKey rhs = (ICFSecSecUserPasswordHPKey)obj;
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
 					if ( ! getAuditClusterId().equals(rhs.getAuditClusterId())) {
@@ -205,13 +205,25 @@ public class CFSecJpaISOTZoneHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredISOTZoneId() != rhs.getRequiredISOTZoneId() ) {
-				return( false );
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecISOTZoneH) {
-			ICFSecISOTZoneH rhs = (ICFSecISOTZoneH)obj;
+		else if (obj instanceof ICFSecSecUserPasswordH) {
+			ICFSecSecUserPasswordH rhs = (ICFSecSecUserPasswordH)obj;
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
 					if ( ! getAuditClusterId().equals(rhs.getAuditClusterId())) {
@@ -257,8 +269,20 @@ public class CFSecJpaISOTZoneHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredISOTZoneId() != rhs.getRequiredISOTZoneId() ) {
-				return( false );
+			if( getRequiredSecUserId() != null ) {
+				if( rhs.getRequiredSecUserId() != null ) {
+					if( ! getRequiredSecUserId().equals( rhs.getRequiredSecUserId() ) ) {
+						return( false );
+					}
+				}
+				else {
+					return( false );
+				}
+			}
+			else {
+				if( rhs.getRequiredSecUserId() != null ) {
+					return( false );
+				}
 			}
 			return( true );
 		}
@@ -281,7 +305,7 @@ public class CFSecJpaISOTZoneHPKey
 		if( auditSessionId != null ) {
 			hashCode = hashCode + auditSessionId.hashCode();
 		}
-		hashCode = ( hashCode * 0x10000 ) + getRequiredISOTZoneId();
+		hashCode = hashCode + getRequiredSecUserId().hashCode();
 		return( hashCode & 0x7fffffff );
 	}
 
@@ -291,18 +315,26 @@ public class CFSecJpaISOTZoneHPKey
 		if (obj == null) {
 			return( 1 );
 		}
-		else if (obj instanceof ICFSecISOTZone) {
-			ICFSecISOTZone rhs = (ICFSecISOTZone)obj;
-			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
-				return( -1 );
+		else if (obj instanceof ICFSecSecUserPassword) {
+			ICFSecSecUserPassword rhs = (ICFSecSecUserPassword)obj;
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredISOTZoneId() > rhs.getRequiredISOTZoneId() ) {
-				return( 1 );
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecISOTZoneHPKey) {
-			ICFSecISOTZoneHPKey rhs = (ICFSecISOTZoneHPKey)obj;
+		else if (obj instanceof ICFSecSecUserPasswordHPKey) {
+			ICFSecSecUserPasswordHPKey rhs = (ICFSecSecUserPasswordHPKey)obj;
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {
 					return( -1 );
@@ -357,16 +389,24 @@ public class CFSecJpaISOTZoneHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
-				return( -1 );
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredISOTZoneId() > rhs.getRequiredISOTZoneId() ) {
-				return( 1 );
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecISOTZoneH) {
-			ICFSecISOTZoneH rhs = (ICFSecISOTZoneH)obj;
+		else if (obj instanceof ICFSecSecUserPasswordH) {
+			ICFSecSecUserPasswordH rhs = (ICFSecSecUserPasswordH)obj;
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {
 					return( -1 );
@@ -421,11 +461,19 @@ public class CFSecJpaISOTZoneHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
-				return( -1 );
+			if (getRequiredSecUserId() != null) {
+				if (rhs.getRequiredSecUserId() != null) {
+					cmp = getRequiredSecUserId().compareTo( rhs.getRequiredSecUserId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
 			}
-			else if( getRequiredISOTZoneId() > rhs.getRequiredISOTZoneId() ) {
-				return( 1 );
+			else if (rhs.getRequiredSecUserId() != null) {
+				return( -1 );
 			}
 			return( 0 );
 		}
@@ -434,7 +482,7 @@ public class CFSecJpaISOTZoneHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOTZonePKey, ICFSecISOTZone$emitHPKeyHistoryClassNames$" );
+				"ICFSecSecUserPasswordPKey, ICFSecSecUserPassword$emitHPKeyHistoryClassNames$" );
 		}
 	}
 
@@ -445,13 +493,13 @@ public class CFSecJpaISOTZoneHPKey
 			+ " auditAction=\"" + auditActionId + "\""
 			+ " requiredRevision=\"" + requiredRevision + "\""
 			+ " auditSessionId=\"" + (getAuditSessionId() != null ? getAuditSessionId().toString() : "null") + "\""
-			+ " RequiredISOTZoneId=" + "\"" + Short.toString( getRequiredISOTZoneId() ) + "\"";
+			+ " RequiredSecUserId=" + "\"" + getRequiredSecUserId().toString() + "\"";
 		return( ret );
 	}
 
 	@Override
 	public String toString() {
-		String ret = "<CFSecJpaISOTZoneHPKey" + getXmlAttrFragment() + "/>";
+		String ret = "<CFSecJpaSecUserPasswordHPKey" + getXmlAttrFragment() + "/>";
 		return( ret );
 	}
 }

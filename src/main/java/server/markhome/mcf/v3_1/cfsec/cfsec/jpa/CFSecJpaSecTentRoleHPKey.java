@@ -494,7 +494,7 @@ public class CFSecJpaSecTentRoleHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecTentRolePKey, ICFSecSecTentRole, ICFSecSecTentRoleHPKey, ICFSecSecTentRoleH" );
+				"ICFSecSecTentRolePKey, ICFSecSecTentRole$emitHPKeyHistoryClassNames$" );
 		}
 	}
 
