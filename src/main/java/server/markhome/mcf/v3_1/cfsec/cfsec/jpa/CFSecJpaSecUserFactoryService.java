@@ -129,9 +129,16 @@ public class CFSecJpaSecUserFactoryService
 			return( (CFSecJpaSecUser)rec );
 		}
 		else {
-			CFSecJpaSecUser mapped = new CFSecJpaSecUser();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSecUser.CLASS_CODE: {
+					CFSecJpaSecUser mapped = new CFSecJpaSecUser();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUser",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUser");
+			}
 		}
 	}
 
@@ -142,16 +149,23 @@ public class CFSecJpaSecUserFactoryService
     }
 
 	public CFSecJpaSecUserH ensureHRec(ICFSecSecUserH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaSecUserH) {
+		else if (hrec instanceof CFSecJpaSecUserH) {
 			return( (CFSecJpaSecUserH)hrec );
 		}
 		else {
-			CFSecJpaSecUserH mapped = new CFSecJpaSecUserH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecSecUser.CLASS_CODE: {
+					CFSecJpaSecUserH mapped = new CFSecJpaSecUserH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecUser",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecUser");
+			}
 		}
 	}
 }

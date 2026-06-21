@@ -147,9 +147,16 @@ public class CFSecJpaSecSessionFactoryService
 			return( (CFSecJpaSecSession)rec );
 		}
 		else {
-			CFSecJpaSecSession mapped = new CFSecJpaSecSession();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSecSession.CLASS_CODE: {
+					CFSecJpaSecSession mapped = new CFSecJpaSecSession();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecSession",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecSession");
+			}
 		}
 	}
 }

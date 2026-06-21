@@ -129,9 +129,16 @@ public class CFSecJpaISOCcyFactoryService
 			return( (CFSecJpaISOCcy)rec );
 		}
 		else {
-			CFSecJpaISOCcy mapped = new CFSecJpaISOCcy();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecISOCcy.CLASS_CODE: {
+					CFSecJpaISOCcy mapped = new CFSecJpaISOCcy();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecISOCcy",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecISOCcy");
+			}
 		}
 	}
 
@@ -142,16 +149,23 @@ public class CFSecJpaISOCcyFactoryService
     }
 
 	public CFSecJpaISOCcyH ensureHRec(ICFSecISOCcyH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaISOCcyH) {
+		else if (hrec instanceof CFSecJpaISOCcyH) {
 			return( (CFSecJpaISOCcyH)hrec );
 		}
 		else {
-			CFSecJpaISOCcyH mapped = new CFSecJpaISOCcyH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecISOCcy.CLASS_CODE: {
+					CFSecJpaISOCcyH mapped = new CFSecJpaISOCcyH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecISOCcy",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecISOCcy");
+			}
 		}
 	}
 }

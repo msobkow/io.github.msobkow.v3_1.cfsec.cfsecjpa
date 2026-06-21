@@ -149,9 +149,16 @@ public class CFSecJpaSecUserPWResetFactoryService
 			return( (CFSecJpaSecUserPWReset)rec );
 		}
 		else {
-			CFSecJpaSecUserPWReset mapped = new CFSecJpaSecUserPWReset();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSecUserPWReset.CLASS_CODE: {
+					CFSecJpaSecUserPWReset mapped = new CFSecJpaSecUserPWReset();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUserPWReset",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUserPWReset");
+			}
 		}
 	}
 
@@ -162,16 +169,23 @@ public class CFSecJpaSecUserPWResetFactoryService
     }
 
 	public CFSecJpaSecUserPWResetH ensureHRec(ICFSecSecUserPWResetH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaSecUserPWResetH) {
+		else if (hrec instanceof CFSecJpaSecUserPWResetH) {
 			return( (CFSecJpaSecUserPWResetH)hrec );
 		}
 		else {
-			CFSecJpaSecUserPWResetH mapped = new CFSecJpaSecUserPWResetH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecSecUserPWReset.CLASS_CODE: {
+					CFSecJpaSecUserPWResetH mapped = new CFSecJpaSecUserPWResetH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecUserPWReset",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecUserPWReset");
+			}
 		}
 	}
 }

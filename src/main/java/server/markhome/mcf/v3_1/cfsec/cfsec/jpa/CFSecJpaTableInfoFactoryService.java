@@ -190,9 +190,16 @@ public class CFSecJpaTableInfoFactoryService
 			return( (CFSecJpaTableInfo)rec );
 		}
 		else {
-			CFSecJpaTableInfo mapped = new CFSecJpaTableInfo();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecTableInfo.CLASS_CODE: {
+					CFSecJpaTableInfo mapped = new CFSecJpaTableInfo();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecTableInfo",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecTableInfo");
+			}
 		}
 	}
 
@@ -203,16 +210,23 @@ public class CFSecJpaTableInfoFactoryService
     }
 
 	public CFSecJpaTableInfoH ensureHRec(ICFSecTableInfoH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaTableInfoH) {
+		else if (hrec instanceof CFSecJpaTableInfoH) {
 			return( (CFSecJpaTableInfoH)hrec );
 		}
 		else {
-			CFSecJpaTableInfoH mapped = new CFSecJpaTableInfoH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecTableInfo.CLASS_CODE: {
+					CFSecJpaTableInfoH mapped = new CFSecJpaTableInfoH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecTableInfo",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecTableInfo");
+			}
 		}
 	}
 }

@@ -85,9 +85,16 @@ public class CFSecJpaSecUserPasswordFactoryService
 			return( (CFSecJpaSecUserPassword)rec );
 		}
 		else {
-			CFSecJpaSecUserPassword mapped = new CFSecJpaSecUserPassword();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSecUserPassword.CLASS_CODE: {
+					CFSecJpaSecUserPassword mapped = new CFSecJpaSecUserPassword();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUserPassword",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecUserPassword");
+			}
 		}
 	}
 }

@@ -150,9 +150,16 @@ public class CFSecJpaSecTentRoleFactoryService
 			return( (CFSecJpaSecTentRole)rec );
 		}
 		else {
-			CFSecJpaSecTentRole mapped = new CFSecJpaSecTentRole();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSecTentRole.CLASS_CODE: {
+					CFSecJpaSecTentRole mapped = new CFSecJpaSecTentRole();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecTentRole",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecTentRole");
+			}
 		}
 	}
 
@@ -163,16 +170,23 @@ public class CFSecJpaSecTentRoleFactoryService
     }
 
 	public CFSecJpaSecTentRoleH ensureHRec(ICFSecSecTentRoleH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaSecTentRoleH) {
+		else if (hrec instanceof CFSecJpaSecTentRoleH) {
 			return( (CFSecJpaSecTentRoleH)hrec );
 		}
 		else {
-			CFSecJpaSecTentRoleH mapped = new CFSecJpaSecTentRoleH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecSecTentRole.CLASS_CODE: {
+					CFSecJpaSecTentRoleH mapped = new CFSecJpaSecTentRoleH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecTentRole",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecTentRole");
+			}
 		}
 	}
 }

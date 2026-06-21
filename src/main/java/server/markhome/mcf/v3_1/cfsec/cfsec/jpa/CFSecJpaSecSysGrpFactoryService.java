@@ -129,9 +129,16 @@ public class CFSecJpaSecSysGrpFactoryService
 			return( (CFSecJpaSecSysGrp)rec );
 		}
 		else {
-			CFSecJpaSecSysGrp mapped = new CFSecJpaSecSysGrp();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSecSysGrp.CLASS_CODE: {
+					CFSecJpaSecSysGrp mapped = new CFSecJpaSecSysGrp();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecSysGrp",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecSysGrp");
+			}
 		}
 	}
 
@@ -142,16 +149,23 @@ public class CFSecJpaSecSysGrpFactoryService
     }
 
 	public CFSecJpaSecSysGrpH ensureHRec(ICFSecSecSysGrpH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaSecSysGrpH) {
+		else if (hrec instanceof CFSecJpaSecSysGrpH) {
 			return( (CFSecJpaSecSysGrpH)hrec );
 		}
 		else {
-			CFSecJpaSecSysGrpH mapped = new CFSecJpaSecSysGrpH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecSecSysGrp.CLASS_CODE: {
+					CFSecJpaSecSysGrpH mapped = new CFSecJpaSecSysGrpH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecSysGrp",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecSysGrp");
+			}
 		}
 	}
 }

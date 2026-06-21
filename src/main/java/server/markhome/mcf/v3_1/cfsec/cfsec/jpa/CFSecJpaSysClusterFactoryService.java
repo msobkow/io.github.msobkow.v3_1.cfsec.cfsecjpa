@@ -85,9 +85,16 @@ public class CFSecJpaSysClusterFactoryService
 			return( (CFSecJpaSysCluster)rec );
 		}
 		else {
-			CFSecJpaSysCluster mapped = new CFSecJpaSysCluster();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSysCluster.CLASS_CODE: {
+					CFSecJpaSysCluster mapped = new CFSecJpaSysCluster();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSysCluster",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSysCluster");
+			}
 		}
 	}
 }

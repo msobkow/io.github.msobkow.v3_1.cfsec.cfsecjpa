@@ -151,9 +151,16 @@ public class CFSecJpaSecSysRoleEnablesFactoryService
 			return( (CFSecJpaSecSysRoleEnables)rec );
 		}
 		else {
-			CFSecJpaSecSysRoleEnables mapped = new CFSecJpaSecSysRoleEnables();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecSecSysRoleEnables.CLASS_CODE: {
+					CFSecJpaSecSysRoleEnables mapped = new CFSecJpaSecSysRoleEnables();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecSysRoleEnables",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecSecSysRoleEnables");
+			}
 		}
 	}
 
@@ -164,16 +171,23 @@ public class CFSecJpaSecSysRoleEnablesFactoryService
     }
 
 	public CFSecJpaSecSysRoleEnablesH ensureHRec(ICFSecSecSysRoleEnablesH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaSecSysRoleEnablesH) {
+		else if (hrec instanceof CFSecJpaSecSysRoleEnablesH) {
 			return( (CFSecJpaSecSysRoleEnablesH)hrec );
 		}
 		else {
-			CFSecJpaSecSysRoleEnablesH mapped = new CFSecJpaSecSysRoleEnablesH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecSecSysRoleEnables.CLASS_CODE: {
+					CFSecJpaSecSysRoleEnablesH mapped = new CFSecJpaSecSysRoleEnablesH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecSysRoleEnables",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecSecSysRoleEnables");
+			}
 		}
 	}
 }

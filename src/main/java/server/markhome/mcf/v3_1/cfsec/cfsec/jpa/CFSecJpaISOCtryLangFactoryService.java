@@ -151,9 +151,16 @@ public class CFSecJpaISOCtryLangFactoryService
 			return( (CFSecJpaISOCtryLang)rec );
 		}
 		else {
-			CFSecJpaISOCtryLang mapped = new CFSecJpaISOCtryLang();
-			mapped.set(rec);
-			return( mapped );
+			switch(rec.getClassCode()) {
+				case ICFSecISOCtryLang.CLASS_CODE: {
+					CFSecJpaISOCtryLang mapped = new CFSecJpaISOCtryLang();
+					mapped.set(rec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureRec",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecISOCtryLang",
+						"Unsupported class code " + rec.getClassCode() + " is not a derivative of CFSecISOCtryLang");
+			}
 		}
 	}
 
@@ -164,16 +171,23 @@ public class CFSecJpaISOCtryLangFactoryService
     }
 
 	public CFSecJpaISOCtryLangH ensureHRec(ICFSecISOCtryLangH hrec) {
-		if (hrec == null) {
+		if( hrec == null ) {
 			return( null );
 		}
-		else if( hrec instanceof CFSecJpaISOCtryLangH) {
+		else if (hrec instanceof CFSecJpaISOCtryLangH) {
 			return( (CFSecJpaISOCtryLangH)hrec );
 		}
 		else {
-			CFSecJpaISOCtryLangH mapped = new CFSecJpaISOCtryLangH();
-			mapped.set(hrec);
-			return( mapped );
+			switch(hrec.getClassCode()) {
+				case ICFSecISOCtryLang.CLASS_CODE: {
+					CFSecJpaISOCtryLangH mapped = new CFSecJpaISOCtryLangH();
+					mapped.set(hrec);
+					return( mapped ); }
+				default:
+					throw new CFLibUnsupportedClassException(getClass(), "ensureHRec",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecISOCtryLang",
+						"Unsupported class code " + hrec.getClassCode() + " is not a derivative of CFSecISOCtryLang");
+			}
 		}
 	}
 }
