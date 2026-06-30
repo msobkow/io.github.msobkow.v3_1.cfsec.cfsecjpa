@@ -45,7 +45,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import server.markhome.mcf.v3_1.cfsec.cfsecpub.*;
+import server.markhome.mcf.v3_1.cfsec.cfsecpubobj.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
+import server.markhome.mcf.v3_1.cfsec.cfsecpubobj.*;
 
 /**
  *	Services for schema CFSec defined in server.markhome.mcf.v3_1.cfsec.cfsec.jpa
@@ -148,7 +151,7 @@ public class CFSecJpaSchemaService {
 	private CFSecJpaSysClusterService sysclusterService;
 
 
-	public void bootstrapSchema(CFSecTableData tableData[]) {
+	public void bootstrapSchema(CFSecPubTableData tableData[]) {
 		bootstrapSecurity();
 		bootstrapAllTablesSecurity(tableData);
 	}
@@ -1195,12 +1198,12 @@ public class CFSecJpaSchemaService {
 	}		
 
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void bootstrapAllTablesSecurity(CFSecTableData tableData[]) {
+	public void bootstrapAllTablesSecurity(CFSecPubTableData tableData[]) {
 		bootstrapAllTablesSecurity(ICFSecSchema.getSysClusterId(), ICFSecSchema.getSysTenantId(), tableData);
 	}
 
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableData tableData[]) {
+	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecPubTableData tableData[]) {
 		LocalDateTime now = LocalDateTime.now();
 		ICFSecSecSession bootstrapSession;
 		CFLibDbKeyHash256 bootstrapSessionID = new CFLibDbKeyHash256(0);
@@ -1273,7 +1276,7 @@ public class CFSecJpaSchemaService {
 		ICFSecSecSysGrp secSysGroupPublic,
 		ICFSecCluster secCluster,
 		ICFSecTenant secTenant,
-		CFSecTableData tableData[])
+		CFSecPubTableData tableData[])
 	{
 		LocalDateTime now = LocalDateTime.now();
 
@@ -1367,7 +1370,7 @@ public class CFSecJpaSchemaService {
 			secTentGroupMembSystemAdmin = (CFSecJpaSecTentGrpMemb)(sectentgrpmembService.create((CFSecJpaSecTentGrpMemb)secTentGroupMembSystemAdmin));
 		}
 
-		for( CFSecTableData data: tableData) {
+		for( CFSecPubTableData data: tableData) {
 			bootstrapTableSecurity(auth, LocalDateTime.now(), data.getTableName(), data.hasHistory(), data.isMutable(), data.getScope(), secSysGroupPublic, secSystemAdminGroup, secClusGroupSysAdmin, secTentGroupSysAdmin);
 		}
 	}

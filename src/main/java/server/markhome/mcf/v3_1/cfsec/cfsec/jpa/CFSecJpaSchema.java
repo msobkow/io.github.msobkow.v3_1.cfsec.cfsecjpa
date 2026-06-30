@@ -46,7 +46,11 @@ import server.markhome.mcf.v3_1.cflib.*;
 import server.markhome.mcf.v3_1.cflib.dbutil.*;
 import server.markhome.mcf.v3_1.cflib.inz.Inz;
 import server.markhome.mcf.v3_1.cflib.xml.CFLibXmlUtil;
+
+import server.markhome.mcf.v3_1.cfsec.cfsecpub.*;
+import server.markhome.mcf.v3_1.cfsec.cfsecpubobj.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.*;
+import server.markhome.mcf.v3_1.cfsec.cfsecpubobj.*;
 import server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaHooksSchema;
 
 import server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSchema;
@@ -1005,11 +1009,11 @@ public class CFSecJpaSchema
 		tableTenant = value;
 	}
 
-	public void bootstrapSchema(CFSecTableData tableData[]) {
+	public void bootstrapSchema(CFSecPubTableData tableData[]) {
 		getSchemaService().bootstrapSchema(tableData);
 	}
 
-	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecTableData tableData[]) {
+	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecPubTableData tableData[]) {
 		getSchemaService().bootstrapAllTablesSecurity(clusterId, tenantId, tableData);
 	}
 }
