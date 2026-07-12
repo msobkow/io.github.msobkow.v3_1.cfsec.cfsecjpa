@@ -435,7 +435,7 @@ public class CFSecJpaSchemaService {
 			secSystemAdminGroup.setUpdatedAt(now);
 			secSystemAdminGroup.setUpdatedByUserId(systemUID);
 			secSystemAdminGroup.setRequiredName("systemadmin");
-			secSystemAdminGroup.setRequiredSecLevel(ICFSecSchema.SecLevelEnum.System);
+			secSystemAdminGroup.setRequiredSecLevel(ICFSecPubSchema.SecLevelEnum.System);
 			secSystemAdminGroup.setRequiredSecSysGrpId(secSystemAdminGroupID);
 			secSystemAdminGroup = (CFSecJpaSecSysGrp)(secsysgrpService.create(secSystemAdminGroup));
 			secSystemAdminGroupID = secSystemAdminGroup.getRequiredSecSysGrpId();
@@ -457,7 +457,7 @@ public class CFSecJpaSchemaService {
 			secSysGroupPublic.setUpdatedAt(now);
 			secSysGroupPublic.setUpdatedByUserId(systemUID);
 			secSysGroupPublic.setRequiredName("public");
-			secSysGroupPublic.setRequiredSecLevel(ICFSecSchema.SecLevelEnum.System);
+			secSysGroupPublic.setRequiredSecLevel(ICFSecPubSchema.SecLevelEnum.System);
 			secSysGroupPublic.setRequiredSecSysGrpId(secSysGroupPublicID);
 			secSysGroupPublic = (CFSecJpaSecSysGrp)(secsysgrpService.create(secSysGroupPublic));
 			secSysGroupPublicID = secSysGroupPublic.getRequiredSecSysGrpId();
@@ -499,18 +499,18 @@ public class CFSecJpaSchemaService {
 		ICFSecSecClusGrp secSysClusGroupSysAdmin,
 		ICFSecSecTentGrp secSysTentGroupSysAdmin )
 	{
-		ICFSecSchema.SecLevelEnum level;
+		ICFSecPubSchema.SecLevelEnum level;
 		if (secScope.equalsIgnoreCase("global")) {
-			level = ICFSecSchema.SecLevelEnum.Global;
+			level = ICFSecPubSchema.SecLevelEnum.Global;
 		}
 		else if (secScope.toLowerCase().startsWith("cluster")) {
-			level = ICFSecSchema.SecLevelEnum.Cluster;
+			level = ICFSecPubSchema.SecLevelEnum.Cluster;
 		}
 		else if (secScope.toLowerCase().startsWith("tenant")) {
-			level = ICFSecSchema.SecLevelEnum.Tenant;
+			level = ICFSecPubSchema.SecLevelEnum.Tenant;
 		}
 		else {
-			level = ICFSecSchema.SecLevelEnum.System;
+			level = ICFSecPubSchema.SecLevelEnum.System;
 		}
 			
 		String lowerTableName = tableName.toLowerCase();
@@ -591,7 +591,7 @@ public class CFSecJpaSchemaService {
 			secGroupReadIncSystemAdmin = null;
 		}
 
-		if (secGroupRead != null && level == ICFSecSchema.SecLevelEnum.Global) {
+		if (secGroupRead != null && level == ICFSecPubSchema.SecLevelEnum.Global) {
 			secGroupReadIncPublic = ICFSecSchema.getBackingCFSec().getTableSecSysGrpInc().readDerived(auth, secGroupReadID, publicGroup);
 		}
 		else {
@@ -727,7 +727,7 @@ public class CFSecJpaSchemaService {
 			secGroupReadIncSystemAdmin = ICFSecSchema.getBackingCFSec().getTableSecSysGrpInc().createSecSysGrpInc(auth, secGroupReadIncSystemAdmin);
 		}
 
-		if (secGroupRead != null && level == ICFSecSchema.SecLevelEnum.Global && secGroupReadIncPublic == null) {
+		if (secGroupRead != null && level == ICFSecPubSchema.SecLevelEnum.Global && secGroupReadIncPublic == null) {
 			secGroupReadIncPublic = ICFSecSchema.getBackingCFSec().getCFSecFactory().getFactorySecSysGrpInc().newRec();
 			secGroupReadIncPublic.setRequiredRevision(1);
 			secGroupReadIncPublic.setCreatedAt(now);
@@ -850,7 +850,7 @@ public class CFSecJpaSchemaService {
 			}
 		}
 		
-		if (level == ICFSecSchema.SecLevelEnum.Cluster || level == ICFSecSchema.SecLevelEnum.Tenant) {
+		if (level == ICFSecPubSchema.SecLevelEnum.Cluster || level == ICFSecPubSchema.SecLevelEnum.Tenant) {
 			csecGroupCreate = ICFSecSchema.getBackingCFSec().getTableSecClusGrp().readDerivedByUNameIdx(auth, ICFSecSchema.getSysClusterId(), createPermName);
 			if (csecGroupCreate != null) {
 				csecGroupCreateID = csecGroupCreate.getRequiredSecClusGrpId();
@@ -1023,7 +1023,7 @@ public class CFSecJpaSchemaService {
 			}
 		}
 
-		if (level == ICFSecSchema.SecLevelEnum.Tenant ) {
+		if (level == ICFSecPubSchema.SecLevelEnum.Tenant ) {
 			tsecGroupCreate = ICFSecSchema.getBackingCFSec().getTableSecTentGrp().readDerivedByUNameIdx(auth, ICFSecSchema.getSysTenantId(), createPermName);
 			if (tsecGroupCreate != null) {
 				tsecGroupCreateID = tsecGroupCreate.getRequiredSecTentGrpId();

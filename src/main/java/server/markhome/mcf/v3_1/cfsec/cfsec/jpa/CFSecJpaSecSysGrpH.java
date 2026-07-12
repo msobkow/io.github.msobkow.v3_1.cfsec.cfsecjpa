@@ -86,7 +86,7 @@ public class CFSecJpaSecSysGrpH
 	@Column( name="safe_name", nullable=false, length=64 )
 	protected String requiredName;
 	@Column( name="sec_level", nullable=false )
-	protected ICFSecSchema.SecLevelEnum requiredSecLevel;
+	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
 
     public CFSecJpaSecSysGrpH() {
             // The primary key member attributes are initialized on construction

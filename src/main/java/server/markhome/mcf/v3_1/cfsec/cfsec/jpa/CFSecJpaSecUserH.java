@@ -86,7 +86,7 @@ public class CFSecJpaSecUserH
 	@Column( name="login_id", nullable=false, length=32 )
 	protected String requiredLoginId;
 	@Column( name="acct_status", nullable=false )
-	protected ICFSecSchema.SecAccountStatusEnum requiredAccountStatus;
+	protected ICFSecPubSchema.SecAccountStatusEnum requiredAccountStatus;
 	@Column( name="dflt_sysgrp_nm", nullable=true, length=64 )
 	protected String optionalDfltSysGrpName;
 	@Column( name="dflt_clusgrp_nm", nullable=true, length=64 )

@@ -102,7 +102,7 @@ public class CFSecJpaSecSysGrp
 	@Column( name="safe_name", nullable=false, length=64 )
 	protected String requiredName;
 	@Column( name="sec_level", nullable=false )
-	protected ICFSecSchema.SecLevelEnum requiredSecLevel;
+	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
 
 	public CFSecJpaSecSysGrp() {
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecSysGrp.SECSYSGRPID_INIT_VALUE.toString() );

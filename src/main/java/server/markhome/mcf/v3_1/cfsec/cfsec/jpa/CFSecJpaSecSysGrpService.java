@@ -216,7 +216,7 @@ public class CFSecJpaSecSysGrpService {
 	 *		@return List&lt;CFSecJpaSecSysGrp&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysGrp> findBySecLevelIdx(@Param("secLevel") ICFSecSchema.SecLevelEnum requiredSecLevel) {
+	public List<CFSecJpaSecSysGrp> findBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel) {
 		return( cfsec31SecSysGrpRepository.findBySecLevelIdx(requiredSecLevel));
 	}
 
@@ -278,7 +278,7 @@ public class CFSecJpaSecSysGrpService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysGrp> lockBySecLevelIdx(@Param("secLevel") ICFSecSchema.SecLevelEnum requiredSecLevel) {
+	public List<CFSecJpaSecSysGrp> lockBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel) {
 		return( cfsec31SecSysGrpRepository.lockBySecLevelIdx(requiredSecLevel));
 	}
 
@@ -332,7 +332,7 @@ public class CFSecJpaSecSysGrpService {
 	 *		@param requiredSecLevel
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySecLevelIdx(@Param("secLevel") ICFSecSchema.SecLevelEnum requiredSecLevel) {
+	public void deleteBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel) {
 		cfsec31SecSysGrpRepository.deleteBySecLevelIdx(requiredSecLevel);
 	}
 

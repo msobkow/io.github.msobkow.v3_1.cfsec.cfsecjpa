@@ -337,7 +337,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public void deleteSecSysGrpBySecLevelIdx( ICFSecAuthorization Authorization,
-		ICFSecSchema.SecLevelEnum argSecLevel )
+		ICFSecPubSchema.SecLevelEnum argSecLevel )
 	{
 		final String S_ProcName = "deleteSecSysGrpBySecLevelIdx";
 		boolean permissionGranted = canDeleteSecSysGrp(S_ProcName, Authorization);
@@ -505,7 +505,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp[] readDerivedBySecLevelIdx( ICFSecAuthorization Authorization,
-		ICFSecSchema.SecLevelEnum argSecLevel )
+		ICFSecPubSchema.SecLevelEnum argSecLevel )
 	{
 		final String S_ProcName = "readDerivedBySecLevelIdx";
 		boolean permissionGranted = false;
@@ -660,7 +660,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp[] readRecBySecLevelIdx( ICFSecAuthorization Authorization,
-		ICFSecSchema.SecLevelEnum argSecLevel )
+		ICFSecPubSchema.SecLevelEnum argSecLevel )
 	{
 		final String S_ProcName = "readRecBySecLevelIdx";
 		boolean permissionGranted = false;

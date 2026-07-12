@@ -97,7 +97,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	 *		@return List&lt;CFSecJpaSecSysGrp&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredSecLevel = :secLevel")
-	List<CFSecJpaSecSysGrp> findBySecLevelIdx(@Param("secLevel") ICFSecSchema.SecLevelEnum requiredSecLevel);
+	List<CFSecJpaSecSysGrp> findBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel);
 
 	/**
 	 *	CFSecSecSysGrpBySecLevelIdxKey entity list reader convenience method for object-based access.
@@ -157,7 +157,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredSecLevel = :secLevel")
-	List<CFSecJpaSecSysGrp> lockBySecLevelIdx(@Param("secLevel") ICFSecSchema.SecLevelEnum requiredSecLevel);
+	List<CFSecJpaSecSysGrp> lockBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel);
 
 	/**
 	 *	CFSecSecSysGrpBySecLevelIdxKey based lock method for object-based access.
@@ -209,7 +209,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysGrp r where r.requiredSecLevel = :secLevel")
-	void deleteBySecLevelIdx(@Param("secLevel") ICFSecSchema.SecLevelEnum requiredSecLevel);
+	void deleteBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel);
 
 	/**
 	 *	CFSecSecSysGrpBySecLevelIdxKey based lock method for object-based access.
