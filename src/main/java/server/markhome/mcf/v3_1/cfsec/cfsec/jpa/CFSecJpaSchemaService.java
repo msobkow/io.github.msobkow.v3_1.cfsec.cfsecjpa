@@ -364,7 +364,7 @@ public class CFSecJpaSchemaService {
 			systemUser.setRequiredSecUserId(systemUID);
 			systemUser.setRequiredLoginId("system");
 			systemUser.setRequiredEMailAddress("system@" + fqdn);
-			systemUser.setRequiredAccountStatus(ICFSecSchema.SecAccountStatusEnum.System);
+			systemUser.setRequiredAccountStatus(ICFSecPubSchema.SecAccountStatusEnum.System);
 			systemUser = secuserService.create(systemUser);
 			systemUID = systemUser.getPKey();
 		}
@@ -379,7 +379,7 @@ public class CFSecJpaSchemaService {
 			systemAdminUser.setRequiredSecUserId(systemAdminUID);
 			systemAdminUser.setRequiredLoginId("systemadmin");
 			systemAdminUser.setRequiredEMailAddress("systemadmin@" + fqdn);
-			systemAdminUser.setRequiredAccountStatus(ICFSecSchema.SecAccountStatusEnum.ResettingPassword);
+			systemAdminUser.setRequiredAccountStatus(ICFSecPubSchema.SecAccountStatusEnum.ResettingPassword);
 			systemAdminUser = secuserService.create(systemAdminUser);
 			systemAdminUID = systemAdminUser.getPKey();
 			
@@ -597,7 +597,7 @@ public class CFSecJpaSchemaService {
 		else {
 			secGroupReadIncPublic = null;
 		}
-		
+
 		secGroupUpdate = ICFSecSchema.getBackingCFSec().getTableSecSysGrp().readDerivedByUNameIdx(auth, updatePermName);
 		if (secGroupUpdate != null) {
 			secGroupUpdateID = secGroupUpdate.getRequiredSecSysGrpId();

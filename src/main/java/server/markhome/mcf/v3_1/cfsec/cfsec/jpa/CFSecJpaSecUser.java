@@ -326,7 +326,7 @@ public class CFSecJpaSecUser
 	}
 
 	@Override
-	public ICFSecSchema.SecAccountStatusEnum getRequiredAccountStatus() {
+	public ICFSecPubSchema.SecAccountStatusEnum getRequiredAccountStatus() {
 		return( requiredAccountStatus );
 	}
 

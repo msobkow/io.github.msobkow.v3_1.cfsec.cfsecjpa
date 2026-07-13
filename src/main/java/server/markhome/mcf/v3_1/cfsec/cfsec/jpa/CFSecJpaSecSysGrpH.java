@@ -254,7 +254,7 @@ public class CFSecJpaSecSysGrpH
 	}
 
 	@Override
-	public ICFSecSchema.SecLevelEnum getRequiredSecLevel() {
+	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
 		return( requiredSecLevel );
 	}
 

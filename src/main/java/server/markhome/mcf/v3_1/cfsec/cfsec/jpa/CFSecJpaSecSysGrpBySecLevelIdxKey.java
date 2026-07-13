@@ -49,7 +49,7 @@ public class CFSecJpaSecSysGrpBySecLevelIdxKey
 	}
 
 	@Override
-	public ICFSecSchema.SecLevelEnum getRequiredSecLevel() {
+	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
 		return( requiredSecLevel );
 	}
 
