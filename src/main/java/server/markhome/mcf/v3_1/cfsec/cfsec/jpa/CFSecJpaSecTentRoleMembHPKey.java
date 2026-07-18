@@ -1010,6 +1010,37 @@ public class CFSecJpaSecTentRoleMembHPKey
 			}
 			return( 0 );
 		}
+		else if (obj instanceof ICFSecProtSecTentRoleMembPKey rhs) {
+			if (getRequiredSecTentRoleId() != null) {
+				if (rhs.getRequiredSecTentRoleId() != null) {
+					cmp = getRequiredSecTentRoleId().compareTo( rhs.getRequiredSecTentRoleId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredSecTentRoleId() != null) {
+				return( -1 );
+			}
+			if (getRequiredLoginId() != null) {
+				if (rhs.getRequiredLoginId() != null) {
+					cmp = getRequiredLoginId().compareTo( rhs.getRequiredLoginId() );
+					if( cmp != 0 ) {
+						return( cmp );
+					}
+				}
+				else {
+					return( 1 );
+				}
+			}
+			else if (rhs.getRequiredLoginId() != null) {
+				return( -1 );
+			}
+			return( 0 );
+		}
 		else if (obj instanceof ICFSecProtSecTentRoleMembH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {

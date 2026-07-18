@@ -205,12 +205,6 @@ public class CFSecJpaISOLangHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecISOLangPKey rhs) {
-			if( getRequiredISOLangId() != rhs.getRequiredISOLangId() ) {
-				return( false );
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecISOLangH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -319,12 +313,6 @@ public class CFSecJpaISOLangHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecProtISOLangPKey rhs) {
-			if( getRequiredISOLangId() != rhs.getRequiredISOLangId() ) {
-				return( false );
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecProtISOLangH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -428,12 +416,6 @@ public class CFSecJpaISOLangHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredISOLangId() != rhs.getRequiredISOLangId() ) {
-				return( false );
-			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecPubISOLangPKey rhs) {
 			if( getRequiredISOLangId() != rhs.getRequiredISOLangId() ) {
 				return( false );
 			}
@@ -583,15 +565,6 @@ public class CFSecJpaISOLangHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredISOLangId() < rhs.getRequiredISOLangId() ) {
-				return( -1 );
-			}
-			else if( getRequiredISOLangId() > rhs.getRequiredISOLangId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecISOLangPKey rhs) {
 			if( getRequiredISOLangId() < rhs.getRequiredISOLangId() ) {
 				return( -1 );
 			}
@@ -872,15 +845,6 @@ public class CFSecJpaISOLangHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredISOLangId() < rhs.getRequiredISOLangId() ) {
-				return( -1 );
-			}
-			else if( getRequiredISOLangId() > rhs.getRequiredISOLangId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecPubISOLangPKey rhs) {
 			if( getRequiredISOLangId() < rhs.getRequiredISOLangId() ) {
 				return( -1 );
 			}

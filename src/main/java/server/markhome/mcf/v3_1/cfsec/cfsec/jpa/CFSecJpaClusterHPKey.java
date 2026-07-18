@@ -217,24 +217,6 @@ public class CFSecJpaClusterHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecClusterPKey rhs) {
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecClusterH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -379,24 +361,6 @@ public class CFSecJpaClusterHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecProtClusterPKey rhs) {
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecProtClusterH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -524,24 +488,6 @@ public class CFSecJpaClusterHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredId() != null ) {
-				if( rhs.getRequiredId() != null ) {
-					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecPubClusterPKey rhs) {
 			if( getRequiredId() != null ) {
 				if( rhs.getRequiredId() != null ) {
 					if( ! getRequiredId().equals( rhs.getRequiredId() ) ) {
@@ -727,23 +673,6 @@ public class CFSecJpaClusterHPKey
 					return( cmp );
 				}
 			}
-			if (getRequiredId() != null) {
-				if (rhs.getRequiredId() != null) {
-					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecClusterPKey rhs) {
 			if (getRequiredId() != null) {
 				if (rhs.getRequiredId() != null) {
 					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
@@ -1080,23 +1009,6 @@ public class CFSecJpaClusterHPKey
 					return( cmp );
 				}
 			}
-			if (getRequiredId() != null) {
-				if (rhs.getRequiredId() != null) {
-					cmp = getRequiredId().compareTo( rhs.getRequiredId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecPubClusterPKey rhs) {
 			if (getRequiredId() != null) {
 				if (rhs.getRequiredId() != null) {
 					cmp = getRequiredId().compareTo( rhs.getRequiredId() );

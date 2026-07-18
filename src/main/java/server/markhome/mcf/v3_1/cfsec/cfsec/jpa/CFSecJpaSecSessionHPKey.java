@@ -205,24 +205,6 @@ public class CFSecJpaSecSessionHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecSecSessionPKey rhs) {
-			if( getRequiredSecSessionId() != null ) {
-				if( rhs.getRequiredSecSessionId() != null ) {
-					if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredSecSessionId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecSecSessionH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -367,24 +349,6 @@ public class CFSecJpaSecSessionHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecProtSecSessionPKey rhs) {
-			if( getRequiredSecSessionId() != null ) {
-				if( rhs.getRequiredSecSessionId() != null ) {
-					if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredSecSessionId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecProtSecSessionH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -512,24 +476,6 @@ public class CFSecJpaSecSessionHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredSecSessionId() != null ) {
-				if( rhs.getRequiredSecSessionId() != null ) {
-					if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredSecSessionId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecPubSecSessionPKey rhs) {
 			if( getRequiredSecSessionId() != null ) {
 				if( rhs.getRequiredSecSessionId() != null ) {
 					if( ! getRequiredSecSessionId().equals( rhs.getRequiredSecSessionId() ) ) {
@@ -715,23 +661,6 @@ public class CFSecJpaSecSessionHPKey
 					return( cmp );
 				}
 			}
-			if (getRequiredSecSessionId() != null) {
-				if (rhs.getRequiredSecSessionId() != null) {
-					cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecSessionId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecSecSessionPKey rhs) {
 			if (getRequiredSecSessionId() != null) {
 				if (rhs.getRequiredSecSessionId() != null) {
 					cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );
@@ -1068,23 +997,6 @@ public class CFSecJpaSecSessionHPKey
 					return( cmp );
 				}
 			}
-			if (getRequiredSecSessionId() != null) {
-				if (rhs.getRequiredSecSessionId() != null) {
-					cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecSessionId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecPubSecSessionPKey rhs) {
 			if (getRequiredSecSessionId() != null) {
 				if (rhs.getRequiredSecSessionId() != null) {
 					cmp = getRequiredSecSessionId().compareTo( rhs.getRequiredSecSessionId() );

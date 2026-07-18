@@ -205,12 +205,6 @@ public class CFSecJpaTableInfoHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecTableInfoPKey rhs) {
-			if( getRequiredTableInfoId() != rhs.getRequiredTableInfoId() ) {
-				return( false );
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecTableInfoH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -319,12 +313,6 @@ public class CFSecJpaTableInfoHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecProtTableInfoPKey rhs) {
-			if( getRequiredTableInfoId() != rhs.getRequiredTableInfoId() ) {
-				return( false );
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecProtTableInfoH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -428,12 +416,6 @@ public class CFSecJpaTableInfoHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredTableInfoId() != rhs.getRequiredTableInfoId() ) {
-				return( false );
-			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecPubTableInfoPKey rhs) {
 			if( getRequiredTableInfoId() != rhs.getRequiredTableInfoId() ) {
 				return( false );
 			}
@@ -583,15 +565,6 @@ public class CFSecJpaTableInfoHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredTableInfoId() < rhs.getRequiredTableInfoId() ) {
-				return( -1 );
-			}
-			else if( getRequiredTableInfoId() > rhs.getRequiredTableInfoId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecTableInfoPKey rhs) {
 			if( getRequiredTableInfoId() < rhs.getRequiredTableInfoId() ) {
 				return( -1 );
 			}
@@ -872,15 +845,6 @@ public class CFSecJpaTableInfoHPKey
 					return( cmp );
 				}
 			}
-			if( getRequiredTableInfoId() < rhs.getRequiredTableInfoId() ) {
-				return( -1 );
-			}
-			else if( getRequiredTableInfoId() > rhs.getRequiredTableInfoId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecPubTableInfoPKey rhs) {
 			if( getRequiredTableInfoId() < rhs.getRequiredTableInfoId() ) {
 				return( -1 );
 			}

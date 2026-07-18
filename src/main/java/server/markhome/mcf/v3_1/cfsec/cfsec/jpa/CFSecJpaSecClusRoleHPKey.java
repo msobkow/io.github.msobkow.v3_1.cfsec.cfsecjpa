@@ -217,24 +217,6 @@ public class CFSecJpaSecClusRoleHPKey
 			}
 			return( true );
 		}
-		else if (obj instanceof ICFSecSecClusRolePKey rhs) {
-			if( getRequiredSecClusRoleId() != null ) {
-				if( rhs.getRequiredSecClusRoleId() != null ) {
-					if( ! getRequiredSecClusRoleId().equals( rhs.getRequiredSecClusRoleId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredSecClusRoleId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
 		else if (obj instanceof ICFSecSecClusRoleH rhs) {
 			if (getAuditClusterId() != null) {
 				if (rhs.getAuditClusterId() != null) {
@@ -362,24 +344,6 @@ public class CFSecJpaSecClusRoleHPKey
 			else if (rhs.getAuditSessionId() != null && !rhs.getAuditSessionId().isNull() ) {
 				return( false );
 			}
-			if( getRequiredSecClusRoleId() != null ) {
-				if( rhs.getRequiredSecClusRoleId() != null ) {
-					if( ! getRequiredSecClusRoleId().equals( rhs.getRequiredSecClusRoleId() ) ) {
-						return( false );
-					}
-				}
-				else {
-					return( false );
-				}
-			}
-			else {
-				if( rhs.getRequiredSecClusRoleId() != null ) {
-					return( false );
-				}
-			}
-			return( true );
-		}
-		else if (obj instanceof ICFSecProtSecClusRolePKey rhs) {
 			if( getRequiredSecClusRoleId() != null ) {
 				if( rhs.getRequiredSecClusRoleId() != null ) {
 					if( ! getRequiredSecClusRoleId().equals( rhs.getRequiredSecClusRoleId() ) ) {
@@ -565,23 +529,6 @@ public class CFSecJpaSecClusRoleHPKey
 					return( cmp );
 				}
 			}
-			if (getRequiredSecClusRoleId() != null) {
-				if (rhs.getRequiredSecClusRoleId() != null) {
-					cmp = getRequiredSecClusRoleId().compareTo( rhs.getRequiredSecClusRoleId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecClusRoleId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
-		else if (obj instanceof ICFSecSecClusRolePKey rhs) {
 			if (getRequiredSecClusRoleId() != null) {
 				if (rhs.getRequiredSecClusRoleId() != null) {
 					cmp = getRequiredSecClusRoleId().compareTo( rhs.getRequiredSecClusRoleId() );
