@@ -123,6 +123,11 @@ public class CFSecJpaSecTentGrpMemb
 	}
 
 	@Override
+	public void setRequiredContainerGroup(ICFSecProtSecTentGrp argObj) {
+		setRequiredContainerGroup(argObj.getRequiredSecTentGrpId());
+	}
+
+	@Override
 	public void setRequiredContainerGroup(CFLibDbKeyHash256 argSecTentGrpId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
@@ -156,6 +161,16 @@ public class CFSecJpaSecTentGrpMemb
 			throw new CFLibUnsupportedClassException(getClass(), "setParentUser", "argObj", argObj, "CFSecJpaSecUser");
 		}
 	
+	}
+
+	@Override
+	public void setRequiredParentUser(ICFSecProtSecUser argObj) {
+		setRequiredParentUser(argObj.getRequiredLoginId());
+	}
+
+	@Override
+	public void setRequiredParentUser(ICFSecPubSecUser argObj) {
+		setRequiredParentUser(argObj.getRequiredLoginId());
 	}
 
 	@Override

@@ -129,6 +129,16 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
+	public void setRequiredContainerUser(ICFSecProtSecUser argObj) {
+		setRequiredContainerUser(argObj.getRequiredSecUserId());
+	}
+
+	@Override
+	public void setRequiredContainerUser(ICFSecPubSecUser argObj) {
+		setRequiredContainerUser(argObj.getRequiredSecUserId());
+	}
+
+	@Override
 	public void setRequiredContainerUser(CFLibDbKeyHash256 argSecUserId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {

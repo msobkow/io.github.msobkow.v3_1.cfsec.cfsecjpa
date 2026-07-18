@@ -123,6 +123,16 @@ public class CFSecJpaISOCtryCcy
 	}
 
 	@Override
+	public void setRequiredContainerCtry(ICFSecProtISOCtry argObj) {
+		setRequiredContainerCtry(argObj.getRequiredISOCtryId());
+	}
+
+	@Override
+	public void setRequiredContainerCtry(ICFSecPubISOCtry argObj) {
+		setRequiredContainerCtry(argObj.getRequiredISOCtryId());
+	}
+
+	@Override
 	public void setRequiredContainerCtry(short argISOCtryId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
@@ -156,6 +166,16 @@ public class CFSecJpaISOCtryCcy
 			throw new CFLibUnsupportedClassException(getClass(), "setParentCcy", "argObj", argObj, "CFSecJpaISOCcy");
 		}
 	
+	}
+
+	@Override
+	public void setRequiredParentCcy(ICFSecProtISOCcy argObj) {
+		setRequiredParentCcy(argObj.getRequiredISOCcyId());
+	}
+
+	@Override
+	public void setRequiredParentCcy(ICFSecPubISOCcy argObj) {
+		setRequiredParentCcy(argObj.getRequiredISOCcyId());
 	}
 
 	@Override

@@ -123,6 +123,16 @@ public class CFSecJpaSecSysRoleMemb
 	}
 
 	@Override
+	public void setRequiredContainerSysRole(ICFSecProtSecSysRole argObj) {
+		setRequiredContainerSysRole(argObj.getRequiredSecSysRoleId());
+	}
+
+	@Override
+	public void setRequiredContainerSysRole(ICFSecPubSecSysRole argObj) {
+		setRequiredContainerSysRole(argObj.getRequiredSecSysRoleId());
+	}
+
+	@Override
 	public void setRequiredContainerSysRole(CFLibDbKeyHash256 argSecSysRoleId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
@@ -156,6 +166,16 @@ public class CFSecJpaSecSysRoleMemb
 			throw new CFLibUnsupportedClassException(getClass(), "setParentUser", "argObj", argObj, "CFSecJpaSecUser");
 		}
 	
+	}
+
+	@Override
+	public void setRequiredParentUser(ICFSecProtSecUser argObj) {
+		setRequiredParentUser(argObj.getRequiredLoginId());
+	}
+
+	@Override
+	public void setRequiredParentUser(ICFSecPubSecUser argObj) {
+		setRequiredParentUser(argObj.getRequiredLoginId());
 	}
 
 	@Override

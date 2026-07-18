@@ -136,6 +136,16 @@ public class CFSecJpaSecTentRole
 	}
 
 	@Override
+	public void setRequiredOwnerTenant(ICFSecProtTenant argObj) {
+		setRequiredOwnerTenant(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
+		setRequiredOwnerTenant(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
@@ -169,6 +179,16 @@ public class CFSecJpaSecTentRole
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerSysRole", "argObj", argObj, "CFSecJpaSecSysGrp");
 		}
+	}
+
+	@Override
+	public void setRequiredContainerSysRole(ICFSecProtSecSysGrp argObj) {
+		setRequiredContainerSysRole(argObj.getRequiredName());
+	}
+
+	@Override
+	public void setRequiredContainerSysRole(ICFSecPubSecSysGrp argObj) {
+		setRequiredContainerSysRole(argObj.getRequiredName());
 	}
 
 	@Override

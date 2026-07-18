@@ -103,6 +103,16 @@ public class CFSecJpaSysCluster
 	}
 
 	@Override
+	public void setRequiredContainerCluster(ICFSecProtCluster argObj) {
+		setRequiredContainerCluster(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredContainerCluster(ICFSecPubCluster argObj) {
+		setRequiredContainerCluster(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredContainerCluster(CFLibDbKeyHash256 argClusterId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {

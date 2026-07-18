@@ -123,6 +123,16 @@ public class CFSecJpaISOCtryLang
 	}
 
 	@Override
+	public void setRequiredContainerCtry(ICFSecProtISOCtry argObj) {
+		setRequiredContainerCtry(argObj.getRequiredISOCtryId());
+	}
+
+	@Override
+	public void setRequiredContainerCtry(ICFSecPubISOCtry argObj) {
+		setRequiredContainerCtry(argObj.getRequiredISOCtryId());
+	}
+
+	@Override
 	public void setRequiredContainerCtry(short argISOCtryId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
@@ -156,6 +166,16 @@ public class CFSecJpaISOCtryLang
 			throw new CFLibUnsupportedClassException(getClass(), "setParentLang", "argObj", argObj, "CFSecJpaISOLang");
 		}
 	
+	}
+
+	@Override
+	public void setRequiredParentLang(ICFSecProtISOLang argObj) {
+		setRequiredParentLang(argObj.getRequiredISOLangId());
+	}
+
+	@Override
+	public void setRequiredParentLang(ICFSecPubISOLang argObj) {
+		setRequiredParentLang(argObj.getRequiredISOLangId());
 	}
 
 	@Override

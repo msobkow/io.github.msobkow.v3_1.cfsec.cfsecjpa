@@ -136,6 +136,16 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
+	public void setRequiredOwnerCluster(ICFSecProtCluster argObj) {
+		setRequiredOwnerCluster(argObj.getRequiredId());
+	}
+
+	@Override
+	public void setRequiredOwnerCluster(ICFSecPubCluster argObj) {
+		setRequiredOwnerCluster(argObj.getRequiredId());
+	}
+
+	@Override
 	public void setRequiredOwnerCluster(CFLibDbKeyHash256 argClusterId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
@@ -169,6 +179,16 @@ public class CFSecJpaSecClusGrp
 		else {
 			throw new CFLibUnsupportedClassException(getClass(), "setContainerSysGrp", "argObj", argObj, "CFSecJpaSecSysGrp");
 		}
+	}
+
+	@Override
+	public void setRequiredContainerSysGrp(ICFSecProtSecSysGrp argObj) {
+		setRequiredContainerSysGrp(argObj.getRequiredName());
+	}
+
+	@Override
+	public void setRequiredContainerSysGrp(ICFSecPubSecSysGrp argObj) {
+		setRequiredContainerSysGrp(argObj.getRequiredName());
 	}
 
 	@Override
