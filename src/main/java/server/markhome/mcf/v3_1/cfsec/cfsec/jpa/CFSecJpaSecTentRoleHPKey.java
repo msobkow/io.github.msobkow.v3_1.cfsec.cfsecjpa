@@ -705,23 +705,6 @@ public class CFSecJpaSecTentRoleHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtSecTentRolePKey rhs) {
-			if (getRequiredSecTentRoleId() != null) {
-				if (rhs.getRequiredSecTentRoleId() != null) {
-					cmp = getRequiredSecTentRoleId().compareTo( rhs.getRequiredSecTentRoleId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecTentRoleId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
 		else if (obj instanceof ICFSecProtSecTentRoleH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {

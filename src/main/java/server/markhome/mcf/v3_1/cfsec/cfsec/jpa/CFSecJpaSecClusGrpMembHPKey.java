@@ -1010,37 +1010,6 @@ public class CFSecJpaSecClusGrpMembHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtSecClusGrpMembPKey rhs) {
-			if (getRequiredSecClusGrpId() != null) {
-				if (rhs.getRequiredSecClusGrpId() != null) {
-					cmp = getRequiredSecClusGrpId().compareTo( rhs.getRequiredSecClusGrpId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredSecClusGrpId() != null) {
-				return( -1 );
-			}
-			if (getRequiredLoginId() != null) {
-				if (rhs.getRequiredLoginId() != null) {
-					cmp = getRequiredLoginId().compareTo( rhs.getRequiredLoginId() );
-					if( cmp != 0 ) {
-						return( cmp );
-					}
-				}
-				else {
-					return( 1 );
-				}
-			}
-			else if (rhs.getRequiredLoginId() != null) {
-				return( -1 );
-			}
-			return( 0 );
-		}
 		else if (obj instanceof ICFSecProtSecClusGrpMembH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {

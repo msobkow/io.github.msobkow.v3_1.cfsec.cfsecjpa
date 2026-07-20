@@ -707,15 +707,6 @@ public class CFSecJpaSysClusterHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtSysClusterPKey rhs) {
-			if( getRequiredSingletonId() < rhs.getRequiredSingletonId() ) {
-				return( -1 );
-			}
-			else if( getRequiredSingletonId() > rhs.getRequiredSingletonId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
 		else if (obj instanceof ICFSecProtSysClusterH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {

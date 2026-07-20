@@ -709,15 +709,6 @@ public class CFSecJpaISOLangHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtISOLangPKey rhs) {
-			if( getRequiredISOLangId() < rhs.getRequiredISOLangId() ) {
-				return( -1 );
-			}
-			else if( getRequiredISOLangId() > rhs.getRequiredISOLangId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
 		else if (obj instanceof ICFSecProtISOLangH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {

@@ -709,15 +709,6 @@ public class CFSecJpaTableInfoHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtTableInfoPKey rhs) {
-			if( getRequiredTableInfoId() < rhs.getRequiredTableInfoId() ) {
-				return( -1 );
-			}
-			else if( getRequiredTableInfoId() > rhs.getRequiredTableInfoId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
 		else if (obj instanceof ICFSecProtTableInfoH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {

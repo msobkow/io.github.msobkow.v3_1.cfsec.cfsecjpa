@@ -709,15 +709,6 @@ public class CFSecJpaISOTZoneHPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtISOTZonePKey rhs) {
-			if( getRequiredISOTZoneId() < rhs.getRequiredISOTZoneId() ) {
-				return( -1 );
-			}
-			else if( getRequiredISOTZoneId() > rhs.getRequiredISOTZoneId() ) {
-				return( 1 );
-			}
-			return( 0 );
-		}
 		else if (obj instanceof ICFSecProtISOTZoneH rhs) {
 			if( getAuditClusterId() == null ) {
 				if( rhs.getAuditClusterId() != null ) {
