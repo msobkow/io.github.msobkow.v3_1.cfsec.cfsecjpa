@@ -248,7 +248,7 @@ public class CFSecJpaISOCtryLangPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecISOCtryLangPKeyH rhs) {
+		else if (obj instanceof ICFSecISOCtryLangHPKey rhs) {
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}
@@ -308,7 +308,7 @@ public class CFSecJpaISOCtryLangPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtISOCtryLangPKeyH rhs) {
+		else if (obj instanceof ICFSecProtISOCtryLangHPKey rhs) {
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}
@@ -368,7 +368,7 @@ public class CFSecJpaISOCtryLangPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecPubISOCtryLangPKeyH rhs) {
+		else if (obj instanceof ICFSecPubISOCtryLangHPKey rhs) {
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}

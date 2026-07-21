@@ -428,7 +428,7 @@ public class CFSecJpaSecTentRoleMembPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecSecTentRoleMembPKeyH rhs) {
+		else if (obj instanceof ICFSecSecTentRoleMembHPKey rhs) {
 			if (getRequiredSecTentRoleId() != null) {
 				if (rhs.getRequiredSecTentRoleId() != null) {
 					cmp = getRequiredSecTentRoleId().compareTo( rhs.getRequiredSecTentRoleId() );
@@ -552,7 +552,7 @@ public class CFSecJpaSecTentRoleMembPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtSecTentRoleMembPKeyH rhs) {
+		else if (obj instanceof ICFSecProtSecTentRoleMembHPKey rhs) {
 			if (getRequiredSecTentRoleId() != null) {
 				if (rhs.getRequiredSecTentRoleId() != null) {
 					cmp = getRequiredSecTentRoleId().compareTo( rhs.getRequiredSecTentRoleId() );

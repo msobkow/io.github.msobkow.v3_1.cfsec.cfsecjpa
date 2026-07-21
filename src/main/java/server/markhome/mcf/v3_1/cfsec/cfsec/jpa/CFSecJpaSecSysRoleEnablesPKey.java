@@ -428,7 +428,7 @@ public class CFSecJpaSecSysRoleEnablesPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecSecSysRoleEnablesPKeyH rhs) {
+		else if (obj instanceof ICFSecSecSysRoleEnablesHPKey rhs) {
 			if (getRequiredSecSysRoleId() != null) {
 				if (rhs.getRequiredSecSysRoleId() != null) {
 					cmp = getRequiredSecSysRoleId().compareTo( rhs.getRequiredSecSysRoleId() );
@@ -552,7 +552,7 @@ public class CFSecJpaSecSysRoleEnablesPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtSecSysRoleEnablesPKeyH rhs) {
+		else if (obj instanceof ICFSecProtSecSysRoleEnablesHPKey rhs) {
 			if (getRequiredSecSysRoleId() != null) {
 				if (rhs.getRequiredSecSysRoleId() != null) {
 					cmp = getRequiredSecSysRoleId().compareTo( rhs.getRequiredSecSysRoleId() );

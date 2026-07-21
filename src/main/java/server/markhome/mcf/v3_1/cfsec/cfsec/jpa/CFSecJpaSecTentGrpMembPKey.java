@@ -428,7 +428,7 @@ public class CFSecJpaSecTentGrpMembPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecSecTentGrpMembPKeyH rhs) {
+		else if (obj instanceof ICFSecSecTentGrpMembHPKey rhs) {
 			if (getRequiredSecTentGrpId() != null) {
 				if (rhs.getRequiredSecTentGrpId() != null) {
 					cmp = getRequiredSecTentGrpId().compareTo( rhs.getRequiredSecTentGrpId() );
@@ -552,7 +552,7 @@ public class CFSecJpaSecTentGrpMembPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtSecTentGrpMembPKeyH rhs) {
+		else if (obj instanceof ICFSecProtSecTentGrpMembHPKey rhs) {
 			if (getRequiredSecTentGrpId() != null) {
 				if (rhs.getRequiredSecTentGrpId() != null) {
 					cmp = getRequiredSecTentGrpId().compareTo( rhs.getRequiredSecTentGrpId() );

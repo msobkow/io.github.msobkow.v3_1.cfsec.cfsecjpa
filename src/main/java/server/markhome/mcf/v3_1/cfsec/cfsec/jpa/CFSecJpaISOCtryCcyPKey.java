@@ -248,7 +248,7 @@ public class CFSecJpaISOCtryCcyPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecISOCtryCcyPKeyH rhs) {
+		else if (obj instanceof ICFSecISOCtryCcyHPKey rhs) {
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}
@@ -308,7 +308,7 @@ public class CFSecJpaISOCtryCcyPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecProtISOCtryCcyPKeyH rhs) {
+		else if (obj instanceof ICFSecProtISOCtryCcyHPKey rhs) {
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}
@@ -368,7 +368,7 @@ public class CFSecJpaISOCtryCcyPKey
 			}
 			return( 0 );
 		}
-		else if (obj instanceof ICFSecPubISOCtryCcyPKeyH rhs) {
+		else if (obj instanceof ICFSecPubISOCtryCcyHPKey rhs) {
 			if( getRequiredISOCtryId() < rhs.getRequiredISOCtryId() ) {
 				return( -1 );
 			}
