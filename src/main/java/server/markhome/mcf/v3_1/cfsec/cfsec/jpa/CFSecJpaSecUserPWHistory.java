@@ -396,7 +396,7 @@ public class CFSecJpaSecUserPWHistory
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

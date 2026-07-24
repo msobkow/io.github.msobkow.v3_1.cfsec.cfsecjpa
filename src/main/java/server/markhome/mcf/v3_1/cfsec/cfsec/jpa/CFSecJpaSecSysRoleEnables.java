@@ -103,6 +103,7 @@ public class CFSecJpaSecSysRoleEnables
 	public ICFSecSecSysRole getRequiredContainerSysRole() {
 		return(requiredContainerSysRole);
 	}
+
 	@Override
 	public void setRequiredContainerSysRole(ICFSecSecSysRole argObj) {
 		if(argObj == null) {
@@ -145,10 +146,12 @@ public class CFSecJpaSecSysRoleEnables
 		ICFSecSecSysRole targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecSysRoleId);
 		setRequiredContainerSysRole(targetRec);
 	}
+
 	@Override
 	public ICFSecSecSysGrp getRequiredParentEnableGroup() {
 		return(requiredParentEnableGroup);
 	}
+
 	@Override
 	public void setRequiredParentEnableGroup(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
@@ -191,6 +194,7 @@ public class CFSecJpaSecSysRoleEnables
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argEnableName);
 		setRequiredParentEnableGroup(targetRec);
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -452,7 +456,7 @@ public class CFSecJpaSecSysRoleEnables
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

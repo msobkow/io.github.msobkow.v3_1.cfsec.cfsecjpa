@@ -169,7 +169,7 @@ public class CFSecJpaISOTZone
 	public void setPKey(Short requiredISOTZoneId) {
 		this.requiredISOTZoneId = requiredISOTZoneId;
 	}
-	
+
 	@Override
 	public short getRequiredISOTZoneId() {
 		return( requiredISOTZoneId );
@@ -188,7 +188,6 @@ public class CFSecJpaISOTZone
 		requiredISOTZoneId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -543,7 +542,7 @@ public class CFSecJpaISOTZone
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

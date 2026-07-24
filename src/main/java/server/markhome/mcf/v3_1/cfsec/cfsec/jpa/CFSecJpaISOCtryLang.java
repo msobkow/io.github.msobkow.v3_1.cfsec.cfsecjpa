@@ -103,6 +103,7 @@ public class CFSecJpaISOCtryLang
 	public ICFSecISOCtry getRequiredContainerCtry() {
 		return(requiredContainerCtry);
 	}
+
 	@Override
 	public void setRequiredContainerCtry(ICFSecISOCtry argObj) {
 		if(argObj == null) {
@@ -145,10 +146,12 @@ public class CFSecJpaISOCtryLang
 		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCtryId);
 		setRequiredContainerCtry(targetRec);
 	}
+
 	@Override
 	public ICFSecISOLang getRequiredParentLang() {
 		return(requiredParentLang);
 	}
+
 	@Override
 	public void setRequiredParentLang(ICFSecISOLang argObj) {
 		if(argObj == null) {
@@ -191,6 +194,7 @@ public class CFSecJpaISOCtryLang
 		ICFSecISOLang targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOLangId);
 		setRequiredParentLang(targetRec);
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -356,7 +360,7 @@ public class CFSecJpaISOCtryLang
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

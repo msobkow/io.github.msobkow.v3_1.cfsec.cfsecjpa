@@ -114,6 +114,7 @@ public class CFSecJpaTableInfo
 	public ICFSecTableInfo getOptionalParentSuperRef() {
 		return(optionalParentSuperRef);
 	}
+
 	@Override
 	public void setOptionalParentSuperRef(ICFSecTableInfo argObj) {
 		if(argObj == null) {
@@ -162,6 +163,7 @@ public class CFSecJpaTableInfo
 		List<ICFSecTableInfo> retlist = (optionalChildrenSubRefs != null) ? new ArrayList<>(optionalChildrenSubRefs) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public Integer getPKey() {
 		return getRequiredTableInfoId();
@@ -171,7 +173,7 @@ public class CFSecJpaTableInfo
 	public void setPKey(Integer requiredTableInfoId) {
 		this.requiredTableInfoId = requiredTableInfoId;
 	}
-	
+
 	@Override
 	public int getRequiredTableInfoId() {
 		return( requiredTableInfoId );
@@ -190,7 +192,6 @@ public class CFSecJpaTableInfo
 		requiredTableInfoId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -648,7 +649,7 @@ public class CFSecJpaTableInfo
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

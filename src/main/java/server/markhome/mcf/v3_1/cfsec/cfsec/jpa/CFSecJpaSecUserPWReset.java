@@ -109,6 +109,7 @@ public class CFSecJpaSecUserPWReset
 	public ICFSecSecUser getRequiredContainerUser() {
 		return(requiredContainerUser);
 	}
+
 	@Override
 	public void setRequiredContainerUser(ICFSecSecUser argObj) {
 		if(argObj == null) {
@@ -151,6 +152,7 @@ public class CFSecJpaSecUserPWReset
 		ICFSecSecUser targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecUserId);
 		setRequiredContainerUser(targetRec);
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -212,13 +214,12 @@ public class CFSecJpaSecUserPWReset
 	public void setPKey(CFLibDbKeyHash256 requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
 		return( requiredSecUserId );
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -480,7 +481,7 @@ public class CFSecJpaSecUserPWReset
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

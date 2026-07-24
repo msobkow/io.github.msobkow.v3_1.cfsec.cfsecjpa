@@ -103,6 +103,7 @@ public class CFSecJpaSecClusGrpMemb
 	public ICFSecSecClusGrp getRequiredContainerGroup() {
 		return(requiredContainerGroup);
 	}
+
 	@Override
 	public void setRequiredContainerGroup(ICFSecSecClusGrp argObj) {
 		if(argObj == null) {
@@ -140,10 +141,12 @@ public class CFSecJpaSecClusGrpMemb
 		ICFSecSecClusGrp targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecClusGrpId);
 		setRequiredContainerGroup(targetRec);
 	}
+
 	@Override
 	public ICFSecSecUser getRequiredParentUser() {
 		return(requiredParentUser);
 	}
+
 	@Override
 	public void setRequiredParentUser(ICFSecSecUser argObj) {
 		if(argObj == null) {
@@ -186,6 +189,7 @@ public class CFSecJpaSecClusGrpMemb
 		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argLoginId);
 		setRequiredParentUser(targetRec);
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -447,7 +451,7 @@ public class CFSecJpaSecClusGrpMemb
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

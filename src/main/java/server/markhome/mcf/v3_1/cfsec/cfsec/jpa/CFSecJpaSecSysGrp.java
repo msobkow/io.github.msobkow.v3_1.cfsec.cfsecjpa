@@ -120,45 +120,54 @@ public class CFSecJpaSecSysGrp
 		List<ICFSecSecSysGrpInc> retlist = (optionalComponentsIncByGrp != null) ? new ArrayList<>(optionalComponentsIncByGrp) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecSysGrpMemb> getOptionalChildrenMembByGrp() {
 		List<ICFSecSecSysGrpMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public ICFSecSecSysRole getOptionalComponentsImplSysRole() {
 		return(optionalComponentsImplSysRole);
 	}
+
 	@Override
 	public List<ICFSecSecClusGrp> getOptionalComponentsImplClusGrp() {
 		List<ICFSecSecClusGrp> retlist = (optionalComponentsImplClusGrp != null) ? new ArrayList<>(optionalComponentsImplClusGrp) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecTentGrp> getOptionalComponentsImplTentGrp() {
 		List<ICFSecSecTentGrp> retlist = (optionalComponentsImplTentGrp != null) ? new ArrayList<>(optionalComponentsImplTentGrp) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecClusRole> getOptionalComponentsImplClusRole() {
 		List<ICFSecSecClusRole> retlist = (optionalComponentsImplClusRole != null) ? new ArrayList<>(optionalComponentsImplClusRole) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecTentRole> getOptionalComponentsImplTentRole() {
 		List<ICFSecSecTentRole> retlist = (optionalComponentsImplTentRole != null) ? new ArrayList<>(optionalComponentsImplTentRole) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecSysGrpInc> getOptionalChildrenSysGrpByName() {
 		List<ICFSecSecSysGrpInc> retlist = (optionalChildrenSysGrpByName != null) ? new ArrayList<>(optionalChildrenSysGrpByName) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecSysRoleEnables> getOptionalChildrenRoleByEnableName() {
 		List<ICFSecSecSysRoleEnables> retlist = (optionalChildrenRoleByEnableName != null) ? new ArrayList<>(optionalChildrenRoleByEnableName) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -220,7 +229,7 @@ public class CFSecJpaSecSysGrp
 	public void setPKey(CFLibDbKeyHash256 requiredSecSysGrpId) {
 		this.requiredSecSysGrpId = requiredSecSysGrpId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
 		return( requiredSecSysGrpId );
@@ -237,7 +246,6 @@ public class CFSecJpaSecSysGrp
 		requiredSecSysGrpId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -476,7 +484,7 @@ public class CFSecJpaSecSysGrp
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

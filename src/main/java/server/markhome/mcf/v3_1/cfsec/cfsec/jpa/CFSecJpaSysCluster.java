@@ -84,6 +84,7 @@ public class CFSecJpaSysCluster
 	public ICFSecCluster getRequiredContainerCluster() {
 		return(requiredContainerCluster);
 	}
+
 	@Override
 	public void setRequiredContainerCluster(ICFSecCluster argObj) {
 		if(argObj == null) {
@@ -135,7 +136,7 @@ public class CFSecJpaSysCluster
 	public void setPKey(Integer requiredSingletonId) {
 		this.requiredSingletonId = requiredSingletonId;
 	}
-	
+
 	@Override
 	public int getRequiredSingletonId() {
 		return( requiredSingletonId );
@@ -162,7 +163,6 @@ public class CFSecJpaSysCluster
 		requiredSingletonId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -257,7 +257,7 @@ public class CFSecJpaSysCluster
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

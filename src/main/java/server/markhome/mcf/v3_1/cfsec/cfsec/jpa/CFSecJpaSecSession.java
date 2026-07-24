@@ -101,7 +101,7 @@ public class CFSecJpaSecSession
 	public void setPKey(CFLibDbKeyHash256 requiredSecSessionId) {
 		this.requiredSecSessionId = requiredSecSessionId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSessionId() {
 		return( requiredSecSessionId );
@@ -118,7 +118,6 @@ public class CFSecJpaSecSession
 		requiredSecSessionId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -473,7 +472,7 @@ public class CFSecJpaSecSession
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

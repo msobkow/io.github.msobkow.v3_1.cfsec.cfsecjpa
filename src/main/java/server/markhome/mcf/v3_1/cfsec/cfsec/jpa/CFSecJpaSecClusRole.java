@@ -113,10 +113,12 @@ public class CFSecJpaSecClusRole
 		List<ICFSecSecClusRoleMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public ICFSecCluster getRequiredOwnerCluster() {
 		return(requiredOwnerCluster);
 	}
+
 	@Override
 	public void setRequiredOwnerCluster(ICFSecCluster argObj) {
 		if(argObj == null) {
@@ -163,6 +165,7 @@ public class CFSecJpaSecClusRole
 	public ICFSecSecSysGrp getRequiredContainerSysRole() {
 		return(requiredContainerSysRole);
 	}
+
 	@Override
 	public void setRequiredContainerSysRole(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
@@ -266,7 +269,7 @@ public class CFSecJpaSecClusRole
 	public void setPKey(CFLibDbKeyHash256 requiredSecClusRoleId) {
 		this.requiredSecClusRoleId = requiredSecClusRoleId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
 		return( requiredSecClusRoleId );
@@ -283,7 +286,6 @@ public class CFSecJpaSecClusRole
 		requiredSecClusRoleId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -526,7 +528,7 @@ public class CFSecJpaSecClusRole
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

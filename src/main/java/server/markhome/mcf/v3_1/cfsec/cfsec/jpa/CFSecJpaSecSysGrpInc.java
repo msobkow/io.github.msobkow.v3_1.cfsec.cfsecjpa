@@ -103,6 +103,7 @@ public class CFSecJpaSecSysGrpInc
 	public ICFSecSecSysGrp getRequiredContainerGroup() {
 		return(requiredContainerGroup);
 	}
+
 	@Override
 	public void setRequiredContainerGroup(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
@@ -145,10 +146,12 @@ public class CFSecJpaSecSysGrpInc
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecSysGrpId);
 		setRequiredContainerGroup(targetRec);
 	}
+
 	@Override
 	public ICFSecSecSysGrp getRequiredParentSubGroup() {
 		return(requiredParentSubGroup);
 	}
+
 	@Override
 	public void setRequiredParentSubGroup(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
@@ -191,6 +194,7 @@ public class CFSecJpaSecSysGrpInc
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argInclName);
 		setRequiredParentSubGroup(targetRec);
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -452,7 +456,7 @@ public class CFSecJpaSecSysGrpInc
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

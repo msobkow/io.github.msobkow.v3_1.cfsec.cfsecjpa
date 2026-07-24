@@ -100,11 +100,13 @@ public class CFSecJpaSecSysRole
 		List<ICFSecSecSysRoleEnables> retlist = (optionalComponentsEnabledByRole != null) ? new ArrayList<>(optionalComponentsEnabledByRole) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecSysRoleMemb> getOptionalChildrenMembByRole() {
 		List<ICFSecSecSysRoleMemb> retlist = (optionalChildrenMembByRole != null) ? new ArrayList<>(optionalChildrenMembByRole) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -166,7 +168,7 @@ public class CFSecJpaSecSysRole
 	public void setPKey(CFLibDbKeyHash256 requiredSecSysRoleId) {
 		this.requiredSecSysRoleId = requiredSecSysRoleId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
 		return( requiredSecSysRoleId );
@@ -183,7 +185,6 @@ public class CFSecJpaSecSysRole
 		requiredSecSysRoleId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -357,7 +358,7 @@ public class CFSecJpaSecSysRole
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

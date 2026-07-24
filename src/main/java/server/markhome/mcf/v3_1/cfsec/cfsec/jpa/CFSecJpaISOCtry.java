@@ -104,11 +104,13 @@ public class CFSecJpaISOCtry
 		List<ICFSecISOCtryCcy> retlist = (optionalComponentsCcy != null) ? new ArrayList<>(optionalComponentsCcy) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecISOCtryLang> getOptionalComponentsLang() {
 		List<ICFSecISOCtryLang> retlist = (optionalComponentsLang != null) ? new ArrayList<>(optionalComponentsLang) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -170,7 +172,7 @@ public class CFSecJpaISOCtry
 	public void setPKey(Short requiredISOCtryId) {
 		this.requiredISOCtryId = requiredISOCtryId;
 	}
-	
+
 	@Override
 	public short getRequiredISOCtryId() {
 		return( requiredISOCtryId );
@@ -189,7 +191,6 @@ public class CFSecJpaISOCtry
 		requiredISOCtryId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -400,7 +401,7 @@ public class CFSecJpaISOCtry
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

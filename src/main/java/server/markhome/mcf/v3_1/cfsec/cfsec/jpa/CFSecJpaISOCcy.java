@@ -108,6 +108,7 @@ public class CFSecJpaISOCcy
 		List<ICFSecISOCtryCcy> retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -169,7 +170,7 @@ public class CFSecJpaISOCcy
 	public void setPKey(Short requiredISOCcyId) {
 		this.requiredISOCcyId = requiredISOCcyId;
 	}
-	
+
 	@Override
 	public short getRequiredISOCcyId() {
 		return( requiredISOCcyId );
@@ -188,7 +189,6 @@ public class CFSecJpaISOCcy
 		requiredISOCcyId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -479,7 +479,7 @@ public class CFSecJpaISOCcy
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

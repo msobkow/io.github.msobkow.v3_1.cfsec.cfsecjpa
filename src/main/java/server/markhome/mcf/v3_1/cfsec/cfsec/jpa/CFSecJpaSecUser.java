@@ -189,29 +189,35 @@ public class CFSecJpaSecUser
 	public ICFSecSecUserPassword getOptionalComponentsPassword() {
 		return(optionalComponentsPassword);
 	}
+
 	@Override
 	public ICFSecSecUserEMConf getOptionalComponentsEMConf() {
 		return(optionalComponentsEMConf);
 	}
+
 	@Override
 	public ICFSecSecUserPWReset getOptionalComponentsPWReset() {
 		return(optionalComponentsPWReset);
 	}
+
 	@Override
 	public List<ICFSecSecSysGrpMemb> getOptionalChildrenSysSecGrpMemb() {
 		List<ICFSecSecSysGrpMemb> retlist = (optionalChildrenSysSecGrpMemb != null) ? new ArrayList<>(optionalChildrenSysSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecClusGrpMemb> getOptionalChildrenClusSecGrpMemb() {
 		List<ICFSecSecClusGrpMemb> retlist = (optionalChildrenClusSecGrpMemb != null) ? new ArrayList<>(optionalChildrenClusSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecTentGrpMemb> getOptionalChildrenTentSecGrpMemb() {
 		List<ICFSecSecTentGrpMemb> retlist = (optionalChildrenTentSecGrpMemb != null) ? new ArrayList<>(optionalChildrenTentSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -273,7 +279,7 @@ public class CFSecJpaSecUser
 	public void setPKey(CFLibDbKeyHash256 requiredSecUserId) {
 		this.requiredSecUserId = requiredSecUserId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
 		return( requiredSecUserId );
@@ -290,7 +296,6 @@ public class CFSecJpaSecUser
 		requiredSecUserId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -727,7 +732,7 @@ public class CFSecJpaSecUser
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

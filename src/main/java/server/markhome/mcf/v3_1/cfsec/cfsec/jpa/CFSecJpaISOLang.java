@@ -105,6 +105,7 @@ public class CFSecJpaISOLang
 		List<ICFSecISOCtryLang> retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -166,7 +167,7 @@ public class CFSecJpaISOLang
 	public void setPKey(Short requiredISOLangId) {
 		this.requiredISOLangId = requiredISOLangId;
 	}
-	
+
 	@Override
 	public short getRequiredISOLangId() {
 		return( requiredISOLangId );
@@ -185,7 +186,6 @@ public class CFSecJpaISOLang
 		requiredISOLangId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -444,7 +444,7 @@ public class CFSecJpaISOLang
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

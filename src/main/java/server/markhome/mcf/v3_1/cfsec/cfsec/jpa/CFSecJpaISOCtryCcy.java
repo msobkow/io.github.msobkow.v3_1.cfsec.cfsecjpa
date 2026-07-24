@@ -103,6 +103,7 @@ public class CFSecJpaISOCtryCcy
 	public ICFSecISOCtry getRequiredContainerCtry() {
 		return(requiredContainerCtry);
 	}
+
 	@Override
 	public void setRequiredContainerCtry(ICFSecISOCtry argObj) {
 		if(argObj == null) {
@@ -145,10 +146,12 @@ public class CFSecJpaISOCtryCcy
 		ICFSecISOCtry targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCtryId);
 		setRequiredContainerCtry(targetRec);
 	}
+
 	@Override
 	public ICFSecISOCcy getRequiredParentCcy() {
 		return(requiredParentCcy);
 	}
+
 	@Override
 	public void setRequiredParentCcy(ICFSecISOCcy argObj) {
 		if(argObj == null) {
@@ -191,6 +194,7 @@ public class CFSecJpaISOCtryCcy
 		ICFSecISOCcy targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argISOCcyId);
 		setRequiredParentCcy(targetRec);
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -356,7 +360,7 @@ public class CFSecJpaISOCtryCcy
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

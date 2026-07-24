@@ -103,6 +103,7 @@ public class CFSecJpaSecTentRoleMemb
 	public ICFSecSecTentRole getRequiredContainerRole() {
 		return(requiredContainerRole);
 	}
+
 	@Override
 	public void setRequiredContainerRole(ICFSecSecTentRole argObj) {
 		if(argObj == null) {
@@ -140,10 +141,12 @@ public class CFSecJpaSecTentRoleMemb
 		ICFSecSecTentRole targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecTentRoleId);
 		setRequiredContainerRole(targetRec);
 	}
+
 	@Override
 	public ICFSecSecUser getRequiredParentUser() {
 		return(requiredParentUser);
 	}
+
 	@Override
 	public void setRequiredParentUser(ICFSecSecUser argObj) {
 		if(argObj == null) {
@@ -186,6 +189,7 @@ public class CFSecJpaSecTentRoleMemb
 		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argLoginId);
 		setRequiredParentUser(targetRec);
 	}
+
 	@Override
 	public CFLibDbKeyHash256 getCreatedByUserId() {
 		return( createdByUserId );
@@ -447,7 +451,7 @@ public class CFSecJpaSecTentRoleMemb
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

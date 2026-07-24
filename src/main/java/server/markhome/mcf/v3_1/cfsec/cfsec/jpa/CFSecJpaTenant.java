@@ -110,15 +110,18 @@ public class CFSecJpaTenant
 		List<ICFSecSecTentGrp> retlist = (optionalComponentsSecGroup != null) ? new ArrayList<>(optionalComponentsSecGroup) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public List<ICFSecSecTentRole> getOptionalComponentsSecRole() {
 		List<ICFSecSecTentRole> retlist = (optionalComponentsSecRole != null) ? new ArrayList<>(optionalComponentsSecRole) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public ICFSecCluster getRequiredContainerCluster() {
 		return(requiredContainerCluster);
 	}
+
 	@Override
 	public void setRequiredContainerCluster(ICFSecCluster argObj) {
 		if(argObj == null) {
@@ -222,7 +225,7 @@ public class CFSecJpaTenant
 	public void setPKey(CFLibDbKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
 		return( requiredId );
@@ -239,7 +242,6 @@ public class CFSecJpaTenant
 		requiredId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -482,7 +484,7 @@ public class CFSecJpaTenant
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();

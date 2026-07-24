@@ -113,10 +113,12 @@ public class CFSecJpaSecTentGrp
 		List<ICFSecSecTentGrpMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
+
 	@Override
 	public ICFSecTenant getRequiredOwnerTenant() {
 		return(requiredOwnerTenant);
 	}
+
 	@Override
 	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
@@ -163,6 +165,7 @@ public class CFSecJpaSecTentGrp
 	public ICFSecSecSysGrp getRequiredContainerSysGrp() {
 		return(requiredContainerSysGrp);
 	}
+
 	@Override
 	public void setRequiredContainerSysGrp(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
@@ -266,7 +269,7 @@ public class CFSecJpaSecTentGrp
 	public void setPKey(CFLibDbKeyHash256 requiredSecTentGrpId) {
 		this.requiredSecTentGrpId = requiredSecTentGrpId;
 	}
-	
+
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
 		return( requiredSecTentGrpId );
@@ -283,7 +286,6 @@ public class CFSecJpaSecTentGrp
 		requiredSecTentGrpId = value;
 	}
 
-	
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -526,7 +528,7 @@ public class CFSecJpaSecTentGrp
 			return( false );
 		}
 	}
-	
+
 	@Override
 	public int hashCode() {
 		int hashCode = getPKey().hashCode();
