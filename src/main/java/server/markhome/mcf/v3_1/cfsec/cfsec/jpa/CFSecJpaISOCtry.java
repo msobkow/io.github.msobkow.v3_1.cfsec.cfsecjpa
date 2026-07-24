@@ -101,12 +101,12 @@ public class CFSecJpaISOCtry
 
 	@Override
 	public List<ICFSecISOCtryCcy> getOptionalComponentsCcy() {
-		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsCcy != null) ? new ArrayList<>(optionalComponentsCcy) : new ArrayList<>();
+		List<ICFSecISOCtryCcy> retlist = (optionalComponentsCcy != null) ? new ArrayList<>(optionalComponentsCcy) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecISOCtryLang> getOptionalComponentsLang() {
-		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsLang != null) ? new ArrayList<>(optionalComponentsLang) : new ArrayList<>();
+		List<ICFSecISOCtryLang> retlist = (optionalComponentsLang != null) ? new ArrayList<>(optionalComponentsLang) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

@@ -199,17 +199,17 @@ public class CFSecJpaSecUser
 	}
 	@Override
 	public List<ICFSecSecSysGrpMemb> getOptionalChildrenSysSecGrpMemb() {
-		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenSysSecGrpMemb != null) ? new ArrayList<>(optionalChildrenSysSecGrpMemb) : new ArrayList<>();
+		List<ICFSecSecSysGrpMemb> retlist = (optionalChildrenSysSecGrpMemb != null) ? new ArrayList<>(optionalChildrenSysSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusGrpMemb> getOptionalChildrenClusSecGrpMemb() {
-		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenClusSecGrpMemb != null) ? new ArrayList<>(optionalChildrenClusSecGrpMemb) : new ArrayList<>();
+		List<ICFSecSecClusGrpMemb> retlist = (optionalChildrenClusSecGrpMemb != null) ? new ArrayList<>(optionalChildrenClusSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentGrpMemb> getOptionalChildrenTentSecGrpMemb() {
-		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenTentSecGrpMemb != null) ? new ArrayList<>(optionalChildrenTentSecGrpMemb) : new ArrayList<>();
+		List<ICFSecSecTentGrpMemb> retlist = (optionalChildrenTentSecGrpMemb != null) ? new ArrayList<>(optionalChildrenTentSecGrpMemb) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

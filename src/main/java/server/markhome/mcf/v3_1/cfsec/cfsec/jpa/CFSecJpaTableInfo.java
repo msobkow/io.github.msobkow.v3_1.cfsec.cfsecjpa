@@ -159,7 +159,7 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public List<ICFSecTableInfo> getOptionalChildrenSubRefs() {
-		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenSubRefs != null) ? new ArrayList<>(optionalChildrenSubRefs) : new ArrayList<>();
+		List<ICFSecTableInfo> retlist = (optionalChildrenSubRefs != null) ? new ArrayList<>(optionalChildrenSubRefs) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
