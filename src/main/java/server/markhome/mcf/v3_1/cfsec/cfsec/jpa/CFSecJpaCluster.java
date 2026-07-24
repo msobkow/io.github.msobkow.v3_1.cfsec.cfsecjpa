@@ -105,22 +105,22 @@ public class CFSecJpaCluster
 
 	@Override
 	public List<ICFSecTenant> getOptionalComponentsTenant() {
-		List<ICFSecTenant> retlist = (optionalComponentsTenant != null) ? new ArrayList<>(optionalComponentsTenant) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsTenant != null) ? new ArrayList<>(optionalComponentsTenant) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusGrp> getOptionalComponentsSecGroup() {
-		List<ICFSecSecClusGrp> retlist = (optionalComponentsSecGroup != null) ? new ArrayList<>(optionalComponentsSecGroup) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsSecGroup != null) ? new ArrayList<>(optionalComponentsSecGroup) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusRole> getOptionalComponentsSecRole() {
-		List<ICFSecSecClusRole> retlist = (optionalComponentsSecRole != null) ? new ArrayList<>(optionalComponentsSecRole) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsSecRole != null) ? new ArrayList<>(optionalComponentsSecRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSysCluster> getOptionalComponentsSysCluster() {
-		List<ICFSecSysCluster> retlist = (optionalComponentsSysCluster != null) ? new ArrayList<>(optionalComponentsSysCluster) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsSysCluster != null) ? new ArrayList<>(optionalComponentsSysCluster) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

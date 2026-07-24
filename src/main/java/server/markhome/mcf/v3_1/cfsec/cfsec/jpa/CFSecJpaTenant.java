@@ -107,12 +107,12 @@ public class CFSecJpaTenant
 
 	@Override
 	public List<ICFSecSecTentGrp> getOptionalComponentsSecGroup() {
-		List<ICFSecSecTentGrp> retlist = (optionalComponentsSecGroup != null) ? new ArrayList<>(optionalComponentsSecGroup) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsSecGroup != null) ? new ArrayList<>(optionalComponentsSecGroup) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentRole> getOptionalComponentsSecRole() {
-		List<ICFSecSecTentRole> retlist = (optionalComponentsSecRole != null) ? new ArrayList<>(optionalComponentsSecRole) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsSecRole != null) ? new ArrayList<>(optionalComponentsSecRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

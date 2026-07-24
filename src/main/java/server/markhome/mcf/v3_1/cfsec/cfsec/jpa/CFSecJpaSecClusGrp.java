@@ -110,7 +110,7 @@ public class CFSecJpaSecClusGrp
 
 	@Override
 	public List<ICFSecSecClusGrpMemb> getOptionalChildrenMembByGrp() {
-		List<ICFSecSecClusGrpMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

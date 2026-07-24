@@ -102,7 +102,7 @@ public class CFSecJpaISOLang
 
 	@Override
 	public List<ICFSecISOCtryLang> getOptionalChildrenCtry() {
-		List<ICFSecISOCtryLang> retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

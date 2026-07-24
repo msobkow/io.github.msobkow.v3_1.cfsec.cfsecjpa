@@ -97,12 +97,12 @@ public class CFSecJpaSecSysRole
 
 	@Override
 	public List<ICFSecSecSysRoleEnables> getOptionalComponentsEnabledByRole() {
-		List<ICFSecSecSysRoleEnables> retlist = (optionalComponentsEnabledByRole != null) ? new ArrayList<>(optionalComponentsEnabledByRole) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsEnabledByRole != null) ? new ArrayList<>(optionalComponentsEnabledByRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysRoleMemb> getOptionalChildrenMembByRole() {
-		List<ICFSecSecSysRoleMemb> retlist = (optionalChildrenMembByRole != null) ? new ArrayList<>(optionalChildrenMembByRole) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenMembByRole != null) ? new ArrayList<>(optionalChildrenMembByRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

@@ -117,12 +117,12 @@ public class CFSecJpaSecSysGrp
 
 	@Override
 	public List<ICFSecSecSysGrpInc> getOptionalComponentsIncByGrp() {
-		List<ICFSecSecSysGrpInc> retlist = (optionalComponentsIncByGrp != null) ? new ArrayList<>(optionalComponentsIncByGrp) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsIncByGrp != null) ? new ArrayList<>(optionalComponentsIncByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysGrpMemb> getOptionalChildrenMembByGrp() {
-		List<ICFSecSecSysGrpMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
@@ -131,32 +131,32 @@ public class CFSecJpaSecSysGrp
 	}
 	@Override
 	public List<ICFSecSecClusGrp> getOptionalComponentsImplClusGrp() {
-		List<ICFSecSecClusGrp> retlist = (optionalComponentsImplClusGrp != null) ? new ArrayList<>(optionalComponentsImplClusGrp) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsImplClusGrp != null) ? new ArrayList<>(optionalComponentsImplClusGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentGrp> getOptionalComponentsImplTentGrp() {
-		List<ICFSecSecTentGrp> retlist = (optionalComponentsImplTentGrp != null) ? new ArrayList<>(optionalComponentsImplTentGrp) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsImplTentGrp != null) ? new ArrayList<>(optionalComponentsImplTentGrp) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecClusRole> getOptionalComponentsImplClusRole() {
-		List<ICFSecSecClusRole> retlist = (optionalComponentsImplClusRole != null) ? new ArrayList<>(optionalComponentsImplClusRole) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsImplClusRole != null) ? new ArrayList<>(optionalComponentsImplClusRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecTentRole> getOptionalComponentsImplTentRole() {
-		List<ICFSecSecTentRole> retlist = (optionalComponentsImplTentRole != null) ? new ArrayList<>(optionalComponentsImplTentRole) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalComponentsImplTentRole != null) ? new ArrayList<>(optionalComponentsImplTentRole) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysGrpInc> getOptionalChildrenSysGrpByName() {
-		List<ICFSecSecSysGrpInc> retlist = (optionalChildrenSysGrpByName != null) ? new ArrayList<>(optionalChildrenSysGrpByName) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenSysGrpByName != null) ? new ArrayList<>(optionalChildrenSysGrpByName) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
 	public List<ICFSecSecSysRoleEnables> getOptionalChildrenRoleByEnableName() {
-		List<ICFSecSecSysRoleEnables> retlist = (optionalChildrenRoleByEnableName != null) ? new ArrayList<>(optionalChildrenRoleByEnableName) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenRoleByEnableName != null) ? new ArrayList<>(optionalChildrenRoleByEnableName) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override

@@ -105,7 +105,7 @@ public class CFSecJpaISOCcy
 
 	@Override
 	public List<ICFSecISOCtryCcy> getOptionalChildrenCtry() {
-		List<ICFSecISOCtryCcy> retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
+		$emitInterfaceDataTypeSet$ retlist = (optionalChildrenCtry != null) ? new ArrayList<>(optionalChildrenCtry) : new ArrayList<>();
 		return( retlist );
 	}
 	@Override
