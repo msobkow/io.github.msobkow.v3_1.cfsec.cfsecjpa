@@ -60,47 +60,7 @@ public class CFSecJpaSecClusRoleMembPKey
 		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
 		requiredLoginId = ICFSecSecClusRoleMemb.LOGINID_INIT_VALUE;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return( requiredSecClusRoleId );
-	}
-
-	@Override
-	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecClusRoleId",
-				1,
-				"value" );
-		}
-		requiredSecClusRoleId = value;
-	}
-
-	@Override
-	public String getRequiredLoginId() {
-		return( requiredLoginId );
-	}
-
-	@Override
-	public void setRequiredLoginId( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value" );
-		}
-		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value.length()",
-				value.length(),
-				32 );
-		}
-		requiredLoginId = value;
-	}
-
+$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

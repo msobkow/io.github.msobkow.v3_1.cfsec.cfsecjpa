@@ -221,7 +221,7 @@ public class CFSecJpaSecUserEMConf
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
+		return( getPKey() );
 	}
 
 	@Override

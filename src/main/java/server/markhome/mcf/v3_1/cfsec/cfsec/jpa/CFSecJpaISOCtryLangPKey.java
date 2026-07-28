@@ -58,43 +58,7 @@ public class CFSecJpaISOCtryLangPKey
 		requiredISOCtryId = ICFSecISOCtryLang.ISOCTRYID_INIT_VALUE;
 		requiredISOLangId = ICFSecISOCtryLang.ISOLANGID_INIT_VALUE;
 	}
-
-	@Override
-	public short getRequiredISOCtryId() {
-		return( requiredISOCtryId );
-	}
-
-	@Override
-	public void setRequiredISOCtryId( short value ) {
-		if( value < ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOCtryId",
-				1,
-				"value",
-				value,
-				ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE );
-		}
-		requiredISOCtryId = value;
-	}
-
-	@Override
-	public short getRequiredISOLangId() {
-		return( requiredISOLangId );
-	}
-
-	@Override
-	public void setRequiredISOLangId( short value ) {
-		if( value < ICFSecISOCtryLang.ISOLANGID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOLangId",
-				1,
-				"value",
-				value,
-				ICFSecISOCtryLang.ISOLANGID_MIN_VALUE );
-		}
-		requiredISOLangId = value;
-	}
-
+$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

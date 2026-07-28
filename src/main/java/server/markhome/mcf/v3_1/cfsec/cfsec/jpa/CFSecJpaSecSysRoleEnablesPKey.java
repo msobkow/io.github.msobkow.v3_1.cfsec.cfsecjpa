@@ -60,47 +60,7 @@ public class CFSecJpaSecSysRoleEnablesPKey
 		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecSysRoleEnables.SECSYSROLEID_INIT_VALUE.toString() );
 		requiredEnableName = ICFSecSecSysRoleEnables.ENABLENAME_INIT_VALUE;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
-		return( requiredSecSysRoleId );
-	}
-
-	@Override
-	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecSysRoleId",
-				1,
-				"value" );
-		}
-		requiredSecSysRoleId = value;
-	}
-
-	@Override
-	public String getRequiredEnableName() {
-		return( requiredEnableName );
-	}
-
-	@Override
-	public void setRequiredEnableName( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredEnableName",
-				1,
-				"value" );
-		}
-		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredEnableName",
-				1,
-				"value.length()",
-				value.length(),
-				64 );
-		}
-		requiredEnableName = value;
-	}
-
+$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

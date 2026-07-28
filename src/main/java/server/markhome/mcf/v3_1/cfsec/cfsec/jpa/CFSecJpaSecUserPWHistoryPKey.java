@@ -60,39 +60,7 @@ public class CFSecJpaSecUserPWHistoryPKey
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
 		requiredPWSetStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
-	}
-
-	@Override
-	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecUserId",
-				1,
-				"value" );
-		}
-		requiredSecUserId = value;
-	}
-
-	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
-		return( requiredPWSetStamp );
-	}
-
-	@Override
-	public void setRequiredPWSetStamp( LocalDateTime value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredPWSetStamp",
-				1,
-				"value" );
-		}
-		requiredPWSetStamp = value;
-	}
-
+$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

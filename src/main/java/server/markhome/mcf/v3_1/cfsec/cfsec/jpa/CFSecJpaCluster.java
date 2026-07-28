@@ -191,7 +191,7 @@ public class CFSecJpaCluster
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -202,7 +202,7 @@ public class CFSecJpaCluster
 				1,
 				"value" );
 		}
-		requiredId = value;
+		setPKey( value );
 	}
 
 	@Override

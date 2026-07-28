@@ -272,7 +272,7 @@ public class CFSecJpaSecClusRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return( requiredSecClusRoleId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -283,7 +283,7 @@ public class CFSecJpaSecClusRole
 				1,
 				"value" );
 		}
-		requiredSecClusRoleId = value;
+		setPKey( value );
 	}
 
 	@Override

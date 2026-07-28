@@ -171,7 +171,7 @@ public class CFSecJpaSecSysRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
-		return( requiredSecSysRoleId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -182,7 +182,7 @@ public class CFSecJpaSecSysRole
 				1,
 				"value" );
 		}
-		requiredSecSysRoleId = value;
+		setPKey( value );
 	}
 
 	@Override

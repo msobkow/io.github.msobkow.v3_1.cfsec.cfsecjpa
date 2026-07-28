@@ -60,47 +60,7 @@ public class CFSecJpaSecSysRoleMembPKey
 		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecSysRoleMemb.SECSYSROLEID_INIT_VALUE.toString() );
 		requiredLoginId = ICFSecSecSysRoleMemb.LOGINID_INIT_VALUE;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
-		return( requiredSecSysRoleId );
-	}
-
-	@Override
-	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecSysRoleId",
-				1,
-				"value" );
-		}
-		requiredSecSysRoleId = value;
-	}
-
-	@Override
-	public String getRequiredLoginId() {
-		return( requiredLoginId );
-	}
-
-	@Override
-	public void setRequiredLoginId( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value" );
-		}
-		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value.length()",
-				value.length(),
-				32 );
-		}
-		requiredLoginId = value;
-	}
-
+$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

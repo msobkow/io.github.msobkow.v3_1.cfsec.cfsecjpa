@@ -104,7 +104,7 @@ public class CFSecJpaSecSession
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSessionId() {
-		return( requiredSecSessionId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -115,7 +115,7 @@ public class CFSecJpaSecSession
 				1,
 				"value" );
 		}
-		requiredSecSessionId = value;
+		setPKey( value );
 	}
 
 	@Override

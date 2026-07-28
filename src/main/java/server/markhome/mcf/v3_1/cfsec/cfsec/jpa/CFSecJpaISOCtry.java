@@ -175,7 +175,7 @@ public class CFSecJpaISOCtry
 
 	@Override
 	public short getRequiredISOCtryId() {
-		return( requiredISOCtryId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -188,7 +188,7 @@ public class CFSecJpaISOCtry
 				value,
 				ICFSecISOCtry.ISOCTRYID_MIN_VALUE );
 		}
-		requiredISOCtryId = value;
+		setPKey( value );
 	}
 
 	@Override

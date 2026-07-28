@@ -170,7 +170,7 @@ public class CFSecJpaISOLang
 
 	@Override
 	public short getRequiredISOLangId() {
-		return( requiredISOLangId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -183,7 +183,7 @@ public class CFSecJpaISOLang
 				value,
 				ICFSecISOLang.ISOLANGID_MIN_VALUE );
 		}
-		requiredISOLangId = value;
+		setPKey( value );
 	}
 
 	@Override

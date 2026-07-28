@@ -217,7 +217,7 @@ public class CFSecJpaSecUserPWReset
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
+		return( getPKey() );
 	}
 
 	@Override

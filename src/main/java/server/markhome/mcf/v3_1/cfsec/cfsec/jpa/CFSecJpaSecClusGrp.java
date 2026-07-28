@@ -272,7 +272,7 @@ public class CFSecJpaSecClusGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
-		return( requiredSecClusGrpId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -283,7 +283,7 @@ public class CFSecJpaSecClusGrp
 				1,
 				"value" );
 		}
-		requiredSecClusGrpId = value;
+		setPKey( value );
 	}
 
 	@Override

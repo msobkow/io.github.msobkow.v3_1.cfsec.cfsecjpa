@@ -282,7 +282,7 @@ public class CFSecJpaSecUser
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
+		return( getPKey() );
 	}
 
 	@Override
@@ -293,7 +293,7 @@ public class CFSecJpaSecUser
 				1,
 				"value" );
 		}
-		requiredSecUserId = value;
+		setPKey( value );
 	}
 
 	@Override
