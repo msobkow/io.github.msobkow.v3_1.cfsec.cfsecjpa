@@ -54,17 +54,6 @@ public class CFSecJpaSecSysRoleMembBySysRoleIdxKey
 	}
 
 	@Override
-	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecSysRoleId",
-				1,
-				"value" );
-		}
-		getPKey().setRequiredSecSysRoleId( value );
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

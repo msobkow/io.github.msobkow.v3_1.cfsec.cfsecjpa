@@ -151,17 +151,6 @@ public class CFSecJpaSysClusterH
 		return( requiredClusterId );
 	}
 
-	@Override
-	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredClusterId",
-				1,
-				"value" );
-		}
-		requiredClusterId = value;
-	}
-
     @Override
     public boolean equals( Object obj ) {
         if (obj == null) {

@@ -240,19 +240,6 @@ public class CFSecJpaTableInfoH
 	}
 
 	@Override
-	public void setOptionalSuperName( String value ) {
-		if( value != null && value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setOptionalSuperName",
-				1,
-				"value.length()",
-				value.length(),
-				64 );
-		}
-		optionalSuperName = value;
-	}
-
-	@Override
 	public int getRequiredBackingClassCode() {
 		return( requiredBackingClassCode );
 	}
