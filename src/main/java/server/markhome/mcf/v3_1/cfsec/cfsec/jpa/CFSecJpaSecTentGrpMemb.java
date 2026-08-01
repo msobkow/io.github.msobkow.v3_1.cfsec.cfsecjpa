@@ -264,8 +264,18 @@ public class CFSecJpaSecTentGrpMemb
 	}
 
 	@Override
+	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 requiredSecTentGrpId ) {
+		pkey.setRequiredSecTentGrpId( requiredSecTentGrpId );
+	}
+
+	@Override
 	public String getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
+	}
+
+	@Override
+	public void setRequiredLoginId( String requiredLoginId ) {
+		pkey.setRequiredLoginId( requiredLoginId );
 	}
 
 	@Override

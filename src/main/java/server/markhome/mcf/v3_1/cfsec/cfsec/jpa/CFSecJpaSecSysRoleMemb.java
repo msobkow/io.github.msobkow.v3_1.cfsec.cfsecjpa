@@ -269,8 +269,18 @@ public class CFSecJpaSecSysRoleMemb
 	}
 
 	@Override
+	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 requiredSecSysRoleId ) {
+		pkey.setRequiredSecSysRoleId( requiredSecSysRoleId );
+	}
+
+	@Override
 	public String getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
+	}
+
+	@Override
+	public void setRequiredLoginId( String requiredLoginId ) {
+		pkey.setRequiredLoginId( requiredLoginId );
 	}
 
 	@Override

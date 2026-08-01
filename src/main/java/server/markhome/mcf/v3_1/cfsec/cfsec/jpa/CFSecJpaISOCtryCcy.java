@@ -269,8 +269,18 @@ public class CFSecJpaISOCtryCcy
 	}
 
 	@Override
+	public void setRequiredISOCtryId( short requiredISOCtryId ) {
+		pkey.setRequiredISOCtryId( requiredISOCtryId );
+	}
+
+	@Override
 	public short getRequiredISOCcyId() {
 		return( pkey.getRequiredISOCcyId() );
+	}
+
+	@Override
+	public void setRequiredISOCcyId( short requiredISOCcyId ) {
+		pkey.setRequiredISOCcyId( requiredISOCcyId );
 	}
 
 	@Override

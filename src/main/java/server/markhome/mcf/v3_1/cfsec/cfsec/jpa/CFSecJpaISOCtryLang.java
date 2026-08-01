@@ -269,8 +269,18 @@ public class CFSecJpaISOCtryLang
 	}
 
 	@Override
+	public void setRequiredISOCtryId( short requiredISOCtryId ) {
+		pkey.setRequiredISOCtryId( requiredISOCtryId );
+	}
+
+	@Override
 	public short getRequiredISOLangId() {
 		return( pkey.getRequiredISOLangId() );
+	}
+
+	@Override
+	public void setRequiredISOLangId( short requiredISOLangId ) {
+		pkey.setRequiredISOLangId( requiredISOLangId );
 	}
 
 	@Override

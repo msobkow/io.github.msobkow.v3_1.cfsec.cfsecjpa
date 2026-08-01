@@ -269,8 +269,18 @@ public class CFSecJpaSecSysGrpInc
 	}
 
 	@Override
+	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 requiredSecSysGrpId ) {
+		pkey.setRequiredSecSysGrpId( requiredSecSysGrpId );
+	}
+
+	@Override
 	public String getRequiredInclName() {
 		return( pkey.getRequiredInclName() );
+	}
+
+	@Override
+	public void setRequiredInclName( String requiredInclName ) {
+		pkey.setRequiredInclName( requiredInclName );
 	}
 
 	@Override
