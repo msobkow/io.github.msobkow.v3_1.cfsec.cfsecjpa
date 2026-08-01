@@ -163,7 +163,6 @@ public class CFSecJpaSecUserPWHistoryH
 		return( requiredPWReplacedStamp );
 	}
 
-	@Override
 	public void setRequiredPWReplacedStamp( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -179,7 +178,6 @@ public class CFSecJpaSecUserPWHistoryH
 		return( requiredPasswordHash );
 	}
 
-	@Override
 	public void setRequiredPasswordHash( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

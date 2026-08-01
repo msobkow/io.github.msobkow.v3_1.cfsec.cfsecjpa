@@ -53,6 +53,24 @@ public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 		return( getPKey().getRequiredEnableName() );
 	}
 
+	public void setRequiredEnableName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredEnableName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredEnableName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		getPKey().setRequiredEnableName( value );
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

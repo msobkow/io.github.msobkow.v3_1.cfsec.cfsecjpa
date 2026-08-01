@@ -139,7 +139,6 @@ public class CFSecJpaSecSysRoleEnablesHPKey
 		return( requiredSecSysRoleId );
 	}
 
-	@Override
 	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -155,7 +154,6 @@ public class CFSecJpaSecSysRoleEnablesHPKey
 		return( requiredEnableName );
 	}
 
-	@Override
 	public void setRequiredEnableName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

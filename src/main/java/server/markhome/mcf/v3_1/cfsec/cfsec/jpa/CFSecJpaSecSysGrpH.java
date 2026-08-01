@@ -234,7 +234,6 @@ public class CFSecJpaSecSysGrpH
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -258,7 +257,6 @@ public class CFSecJpaSecSysGrpH
 		return( requiredSecLevel );
 	}
 
-	@Override
 	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

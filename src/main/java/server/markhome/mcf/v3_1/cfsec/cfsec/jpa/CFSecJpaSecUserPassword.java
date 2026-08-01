@@ -146,6 +146,16 @@ public class CFSecJpaSecUserPassword
 		return( getPKey() );
 	}
 
+	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecUserId",
+				1,
+				"value" );
+		}
+		setPKey( value );
+	}
+
 	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
@@ -161,7 +171,6 @@ public class CFSecJpaSecUserPassword
 		return( requiredPWSetStamp );
 	}
 
-	@Override
 	public void setRequiredPWSetStamp( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -177,7 +186,6 @@ public class CFSecJpaSecUserPassword
 		return( requiredPasswordHash );
 	}
 
-	@Override
 	public void setRequiredPasswordHash( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

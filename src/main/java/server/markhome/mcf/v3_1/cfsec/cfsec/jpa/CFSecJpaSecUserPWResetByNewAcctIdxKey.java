@@ -53,7 +53,6 @@ public class CFSecJpaSecUserPWResetByNewAcctIdxKey
 		return( requiredNewAccount );
 	}
 
-	@Override
 	public void setRequiredNewAccount( boolean value ) {
 		requiredNewAccount = value;
 	}

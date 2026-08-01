@@ -60,7 +60,45 @@ public class CFSecJpaSecSysGrpIncPKey
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
 		requiredInclName = ICFSecSecSysGrpInc.INCLNAME_INIT_VALUE;
 	}
-$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
+
+	@Override
+	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
+		return( getPKey().getRequiredSecSysGrpId() );
+	}
+
+	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecSysGrpId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecSysGrpId( value );
+	}
+
+	@Override
+	public String getRequiredInclName() {
+		return( getPKey().getRequiredInclName() );
+	}
+
+	public void setRequiredInclName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredInclName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredInclName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		getPKey().setRequiredInclName( value );
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

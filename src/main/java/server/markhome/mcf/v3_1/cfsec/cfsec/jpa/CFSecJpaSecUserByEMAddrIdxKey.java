@@ -53,7 +53,6 @@ public class CFSecJpaSecUserByEMAddrIdxKey
 		return( requiredEMailAddress );
 	}
 
-	@Override
 	public void setRequiredEMailAddress( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

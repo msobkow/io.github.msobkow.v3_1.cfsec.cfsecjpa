@@ -53,7 +53,6 @@ public class CFSecJpaISOCtryByISOCodeIdxKey
 		return( requiredISOCode );
 	}
 
-	@Override
 	public void setRequiredISOCode( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

@@ -53,6 +53,16 @@ public class CFSecJpaSecTentGrpMembByTentGrpIdxKey
 		return( getPKey().getRequiredSecTentGrpId() );
 	}
 
+	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecTentGrpId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecTentGrpId( value );
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

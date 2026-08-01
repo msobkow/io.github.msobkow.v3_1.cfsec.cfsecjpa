@@ -191,7 +191,6 @@ public class CFSecJpaTableInfoH
 		return( requiredSchemaName );
 	}
 
-	@Override
 	public void setRequiredSchemaName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -215,7 +214,6 @@ public class CFSecJpaTableInfoH
 		return( requiredTableName );
 	}
 
-	@Override
 	public void setRequiredTableName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -237,6 +235,18 @@ public class CFSecJpaTableInfoH
 	@Override
 	public String getOptionalSuperName() {
 		return( optionalSuperName );
+	}
+
+	public void setOptionalSuperName( String value ) {
+		if( value != null && value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setOptionalSuperName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		optionalSuperName = value;
 	}
 
 	@Override
@@ -280,7 +290,6 @@ public class CFSecJpaTableInfoH
 		return( requiredHasHistory );
 	}
 
-	@Override
 	public void setRequiredHasHistory( boolean value ) {
 		requiredHasHistory = value;
 	}
@@ -290,7 +299,6 @@ public class CFSecJpaTableInfoH
 		return( requiredIsMutable );
 	}
 
-	@Override
 	public void setRequiredIsMutable( boolean value ) {
 		requiredIsMutable = value;
 	}
@@ -300,7 +308,6 @@ public class CFSecJpaTableInfoH
 		return( requiredSecScopeName );
 	}
 
-	@Override
 	public void setRequiredSecScopeName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -324,7 +331,6 @@ public class CFSecJpaTableInfoH
 		return( requiredCodeVis );
 	}
 
-	@Override
 	public void setRequiredCodeVis( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

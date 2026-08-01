@@ -53,7 +53,6 @@ public class CFSecJpaSecUserByULoginIdxKey
 		return( requiredLoginId );
 	}
 
-	@Override
 	public void setRequiredLoginId( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

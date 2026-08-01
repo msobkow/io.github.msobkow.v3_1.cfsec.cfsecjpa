@@ -239,7 +239,6 @@ public class CFSecJpaSecUserPWResetH
 		return( requiredSentToEMailAddr );
 	}
 
-	@Override
 	public void setRequiredSentToEMailAddr( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -263,7 +262,6 @@ public class CFSecJpaSecUserPWResetH
 		return( requiredPasswordResetUuid6 );
 	}
 
-	@Override
 	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -279,7 +277,6 @@ public class CFSecJpaSecUserPWResetH
 		return( requiredNewAccount );
 	}
 
-	@Override
 	public void setRequiredNewAccount( boolean value ) {
 		requiredNewAccount = value;
 	}

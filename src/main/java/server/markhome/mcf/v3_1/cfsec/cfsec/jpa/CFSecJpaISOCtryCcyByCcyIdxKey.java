@@ -54,6 +54,19 @@ public class CFSecJpaISOCtryCcyByCcyIdxKey
 	}
 
 	@Override
+	public void setRequiredISOCcyId( short value ) {
+		if( value < ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCcyId",
+				1,
+				"value",
+				value,
+				ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE );
+		}
+		getPKey().setRequiredISOCcyId( value );
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

@@ -230,7 +230,6 @@ public class CFSecJpaSecSysRoleH
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

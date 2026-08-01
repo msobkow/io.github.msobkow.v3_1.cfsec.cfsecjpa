@@ -203,7 +203,6 @@ public class CFSecJpaISOTZone
 		return( requiredIso8601 );
 	}
 
-	@Override
 	public void setRequiredIso8601( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -227,7 +226,6 @@ public class CFSecJpaISOTZone
 		return( requiredTZName );
 	}
 
-	@Override
 	public void setRequiredTZName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -303,7 +301,6 @@ public class CFSecJpaISOTZone
 		return( requiredDescription );
 	}
 
-	@Override
 	public void setRequiredDescription( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -327,7 +324,6 @@ public class CFSecJpaISOTZone
 		return( requiredVisible );
 	}
 
-	@Override
 	public void setRequiredVisible( boolean value ) {
 		requiredVisible = value;
 	}

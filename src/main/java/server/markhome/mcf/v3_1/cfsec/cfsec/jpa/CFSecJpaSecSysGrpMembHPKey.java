@@ -139,7 +139,6 @@ public class CFSecJpaSecSysGrpMembHPKey
 		return( requiredSecSysGrpId );
 	}
 
-	@Override
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -155,7 +154,6 @@ public class CFSecJpaSecSysGrpMembHPKey
 		return( requiredLoginId );
 	}
 
-	@Override
 	public void setRequiredLoginId( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

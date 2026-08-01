@@ -53,7 +53,6 @@ public class CFSecJpaSecUserEMConfBySentStampIdxKey
 		return( requiredEMailSentStamp );
 	}
 
-	@Override
 	public void setRequiredEMailSentStamp( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

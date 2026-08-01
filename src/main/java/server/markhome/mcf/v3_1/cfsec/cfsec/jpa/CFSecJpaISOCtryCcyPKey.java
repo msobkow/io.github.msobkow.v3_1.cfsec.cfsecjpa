@@ -58,7 +58,43 @@ public class CFSecJpaISOCtryCcyPKey
 		requiredISOCtryId = ICFSecISOCtryCcy.ISOCTRYID_INIT_VALUE;
 		requiredISOCcyId = ICFSecISOCtryCcy.ISOCCYID_INIT_VALUE;
 	}
-$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
+
+	@Override
+	public short getRequiredISOCtryId() {
+		return( getPKey().getRequiredISOCtryId() );
+	}
+
+	@Override
+	public void setRequiredISOCtryId( short value ) {
+		if( value < ICFSecISOCtryCcy.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecISOCtryCcy.ISOCTRYID_MIN_VALUE );
+		}
+		getPKey().setRequiredISOCtryId( value );
+	}
+
+	@Override
+	public short getRequiredISOCcyId() {
+		return( getPKey().getRequiredISOCcyId() );
+	}
+
+	@Override
+	public void setRequiredISOCcyId( short value ) {
+		if( value < ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCcyId",
+				1,
+				"value",
+				value,
+				ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE );
+		}
+		getPKey().setRequiredISOCcyId( value );
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

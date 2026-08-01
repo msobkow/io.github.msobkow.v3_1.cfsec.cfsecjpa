@@ -157,7 +157,6 @@ public class CFSecJpaSecSessionH
 		return( requiredSecUserId );
 	}
 
-	@Override
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -173,7 +172,6 @@ public class CFSecJpaSecSessionH
 		return( requiredStart );
 	}
 
-	@Override
 	public void setRequiredStart( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -189,7 +187,6 @@ public class CFSecJpaSecSessionH
 		return( optionalFinish );
 	}
 
-	@Override
 	public void setOptionalFinish( LocalDateTime value ) {
 		optionalFinish = value;
 	}
@@ -199,7 +196,6 @@ public class CFSecJpaSecSessionH
 		return( optionalSecProxyId );
 	}
 
-	@Override
 	public void setOptionalSecProxyId( CFLibDbKeyHash256 value ) {
 		optionalSecProxyId = value;
 	}

@@ -139,7 +139,6 @@ public class CFSecJpaSecTentGrpMembHPKey
 		return( requiredSecTentGrpId );
 	}
 
-	@Override
 	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -155,7 +154,6 @@ public class CFSecJpaSecTentGrpMembHPKey
 		return( requiredLoginId );
 	}
 
-	@Override
 	public void setRequiredLoginId( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

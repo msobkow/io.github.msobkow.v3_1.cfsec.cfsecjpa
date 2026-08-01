@@ -53,6 +53,16 @@ public class CFSecJpaSecTentRoleMembByTentRoleIdxKey
 		return( getPKey().getRequiredSecTentRoleId() );
 	}
 
+	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecTentRoleId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecTentRoleId( value );
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

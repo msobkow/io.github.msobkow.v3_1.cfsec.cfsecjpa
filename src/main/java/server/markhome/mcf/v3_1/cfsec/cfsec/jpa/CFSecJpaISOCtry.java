@@ -206,7 +206,6 @@ public class CFSecJpaISOCtry
 		return( requiredISOCode );
 	}
 
-	@Override
 	public void setRequiredISOCode( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -230,7 +229,6 @@ public class CFSecJpaISOCtry
 		return( requiredName );
 	}
 
-	@Override
 	public void setRequiredName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

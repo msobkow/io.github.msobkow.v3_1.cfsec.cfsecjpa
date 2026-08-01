@@ -201,7 +201,6 @@ public class CFSecJpaISOLang
 		return( requiredISO6392Code );
 	}
 
-	@Override
 	public void setRequiredISO6392Code( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -225,7 +224,6 @@ public class CFSecJpaISOLang
 		return( optionalISO6391Code );
 	}
 
-	@Override
 	public void setOptionalISO6391Code( String value ) {
 		if( value != null && value.length() > 2 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
@@ -243,7 +241,6 @@ public class CFSecJpaISOLang
 		return( requiredEnglishName );
 	}
 
-	@Override
 	public void setRequiredEnglishName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

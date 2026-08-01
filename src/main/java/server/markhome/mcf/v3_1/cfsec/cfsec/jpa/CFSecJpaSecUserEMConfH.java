@@ -243,7 +243,6 @@ public class CFSecJpaSecUserEMConfH
 		return( requiredConfirmEMailAddr );
 	}
 
-	@Override
 	public void setRequiredConfirmEMailAddr( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -267,7 +266,6 @@ public class CFSecJpaSecUserEMConfH
 		return( requiredEMailSentStamp );
 	}
 
-	@Override
 	public void setRequiredEMailSentStamp( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -283,7 +281,6 @@ public class CFSecJpaSecUserEMConfH
 		return( requiredEMConfirmationUuid6 );
 	}
 
-	@Override
 	public void setRequiredEMConfirmationUuid6( CFLibUuid6 value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -299,7 +296,6 @@ public class CFSecJpaSecUserEMConfH
 		return( requiredNewAccount );
 	}
 
-	@Override
 	public void setRequiredNewAccount( boolean value ) {
 		requiredNewAccount = value;
 	}

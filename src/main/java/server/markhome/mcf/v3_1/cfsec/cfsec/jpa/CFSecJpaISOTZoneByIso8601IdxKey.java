@@ -53,7 +53,6 @@ public class CFSecJpaISOTZoneByIso8601IdxKey
 		return( requiredIso8601 );
 	}
 
-	@Override
 	public void setRequiredIso8601( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

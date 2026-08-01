@@ -60,7 +60,45 @@ public class CFSecJpaSecClusGrpMembPKey
 		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrpMemb.SECCLUSGRPID_INIT_VALUE.toString() );
 		requiredLoginId = ICFSecSecClusGrpMemb.LOGINID_INIT_VALUE;
 	}
-$implColumnDirectGetterSetter$$implColumnDirectGetterSetter$
+
+	@Override
+	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
+		return( getPKey().getRequiredSecClusGrpId() );
+	}
+
+	public void setRequiredSecClusGrpId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecClusGrpId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecClusGrpId( value );
+	}
+
+	@Override
+	public String getRequiredLoginId() {
+		return( getPKey().getRequiredLoginId() );
+	}
+
+	public void setRequiredLoginId( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredLoginId",
+				1,
+				"value" );
+		}
+		else if( value.length() > 32 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredLoginId",
+				1,
+				"value.length()",
+				value.length(),
+				32 );
+		}
+		getPKey().setRequiredLoginId( value );
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

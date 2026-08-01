@@ -53,6 +53,18 @@ public class CFSecJpaTableInfoBySuperNameIdxKey
 		return( optionalSuperName );
 	}
 
+	public void setOptionalSuperName( String value ) {
+		if( value != null && value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setOptionalSuperName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		optionalSuperName = value;
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

@@ -231,7 +231,6 @@ public class CFSecJpaTenant
 		return( getPKey() );
 	}
 
-	@Override
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -257,12 +256,21 @@ public class CFSecJpaTenant
 		return( requiredClusterId );
 	}
 
+	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredClusterId",
+				1,
+				"value" );
+		}
+		requiredClusterId = value;
+	}
+
 	@Override
 	public String getRequiredTenantName() {
 		return( requiredTenantName );
 	}
 
-	@Override
 	public void setRequiredTenantName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

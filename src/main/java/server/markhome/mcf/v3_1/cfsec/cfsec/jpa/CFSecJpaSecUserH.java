@@ -246,7 +246,6 @@ public class CFSecJpaSecUserH
 		return( requiredLoginId );
 	}
 
-	@Override
 	public void setRequiredLoginId( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -270,7 +269,6 @@ public class CFSecJpaSecUserH
 		return( requiredAccountStatus );
 	}
 
-	@Override
 	public void setRequiredAccountStatus( ICFSecPubSchema.SecAccountStatusEnum value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -286,7 +284,6 @@ public class CFSecJpaSecUserH
 		return( optionalDfltSysGrpName );
 	}
 
-	@Override
 	public void setOptionalDfltSysGrpName( String value ) {
 		if( value != null && value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
@@ -304,7 +301,6 @@ public class CFSecJpaSecUserH
 		return( optionalDfltClusGrpName );
 	}
 
-	@Override
 	public void setOptionalDfltClusGrpName( String value ) {
 		if( value != null && value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
@@ -322,7 +318,6 @@ public class CFSecJpaSecUserH
 		return( optionalDfltTentGrpName );
 	}
 
-	@Override
 	public void setOptionalDfltTentGrpName( String value ) {
 		if( value != null && value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
@@ -340,7 +335,6 @@ public class CFSecJpaSecUserH
 		return( requiredEMailAddress );
 	}
 
-	@Override
 	public void setRequiredEMailAddress( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

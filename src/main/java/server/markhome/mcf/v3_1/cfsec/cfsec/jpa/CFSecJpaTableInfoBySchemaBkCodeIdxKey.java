@@ -55,7 +55,6 @@ public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 		return( requiredSchemaName );
 	}
 
-	@Override
 	public void setRequiredSchemaName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

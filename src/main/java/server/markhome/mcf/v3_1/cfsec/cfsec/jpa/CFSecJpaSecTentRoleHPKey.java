@@ -135,7 +135,6 @@ public class CFSecJpaSecTentRoleHPKey
 		return( requiredSecTentRoleId );
 	}
 
-	@Override
 	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),

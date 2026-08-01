@@ -234,7 +234,6 @@ public class CFSecJpaClusterH
 		return( requiredFullDomName );
 	}
 
-	@Override
 	public void setRequiredFullDomName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -258,7 +257,6 @@ public class CFSecJpaClusterH
 		return( requiredDescription );
 	}
 
-	@Override
 	public void setRequiredDescription( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
