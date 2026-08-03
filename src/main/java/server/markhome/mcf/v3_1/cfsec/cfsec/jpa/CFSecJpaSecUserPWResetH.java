@@ -236,7 +236,7 @@ public class CFSecJpaSecUserPWResetH
 
 	@Override
 	public String getRequiredSentToEMailAddr() {
-		return( requiredSentToEMailAddr );
+		return(  );
 	}
 
 	public void setRequiredSentToEMailAddr( String value ) {
@@ -254,12 +254,13 @@ public class CFSecJpaSecUserPWResetH
 				value.length(),
 				512 );
 		}
+		
 		requiredSentToEMailAddr = value;
 	}
 
 	@Override
 	public CFLibUuid6 getRequiredPasswordResetUuid6() {
-		return( requiredPasswordResetUuid6 );
+		return(  );
 	}
 
 	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
@@ -269,15 +270,17 @@ public class CFSecJpaSecUserPWResetH
 				1,
 				"value" );
 		}
+		
 		requiredPasswordResetUuid6 = value;
 	}
 
 	@Override
 	public boolean getRequiredNewAccount() {
-		return( requiredNewAccount );
+		return(  );
 	}
 
 	public void setRequiredNewAccount( boolean value ) {
+		
 		requiredNewAccount = value;
 	}
 

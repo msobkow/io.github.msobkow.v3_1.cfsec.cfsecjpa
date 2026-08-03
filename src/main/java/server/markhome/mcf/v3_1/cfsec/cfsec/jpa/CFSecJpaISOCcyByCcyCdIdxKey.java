@@ -68,6 +68,7 @@ public class CFSecJpaISOCcyByCcyCdIdxKey
 				value.length(),
 				3 );
 		}
+		
 		requiredISOCode = value;
 	}
 

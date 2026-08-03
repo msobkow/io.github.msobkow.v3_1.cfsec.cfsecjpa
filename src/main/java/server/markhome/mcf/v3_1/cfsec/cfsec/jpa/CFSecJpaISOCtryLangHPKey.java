@@ -139,13 +139,22 @@ public class CFSecJpaISOCtryLangHPKey
 
 	@Override
 	public void setRequiredISOCtryId( short value ) {
-		if( value < ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE ) {
+		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
 				1,
 				"value",
 				value,
-				ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE );
+				ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE );
 		}
 		requiredISOCtryId = value;
 	}
@@ -157,13 +166,22 @@ public class CFSecJpaISOCtryLangHPKey
 
 	@Override
 	public void setRequiredISOLangId( short value ) {
-		if( value < ICFSecISOCtryLang.ISOLANGID_MIN_VALUE ) {
+		if( value < ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOLangId",
 				1,
 				"value",
 				value,
-				ICFSecISOCtryLang.ISOLANGID_MIN_VALUE );
+				ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOLangId",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE );
 		}
 		requiredISOLangId = value;
 	}

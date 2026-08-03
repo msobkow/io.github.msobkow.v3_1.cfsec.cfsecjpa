@@ -144,23 +144,40 @@ public class CFSecJpaSysCluster
 
 	@Override
 	public void setRequiredSingletonId( int value ) {
-		if( value < ICFSecSysCluster.SINGLETONID_MIN_VALUE ) {
+		if( value < ICFSecPubSysCluster.SINGLETONID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredSingletonId",
 				1,
 				"value",
 				value,
-				ICFSecSysCluster.SINGLETONID_MIN_VALUE );
+				ICFSecPubSysCluster.SINGLETONID_MIN_VALUE );
 		}
-		if( value > ICFSecSysCluster.SINGLETONID_MAX_VALUE ) {
+		if( value > ICFSecPubSysCluster.SINGLETONID_MAX_VALUE ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setRequiredSingletonId",
 				1,
 				"value",
 				value,
-				ICFSecSysCluster.SINGLETONID_MAX_VALUE );
+				ICFSecPubSysCluster.SINGLETONID_MAX_VALUE );
 		}
-		setPKey( value );
+		
+		if( value < ICFSecPubSysCluster.SINGLETONID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredSingletonId",
+				1,
+				"value",
+				value,
+				ICFSecPubSysCluster.SINGLETONID_MIN_VALUE );
+		}
+		if( value > ICFSecPubSysCluster.SINGLETONID_MAX_VALUE ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredSingletonId",
+				1,
+				"value",
+				value,
+				ICFSecPubSysCluster.SINGLETONID_MAX_VALUE );
+		}
+		setPKey(value);
 	}
 
 	@Override
@@ -185,6 +202,7 @@ public class CFSecJpaSysCluster
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 

@@ -70,6 +70,7 @@ public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 				value.length(),
 				32 );
 		}
+		
 		requiredSchemaName = value;
 	}
 
@@ -80,13 +81,22 @@ public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 
 	@Override
 	public void setRequiredBackingClassCode( int value ) {
-		if( value < ICFSecTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
+		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredBackingClassCode",
 				1,
 				"value",
 				value,
-				ICFSecTableInfo.BACKINGCLASSCODE_MIN_VALUE );
+				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredBackingClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
 		}
 		requiredBackingClassCode = value;
 	}

@@ -60,6 +60,7 @@ public class CFSecJpaSecSessionBySecUserIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredSecUserId = value;
 	}
 

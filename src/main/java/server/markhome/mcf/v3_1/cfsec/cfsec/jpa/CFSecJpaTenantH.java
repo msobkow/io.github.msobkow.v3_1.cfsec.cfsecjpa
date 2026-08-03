@@ -243,6 +243,7 @@ public class CFSecJpaTenantH
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 
@@ -266,6 +267,7 @@ public class CFSecJpaTenantH
 				value.length(),
 				192 );
 		}
+		
 		requiredTenantName = value;
 	}
 

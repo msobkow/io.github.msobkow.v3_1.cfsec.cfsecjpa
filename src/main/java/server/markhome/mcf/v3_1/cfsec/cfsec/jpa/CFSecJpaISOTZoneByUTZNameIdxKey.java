@@ -68,6 +68,7 @@ public class CFSecJpaISOTZoneByUTZNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredTZName = value;
 	}
 

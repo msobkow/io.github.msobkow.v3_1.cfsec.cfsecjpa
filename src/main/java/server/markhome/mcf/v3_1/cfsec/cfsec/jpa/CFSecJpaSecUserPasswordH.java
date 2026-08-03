@@ -159,6 +159,7 @@ public class CFSecJpaSecUserPasswordH
 				1,
 				"value" );
 		}
+		
 		requiredPWSetStamp = value;
 	}
 
@@ -182,6 +183,7 @@ public class CFSecJpaSecUserPasswordH
 				value.length(),
 				256 );
 		}
+		
 		requiredPasswordHash = value;
 	}
 

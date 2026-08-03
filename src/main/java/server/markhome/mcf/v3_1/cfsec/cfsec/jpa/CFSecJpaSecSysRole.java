@@ -181,7 +181,8 @@ public class CFSecJpaSecSysRole
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -214,6 +215,7 @@ public class CFSecJpaSecSysRole
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

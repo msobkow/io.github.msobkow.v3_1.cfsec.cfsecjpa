@@ -135,13 +135,22 @@ public class CFSecJpaTableInfoHPKey
 
 	@Override
 	public void setRequiredTableInfoId( int value ) {
-		if( value < ICFSecTableInfo.TABLEINFOID_MIN_VALUE ) {
+		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableInfoId",
 				1,
 				"value",
 				value,
-				ICFSecTableInfo.TABLEINFOID_MIN_VALUE );
+				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredTableInfoId",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
 		}
 		requiredTableInfoId = value;
 	}

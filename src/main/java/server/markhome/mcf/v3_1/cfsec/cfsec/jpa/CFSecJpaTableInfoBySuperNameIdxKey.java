@@ -62,6 +62,7 @@ public class CFSecJpaTableInfoBySuperNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		optionalSuperName = value;
 	}
 

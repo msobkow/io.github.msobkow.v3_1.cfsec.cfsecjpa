@@ -68,6 +68,7 @@ public class CFSecJpaClusterByUDomNameIdxKey
 				value.length(),
 				192 );
 		}
+		
 		requiredFullDomName = value;
 	}
 

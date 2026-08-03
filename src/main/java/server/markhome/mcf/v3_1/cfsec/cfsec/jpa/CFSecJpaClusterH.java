@@ -249,6 +249,7 @@ public class CFSecJpaClusterH
 				value.length(),
 				192 );
 		}
+		
 		requiredFullDomName = value;
 	}
 
@@ -272,6 +273,7 @@ public class CFSecJpaClusterH
 				value.length(),
 				128 );
 		}
+		
 		requiredDescription = value;
 	}
 

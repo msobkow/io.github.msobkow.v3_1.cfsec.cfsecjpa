@@ -62,6 +62,7 @@ public class CFSecJpaSecSessionByStartIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredSecUserId = value;
 	}
 
@@ -77,6 +78,7 @@ public class CFSecJpaSecSessionByStartIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredStart = value;
 	}
 

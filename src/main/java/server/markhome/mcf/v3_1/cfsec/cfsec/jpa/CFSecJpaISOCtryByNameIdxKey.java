@@ -68,6 +68,7 @@ public class CFSecJpaISOCtryByNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

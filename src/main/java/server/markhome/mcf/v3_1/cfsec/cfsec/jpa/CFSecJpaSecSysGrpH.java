@@ -249,6 +249,7 @@ public class CFSecJpaSecSysGrpH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -264,6 +265,7 @@ public class CFSecJpaSecSysGrpH
 				1,
 				"value" );
 		}
+		
 		requiredSecLevel = value;
 	}
 

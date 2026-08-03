@@ -50,7 +50,7 @@ public class CFSecJpaSecUserByEMAddrIdxKey
 
 	@Override
 	public String getRequiredEMailAddress() {
-		return( requiredEMailAddress );
+		return(  );
 	}
 
 	public void setRequiredEMailAddress( String value ) {
@@ -68,6 +68,7 @@ public class CFSecJpaSecUserByEMAddrIdxKey
 				value.length(),
 				512 );
 		}
+		
 		requiredEMailAddress = value;
 	}
 

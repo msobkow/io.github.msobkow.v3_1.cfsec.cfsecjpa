@@ -153,7 +153,8 @@ public class CFSecJpaSecUserPassword
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -178,6 +179,7 @@ public class CFSecJpaSecUserPassword
 				1,
 				"value" );
 		}
+		
 		requiredPWSetStamp = value;
 	}
 
@@ -201,6 +203,7 @@ public class CFSecJpaSecUserPassword
 				value.length(),
 				256 );
 		}
+		
 		requiredPasswordHash = value;
 	}
 

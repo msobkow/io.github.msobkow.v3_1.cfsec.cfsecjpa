@@ -68,6 +68,7 @@ public class CFSecJpaClusterByUDescrIdxKey
 				value.length(),
 				128 );
 		}
+		
 		requiredDescription = value;
 	}
 

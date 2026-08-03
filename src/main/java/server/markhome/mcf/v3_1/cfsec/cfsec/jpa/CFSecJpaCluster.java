@@ -201,7 +201,8 @@ public class CFSecJpaCluster
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -234,6 +235,7 @@ public class CFSecJpaCluster
 				value.length(),
 				192 );
 		}
+		
 		requiredFullDomName = value;
 	}
 
@@ -257,6 +259,7 @@ public class CFSecJpaCluster
 				value.length(),
 				128 );
 		}
+		
 		requiredDescription = value;
 	}
 

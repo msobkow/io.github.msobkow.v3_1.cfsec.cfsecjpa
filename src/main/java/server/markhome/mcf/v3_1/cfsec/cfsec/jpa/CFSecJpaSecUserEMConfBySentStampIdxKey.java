@@ -50,7 +50,7 @@ public class CFSecJpaSecUserEMConfBySentStampIdxKey
 
 	@Override
 	public LocalDateTime getRequiredEMailSentStamp() {
-		return( requiredEMailSentStamp );
+		return(  );
 	}
 
 	public void setRequiredEMailSentStamp( LocalDateTime value ) {
@@ -60,6 +60,7 @@ public class CFSecJpaSecUserEMConfBySentStampIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredEMailSentStamp = value;
 	}
 

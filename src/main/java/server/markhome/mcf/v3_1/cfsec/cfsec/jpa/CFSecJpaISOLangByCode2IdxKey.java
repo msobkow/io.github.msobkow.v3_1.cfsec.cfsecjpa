@@ -62,6 +62,7 @@ public class CFSecJpaISOLangByCode2IdxKey
 				value.length(),
 				2 );
 		}
+		
 		optionalISO6391Code = value;
 	}
 

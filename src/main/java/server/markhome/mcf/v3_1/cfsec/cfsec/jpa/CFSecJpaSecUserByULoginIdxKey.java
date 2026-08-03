@@ -68,6 +68,7 @@ public class CFSecJpaSecUserByULoginIdxKey
 				value.length(),
 				32 );
 		}
+		
 		requiredLoginId = value;
 	}
 

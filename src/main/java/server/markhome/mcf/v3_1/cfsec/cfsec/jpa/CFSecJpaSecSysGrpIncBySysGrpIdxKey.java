@@ -50,7 +50,7 @@ public class CFSecJpaSecSysGrpIncBySysGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return( getPKey().getRequiredSecSysGrpId() );
+		return(  );
 	}
 
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,8 @@ public class CFSecJpaSecSysGrpIncBySysGrpIdxKey
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecSysGrpId( value );
+		
+		getPKey().setRequiredSecSysGrpId(value);
 	}
 
 	@Override

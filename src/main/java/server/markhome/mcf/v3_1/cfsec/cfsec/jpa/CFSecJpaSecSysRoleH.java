@@ -245,6 +245,7 @@ public class CFSecJpaSecSysRoleH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

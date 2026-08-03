@@ -181,15 +181,24 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public void setRequiredTableInfoId( int value ) {
-		if( value < ICFSecTableInfo.TABLEINFOID_MIN_VALUE ) {
+		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableInfoId",
 				1,
 				"value",
 				value,
-				ICFSecTableInfo.TABLEINFOID_MIN_VALUE );
+				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
 		}
-		setPKey( value );
+		
+		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredTableInfoId",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
+		}
+		setPKey(value);
 	}
 
 	@Override
@@ -222,6 +231,7 @@ public class CFSecJpaTableInfo
 				value.length(),
 				32 );
 		}
+		
 		requiredSchemaName = value;
 	}
 
@@ -245,6 +255,7 @@ public class CFSecJpaTableInfo
 				value.length(),
 				64 );
 		}
+		
 		requiredTableName = value;
 	}
 
@@ -262,6 +273,7 @@ public class CFSecJpaTableInfo
 				value.length(),
 				64 );
 		}
+		
 		optionalSuperName = value;
 	}
 
@@ -272,13 +284,22 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public void setRequiredBackingClassCode( int value ) {
-		if( value < ICFSecTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
+		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredBackingClassCode",
 				1,
 				"value",
 				value,
-				ICFSecTableInfo.BACKINGCLASSCODE_MIN_VALUE );
+				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredBackingClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
 		}
 		requiredBackingClassCode = value;
 	}
@@ -290,13 +311,22 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public void setRequiredRuntimeClassCode( int value ) {
-		if( value < ICFSecTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
+		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredRuntimeClassCode",
 				1,
 				"value",
 				value,
-				ICFSecTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
+				ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredRuntimeClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
 		}
 		requiredRuntimeClassCode = value;
 	}
@@ -307,6 +337,7 @@ public class CFSecJpaTableInfo
 	}
 
 	public void setRequiredHasHistory( boolean value ) {
+		
 		requiredHasHistory = value;
 	}
 
@@ -316,6 +347,7 @@ public class CFSecJpaTableInfo
 	}
 
 	public void setRequiredIsMutable( boolean value ) {
+		
 		requiredIsMutable = value;
 	}
 
@@ -339,6 +371,7 @@ public class CFSecJpaTableInfo
 				value.length(),
 				32 );
 		}
+		
 		requiredSecScopeName = value;
 	}
 
@@ -362,6 +395,7 @@ public class CFSecJpaTableInfo
 				value.length(),
 				32 );
 		}
+		
 		requiredCodeVis = value;
 	}
 

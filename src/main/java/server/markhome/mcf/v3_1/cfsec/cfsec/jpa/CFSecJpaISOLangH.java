@@ -252,6 +252,7 @@ public class CFSecJpaISOLangH
 				value.length(),
 				3 );
 		}
+		
 		requiredISO6392Code = value;
 	}
 
@@ -269,6 +270,7 @@ public class CFSecJpaISOLangH
 				value.length(),
 				2 );
 		}
+		
 		optionalISO6391Code = value;
 	}
 
@@ -292,6 +294,7 @@ public class CFSecJpaISOLangH
 				value.length(),
 				64 );
 		}
+		
 		requiredEnglishName = value;
 	}
 

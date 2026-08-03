@@ -130,6 +130,7 @@ public class CFSecJpaSecSessionHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecSessionId = value;
 	}
 

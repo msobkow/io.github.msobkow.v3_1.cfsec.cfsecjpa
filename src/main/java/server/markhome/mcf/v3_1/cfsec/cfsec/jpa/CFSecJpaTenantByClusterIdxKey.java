@@ -60,6 +60,7 @@ public class CFSecJpaTenantByClusterIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 

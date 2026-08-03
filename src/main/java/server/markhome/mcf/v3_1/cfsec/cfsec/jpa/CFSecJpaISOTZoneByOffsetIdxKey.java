@@ -57,21 +57,38 @@ public class CFSecJpaISOTZoneByOffsetIdxKey
 
 	@Override
 	public void setRequiredTZHourOffset( short value ) {
-		if( value < ICFSecISOTZone.TZHOUROFFSET_MIN_VALUE ) {
+		if( value < ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZHourOffset",
 				1,
 				"value",
 				value,
-				ICFSecISOTZone.TZHOUROFFSET_MIN_VALUE );
+				ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE );
 		}
-		if( value > ICFSecISOTZone.TZHOUROFFSET_MAX_VALUE ) {
+		if( value > ICFSecPubISOTZone.TZHOUROFFSET_MAX_VALUE ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setRequiredTZHourOffset",
 				1,
 				"value",
 				value,
-				ICFSecISOTZone.TZHOUROFFSET_MAX_VALUE );
+				ICFSecPubISOTZone.TZHOUROFFSET_MAX_VALUE );
+		}
+		
+		if( value < ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredTZHourOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE );
+		}
+		if( value > ICFSecPubISOTZone.TZHOUROFFSET_MAX_VALUE ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredTZHourOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZHOUROFFSET_MAX_VALUE );
 		}
 		requiredTZHourOffset = value;
 	}
@@ -83,21 +100,38 @@ public class CFSecJpaISOTZoneByOffsetIdxKey
 
 	@Override
 	public void setRequiredTZMinOffset( short value ) {
-		if( value < ICFSecISOTZone.TZMINOFFSET_MIN_VALUE ) {
+		if( value < ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZMinOffset",
 				1,
 				"value",
 				value,
-				ICFSecISOTZone.TZMINOFFSET_MIN_VALUE );
+				ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE );
 		}
-		if( value > ICFSecISOTZone.TZMINOFFSET_MAX_VALUE ) {
+		if( value > ICFSecPubISOTZone.TZMINOFFSET_MAX_VALUE ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setRequiredTZMinOffset",
 				1,
 				"value",
 				value,
-				ICFSecISOTZone.TZMINOFFSET_MAX_VALUE );
+				ICFSecPubISOTZone.TZMINOFFSET_MAX_VALUE );
+		}
+		
+		if( value < ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredTZMinOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE );
+		}
+		if( value > ICFSecPubISOTZone.TZMINOFFSET_MAX_VALUE ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredTZMinOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZMINOFFSET_MAX_VALUE );
 		}
 		requiredTZMinOffset = value;
 	}

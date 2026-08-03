@@ -140,6 +140,7 @@ public class CFSecJpaSecUserPWHistory
 				1,
 				"value" );
 		}
+		
 		requiredPWReplacedStamp = value;
 	}
 
@@ -163,6 +164,7 @@ public class CFSecJpaSecUserPWHistory
 				value.length(),
 				256 );
 		}
+		
 		requiredPasswordHash = value;
 	}
 

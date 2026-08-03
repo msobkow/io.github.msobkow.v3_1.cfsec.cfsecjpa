@@ -249,6 +249,7 @@ public class CFSecJpaISOCtryH
 				value.length(),
 				2 );
 		}
+		
 		requiredISOCode = value;
 	}
 
@@ -272,6 +273,7 @@ public class CFSecJpaISOCtryH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

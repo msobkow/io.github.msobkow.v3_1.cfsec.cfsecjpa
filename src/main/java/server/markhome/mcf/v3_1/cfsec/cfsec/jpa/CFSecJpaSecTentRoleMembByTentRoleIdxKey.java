@@ -50,7 +50,7 @@ public class CFSecJpaSecTentRoleMembByTentRoleIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
-		return( getPKey().getRequiredSecTentRoleId() );
+		return(  );
 	}
 
 	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,8 @@ public class CFSecJpaSecTentRoleMembByTentRoleIdxKey
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecTentRoleId( value );
+		
+		getPKey().setRequiredSecTentRoleId(value);
 	}
 
 	@Override

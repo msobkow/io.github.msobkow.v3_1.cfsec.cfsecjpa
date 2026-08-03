@@ -242,7 +242,8 @@ public class CFSecJpaSecSysGrp
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -275,6 +276,7 @@ public class CFSecJpaSecSysGrp
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -290,6 +292,7 @@ public class CFSecJpaSecSysGrp
 				1,
 				"value" );
 		}
+		
 		requiredSecLevel = value;
 	}
 

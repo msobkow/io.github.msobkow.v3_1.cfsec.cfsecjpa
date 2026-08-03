@@ -68,6 +68,7 @@ public class CFSecJpaSecSysRoleByUNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

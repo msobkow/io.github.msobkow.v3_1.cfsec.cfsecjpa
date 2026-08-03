@@ -50,7 +50,7 @@ public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 
 	@Override
 	public String getRequiredSentToEMailAddr() {
-		return( requiredSentToEMailAddr );
+		return(  );
 	}
 
 	public void setRequiredSentToEMailAddr( String value ) {
@@ -68,6 +68,7 @@ public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 				value.length(),
 				512 );
 		}
+		
 		requiredSentToEMailAddr = value;
 	}
 

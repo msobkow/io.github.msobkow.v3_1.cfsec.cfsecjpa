@@ -180,15 +180,24 @@ public class CFSecJpaISOCtry
 
 	@Override
 	public void setRequiredISOCtryId( short value ) {
-		if( value < ICFSecISOCtry.ISOCTRYID_MIN_VALUE ) {
+		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
 				1,
 				"value",
 				value,
-				ICFSecISOCtry.ISOCTRYID_MIN_VALUE );
+				ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE );
 		}
-		setPKey( value );
+		
+		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE );
+		}
+		setPKey(value);
 	}
 
 	@Override
@@ -221,6 +230,7 @@ public class CFSecJpaISOCtry
 				value.length(),
 				2 );
 		}
+		
 		requiredISOCode = value;
 	}
 
@@ -244,6 +254,7 @@ public class CFSecJpaISOCtry
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

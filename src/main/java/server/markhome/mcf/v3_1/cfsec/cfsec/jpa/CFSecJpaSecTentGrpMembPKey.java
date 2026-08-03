@@ -63,7 +63,7 @@ public class CFSecJpaSecTentGrpMembPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		return( getPKey().getRequiredSecTentGrpId() );
+		return(  );
 	}
 
 	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
@@ -73,12 +73,13 @@ public class CFSecJpaSecTentGrpMembPKey
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecTentGrpId( value );
+		
+		getPKey().setRequiredSecTentGrpId(value);
 	}
 
 	@Override
 	public String getRequiredLoginId() {
-		return( getPKey().getRequiredLoginId() );
+		return(  );
 	}
 
 	public void setRequiredLoginId( String value ) {
@@ -96,7 +97,8 @@ public class CFSecJpaSecTentGrpMembPKey
 				value.length(),
 				32 );
 		}
-		getPKey().setRequiredLoginId( value );
+		
+		getPKey().setRequiredLoginId(value);
 	}
 
 	@Override

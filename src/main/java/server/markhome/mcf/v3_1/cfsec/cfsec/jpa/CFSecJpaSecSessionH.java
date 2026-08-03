@@ -164,6 +164,7 @@ public class CFSecJpaSecSessionH
 				1,
 				"value" );
 		}
+		
 		requiredSecUserId = value;
 	}
 
@@ -179,6 +180,7 @@ public class CFSecJpaSecSessionH
 				1,
 				"value" );
 		}
+		
 		requiredStart = value;
 	}
 
@@ -188,15 +190,17 @@ public class CFSecJpaSecSessionH
 	}
 
 	public void setOptionalFinish( LocalDateTime value ) {
+		
 		optionalFinish = value;
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getOptionalSecProxyId() {
-		return( optionalSecProxyId );
+		return(  );
 	}
 
 	public void setOptionalSecProxyId( CFLibDbKeyHash256 value ) {
+		
 		optionalSecProxyId = value;
 	}
 

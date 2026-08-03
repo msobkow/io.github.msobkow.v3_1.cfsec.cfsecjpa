@@ -50,7 +50,7 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( getPKey().getRequiredSecUserId() );
+		return( getPKey() );
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,8 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecUserId( value );
+		
+		getPKey().setRequiredSecUserId(value);
 	}
 
 	@Override

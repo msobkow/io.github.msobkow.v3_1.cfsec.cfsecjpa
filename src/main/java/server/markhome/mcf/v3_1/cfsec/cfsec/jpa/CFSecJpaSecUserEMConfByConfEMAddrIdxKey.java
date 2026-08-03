@@ -50,7 +50,7 @@ public class CFSecJpaSecUserEMConfByConfEMAddrIdxKey
 
 	@Override
 	public String getRequiredConfirmEMailAddr() {
-		return( requiredConfirmEMailAddr );
+		return(  );
 	}
 
 	public void setRequiredConfirmEMailAddr( String value ) {
@@ -68,6 +68,7 @@ public class CFSecJpaSecUserEMConfByConfEMAddrIdxKey
 				value.length(),
 				512 );
 		}
+		
 		requiredConfirmEMailAddr = value;
 	}
 

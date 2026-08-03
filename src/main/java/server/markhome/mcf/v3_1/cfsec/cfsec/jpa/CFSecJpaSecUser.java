@@ -292,7 +292,8 @@ public class CFSecJpaSecUser
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -325,6 +326,7 @@ public class CFSecJpaSecUser
 				value.length(),
 				32 );
 		}
+		
 		requiredLoginId = value;
 	}
 
@@ -340,6 +342,7 @@ public class CFSecJpaSecUser
 				1,
 				"value" );
 		}
+		
 		requiredAccountStatus = value;
 	}
 
@@ -357,6 +360,7 @@ public class CFSecJpaSecUser
 				value.length(),
 				64 );
 		}
+		
 		optionalDfltSysGrpName = value;
 	}
 
@@ -374,6 +378,7 @@ public class CFSecJpaSecUser
 				value.length(),
 				64 );
 		}
+		
 		optionalDfltClusGrpName = value;
 	}
 
@@ -391,12 +396,13 @@ public class CFSecJpaSecUser
 				value.length(),
 				64 );
 		}
+		
 		optionalDfltTentGrpName = value;
 	}
 
 	@Override
 	public String getRequiredEMailAddress() {
-		return( requiredEMailAddress );
+		return(  );
 	}
 
 	public void setRequiredEMailAddress( String value ) {
@@ -414,6 +420,7 @@ public class CFSecJpaSecUser
 				value.length(),
 				512 );
 		}
+		
 		requiredEMailAddress = value;
 	}
 

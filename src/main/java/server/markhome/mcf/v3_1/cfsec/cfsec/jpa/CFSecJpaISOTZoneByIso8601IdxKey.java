@@ -68,6 +68,7 @@ public class CFSecJpaISOTZoneByIso8601IdxKey
 				value.length(),
 				6 );
 		}
+		
 		requiredIso8601 = value;
 	}
 

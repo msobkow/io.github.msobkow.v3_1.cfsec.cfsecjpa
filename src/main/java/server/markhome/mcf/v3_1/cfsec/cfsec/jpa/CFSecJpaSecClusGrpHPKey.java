@@ -132,7 +132,7 @@ public class CFSecJpaSecClusGrpHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
-		return( requiredSecClusGrpId );
+		return(  );
 	}
 
 	public void setRequiredSecClusGrpId( CFLibDbKeyHash256 value ) {
@@ -142,6 +142,7 @@ public class CFSecJpaSecClusGrpHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecClusGrpId = value;
 	}
 

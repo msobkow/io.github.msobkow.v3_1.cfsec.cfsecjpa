@@ -68,6 +68,7 @@ public class CFSecJpaSecSysGrpByUNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

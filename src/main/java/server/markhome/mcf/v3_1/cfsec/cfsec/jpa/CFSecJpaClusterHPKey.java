@@ -142,6 +142,7 @@ public class CFSecJpaClusterHPKey
 				1,
 				"value" );
 		}
+		
 		requiredId = value;
 	}
 

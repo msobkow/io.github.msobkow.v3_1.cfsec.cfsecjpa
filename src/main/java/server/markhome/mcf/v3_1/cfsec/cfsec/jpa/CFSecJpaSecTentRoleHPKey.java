@@ -132,7 +132,7 @@ public class CFSecJpaSecTentRoleHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
-		return( requiredSecTentRoleId );
+		return(  );
 	}
 
 	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {
@@ -142,6 +142,7 @@ public class CFSecJpaSecTentRoleHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecTentRoleId = value;
 	}
 

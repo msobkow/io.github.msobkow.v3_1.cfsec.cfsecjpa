@@ -62,6 +62,7 @@ public class CFSecJpaSecSessionByFinishIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredSecUserId = value;
 	}
 
@@ -71,6 +72,7 @@ public class CFSecJpaSecSessionByFinishIdxKey
 	}
 
 	public void setOptionalFinish( LocalDateTime value ) {
+		
 		optionalFinish = value;
 	}
 

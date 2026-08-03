@@ -206,6 +206,7 @@ public class CFSecJpaTableInfoH
 				value.length(),
 				32 );
 		}
+		
 		requiredSchemaName = value;
 	}
 
@@ -229,6 +230,7 @@ public class CFSecJpaTableInfoH
 				value.length(),
 				64 );
 		}
+		
 		requiredTableName = value;
 	}
 
@@ -246,6 +248,7 @@ public class CFSecJpaTableInfoH
 				value.length(),
 				64 );
 		}
+		
 		optionalSuperName = value;
 	}
 
@@ -256,13 +259,22 @@ public class CFSecJpaTableInfoH
 
 	@Override
 	public void setRequiredBackingClassCode( int value ) {
-		if( value < ICFSecTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
+		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredBackingClassCode",
 				1,
 				"value",
 				value,
-				ICFSecTableInfo.BACKINGCLASSCODE_MIN_VALUE );
+				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredBackingClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
 		}
 		requiredBackingClassCode = value;
 	}
@@ -274,13 +286,22 @@ public class CFSecJpaTableInfoH
 
 	@Override
 	public void setRequiredRuntimeClassCode( int value ) {
-		if( value < ICFSecTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
+		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredRuntimeClassCode",
 				1,
 				"value",
 				value,
-				ICFSecTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
+				ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredRuntimeClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
 		}
 		requiredRuntimeClassCode = value;
 	}
@@ -291,6 +312,7 @@ public class CFSecJpaTableInfoH
 	}
 
 	public void setRequiredHasHistory( boolean value ) {
+		
 		requiredHasHistory = value;
 	}
 
@@ -300,6 +322,7 @@ public class CFSecJpaTableInfoH
 	}
 
 	public void setRequiredIsMutable( boolean value ) {
+		
 		requiredIsMutable = value;
 	}
 
@@ -323,6 +346,7 @@ public class CFSecJpaTableInfoH
 				value.length(),
 				32 );
 		}
+		
 		requiredSecScopeName = value;
 	}
 
@@ -346,6 +370,7 @@ public class CFSecJpaTableInfoH
 				value.length(),
 				32 );
 		}
+		
 		requiredCodeVis = value;
 	}
 

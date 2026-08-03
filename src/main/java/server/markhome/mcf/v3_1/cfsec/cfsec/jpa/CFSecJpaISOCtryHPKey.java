@@ -135,13 +135,22 @@ public class CFSecJpaISOCtryHPKey
 
 	@Override
 	public void setRequiredISOCtryId( short value ) {
-		if( value < ICFSecISOCtry.ISOCTRYID_MIN_VALUE ) {
+		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
 				1,
 				"value",
 				value,
-				ICFSecISOCtry.ISOCTRYID_MIN_VALUE );
+				ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE );
 		}
 		requiredISOCtryId = value;
 	}

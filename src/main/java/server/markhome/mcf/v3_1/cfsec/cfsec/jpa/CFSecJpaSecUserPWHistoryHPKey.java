@@ -133,6 +133,7 @@ public class CFSecJpaSecUserPWHistoryHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecUserId = value;
 	}
 
@@ -148,6 +149,7 @@ public class CFSecJpaSecUserPWHistoryHPKey
 				1,
 				"value" );
 		}
+		
 		requiredPWSetStamp = value;
 	}
 

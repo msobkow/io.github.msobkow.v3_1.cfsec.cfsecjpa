@@ -132,7 +132,7 @@ public class CFSecJpaSecClusRoleHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return( requiredSecClusRoleId );
+		return(  );
 	}
 
 	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 value ) {
@@ -142,6 +142,7 @@ public class CFSecJpaSecClusRoleHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecClusRoleId = value;
 	}
 

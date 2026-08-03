@@ -63,7 +63,7 @@ public class CFSecJpaSecSysGrpIncPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return( getPKey().getRequiredSecSysGrpId() );
+		return(  );
 	}
 
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
@@ -73,12 +73,13 @@ public class CFSecJpaSecSysGrpIncPKey
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecSysGrpId( value );
+		
+		getPKey().setRequiredSecSysGrpId(value);
 	}
 
 	@Override
 	public String getRequiredInclName() {
-		return( getPKey().getRequiredInclName() );
+		return(  );
 	}
 
 	public void setRequiredInclName( String value ) {
@@ -96,7 +97,8 @@ public class CFSecJpaSecSysGrpIncPKey
 				value.length(),
 				64 );
 		}
-		getPKey().setRequiredInclName( value );
+		
+		getPKey().setRequiredInclName(value);
 	}
 
 	@Override

@@ -60,6 +60,7 @@ public class CFSecJpaSysClusterByClusterIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 

@@ -234,7 +234,7 @@ public class CFSecJpaSecClusGrpH
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return( requiredClusterId );
+		return(  );
 	}
 
 	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
@@ -244,12 +244,13 @@ public class CFSecJpaSecClusGrpH
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(  );
 	}
 
 	public void setRequiredName( String value ) {
@@ -267,6 +268,7 @@ public class CFSecJpaSecClusGrpH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

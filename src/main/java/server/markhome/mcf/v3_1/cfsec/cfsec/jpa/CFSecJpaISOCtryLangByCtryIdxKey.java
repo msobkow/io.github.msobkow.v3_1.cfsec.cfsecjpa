@@ -55,15 +55,24 @@ public class CFSecJpaISOCtryLangByCtryIdxKey
 
 	@Override
 	public void setRequiredISOCtryId( short value ) {
-		if( value < ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE ) {
+		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
 				1,
 				"value",
 				value,
-				ICFSecISOCtryLang.ISOCTRYID_MIN_VALUE );
+				ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE );
 		}
-		getPKey().setRequiredISOCtryId( value );
+		
+		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE );
+		}
+		getPKey().setRequiredISOCtryId(value);
 	}
 
 	@Override

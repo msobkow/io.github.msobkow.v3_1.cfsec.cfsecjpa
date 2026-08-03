@@ -130,6 +130,7 @@ public class CFSecJpaSecUserPasswordHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecUserId = value;
 	}
 

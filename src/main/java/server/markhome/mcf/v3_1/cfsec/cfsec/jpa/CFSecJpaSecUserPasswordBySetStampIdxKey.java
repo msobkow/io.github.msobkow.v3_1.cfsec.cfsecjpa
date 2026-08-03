@@ -60,6 +60,7 @@ public class CFSecJpaSecUserPasswordBySetStampIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredPWSetStamp = value;
 	}
 

@@ -142,6 +142,7 @@ public class CFSecJpaSecSysGrpHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecSysGrpId = value;
 	}
 

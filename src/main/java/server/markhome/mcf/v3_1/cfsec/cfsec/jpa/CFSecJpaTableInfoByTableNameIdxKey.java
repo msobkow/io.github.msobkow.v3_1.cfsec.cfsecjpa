@@ -68,6 +68,7 @@ public class CFSecJpaTableInfoByTableNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredTableName = value;
 	}
 

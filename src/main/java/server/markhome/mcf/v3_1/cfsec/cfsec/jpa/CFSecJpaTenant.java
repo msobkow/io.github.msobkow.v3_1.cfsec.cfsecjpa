@@ -238,7 +238,8 @@ public class CFSecJpaTenant
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -263,6 +264,7 @@ public class CFSecJpaTenant
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 
@@ -286,6 +288,7 @@ public class CFSecJpaTenant
 				value.length(),
 				192 );
 		}
+		
 		requiredTenantName = value;
 	}
 

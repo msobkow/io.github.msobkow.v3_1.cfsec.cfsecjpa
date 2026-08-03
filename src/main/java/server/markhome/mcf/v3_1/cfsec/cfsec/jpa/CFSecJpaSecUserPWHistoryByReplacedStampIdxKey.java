@@ -60,6 +60,7 @@ public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredPWReplacedStamp = value;
 	}
 

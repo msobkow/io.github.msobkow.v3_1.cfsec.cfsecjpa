@@ -132,7 +132,7 @@ public class CFSecJpaSecTentGrpHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		return( requiredSecTentGrpId );
+		return(  );
 	}
 
 	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
@@ -142,6 +142,7 @@ public class CFSecJpaSecTentGrpHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecTentGrpId = value;
 	}
 

@@ -221,7 +221,7 @@ public class CFSecJpaSecUserEMConf
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( getPKey() );
+		return(  );
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -231,7 +231,8 @@ public class CFSecJpaSecUserEMConf
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -246,7 +247,7 @@ public class CFSecJpaSecUserEMConf
 
 	@Override
 	public String getRequiredConfirmEMailAddr() {
-		return( requiredConfirmEMailAddr );
+		return(  );
 	}
 
 	public void setRequiredConfirmEMailAddr( String value ) {
@@ -264,12 +265,13 @@ public class CFSecJpaSecUserEMConf
 				value.length(),
 				512 );
 		}
+		
 		requiredConfirmEMailAddr = value;
 	}
 
 	@Override
 	public LocalDateTime getRequiredEMailSentStamp() {
-		return( requiredEMailSentStamp );
+		return(  );
 	}
 
 	public void setRequiredEMailSentStamp( LocalDateTime value ) {
@@ -279,12 +281,13 @@ public class CFSecJpaSecUserEMConf
 				1,
 				"value" );
 		}
+		
 		requiredEMailSentStamp = value;
 	}
 
 	@Override
 	public CFLibUuid6 getRequiredEMConfirmationUuid6() {
-		return( requiredEMConfirmationUuid6 );
+		return(  );
 	}
 
 	public void setRequiredEMConfirmationUuid6( CFLibUuid6 value ) {
@@ -294,15 +297,17 @@ public class CFSecJpaSecUserEMConf
 				1,
 				"value" );
 		}
+		
 		requiredEMConfirmationUuid6 = value;
 	}
 
 	@Override
 	public boolean getRequiredNewAccount() {
-		return( requiredNewAccount );
+		return(  );
 	}
 
 	public void setRequiredNewAccount( boolean value ) {
+		
 		requiredNewAccount = value;
 	}
 

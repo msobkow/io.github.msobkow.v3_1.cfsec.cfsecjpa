@@ -255,6 +255,7 @@ public class CFSecJpaISOCcyH
 				value.length(),
 				3 );
 		}
+		
 		requiredISOCode = value;
 	}
 
@@ -278,6 +279,7 @@ public class CFSecJpaISOCcyH
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 
@@ -295,6 +297,7 @@ public class CFSecJpaISOCcyH
 				value.length(),
 				4 );
 		}
+		
 		optionalUnitSymbol = value;
 	}
 
@@ -305,21 +308,38 @@ public class CFSecJpaISOCcyH
 
 	@Override
 	public void setRequiredPrecis( short value ) {
-		if( value < ICFSecISOCcy.PRECIS_MIN_VALUE ) {
+		if( value < ICFSecPubISOCcy.PRECIS_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredPrecis",
 				1,
 				"value",
 				value,
-				ICFSecISOCcy.PRECIS_MIN_VALUE );
+				ICFSecPubISOCcy.PRECIS_MIN_VALUE );
 		}
-		if( value > ICFSecISOCcy.PRECIS_MAX_VALUE ) {
+		if( value > ICFSecPubISOCcy.PRECIS_MAX_VALUE ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setRequiredPrecis",
 				1,
 				"value",
 				value,
-				ICFSecISOCcy.PRECIS_MAX_VALUE );
+				ICFSecPubISOCcy.PRECIS_MAX_VALUE );
+		}
+		
+		if( value < ICFSecPubISOCcy.PRECIS_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredPrecis",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCcy.PRECIS_MIN_VALUE );
+		}
+		if( value > ICFSecPubISOCcy.PRECIS_MAX_VALUE ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredPrecis",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCcy.PRECIS_MAX_VALUE );
 		}
 		requiredPrecis = value;
 	}

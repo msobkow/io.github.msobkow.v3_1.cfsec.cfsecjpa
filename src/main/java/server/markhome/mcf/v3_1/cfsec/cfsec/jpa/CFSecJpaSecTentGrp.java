@@ -272,7 +272,7 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		return( getPKey() );
+		return(  );
 	}
 
 	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
@@ -282,7 +282,8 @@ public class CFSecJpaSecTentGrp
 				1,
 				"value" );
 		}
-		setPKey( value );
+		
+		setPKey(value);
 	}
 
 	@Override
@@ -297,7 +298,7 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(  );
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -307,12 +308,13 @@ public class CFSecJpaSecTentGrp
 				1,
 				"value" );
 		}
+		
 		requiredTenantId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(  );
 	}
 
 	public void setRequiredName( String value ) {
@@ -330,6 +332,7 @@ public class CFSecJpaSecTentGrp
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

@@ -62,6 +62,7 @@ public class CFSecJpaTenantByUNameIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 
@@ -85,6 +86,7 @@ public class CFSecJpaTenantByUNameIdxKey
 				value.length(),
 				192 );
 		}
+		
 		requiredTenantName = value;
 	}
 

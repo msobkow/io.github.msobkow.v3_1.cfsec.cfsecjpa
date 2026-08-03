@@ -50,7 +50,7 @@ public class CFSecJpaSecSysGrpIncByNameIdxKey
 
 	@Override
 	public String getRequiredInclName() {
-		return( getPKey().getRequiredInclName() );
+		return(  );
 	}
 
 	public void setRequiredInclName( String value ) {
@@ -68,7 +68,8 @@ public class CFSecJpaSecSysGrpIncByNameIdxKey
 				value.length(),
 				64 );
 		}
-		getPKey().setRequiredInclName( value );
+		
+		getPKey().setRequiredInclName(value);
 	}
 
 	@Override

@@ -158,6 +158,7 @@ public class CFSecJpaSysClusterH
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 

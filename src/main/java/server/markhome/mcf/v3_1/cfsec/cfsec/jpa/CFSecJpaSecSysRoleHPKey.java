@@ -142,6 +142,7 @@ public class CFSecJpaSecSysRoleHPKey
 				1,
 				"value" );
 		}
+		
 		requiredSecSysRoleId = value;
 	}
 

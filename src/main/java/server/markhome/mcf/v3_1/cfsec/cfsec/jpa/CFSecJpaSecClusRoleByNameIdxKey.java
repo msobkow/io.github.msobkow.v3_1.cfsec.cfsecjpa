@@ -50,7 +50,7 @@ public class CFSecJpaSecClusRoleByNameIdxKey
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(  );
 	}
 
 	public void setRequiredName( String value ) {
@@ -68,6 +68,7 @@ public class CFSecJpaSecClusRoleByNameIdxKey
 				value.length(),
 				64 );
 		}
+		
 		requiredName = value;
 	}
 

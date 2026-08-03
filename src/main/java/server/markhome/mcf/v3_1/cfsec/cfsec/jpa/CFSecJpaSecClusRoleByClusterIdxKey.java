@@ -50,7 +50,7 @@ public class CFSecJpaSecClusRoleByClusterIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return( requiredClusterId );
+		return(  );
 	}
 
 	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
@@ -60,6 +60,7 @@ public class CFSecJpaSecClusRoleByClusterIdxKey
 				1,
 				"value" );
 		}
+		
 		requiredClusterId = value;
 	}
 

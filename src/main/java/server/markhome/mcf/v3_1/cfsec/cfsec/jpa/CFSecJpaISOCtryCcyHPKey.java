@@ -139,13 +139,22 @@ public class CFSecJpaISOCtryCcyHPKey
 
 	@Override
 	public void setRequiredISOCtryId( short value ) {
-		if( value < ICFSecISOCtryCcy.ISOCTRYID_MIN_VALUE ) {
+		if( value < ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
 				1,
 				"value",
 				value,
-				ICFSecISOCtryCcy.ISOCTRYID_MIN_VALUE );
+				ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCtryId",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE );
 		}
 		requiredISOCtryId = value;
 	}
@@ -157,13 +166,22 @@ public class CFSecJpaISOCtryCcyHPKey
 
 	@Override
 	public void setRequiredISOCcyId( short value ) {
-		if( value < ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE ) {
+		if( value < ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCcyId",
 				1,
 				"value",
 				value,
-				ICFSecISOCtryCcy.ISOCCYID_MIN_VALUE );
+				ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE );
+		}
+		
+		if( value < ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredISOCcyId",
+				1,
+				"value",
+				value,
+				ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE );
 		}
 		requiredISOCcyId = value;
 	}
