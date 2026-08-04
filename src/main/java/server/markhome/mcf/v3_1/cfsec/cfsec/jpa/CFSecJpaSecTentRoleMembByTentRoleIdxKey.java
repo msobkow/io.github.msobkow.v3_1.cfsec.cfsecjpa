@@ -45,25 +45,14 @@ public class CFSecJpaSecTentRoleMembByTentRoleIdxKey
 {
 	protected CFLibDbKeyHash256 requiredSecTentRoleId;
 	public CFSecJpaSecTentRoleMembByTentRoleIdxKey() {
-		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecTentRoleMemb.SECTENTROLEID_INIT_VALUE.toString() );
+		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentRoleMemb.SECTENTROLEID_INIT_VALUE.toString() );
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
 		return(  );
 	}
-
-	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecTentRoleId",
-				1,
-				"value" );
-		}
-		
-		getPKey().setRequiredSecTentRoleId(value);
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

@@ -49,20 +49,9 @@ public class CFSecJpaSecUserEMConfByUUuid6IdxKey
 
 	@Override
 	public CFLibUuid6 getRequiredEMConfirmationUuid6() {
-		return(  );
+		return( requiredEMConfirmationUuid6 );
 	}
-
-	public void setRequiredEMConfirmationUuid6( CFLibUuid6 value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredEMConfirmationUuid6",
-				1,
-				"value" );
-		}
-		
-		requiredEMConfirmationUuid6 = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

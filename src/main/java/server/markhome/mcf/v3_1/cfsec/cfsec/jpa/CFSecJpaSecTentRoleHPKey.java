@@ -77,7 +77,7 @@ public class CFSecJpaSecTentRoleHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecTentRole.SECTENTROLEID_INIT_VALUE.toString() );
+		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentRole.SECTENTROLEID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class CFSecJpaSecTentRoleHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
-		return(  );
+		return( requiredSecTentRoleId );
 	}
 
 	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {

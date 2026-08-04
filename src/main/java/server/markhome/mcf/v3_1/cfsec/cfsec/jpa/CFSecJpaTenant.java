@@ -228,7 +228,7 @@ public class CFSecJpaTenant
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( getPKey() );
+		return( requiredId );
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -239,7 +239,7 @@ public class CFSecJpaTenant
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredId = value;
 	}
 
 	@Override

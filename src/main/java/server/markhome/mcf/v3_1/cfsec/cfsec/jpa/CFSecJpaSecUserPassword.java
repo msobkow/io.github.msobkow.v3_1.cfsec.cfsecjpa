@@ -74,7 +74,7 @@ public class CFSecJpaSecUserPassword
 	protected String requiredPasswordHash;
 
 	public CFSecJpaSecUserPassword() {
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPassword.SECUSERID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserPassword.SECUSERID_INIT_VALUE.toString() );
 		requiredPWSetStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 	}
 
@@ -143,7 +143,7 @@ public class CFSecJpaSecUserPassword
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( getPKey() );
+		return( requiredSecUserId );
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -154,7 +154,7 @@ public class CFSecJpaSecUserPassword
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredSecUserId = value;
 	}
 
 	@Override

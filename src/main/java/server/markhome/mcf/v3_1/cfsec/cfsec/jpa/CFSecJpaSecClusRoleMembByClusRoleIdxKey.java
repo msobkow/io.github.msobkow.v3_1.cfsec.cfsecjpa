@@ -45,25 +45,14 @@ public class CFSecJpaSecClusRoleMembByClusRoleIdxKey
 {
 	protected CFLibDbKeyHash256 requiredSecClusRoleId;
 	public CFSecJpaSecClusRoleMembByClusRoleIdxKey() {
-		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
+		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
 		return(  );
 	}
-
-	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecClusRoleId",
-				1,
-				"value" );
-		}
-		
-		getPKey().setRequiredSecClusRoleId(value);
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

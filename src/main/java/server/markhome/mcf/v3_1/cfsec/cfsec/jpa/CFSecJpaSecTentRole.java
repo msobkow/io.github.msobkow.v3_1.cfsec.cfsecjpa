@@ -78,7 +78,7 @@ public class CFSecJpaSecTentRole
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecTentRole.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecTentRole.S_INIT_CREATED_BY);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -86,7 +86,7 @@ public class CFSecJpaSecTentRole
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecTentRole.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecTentRole.S_INIT_UPDATED_BY);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -98,8 +98,8 @@ public class CFSecJpaSecTentRole
 	protected String requiredName;
 
 	public CFSecJpaSecTentRole() {
-		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecTentRole.SECTENTROLEID_INIT_VALUE.toString() );
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecSecTentRole.TENANTID_INIT_VALUE.toString() );
+		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentRole.SECTENTROLEID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentRole.TENANTID_INIT_VALUE.toString() );
 		requiredName = ICFSecSecTentRole.NAME_INIT_VALUE;
 	}
 
@@ -283,7 +283,7 @@ public class CFSecJpaSecTentRole
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredSecTentRoleId = value;
 	}
 
 	@Override
@@ -298,7 +298,7 @@ public class CFSecJpaSecTentRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return(  );
+		return( requiredTenantId );
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -314,7 +314,7 @@ public class CFSecJpaSecTentRole
 
 	@Override
 	public String getRequiredName() {
-		return(  );
+		return( requiredName );
 	}
 
 	public void setRequiredName( String value ) {

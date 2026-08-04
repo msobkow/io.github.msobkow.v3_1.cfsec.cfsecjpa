@@ -176,7 +176,7 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public int getRequiredTableInfoId() {
-		return( getPKey() );
+		return( requiredTableInfoId );
 	}
 
 	@Override
@@ -198,7 +198,7 @@ public class CFSecJpaTableInfo
 				value,
 				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
 		}
-		setPKey(value);
+		requiredTableInfoId = value;
 	}
 
 	@Override

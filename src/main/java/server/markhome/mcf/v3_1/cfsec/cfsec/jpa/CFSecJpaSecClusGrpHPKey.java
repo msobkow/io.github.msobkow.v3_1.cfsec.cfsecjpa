@@ -77,7 +77,7 @@ public class CFSecJpaSecClusGrpHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
+		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class CFSecJpaSecClusGrpHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
-		return(  );
+		return( requiredSecClusGrpId );
 	}
 
 	public void setRequiredSecClusGrpId( CFLibDbKeyHash256 value ) {

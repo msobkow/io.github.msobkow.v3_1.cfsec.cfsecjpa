@@ -77,7 +77,7 @@ public class CFSecJpaSecUserPWResetHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWReset.SECUSERID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserPWReset.SECUSERID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class CFSecJpaSecUserPWResetHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return(  );
+		return( requiredSecUserId );
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {

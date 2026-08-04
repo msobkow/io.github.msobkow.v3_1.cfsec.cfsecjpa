@@ -72,7 +72,7 @@ public class CFSecJpaSecClusRoleH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecClusRole.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecClusRole.S_INIT_CREATED_BY);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -80,7 +80,7 @@ public class CFSecJpaSecClusRoleH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecClusRole.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecClusRole.S_INIT_UPDATED_BY);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -94,7 +94,7 @@ public class CFSecJpaSecClusRoleH
     public CFSecJpaSecClusRoleH() {
             // The primary key member attributes are initialized on construction
             pkey = new CFSecJpaSecClusRoleHPKey();
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRole.CLUSTERID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRole.CLUSTERID_INIT_VALUE.toString() );
 		requiredName = ICFSecSecClusRole.NAME_INIT_VALUE;
     }
 
@@ -234,7 +234,7 @@ public class CFSecJpaSecClusRoleH
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return(  );
+		return( requiredClusterId );
 	}
 
 	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
@@ -250,7 +250,7 @@ public class CFSecJpaSecClusRoleH
 
 	@Override
 	public String getRequiredName() {
-		return(  );
+		return( requiredName );
 	}
 
 	public void setRequiredName( String value ) {

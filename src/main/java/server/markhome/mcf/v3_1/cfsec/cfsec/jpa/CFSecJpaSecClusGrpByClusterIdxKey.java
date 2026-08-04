@@ -45,25 +45,14 @@ public class CFSecJpaSecClusGrpByClusterIdxKey
 {
 	protected CFLibDbKeyHash256 requiredClusterId;
 	public CFSecJpaSecClusGrpByClusterIdxKey() {
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.CLUSTERID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrp.CLUSTERID_INIT_VALUE.toString() );
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return(  );
+		return( requiredClusterId );
 	}
-
-	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredClusterId",
-				1,
-				"value" );
-		}
-		
-		requiredClusterId = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

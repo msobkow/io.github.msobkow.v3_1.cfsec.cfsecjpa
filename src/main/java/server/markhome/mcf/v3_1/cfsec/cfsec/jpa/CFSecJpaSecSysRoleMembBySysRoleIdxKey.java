@@ -45,25 +45,14 @@ public class CFSecJpaSecSysRoleMembBySysRoleIdxKey
 {
 	protected CFLibDbKeyHash256 requiredSecSysRoleId;
 	public CFSecJpaSecSysRoleMembBySysRoleIdxKey() {
-		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecSysRoleMemb.SECSYSROLEID_INIT_VALUE.toString() );
+		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysRoleMemb.SECSYSROLEID_INIT_VALUE.toString() );
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
 		return(  );
 	}
-
-	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecSysRoleId",
-				1,
-				"value" );
-		}
-		
-		getPKey().setRequiredSecSysRoleId(value);
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

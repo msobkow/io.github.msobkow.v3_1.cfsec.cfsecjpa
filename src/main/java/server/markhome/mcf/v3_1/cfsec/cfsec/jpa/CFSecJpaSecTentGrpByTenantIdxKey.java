@@ -45,25 +45,14 @@ public class CFSecJpaSecTentGrpByTenantIdxKey
 {
 	protected CFLibDbKeyHash256 requiredTenantId;
 	public CFSecJpaSecTentGrpByTenantIdxKey() {
-		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecSecTentGrp.TENANTID_INIT_VALUE.toString() );
+		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentGrp.TENANTID_INIT_VALUE.toString() );
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return(  );
+		return( requiredTenantId );
 	}
-
-	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredTenantId",
-				1,
-				"value" );
-		}
-		
-		requiredTenantId = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

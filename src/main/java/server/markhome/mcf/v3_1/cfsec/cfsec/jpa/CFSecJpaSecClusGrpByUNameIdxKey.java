@@ -46,50 +46,20 @@ public class CFSecJpaSecClusGrpByUNameIdxKey
 	protected CFLibDbKeyHash256 requiredClusterId;
 	protected String requiredName;
 	public CFSecJpaSecClusGrpByUNameIdxKey() {
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.CLUSTERID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrp.CLUSTERID_INIT_VALUE.toString() );
 		requiredName = ICFSecSecClusGrp.NAME_INIT_VALUE;
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return(  );
+		return( requiredClusterId );
 	}
-
-	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredClusterId",
-				1,
-				"value" );
-		}
-		
-		requiredClusterId = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public String getRequiredName() {
-		return(  );
+		return( requiredName );
 	}
-
-	public void setRequiredName( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredName",
-				1,
-				"value" );
-		}
-		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredName",
-				1,
-				"value.length()",
-				value.length(),
-				64 );
-		}
-		
-		requiredName = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

@@ -49,20 +49,9 @@ public class CFSecJpaSecUserPWResetByUUuid6IdxKey
 
 	@Override
 	public CFLibUuid6 getRequiredPasswordResetUuid6() {
-		return(  );
+		return( requiredPasswordResetUuid6 );
 	}
-
-	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredPasswordResetUuid6",
-				1,
-				"value" );
-		}
-		
-		requiredPasswordResetUuid6 = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

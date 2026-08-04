@@ -139,7 +139,7 @@ public class CFSecJpaSysCluster
 
 	@Override
 	public int getRequiredSingletonId() {
-		return( getPKey() );
+		return( requiredSingletonId );
 	}
 
 	@Override
@@ -177,7 +177,7 @@ public class CFSecJpaSysCluster
 				value,
 				ICFSecPubSysCluster.SINGLETONID_MAX_VALUE );
 		}
-		setPKey(value);
+		requiredSingletonId = value;
 	}
 
 	@Override

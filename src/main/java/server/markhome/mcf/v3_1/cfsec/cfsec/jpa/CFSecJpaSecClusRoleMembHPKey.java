@@ -80,7 +80,7 @@ public class CFSecJpaSecClusRoleMembHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
+		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
 		requiredLoginId = ICFSecSecClusRoleMemb.LOGINID_INIT_VALUE;
 	}
 
@@ -136,7 +136,7 @@ public class CFSecJpaSecClusRoleMembHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return(  );
+		return( requiredSecClusRoleId );
 	}
 
 	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 value ) {
@@ -152,7 +152,7 @@ public class CFSecJpaSecClusRoleMembHPKey
 
 	@Override
 	public String getRequiredLoginId() {
-		return(  );
+		return( requiredLoginId );
 	}
 
 	public void setRequiredLoginId( String value ) {

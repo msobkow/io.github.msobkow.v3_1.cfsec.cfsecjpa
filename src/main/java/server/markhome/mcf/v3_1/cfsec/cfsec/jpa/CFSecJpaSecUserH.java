@@ -337,7 +337,7 @@ public class CFSecJpaSecUserH
 
 	@Override
 	public String getRequiredEMailAddress() {
-		return(  );
+		return( requiredEMailAddress );
 	}
 
 	public void setRequiredEMailAddress( String value ) {

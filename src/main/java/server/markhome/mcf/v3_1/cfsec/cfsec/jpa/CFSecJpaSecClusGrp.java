@@ -78,7 +78,7 @@ public class CFSecJpaSecClusGrp
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecClusGrp.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecClusGrp.S_INIT_CREATED_BY);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -86,7 +86,7 @@ public class CFSecJpaSecClusGrp
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecClusGrp.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecClusGrp.S_INIT_UPDATED_BY);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -98,8 +98,8 @@ public class CFSecJpaSecClusGrp
 	protected String requiredName;
 
 	public CFSecJpaSecClusGrp() {
-		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrp.CLUSTERID_INIT_VALUE.toString() );
+		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrp.CLUSTERID_INIT_VALUE.toString() );
 		requiredName = ICFSecSecClusGrp.NAME_INIT_VALUE;
 	}
 
@@ -283,7 +283,7 @@ public class CFSecJpaSecClusGrp
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredSecClusGrpId = value;
 	}
 
 	@Override
@@ -298,7 +298,7 @@ public class CFSecJpaSecClusGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return(  );
+		return( requiredClusterId );
 	}
 
 	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
@@ -314,7 +314,7 @@ public class CFSecJpaSecClusGrp
 
 	@Override
 	public String getRequiredName() {
-		return(  );
+		return( requiredName );
 	}
 
 	public void setRequiredName( String value ) {

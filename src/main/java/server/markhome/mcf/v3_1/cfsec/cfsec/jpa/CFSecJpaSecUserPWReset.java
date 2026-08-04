@@ -73,7 +73,7 @@ public class CFSecJpaSecUserPWReset
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecUserPWReset.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecUserPWReset.S_INIT_CREATED_BY);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -81,7 +81,7 @@ public class CFSecJpaSecUserPWReset
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecUserPWReset.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecUserPWReset.S_INIT_UPDATED_BY);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -95,7 +95,7 @@ public class CFSecJpaSecUserPWReset
 	protected boolean requiredNewAccount;
 
 	public CFSecJpaSecUserPWReset() {
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWReset.SECUSERID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserPWReset.SECUSERID_INIT_VALUE.toString() );
 		requiredSentToEMailAddr = ICFSecSecUserPWReset.SENTTOEMAILADDR_INIT_VALUE;
 		requiredNewAccount = ICFSecSecUserPWReset.NEWACCOUNT_INIT_VALUE;
 	}
@@ -228,7 +228,7 @@ public class CFSecJpaSecUserPWReset
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredSecUserId = value;
 	}
 
 	@Override
@@ -243,7 +243,7 @@ public class CFSecJpaSecUserPWReset
 
 	@Override
 	public String getRequiredSentToEMailAddr() {
-		return(  );
+		return( requiredSentToEMailAddr );
 	}
 
 	public void setRequiredSentToEMailAddr( String value ) {
@@ -267,7 +267,7 @@ public class CFSecJpaSecUserPWReset
 
 	@Override
 	public CFLibUuid6 getRequiredPasswordResetUuid6() {
-		return(  );
+		return( requiredPasswordResetUuid6 );
 	}
 
 	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
@@ -283,7 +283,7 @@ public class CFSecJpaSecUserPWReset
 
 	@Override
 	public boolean getRequiredNewAccount() {
-		return(  );
+		return( requiredNewAccount );
 	}
 
 	public void setRequiredNewAccount( boolean value ) {

@@ -50,28 +50,9 @@ public class CFSecJpaSecUserByEMAddrIdxKey
 
 	@Override
 	public String getRequiredEMailAddress() {
-		return(  );
+		return( requiredEMailAddress );
 	}
-
-	public void setRequiredEMailAddress( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredEMailAddress",
-				1,
-				"value" );
-		}
-		else if( value.length() > 512 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredEMailAddress",
-				1,
-				"value.length()",
-				value.length(),
-				512 );
-		}
-		
-		requiredEMailAddress = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

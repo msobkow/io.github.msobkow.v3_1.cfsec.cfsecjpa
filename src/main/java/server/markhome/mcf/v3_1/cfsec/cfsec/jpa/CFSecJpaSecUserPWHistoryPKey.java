@@ -63,7 +63,7 @@ public class CFSecJpaSecUserPWHistoryPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( getPKey() );
+		return( getPKey().getRequiredSecUserId() );
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -79,7 +79,7 @@ public class CFSecJpaSecUserPWHistoryPKey
 
 	@Override
 	public LocalDateTime getRequiredPWSetStamp() {
-		return( getPKey() );
+		return( getPKey().getRequiredPWSetStamp() );
 	}
 
 	public void setRequiredPWSetStamp( LocalDateTime value ) {

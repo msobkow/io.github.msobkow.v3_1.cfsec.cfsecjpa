@@ -45,25 +45,14 @@ public class CFSecJpaSecTentGrpMembByTentGrpIdxKey
 {
 	protected CFLibDbKeyHash256 requiredSecTentGrpId;
 	public CFSecJpaSecTentGrpMembByTentGrpIdxKey() {
-		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecTentGrpMemb.SECTENTGRPID_INIT_VALUE.toString() );
+		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentGrpMemb.SECTENTGRPID_INIT_VALUE.toString() );
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
 		return(  );
 	}
-
-	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecTentGrpId",
-				1,
-				"value" );
-		}
-		
-		getPKey().setRequiredSecTentGrpId(value);
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

@@ -57,7 +57,7 @@ public class CFSecJpaSecSysRoleEnablesPKey
 	protected String requiredEnableName;
 
 	public CFSecJpaSecSysRoleEnablesPKey() {
-		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecSysRoleEnables.SECSYSROLEID_INIT_VALUE.toString() );
+		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysRoleEnables.SECSYSROLEID_INIT_VALUE.toString() );
 		requiredEnableName = ICFSecSecSysRoleEnables.ENABLENAME_INIT_VALUE;
 	}
 

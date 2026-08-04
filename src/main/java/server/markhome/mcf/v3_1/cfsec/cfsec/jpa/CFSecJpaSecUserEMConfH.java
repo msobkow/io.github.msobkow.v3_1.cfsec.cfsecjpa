@@ -73,7 +73,7 @@ public class CFSecJpaSecUserEMConfH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecUserEMConf.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecUserEMConf.S_INIT_CREATED_BY);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -81,7 +81,7 @@ public class CFSecJpaSecUserEMConfH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecUserEMConf.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecUserEMConf.S_INIT_UPDATED_BY);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -240,7 +240,7 @@ public class CFSecJpaSecUserEMConfH
 
 	@Override
 	public String getRequiredConfirmEMailAddr() {
-		return(  );
+		return( requiredConfirmEMailAddr );
 	}
 
 	public void setRequiredConfirmEMailAddr( String value ) {
@@ -264,7 +264,7 @@ public class CFSecJpaSecUserEMConfH
 
 	@Override
 	public LocalDateTime getRequiredEMailSentStamp() {
-		return(  );
+		return( requiredEMailSentStamp );
 	}
 
 	public void setRequiredEMailSentStamp( LocalDateTime value ) {
@@ -280,7 +280,7 @@ public class CFSecJpaSecUserEMConfH
 
 	@Override
 	public CFLibUuid6 getRequiredEMConfirmationUuid6() {
-		return(  );
+		return( requiredEMConfirmationUuid6 );
 	}
 
 	public void setRequiredEMConfirmationUuid6( CFLibUuid6 value ) {
@@ -296,7 +296,7 @@ public class CFSecJpaSecUserEMConfH
 
 	@Override
 	public boolean getRequiredNewAccount() {
-		return(  );
+		return( requiredNewAccount );
 	}
 
 	public void setRequiredNewAccount( boolean value ) {

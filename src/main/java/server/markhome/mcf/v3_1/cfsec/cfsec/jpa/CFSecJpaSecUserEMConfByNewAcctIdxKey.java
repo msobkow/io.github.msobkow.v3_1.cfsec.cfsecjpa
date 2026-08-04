@@ -50,14 +50,9 @@ public class CFSecJpaSecUserEMConfByNewAcctIdxKey
 
 	@Override
 	public boolean getRequiredNewAccount() {
-		return(  );
+		return( requiredNewAccount );
 	}
-
-	public void setRequiredNewAccount( boolean value ) {
-		
-		requiredNewAccount = value;
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

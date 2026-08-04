@@ -45,25 +45,14 @@ public class CFSecJpaSecSysGrpIncBySysGrpIdxKey
 {
 	protected CFLibDbKeyHash256 requiredSecSysGrpId;
 	public CFSecJpaSecSysGrpIncBySysGrpIdxKey() {
-		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
+		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
 		return(  );
 	}
-
-	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecSysGrpId",
-				1,
-				"value" );
-		}
-		
-		getPKey().setRequiredSecSysGrpId(value);
-	}
-
+$refernce Column implProtReqSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

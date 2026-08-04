@@ -196,7 +196,7 @@ public class CFSecJpaSecSessionH
 
 	@Override
 	public CFLibDbKeyHash256 getOptionalSecProxyId() {
-		return(  );
+		return( optionalSecProxyId );
 	}
 
 	public void setOptionalSecProxyId( CFLibDbKeyHash256 value ) {

@@ -77,7 +77,7 @@ public class CFSecJpaSecClusRoleHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRole.SECCLUSROLEID_INIT_VALUE.toString() );
+		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRole.SECCLUSROLEID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class CFSecJpaSecClusRoleHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return(  );
+		return( requiredSecClusRoleId );
 	}
 
 	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 value ) {

@@ -80,7 +80,7 @@ public class CFSecJpaSecSysGrpIncHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
+		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
 		requiredInclName = ICFSecSecSysGrpInc.INCLNAME_INIT_VALUE;
 	}
 
@@ -136,7 +136,7 @@ public class CFSecJpaSecSysGrpIncHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return(  );
+		return( requiredSecSysGrpId );
 	}
 
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
@@ -152,7 +152,7 @@ public class CFSecJpaSecSysGrpIncHPKey
 
 	@Override
 	public String getRequiredInclName() {
-		return(  );
+		return( requiredInclName );
 	}
 
 	public void setRequiredInclName( String value ) {

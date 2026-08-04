@@ -77,7 +77,7 @@ public class CFSecJpaSecTentGrpHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecTentGrp.SECTENTGRPID_INIT_VALUE.toString() );
+		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentGrp.SECTENTGRPID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class CFSecJpaSecTentGrpHPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		return(  );
+		return( requiredSecTentGrpId );
 	}
 
 	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {

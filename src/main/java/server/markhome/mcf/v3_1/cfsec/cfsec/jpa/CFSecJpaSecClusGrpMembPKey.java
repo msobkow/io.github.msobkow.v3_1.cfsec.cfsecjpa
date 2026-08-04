@@ -57,7 +57,7 @@ public class CFSecJpaSecClusGrpMembPKey
 	protected String requiredLoginId;
 
 	public CFSecJpaSecClusGrpMembPKey() {
-		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecClusGrpMemb.SECCLUSGRPID_INIT_VALUE.toString() );
+		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrpMemb.SECCLUSGRPID_INIT_VALUE.toString() );
 		requiredLoginId = ICFSecSecClusGrpMemb.LOGINID_INIT_VALUE;
 	}
 

@@ -57,7 +57,7 @@ public class CFSecJpaSecClusRoleMembPKey
 	protected String requiredLoginId;
 
 	public CFSecJpaSecClusRoleMembPKey() {
-		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
+		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
 		requiredLoginId = ICFSecSecClusRoleMemb.LOGINID_INIT_VALUE;
 	}
 

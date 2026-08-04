@@ -232,7 +232,7 @@ public class CFSecJpaSecSysGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return( getPKey() );
+		return( requiredSecSysGrpId );
 	}
 
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
@@ -243,7 +243,7 @@ public class CFSecJpaSecSysGrp
 				"value" );
 		}
 		
-		setPKey(value);
+		requiredSecSysGrpId = value;
 	}
 
 	@Override
