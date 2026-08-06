@@ -61,7 +61,7 @@ public class CFSecJpaSysClusterH
     public CFSecJpaSysClusterH() {
             // The primary key member attributes are initialized on construction
             pkey = new CFSecJpaSysClusterHPKey();
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSysCluster.CLUSTERID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubSysCluster.CLUSTERID_INIT_VALUE.toString() );
     }
 
     @Override

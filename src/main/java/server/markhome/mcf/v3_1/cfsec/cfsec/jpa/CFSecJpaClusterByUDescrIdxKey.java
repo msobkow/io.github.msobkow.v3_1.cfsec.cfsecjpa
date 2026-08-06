@@ -45,7 +45,7 @@ public class CFSecJpaClusterByUDescrIdxKey
 {
 	protected String requiredDescription;
 	public CFSecJpaClusterByUDescrIdxKey() {
-		requiredDescription = ICFSecCluster.DESCRIPTION_INIT_VALUE;
+		requiredDescription = ICFSecPubCluster.DESCRIPTION_INIT_VALUE;
 	}
 
 	@Override

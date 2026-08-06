@@ -45,7 +45,7 @@ public class CFSecJpaSysClusterByClusterIdxKey
 {
 	protected CFLibDbKeyHash256 requiredClusterId;
 	public CFSecJpaSysClusterByClusterIdxKey() {
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSysCluster.CLUSTERID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubSysCluster.CLUSTERID_INIT_VALUE.toString() );
 	}
 
 	@Override

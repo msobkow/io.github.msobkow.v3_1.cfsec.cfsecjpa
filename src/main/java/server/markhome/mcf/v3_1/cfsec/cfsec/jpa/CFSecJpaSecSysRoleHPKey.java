@@ -77,7 +77,7 @@ public class CFSecJpaSecSysRoleHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecSecSysRole.SECSYSROLEID_INIT_VALUE.toString() );
+		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSysRole.SECSYSROLEID_INIT_VALUE.toString() );
 	}
 
 	@Override

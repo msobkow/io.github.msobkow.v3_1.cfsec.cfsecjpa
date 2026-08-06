@@ -45,7 +45,7 @@ public class CFSecJpaISOCcyByCcyNmIdxKey
 {
 	protected String requiredName;
 	public CFSecJpaISOCcyByCcyNmIdxKey() {
-		requiredName = ICFSecISOCcy.NAME_INIT_VALUE;
+		requiredName = ICFSecPubISOCcy.NAME_INIT_VALUE;
 	}
 
 	@Override

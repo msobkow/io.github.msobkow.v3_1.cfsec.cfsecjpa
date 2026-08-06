@@ -78,8 +78,8 @@ public class CFSecJpaISOCtryLangHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredISOCtryId = ICFSecISOCtryLang.ISOCTRYID_INIT_VALUE;
-		requiredISOLangId = ICFSecISOCtryLang.ISOLANGID_INIT_VALUE;
+		requiredISOCtryId = ICFSecPubISOCtryLang.ISOCTRYID_INIT_VALUE;
+		requiredISOLangId = ICFSecPubISOCtryLang.ISOLANGID_INIT_VALUE;
 	}
 
 	@Override

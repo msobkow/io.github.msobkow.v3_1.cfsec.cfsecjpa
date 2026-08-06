@@ -45,7 +45,7 @@ public class CFSecJpaClusterByUDomNameIdxKey
 {
 	protected String requiredFullDomName;
 	public CFSecJpaClusterByUDomNameIdxKey() {
-		requiredFullDomName = ICFSecCluster.FULLDOMNAME_INIT_VALUE;
+		requiredFullDomName = ICFSecPubCluster.FULLDOMNAME_INIT_VALUE;
 	}
 
 	@Override

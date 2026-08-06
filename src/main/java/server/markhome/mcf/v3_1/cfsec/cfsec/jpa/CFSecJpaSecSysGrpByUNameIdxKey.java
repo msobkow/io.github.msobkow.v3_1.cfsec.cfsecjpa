@@ -45,7 +45,7 @@ public class CFSecJpaSecSysGrpByUNameIdxKey
 {
 	protected String requiredName;
 	public CFSecJpaSecSysGrpByUNameIdxKey() {
-		requiredName = ICFSecSecSysGrp.NAME_INIT_VALUE;
+		requiredName = ICFSecPubSecSysGrp.NAME_INIT_VALUE;
 	}
 
 	@Override

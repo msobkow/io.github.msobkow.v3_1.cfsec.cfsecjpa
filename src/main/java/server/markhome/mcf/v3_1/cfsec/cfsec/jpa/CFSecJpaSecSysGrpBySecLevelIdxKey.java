@@ -45,7 +45,7 @@ public class CFSecJpaSecSysGrpBySecLevelIdxKey
 {
 	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
 	public CFSecJpaSecSysGrpBySecLevelIdxKey() {
-		requiredSecLevel = ICFSecSecSysGrp.SECLEVEL_INIT_VALUE;
+		requiredSecLevel = ICFSecPubSecSysGrp.SECLEVEL_INIT_VALUE;
 	}
 
 	@Override

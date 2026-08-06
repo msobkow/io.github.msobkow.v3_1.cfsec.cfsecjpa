@@ -93,16 +93,16 @@ public class CFSecJpaTableInfo
 	protected String requiredCodeVis;
 
 	public CFSecJpaTableInfo() {
-		requiredTableInfoId = ICFSecTableInfo.TABLEINFOID_INIT_VALUE;
-		requiredSchemaName = ICFSecTableInfo.SCHEMANAME_INIT_VALUE;
-		requiredTableName = ICFSecTableInfo.TABLENAME_INIT_VALUE;
+		requiredTableInfoId = ICFSecPubTableInfo.TABLEINFOID_INIT_VALUE;
+		requiredSchemaName = ICFSecPubTableInfo.SCHEMANAME_INIT_VALUE;
+		requiredTableName = ICFSecPubTableInfo.TABLENAME_INIT_VALUE;
 		optionalSuperName = null;
-		requiredBackingClassCode = ICFSecTableInfo.BACKINGCLASSCODE_INIT_VALUE;
-		requiredRuntimeClassCode = ICFSecTableInfo.RUNTIMECLASSCODE_INIT_VALUE;
-		requiredHasHistory = ICFSecTableInfo.HASHISTORY_INIT_VALUE;
-		requiredIsMutable = ICFSecTableInfo.ISMUTABLE_INIT_VALUE;
-		requiredSecScopeName = ICFSecTableInfo.SECSCOPENAME_INIT_VALUE;
-		requiredCodeVis = ICFSecTableInfo.CODEVIS_INIT_VALUE;
+		requiredBackingClassCode = ICFSecPubTableInfo.BACKINGCLASSCODE_INIT_VALUE;
+		requiredRuntimeClassCode = ICFSecPubTableInfo.RUNTIMECLASSCODE_INIT_VALUE;
+		requiredHasHistory = ICFSecPubTableInfo.HASHISTORY_INIT_VALUE;
+		requiredIsMutable = ICFSecPubTableInfo.ISMUTABLE_INIT_VALUE;
+		requiredSecScopeName = ICFSecPubTableInfo.SECSCOPENAME_INIT_VALUE;
+		requiredCodeVis = ICFSecPubTableInfo.CODEVIS_INIT_VALUE;
 	}
 
 	@Override

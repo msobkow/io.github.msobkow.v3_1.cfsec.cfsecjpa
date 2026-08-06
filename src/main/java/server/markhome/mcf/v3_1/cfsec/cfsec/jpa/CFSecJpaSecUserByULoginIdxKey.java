@@ -45,7 +45,7 @@ public class CFSecJpaSecUserByULoginIdxKey
 {
 	protected String requiredLoginId;
 	public CFSecJpaSecUserByULoginIdxKey() {
-		requiredLoginId = ICFSecSecUser.LOGINID_INIT_VALUE;
+		requiredLoginId = ICFSecPubSecUser.LOGINID_INIT_VALUE;
 	}
 
 	@Override

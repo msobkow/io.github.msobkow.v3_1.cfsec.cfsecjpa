@@ -78,8 +78,8 @@ public class CFSecJpaISOCtryCcyHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredISOCtryId = ICFSecISOCtryCcy.ISOCTRYID_INIT_VALUE;
-		requiredISOCcyId = ICFSecISOCtryCcy.ISOCCYID_INIT_VALUE;
+		requiredISOCtryId = ICFSecPubISOCtryCcy.ISOCTRYID_INIT_VALUE;
+		requiredISOCcyId = ICFSecPubISOCtryCcy.ISOCCYID_INIT_VALUE;
 	}
 
 	@Override

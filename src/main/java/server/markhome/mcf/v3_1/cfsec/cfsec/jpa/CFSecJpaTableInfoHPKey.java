@@ -75,7 +75,7 @@ public class CFSecJpaTableInfoHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredTableInfoId = ICFSecTableInfo.TABLEINFOID_INIT_VALUE;
+		requiredTableInfoId = ICFSecPubTableInfo.TABLEINFOID_INIT_VALUE;
 	}
 
 	@Override

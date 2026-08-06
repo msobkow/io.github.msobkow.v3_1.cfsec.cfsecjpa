@@ -45,7 +45,7 @@ public class CFSecJpaISOCcyByCcyCdIdxKey
 {
 	protected String requiredISOCode;
 	public CFSecJpaISOCcyByCcyCdIdxKey() {
-		requiredISOCode = ICFSecISOCcy.ISOCODE_INIT_VALUE;
+		requiredISOCode = ICFSecPubISOCcy.ISOCODE_INIT_VALUE;
 	}
 
 	@Override

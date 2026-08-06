@@ -45,7 +45,7 @@ public class CFSecJpaSecSysRoleByUNameIdxKey
 {
 	protected String requiredName;
 	public CFSecJpaSecSysRoleByUNameIdxKey() {
-		requiredName = ICFSecSecSysRole.NAME_INIT_VALUE;
+		requiredName = ICFSecPubSecSysRole.NAME_INIT_VALUE;
 	}
 
 	@Override

@@ -45,7 +45,7 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 {
 	protected CFLibDbKeyHash256 requiredSecUserId;
 	public CFSecJpaSecUserPWHistoryByUserIdxKey() {
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
 	}
 
 	@Override

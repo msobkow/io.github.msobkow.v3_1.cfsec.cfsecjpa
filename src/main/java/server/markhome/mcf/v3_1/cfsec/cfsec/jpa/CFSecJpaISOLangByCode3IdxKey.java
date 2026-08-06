@@ -45,7 +45,7 @@ public class CFSecJpaISOLangByCode3IdxKey
 {
 	protected String requiredISO6392Code;
 	public CFSecJpaISOLangByCode3IdxKey() {
-		requiredISO6392Code = ICFSecISOLang.ISO6392CODE_INIT_VALUE;
+		requiredISO6392Code = ICFSecPubISOLang.ISO6392CODE_INIT_VALUE;
 	}
 
 	@Override

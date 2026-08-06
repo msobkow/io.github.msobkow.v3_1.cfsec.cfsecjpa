@@ -45,7 +45,7 @@ public class CFSecJpaTableInfoByTableNameIdxKey
 {
 	protected String requiredTableName;
 	public CFSecJpaTableInfoByTableNameIdxKey() {
-		requiredTableName = ICFSecTableInfo.TABLENAME_INIT_VALUE;
+		requiredTableName = ICFSecPubTableInfo.TABLENAME_INIT_VALUE;
 	}
 
 	@Override

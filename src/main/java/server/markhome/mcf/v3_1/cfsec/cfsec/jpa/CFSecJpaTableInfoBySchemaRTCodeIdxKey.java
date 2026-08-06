@@ -45,7 +45,7 @@ public class CFSecJpaTableInfoBySchemaRTCodeIdxKey
 {
 	protected int requiredRuntimeClassCode;
 	public CFSecJpaTableInfoBySchemaRTCodeIdxKey() {
-		requiredRuntimeClassCode = ICFSecTableInfo.RUNTIMECLASSCODE_INIT_VALUE;
+		requiredRuntimeClassCode = ICFSecPubTableInfo.RUNTIMECLASSCODE_INIT_VALUE;
 	}
 
 	@Override

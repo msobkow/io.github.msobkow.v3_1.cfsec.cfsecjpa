@@ -45,7 +45,7 @@ public class CFSecJpaISOTZoneByIso8601IdxKey
 {
 	protected String requiredIso8601;
 	public CFSecJpaISOTZoneByIso8601IdxKey() {
-		requiredIso8601 = ICFSecISOTZone.ISO8601_INIT_VALUE;
+		requiredIso8601 = ICFSecPubISOTZone.ISO8601_INIT_VALUE;
 	}
 
 	@Override

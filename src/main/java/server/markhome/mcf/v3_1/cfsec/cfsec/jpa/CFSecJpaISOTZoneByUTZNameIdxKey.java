@@ -45,7 +45,7 @@ public class CFSecJpaISOTZoneByUTZNameIdxKey
 {
 	protected String requiredTZName;
 	public CFSecJpaISOTZoneByUTZNameIdxKey() {
-		requiredTZName = ICFSecISOTZone.TZNAME_INIT_VALUE;
+		requiredTZName = ICFSecPubISOTZone.TZNAME_INIT_VALUE;
 	}
 
 	@Override

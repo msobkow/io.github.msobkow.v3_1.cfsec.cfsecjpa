@@ -65,7 +65,7 @@ public class CFSecJpaSecSessionHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecSessionId = CFLibDbKeyHash256.fromHex( ICFSecSecSession.SECSESSIONID_INIT_VALUE.toString() );
+		requiredSecSessionId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECSESSIONID_INIT_VALUE.toString() );
 	}
 
 	@Override

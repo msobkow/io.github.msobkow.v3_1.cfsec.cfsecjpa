@@ -45,7 +45,7 @@ public class CFSecJpaISOCtryByNameIdxKey
 {
 	protected String requiredName;
 	public CFSecJpaISOCtryByNameIdxKey() {
-		requiredName = ICFSecISOCtry.NAME_INIT_VALUE;
+		requiredName = ICFSecPubISOCtry.NAME_INIT_VALUE;
 	}
 
 	@Override

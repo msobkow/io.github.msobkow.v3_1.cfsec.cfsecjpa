@@ -46,8 +46,8 @@ public class CFSecJpaTenantByUNameIdxKey
 	protected CFLibDbKeyHash256 requiredClusterId;
 	protected String requiredTenantName;
 	public CFSecJpaTenantByUNameIdxKey() {
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecTenant.CLUSTERID_INIT_VALUE.toString() );
-		requiredTenantName = ICFSecTenant.TENANTNAME_INIT_VALUE;
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubTenant.CLUSTERID_INIT_VALUE.toString() );
+		requiredTenantName = ICFSecPubTenant.TENANTNAME_INIT_VALUE;
 	}
 
 	@Override

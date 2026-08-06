@@ -80,8 +80,8 @@ public class CFSecJpaSecSession
 	protected CFLibDbKeyHash256 optionalSecProxyId;
 
 	public CFSecJpaSecSession() {
-		requiredSecSessionId = CFLibDbKeyHash256.fromHex( ICFSecSecSession.SECSESSIONID_INIT_VALUE.toString() );
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecSession.SECUSERID_INIT_VALUE.toString() );
+		requiredSecSessionId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECSESSIONID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECUSERID_INIT_VALUE.toString() );
 		requiredStart = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 		optionalFinish = null;
 		optionalSecProxyId = CFLibDbKeyHash256.nullGet();

@@ -45,7 +45,7 @@ public class CFSecJpaISOCtryCcyByCtryIdxKey
 {
 	protected short requiredISOCtryId;
 	public CFSecJpaISOCtryCcyByCtryIdxKey() {
-		requiredISOCtryId = ICFSecISOCtryCcy.ISOCTRYID_INIT_VALUE;
+		requiredISOCtryId = ICFSecPubISOCtryCcy.ISOCTRYID_INIT_VALUE;
 	}
 
 	@Override

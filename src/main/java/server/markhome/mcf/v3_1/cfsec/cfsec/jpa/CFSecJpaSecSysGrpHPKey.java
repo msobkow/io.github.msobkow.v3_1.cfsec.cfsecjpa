@@ -77,7 +77,7 @@ public class CFSecJpaSecSysGrpHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecSecSysGrp.SECSYSGRPID_INIT_VALUE.toString() );
+		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSysGrp.SECSYSGRPID_INIT_VALUE.toString() );
 	}
 
 	@Override

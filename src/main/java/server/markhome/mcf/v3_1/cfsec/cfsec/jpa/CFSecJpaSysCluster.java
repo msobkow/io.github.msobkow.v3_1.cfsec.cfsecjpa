@@ -71,8 +71,8 @@ public class CFSecJpaSysCluster
 	protected CFLibDbKeyHash256 requiredClusterId;
 
 	public CFSecJpaSysCluster() {
-		requiredSingletonId = ICFSecSysCluster.SINGLETONID_INIT_VALUE;
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecSysCluster.CLUSTERID_INIT_VALUE.toString() );
+		requiredSingletonId = ICFSecPubSysCluster.SINGLETONID_INIT_VALUE;
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubSysCluster.CLUSTERID_INIT_VALUE.toString() );
 	}
 
 	@Override

@@ -75,7 +75,12 @@ public class CFSecJpaTenant
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSec$emitScopingMidfix$Tenant.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecPubSecUser.S_INIT_CREATED_BY);
+
+	@AttributeOverrides({
+		@AttributeOverride( name="bytes", column = @Column( name="CreatedBySessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 createdBySessionId = CFLibDbKeyHash256.fromHex(ICFSecPubSecSession.S_SECSESSIONID_INIT_VALUE);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -83,7 +88,12 @@ public class CFSecJpaTenant
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSec$emitScopingMidfix$Tenant.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecPubSecUser.S_INIT_UPDATED_BY);
+
+	@AttributeOverrides({
+		@AttributeOverride( name="bytes", column= @Column( name="UpdatedBySessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFLibDbKeyHash256 updatedBySessionId = CFLibDbKeyHash256.fromHex(ICFSecPubSecSession.S_SECSESSIONID_INIT_VALUE);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -95,9 +105,9 @@ public class CFSecJpaTenant
 	protected String requiredTenantName;
 
 	public CFSecJpaTenant() {
-		requiredId = CFLibDbKeyHash256.fromHex( ICFSecTenant.ID_INIT_VALUE.toString() );
-		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecTenant.CLUSTERID_INIT_VALUE.toString() );
-		requiredTenantName = ICFSecTenant.TENANTNAME_INIT_VALUE;
+		requiredId = CFLibDbKeyHash256.fromHex( ICFSecPubTenant.ID_INIT_VALUE.toString() );
+		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubTenant.CLUSTERID_INIT_VALUE.toString() );
+		requiredTenantName = ICFSecPubTenant.TENANTNAME_INIT_VALUE;
 	}
 
 	@Override

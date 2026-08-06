@@ -75,7 +75,7 @@ public class CFSecJpaISOTZoneHPKey
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredISOTZoneId = ICFSecISOTZone.ISOTZONEID_INIT_VALUE;
+		requiredISOTZoneId = ICFSecPubISOTZone.ISOTZONEID_INIT_VALUE;
 	}
 
 	@Override
