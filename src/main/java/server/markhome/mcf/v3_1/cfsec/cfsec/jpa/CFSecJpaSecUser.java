@@ -121,15 +121,12 @@ public class CFSecJpaSecUser
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecUserId;
-		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserPassword optionalComponentsPassword;
-		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserEMConf optionalComponentsEMConf;
-		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserPWReset optionalComponentsPWReset;
@@ -282,7 +279,7 @@ public class CFSecJpaSecUser
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
+		return(requiredSecUserId);
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -292,7 +289,6 @@ public class CFSecJpaSecUser
 				1,
 				"value" );
 		}
-		
 		requiredSecUserId = value;
 	}
 
@@ -308,7 +304,7 @@ public class CFSecJpaSecUser
 
 	@Override
 	public String getRequiredLoginId() {
-		return( requiredLoginId );
+		return(requiredLoginId);
 	}
 
 	public void setRequiredLoginId( String value ) {
@@ -326,13 +322,12 @@ public class CFSecJpaSecUser
 				value.length(),
 				32 );
 		}
-		
 		requiredLoginId = value;
 	}
 
 	@Override
 	public ICFSecPubSchema.SecAccountStatusEnum getRequiredAccountStatus() {
-		return( requiredAccountStatus );
+		return(requiredAccountStatus);
 	}
 
 	public void setRequiredAccountStatus( ICFSecPubSchema.SecAccountStatusEnum value ) {
@@ -342,13 +337,12 @@ public class CFSecJpaSecUser
 				1,
 				"value" );
 		}
-		
 		requiredAccountStatus = value;
 	}
 
 	@Override
 	public String getOptionalDfltSysGrpName() {
-		return( optionalDfltSysGrpName );
+		return(optionalDfltSysGrpName);
 	}
 
 	public void setOptionalDfltSysGrpName( String value ) {
@@ -360,13 +354,12 @@ public class CFSecJpaSecUser
 				value.length(),
 				64 );
 		}
-		
 		optionalDfltSysGrpName = value;
 	}
 
 	@Override
 	public String getOptionalDfltClusGrpName() {
-		return( optionalDfltClusGrpName );
+		return(optionalDfltClusGrpName);
 	}
 
 	public void setOptionalDfltClusGrpName( String value ) {
@@ -378,13 +371,12 @@ public class CFSecJpaSecUser
 				value.length(),
 				64 );
 		}
-		
 		optionalDfltClusGrpName = value;
 	}
 
 	@Override
 	public String getOptionalDfltTentGrpName() {
-		return( optionalDfltTentGrpName );
+		return(optionalDfltTentGrpName);
 	}
 
 	public void setOptionalDfltTentGrpName( String value ) {
@@ -396,13 +388,12 @@ public class CFSecJpaSecUser
 				value.length(),
 				64 );
 		}
-		
 		optionalDfltTentGrpName = value;
 	}
 
 	@Override
 	public String getRequiredEMailAddress() {
-		return( requiredEMailAddress );
+		return(requiredEMailAddress);
 	}
 
 	public void setRequiredEMailAddress( String value ) {
@@ -420,7 +411,6 @@ public class CFSecJpaSecUser
 				value.length(),
 				512 );
 		}
-		
 		requiredEMailAddress = value;
 	}
 

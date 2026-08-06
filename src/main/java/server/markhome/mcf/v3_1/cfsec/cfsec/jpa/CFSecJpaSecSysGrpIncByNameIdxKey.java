@@ -50,7 +50,8 @@ public class CFSecJpaSecSysGrpIncByNameIdxKey
 
 	@Override
 	public String getRequiredInclName() {
-		return(  );
+		
+		getPKey().getRequiredInclName;
 	}
 $refernce Column implProtReqSetter$
 	@Override

@@ -52,7 +52,7 @@ public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 
 	@Override
 	public String getRequiredSchemaName() {
-		return( requiredSchemaName );
+		return(requiredSchemaName);
 	}
 
 	public void setRequiredSchemaName( String value ) {
@@ -70,26 +70,16 @@ public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 				value.length(),
 				32 );
 		}
-		
 		requiredSchemaName = value;
 	}
 
 	@Override
 	public int getRequiredBackingClassCode() {
-		return( requiredBackingClassCode );
+		return(requiredBackingClassCode);
 	}
 
 	@Override
 	public void setRequiredBackingClassCode( int value ) {
-		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredBackingClassCode",
-				1,
-				"value",
-				value,
-				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
-		}
-		
 		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredBackingClassCode",

@@ -52,12 +52,12 @@ public class CFSecJpaSecClusGrpByUNameIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return( requiredClusterId );
+		return(requiredClusterId);
 	}
 $refernce Column implProtReqSetter$
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 $refernce Column implProtReqSetter$
 	@Override

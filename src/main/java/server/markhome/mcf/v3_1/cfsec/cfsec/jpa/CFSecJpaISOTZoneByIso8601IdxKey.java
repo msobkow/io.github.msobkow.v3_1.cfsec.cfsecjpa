@@ -50,7 +50,7 @@ public class CFSecJpaISOTZoneByIso8601IdxKey
 
 	@Override
 	public String getRequiredIso8601() {
-		return( requiredIso8601 );
+		return(requiredIso8601);
 	}
 
 	public void setRequiredIso8601( String value ) {
@@ -68,7 +68,6 @@ public class CFSecJpaISOTZoneByIso8601IdxKey
 				value.length(),
 				6 );
 		}
-		
 		requiredIso8601 = value;
 	}
 

@@ -50,7 +50,7 @@ public class CFSecJpaISOCtryLangByLangIdxKey
 
 	@Override
 	public short getRequiredISOLangId() {
-		return( getPKey().getRequiredISOLangId() );
+		getPKey().getRequiredISOLangId();
 	}
 
 	@Override

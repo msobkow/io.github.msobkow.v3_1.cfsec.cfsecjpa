@@ -50,7 +50,7 @@ public class CFSecJpaISOCcyByCcyNmIdxKey
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -68,7 +68,6 @@ public class CFSecJpaISOCcyByCcyNmIdxKey
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

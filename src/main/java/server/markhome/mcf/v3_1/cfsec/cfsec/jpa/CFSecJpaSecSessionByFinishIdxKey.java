@@ -52,7 +52,7 @@ public class CFSecJpaSecSessionByFinishIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
+		return(requiredSecUserId);
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -62,17 +62,15 @@ public class CFSecJpaSecSessionByFinishIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredSecUserId = value;
 	}
 
 	@Override
 	public LocalDateTime getOptionalFinish() {
-		return( optionalFinish );
+		return(optionalFinish);
 	}
 
 	public void setOptionalFinish( LocalDateTime value ) {
-		
 		optionalFinish = value;
 	}
 

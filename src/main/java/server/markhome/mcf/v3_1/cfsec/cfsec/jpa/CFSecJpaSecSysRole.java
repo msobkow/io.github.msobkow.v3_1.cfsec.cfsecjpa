@@ -171,7 +171,7 @@ public class CFSecJpaSecSysRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
-		return( requiredSecSysRoleId );
+		return(requiredSecSysRoleId);
 	}
 
 	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
@@ -181,7 +181,6 @@ public class CFSecJpaSecSysRole
 				1,
 				"value" );
 		}
-		
 		requiredSecSysRoleId = value;
 	}
 
@@ -197,7 +196,7 @@ public class CFSecJpaSecSysRole
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -215,7 +214,6 @@ public class CFSecJpaSecSysRole
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

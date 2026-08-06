@@ -204,6 +204,7 @@ public class CFSecJpaTableInfoService {
 		// Apply data columns of CFSecTableInfo to existing object
 		existing.setRequiredSchemaName(data.getRequiredSchemaName());
 		existing.setRequiredTableName(data.getRequiredTableName());
+		existing.setOptionalSuperName(data.getOptionalSuperName());
 		existing.setRequiredBackingClassCode(data.getRequiredBackingClassCode());
 		existing.setRequiredRuntimeClassCode(data.getRequiredRuntimeClassCode());
 		existing.setRequiredHasHistory(data.getRequiredHasHistory());

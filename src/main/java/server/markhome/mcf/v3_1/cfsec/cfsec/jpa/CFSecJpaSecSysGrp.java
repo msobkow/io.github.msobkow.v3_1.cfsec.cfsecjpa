@@ -65,7 +65,6 @@ public class CFSecJpaSecSysGrp
 	protected Set<CFSecJpaSecSysGrpInc> optionalComponentsIncByGrp;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecSysGrpMemb> optionalChildrenMembByGrp;
-		
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn( name="SecSysGrpId", referencedColumnName="SecSysRoleId" )
 	protected CFSecJpaSecSysRole optionalComponentsImplSysRole;
@@ -232,7 +231,7 @@ public class CFSecJpaSecSysGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return( requiredSecSysGrpId );
+		return(requiredSecSysGrpId);
 	}
 
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
@@ -242,7 +241,6 @@ public class CFSecJpaSecSysGrp
 				1,
 				"value" );
 		}
-		
 		requiredSecSysGrpId = value;
 	}
 
@@ -258,7 +256,7 @@ public class CFSecJpaSecSysGrp
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -276,13 +274,12 @@ public class CFSecJpaSecSysGrp
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
-		return( requiredSecLevel );
+		return(requiredSecLevel);
 	}
 
 	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
@@ -292,7 +289,6 @@ public class CFSecJpaSecSysGrp
 				1,
 				"value" );
 		}
-		
 		requiredSecLevel = value;
 	}
 

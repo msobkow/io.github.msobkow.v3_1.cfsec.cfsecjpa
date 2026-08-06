@@ -50,7 +50,7 @@ public class CFSecJpaSecClusGrpByNameIdxKey
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 $refernce Column implProtReqSetter$
 	@Override

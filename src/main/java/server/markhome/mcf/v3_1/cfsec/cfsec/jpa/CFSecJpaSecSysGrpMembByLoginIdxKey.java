@@ -50,7 +50,8 @@ public class CFSecJpaSecSysGrpMembByLoginIdxKey
 
 	@Override
 	public String getRequiredLoginId() {
-		return(  );
+		
+		getPKey().getRequiredLoginId;
 	}
 $refernce Column implProtReqSetter$
 	@Override

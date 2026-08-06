@@ -61,7 +61,7 @@ public class CFSecJpaISOCtryCcyPKey
 
 	@Override
 	public short getRequiredISOCtryId() {
-		return( getPKey().getRequiredISOCtryId() );
+		return(requiredISOCtryId);
 	}
 
 	@Override
@@ -74,21 +74,12 @@ public class CFSecJpaISOCtryCcyPKey
 				value,
 				ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE );
 		}
-		
-		if( value < ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOCtryId",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE );
-		}
-		getPKey().setRequiredISOCtryId(value);
+		requiredISOCtryId = value;
 	}
 
 	@Override
 	public short getRequiredISOCcyId() {
-		return( getPKey().getRequiredISOCcyId() );
+		return(requiredISOCcyId);
 	}
 
 	@Override
@@ -101,16 +92,7 @@ public class CFSecJpaISOCtryCcyPKey
 				value,
 				ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE );
 		}
-		
-		if( value < ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOCcyId",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE );
-		}
-		getPKey().setRequiredISOCcyId(value);
+		requiredISOCcyId = value;
 	}
 
 	@Override

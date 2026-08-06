@@ -52,12 +52,12 @@ public class CFSecJpaSecTentGrpByUNameIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 $refernce Column implProtReqSetter$
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 $refernce Column implProtReqSetter$
 	@Override

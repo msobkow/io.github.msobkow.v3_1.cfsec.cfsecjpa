@@ -175,20 +175,11 @@ public class CFSecJpaISOCtry
 
 	@Override
 	public short getRequiredISOCtryId() {
-		return( requiredISOCtryId );
+		return(requiredISOCtryId);
 	}
 
 	@Override
 	public void setRequiredISOCtryId( short value ) {
-		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOCtryId",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE );
-		}
-		
 		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
@@ -212,7 +203,7 @@ public class CFSecJpaISOCtry
 
 	@Override
 	public String getRequiredISOCode() {
-		return( requiredISOCode );
+		return(requiredISOCode);
 	}
 
 	public void setRequiredISOCode( String value ) {
@@ -230,13 +221,12 @@ public class CFSecJpaISOCtry
 				value.length(),
 				2 );
 		}
-		
 		requiredISOCode = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -254,7 +244,6 @@ public class CFSecJpaISOCtry
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

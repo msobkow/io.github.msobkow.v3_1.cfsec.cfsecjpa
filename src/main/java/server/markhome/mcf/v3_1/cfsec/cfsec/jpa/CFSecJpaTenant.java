@@ -228,7 +228,7 @@ public class CFSecJpaTenant
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return(requiredId);
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -238,7 +238,6 @@ public class CFSecJpaTenant
 				1,
 				"value" );
 		}
-		
 		requiredId = value;
 	}
 
@@ -254,7 +253,7 @@ public class CFSecJpaTenant
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return( requiredClusterId );
+		return(requiredClusterId);
 	}
 
 	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
@@ -264,13 +263,12 @@ public class CFSecJpaTenant
 				1,
 				"value" );
 		}
-		
 		requiredClusterId = value;
 	}
 
 	@Override
 	public String getRequiredTenantName() {
-		return( requiredTenantName );
+		return(requiredTenantName);
 	}
 
 	public void setRequiredTenantName( String value ) {
@@ -288,7 +286,6 @@ public class CFSecJpaTenant
 				value.length(),
 				192 );
 		}
-		
 		requiredTenantName = value;
 	}
 
@@ -734,6 +731,7 @@ public class CFSecJpaTenant
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
 		setRequiredContainerCluster(src.getRequiredContainerCluster());
+		setRequiredClusterId(src.getRequiredClusterId());
 		setRequiredTenantName(src.getRequiredTenantName());
 	}
 
@@ -746,6 +744,7 @@ public class CFSecJpaTenant
 	public void setTenant( ICFSecTenantH src ) {
 		setRequiredId(src.getRequiredId());
 		setRequiredContainerCluster(src.getRequiredClusterId());
+		setRequiredClusterId(src.getRequiredClusterId());
 		setRequiredTenantName(src.getRequiredTenantName());
 	}
 

@@ -50,7 +50,7 @@ public class CFSecJpaISOCtryByISOCodeIdxKey
 
 	@Override
 	public String getRequiredISOCode() {
-		return( requiredISOCode );
+		return(requiredISOCode);
 	}
 
 	public void setRequiredISOCode( String value ) {
@@ -68,7 +68,6 @@ public class CFSecJpaISOCtryByISOCodeIdxKey
 				value.length(),
 				2 );
 		}
-		
 		requiredISOCode = value;
 	}
 

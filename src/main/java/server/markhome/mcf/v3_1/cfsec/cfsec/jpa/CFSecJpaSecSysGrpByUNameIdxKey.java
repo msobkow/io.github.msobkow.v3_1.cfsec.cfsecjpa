@@ -50,7 +50,7 @@ public class CFSecJpaSecSysGrpByUNameIdxKey
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -68,7 +68,6 @@ public class CFSecJpaSecSysGrpByUNameIdxKey
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

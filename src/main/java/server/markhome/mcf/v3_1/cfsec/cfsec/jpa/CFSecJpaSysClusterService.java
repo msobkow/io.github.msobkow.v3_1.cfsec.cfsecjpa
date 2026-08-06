@@ -151,6 +151,7 @@ public class CFSecJpaSysClusterService {
 		// Apply superior data relationships of CFSecSysCluster to existing object
 		existing.setRequiredContainerCluster(data.getRequiredContainerCluster());
 		// Apply data columns of CFSecSysCluster to existing object
+		existing.setRequiredClusterId(data.getRequiredClusterId());
 		// Save the changes we've made
 		return cfsec31SysClusterRepository.save(existing);
 	}

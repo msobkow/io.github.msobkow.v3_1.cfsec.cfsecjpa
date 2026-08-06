@@ -198,6 +198,8 @@ public class CFSecJpaSecTentGrpService {
 		existing.setRequiredOwnerTenant(data.getRequiredOwnerTenant());
 		existing.setRequiredContainerSysGrp(data.getRequiredContainerSysGrp());
 		// Apply data columns of CFSecSecTentGrp to existing object
+		existing.setRequiredTenantId(data.getRequiredTenantId());
+		existing.setRequiredName(data.getRequiredName());
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());
 		// Save the changes we've made

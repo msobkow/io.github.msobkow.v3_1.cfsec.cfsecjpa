@@ -63,7 +63,6 @@ public class CFSecJpaSecUserPWReset
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecUserId;
-		
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -217,7 +216,7 @@ public class CFSecJpaSecUserPWReset
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return(  );
+		return(requiredSecUserId);
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -227,7 +226,6 @@ public class CFSecJpaSecUserPWReset
 				1,
 				"value" );
 		}
-		
 		requiredSecUserId = value;
 	}
 
@@ -243,7 +241,7 @@ public class CFSecJpaSecUserPWReset
 
 	@Override
 	public String getRequiredSentToEMailAddr() {
-		return( requiredSentToEMailAddr );
+		return(requiredSentToEMailAddr);
 	}
 
 	public void setRequiredSentToEMailAddr( String value ) {
@@ -261,13 +259,12 @@ public class CFSecJpaSecUserPWReset
 				value.length(),
 				512 );
 		}
-		
 		requiredSentToEMailAddr = value;
 	}
 
 	@Override
 	public CFLibUuid6 getRequiredPasswordResetUuid6() {
-		return( requiredPasswordResetUuid6 );
+		return(requiredPasswordResetUuid6);
 	}
 
 	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
@@ -277,17 +274,15 @@ public class CFSecJpaSecUserPWReset
 				1,
 				"value" );
 		}
-		
 		requiredPasswordResetUuid6 = value;
 	}
 
 	@Override
 	public boolean getRequiredNewAccount() {
-		return( requiredNewAccount );
+		return(requiredNewAccount);
 	}
 
 	public void setRequiredNewAccount( boolean value ) {
-		
 		requiredNewAccount = value;
 	}
 
@@ -751,6 +746,7 @@ public class CFSecJpaSecUserPWReset
 	@Override
 	public void setSecUserPWReset( ICFSecSecUserPWReset src ) {
 		setRequiredContainerUser(src.getRequiredContainerUser());
+		setRequiredSecUserId(src.getRequiredSecUserId());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -769,6 +765,7 @@ public class CFSecJpaSecUserPWReset
 	@Override
 	public void setSecUserPWReset( ICFSecSecUserPWResetH src ) {
 		setRequiredContainerUser(src.getRequiredSecUserId());
+		setRequiredSecUserId(src.getRequiredSecUserId());
 		setRequiredSentToEMailAddr(src.getRequiredSentToEMailAddr());
 		setRequiredPasswordResetUuid6(src.getRequiredPasswordResetUuid6());
 		setRequiredNewAccount(src.getRequiredNewAccount());

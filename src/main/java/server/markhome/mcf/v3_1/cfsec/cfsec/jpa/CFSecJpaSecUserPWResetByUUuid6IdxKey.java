@@ -49,7 +49,7 @@ public class CFSecJpaSecUserPWResetByUUuid6IdxKey
 
 	@Override
 	public CFLibUuid6 getRequiredPasswordResetUuid6() {
-		return( requiredPasswordResetUuid6 );
+		return(requiredPasswordResetUuid6);
 	}
 $refernce Column implProtReqSetter$
 	@Override

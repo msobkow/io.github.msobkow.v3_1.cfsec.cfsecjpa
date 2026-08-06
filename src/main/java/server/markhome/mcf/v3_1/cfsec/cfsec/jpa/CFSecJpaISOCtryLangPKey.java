@@ -61,7 +61,7 @@ public class CFSecJpaISOCtryLangPKey
 
 	@Override
 	public short getRequiredISOCtryId() {
-		return( getPKey().getRequiredISOCtryId() );
+		return(requiredISOCtryId);
 	}
 
 	@Override
@@ -74,21 +74,12 @@ public class CFSecJpaISOCtryLangPKey
 				value,
 				ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE );
 		}
-		
-		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOCtryId",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE );
-		}
-		getPKey().setRequiredISOCtryId(value);
+		requiredISOCtryId = value;
 	}
 
 	@Override
 	public short getRequiredISOLangId() {
-		return( getPKey().getRequiredISOLangId() );
+		return(requiredISOLangId);
 	}
 
 	@Override
@@ -101,16 +92,7 @@ public class CFSecJpaISOCtryLangPKey
 				value,
 				ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE );
 		}
-		
-		if( value < ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOLangId",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE );
-		}
-		getPKey().setRequiredISOLangId(value);
+		requiredISOLangId = value;
 	}
 
 	@Override

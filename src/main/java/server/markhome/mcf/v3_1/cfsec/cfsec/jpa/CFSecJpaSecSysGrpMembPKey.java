@@ -63,7 +63,7 @@ public class CFSecJpaSecSysGrpMembPKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return(  );
+		return(requiredSecSysGrpId);
 	}
 
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
@@ -73,13 +73,12 @@ public class CFSecJpaSecSysGrpMembPKey
 				1,
 				"value" );
 		}
-		
-		getPKey().setRequiredSecSysGrpId(value);
+		requiredSecSysGrpId = value;
 	}
 
 	@Override
 	public String getRequiredLoginId() {
-		return(  );
+		return(requiredLoginId);
 	}
 
 	public void setRequiredLoginId( String value ) {
@@ -97,8 +96,7 @@ public class CFSecJpaSecSysGrpMembPKey
 				value.length(),
 				32 );
 		}
-		
-		getPKey().setRequiredLoginId(value);
+		requiredLoginId = value;
 	}
 
 	@Override

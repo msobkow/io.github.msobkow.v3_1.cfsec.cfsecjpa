@@ -176,20 +176,11 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public int getRequiredTableInfoId() {
-		return( requiredTableInfoId );
+		return(requiredTableInfoId);
 	}
 
 	@Override
 	public void setRequiredTableInfoId( int value ) {
-		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredTableInfoId",
-				1,
-				"value",
-				value,
-				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
-		}
-		
 		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableInfoId",
@@ -213,7 +204,7 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public String getRequiredSchemaName() {
-		return( requiredSchemaName );
+		return(requiredSchemaName);
 	}
 
 	public void setRequiredSchemaName( String value ) {
@@ -231,13 +222,12 @@ public class CFSecJpaTableInfo
 				value.length(),
 				32 );
 		}
-		
 		requiredSchemaName = value;
 	}
 
 	@Override
 	public String getRequiredTableName() {
-		return( requiredTableName );
+		return(requiredTableName);
 	}
 
 	public void setRequiredTableName( String value ) {
@@ -255,13 +245,12 @@ public class CFSecJpaTableInfo
 				value.length(),
 				64 );
 		}
-		
 		requiredTableName = value;
 	}
 
 	@Override
 	public String getOptionalSuperName() {
-		return( optionalSuperName );
+		return(optionalSuperName);
 	}
 
 	public void setOptionalSuperName( String value ) {
@@ -273,26 +262,16 @@ public class CFSecJpaTableInfo
 				value.length(),
 				64 );
 		}
-		
 		optionalSuperName = value;
 	}
 
 	@Override
 	public int getRequiredBackingClassCode() {
-		return( requiredBackingClassCode );
+		return(requiredBackingClassCode);
 	}
 
 	@Override
 	public void setRequiredBackingClassCode( int value ) {
-		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredBackingClassCode",
-				1,
-				"value",
-				value,
-				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
-		}
-		
 		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredBackingClassCode",
@@ -306,20 +285,11 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public int getRequiredRuntimeClassCode() {
-		return( requiredRuntimeClassCode );
+		return(requiredRuntimeClassCode);
 	}
 
 	@Override
 	public void setRequiredRuntimeClassCode( int value ) {
-		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredRuntimeClassCode",
-				1,
-				"value",
-				value,
-				ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
-		}
-		
 		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredRuntimeClassCode",
@@ -333,27 +303,25 @@ public class CFSecJpaTableInfo
 
 	@Override
 	public boolean getRequiredHasHistory() {
-		return( requiredHasHistory );
+		return(requiredHasHistory);
 	}
 
 	public void setRequiredHasHistory( boolean value ) {
-		
 		requiredHasHistory = value;
 	}
 
 	@Override
 	public boolean getRequiredIsMutable() {
-		return( requiredIsMutable );
+		return(requiredIsMutable);
 	}
 
 	public void setRequiredIsMutable( boolean value ) {
-		
 		requiredIsMutable = value;
 	}
 
 	@Override
 	public String getRequiredSecScopeName() {
-		return( requiredSecScopeName );
+		return(requiredSecScopeName);
 	}
 
 	public void setRequiredSecScopeName( String value ) {
@@ -371,13 +339,12 @@ public class CFSecJpaTableInfo
 				value.length(),
 				32 );
 		}
-		
 		requiredSecScopeName = value;
 	}
 
 	@Override
 	public String getRequiredCodeVis() {
-		return( requiredCodeVis );
+		return(requiredCodeVis);
 	}
 
 	public void setRequiredCodeVis( String value ) {
@@ -395,7 +362,6 @@ public class CFSecJpaTableInfo
 				value.length(),
 				32 );
 		}
-		
 		requiredCodeVis = value;
 	}
 
@@ -1091,6 +1057,7 @@ public class CFSecJpaTableInfo
 		setOptionalParentSuperRef(src.getOptionalParentSuperRef());
 		setRequiredSchemaName(src.getRequiredSchemaName());
 		setRequiredTableName(src.getRequiredTableName());
+		setOptionalSuperName(src.getOptionalSuperName());
 		setRequiredBackingClassCode(src.getRequiredBackingClassCode());
 		setRequiredRuntimeClassCode(src.getRequiredRuntimeClassCode());
 		setRequiredHasHistory(src.getRequiredHasHistory());
@@ -1110,6 +1077,7 @@ public class CFSecJpaTableInfo
 		setOptionalParentSuperRef(src.getOptionalSuperName());
 		setRequiredSchemaName(src.getRequiredSchemaName());
 		setRequiredTableName(src.getRequiredTableName());
+		setOptionalSuperName(src.getOptionalSuperName());
 		setRequiredBackingClassCode(src.getRequiredBackingClassCode());
 		setRequiredRuntimeClassCode(src.getRequiredRuntimeClassCode());
 		setRequiredHasHistory(src.getRequiredHasHistory());

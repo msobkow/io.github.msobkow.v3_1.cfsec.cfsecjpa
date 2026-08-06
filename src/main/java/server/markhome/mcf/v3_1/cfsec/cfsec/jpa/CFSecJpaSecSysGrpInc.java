@@ -657,6 +657,8 @@ public class CFSecJpaSecSysGrpInc
 	public void setSecSysGrpInc( ICFSecSecSysGrpInc src ) {
 		setRequiredContainerGroup(src.getRequiredContainerGroup());
 		setRequiredParentSubGroup(src.getRequiredParentSubGroup());
+		setRequiredSecSysGrpId(src.getRequiredSecSysGrpId());
+		setRequiredInclName(src.getRequiredInclName());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -673,6 +675,8 @@ public class CFSecJpaSecSysGrpInc
 	public void setSecSysGrpInc( ICFSecSecSysGrpIncH src ) {
 		setRequiredContainerGroup(src.getRequiredSecSysGrpId());
 		setRequiredParentSubGroup(src.getRequiredInclName());
+		setRequiredSecSysGrpId(src.getRequiredSecSysGrpId());
+		setRequiredInclName(src.getRequiredInclName());
 	}
 
 	@Override

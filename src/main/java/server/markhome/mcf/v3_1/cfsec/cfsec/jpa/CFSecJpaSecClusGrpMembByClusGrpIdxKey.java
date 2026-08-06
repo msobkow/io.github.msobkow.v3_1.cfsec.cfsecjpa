@@ -50,7 +50,8 @@ public class CFSecJpaSecClusGrpMembByClusGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
-		return(  );
+		
+		getPKey().getRequiredSecClusGrpId;
 	}
 $refernce Column implProtReqSetter$
 	@Override

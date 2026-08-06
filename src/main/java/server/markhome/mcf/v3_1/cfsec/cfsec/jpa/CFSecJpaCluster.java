@@ -191,7 +191,7 @@ public class CFSecJpaCluster
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredId() {
-		return( requiredId );
+		return(requiredId);
 	}
 
 	public void setRequiredId( CFLibDbKeyHash256 value ) {
@@ -201,7 +201,6 @@ public class CFSecJpaCluster
 				1,
 				"value" );
 		}
-		
 		requiredId = value;
 	}
 
@@ -217,7 +216,7 @@ public class CFSecJpaCluster
 
 	@Override
 	public String getRequiredFullDomName() {
-		return( requiredFullDomName );
+		return(requiredFullDomName);
 	}
 
 	public void setRequiredFullDomName( String value ) {
@@ -235,13 +234,12 @@ public class CFSecJpaCluster
 				value.length(),
 				192 );
 		}
-		
 		requiredFullDomName = value;
 	}
 
 	@Override
 	public String getRequiredDescription() {
-		return( requiredDescription );
+		return(requiredDescription);
 	}
 
 	public void setRequiredDescription( String value ) {
@@ -259,7 +257,6 @@ public class CFSecJpaCluster
 				value.length(),
 				128 );
 		}
-		
 		requiredDescription = value;
 	}
 

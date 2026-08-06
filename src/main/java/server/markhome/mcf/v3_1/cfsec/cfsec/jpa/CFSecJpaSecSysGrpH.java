@@ -231,7 +231,7 @@ public class CFSecJpaSecSysGrpH
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -249,13 +249,12 @@ public class CFSecJpaSecSysGrpH
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 
 	@Override
 	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
-		return( requiredSecLevel );
+		return(requiredSecLevel);
 	}
 
 	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
@@ -265,7 +264,6 @@ public class CFSecJpaSecSysGrpH
 				1,
 				"value" );
 		}
-		
 		requiredSecLevel = value;
 	}
 

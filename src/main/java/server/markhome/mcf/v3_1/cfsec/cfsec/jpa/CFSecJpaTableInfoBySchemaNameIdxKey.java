@@ -50,7 +50,7 @@ public class CFSecJpaTableInfoBySchemaNameIdxKey
 
 	@Override
 	public String getRequiredSchemaName() {
-		return( requiredSchemaName );
+		return(requiredSchemaName);
 	}
 
 	public void setRequiredSchemaName( String value ) {
@@ -68,7 +68,6 @@ public class CFSecJpaTableInfoBySchemaNameIdxKey
 				value.length(),
 				32 );
 		}
-		
 		requiredSchemaName = value;
 	}
 

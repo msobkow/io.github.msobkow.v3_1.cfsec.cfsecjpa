@@ -175,6 +175,7 @@ public class CFSecJpaTenantService {
 		// Apply superior data relationships of CFSecTenant to existing object
 		existing.setRequiredContainerCluster(data.getRequiredContainerCluster());
 		// Apply data columns of CFSecTenant to existing object
+		existing.setRequiredClusterId(data.getRequiredClusterId());
 		existing.setRequiredTenantName(data.getRequiredTenantName());
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());

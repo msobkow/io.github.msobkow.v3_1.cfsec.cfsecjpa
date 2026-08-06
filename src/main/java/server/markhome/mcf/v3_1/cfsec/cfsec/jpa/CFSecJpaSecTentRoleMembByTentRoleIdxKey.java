@@ -50,7 +50,8 @@ public class CFSecJpaSecTentRoleMembByTentRoleIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
-		return(  );
+		
+		getPKey().getRequiredSecTentRoleId;
 	}
 $refernce Column implProtReqSetter$
 	@Override

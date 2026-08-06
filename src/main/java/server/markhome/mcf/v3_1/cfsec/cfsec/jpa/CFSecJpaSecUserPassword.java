@@ -61,7 +61,6 @@ public class CFSecJpaSecUserPassword
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecUserId;
-		
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -143,7 +142,7 @@ public class CFSecJpaSecUserPassword
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
+		return(requiredSecUserId);
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -153,7 +152,6 @@ public class CFSecJpaSecUserPassword
 				1,
 				"value" );
 		}
-		
 		requiredSecUserId = value;
 	}
 
@@ -169,7 +167,7 @@ public class CFSecJpaSecUserPassword
 
 	@Override
 	public LocalDateTime getRequiredPWSetStamp() {
-		return( requiredPWSetStamp );
+		return(requiredPWSetStamp);
 	}
 
 	public void setRequiredPWSetStamp( LocalDateTime value ) {
@@ -179,13 +177,12 @@ public class CFSecJpaSecUserPassword
 				1,
 				"value" );
 		}
-		
 		requiredPWSetStamp = value;
 	}
 
 	@Override
 	public String getRequiredPasswordHash() {
-		return( requiredPasswordHash );
+		return(requiredPasswordHash);
 	}
 
 	public void setRequiredPasswordHash( String value ) {
@@ -203,7 +200,6 @@ public class CFSecJpaSecUserPassword
 				value.length(),
 				256 );
 		}
-		
 		requiredPasswordHash = value;
 	}
 
@@ -519,6 +515,7 @@ public class CFSecJpaSecUserPassword
 	@Override
 	public void setSecUserPassword( ICFSecSecUserPassword src ) {
 		setRequiredContainerUser(src.getRequiredContainerUser());
+		setRequiredSecUserId(src.getRequiredSecUserId());
 		setRequiredRevision( src.getRequiredRevision() );
 		setRequiredPWSetStamp(src.getRequiredPWSetStamp());
 		setRequiredPasswordHash(src.getRequiredPasswordHash());
@@ -532,6 +529,7 @@ public class CFSecJpaSecUserPassword
 	@Override
 	public void setSecUserPassword( ICFSecSecUserPasswordH src ) {
 		setRequiredContainerUser(src.getRequiredSecUserId());
+		setRequiredSecUserId(src.getRequiredSecUserId());
 		setRequiredPWSetStamp(src.getRequiredPWSetStamp());
 		setRequiredPasswordHash(src.getRequiredPasswordHash());
 	}

@@ -50,7 +50,8 @@ public class CFSecJpaSecTentGrpMembByTentGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		return(  );
+		
+		getPKey().getRequiredSecTentGrpId;
 	}
 $refernce Column implProtReqSetter$
 	@Override

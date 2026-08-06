@@ -50,7 +50,7 @@ public class CFSecJpaSecTentRoleByTenantIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 $refernce Column implProtReqSetter$
 	@Override

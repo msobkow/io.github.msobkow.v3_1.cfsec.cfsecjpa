@@ -50,7 +50,7 @@ public class CFSecJpaSecUserPWHistoryBySetStampIdxKey
 
 	@Override
 	public LocalDateTime getRequiredPWSetStamp() {
-		return( getPKey().getRequiredPWSetStamp() );
+		getPKey().getRequiredPWSetStamp();
 	}
 
 	public void setRequiredPWSetStamp( LocalDateTime value ) {

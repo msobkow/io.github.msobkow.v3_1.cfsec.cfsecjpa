@@ -50,7 +50,8 @@ public class CFSecJpaSecSysGrpIncBySysGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return(  );
+		
+		getPKey().getRequiredSecSysGrpId;
 	}
 $refernce Column implProtReqSetter$
 	@Override

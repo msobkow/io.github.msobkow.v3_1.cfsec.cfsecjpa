@@ -272,7 +272,7 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		return(  );
+		return(requiredSecTentGrpId);
 	}
 
 	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
@@ -282,7 +282,6 @@ public class CFSecJpaSecTentGrp
 				1,
 				"value" );
 		}
-		
 		requiredSecTentGrpId = value;
 	}
 
@@ -298,7 +297,7 @@ public class CFSecJpaSecTentGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -308,13 +307,12 @@ public class CFSecJpaSecTentGrp
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -332,7 +330,6 @@ public class CFSecJpaSecTentGrp
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 
@@ -816,6 +813,8 @@ public class CFSecJpaSecTentGrp
 		setUpdatedAt( src.getUpdatedAt() );
 		setRequiredOwnerTenant(src.getRequiredOwnerTenant());
 		setRequiredContainerSysGrp(src.getRequiredContainerSysGrp());
+		setRequiredTenantId(src.getRequiredTenantId());
+		setRequiredName(src.getRequiredName());
 	}
 
 	@Override
@@ -828,6 +827,8 @@ public class CFSecJpaSecTentGrp
 		setRequiredSecTentGrpId(src.getRequiredSecTentGrpId());
 		setRequiredOwnerTenant(src.getRequiredTenantId());
 		setRequiredContainerSysGrp(src.getRequiredName());
+		setRequiredTenantId(src.getRequiredTenantId());
+		setRequiredName(src.getRequiredName());
 	}
 
 	@Override

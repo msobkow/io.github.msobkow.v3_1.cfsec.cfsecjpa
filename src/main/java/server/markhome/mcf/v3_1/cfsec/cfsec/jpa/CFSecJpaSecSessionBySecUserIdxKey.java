@@ -50,7 +50,7 @@ public class CFSecJpaSecSessionBySecUserIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return( requiredSecUserId );
+		return(requiredSecUserId);
 	}
 
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,6 @@ public class CFSecJpaSecSessionBySecUserIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredSecUserId = value;
 	}
 

@@ -50,7 +50,7 @@ public class CFSecJpaSecUserPWResetByNewAcctIdxKey
 
 	@Override
 	public boolean getRequiredNewAccount() {
-		return( requiredNewAccount );
+		return(requiredNewAccount);
 	}
 $refernce Column implProtReqSetter$
 	@Override

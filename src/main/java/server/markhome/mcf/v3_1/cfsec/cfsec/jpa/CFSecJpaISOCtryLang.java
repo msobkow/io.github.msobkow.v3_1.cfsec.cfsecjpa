@@ -511,6 +511,8 @@ public class CFSecJpaISOCtryLang
 	public void setISOCtryLang( ICFSecISOCtryLang src ) {
 		setRequiredContainerCtry(src.getRequiredContainerCtry());
 		setRequiredParentLang(src.getRequiredParentLang());
+		setRequiredISOCtryId(src.getRequiredISOCtryId());
+		setRequiredISOLangId(src.getRequiredISOLangId());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -527,6 +529,8 @@ public class CFSecJpaISOCtryLang
 	public void setISOCtryLang( ICFSecISOCtryLangH src ) {
 		setRequiredContainerCtry(src.getRequiredISOCtryId());
 		setRequiredParentLang(src.getRequiredISOLangId());
+		setRequiredISOCtryId(src.getRequiredISOCtryId());
+		setRequiredISOLangId(src.getRequiredISOLangId());
 	}
 
 	@Override

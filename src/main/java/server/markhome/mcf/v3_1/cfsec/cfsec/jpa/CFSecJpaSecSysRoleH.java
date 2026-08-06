@@ -227,7 +227,7 @@ public class CFSecJpaSecSysRoleH
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -245,7 +245,6 @@ public class CFSecJpaSecSysRoleH
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

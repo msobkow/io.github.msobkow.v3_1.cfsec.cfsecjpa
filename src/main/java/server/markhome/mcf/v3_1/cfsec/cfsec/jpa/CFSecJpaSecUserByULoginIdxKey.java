@@ -50,7 +50,7 @@ public class CFSecJpaSecUserByULoginIdxKey
 
 	@Override
 	public String getRequiredLoginId() {
-		return( requiredLoginId );
+		return(requiredLoginId);
 	}
 
 	public void setRequiredLoginId( String value ) {
@@ -68,7 +68,6 @@ public class CFSecJpaSecUserByULoginIdxKey
 				value.length(),
 				32 );
 		}
-		
 		requiredLoginId = value;
 	}
 

@@ -50,7 +50,7 @@ public class CFSecJpaSecUserEMConfBySentStampIdxKey
 
 	@Override
 	public LocalDateTime getRequiredEMailSentStamp() {
-		return( requiredEMailSentStamp );
+		return(requiredEMailSentStamp);
 	}
 $refernce Column implProtReqSetter$
 	@Override

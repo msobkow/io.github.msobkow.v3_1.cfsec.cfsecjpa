@@ -231,7 +231,7 @@ public class CFSecJpaISOCtryH
 
 	@Override
 	public String getRequiredISOCode() {
-		return( requiredISOCode );
+		return(requiredISOCode);
 	}
 
 	public void setRequiredISOCode( String value ) {
@@ -249,13 +249,12 @@ public class CFSecJpaISOCtryH
 				value.length(),
 				2 );
 		}
-		
 		requiredISOCode = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -273,7 +272,6 @@ public class CFSecJpaISOCtryH
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

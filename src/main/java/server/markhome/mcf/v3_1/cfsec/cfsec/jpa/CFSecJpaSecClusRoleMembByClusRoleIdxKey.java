@@ -50,7 +50,8 @@ public class CFSecJpaSecClusRoleMembByClusRoleIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return(  );
+		
+		getPKey().getRequiredSecClusRoleId;
 	}
 $refernce Column implProtReqSetter$
 	@Override

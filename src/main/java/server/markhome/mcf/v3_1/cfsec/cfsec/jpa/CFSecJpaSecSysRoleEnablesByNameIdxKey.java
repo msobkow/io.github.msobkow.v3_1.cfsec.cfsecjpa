@@ -50,7 +50,8 @@ public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 
 	@Override
 	public String getRequiredEnableName() {
-		return(  );
+		
+		getPKey().getRequiredEnableName;
 	}
 $refernce Column implProtReqSetter$
 	@Override

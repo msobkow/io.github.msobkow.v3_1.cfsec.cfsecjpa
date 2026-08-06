@@ -652,6 +652,8 @@ public class CFSecJpaSecTentGrpMemb
 	public void setSecTentGrpMemb( ICFSecSecTentGrpMemb src ) {
 		setRequiredContainerGroup(src.getRequiredContainerGroup());
 		setRequiredParentUser(src.getRequiredParentUser());
+		setRequiredSecTentGrpId(src.getRequiredSecTentGrpId());
+		setRequiredLoginId(src.getRequiredLoginId());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -668,6 +670,8 @@ public class CFSecJpaSecTentGrpMemb
 	public void setSecTentGrpMemb( ICFSecSecTentGrpMembH src ) {
 		setRequiredContainerGroup(src.getRequiredSecTentGrpId());
 		setRequiredParentUser(src.getRequiredLoginId());
+		setRequiredSecTentGrpId(src.getRequiredSecTentGrpId());
+		setRequiredLoginId(src.getRequiredLoginId());
 	}
 
 	@Override

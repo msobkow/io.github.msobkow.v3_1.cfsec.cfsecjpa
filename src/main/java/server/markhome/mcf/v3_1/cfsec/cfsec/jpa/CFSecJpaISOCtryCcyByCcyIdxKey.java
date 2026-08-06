@@ -50,7 +50,7 @@ public class CFSecJpaISOCtryCcyByCcyIdxKey
 
 	@Override
 	public short getRequiredISOCcyId() {
-		return( getPKey().getRequiredISOCcyId() );
+		getPKey().getRequiredISOCcyId();
 	}
 
 	@Override

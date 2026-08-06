@@ -52,7 +52,7 @@ public class CFSecJpaTenantByUNameIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return( requiredClusterId );
+		return(requiredClusterId);
 	}
 
 	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
@@ -62,13 +62,12 @@ public class CFSecJpaTenantByUNameIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredClusterId = value;
 	}
 
 	@Override
 	public String getRequiredTenantName() {
-		return( requiredTenantName );
+		return(requiredTenantName);
 	}
 
 	public void setRequiredTenantName( String value ) {
@@ -86,7 +85,6 @@ public class CFSecJpaTenantByUNameIdxKey
 				value.length(),
 				192 );
 		}
-		
 		requiredTenantName = value;
 	}
 

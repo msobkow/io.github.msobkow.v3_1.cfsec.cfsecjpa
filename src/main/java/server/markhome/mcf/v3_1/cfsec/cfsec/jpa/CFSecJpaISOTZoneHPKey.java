@@ -130,20 +130,11 @@ public class CFSecJpaISOTZoneHPKey
 
 	@Override
 	public short getRequiredISOTZoneId() {
-		return( requiredISOTZoneId );
+		return(requiredISOTZoneId);
 	}
 
 	@Override
 	public void setRequiredISOTZoneId( short value ) {
-		if( value < ICFSecPubISOTZone.ISOTZONEID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOTZoneId",
-				1,
-				"value",
-				value,
-				ICFSecPubISOTZone.ISOTZONEID_MIN_VALUE );
-		}
-		
 		if( value < ICFSecPubISOTZone.ISOTZONEID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOTZoneId",

@@ -511,6 +511,8 @@ public class CFSecJpaISOCtryCcy
 	public void setISOCtryCcy( ICFSecISOCtryCcy src ) {
 		setRequiredContainerCtry(src.getRequiredContainerCtry());
 		setRequiredParentCcy(src.getRequiredParentCcy());
+		setRequiredISOCtryId(src.getRequiredISOCtryId());
+		setRequiredISOCcyId(src.getRequiredISOCcyId());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -527,6 +529,8 @@ public class CFSecJpaISOCtryCcy
 	public void setISOCtryCcy( ICFSecISOCtryCcyH src ) {
 		setRequiredContainerCtry(src.getRequiredISOCtryId());
 		setRequiredParentCcy(src.getRequiredISOCcyId());
+		setRequiredISOCtryId(src.getRequiredISOCtryId());
+		setRequiredISOCcyId(src.getRequiredISOCcyId());
 	}
 
 	@Override

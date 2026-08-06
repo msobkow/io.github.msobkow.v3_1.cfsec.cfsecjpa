@@ -50,7 +50,7 @@ public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 
 	@Override
 	public LocalDateTime getRequiredPWReplacedStamp() {
-		return( requiredPWReplacedStamp );
+		return(requiredPWReplacedStamp);
 	}
 
 	public void setRequiredPWReplacedStamp( LocalDateTime value ) {
@@ -60,7 +60,6 @@ public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredPWReplacedStamp = value;
 	}
 

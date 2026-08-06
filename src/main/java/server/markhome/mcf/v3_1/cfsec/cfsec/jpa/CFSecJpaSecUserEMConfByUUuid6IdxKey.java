@@ -49,7 +49,7 @@ public class CFSecJpaSecUserEMConfByUUuid6IdxKey
 
 	@Override
 	public CFLibUuid6 getRequiredEMConfirmationUuid6() {
-		return( requiredEMConfirmationUuid6 );
+		return(requiredEMConfirmationUuid6);
 	}
 $refernce Column implProtReqSetter$
 	@Override

@@ -50,7 +50,7 @@ public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 
 	@Override
 	public String getRequiredSentToEMailAddr() {
-		return( requiredSentToEMailAddr );
+		return(requiredSentToEMailAddr);
 	}
 $refernce Column implProtReqSetter$
 	@Override

@@ -50,7 +50,7 @@ public class CFSecJpaSecTentGrpByNameIdxKey
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 $refernce Column implProtReqSetter$
 	@Override

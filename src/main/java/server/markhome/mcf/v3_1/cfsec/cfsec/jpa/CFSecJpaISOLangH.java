@@ -234,7 +234,7 @@ public class CFSecJpaISOLangH
 
 	@Override
 	public String getRequiredISO6392Code() {
-		return( requiredISO6392Code );
+		return(requiredISO6392Code);
 	}
 
 	public void setRequiredISO6392Code( String value ) {
@@ -252,13 +252,12 @@ public class CFSecJpaISOLangH
 				value.length(),
 				3 );
 		}
-		
 		requiredISO6392Code = value;
 	}
 
 	@Override
 	public String getOptionalISO6391Code() {
-		return( optionalISO6391Code );
+		return(optionalISO6391Code);
 	}
 
 	public void setOptionalISO6391Code( String value ) {
@@ -270,13 +269,12 @@ public class CFSecJpaISOLangH
 				value.length(),
 				2 );
 		}
-		
 		optionalISO6391Code = value;
 	}
 
 	@Override
 	public String getRequiredEnglishName() {
-		return( requiredEnglishName );
+		return(requiredEnglishName);
 	}
 
 	public void setRequiredEnglishName( String value ) {
@@ -294,7 +292,6 @@ public class CFSecJpaISOLangH
 				value.length(),
 				64 );
 		}
-		
 		requiredEnglishName = value;
 	}
 

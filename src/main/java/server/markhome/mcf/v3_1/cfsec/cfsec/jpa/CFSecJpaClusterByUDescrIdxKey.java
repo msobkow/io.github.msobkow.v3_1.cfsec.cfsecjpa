@@ -50,7 +50,7 @@ public class CFSecJpaClusterByUDescrIdxKey
 
 	@Override
 	public String getRequiredDescription() {
-		return( requiredDescription );
+		return(requiredDescription);
 	}
 
 	public void setRequiredDescription( String value ) {
@@ -68,7 +68,6 @@ public class CFSecJpaClusterByUDescrIdxKey
 				value.length(),
 				128 );
 		}
-		
 		requiredDescription = value;
 	}
 

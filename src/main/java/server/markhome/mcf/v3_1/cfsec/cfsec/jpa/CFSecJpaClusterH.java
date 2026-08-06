@@ -231,7 +231,7 @@ public class CFSecJpaClusterH
 
 	@Override
 	public String getRequiredFullDomName() {
-		return( requiredFullDomName );
+		return(requiredFullDomName);
 	}
 
 	public void setRequiredFullDomName( String value ) {
@@ -249,13 +249,12 @@ public class CFSecJpaClusterH
 				value.length(),
 				192 );
 		}
-		
 		requiredFullDomName = value;
 	}
 
 	@Override
 	public String getRequiredDescription() {
-		return( requiredDescription );
+		return(requiredDescription);
 	}
 
 	public void setRequiredDescription( String value ) {
@@ -273,7 +272,6 @@ public class CFSecJpaClusterH
 				value.length(),
 				128 );
 		}
-		
 		requiredDescription = value;
 	}
 

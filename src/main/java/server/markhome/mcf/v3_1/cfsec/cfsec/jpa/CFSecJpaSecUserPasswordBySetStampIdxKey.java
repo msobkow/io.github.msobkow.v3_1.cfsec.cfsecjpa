@@ -50,7 +50,7 @@ public class CFSecJpaSecUserPasswordBySetStampIdxKey
 
 	@Override
 	public LocalDateTime getRequiredPWSetStamp() {
-		return( requiredPWSetStamp );
+		return(requiredPWSetStamp);
 	}
 
 	public void setRequiredPWSetStamp( LocalDateTime value ) {
@@ -60,7 +60,6 @@ public class CFSecJpaSecUserPasswordBySetStampIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredPWSetStamp = value;
 	}
 

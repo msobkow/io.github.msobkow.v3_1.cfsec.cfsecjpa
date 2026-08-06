@@ -657,6 +657,8 @@ public class CFSecJpaSecSysRoleEnables
 	public void setSecSysRoleEnables( ICFSecSecSysRoleEnables src ) {
 		setRequiredContainerSysRole(src.getRequiredContainerSysRole());
 		setRequiredParentEnableGroup(src.getRequiredParentEnableGroup());
+		setRequiredSecSysRoleId(src.getRequiredSecSysRoleId());
+		setRequiredEnableName(src.getRequiredEnableName());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -673,6 +675,8 @@ public class CFSecJpaSecSysRoleEnables
 	public void setSecSysRoleEnables( ICFSecSecSysRoleEnablesH src ) {
 		setRequiredContainerSysRole(src.getRequiredSecSysRoleId());
 		setRequiredParentEnableGroup(src.getRequiredEnableName());
+		setRequiredSecSysRoleId(src.getRequiredSecSysRoleId());
+		setRequiredEnableName(src.getRequiredEnableName());
 	}
 
 	@Override

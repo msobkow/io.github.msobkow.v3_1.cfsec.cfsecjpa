@@ -50,7 +50,7 @@ public class CFSecJpaSecUserEMConfByConfEMAddrIdxKey
 
 	@Override
 	public String getRequiredConfirmEMailAddr() {
-		return( requiredConfirmEMailAddr );
+		return(requiredConfirmEMailAddr);
 	}
 $refernce Column implProtReqSetter$
 	@Override

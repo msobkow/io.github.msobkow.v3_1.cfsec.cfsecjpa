@@ -149,7 +149,7 @@ public class CFSecJpaSecUserPasswordH
 
 	@Override
 	public LocalDateTime getRequiredPWSetStamp() {
-		return( requiredPWSetStamp );
+		return(requiredPWSetStamp);
 	}
 
 	public void setRequiredPWSetStamp( LocalDateTime value ) {
@@ -159,13 +159,12 @@ public class CFSecJpaSecUserPasswordH
 				1,
 				"value" );
 		}
-		
 		requiredPWSetStamp = value;
 	}
 
 	@Override
 	public String getRequiredPasswordHash() {
-		return( requiredPasswordHash );
+		return(requiredPasswordHash);
 	}
 
 	public void setRequiredPasswordHash( String value ) {
@@ -183,7 +182,6 @@ public class CFSecJpaSecUserPasswordH
 				value.length(),
 				256 );
 		}
-		
 		requiredPasswordHash = value;
 	}
 

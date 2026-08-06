@@ -198,6 +198,8 @@ public class CFSecJpaSecTentRoleService {
 		existing.setRequiredOwnerTenant(data.getRequiredOwnerTenant());
 		existing.setRequiredContainerSysRole(data.getRequiredContainerSysRole());
 		// Apply data columns of CFSecSecTentRole to existing object
+		existing.setRequiredTenantId(data.getRequiredTenantId());
+		existing.setRequiredName(data.getRequiredName());
 		// Update the audit columns
 		data.setUpdatedAt(LocalDateTime.now());
 		// Save the changes we've made

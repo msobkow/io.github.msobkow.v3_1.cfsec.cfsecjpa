@@ -50,7 +50,8 @@ public class CFSecJpaSecSysRoleEnablesBySysRoleIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
-		return(  );
+		
+		getPKey().getRequiredSecSysRoleId;
 	}
 $refernce Column implProtReqSetter$
 	@Override

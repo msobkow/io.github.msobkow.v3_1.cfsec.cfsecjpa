@@ -652,6 +652,8 @@ public class CFSecJpaSecClusRoleMemb
 	public void setSecClusRoleMemb( ICFSecSecClusRoleMemb src ) {
 		setRequiredContainerRole(src.getRequiredContainerRole());
 		setRequiredParentUser(src.getRequiredParentUser());
+		setRequiredSecClusRoleId(src.getRequiredSecClusRoleId());
+		setRequiredLoginId(src.getRequiredLoginId());
 		setRequiredRevision( src.getRequiredRevision() );
 		setCreatedByUserId( src.getCreatedByUserId() );
 		setCreatedAt( src.getCreatedAt() );
@@ -668,6 +670,8 @@ public class CFSecJpaSecClusRoleMemb
 	public void setSecClusRoleMemb( ICFSecSecClusRoleMembH src ) {
 		setRequiredContainerRole(src.getRequiredSecClusRoleId());
 		setRequiredParentUser(src.getRequiredLoginId());
+		setRequiredSecClusRoleId(src.getRequiredSecClusRoleId());
+		setRequiredLoginId(src.getRequiredLoginId());
 	}
 
 	@Override

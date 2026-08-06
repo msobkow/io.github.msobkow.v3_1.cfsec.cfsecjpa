@@ -50,7 +50,7 @@ public class CFSecJpaSecSysGrpBySecLevelIdxKey
 
 	@Override
 	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
-		return( requiredSecLevel );
+		return(requiredSecLevel);
 	}
 
 	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
@@ -60,7 +60,6 @@ public class CFSecJpaSecSysGrpBySecLevelIdxKey
 				1,
 				"value" );
 		}
-		
 		requiredSecLevel = value;
 	}
 

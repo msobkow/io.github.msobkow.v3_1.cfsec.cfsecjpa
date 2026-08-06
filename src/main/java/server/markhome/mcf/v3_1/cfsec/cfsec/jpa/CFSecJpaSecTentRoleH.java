@@ -234,7 +234,7 @@ public class CFSecJpaSecTentRoleH
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
-		return( requiredTenantId );
+		return(requiredTenantId);
 	}
 
 	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
@@ -244,13 +244,12 @@ public class CFSecJpaSecTentRoleH
 				1,
 				"value" );
 		}
-		
 		requiredTenantId = value;
 	}
 
 	@Override
 	public String getRequiredName() {
-		return( requiredName );
+		return(requiredName);
 	}
 
 	public void setRequiredName( String value ) {
@@ -268,7 +267,6 @@ public class CFSecJpaSecTentRoleH
 				value.length(),
 				64 );
 		}
-		
 		requiredName = value;
 	}
 

@@ -50,7 +50,7 @@ public class CFSecJpaSecClusRoleByClusterIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
-		return( requiredClusterId );
+		return(requiredClusterId);
 	}
 $refernce Column implProtReqSetter$
 	@Override
