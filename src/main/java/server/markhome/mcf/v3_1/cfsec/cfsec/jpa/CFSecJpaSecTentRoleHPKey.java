@@ -72,7 +72,7 @@ public class CFSecJpaSecTentRoleHPKey
 	protected CFLibDbKeyHash256 requiredSecTentRoleId;
 
 	public CFSecJpaSecTentRoleHPKey() {
-		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
+		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;

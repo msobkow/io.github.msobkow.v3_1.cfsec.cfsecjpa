@@ -45,14 +45,32 @@ public class CFSecJpaSecUserByEMAddrIdxKey
 {
 	protected String requiredEMailAddress;
 	public CFSecJpaSecUserByEMAddrIdxKey() {
-		requiredEMailAddress = ICFSecSecUser.EMAILADDRESS_INIT_VALUE;
+		requiredEMailAddress = ICFSecProtSecUser.EMAILADDRESS_INIT_VALUE;
 	}
 
 	@Override
 	public String getRequiredEMailAddress() {
 		return(requiredEMailAddress);
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredEMailAddress( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredEMailAddress",
+				1,
+				"value" );
+		}
+		else if( value.length() > 512 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredEMailAddress",
+				1,
+				"value.length()",
+				value.length(),
+				512 );
+		}
+		requiredEMailAddress = value;
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

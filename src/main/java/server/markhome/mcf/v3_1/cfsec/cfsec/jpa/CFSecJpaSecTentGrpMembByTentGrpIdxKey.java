@@ -50,10 +50,19 @@ public class CFSecJpaSecTentGrpMembByTentGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		
-		getPKey().getRequiredSecTentGrpId;
+		return(getPKey().getRequiredSecTentGrpId());
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecTentGrpId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecTentGrpId(value);
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

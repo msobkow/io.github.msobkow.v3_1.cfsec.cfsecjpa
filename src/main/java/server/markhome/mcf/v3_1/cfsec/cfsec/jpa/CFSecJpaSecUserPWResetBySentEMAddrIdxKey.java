@@ -45,14 +45,32 @@ public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 {
 	protected String requiredSentToEMailAddr;
 	public CFSecJpaSecUserPWResetBySentEMAddrIdxKey() {
-		requiredSentToEMailAddr = ICFSecSecUserPWReset.SENTTOEMAILADDR_INIT_VALUE;
+		requiredSentToEMailAddr = ICFSecProtSecUserPWReset.SENTTOEMAILADDR_INIT_VALUE;
 	}
 
 	@Override
 	public String getRequiredSentToEMailAddr() {
 		return(requiredSentToEMailAddr);
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredSentToEMailAddr( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSentToEMailAddr",
+				1,
+				"value" );
+		}
+		else if( value.length() > 512 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredSentToEMailAddr",
+				1,
+				"value.length()",
+				value.length(),
+				512 );
+		}
+		requiredSentToEMailAddr = value;
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

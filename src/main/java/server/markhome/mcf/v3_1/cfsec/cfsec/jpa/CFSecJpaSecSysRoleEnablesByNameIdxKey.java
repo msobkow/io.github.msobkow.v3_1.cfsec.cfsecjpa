@@ -45,15 +45,32 @@ public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 {
 	protected String requiredEnableName;
 	public CFSecJpaSecSysRoleEnablesByNameIdxKey() {
-		requiredEnableName = ICFSecSecSysRoleEnables.ENABLENAME_INIT_VALUE;
+		requiredEnableName = ICFSecProtSecSysRoleEnables.ENABLENAME_INIT_VALUE;
 	}
 
 	@Override
 	public String getRequiredEnableName() {
-		
-		getPKey().getRequiredEnableName;
+		return(getPKey().getRequiredEnableName());
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredEnableName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredEnableName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredEnableName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		getPKey().setRequiredEnableName(value);
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

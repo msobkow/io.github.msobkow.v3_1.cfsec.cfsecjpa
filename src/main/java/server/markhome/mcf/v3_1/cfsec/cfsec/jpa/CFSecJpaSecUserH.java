@@ -71,7 +71,7 @@ public class CFSecJpaSecUserH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecUser.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSec$emitScopingMidfix$SecUser.S_INIT_CREATED_BY);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -79,7 +79,7 @@ public class CFSecJpaSecUserH
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecSecUser.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSec$emitScopingMidfix$SecUser.S_INIT_UPDATED_BY);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -104,7 +104,7 @@ public class CFSecJpaSecUserH
 		optionalDfltSysGrpName = null;
 		optionalDfltClusGrpName = null;
 		optionalDfltTentGrpName = null;
-		requiredEMailAddress = ICFSecSecUser.EMAILADDRESS_INIT_VALUE;
+		requiredEMailAddress = ICFSecProtSecUser.EMAILADDRESS_INIT_VALUE;
     }
 
     @Override

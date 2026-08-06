@@ -73,7 +73,7 @@ public class CFSecJpaSecUserEMConf
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecUserEMConf.S_INIT_CREATED_BY);
+	protected CFLibDbKeyHash256 createdByUserId = CFLibDbKeyHash256.fromHex(ICFSec$emitScopingMidfix$SecUserEMConf.S_INIT_CREATED_BY);
 
 	@Column(name="CreatedAt", nullable=false)
 	protected LocalDateTime createdAt = LocalDateTime.now();
@@ -81,7 +81,7 @@ public class CFSecJpaSecUserEMConf
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column= @Column( name="UpdatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSecProtSecUserEMConf.S_INIT_UPDATED_BY);
+	protected CFLibDbKeyHash256 updatedByUserId = CFLibDbKeyHash256.fromHex(ICFSec$emitScopingMidfix$SecUserEMConf.S_INIT_UPDATED_BY);
 
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
@@ -98,9 +98,9 @@ public class CFSecJpaSecUserEMConf
 
 	public CFSecJpaSecUserEMConf() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserEMConf.SECUSERID_INIT_VALUE.toString() );
-		requiredConfirmEMailAddr = ICFSecSecUserEMConf.CONFIRMEMAILADDR_INIT_VALUE;
+		requiredConfirmEMailAddr = ICFSecProtSecUserEMConf.CONFIRMEMAILADDR_INIT_VALUE;
 		requiredEMailSentStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
-		requiredNewAccount = ICFSecSecUserEMConf.NEWACCOUNT_INIT_VALUE;
+		requiredNewAccount = ICFSecProtSecUserEMConf.NEWACCOUNT_INIT_VALUE;
 	}
 
 	@Override

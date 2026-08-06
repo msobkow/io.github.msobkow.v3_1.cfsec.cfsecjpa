@@ -114,7 +114,7 @@ public class CFSecJpaSecSession
 				1,
 				"value" );
 		}
-		requiredSecSessionId = value;
+		getPKey().setRequiredSecSessionId(value);
 	}
 
 	@Override

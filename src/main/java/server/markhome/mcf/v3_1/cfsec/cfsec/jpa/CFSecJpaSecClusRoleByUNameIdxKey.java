@@ -47,19 +47,47 @@ public class CFSecJpaSecClusRoleByUNameIdxKey
 	protected String requiredName;
 	public CFSecJpaSecClusRoleByUNameIdxKey() {
 		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRole.CLUSTERID_INIT_VALUE.toString() );
-		requiredName = ICFSecSecClusRole.NAME_INIT_VALUE;
+		requiredName = ICFSecProtSecClusRole.NAME_INIT_VALUE;
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredClusterId() {
 		return(requiredClusterId);
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredClusterId",
+				1,
+				"value" );
+		}
+		requiredClusterId = value;
+	}
+
 	@Override
 	public String getRequiredName() {
 		return(requiredName);
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		requiredName = value;
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

@@ -50,10 +50,19 @@ public class CFSecJpaSecClusGrpMembByClusGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
-		
-		getPKey().getRequiredSecClusGrpId;
+		return(getPKey().getRequiredSecClusGrpId());
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredSecClusGrpId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecClusGrpId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecClusGrpId(value);
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

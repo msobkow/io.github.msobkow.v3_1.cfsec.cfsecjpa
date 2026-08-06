@@ -58,7 +58,7 @@ public class CFSecJpaSecSysRoleMembPKey
 
 	public CFSecJpaSecSysRoleMembPKey() {
 		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysRoleMemb.SECSYSROLEID_INIT_VALUE.toString() );
-		requiredLoginId = ICFSecSecSysRoleMemb.LOGINID_INIT_VALUE;
+		requiredLoginId = ICFSecProtSecSysRoleMemb.LOGINID_INIT_VALUE;
 	}
 
 	@Override

@@ -45,15 +45,32 @@ public class CFSecJpaSecSysGrpIncByNameIdxKey
 {
 	protected String requiredInclName;
 	public CFSecJpaSecSysGrpIncByNameIdxKey() {
-		requiredInclName = ICFSecSecSysGrpInc.INCLNAME_INIT_VALUE;
+		requiredInclName = ICFSecProtSecSysGrpInc.INCLNAME_INIT_VALUE;
 	}
 
 	@Override
 	public String getRequiredInclName() {
-		
-		getPKey().getRequiredInclName;
+		return(getPKey().getRequiredInclName());
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredInclName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredInclName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredInclName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		getPKey().setRequiredInclName(value);
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

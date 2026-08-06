@@ -58,7 +58,7 @@ public class CFSecJpaSecSysGrpIncPKey
 
 	public CFSecJpaSecSysGrpIncPKey() {
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
-		requiredInclName = ICFSecSecSysGrpInc.INCLNAME_INIT_VALUE;
+		requiredInclName = ICFSecProtSecSysGrpInc.INCLNAME_INIT_VALUE;
 	}
 
 	@Override

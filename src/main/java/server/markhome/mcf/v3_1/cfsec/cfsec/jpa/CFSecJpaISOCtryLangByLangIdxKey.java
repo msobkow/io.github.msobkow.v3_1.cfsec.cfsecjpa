@@ -50,20 +50,11 @@ public class CFSecJpaISOCtryLangByLangIdxKey
 
 	@Override
 	public short getRequiredISOLangId() {
-		getPKey().getRequiredISOLangId();
+		return(getPKey().getRequiredISOLangId());
 	}
 
 	@Override
 	public void setRequiredISOLangId( short value ) {
-		if( value < ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredISOLangId",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE );
-		}
-		
 		if( value < ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOLangId",

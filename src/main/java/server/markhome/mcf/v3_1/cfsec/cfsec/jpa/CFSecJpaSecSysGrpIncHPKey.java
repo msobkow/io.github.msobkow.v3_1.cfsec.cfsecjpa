@@ -75,13 +75,13 @@ public class CFSecJpaSecSysGrpIncHPKey
 	protected String requiredInclName;
 
 	public CFSecJpaSecSysGrpIncHPKey() {
-		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
+		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );
-		requiredInclName = ICFSecSecSysGrpInc.INCLNAME_INIT_VALUE;
+		requiredInclName = ICFSecProtSecSysGrpInc.INCLNAME_INIT_VALUE;
 	}
 
 	@Override

@@ -45,14 +45,18 @@ public class CFSecJpaSecUserEMConfByNewAcctIdxKey
 {
 	protected boolean requiredNewAccount;
 	public CFSecJpaSecUserEMConfByNewAcctIdxKey() {
-		requiredNewAccount = ICFSecSecUserEMConf.NEWACCOUNT_INIT_VALUE;
+		requiredNewAccount = ICFSecProtSecUserEMConf.NEWACCOUNT_INIT_VALUE;
 	}
 
 	@Override
 	public boolean getRequiredNewAccount() {
 		return(requiredNewAccount);
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredNewAccount( boolean value ) {
+		requiredNewAccount = value;
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

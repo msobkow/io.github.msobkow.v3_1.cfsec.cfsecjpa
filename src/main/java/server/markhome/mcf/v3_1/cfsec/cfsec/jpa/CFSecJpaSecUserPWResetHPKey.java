@@ -72,7 +72,7 @@ public class CFSecJpaSecUserPWResetHPKey
 	protected CFLibDbKeyHash256 requiredSecUserId;
 
 	public CFSecJpaSecUserPWResetHPKey() {
-		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
+		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;

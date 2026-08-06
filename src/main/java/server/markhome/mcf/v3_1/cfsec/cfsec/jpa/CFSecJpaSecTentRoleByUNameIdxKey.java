@@ -47,19 +47,47 @@ public class CFSecJpaSecTentRoleByUNameIdxKey
 	protected String requiredName;
 	public CFSecJpaSecTentRoleByUNameIdxKey() {
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentRole.TENANTID_INIT_VALUE.toString() );
-		requiredName = ICFSecSecTentRole.NAME_INIT_VALUE;
+		requiredName = ICFSecProtSecTentRole.NAME_INIT_VALUE;
 	}
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredTenantId() {
 		return(requiredTenantId);
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredTenantId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTenantId",
+				1,
+				"value" );
+		}
+		requiredTenantId = value;
+	}
+
 	@Override
 	public String getRequiredName() {
 		return(requiredName);
 	}
-$refernce Column implProtReqSetter$
+
+	public void setRequiredName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		requiredName = value;
+	}
+
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

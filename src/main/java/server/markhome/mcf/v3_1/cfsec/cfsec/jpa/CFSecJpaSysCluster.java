@@ -160,7 +160,7 @@ public class CFSecJpaSysCluster
 				value,
 				ICFSecPubSysCluster.SINGLETONID_MAX_VALUE );
 		}
-		requiredSingletonId = value;
+		getPKey().setRequiredSingletonId(value);
 	}
 
 	@Override
