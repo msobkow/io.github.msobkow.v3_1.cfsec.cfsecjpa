@@ -75,7 +75,7 @@ public class CFSecJpaSecSysGrpMembHPKey
 	protected String requiredLoginId;
 
 	public CFSecJpaSecSysGrpMembHPKey() {
-		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
+		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;

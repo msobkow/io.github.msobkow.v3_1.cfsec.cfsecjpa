@@ -75,7 +75,7 @@ public class CFSecJpaSecSysRoleEnablesHPKey
 	protected String requiredEnableName;
 
 	public CFSecJpaSecSysRoleEnablesHPKey() {
-		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
+		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;

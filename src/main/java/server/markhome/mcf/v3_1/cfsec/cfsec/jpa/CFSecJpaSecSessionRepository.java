@@ -75,7 +75,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId")
+	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId")
 	List<CFSecJpaSecSession> findBySecUserIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId);
 
 	/**
@@ -97,7 +97,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId and r.requiredStart = :start")
+	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.requiredStart = :start")
 	CFSecJpaSecSession findByStartIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId,
 		@Param("start") LocalDateTime requiredStart);
 
@@ -120,7 +120,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
+	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
 	List<CFSecJpaSecSession> findByFinishIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId,
 		@Param("finish") LocalDateTime optionalFinish);
 
@@ -142,7 +142,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecSession r where r.optionalSecProxyId = :secProxyId")
+	@Query("select r from CFSecJpaSecSession r where r.requiredParentSecProxy.requiredSecUserId = :secProxyId")
 	List<CFSecJpaSecSession> findBySecProxyIdx(@Param("secProxyId") CFLibDbKeyHash256 optionalSecProxyId);
 
 	/**
@@ -179,7 +179,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId")
+	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId")
 	List<CFSecJpaSecSession> lockBySecUserIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId);
 
 	/**
@@ -203,7 +203,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId and r.requiredStart = :start")
+	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.requiredStart = :start")
 	CFSecJpaSecSession lockByStartIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId,
 		@Param("start") LocalDateTime requiredStart);
 
@@ -228,7 +228,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
+	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
 	List<CFSecJpaSecSession> lockByFinishIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId,
 		@Param("finish") LocalDateTime optionalFinish);
 
@@ -252,7 +252,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSession r where r.optionalSecProxyId = :secProxyId")
+	@Query("select r from CFSecJpaSecSession r where r.requiredParentSecProxy.requiredSecUserId = :secProxyId")
 	List<CFSecJpaSecSession> lockBySecProxyIdx(@Param("secProxyId") CFLibDbKeyHash256 optionalSecProxyId);
 
 	/**
@@ -285,7 +285,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId")
+	@Query("delete from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId")
 	void deleteBySecUserIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId);
 
 	/**
@@ -305,7 +305,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId and r.requiredStart = :start")
+	@Query("delete from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.requiredStart = :start")
 	void deleteByStartIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId,
 		@Param("start") LocalDateTime requiredStart);
 
@@ -326,7 +326,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSession r where r.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
+	@Query("delete from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
 	void deleteByFinishIdx(@Param("secUserId") CFLibDbKeyHash256 requiredSecUserId,
 		@Param("finish") LocalDateTime optionalFinish);
 
@@ -346,7 +346,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSession r where r.optionalSecProxyId = :secProxyId")
+	@Query("delete from CFSecJpaSecSession r where r.requiredParentSecProxy.requiredSecUserId = :secProxyId")
 	void deleteBySecProxyIdx(@Param("secProxyId") CFLibDbKeyHash256 optionalSecProxyId);
 
 	/**

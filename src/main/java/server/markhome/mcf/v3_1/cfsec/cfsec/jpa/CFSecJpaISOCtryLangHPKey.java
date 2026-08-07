@@ -73,7 +73,7 @@ public class CFSecJpaISOCtryLangHPKey
 	protected short requiredISOLangId;
 
 	public CFSecJpaISOCtryLangHPKey() {
-		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
+		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;

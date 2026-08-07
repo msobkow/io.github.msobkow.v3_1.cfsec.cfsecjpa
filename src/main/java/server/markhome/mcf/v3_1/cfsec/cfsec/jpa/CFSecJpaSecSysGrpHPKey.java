@@ -72,7 +72,7 @@ public class CFSecJpaSecSysGrpHPKey
 	protected CFLibDbKeyHash256 requiredSecSysGrpId;
 
 	public CFSecJpaSecSysGrpHPKey() {
-		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
+		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;

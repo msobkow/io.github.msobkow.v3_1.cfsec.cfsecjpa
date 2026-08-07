@@ -121,6 +121,10 @@ public class CFSecJpaSecUser
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected CFLibDbKeyHash256 requiredSecUserId;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSecUser")
+	protected Set<CFSecJpaSecSession> optionalComponentsSecSess;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSecProxy")
+	protected Set<CFSecJpaSecSession> optionalChildrenSecProxy;
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserPassword optionalComponentsPassword;
@@ -130,6 +134,12 @@ public class CFSecJpaSecUser
 	@OneToOne(fetch=FetchType.LAZY, optional=true)
 	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUserPWReset optionalComponentsPWReset;
+	@OneToOne(fetch=FetchType.LAZY, optional=true)
+	@JoinColumn( name="SecUserId", referencedColumnName="SecUserId" )
+	@AttributeOverrides({
+		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, unique=true, length=CFLibDbKeyHash256.HASH_LENGTH ) )
+	})
+	protected CFSecJpaSecUserPWHistory optionalChildrenPWHistory;
 	protected int requiredRevision;
 
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentUser")
@@ -193,6 +203,18 @@ public class CFSecJpaSecUser
 	}
 
 	@Override
+	public List<ICFSecSecSession> getOptionalComponentsSecSess() {
+		List<ICFSecSecSession> retlist = (optionalComponentsSecSess != null) ? new ArrayList<>(optionalComponentsSecSess) : new ArrayList<>();
+		return( retlist );
+	}
+
+	@Override
+	public List<ICFSecSecSession> getOptionalChildrenSecProxy() {
+		List<ICFSecSecSession> retlist = (optionalChildrenSecProxy != null) ? new ArrayList<>(optionalChildrenSecProxy) : new ArrayList<>();
+		return( retlist );
+	}
+
+	@Override
 	public ICFSecSecUserPassword getOptionalComponentsPassword() {
 		return(optionalComponentsPassword);
 	}
@@ -205,6 +227,11 @@ public class CFSecJpaSecUser
 	@Override
 	public ICFSecSecUserPWReset getOptionalComponentsPWReset() {
 		return(optionalComponentsPWReset);
+	}
+
+	@Override
+	public ICFSecSecUserPWHistory getOptionalChildrenPWHistory() {
+		return(optionalChildrenPWHistory);
 	}
 
 	@Override

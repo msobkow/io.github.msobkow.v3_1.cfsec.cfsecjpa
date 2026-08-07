@@ -75,6 +75,28 @@ public class CFSecJpaSecSessionService {
 		}
 		CFLibDbKeyHash256 originalRequiredSecSessionId = data.getRequiredSecSessionId();
 		boolean generatedRequiredSecSessionId = false;
+		if (data.getRequiredContainerSecUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerSecUser",
+				"data.requiredContainerSecUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
+		if (data.getRequiredParentSecProxy() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSecProxy",
+				"data.requiredParentSecProxy",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		if(data.getRequiredSecUserId() == null || data.getRequiredSecUserId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -129,6 +151,28 @@ public class CFSecJpaSecSessionService {
 				0,
 				"data.getPKey()");
 		}
+		if (data.getRequiredContainerSecUser() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Container",
+				"Container",
+				"data.requiredContainerSecUser",
+				"data.requiredContainerSecUser",
+				"SecUser",
+				"SecUser",
+				null);
+		}
+		if (data.getRequiredParentSecProxy() == null) {
+			throw new CFLibUnresolvedRelationException(getClass(),
+				S_ProcName,
+				"Parent",
+				"Parent",
+				"data.requiredParentSecProxy",
+				"data.requiredParentSecProxy",
+				"SecUser",
+				"SecUser",
+				null);
+		}
 		if(data.getRequiredSecUserId() == null || data.getRequiredSecUserId().isNull()) {
 			throw new CFLibNullArgumentException(getClass(),
 				S_ProcName,
@@ -148,6 +192,8 @@ public class CFSecJpaSecSessionService {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
 		}
 		// Apply superior data relationships of CFSecSecSession to existing object
+		existing.setRequiredContainerSecUser(data.getRequiredContainerSecUser());
+		existing.setRequiredParentSecProxy(data.getRequiredParentSecProxy());
 		// Apply data columns of CFSecSecSession to existing object
 		existing.setRequiredSecUserId(data.getRequiredSecUserId());
 		existing.setRequiredStart(data.getRequiredStart());
