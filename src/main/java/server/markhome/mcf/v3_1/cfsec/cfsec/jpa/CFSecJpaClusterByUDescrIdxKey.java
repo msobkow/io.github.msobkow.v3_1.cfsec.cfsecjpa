@@ -49,29 +49,6 @@ public class CFSecJpaClusterByUDescrIdxKey
 	}
 
 	@Override
-	public String getRequiredDescription() {
-		return(requiredDescription);
-	}
-
-	public void setRequiredDescription( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredDescription",
-				1,
-				"value" );
-		}
-		else if( value.length() > 128 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredDescription",
-				1,
-				"value.length()",
-				value.length(),
-				128 );
-		}
-		requiredDescription = value;
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

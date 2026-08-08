@@ -252,44 +252,6 @@ public class CFSecJpaSecUserH
     }
 
 	@Override
-	public String getRequiredLoginId() {
-		return(requiredLoginId);
-	}
-
-	public void setRequiredLoginId( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value" );
-		}
-		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value.length()",
-				value.length(),
-				32 );
-		}
-		requiredLoginId = value;
-	}
-
-	@Override
-	public ICFSecPubSchema.SecAccountStatusEnum getRequiredAccountStatus() {
-		return(requiredAccountStatus);
-	}
-
-	public void setRequiredAccountStatus( ICFSecPubSchema.SecAccountStatusEnum value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredAccountStatus",
-				1,
-				"value" );
-		}
-		requiredAccountStatus = value;
-	}
-
-	@Override
 	public String getOptionalDfltSysGrpName() {
 		return(optionalDfltSysGrpName);
 	}
@@ -338,29 +300,6 @@ public class CFSecJpaSecUserH
 				64 );
 		}
 		optionalDfltTentGrpName = value;
-	}
-
-	@Override
-	public String getRequiredEMailAddress() {
-		return(requiredEMailAddress);
-	}
-
-	public void setRequiredEMailAddress( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredEMailAddress",
-				1,
-				"value" );
-		}
-		else if( value.length() > 512 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredEMailAddress",
-				1,
-				"value.length()",
-				value.length(),
-				512 );
-		}
-		requiredEMailAddress = value;
 	}
 
     @Override

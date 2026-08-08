@@ -49,21 +49,6 @@ public class CFSecJpaSecUserPWHistoryBySetStampIdxKey
 	}
 
 	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
-		return(getPKey().getRequiredPWSetStamp());
-	}
-
-	public void setRequiredPWSetStamp( LocalDateTime value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredPWSetStamp",
-				1,
-				"value" );
-		}
-		getPKey().setRequiredPWSetStamp(value);
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

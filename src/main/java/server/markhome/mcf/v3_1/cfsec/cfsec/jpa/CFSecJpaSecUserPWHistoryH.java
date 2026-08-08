@@ -158,44 +158,6 @@ public class CFSecJpaSecUserPWHistoryH
         pkey.setRequiredPWSetStamp( requiredPWSetStamp );
     }
 
-	@Override
-	public LocalDateTime getRequiredPWReplacedStamp() {
-		return(requiredPWReplacedStamp);
-	}
-
-	public void setRequiredPWReplacedStamp( LocalDateTime value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredPWReplacedStamp",
-				1,
-				"value" );
-		}
-		requiredPWReplacedStamp = value;
-	}
-
-	@Override
-	public String getRequiredPasswordHash() {
-		return(requiredPasswordHash);
-	}
-
-	public void setRequiredPasswordHash( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredPasswordHash",
-				1,
-				"value" );
-		}
-		else if( value.length() > 256 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredPasswordHash",
-				1,
-				"value.length()",
-				value.length(),
-				256 );
-		}
-		requiredPasswordHash = value;
-	}
-
     @Override
     public boolean equals( Object obj ) {
         if (obj == null) {

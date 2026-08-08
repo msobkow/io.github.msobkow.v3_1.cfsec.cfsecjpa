@@ -117,12 +117,7 @@ public class CFSecJpaSysClusterHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public int getRequiredSingletonId() {
-		return(requiredSingletonId);
-	}
-
+$implDirectGetter$
 	@Override
 	public void setRequiredSingletonId( int value ) {
 		if( value < ICFSecPubSysCluster.SINGLETONID_MIN_VALUE ) {

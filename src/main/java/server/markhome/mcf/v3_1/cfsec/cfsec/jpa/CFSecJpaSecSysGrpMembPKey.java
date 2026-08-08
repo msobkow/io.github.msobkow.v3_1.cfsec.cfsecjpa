@@ -60,45 +60,7 @@ public class CFSecJpaSecSysGrpMembPKey
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysGrpMemb.SECSYSGRPID_INIT_VALUE.toString() );
 		requiredLoginId = ICFSecProtSecSysGrpMemb.LOGINID_INIT_VALUE;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return(requiredSecSysGrpId);
-	}
-
-	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
-		if( value == null || value.isNull() ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSecSysGrpId",
-				1,
-				"value" );
-		}
-		requiredSecSysGrpId = value;
-	}
-
-	@Override
-	public String getRequiredLoginId() {
-		return(requiredLoginId);
-	}
-
-	public void setRequiredLoginId( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value" );
-		}
-		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value.length()",
-				value.length(),
-				32 );
-		}
-		requiredLoginId = value;
-	}
-
+$impDirectGetterSetter$$impDirectGetterSetter$
 	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {

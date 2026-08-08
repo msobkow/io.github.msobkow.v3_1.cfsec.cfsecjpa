@@ -117,12 +117,7 @@ public class CFSecJpaSecSessionHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecSessionId() {
-		return(requiredSecSessionId);
-	}
-
+$implDirectGetter$
 	public void setRequiredSecSessionId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),

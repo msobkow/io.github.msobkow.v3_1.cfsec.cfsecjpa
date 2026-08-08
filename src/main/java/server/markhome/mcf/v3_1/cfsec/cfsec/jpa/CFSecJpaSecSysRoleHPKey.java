@@ -129,12 +129,7 @@ public class CFSecJpaSecSysRoleHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
-		return(requiredSecSysRoleId);
-	}
-
+$implDirectGetter$
 	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),

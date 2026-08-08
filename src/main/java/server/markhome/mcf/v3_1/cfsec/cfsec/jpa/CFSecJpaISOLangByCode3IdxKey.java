@@ -49,29 +49,6 @@ public class CFSecJpaISOLangByCode3IdxKey
 	}
 
 	@Override
-	public String getRequiredISO6392Code() {
-		return(requiredISO6392Code);
-	}
-
-	public void setRequiredISO6392Code( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredISO6392Code",
-				1,
-				"value" );
-		}
-		else if( value.length() > 3 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredISO6392Code",
-				1,
-				"value.length()",
-				value.length(),
-				3 );
-		}
-		requiredISO6392Code = value;
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

@@ -246,52 +246,6 @@ public class CFSecJpaISOCcyH
     }
 
 	@Override
-	public String getRequiredISOCode() {
-		return(requiredISOCode);
-	}
-
-	public void setRequiredISOCode( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredISOCode",
-				1,
-				"value" );
-		}
-		else if( value.length() > 3 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredISOCode",
-				1,
-				"value.length()",
-				value.length(),
-				3 );
-		}
-		requiredISOCode = value;
-	}
-
-	@Override
-	public String getRequiredName() {
-		return(requiredName);
-	}
-
-	public void setRequiredName( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredName",
-				1,
-				"value" );
-		}
-		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredName",
-				1,
-				"value.length()",
-				value.length(),
-				64 );
-		}
-		requiredName = value;
-	}
-
-	@Override
 	public String getOptionalUnitSymbol() {
 		return(optionalUnitSymbol);
 	}
@@ -306,32 +260,6 @@ public class CFSecJpaISOCcyH
 				4 );
 		}
 		optionalUnitSymbol = value;
-	}
-
-	@Override
-	public short getRequiredPrecis() {
-		return(requiredPrecis);
-	}
-
-	@Override
-	public void setRequiredPrecis( short value ) {
-		if( value < ICFSecPubISOCcy.PRECIS_MIN_VALUE ) {
-			throw new CFLibArgumentUnderflowException( getClass(),
-				"setRequiredPrecis",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCcy.PRECIS_MIN_VALUE );
-		}
-		if( value > ICFSecPubISOCcy.PRECIS_MAX_VALUE ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredPrecis",
-				1,
-				"value",
-				value,
-				ICFSecPubISOCcy.PRECIS_MAX_VALUE );
-		}
-		requiredPrecis = value;
 	}
 
     @Override

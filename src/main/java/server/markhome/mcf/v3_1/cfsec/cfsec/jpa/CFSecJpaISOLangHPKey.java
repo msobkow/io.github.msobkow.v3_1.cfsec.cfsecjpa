@@ -127,12 +127,7 @@ public class CFSecJpaISOLangHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public short getRequiredISOLangId() {
-		return(requiredISOLangId);
-	}
-
+$implDirectGetter$
 	@Override
 	public void setRequiredISOLangId( short value ) {
 		if( value < ICFSecPubISOLang.ISOLANGID_MIN_VALUE ) {

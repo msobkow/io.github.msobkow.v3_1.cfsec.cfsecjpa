@@ -49,21 +49,6 @@ public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 	}
 
 	@Override
-	public LocalDateTime getRequiredPWReplacedStamp() {
-		return(requiredPWReplacedStamp);
-	}
-
-	public void setRequiredPWReplacedStamp( LocalDateTime value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredPWReplacedStamp",
-				1,
-				"value" );
-		}
-		requiredPWReplacedStamp = value;
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

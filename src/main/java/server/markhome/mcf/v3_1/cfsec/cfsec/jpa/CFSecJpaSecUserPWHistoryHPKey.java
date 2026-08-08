@@ -120,12 +120,7 @@ public class CFSecJpaSecUserPWHistoryHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecUserId() {
-		return(requiredSecUserId);
-	}
-
+$implDirectGetter$
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -135,12 +130,7 @@ public class CFSecJpaSecUserPWHistoryHPKey
 		}
 		requiredSecUserId = value;
 	}
-
-	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
-		return(requiredPWSetStamp);
-	}
-
+$implDirectGetter$
 	public void setRequiredPWSetStamp( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

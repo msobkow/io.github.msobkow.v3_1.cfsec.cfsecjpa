@@ -133,12 +133,7 @@ public class CFSecJpaSecTentRoleMembHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
-		return(requiredSecTentRoleId);
-	}
-
+$implDirectGetter$
 	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -148,12 +143,7 @@ public class CFSecJpaSecTentRoleMembHPKey
 		}
 		requiredSecTentRoleId = value;
 	}
-
-	@Override
-	public String getRequiredLoginId() {
-		return(requiredLoginId);
-	}
-
+$implDirectGetter$
 	public void setRequiredLoginId( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

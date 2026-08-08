@@ -127,12 +127,7 @@ public class CFSecJpaTableInfoHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-
-	@Override
-	public int getRequiredTableInfoId() {
-		return(requiredTableInfoId);
-	}
-
+$implDirectGetter$
 	@Override
 	public void setRequiredTableInfoId( int value ) {
 		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {

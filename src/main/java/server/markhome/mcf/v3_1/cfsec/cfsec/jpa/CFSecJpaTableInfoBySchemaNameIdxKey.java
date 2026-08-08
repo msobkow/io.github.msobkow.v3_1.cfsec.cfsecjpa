@@ -49,29 +49,6 @@ public class CFSecJpaTableInfoBySchemaNameIdxKey
 	}
 
 	@Override
-	public String getRequiredSchemaName() {
-		return(requiredSchemaName);
-	}
-
-	public void setRequiredSchemaName( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredSchemaName",
-				1,
-				"value" );
-		}
-		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredSchemaName",
-				1,
-				"value.length()",
-				value.length(),
-				32 );
-		}
-		requiredSchemaName = value;
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

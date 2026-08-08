@@ -243,29 +243,6 @@ public class CFSecJpaISOLangH
     }
 
 	@Override
-	public String getRequiredISO6392Code() {
-		return(requiredISO6392Code);
-	}
-
-	public void setRequiredISO6392Code( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredISO6392Code",
-				1,
-				"value" );
-		}
-		else if( value.length() > 3 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredISO6392Code",
-				1,
-				"value.length()",
-				value.length(),
-				3 );
-		}
-		requiredISO6392Code = value;
-	}
-
-	@Override
 	public String getOptionalISO6391Code() {
 		return(optionalISO6391Code);
 	}
@@ -280,29 +257,6 @@ public class CFSecJpaISOLangH
 				2 );
 		}
 		optionalISO6391Code = value;
-	}
-
-	@Override
-	public String getRequiredEnglishName() {
-		return(requiredEnglishName);
-	}
-
-	public void setRequiredEnglishName( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredEnglishName",
-				1,
-				"value" );
-		}
-		else if( value.length() > 64 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredEnglishName",
-				1,
-				"value.length()",
-				value.length(),
-				64 );
-		}
-		requiredEnglishName = value;
 	}
 
     @Override

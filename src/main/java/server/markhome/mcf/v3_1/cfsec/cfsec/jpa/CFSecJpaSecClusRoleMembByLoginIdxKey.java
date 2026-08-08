@@ -49,29 +49,6 @@ public class CFSecJpaSecClusRoleMembByLoginIdxKey
 	}
 
 	@Override
-	public String getRequiredLoginId() {
-		return(getPKey().getRequiredLoginId());
-	}
-
-	public void setRequiredLoginId( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value" );
-		}
-		else if( value.length() > 32 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredLoginId",
-				1,
-				"value.length()",
-				value.length(),
-				32 );
-		}
-		getPKey().setRequiredLoginId(value);
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

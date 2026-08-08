@@ -49,29 +49,6 @@ public class CFSecJpaISOCcyByCcyCdIdxKey
 	}
 
 	@Override
-	public String getRequiredISOCode() {
-		return(requiredISOCode);
-	}
-
-	public void setRequiredISOCode( String value ) {
-		if( value == null ) {
-			throw new CFLibNullArgumentException( getClass(),
-				"setRequiredISOCode",
-				1,
-				"value" );
-		}
-		else if( value.length() > 3 ) {
-			throw new CFLibArgumentOverflowException( getClass(),
-				"setRequiredISOCode",
-				1,
-				"value.length()",
-				value.length(),
-				3 );
-		}
-		requiredISOCode = value;
-	}
-
-	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );
