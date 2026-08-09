@@ -196,7 +196,7 @@ public class CFSecJpaISOCcy
 				value,
 				ICFSecPubISOCcy.ISOCCYID_MIN_VALUE );
 		}
-		getPKey().setRequiredISOCcyId(value);
+		requiredISOCcyId = value;
 	}
 
 	@Override

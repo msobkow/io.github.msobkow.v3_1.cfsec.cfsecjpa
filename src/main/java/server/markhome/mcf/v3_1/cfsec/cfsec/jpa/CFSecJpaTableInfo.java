@@ -189,7 +189,7 @@ public class CFSecJpaTableInfo
 				value,
 				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
 		}
-		getPKey().setRequiredTableInfoId(value);
+		requiredTableInfoId = value;
 	}
 
 	@Override

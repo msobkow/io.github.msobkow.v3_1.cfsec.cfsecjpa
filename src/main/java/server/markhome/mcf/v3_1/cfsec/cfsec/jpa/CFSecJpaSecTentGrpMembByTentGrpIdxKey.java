@@ -50,7 +50,7 @@ public class CFSecJpaSecTentGrpMembByTentGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
-		return(getPKey().getRequiredSecTentGrpId());
+		return(requiredSecTentGrpId);
 	}
 
 	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,7 @@ public class CFSecJpaSecTentGrpMembByTentGrpIdxKey
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecTentGrpId(value);
+		requiredSecTentGrpId = value;
 	}
 
 	@Override

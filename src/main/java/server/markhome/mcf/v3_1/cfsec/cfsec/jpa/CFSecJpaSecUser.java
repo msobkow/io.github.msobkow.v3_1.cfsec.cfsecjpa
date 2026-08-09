@@ -326,7 +326,7 @@ public class CFSecJpaSecUser
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecUserId(value);
+		requiredSecUserId = value;
 	}
 
 	@Override

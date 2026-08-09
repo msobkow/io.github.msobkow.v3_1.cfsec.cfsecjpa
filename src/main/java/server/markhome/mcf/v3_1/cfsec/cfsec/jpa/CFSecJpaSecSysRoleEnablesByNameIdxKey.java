@@ -50,7 +50,7 @@ public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 
 	@Override
 	public String getRequiredEnableName() {
-		return(getPKey().getRequiredEnableName());
+		return(requiredEnableName);
 	}
 
 	public void setRequiredEnableName( String value ) {
@@ -68,7 +68,7 @@ public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 				value.length(),
 				64 );
 		}
-		getPKey().setRequiredEnableName(value);
+		requiredEnableName = value;
 	}
 
 	@Override

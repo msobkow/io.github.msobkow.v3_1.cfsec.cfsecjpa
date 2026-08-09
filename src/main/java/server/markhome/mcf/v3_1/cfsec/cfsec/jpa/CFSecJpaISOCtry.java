@@ -198,7 +198,7 @@ public class CFSecJpaISOCtry
 				value,
 				ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE );
 		}
-		getPKey().setRequiredISOCtryId(value);
+		requiredISOCtryId = value;
 	}
 
 	@Override

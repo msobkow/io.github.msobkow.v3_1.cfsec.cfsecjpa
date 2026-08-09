@@ -251,7 +251,7 @@ public class CFSecJpaSecSysGrp
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecSysGrpId(value);
+		requiredSecSysGrpId = value;
 	}
 
 	@Override

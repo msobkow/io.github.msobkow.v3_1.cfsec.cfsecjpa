@@ -50,7 +50,7 @@ public class CFSecJpaSecClusRoleMembByClusRoleIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusRoleId() {
-		return(getPKey().getRequiredSecClusRoleId());
+		return(requiredSecClusRoleId);
 	}
 
 	public void setRequiredSecClusRoleId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,7 @@ public class CFSecJpaSecClusRoleMembByClusRoleIdxKey
 				1,
 				"value" );
 		}
-		getPKey().setRequiredSecClusRoleId(value);
+		requiredSecClusRoleId = value;
 	}
 
 	@Override
