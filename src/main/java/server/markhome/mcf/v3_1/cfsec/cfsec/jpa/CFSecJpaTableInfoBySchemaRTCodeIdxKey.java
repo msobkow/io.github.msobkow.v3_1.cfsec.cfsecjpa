@@ -49,6 +49,24 @@ public class CFSecJpaTableInfoBySchemaRTCodeIdxKey
 	}
 
 	@Override
+	public int getRequiredRuntimeClassCode() {
+		return(requiredRuntimeClassCode);
+	}
+
+	@Override
+	public void setRequiredRuntimeClassCode( int value ) {
+		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredRuntimeClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
+		}
+		requiredRuntimeClassCode = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

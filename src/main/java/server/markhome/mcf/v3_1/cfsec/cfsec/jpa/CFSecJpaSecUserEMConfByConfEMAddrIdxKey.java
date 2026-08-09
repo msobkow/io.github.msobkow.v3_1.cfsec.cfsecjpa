@@ -49,6 +49,29 @@ public class CFSecJpaSecUserEMConfByConfEMAddrIdxKey
 	}
 
 	@Override
+	public String getRequiredConfirmEMailAddr() {
+		return(requiredConfirmEMailAddr);
+	}
+
+	public void setRequiredConfirmEMailAddr( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredConfirmEMailAddr",
+				1,
+				"value" );
+		}
+		else if( value.length() > 512 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredConfirmEMailAddr",
+				1,
+				"value.length()",
+				value.length(),
+				512 );
+		}
+		requiredConfirmEMailAddr = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

@@ -60,12 +60,12 @@ public class CFSecJpaSecUserPasswordHPKey
 	protected CFLibDbKeyHash256 requiredSecUserId;
 
 	public CFSecJpaSecUserPasswordHPKey() {
-		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
+		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecUserPassword.SECUSERID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPassword.SECUSERID_INIT_VALUE.toString() );
 	}
 
 	@Override
@@ -117,7 +117,12 @@ public class CFSecJpaSecUserPasswordHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public CFLibDbKeyHash256 getRequiredSecUserId() {
+		return(requiredSecUserId);
+	}
+
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),

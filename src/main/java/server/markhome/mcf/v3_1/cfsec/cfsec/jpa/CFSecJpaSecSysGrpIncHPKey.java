@@ -133,7 +133,12 @@ public class CFSecJpaSecSysGrpIncHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
+		return(requiredSecSysGrpId);
+	}
+
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
@@ -143,7 +148,12 @@ $implDirectGetter$
 		}
 		requiredSecSysGrpId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public String getRequiredInclName() {
+		return(requiredInclName);
+	}
+
 	public void setRequiredInclName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),

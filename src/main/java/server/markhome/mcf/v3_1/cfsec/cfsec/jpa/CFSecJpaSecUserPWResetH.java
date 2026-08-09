@@ -244,6 +244,53 @@ public class CFSecJpaSecUserPWResetH
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 
+	@Override
+	public String getRequiredSentToEMailAddr() {
+		return(requiredSentToEMailAddr);
+	}
+
+	public void setRequiredSentToEMailAddr( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSentToEMailAddr",
+				1,
+				"value" );
+		}
+		else if( value.length() > 512 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredSentToEMailAddr",
+				1,
+				"value.length()",
+				value.length(),
+				512 );
+		}
+		requiredSentToEMailAddr = value;
+	}
+
+	@Override
+	public CFLibUuid6 getRequiredPasswordResetUuid6() {
+		return(requiredPasswordResetUuid6);
+	}
+
+	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredPasswordResetUuid6",
+				1,
+				"value" );
+		}
+		requiredPasswordResetUuid6 = value;
+	}
+
+	@Override
+	public boolean getRequiredNewAccount() {
+		return(requiredNewAccount);
+	}
+
+	public void setRequiredNewAccount( boolean value ) {
+		requiredNewAccount = value;
+	}
+
     @Override
     public boolean equals( Object obj ) {
         if (obj == null) {

@@ -49,6 +49,29 @@ public class CFSecJpaISOTZoneByUTZNameIdxKey
 	}
 
 	@Override
+	public String getRequiredTZName() {
+		return(requiredTZName);
+	}
+
+	public void setRequiredTZName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTZName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredTZName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		requiredTZName = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

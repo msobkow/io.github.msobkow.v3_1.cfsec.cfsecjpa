@@ -49,6 +49,29 @@ public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 	}
 
 	@Override
+	public String getRequiredSentToEMailAddr() {
+		return(requiredSentToEMailAddr);
+	}
+
+	public void setRequiredSentToEMailAddr( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSentToEMailAddr",
+				1,
+				"value" );
+		}
+		else if( value.length() > 512 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredSentToEMailAddr",
+				1,
+				"value.length()",
+				value.length(),
+				512 );
+		}
+		requiredSentToEMailAddr = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

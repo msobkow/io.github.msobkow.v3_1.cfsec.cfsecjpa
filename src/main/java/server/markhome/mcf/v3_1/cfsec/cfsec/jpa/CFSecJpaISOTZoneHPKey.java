@@ -127,7 +127,12 @@ public class CFSecJpaISOTZoneHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public short getRequiredISOTZoneId() {
+		return(requiredISOTZoneId);
+	}
+
 	@Override
 	public void setRequiredISOTZoneId( short value ) {
 		if( value < ICFSecPubISOTZone.ISOTZONEID_MIN_VALUE ) {

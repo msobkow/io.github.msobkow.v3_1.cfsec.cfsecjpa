@@ -49,6 +49,21 @@ public class CFSecJpaSecSysGrpMembBySysGrpIdxKey
 	}
 
 	@Override
+	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
+		return(getPKey().getRequiredSecSysGrpId());
+	}
+
+	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecSysGrpId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecSysGrpId(value);
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

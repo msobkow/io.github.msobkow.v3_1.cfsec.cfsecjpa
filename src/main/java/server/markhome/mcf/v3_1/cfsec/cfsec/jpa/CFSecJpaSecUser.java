@@ -315,6 +315,21 @@ public class CFSecJpaSecUser
 	}
 
 	@Override
+	public CFLibDbKeyHash256 getRequiredSecUserId() {
+		return(requiredSecUserId);
+	}
+
+	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecUserId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecUserId(value);
+	}
+
+	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
 	}
@@ -322,6 +337,44 @@ public class CFSecJpaSecUser
 	@Override
 	public void setRequiredRevision( int value ) {
 		requiredRevision = value;
+	}
+
+	@Override
+	public String getRequiredLoginId() {
+		return(requiredLoginId);
+	}
+
+	public void setRequiredLoginId( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredLoginId",
+				1,
+				"value" );
+		}
+		else if( value.length() > 32 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredLoginId",
+				1,
+				"value.length()",
+				value.length(),
+				32 );
+		}
+		requiredLoginId = value;
+	}
+
+	@Override
+	public ICFSecPubSchema.SecAccountStatusEnum getRequiredAccountStatus() {
+		return(requiredAccountStatus);
+	}
+
+	public void setRequiredAccountStatus( ICFSecPubSchema.SecAccountStatusEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredAccountStatus",
+				1,
+				"value" );
+		}
+		requiredAccountStatus = value;
 	}
 
 	@Override
@@ -373,6 +426,29 @@ public class CFSecJpaSecUser
 				64 );
 		}
 		optionalDfltTentGrpName = value;
+	}
+
+	@Override
+	public String getRequiredEMailAddress() {
+		return(requiredEMailAddress);
+	}
+
+	public void setRequiredEMailAddress( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredEMailAddress",
+				1,
+				"value" );
+		}
+		else if( value.length() > 512 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredEMailAddress",
+				1,
+				"value.length()",
+				value.length(),
+				512 );
+		}
+		requiredEMailAddress = value;
 	}
 
 	@Override

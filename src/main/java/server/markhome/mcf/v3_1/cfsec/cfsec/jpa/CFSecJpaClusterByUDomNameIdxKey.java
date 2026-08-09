@@ -49,6 +49,29 @@ public class CFSecJpaClusterByUDomNameIdxKey
 	}
 
 	@Override
+	public String getRequiredFullDomName() {
+		return(requiredFullDomName);
+	}
+
+	public void setRequiredFullDomName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredFullDomName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 192 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredFullDomName",
+				1,
+				"value.length()",
+				value.length(),
+				192 );
+		}
+		requiredFullDomName = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

@@ -131,7 +131,12 @@ public class CFSecJpaISOCtryLangHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public short getRequiredISOCtryId() {
+		return(requiredISOCtryId);
+	}
+
 	@Override
 	public void setRequiredISOCtryId( short value ) {
 		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
@@ -144,7 +149,12 @@ $implDirectGetter$
 		}
 		requiredISOCtryId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public short getRequiredISOLangId() {
+		return(requiredISOLangId);
+	}
+
 	@Override
 	public void setRequiredISOLangId( short value ) {
 		if( value < ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE ) {

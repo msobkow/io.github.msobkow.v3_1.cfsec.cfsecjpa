@@ -129,7 +129,12 @@ public class CFSecJpaSecUserHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public CFLibDbKeyHash256 getRequiredSecUserId() {
+		return(requiredSecUserId);
+	}
+
 	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),

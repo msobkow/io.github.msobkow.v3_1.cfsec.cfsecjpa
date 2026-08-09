@@ -229,6 +229,21 @@ public class CFSecJpaSecUserEMConf
 	}
 
 	@Override
+	public CFLibDbKeyHash256 getRequiredSecUserId() {
+		return(requiredSecUserId);
+	}
+
+	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecUserId",
+				1,
+				"value" );
+		}
+		requiredSecUserId = value;
+	}
+
+	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
 	}
@@ -236,6 +251,68 @@ public class CFSecJpaSecUserEMConf
 	@Override
 	public void setRequiredRevision( int value ) {
 		requiredRevision = value;
+	}
+
+	@Override
+	public String getRequiredConfirmEMailAddr() {
+		return(requiredConfirmEMailAddr);
+	}
+
+	public void setRequiredConfirmEMailAddr( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredConfirmEMailAddr",
+				1,
+				"value" );
+		}
+		else if( value.length() > 512 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredConfirmEMailAddr",
+				1,
+				"value.length()",
+				value.length(),
+				512 );
+		}
+		requiredConfirmEMailAddr = value;
+	}
+
+	@Override
+	public LocalDateTime getRequiredEMailSentStamp() {
+		return(requiredEMailSentStamp);
+	}
+
+	public void setRequiredEMailSentStamp( LocalDateTime value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredEMailSentStamp",
+				1,
+				"value" );
+		}
+		requiredEMailSentStamp = value;
+	}
+
+	@Override
+	public CFLibUuid6 getRequiredEMConfirmationUuid6() {
+		return(requiredEMConfirmationUuid6);
+	}
+
+	public void setRequiredEMConfirmationUuid6( CFLibUuid6 value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredEMConfirmationUuid6",
+				1,
+				"value" );
+		}
+		requiredEMConfirmationUuid6 = value;
+	}
+
+	@Override
+	public boolean getRequiredNewAccount() {
+		return(requiredNewAccount);
+	}
+
+	public void setRequiredNewAccount( boolean value ) {
+		requiredNewAccount = value;
 	}
 
 	@Override

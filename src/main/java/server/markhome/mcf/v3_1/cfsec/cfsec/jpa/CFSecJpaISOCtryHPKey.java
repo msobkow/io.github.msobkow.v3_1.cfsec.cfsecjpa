@@ -127,7 +127,12 @@ public class CFSecJpaISOCtryHPKey
 	public void setAuditSessionId( CFLibDbKeyHash256 value ) {
 		auditSessionId = value;
 	}
-$implDirectGetter$
+
+	@Override
+	public short getRequiredISOCtryId() {
+		return(requiredISOCtryId);
+	}
+
 	@Override
 	public void setRequiredISOCtryId( short value ) {
 		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {

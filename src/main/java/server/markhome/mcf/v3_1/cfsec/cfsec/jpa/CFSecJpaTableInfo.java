@@ -175,6 +175,24 @@ public class CFSecJpaTableInfo
 	}
 
 	@Override
+	public int getRequiredTableInfoId() {
+		return(requiredTableInfoId);
+	}
+
+	@Override
+	public void setRequiredTableInfoId( int value ) {
+		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredTableInfoId",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE );
+		}
+		getPKey().setRequiredTableInfoId(value);
+	}
+
+	@Override
 	public int getRequiredRevision() {
 		return( requiredRevision );
 	}
@@ -182,6 +200,52 @@ public class CFSecJpaTableInfo
 	@Override
 	public void setRequiredRevision( int value ) {
 		requiredRevision = value;
+	}
+
+	@Override
+	public String getRequiredSchemaName() {
+		return(requiredSchemaName);
+	}
+
+	public void setRequiredSchemaName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSchemaName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 32 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredSchemaName",
+				1,
+				"value.length()",
+				value.length(),
+				32 );
+		}
+		requiredSchemaName = value;
+	}
+
+	@Override
+	public String getRequiredTableName() {
+		return(requiredTableName);
+	}
+
+	public void setRequiredTableName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTableName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredTableName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		requiredTableName = value;
 	}
 
 	@Override
@@ -199,6 +263,106 @@ public class CFSecJpaTableInfo
 				64 );
 		}
 		optionalSuperName = value;
+	}
+
+	@Override
+	public int getRequiredBackingClassCode() {
+		return(requiredBackingClassCode);
+	}
+
+	@Override
+	public void setRequiredBackingClassCode( int value ) {
+		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredBackingClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE );
+		}
+		requiredBackingClassCode = value;
+	}
+
+	@Override
+	public int getRequiredRuntimeClassCode() {
+		return(requiredRuntimeClassCode);
+	}
+
+	@Override
+	public void setRequiredRuntimeClassCode( int value ) {
+		if( value < ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredRuntimeClassCode",
+				1,
+				"value",
+				value,
+				ICFSecPubTableInfo.RUNTIMECLASSCODE_MIN_VALUE );
+		}
+		requiredRuntimeClassCode = value;
+	}
+
+	@Override
+	public boolean getRequiredHasHistory() {
+		return(requiredHasHistory);
+	}
+
+	public void setRequiredHasHistory( boolean value ) {
+		requiredHasHistory = value;
+	}
+
+	@Override
+	public boolean getRequiredIsMutable() {
+		return(requiredIsMutable);
+	}
+
+	public void setRequiredIsMutable( boolean value ) {
+		requiredIsMutable = value;
+	}
+
+	@Override
+	public String getRequiredSecScopeName() {
+		return(requiredSecScopeName);
+	}
+
+	public void setRequiredSecScopeName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecScopeName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 32 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredSecScopeName",
+				1,
+				"value.length()",
+				value.length(),
+				32 );
+		}
+		requiredSecScopeName = value;
+	}
+
+	@Override
+	public String getRequiredCodeVis() {
+		return(requiredCodeVis);
+	}
+
+	public void setRequiredCodeVis( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredCodeVis",
+				1,
+				"value" );
+		}
+		else if( value.length() > 32 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredCodeVis",
+				1,
+				"value.length()",
+				value.length(),
+				32 );
+		}
+		requiredCodeVis = value;
 	}
 
 	@Override

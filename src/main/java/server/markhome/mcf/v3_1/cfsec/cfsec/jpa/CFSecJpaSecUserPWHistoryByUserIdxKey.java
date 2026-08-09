@@ -49,6 +49,21 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 	}
 
 	@Override
+	public CFLibDbKeyHash256 getRequiredSecUserId() {
+		return(getPKey().getRequiredSecUserId());
+	}
+
+	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+		if( value == null || value.isNull() ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecUserId",
+				1,
+				"value" );
+		}
+		getPKey().setRequiredSecUserId(value);
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

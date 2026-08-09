@@ -49,6 +49,29 @@ public class CFSecJpaISOTZoneByIso8601IdxKey
 	}
 
 	@Override
+	public String getRequiredIso8601() {
+		return(requiredIso8601);
+	}
+
+	public void setRequiredIso8601( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredIso8601",
+				1,
+				"value" );
+		}
+		else if( value.length() > 6 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredIso8601",
+				1,
+				"value.length()",
+				value.length(),
+				6 );
+		}
+		requiredIso8601 = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

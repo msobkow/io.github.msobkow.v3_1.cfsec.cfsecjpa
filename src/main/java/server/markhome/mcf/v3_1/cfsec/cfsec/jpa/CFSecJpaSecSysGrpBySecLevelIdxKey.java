@@ -49,6 +49,21 @@ public class CFSecJpaSecSysGrpBySecLevelIdxKey
 	}
 
 	@Override
+	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
+		return(requiredSecLevel);
+	}
+
+	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredSecLevel",
+				1,
+				"value" );
+		}
+		requiredSecLevel = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

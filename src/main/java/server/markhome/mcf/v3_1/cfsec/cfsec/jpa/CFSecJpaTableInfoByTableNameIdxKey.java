@@ -49,6 +49,29 @@ public class CFSecJpaTableInfoByTableNameIdxKey
 	}
 
 	@Override
+	public String getRequiredTableName() {
+		return(requiredTableName);
+	}
+
+	public void setRequiredTableName( String value ) {
+		if( value == null ) {
+			throw new CFLibNullArgumentException( getClass(),
+				"setRequiredTableName",
+				1,
+				"value" );
+		}
+		else if( value.length() > 64 ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredTableName",
+				1,
+				"value.length()",
+				value.length(),
+				64 );
+		}
+		requiredTableName = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );

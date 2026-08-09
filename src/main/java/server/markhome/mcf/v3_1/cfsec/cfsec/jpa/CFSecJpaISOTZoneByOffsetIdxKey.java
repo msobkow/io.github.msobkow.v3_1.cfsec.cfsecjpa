@@ -51,6 +51,58 @@ public class CFSecJpaISOTZoneByOffsetIdxKey
 	}
 
 	@Override
+	public short getRequiredTZHourOffset() {
+		return(requiredTZHourOffset);
+	}
+
+	@Override
+	public void setRequiredTZHourOffset( short value ) {
+		if( value < ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredTZHourOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE );
+		}
+		if( value > ICFSecPubISOTZone.TZHOUROFFSET_MAX_VALUE ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredTZHourOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZHOUROFFSET_MAX_VALUE );
+		}
+		requiredTZHourOffset = value;
+	}
+
+	@Override
+	public short getRequiredTZMinOffset() {
+		return(requiredTZMinOffset);
+	}
+
+	@Override
+	public void setRequiredTZMinOffset( short value ) {
+		if( value < ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE ) {
+			throw new CFLibArgumentUnderflowException( getClass(),
+				"setRequiredTZMinOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE );
+		}
+		if( value > ICFSecPubISOTZone.TZMINOFFSET_MAX_VALUE ) {
+			throw new CFLibArgumentOverflowException( getClass(),
+				"setRequiredTZMinOffset",
+				1,
+				"value",
+				value,
+				ICFSecPubISOTZone.TZMINOFFSET_MAX_VALUE );
+		}
+		requiredTZMinOffset = value;
+	}
+
+	@Override
 	public boolean equals( Object obj ) {
 		if (obj == null) {
 			return( false );
