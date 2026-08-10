@@ -57,7 +57,7 @@ public class CFSecJpaSecUserPWHistoryPKey
 	protected LocalDateTime requiredPWSetStamp;
 
 	public CFSecJpaSecUserPWHistoryPKey() {
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
 		requiredPWSetStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 	}
 

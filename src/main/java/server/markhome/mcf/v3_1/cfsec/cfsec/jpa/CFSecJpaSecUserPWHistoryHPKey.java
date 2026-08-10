@@ -62,12 +62,12 @@ public class CFSecJpaSecUserPWHistoryHPKey
 	protected LocalDateTime requiredPWSetStamp;
 
 	public CFSecJpaSecUserPWHistoryHPKey() {
-		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
+		auditClusterId = ICFSecCluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
+		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
 		requiredPWSetStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 	}
 
