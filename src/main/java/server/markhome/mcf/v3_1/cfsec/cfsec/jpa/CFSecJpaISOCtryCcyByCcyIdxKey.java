@@ -50,7 +50,7 @@ public class CFSecJpaISOCtryCcyByCcyIdxKey
 
 	@Override
 	public short getRequiredISOCcyId() {
-		return(requiredISOCcyId);
+		return(getPKey().getRequiredISOCcyId());
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class CFSecJpaISOCtryCcyByCcyIdxKey
 				value,
 				ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE );
 		}
-		requiredISOCcyId = value;
+		getPKey().setRequiredISOCcyId(value);
 	}
 
 	@Override

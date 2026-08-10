@@ -50,7 +50,7 @@ public class CFSecJpaSecClusGrpMembByClusGrpIdxKey
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
-		return(requiredSecClusGrpId);
+		return(getPKey().getRequiredSecClusGrpId());
 	}
 
 	public void setRequiredSecClusGrpId( CFLibDbKeyHash256 value ) {
@@ -60,7 +60,7 @@ public class CFSecJpaSecClusGrpMembByClusGrpIdxKey
 				1,
 				"value" );
 		}
-		requiredSecClusGrpId = value;
+		getPKey().setRequiredSecClusGrpId(value);
 	}
 
 	@Override

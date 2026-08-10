@@ -183,7 +183,7 @@ public class CFSecJpaISOCcy
 
 	@Override
 	public short getRequiredISOCcyId() {
-		return(requiredISOCcyId);
+		return(getPKey().getRequiredISOCcyId());
 	}
 
 	@Override
@@ -196,7 +196,7 @@ public class CFSecJpaISOCcy
 				value,
 				ICFSecPubISOCcy.ISOCCYID_MIN_VALUE );
 		}
-		requiredISOCcyId = value;
+		getPKey().setRequiredISOCcyId(value);
 	}
 
 	@Override

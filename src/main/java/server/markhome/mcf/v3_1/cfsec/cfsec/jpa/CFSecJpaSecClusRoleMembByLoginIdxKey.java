@@ -50,7 +50,7 @@ public class CFSecJpaSecClusRoleMembByLoginIdxKey
 
 	@Override
 	public String getRequiredLoginId() {
-		return(requiredLoginId);
+		return(getPKey().getRequiredLoginId());
 	}
 
 	public void setRequiredLoginId( String value ) {
@@ -68,7 +68,7 @@ public class CFSecJpaSecClusRoleMembByLoginIdxKey
 				value.length(),
 				32 );
 		}
-		requiredLoginId = value;
+		getPKey().setRequiredLoginId(value);
 	}
 
 	@Override

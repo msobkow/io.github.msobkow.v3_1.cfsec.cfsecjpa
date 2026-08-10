@@ -182,7 +182,7 @@ public class CFSecJpaISOTZone
 
 	@Override
 	public short getRequiredISOTZoneId() {
-		return(requiredISOTZoneId);
+		return(getPKey().getRequiredISOTZoneId());
 	}
 
 	@Override
@@ -195,7 +195,7 @@ public class CFSecJpaISOTZone
 				value,
 				ICFSecPubISOTZone.ISOTZONEID_MIN_VALUE );
 		}
-		requiredISOTZoneId = value;
+		getPKey().setRequiredISOTZoneId(value);
 	}
 
 	@Override

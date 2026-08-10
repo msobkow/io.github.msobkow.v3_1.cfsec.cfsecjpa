@@ -241,7 +241,7 @@ public class CFSecJpaSecSysGrp
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
-		return(requiredSecSysGrpId);
+		return(getPKey().getRequiredSecSysGrpId());
 	}
 
 	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
@@ -251,7 +251,7 @@ public class CFSecJpaSecSysGrp
 				1,
 				"value" );
 		}
-		requiredSecSysGrpId = value;
+		getPKey().setRequiredSecSysGrpId(value);
 	}
 
 	@Override

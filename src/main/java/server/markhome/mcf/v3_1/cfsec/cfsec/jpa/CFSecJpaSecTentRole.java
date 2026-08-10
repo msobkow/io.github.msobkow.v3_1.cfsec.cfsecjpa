@@ -282,7 +282,7 @@ public class CFSecJpaSecTentRole
 
 	@Override
 	public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
-		return(requiredSecTentRoleId);
+		return(getPKey().getRequiredSecTentRoleId());
 	}
 
 	public void setRequiredSecTentRoleId( CFLibDbKeyHash256 value ) {
@@ -292,7 +292,7 @@ public class CFSecJpaSecTentRole
 				1,
 				"value" );
 		}
-		requiredSecTentRoleId = value;
+		getPKey().setRequiredSecTentRoleId(value);
 	}
 
 	@Override

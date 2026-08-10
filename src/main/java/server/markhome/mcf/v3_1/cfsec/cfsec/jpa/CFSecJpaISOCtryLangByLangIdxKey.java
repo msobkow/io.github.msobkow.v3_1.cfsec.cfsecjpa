@@ -50,7 +50,7 @@ public class CFSecJpaISOCtryLangByLangIdxKey
 
 	@Override
 	public short getRequiredISOLangId() {
-		return(requiredISOLangId);
+		return(getPKey().getRequiredISOLangId());
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class CFSecJpaISOCtryLangByLangIdxKey
 				value,
 				ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE );
 		}
-		requiredISOLangId = value;
+		getPKey().setRequiredISOLangId(value);
 	}
 
 	@Override
