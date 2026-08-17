@@ -49,11 +49,11 @@ public class CFSecJpaSecUserEMConfByUUuid6IdxKey
 	}
 
 	@Override
-	public CFLibUuid6 getRequiredEMConfirmationUuid6() {
+	public ICFLibUuid6 getRequiredEMConfirmationUuid6() {
 		return(requiredEMConfirmationUuid6);
 	}
 
-	public void setRequiredEMConfirmationUuid6( CFLibUuid6 value ) {
+	public void setRequiredEMConfirmationUuid6( ICFLibUuid6 value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMConfirmationUuid6",

@@ -98,7 +98,7 @@ public class CFSecJpaSecUserPWReset
 	@Column( name="sent_emailaddr", nullable=false, length=512 )
 	protected String requiredSentToEMailAddr;
 	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="pwdrstuuid6", nullable=false, length=CFLibUuid6.TOTAL_BYTES ) )
+		@AttributeOverride(name="bytes", column = @Column( name="pwdrstuuid6", nullable=false, length=ICFLibUuid6.TOTAL_BYTES ) )
 	})
 	protected ICFLibUuid6 requiredPasswordResetUuid6;
 	@Column( name="newacct", nullable=false )
@@ -274,11 +274,11 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public CFLibUuid6 getRequiredPasswordResetUuid6() {
+	public ICFLibUuid6 getRequiredPasswordResetUuid6() {
 		return(requiredPasswordResetUuid6);
 	}
 
-	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
+	public void setRequiredPasswordResetUuid6( ICFLibUuid6 value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordResetUuid6",

@@ -49,11 +49,11 @@ public class CFSecJpaSecUserPWResetByUUuid6IdxKey
 	}
 
 	@Override
-	public CFLibUuid6 getRequiredPasswordResetUuid6() {
+	public ICFLibUuid6 getRequiredPasswordResetUuid6() {
 		return(requiredPasswordResetUuid6);
 	}
 
-	public void setRequiredPasswordResetUuid6( CFLibUuid6 value ) {
+	public void setRequiredPasswordResetUuid6( ICFLibUuid6 value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordResetUuid6",

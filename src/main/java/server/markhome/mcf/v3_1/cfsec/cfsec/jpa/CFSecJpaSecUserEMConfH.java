@@ -101,7 +101,7 @@ public class CFSecJpaSecUserEMConfH
 	@Column( name="conf_sent", nullable=false )
 	protected LocalDateTime requiredEMailSentStamp;
 	@AttributeOverrides({
-		@AttributeOverride(name="bytes", column = @Column( name="conf_uuid6", nullable=false, length=CFLibUuid6.TOTAL_BYTES ) )
+		@AttributeOverride(name="bytes", column = @Column( name="conf_uuid6", nullable=false, length=ICFLibUuid6.TOTAL_BYTES ) )
 	})
 	protected ICFLibUuid6 requiredEMConfirmationUuid6;
 	@Column( name="conf_newacct", nullable=false )
@@ -288,11 +288,11 @@ public class CFSecJpaSecUserEMConfH
 	}
 
 	@Override
-	public CFLibUuid6 getRequiredEMConfirmationUuid6() {
+	public ICFLibUuid6 getRequiredEMConfirmationUuid6() {
 		return(requiredEMConfirmationUuid6);
 	}
 
-	public void setRequiredEMConfirmationUuid6( CFLibUuid6 value ) {
+	public void setRequiredEMConfirmationUuid6( ICFLibUuid6 value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMConfirmationUuid6",
