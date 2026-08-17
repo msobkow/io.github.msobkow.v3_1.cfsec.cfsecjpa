@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecTentRoleMembByUserIdxKey
 	implements ICFSecSecTentRoleMembByUserIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredLoginId;
+	protected String requiredLoginId;
 	public CFSecJpaSecTentRoleMembByUserIdxKey() {
 		requiredLoginId = ICFSecProtSecTentRoleMemb.LOGINID_INIT_VALUE;
 	}

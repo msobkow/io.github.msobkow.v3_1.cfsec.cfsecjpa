@@ -94,11 +94,11 @@ public class CFSecJpaISOLangH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code3", nullable=false, length=3 )
-	protected $implJavaAtomType$ requiredISO6392Code;
+	protected String requiredISO6392Code;
 	@Column( name="iso_code2", nullable=true, length=2 )
-	protected $implJavaAtomType$ optionalISO6391Code;
+	protected String optionalISO6391Code;
 	@Column( name="eng_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredEnglishName;
+	protected String requiredEnglishName;
 
     public CFSecJpaISOLangH() {
             // The primary key member attributes are initialized on construction
@@ -233,12 +233,12 @@ public class CFSecJpaISOLangH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredISOLangId() {
+    public short getRequiredISOLangId() {
         return( pkey.getRequiredISOLangId() );
     }
 
     @Override
-    public void setRequiredISOLangId( $implJavaAtomType$ requiredISOLangId ) {
+    public void setRequiredISOLangId( short requiredISOLangId ) {
         pkey.setRequiredISOLangId( requiredISOLangId );
     }
 

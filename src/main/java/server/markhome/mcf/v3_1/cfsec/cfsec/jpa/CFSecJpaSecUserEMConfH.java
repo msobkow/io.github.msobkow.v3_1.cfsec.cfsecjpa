@@ -96,15 +96,15 @@ public class CFSecJpaSecUserEMConfH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="conf_emailaddr", nullable=false, length=512 )
-	protected $implJavaAtomType$ requiredConfirmEMailAddr;
+	protected String requiredConfirmEMailAddr;
 	@Column( name="conf_sent", nullable=false )
-	protected $implJavaAtomType$ requiredEMailSentStamp;
+	protected LocalDateTime requiredEMailSentStamp;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="conf_uuid6", nullable=false, length=CFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected $implJavaAtomType$ requiredEMConfirmationUuid6;
+	protected ICFLibUuid6 requiredEMConfirmationUuid6;
 	@Column( name="conf_newacct", nullable=false )
-	protected $implJavaAtomType$ requiredNewAccount;
+	protected boolean requiredNewAccount;
 
     public CFSecJpaSecUserEMConfH() {
             // The primary key member attributes are initialized on construction
@@ -239,12 +239,12 @@ public class CFSecJpaSecUserEMConfH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredSecUserId() {
+    public ICFLibKeyHash256 getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( $implJavaAtomType$ requiredSecUserId ) {
+    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 

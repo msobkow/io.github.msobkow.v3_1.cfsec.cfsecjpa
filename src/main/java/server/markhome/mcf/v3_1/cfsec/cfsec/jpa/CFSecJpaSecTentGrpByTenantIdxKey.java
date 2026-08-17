@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecTentGrpByTenantIdxKey
 	implements ICFSecSecTentGrpByTenantIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredTenantId;
+	protected ICFLibKeyHash256 requiredTenantId;
 	public CFSecJpaSecTentGrpByTenantIdxKey() {
 		requiredTenantId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentGrp.TENANTID_INIT_VALUE.toString() );
 	}

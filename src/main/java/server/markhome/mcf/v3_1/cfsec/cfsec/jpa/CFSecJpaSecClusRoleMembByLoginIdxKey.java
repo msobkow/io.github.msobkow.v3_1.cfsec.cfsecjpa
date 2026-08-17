@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecClusRoleMembByLoginIdxKey
 	implements ICFSecSecClusRoleMembByLoginIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredLoginId;
+	protected String requiredLoginId;
 	public CFSecJpaSecClusRoleMembByLoginIdxKey() {
 		requiredLoginId = ICFSecProtSecClusRoleMemb.LOGINID_INIT_VALUE;
 	}

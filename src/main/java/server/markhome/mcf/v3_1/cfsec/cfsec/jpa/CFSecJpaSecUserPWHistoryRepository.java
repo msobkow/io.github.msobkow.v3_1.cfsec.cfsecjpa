@@ -65,8 +65,8 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.pkey.requiredSecUserId = :secUserId and r.pkey.requiredPWSetStamp = :pWSetStamp")
-	CFSecJpaSecUserPWHistory get(@Param("secUserId") $implJavaAtomType$ requiredSecUserId,
-		@Param("pWSetStamp") $implJavaAtomType$ requiredPWSetStamp);
+	CFSecJpaSecUserPWHistory get(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
+		@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryPKey based read method for object-based access.
@@ -89,7 +89,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.pkey.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserPWHistory findByUserIdx(@Param("secUserId") $implJavaAtomType$ requiredSecUserId);
+	CFSecJpaSecUserPWHistory findByUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
 
 	/**
 	 *	CFSecSecUserPWHistoryByUserIdxKey entity reader convenience method for object-based access.
@@ -110,7 +110,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.pkey.requiredPWSetStamp = :pWSetStamp")
-	CFSecJpaSecUserPWHistory findBySetStampIdx(@Param("pWSetStamp") $implJavaAtomType$ requiredPWSetStamp);
+	CFSecJpaSecUserPWHistory findBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryBySetStampIdxKey entity reader convenience method for object-based access.
@@ -131,7 +131,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.requiredPWReplacedStamp = :pWReplacedStamp")
-	CFSecJpaSecUserPWHistory findByReplacedStampIdx(@Param("pWReplacedStamp") $implJavaAtomType$ requiredPWReplacedStamp);
+	CFSecJpaSecUserPWHistory findByReplacedStampIdx(@Param("pWReplacedStamp") LocalDateTime requiredPWReplacedStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryByReplacedStampIdxKey entity reader convenience method for object-based access.
@@ -157,8 +157,8 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.pkey.requiredSecUserId = :secUserId and r.pkey.requiredPWSetStamp = :pWSetStamp")
-	CFSecJpaSecUserPWHistory lockByIdIdx(@Param("secUserId") $implJavaAtomType$ requiredSecUserId,
-		@Param("pWSetStamp") $implJavaAtomType$ requiredPWSetStamp);
+	CFSecJpaSecUserPWHistory lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
+		@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryByIdIdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.pkey.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserPWHistory lockByUserIdx(@Param("secUserId") $implJavaAtomType$ requiredSecUserId);
+	CFSecJpaSecUserPWHistory lockByUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
 
 	/**
 	 *	CFSecSecUserPWHistoryByUserIdxKey based lock method for object-based access.
@@ -204,7 +204,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.pkey.requiredPWSetStamp = :pWSetStamp")
-	CFSecJpaSecUserPWHistory lockBySetStampIdx(@Param("pWSetStamp") $implJavaAtomType$ requiredPWSetStamp);
+	CFSecJpaSecUserPWHistory lockBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryBySetStampIdxKey based lock method for object-based access.
@@ -227,7 +227,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWHistory r where r.requiredPWReplacedStamp = :pWReplacedStamp")
-	CFSecJpaSecUserPWHistory lockByReplacedStampIdx(@Param("pWReplacedStamp") $implJavaAtomType$ requiredPWReplacedStamp);
+	CFSecJpaSecUserPWHistory lockByReplacedStampIdx(@Param("pWReplacedStamp") LocalDateTime requiredPWReplacedStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryByReplacedStampIdxKey based lock method for object-based access.
@@ -251,8 +251,8 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWHistory r where r.pkey.requiredSecUserId = :secUserId and r.pkey.requiredPWSetStamp = :pWSetStamp")
-	void deleteByIdIdx(@Param("secUserId") $implJavaAtomType$ requiredSecUserId,
-		@Param("pWSetStamp") $implJavaAtomType$ requiredPWSetStamp);
+	void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
+		@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryByIdIdxKey based lock method for object-based access.
@@ -271,7 +271,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWHistory r where r.pkey.requiredSecUserId = :secUserId")
-	void deleteByUserIdx(@Param("secUserId") $implJavaAtomType$ requiredSecUserId);
+	void deleteByUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
 
 	/**
 	 *	CFSecSecUserPWHistoryByUserIdxKey based lock method for object-based access.
@@ -290,7 +290,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWHistory r where r.pkey.requiredPWSetStamp = :pWSetStamp")
-	void deleteBySetStampIdx(@Param("pWSetStamp") $implJavaAtomType$ requiredPWSetStamp);
+	void deleteBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryBySetStampIdxKey based lock method for object-based access.
@@ -309,7 +309,7 @@ public interface CFSecJpaSecUserPWHistoryRepository extends JpaRepository<CFSecJ
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWHistory r where r.requiredPWReplacedStamp = :pWReplacedStamp")
-	void deleteByReplacedStampIdx(@Param("pWReplacedStamp") $implJavaAtomType$ requiredPWReplacedStamp);
+	void deleteByReplacedStampIdx(@Param("pWReplacedStamp") LocalDateTime requiredPWReplacedStamp);
 
 	/**
 	 *	CFSecSecUserPWHistoryByReplacedStampIdxKey based lock method for object-based access.

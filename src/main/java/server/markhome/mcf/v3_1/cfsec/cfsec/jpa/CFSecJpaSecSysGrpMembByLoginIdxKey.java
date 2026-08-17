@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSysGrpMembByLoginIdxKey
 	implements ICFSecSecSysGrpMembByLoginIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredLoginId;
+	protected String requiredLoginId;
 	public CFSecJpaSecSysGrpMembByLoginIdxKey() {
 		requiredLoginId = ICFSecProtSecSysGrpMemb.LOGINID_INIT_VALUE;
 	}

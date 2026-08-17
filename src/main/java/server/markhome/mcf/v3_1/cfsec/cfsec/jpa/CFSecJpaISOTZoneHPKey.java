@@ -67,7 +67,7 @@ public class CFSecJpaISOTZoneHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="ISOTZoneId", nullable=false )
-	protected $implJavaAtomType$ requiredISOTZoneId;
+	protected short requiredISOTZoneId;
 
 	public CFSecJpaISOTZoneHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

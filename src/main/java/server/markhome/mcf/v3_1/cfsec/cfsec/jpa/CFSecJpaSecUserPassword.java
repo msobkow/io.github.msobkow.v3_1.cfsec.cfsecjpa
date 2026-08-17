@@ -60,7 +60,7 @@ public class CFSecJpaSecUserPassword
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecUserId;
+	protected ICFLibKeyHash256 requiredSecUserId;
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -68,9 +68,9 @@ public class CFSecJpaSecUserPassword
 
 
 	@Column( name="PWSetStamp", nullable=false )
-	protected $implJavaAtomType$ requiredPWSetStamp;
+	protected LocalDateTime requiredPWSetStamp;
 	@Column( name="pwd_hash", nullable=false, length=256 )
-	protected $implJavaAtomType$ requiredPasswordHash;
+	protected String requiredPasswordHash;
 
 	public CFSecJpaSecUserPassword() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPassword.SECUSERID_INIT_VALUE.toString() );
@@ -131,12 +131,12 @@ public class CFSecJpaSecUserPassword
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecUserId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
 

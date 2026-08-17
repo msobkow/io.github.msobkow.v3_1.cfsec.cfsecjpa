@@ -61,7 +61,7 @@ public class CFSecJpaISOTZone
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ISOTZoneIdGenSeq")
 	@SequenceGenerator(name = "ISOTZoneIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOTZoneId", nullable=false )
-	protected $implJavaAtomType$ requiredISOTZoneId;
+	protected short requiredISOTZoneId;
 	protected int requiredRevision;
 
 
@@ -91,17 +91,17 @@ public class CFSecJpaISOTZone
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="Iso8601", nullable=false, length=6 )
-	protected $implJavaAtomType$ requiredIso8601;
+	protected String requiredIso8601;
 	@Column( name="TZName", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredTZName;
+	protected String requiredTZName;
 	@Column( name="TZHourOffset", nullable=false )
-	protected $implJavaAtomType$ requiredTZHourOffset;
+	protected short requiredTZHourOffset;
 	@Column( name="TZMinOffset", nullable=false )
-	protected $implJavaAtomType$ requiredTZMinOffset;
+	protected short requiredTZMinOffset;
 	@Column( name="Description", nullable=false, length=128 )
-	protected $implJavaAtomType$ requiredDescription;
+	protected String requiredDescription;
 	@Column( name="Visible", nullable=false )
-	protected $implJavaAtomType$ requiredVisible;
+	protected boolean requiredVisible;
 
 	public CFSecJpaISOTZone() {
 		requiredISOTZoneId = ICFSecPubISOTZone.ISOTZONEID_INIT_VALUE;
@@ -171,12 +171,12 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public Short getPKey() {
 		return getRequiredISOTZoneId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredISOTZoneId) {
+	public void setPKey(Short requiredISOTZoneId) {
 		this.requiredISOTZoneId = requiredISOTZoneId;
 	}
 

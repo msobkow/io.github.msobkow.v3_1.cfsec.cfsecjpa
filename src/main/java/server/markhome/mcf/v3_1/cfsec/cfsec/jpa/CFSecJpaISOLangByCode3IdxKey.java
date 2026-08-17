@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOLangByCode3IdxKey
 	implements ICFSecISOLangByCode3IdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredISO6392Code;
+	protected String requiredISO6392Code;
 	public CFSecJpaISOLangByCode3IdxKey() {
 		requiredISO6392Code = ICFSecPubISOLang.ISO6392CODE_INIT_VALUE;
 	}

@@ -60,7 +60,7 @@ public class CFSecJpaISOCtry
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ISOCtryIdGenSeq")
 	@SequenceGenerator(name = "ISOCtryIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOCtryId", nullable=false )
-	protected $implJavaAtomType$ requiredISOCtryId;
+	protected short requiredISOCtryId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCtry")
 	protected Set<CFSecJpaISOCtryCcy> optionalComponentsCcy;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCtry")
@@ -94,9 +94,9 @@ public class CFSecJpaISOCtry
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code", nullable=false, length=2 )
-	protected $implJavaAtomType$ requiredISOCode;
+	protected String requiredISOCode;
 	@Column( name="country_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 
 	public CFSecJpaISOCtry() {
 		requiredISOCtryId = ICFSecPubISOCtry.ISOCTRYID_INIT_VALUE;
@@ -174,12 +174,12 @@ public class CFSecJpaISOCtry
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public Short getPKey() {
 		return getRequiredISOCtryId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredISOCtryId) {
+	public void setPKey(Short requiredISOCtryId) {
 		this.requiredISOCtryId = requiredISOCtryId;
 	}
 

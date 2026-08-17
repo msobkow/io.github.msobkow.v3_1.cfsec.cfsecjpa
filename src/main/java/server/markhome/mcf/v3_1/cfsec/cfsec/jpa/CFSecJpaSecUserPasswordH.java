@@ -56,8 +56,8 @@ public class CFSecJpaSecUserPasswordH
 		@AttributeOverride(name="SecUserId", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     protected CFSecJpaSecUserPasswordHPKey pkey;
-	protected $implJavaAtomType$ requiredPWSetStamp;
-	protected $implJavaAtomType$ requiredPasswordHash;
+	protected LocalDateTime requiredPWSetStamp;
+	protected String requiredPasswordHash;
 
     public CFSecJpaSecUserPasswordH() {
             // The primary key member attributes are initialized on construction
@@ -138,12 +138,12 @@ public class CFSecJpaSecUserPasswordH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredSecUserId() {
+    public ICFLibKeyHash256 getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( $implJavaAtomType$ requiredSecUserId ) {
+    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 

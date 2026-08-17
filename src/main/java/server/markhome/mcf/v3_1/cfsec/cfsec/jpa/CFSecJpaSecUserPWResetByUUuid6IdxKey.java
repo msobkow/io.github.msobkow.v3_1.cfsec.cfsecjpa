@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWResetByUUuid6IdxKey
 	implements ICFSecSecUserPWResetByUUuid6IdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredPasswordResetUuid6;
+	protected ICFLibUuid6 requiredPasswordResetUuid6;
 	public CFSecJpaSecUserPWResetByUUuid6IdxKey() {
 	}
 

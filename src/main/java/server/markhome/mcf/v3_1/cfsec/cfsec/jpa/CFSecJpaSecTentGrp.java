@@ -63,7 +63,7 @@ public class CFSecJpaSecTentGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecTentGrpId;
+	protected ICFLibKeyHash256 requiredSecTentGrpId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecTentGrpMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
@@ -103,9 +103,9 @@ public class CFSecJpaSecTentGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredTenantId;
+	protected ICFLibKeyHash256 requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 
 	public CFSecJpaSecTentGrp() {
 		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentGrp.SECTENTGRPID_INIT_VALUE.toString() );
@@ -271,12 +271,12 @@ public class CFSecJpaSecTentGrp
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecTentGrpId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecTentGrpId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecTentGrpId) {
 		this.requiredSecTentGrpId = requiredSecTentGrpId;
 	}
 

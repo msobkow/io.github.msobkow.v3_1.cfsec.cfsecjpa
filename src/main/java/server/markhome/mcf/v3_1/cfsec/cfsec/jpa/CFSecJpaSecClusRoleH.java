@@ -97,9 +97,9 @@ public class CFSecJpaSecClusRoleH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredClusterId;
+	protected ICFLibKeyHash256 requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 
     public CFSecJpaSecClusRoleH() {
             // The primary key member attributes are initialized on construction
@@ -233,12 +233,12 @@ public class CFSecJpaSecClusRoleH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredSecClusRoleId() {
+    public ICFLibKeyHash256 getRequiredSecClusRoleId() {
         return( pkey.getRequiredSecClusRoleId() );
     }
 
     @Override
-    public void setRequiredSecClusRoleId( $implJavaAtomType$ requiredSecClusRoleId ) {
+    public void setRequiredSecClusRoleId( ICFLibKeyHash256 requiredSecClusRoleId ) {
         pkey.setRequiredSecClusRoleId( requiredSecClusRoleId );
     }
 

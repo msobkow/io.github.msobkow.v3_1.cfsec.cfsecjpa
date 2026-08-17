@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTableInfoBySchemaRTCodeIdxKey
 	implements ICFSecTableInfoBySchemaRTCodeIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredRuntimeClassCode;
+	protected int requiredRuntimeClassCode;
 	public CFSecJpaTableInfoBySchemaRTCodeIdxKey() {
 		requiredRuntimeClassCode = ICFSecPubTableInfo.RUNTIMECLASSCODE_INIT_VALUE;
 	}

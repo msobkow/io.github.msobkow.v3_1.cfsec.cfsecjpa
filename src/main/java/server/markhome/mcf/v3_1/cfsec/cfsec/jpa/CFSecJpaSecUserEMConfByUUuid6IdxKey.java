@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserEMConfByUUuid6IdxKey
 	implements ICFSecSecUserEMConfByUUuid6IdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredEMConfirmationUuid6;
+	protected ICFLibUuid6 requiredEMConfirmationUuid6;
 	public CFSecJpaSecUserEMConfByUUuid6IdxKey() {
 	}
 

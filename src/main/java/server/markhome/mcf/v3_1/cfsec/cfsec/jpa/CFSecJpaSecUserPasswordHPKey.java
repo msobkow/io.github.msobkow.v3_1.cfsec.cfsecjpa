@@ -57,7 +57,7 @@ public class CFSecJpaSecUserPasswordHPKey
 
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	protected $implJavaAtomType$ requiredSecUserId;
+	protected ICFLibKeyHash256 requiredSecUserId;
 
 	public CFSecJpaSecUserPasswordHPKey() {
 		auditClusterId = ICFSecCluster.ID_INIT_VALUE;

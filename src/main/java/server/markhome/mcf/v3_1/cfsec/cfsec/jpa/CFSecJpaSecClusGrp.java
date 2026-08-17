@@ -63,7 +63,7 @@ public class CFSecJpaSecClusGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecClusGrpId;
+	protected ICFLibKeyHash256 requiredSecClusGrpId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecClusGrpMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
@@ -103,9 +103,9 @@ public class CFSecJpaSecClusGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredClusterId;
+	protected ICFLibKeyHash256 requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 
 	public CFSecJpaSecClusGrp() {
 		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
@@ -271,12 +271,12 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecClusGrpId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecClusGrpId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecClusGrpId) {
 		this.requiredSecClusGrpId = requiredSecClusGrpId;
 	}
 

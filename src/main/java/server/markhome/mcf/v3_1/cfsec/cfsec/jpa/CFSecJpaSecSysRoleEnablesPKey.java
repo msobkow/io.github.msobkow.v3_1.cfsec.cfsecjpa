@@ -52,9 +52,9 @@ public class CFSecJpaSecSysRoleEnablesPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecSysRoleId;
+	protected ICFLibKeyHash256 requiredSecSysRoleId;
 	@Column( name="enable_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredEnableName;
+	protected String requiredEnableName;
 
 	public CFSecJpaSecSysRoleEnablesPKey() {
 		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysRoleEnables.SECSYSROLEID_INIT_VALUE.toString() );

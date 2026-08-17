@@ -72,23 +72,23 @@ public class CFSecJpaTableInfoH
     @EmbeddedId
     protected CFSecJpaTableInfoHPKey pkey;
 	@Column( name="sch_name", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredSchemaName;
+	protected String requiredSchemaName;
 	@Column( name="tbl_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredTableName;
+	protected String requiredTableName;
 	@Column( name="sup_name", nullable=true, length=64 )
-	protected $implJavaAtomType$ optionalSuperName;
+	protected String optionalSuperName;
 	@Column( name="back_clscode", nullable=false )
-	protected $implJavaAtomType$ requiredBackingClassCode;
+	protected int requiredBackingClassCode;
 	@Column( name="runtm_clscode", nullable=false )
-	protected $implJavaAtomType$ requiredRuntimeClassCode;
+	protected int requiredRuntimeClassCode;
 	@Column( name="has_hist", nullable=false )
-	protected $implJavaAtomType$ requiredHasHistory;
+	protected boolean requiredHasHistory;
 	@Column( name="is_mutable", nullable=false )
-	protected $implJavaAtomType$ requiredIsMutable;
+	protected boolean requiredIsMutable;
 	@Column( name="sec_scope_name", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredSecScopeName;
+	protected String requiredSecScopeName;
 	@Column( name="cd_vis", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredCodeVis;
+	protected String requiredCodeVis;
 
     public CFSecJpaTableInfoH() {
             // The primary key member attributes are initialized on construction
@@ -177,12 +177,12 @@ public class CFSecJpaTableInfoH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredTableInfoId() {
+    public int getRequiredTableInfoId() {
         return( pkey.getRequiredTableInfoId() );
     }
 
     @Override
-    public void setRequiredTableInfoId( $implJavaAtomType$ requiredTableInfoId ) {
+    public void setRequiredTableInfoId( int requiredTableInfoId ) {
         pkey.setRequiredTableInfoId( requiredTableInfoId );
     }
 

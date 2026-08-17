@@ -278,8 +278,8 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public void deleteSecClusGrpMembByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId,
-		$implJavaAtomType$ argLoginId )
+		ICFLibKeyHash256 argSecClusGrpId,
+		String argLoginId )
 	{
 		final String S_ProcName = "deleteSecClusGrpMembByIdIdx";
 		boolean permissionGranted = canDeleteSecClusGrpMemb(S_ProcName, Authorization);
@@ -321,7 +321,7 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public void deleteSecClusGrpMembByClusGrpIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId )
+		ICFLibKeyHash256 argSecClusGrpId )
 	{
 		final String S_ProcName = "deleteSecClusGrpMembByClusGrpIdx";
 		boolean permissionGranted = canDeleteSecClusGrpMemb(S_ProcName, Authorization);
@@ -362,7 +362,7 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public void deleteSecClusGrpMembByLoginIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argLoginId )
+		String argLoginId )
 	{
 		final String S_ProcName = "deleteSecClusGrpMembByLoginIdx";
 		boolean permissionGranted = canDeleteSecClusGrpMemb(S_ProcName, Authorization);
@@ -429,8 +429,8 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb readDerived( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId,
-		$implJavaAtomType$ argLoginId )
+		ICFLibKeyHash256 argSecClusGrpId,
+		String argLoginId )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecClusGrpMemb(S_ProcName, Authorization);
@@ -505,8 +505,8 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId,
-		$implJavaAtomType$ argLoginId )
+		ICFLibKeyHash256 argSecClusGrpId,
+		String argLoginId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -539,7 +539,7 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb[] readDerivedByClusGrpIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId )
+		ICFLibKeyHash256 argSecClusGrpId )
 	{
 		final String S_ProcName = "readDerivedByClusGrpIdx";
 		boolean permissionGranted = false;
@@ -569,7 +569,7 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb[] readDerivedByLoginIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argLoginId )
+		String argLoginId )
 	{
 		final String S_ProcName = "readDerivedByLoginIdx";
 		boolean permissionGranted = false;
@@ -627,8 +627,8 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb readRec( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId,
-		$implJavaAtomType$ argLoginId )
+		ICFLibKeyHash256 argSecClusGrpId,
+		String argLoginId )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecClusGrpMemb(S_ProcName, Authorization);
@@ -692,8 +692,8 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb[] pageAllRec( ICFSecAuthorization Authorization,
-		$implJavaOptAtomType$ priorSecClusGrpId,
-		$implJavaOptAtomType$ priorLoginId )
+		ICFLibKeyHash256 priorSecClusGrpId,
+		String priorLoginId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecClusGrpMemb(S_ProcName, Authorization);
@@ -720,8 +720,8 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId,
-		$implJavaAtomType$ argLoginId )
+		ICFLibKeyHash256 argSecClusGrpId,
+		String argLoginId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -747,7 +747,7 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb[] readRecByClusGrpIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId )
+		ICFLibKeyHash256 argSecClusGrpId )
 	{
 		final String S_ProcName = "readRecByClusGrpIdx";
 		boolean permissionGranted = false;
@@ -773,7 +773,7 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb[] readRecByLoginIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argLoginId )
+		String argLoginId )
 	{
 		final String S_ProcName = "readRecByLoginIdx";
 		boolean permissionGranted = false;
@@ -799,9 +799,9 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb[] pageRecByClusGrpIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId,
-		$implJavaOptAtomType$ priorSecClusGrpId,
-		$implJavaOptAtomType$ priorLoginId )
+		ICFLibKeyHash256 argSecClusGrpId,
+		ICFLibKeyHash256 priorSecClusGrpId,
+		String priorLoginId )
 	{
 		final String S_ProcName = "pageRecByClusGrpIdx";
 		boolean permissionGranted = false;
@@ -827,9 +827,9 @@ public class CFSecJpaSecClusGrpMembTable implements ICFSecSecClusGrpMembTable
 	 */
 	@Override
 	public ICFSecSecClusGrpMemb[] pageRecByLoginIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argLoginId,
-		$implJavaOptAtomType$ priorSecClusGrpId,
-		$implJavaOptAtomType$ priorLoginId )
+		String argLoginId,
+		ICFLibKeyHash256 priorSecClusGrpId,
+		String priorLoginId )
 	{
 		final String S_ProcName = "pageRecByLoginIdx";
 		boolean permissionGranted = false;

@@ -64,7 +64,7 @@ public class CFSecJpaTableInfo
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="cfsec_tblinfoidgenseq")
 	@SequenceGenerator(name = "cfsec_tblinfoidgenseq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="TableInfoId", nullable=false )
-	protected $implJavaAtomType$ requiredTableInfoId;
+	protected int requiredTableInfoId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=true)
@@ -74,23 +74,23 @@ public class CFSecJpaTableInfo
 	protected Set<CFSecJpaTableInfo> optionalChildrenSubRefs;
 
 	@Column( name="sch_name", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredSchemaName;
+	protected String requiredSchemaName;
 	@Column( name="tbl_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredTableName;
+	protected String requiredTableName;
 	@Column( name="sup_name", nullable=true, length=64 )
-	protected $implJavaAtomType$ optionalSuperName;
+	protected String optionalSuperName;
 	@Column( name="back_clscode", nullable=false )
-	protected $implJavaAtomType$ requiredBackingClassCode;
+	protected int requiredBackingClassCode;
 	@Column( name="runtm_clscode", nullable=false )
-	protected $implJavaAtomType$ requiredRuntimeClassCode;
+	protected int requiredRuntimeClassCode;
 	@Column( name="has_hist", nullable=false )
-	protected $implJavaAtomType$ requiredHasHistory;
+	protected boolean requiredHasHistory;
 	@Column( name="is_mutable", nullable=false )
-	protected $implJavaAtomType$ requiredIsMutable;
+	protected boolean requiredIsMutable;
 	@Column( name="sec_scope_name", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredSecScopeName;
+	protected String requiredSecScopeName;
 	@Column( name="cd_vis", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredCodeVis;
+	protected String requiredCodeVis;
 
 	public CFSecJpaTableInfo() {
 		requiredTableInfoId = ICFSecPubTableInfo.TABLEINFOID_INIT_VALUE;
@@ -165,12 +165,12 @@ public class CFSecJpaTableInfo
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public Integer getPKey() {
 		return getRequiredTableInfoId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredTableInfoId) {
+	public void setPKey(Integer requiredTableInfoId) {
 		this.requiredTableInfoId = requiredTableInfoId;
 	}
 

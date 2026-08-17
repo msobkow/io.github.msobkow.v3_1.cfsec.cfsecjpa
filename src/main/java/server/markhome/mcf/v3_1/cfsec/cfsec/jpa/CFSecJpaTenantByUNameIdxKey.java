@@ -43,8 +43,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTenantByUNameIdxKey
 	implements ICFSecTenantByUNameIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredClusterId;
-	protected $implJavaAtomType$ requiredTenantName;
+	protected ICFLibKeyHash256 requiredClusterId;
+	protected String requiredTenantName;
 	public CFSecJpaTenantByUNameIdxKey() {
 		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubTenant.CLUSTERID_INIT_VALUE.toString() );
 		requiredTenantName = ICFSecPubTenant.TENANTNAME_INIT_VALUE;

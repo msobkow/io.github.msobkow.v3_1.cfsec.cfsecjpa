@@ -63,7 +63,7 @@ public class CFSecJpaSecTentRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecTentRoleId;
+	protected ICFLibKeyHash256 requiredSecTentRoleId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerRole")
 	protected Set<CFSecJpaSecTentRoleMemb> optionalChildrenMembByRole;
 	protected int requiredRevision;
@@ -103,9 +103,9 @@ public class CFSecJpaSecTentRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredTenantId;
+	protected ICFLibKeyHash256 requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 
 	public CFSecJpaSecTentRole() {
 		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentRole.SECTENTROLEID_INIT_VALUE.toString() );
@@ -271,12 +271,12 @@ public class CFSecJpaSecTentRole
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecTentRoleId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecTentRoleId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecTentRoleId) {
 		this.requiredSecTentRoleId = requiredSecTentRoleId;
 	}
 

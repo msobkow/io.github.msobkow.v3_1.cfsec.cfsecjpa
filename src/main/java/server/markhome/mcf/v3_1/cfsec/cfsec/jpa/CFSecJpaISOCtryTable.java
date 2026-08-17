@@ -295,7 +295,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public void deleteISOCtryByISOCodeIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argISOCode )
+		String argISOCode )
 	{
 		final String S_ProcName = "deleteISOCtryByISOCodeIdx";
 		boolean permissionGranted = canDeleteISOCtry(S_ProcName, Authorization);
@@ -336,7 +336,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public void deleteISOCtryByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "deleteISOCtryByNameIdx";
 		boolean permissionGranted = canDeleteISOCtry(S_ProcName, Authorization);
@@ -453,7 +453,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public ICFSecISOCtry readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argISOCtryId )
+		short argISOCtryId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -479,7 +479,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public ICFSecISOCtry readDerivedByISOCodeIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argISOCode )
+		String argISOCode )
 	{
 		final String S_ProcName = "readDerivedByISOCodeIdx";
 		boolean permissionGranted = false;
@@ -505,7 +505,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public ICFSecISOCtry readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -602,7 +602,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public ICFSecISOCtry readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argISOCtryId )
+		short argISOCtryId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -629,7 +629,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public ICFSecISOCtry readRecByISOCodeIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argISOCode )
+		String argISOCode )
 	{
 		final String S_ProcName = "readRecByISOCodeIdx";
 		boolean permissionGranted = false;
@@ -656,7 +656,7 @@ public class CFSecJpaISOCtryTable implements ICFSecISOCtryTable
 	 */
 	@Override
 	public ICFSecISOCtry readRecByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;

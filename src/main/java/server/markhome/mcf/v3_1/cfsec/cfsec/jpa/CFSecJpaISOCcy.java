@@ -60,7 +60,7 @@ public class CFSecJpaISOCcy
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ISOCcyIdGenSeq")
 	@SequenceGenerator(name = "ISOCcyIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOCcyId", nullable=false )
-	protected $implJavaAtomType$ requiredISOCcyId;
+	protected short requiredISOCcyId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentCcy")
 	protected Set<CFSecJpaISOCtryCcy> optionalChildrenCtry;
 	protected int requiredRevision;
@@ -92,13 +92,13 @@ public class CFSecJpaISOCcy
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code", nullable=false, length=3 )
-	protected $implJavaAtomType$ requiredISOCode;
+	protected String requiredISOCode;
 	@Column( name="ccy_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	@Column( name="unit_symbol", nullable=true, length=4 )
-	protected $implJavaAtomType$ optionalUnitSymbol;
+	protected String optionalUnitSymbol;
 	@Column( name="precis", nullable=false )
-	protected $implJavaAtomType$ requiredPrecis;
+	protected short requiredPrecis;
 
 	public CFSecJpaISOCcy() {
 		requiredISOCcyId = ICFSecPubISOCcy.ISOCCYID_INIT_VALUE;
@@ -172,12 +172,12 @@ public class CFSecJpaISOCcy
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public Short getPKey() {
 		return getRequiredISOCcyId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredISOCcyId) {
+	public void setPKey(Short requiredISOCcyId) {
 		this.requiredISOCcyId = requiredISOCcyId;
 	}
 

@@ -95,13 +95,13 @@ public class CFSecJpaSecUserPWResetH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="sent_emailaddr", nullable=false, length=512 )
-	protected $implJavaAtomType$ requiredSentToEMailAddr;
+	protected String requiredSentToEMailAddr;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="pwdrstuuid6", nullable=false, length=CFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected $implJavaAtomType$ requiredPasswordResetUuid6;
+	protected ICFLibUuid6 requiredPasswordResetUuid6;
 	@Column( name="newacct", nullable=false )
-	protected $implJavaAtomType$ requiredNewAccount;
+	protected boolean requiredNewAccount;
 
     public CFSecJpaSecUserPWResetH() {
             // The primary key member attributes are initialized on construction
@@ -235,12 +235,12 @@ public class CFSecJpaSecUserPWResetH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredSecUserId() {
+    public ICFLibKeyHash256 getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( $implJavaAtomType$ requiredSecUserId ) {
+    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 

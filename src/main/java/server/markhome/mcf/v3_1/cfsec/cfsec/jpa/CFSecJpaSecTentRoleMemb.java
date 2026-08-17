@@ -269,22 +269,22 @@ public class CFSecJpaSecTentRoleMemb
 	}
 
 	@Override
-	public $implJavaAtomType$ getRequiredSecTentRoleId() {
+	public ICFLibKeyHash256 getRequiredSecTentRoleId() {
 		return( pkey.getRequiredSecTentRoleId() );
 	}
 
 	@Override
-	public void setRequiredSecTentRoleId( $implJavaAtomType$ requiredSecTentRoleId ) {
+	public void setRequiredSecTentRoleId( ICFLibKeyHash256 requiredSecTentRoleId ) {
 		pkey.setRequiredSecTentRoleId( requiredSecTentRoleId );
 	}
 
 	@Override
-	public $implJavaAtomType$ getRequiredLoginId() {
+	public String getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
 	}
 
 	@Override
-	public void setRequiredLoginId( $implJavaAtomType$ requiredLoginId ) {
+	public void setRequiredLoginId( String requiredLoginId ) {
 		pkey.setRequiredLoginId( requiredLoginId );
 	}
 

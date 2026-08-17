@@ -225,22 +225,22 @@ public class CFSecJpaSecClusRoleMembH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredSecClusRoleId() {
+    public ICFLibKeyHash256 getRequiredSecClusRoleId() {
         return( pkey.getRequiredSecClusRoleId() );
     }
 
     @Override
-    public void setRequiredSecClusRoleId( $implJavaAtomType$ requiredSecClusRoleId ) {
+    public void setRequiredSecClusRoleId( ICFLibKeyHash256 requiredSecClusRoleId ) {
         pkey.setRequiredSecClusRoleId( requiredSecClusRoleId );
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredLoginId() {
+    public String getRequiredLoginId() {
         return( pkey.getRequiredLoginId() );
     }
 
     @Override
-    public void setRequiredLoginId( $implJavaAtomType$ requiredLoginId ) {
+    public void setRequiredLoginId( String requiredLoginId ) {
         pkey.setRequiredLoginId( requiredLoginId );
     }
 

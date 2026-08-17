@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSysClusterByClusterIdxKey
 	implements ICFSecSysClusterByClusterIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredClusterId;
+	protected ICFLibKeyHash256 requiredClusterId;
 	public CFSecJpaSysClusterByClusterIdxKey() {
 		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubSysCluster.CLUSTERID_INIT_VALUE.toString() );
 	}

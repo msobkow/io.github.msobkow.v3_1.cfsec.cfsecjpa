@@ -69,7 +69,7 @@ public class CFSecJpaSecUserPWResetHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecUserId;
+	protected ICFLibKeyHash256 requiredSecUserId;
 
 	public CFSecJpaSecUserPWResetHPKey() {
 		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;

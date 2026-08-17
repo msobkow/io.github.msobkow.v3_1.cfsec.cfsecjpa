@@ -52,9 +52,9 @@ public class CFSecJpaSecClusRoleMembPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecClusRoleId;
+	protected ICFLibKeyHash256 requiredSecClusRoleId;
 	@Column( name="login_id", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredLoginId;
+	protected String requiredLoginId;
 
 	public CFSecJpaSecClusRoleMembPKey() {
 		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );

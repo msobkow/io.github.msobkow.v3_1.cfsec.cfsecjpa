@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecClusRoleByNameIdxKey
 	implements ICFSecSecClusRoleByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	public CFSecJpaSecClusRoleByNameIdxKey() {
 		requiredName = ICFSecProtSecClusRole.NAME_INIT_VALUE;
 	}

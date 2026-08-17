@@ -269,22 +269,22 @@ public class CFSecJpaSecClusGrpMemb
 	}
 
 	@Override
-	public $implJavaAtomType$ getRequiredSecClusGrpId() {
+	public ICFLibKeyHash256 getRequiredSecClusGrpId() {
 		return( pkey.getRequiredSecClusGrpId() );
 	}
 
 	@Override
-	public void setRequiredSecClusGrpId( $implJavaAtomType$ requiredSecClusGrpId ) {
+	public void setRequiredSecClusGrpId( ICFLibKeyHash256 requiredSecClusGrpId ) {
 		pkey.setRequiredSecClusGrpId( requiredSecClusGrpId );
 	}
 
 	@Override
-	public $implJavaAtomType$ getRequiredLoginId() {
+	public String getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
 	}
 
 	@Override
-	public void setRequiredLoginId( $implJavaAtomType$ requiredLoginId ) {
+	public void setRequiredLoginId( String requiredLoginId ) {
 		pkey.setRequiredLoginId( requiredLoginId );
 	}
 

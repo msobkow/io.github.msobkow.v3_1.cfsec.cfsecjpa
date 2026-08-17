@@ -63,7 +63,7 @@ public class CFSecJpaSecClusRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecClusRoleId;
+	protected ICFLibKeyHash256 requiredSecClusRoleId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerRole")
 	protected Set<CFSecJpaSecClusRoleMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
@@ -103,9 +103,9 @@ public class CFSecJpaSecClusRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredClusterId;
+	protected ICFLibKeyHash256 requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 
 	public CFSecJpaSecClusRole() {
 		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRole.SECCLUSROLEID_INIT_VALUE.toString() );
@@ -271,12 +271,12 @@ public class CFSecJpaSecClusRole
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecClusRoleId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecClusRoleId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecClusRoleId) {
 		this.requiredSecClusRoleId = requiredSecClusRoleId;
 	}
 

@@ -60,7 +60,7 @@ public class CFSecJpaCluster
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredId;
+	protected ICFLibKeyHash256 requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCluster")
 	protected Set<CFSecJpaTenant> optionalComponentsTenant;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerCluster")
@@ -98,9 +98,9 @@ public class CFSecJpaCluster
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="FullDomName", nullable=false, length=192 )
-	protected $implJavaAtomType$ requiredFullDomName;
+	protected String requiredFullDomName;
 	@Column( name="Description", nullable=false, length=128 )
-	protected $implJavaAtomType$ requiredDescription;
+	protected String requiredDescription;
 
 	public CFSecJpaCluster() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFSecPubCluster.ID_INIT_VALUE.toString() );
@@ -190,12 +190,12 @@ public class CFSecJpaCluster
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredId) {
+	public void setPKey(ICFLibKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
 

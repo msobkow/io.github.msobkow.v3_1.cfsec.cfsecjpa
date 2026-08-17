@@ -95,17 +95,17 @@ public class CFSecJpaISOTZoneH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="Iso8601", nullable=false, length=6 )
-	protected $implJavaAtomType$ requiredIso8601;
+	protected String requiredIso8601;
 	@Column( name="TZName", nullable=false, length=64 )
-	protected $implJavaAtomType$ requiredTZName;
+	protected String requiredTZName;
 	@Column( name="TZHourOffset", nullable=false )
-	protected $implJavaAtomType$ requiredTZHourOffset;
+	protected short requiredTZHourOffset;
 	@Column( name="TZMinOffset", nullable=false )
-	protected $implJavaAtomType$ requiredTZMinOffset;
+	protected short requiredTZMinOffset;
 	@Column( name="Description", nullable=false, length=128 )
-	protected $implJavaAtomType$ requiredDescription;
+	protected String requiredDescription;
 	@Column( name="Visible", nullable=false )
-	protected $implJavaAtomType$ requiredVisible;
+	protected boolean requiredVisible;
 
     public CFSecJpaISOTZoneH() {
             // The primary key member attributes are initialized on construction
@@ -243,12 +243,12 @@ public class CFSecJpaISOTZoneH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredISOTZoneId() {
+    public short getRequiredISOTZoneId() {
         return( pkey.getRequiredISOTZoneId() );
     }
 
     @Override
-    public void setRequiredISOTZoneId( $implJavaAtomType$ requiredISOTZoneId ) {
+    public void setRequiredISOTZoneId( short requiredISOTZoneId ) {
         pkey.setRequiredISOTZoneId( requiredISOTZoneId );
     }
 

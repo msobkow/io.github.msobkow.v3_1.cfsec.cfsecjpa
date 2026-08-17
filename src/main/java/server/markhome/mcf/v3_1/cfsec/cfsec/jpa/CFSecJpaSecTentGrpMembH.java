@@ -225,22 +225,22 @@ public class CFSecJpaSecTentGrpMembH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredSecTentGrpId() {
+    public ICFLibKeyHash256 getRequiredSecTentGrpId() {
         return( pkey.getRequiredSecTentGrpId() );
     }
 
     @Override
-    public void setRequiredSecTentGrpId( $implJavaAtomType$ requiredSecTentGrpId ) {
+    public void setRequiredSecTentGrpId( ICFLibKeyHash256 requiredSecTentGrpId ) {
         pkey.setRequiredSecTentGrpId( requiredSecTentGrpId );
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredLoginId() {
+    public String getRequiredLoginId() {
         return( pkey.getRequiredLoginId() );
     }
 
     @Override
-    public void setRequiredLoginId( $implJavaAtomType$ requiredLoginId ) {
+    public void setRequiredLoginId( String requiredLoginId ) {
         pkey.setRequiredLoginId( requiredLoginId );
     }
 

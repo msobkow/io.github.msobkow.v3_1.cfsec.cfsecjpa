@@ -296,7 +296,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public void deleteSecClusGrpByClusterIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId )
+		ICFLibKeyHash256 argClusterId )
 	{
 		final String S_ProcName = "deleteSecClusGrpByClusterIdx";
 		boolean permissionGranted = canDeleteSecClusGrp(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public void deleteSecClusGrpByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "deleteSecClusGrpByNameIdx";
 		boolean permissionGranted = canDeleteSecClusGrp(S_ProcName, Authorization);
@@ -380,8 +380,8 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public void deleteSecClusGrpByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argClusterId,
+		String argName )
 	{
 		final String S_ProcName = "deleteSecClusGrpByUNameIdx";
 		boolean permissionGranted = canDeleteSecClusGrp(S_ProcName, Authorization);
@@ -500,7 +500,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId )
+		ICFLibKeyHash256 argSecClusGrpId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -532,7 +532,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId )
+		ICFLibKeyHash256 argClusterId )
 	{
 		final String S_ProcName = "readDerivedByClusterIdx";
 		boolean permissionGranted = false;
@@ -562,7 +562,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp[] readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -595,8 +595,8 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argClusterId,
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -701,7 +701,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusGrpId )
+		ICFLibKeyHash256 argSecClusGrpId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -727,7 +727,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId )
+		ICFLibKeyHash256 argClusterId )
 	{
 		final String S_ProcName = "readRecByClusterIdx";
 		boolean permissionGranted = false;
@@ -753,7 +753,7 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp[] readRecByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;
@@ -782,8 +782,8 @@ public class CFSecJpaSecClusGrpTable implements ICFSecSecClusGrpTable
 	 */
 	@Override
 	public ICFSecSecClusGrp readRecByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argClusterId,
+		String argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;

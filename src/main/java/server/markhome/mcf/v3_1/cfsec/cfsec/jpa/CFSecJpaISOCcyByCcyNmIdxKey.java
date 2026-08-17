@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOCcyByCcyNmIdxKey
 	implements ICFSecISOCcyByCcyNmIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredName;
+	protected String requiredName;
 	public CFSecJpaISOCcyByCcyNmIdxKey() {
 		requiredName = ICFSecPubISOCcy.NAME_INIT_VALUE;
 	}

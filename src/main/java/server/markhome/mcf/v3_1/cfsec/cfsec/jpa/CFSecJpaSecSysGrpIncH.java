@@ -225,22 +225,22 @@ public class CFSecJpaSecSysGrpIncH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredSecSysGrpId() {
+    public ICFLibKeyHash256 getRequiredSecSysGrpId() {
         return( pkey.getRequiredSecSysGrpId() );
     }
 
     @Override
-    public void setRequiredSecSysGrpId( $implJavaAtomType$ requiredSecSysGrpId ) {
+    public void setRequiredSecSysGrpId( ICFLibKeyHash256 requiredSecSysGrpId ) {
         pkey.setRequiredSecSysGrpId( requiredSecSysGrpId );
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredInclName() {
+    public String getRequiredInclName() {
         return( pkey.getRequiredInclName() );
     }
 
     @Override
-    public void setRequiredInclName( $implJavaAtomType$ requiredInclName ) {
+    public void setRequiredInclName( String requiredInclName ) {
         pkey.setRequiredInclName( requiredInclName );
     }
 

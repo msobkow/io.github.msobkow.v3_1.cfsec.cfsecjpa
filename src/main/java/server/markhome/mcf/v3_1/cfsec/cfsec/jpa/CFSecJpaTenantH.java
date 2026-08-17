@@ -96,9 +96,9 @@ public class CFSecJpaTenantH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredClusterId;
+	protected ICFLibKeyHash256 requiredClusterId;
 	@Column( name="TenantName", nullable=false, length=192 )
-	protected $implJavaAtomType$ requiredTenantName;
+	protected String requiredTenantName;
 
     public CFSecJpaTenantH() {
             // The primary key member attributes are initialized on construction
@@ -232,12 +232,12 @@ public class CFSecJpaTenantH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredId() {
+    public ICFLibKeyHash256 getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( $implJavaAtomType$ requiredId ) {
+    public void setRequiredId( ICFLibKeyHash256 requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 

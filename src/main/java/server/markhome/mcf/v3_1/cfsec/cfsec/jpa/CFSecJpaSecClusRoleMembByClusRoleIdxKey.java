@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecClusRoleMembByClusRoleIdxKey
 	implements ICFSecSecClusRoleMembByClusRoleIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredSecClusRoleId;
+	protected ICFLibKeyHash256 requiredSecClusRoleId;
 	public CFSecJpaSecClusRoleMembByClusRoleIdxKey() {
 		requiredSecClusRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusRoleMemb.SECCLUSROLEID_INIT_VALUE.toString() );
 	}

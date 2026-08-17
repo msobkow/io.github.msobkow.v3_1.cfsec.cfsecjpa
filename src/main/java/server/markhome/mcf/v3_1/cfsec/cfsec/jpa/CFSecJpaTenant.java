@@ -61,7 +61,7 @@ public class CFSecJpaTenant
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredId;
+	protected ICFLibKeyHash256 requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerTenant")
 	protected Set<CFSecJpaSecTentGrp> optionalComponentsSecGroup;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerTenant")
@@ -100,9 +100,9 @@ public class CFSecJpaTenant
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredClusterId;
+	protected ICFLibKeyHash256 requiredClusterId;
 	@Column( name="TenantName", nullable=false, length=192 )
-	protected $implJavaAtomType$ requiredTenantName;
+	protected String requiredTenantName;
 
 	public CFSecJpaTenant() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFSecPubTenant.ID_INIT_VALUE.toString() );
@@ -227,12 +227,12 @@ public class CFSecJpaTenant
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredId) {
+	public void setPKey(ICFLibKeyHash256 requiredId) {
 		this.requiredId = requiredId;
 	}
 

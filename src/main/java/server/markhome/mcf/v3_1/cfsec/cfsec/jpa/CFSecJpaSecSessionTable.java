@@ -290,7 +290,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public void deleteSecSessionBySecUserIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId )
+		ICFLibKeyHash256 argSecUserId )
 	{
 		final String S_ProcName = "deleteSecSessionBySecUserIdx";
 		boolean permissionGranted = canDeleteSecSession(S_ProcName, Authorization);
@@ -333,8 +333,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public void deleteSecSessionByStartIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaAtomType$ argStart )
+		ICFLibKeyHash256 argSecUserId,
+		LocalDateTime argStart )
 	{
 		final String S_ProcName = "deleteSecSessionByStartIdx";
 		boolean permissionGranted = canDeleteSecSession(S_ProcName, Authorization);
@@ -379,8 +379,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public void deleteSecSessionByFinishIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaAtomType$ argFinish )
+		ICFLibKeyHash256 argSecUserId,
+		LocalDateTime argFinish )
 	{
 		final String S_ProcName = "deleteSecSessionByFinishIdx";
 		boolean permissionGranted = canDeleteSecSession(S_ProcName, Authorization);
@@ -423,7 +423,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public void deleteSecSessionBySecProxyIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecProxyId )
+		ICFLibKeyHash256 argSecProxyId )
 	{
 		final String S_ProcName = "deleteSecSessionBySecProxyIdx";
 		boolean permissionGranted = canDeleteSecSession(S_ProcName, Authorization);
@@ -540,7 +540,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecSessionId )
+		ICFLibKeyHash256 argSecSessionId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -565,7 +565,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] readDerivedBySecUserIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId )
+		ICFLibKeyHash256 argSecUserId )
 	{
 		final String S_ProcName = "readDerivedBySecUserIdx";
 		boolean permissionGranted = false;
@@ -598,8 +598,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession readDerivedByStartIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaAtomType$ argStart )
+		ICFLibKeyHash256 argSecUserId,
+		LocalDateTime argStart )
 	{
 		final String S_ProcName = "readDerivedByStartIdx";
 		boolean permissionGranted = false;
@@ -627,8 +627,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] readDerivedByFinishIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaAtomType$ argFinish )
+		ICFLibKeyHash256 argSecUserId,
+		LocalDateTime argFinish )
 	{
 		final String S_ProcName = "readDerivedByFinishIdx";
 		boolean permissionGranted = false;
@@ -659,7 +659,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] readDerivedBySecProxyIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecProxyId )
+		ICFLibKeyHash256 argSecProxyId )
 	{
 		final String S_ProcName = "readDerivedBySecProxyIdx";
 		boolean permissionGranted = false;
@@ -756,7 +756,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] pageAllRec( ICFSecAuthorization Authorization,
-		$implJavaOptAtomType$ priorSecSessionId )
+		ICFLibKeyHash256 priorSecSessionId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecSession(S_ProcName, Authorization);
@@ -781,7 +781,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecSessionId )
+		ICFLibKeyHash256 argSecSessionId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -807,7 +807,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] readRecBySecUserIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId )
+		ICFLibKeyHash256 argSecUserId )
 	{
 		final String S_ProcName = "readRecBySecUserIdx";
 		boolean permissionGranted = false;
@@ -836,8 +836,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession readRecByStartIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaAtomType$ argStart )
+		ICFLibKeyHash256 argSecUserId,
+		LocalDateTime argStart )
 	{
 		final String S_ProcName = "readRecByStartIdx";
 		boolean permissionGranted = false;
@@ -865,8 +865,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] readRecByFinishIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaAtomType$ argFinish )
+		ICFLibKeyHash256 argSecUserId,
+		LocalDateTime argFinish )
 	{
 		final String S_ProcName = "readRecByFinishIdx";
 		boolean permissionGranted = false;
@@ -892,7 +892,7 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] readRecBySecProxyIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecProxyId )
+		ICFLibKeyHash256 argSecProxyId )
 	{
 		final String S_ProcName = "readRecBySecProxyIdx";
 		boolean permissionGranted = false;
@@ -918,8 +918,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] pageRecBySecUserIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaOptAtomType$ priorSecSessionId )
+		ICFLibKeyHash256 argSecUserId,
+		ICFLibKeyHash256 priorSecSessionId )
 	{
 		final String S_ProcName = "pageRecBySecUserIdx";
 		boolean permissionGranted = false;
@@ -947,9 +947,9 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] pageRecByFinishIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecUserId,
-		$implJavaAtomType$ argFinish,
-		$implJavaOptAtomType$ priorSecSessionId )
+		ICFLibKeyHash256 argSecUserId,
+		LocalDateTime argFinish,
+		ICFLibKeyHash256 priorSecSessionId )
 	{
 		final String S_ProcName = "pageRecByFinishIdx";
 		boolean permissionGranted = false;
@@ -975,8 +975,8 @@ public class CFSecJpaSecSessionTable implements ICFSecSecSessionTable
 	 */
 	@Override
 	public ICFSecSecSession[] pageRecBySecProxyIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecProxyId,
-		$implJavaOptAtomType$ priorSecSessionId )
+		ICFLibKeyHash256 argSecProxyId,
+		ICFLibKeyHash256 priorSecSessionId )
 	{
 		final String S_ProcName = "pageRecBySecProxyIdx";
 		boolean permissionGranted = false;

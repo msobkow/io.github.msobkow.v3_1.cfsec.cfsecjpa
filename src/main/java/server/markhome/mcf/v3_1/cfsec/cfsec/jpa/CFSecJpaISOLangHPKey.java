@@ -67,7 +67,7 @@ public class CFSecJpaISOLangHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="ISOLangId", nullable=false )
-	protected $implJavaAtomType$ requiredISOLangId;
+	protected short requiredISOLangId;
 
 	public CFSecJpaISOLangHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

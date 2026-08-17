@@ -94,9 +94,9 @@ public class CFSecJpaClusterH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="FullDomName", nullable=false, length=192 )
-	protected $implJavaAtomType$ requiredFullDomName;
+	protected String requiredFullDomName;
 	@Column( name="Description", nullable=false, length=128 )
-	protected $implJavaAtomType$ requiredDescription;
+	protected String requiredDescription;
 
     public CFSecJpaClusterH() {
             // The primary key member attributes are initialized on construction
@@ -230,12 +230,12 @@ public class CFSecJpaClusterH
     }
 
     @Override
-    public $implJavaAtomType$ getRequiredId() {
+    public ICFLibKeyHash256 getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( $implJavaAtomType$ requiredId ) {
+    public void setRequiredId( ICFLibKeyHash256 requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 

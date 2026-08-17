@@ -64,7 +64,7 @@ public class CFSecJpaSecSession
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecSessionId;
+	protected ICFLibKeyHash256 requiredSecSessionId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -77,15 +77,15 @@ public class CFSecJpaSecSession
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecUserId;
+	protected ICFLibKeyHash256 requiredSecUserId;
 	@Column( name="start_ts", nullable=false )
-	protected $implJavaAtomType$ requiredStart;
+	protected LocalDateTime requiredStart;
 	@Column( name="finish_ts", nullable=true )
-	protected $implJavaAtomType$ optionalFinish;
+	protected LocalDateTime optionalFinish;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecProxyId", nullable=true, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ optionalSecProxyId;
+	protected ICFLibKeyHash256 optionalSecProxyId;
 
 	public CFSecJpaSecSession() {
 		requiredSecSessionId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECSESSIONID_INIT_VALUE.toString() );
@@ -196,12 +196,12 @@ public class CFSecJpaSecSession
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecSessionId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecSessionId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecSessionId) {
 		this.requiredSecSessionId = requiredSecSessionId;
 	}
 

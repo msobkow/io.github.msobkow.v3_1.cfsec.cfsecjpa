@@ -120,7 +120,7 @@ public class CFSecJpaSecUser
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecUserId;
+	protected ICFLibKeyHash256 requiredSecUserId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSecUser")
 	protected Set<CFSecJpaSecSession> optionalComponentsSecSess;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSecProxy")
@@ -175,17 +175,17 @@ public class CFSecJpaSecUser
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="login_id", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredLoginId;
+	protected String requiredLoginId;
 	@Column( name="acct_status", nullable=false )
-	protected $implJavaAtomType$ requiredAccountStatus;
+	protected ICFSecPubSchema.SecAccountStatusEnum requiredAccountStatus;
 	@Column( name="dflt_sysgrp_nm", nullable=true, length=64 )
-	protected $implJavaAtomType$ optionalDfltSysGrpName;
+	protected String optionalDfltSysGrpName;
 	@Column( name="dflt_clusgrp_nm", nullable=true, length=64 )
-	protected $implJavaAtomType$ optionalDfltClusGrpName;
+	protected String optionalDfltClusGrpName;
 	@Column( name="dflt_tentgrp_nm", nullable=true, length=64 )
-	protected $implJavaAtomType$ optionalDfltTentGrpName;
+	protected String optionalDfltTentGrpName;
 	@Column( name="email_addr", nullable=false, length=512 )
-	protected $implJavaAtomType$ requiredEMailAddress;
+	protected String requiredEMailAddress;
 
 	public CFSecJpaSecUser() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecUser.SECUSERID_INIT_VALUE.toString() );
@@ -305,12 +305,12 @@ public class CFSecJpaSecUser
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecUserId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecUserId) {
 		this.requiredSecUserId = requiredSecUserId;
 	}
 

@@ -63,7 +63,7 @@ public class CFSecJpaSecUserEMConf
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecUserId;
+	protected ICFLibKeyHash256 requiredSecUserId;
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -96,15 +96,15 @@ public class CFSecJpaSecUserEMConf
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="conf_emailaddr", nullable=false, length=512 )
-	protected $implJavaAtomType$ requiredConfirmEMailAddr;
+	protected String requiredConfirmEMailAddr;
 	@Column( name="conf_sent", nullable=false )
-	protected $implJavaAtomType$ requiredEMailSentStamp;
+	protected LocalDateTime requiredEMailSentStamp;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="conf_uuid6", nullable=false, length=CFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected $implJavaAtomType$ requiredEMConfirmationUuid6;
+	protected ICFLibUuid6 requiredEMConfirmationUuid6;
 	@Column( name="conf_newacct", nullable=false )
-	protected $implJavaAtomType$ requiredNewAccount;
+	protected boolean requiredNewAccount;
 
 	public CFSecJpaSecUserEMConf() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserEMConf.SECUSERID_INIT_VALUE.toString() );
@@ -219,12 +219,12 @@ public class CFSecJpaSecUserEMConf
 	}
 
 	@Override
-	public $implJavaOptAtomType$ getPKey() {
+	public ICFLibKeyHash256 getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey($implJavaOptAtomType$ requiredSecUserId) {
+	public void setPKey(ICFLibKeyHash256 requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
 

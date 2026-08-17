@@ -274,22 +274,22 @@ public class CFSecJpaISOCtryLang
 	}
 
 	@Override
-	public $implJavaAtomType$ getRequiredISOCtryId() {
+	public short getRequiredISOCtryId() {
 		return( pkey.getRequiredISOCtryId() );
 	}
 
 	@Override
-	public void setRequiredISOCtryId( $implJavaAtomType$ requiredISOCtryId ) {
+	public void setRequiredISOCtryId( short requiredISOCtryId ) {
 		pkey.setRequiredISOCtryId( requiredISOCtryId );
 	}
 
 	@Override
-	public $implJavaAtomType$ getRequiredISOLangId() {
+	public short getRequiredISOLangId() {
 		return( pkey.getRequiredISOLangId() );
 	}
 
 	@Override
-	public void setRequiredISOLangId( $implJavaAtomType$ requiredISOLangId ) {
+	public void setRequiredISOLangId( short requiredISOLangId ) {
 		pkey.setRequiredISOLangId( requiredISOLangId );
 	}
 

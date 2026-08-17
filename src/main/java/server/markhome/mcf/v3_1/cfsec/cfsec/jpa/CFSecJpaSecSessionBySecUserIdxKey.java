@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSessionBySecUserIdxKey
 	implements ICFSecSecSessionBySecUserIdxKey, Comparable<Object>, Serializable
 {
-	protected $implJavaAtomType$ requiredSecUserId;
+	protected ICFLibKeyHash256 requiredSecUserId;
 	public CFSecJpaSecSessionBySecUserIdxKey() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECUSERID_INIT_VALUE.toString() );
 	}

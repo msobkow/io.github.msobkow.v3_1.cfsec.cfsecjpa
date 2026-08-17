@@ -296,7 +296,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public void deleteSecSysGrpByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "deleteSecSysGrpByUNameIdx";
 		boolean permissionGranted = canDeleteSecSysGrp(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public void deleteSecSysGrpBySecLevelIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecLevel )
+		ICFSecPubSchema.SecLevelEnum argSecLevel )
 	{
 		final String S_ProcName = "deleteSecSysGrpBySecLevelIdx";
 		boolean permissionGranted = canDeleteSecSysGrp(S_ProcName, Authorization);
@@ -454,7 +454,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecSysGrpId )
+		ICFLibKeyHash256 argSecSysGrpId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -480,7 +480,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -505,7 +505,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp[] readDerivedBySecLevelIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecLevel )
+		ICFSecPubSchema.SecLevelEnum argSecLevel )
 	{
 		final String S_ProcName = "readDerivedBySecLevelIdx";
 		boolean permissionGranted = false;
@@ -607,7 +607,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecSysGrpId )
+		ICFLibKeyHash256 argSecSysGrpId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -634,7 +634,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp readRecByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;
@@ -660,7 +660,7 @@ public class CFSecJpaSecSysGrpTable implements ICFSecSecSysGrpTable
 	 */
 	@Override
 	public ICFSecSecSysGrp[] readRecBySecLevelIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecLevel )
+		ICFSecPubSchema.SecLevelEnum argSecLevel )
 	{
 		final String S_ProcName = "readRecBySecLevelIdx";
 		boolean permissionGranted = false;

@@ -296,7 +296,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public void deleteSecClusRoleByClusterIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId )
+		ICFLibKeyHash256 argClusterId )
 	{
 		final String S_ProcName = "deleteSecClusRoleByClusterIdx";
 		boolean permissionGranted = canDeleteSecClusRole(S_ProcName, Authorization);
@@ -337,7 +337,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public void deleteSecClusRoleByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "deleteSecClusRoleByNameIdx";
 		boolean permissionGranted = canDeleteSecClusRole(S_ProcName, Authorization);
@@ -380,8 +380,8 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public void deleteSecClusRoleByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argClusterId,
+		String argName )
 	{
 		final String S_ProcName = "deleteSecClusRoleByUNameIdx";
 		boolean permissionGranted = canDeleteSecClusRole(S_ProcName, Authorization);
@@ -500,7 +500,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusRoleId )
+		ICFLibKeyHash256 argSecClusRoleId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -532,7 +532,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId )
+		ICFLibKeyHash256 argClusterId )
 	{
 		final String S_ProcName = "readDerivedByClusterIdx";
 		boolean permissionGranted = false;
@@ -562,7 +562,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole[] readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -595,8 +595,8 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argClusterId,
+		String argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -701,7 +701,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole readRecByIdIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argSecClusRoleId )
+		ICFLibKeyHash256 argSecClusRoleId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -727,7 +727,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId )
+		ICFLibKeyHash256 argClusterId )
 	{
 		final String S_ProcName = "readRecByClusterIdx";
 		boolean permissionGranted = false;
@@ -753,7 +753,7 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole[] readRecByNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argName )
+		String argName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;
@@ -782,8 +782,8 @@ public class CFSecJpaSecClusRoleTable implements ICFSecSecClusRoleTable
 	 */
 	@Override
 	public ICFSecSecClusRole readRecByUNameIdx( ICFSecAuthorization Authorization,
-		$implJavaAtomType$ argClusterId,
-		$implJavaAtomType$ argName )
+		ICFLibKeyHash256 argClusterId,
+		String argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;

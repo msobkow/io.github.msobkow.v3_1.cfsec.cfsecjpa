@@ -65,8 +65,8 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecTentGrpMemb r where r.requiredContainerGroup.requiredSecTentGrpId = :secTentGrpId and r.requiredParentUser.requiredLoginId = :loginId")
-	CFSecJpaSecTentGrpMemb get(@Param("secTentGrpId") $implJavaAtomType$ requiredSecTentGrpId,
-		@Param("loginId") $implJavaAtomType$ requiredLoginId);
+	CFSecJpaSecTentGrpMemb get(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId,
+		@Param("loginId") String requiredLoginId);
 
 	/**
 	 *	CFSecSecTentGrpMembPKey based read method for object-based access.
@@ -89,7 +89,7 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	 *		@return List&lt;CFSecJpaSecTentGrpMemb&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecTentGrpMemb r where r.requiredContainerGroup.requiredSecTentGrpId = :secTentGrpId")
-	List<CFSecJpaSecTentGrpMemb> findByTentGrpIdx(@Param("secTentGrpId") $implJavaAtomType$ requiredSecTentGrpId);
+	List<CFSecJpaSecTentGrpMemb> findByTentGrpIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId);
 
 	/**
 	 *	CFSecSecTentGrpMembByTentGrpIdxKey entity list reader convenience method for object-based access.
@@ -110,7 +110,7 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	 *		@return List&lt;CFSecJpaSecTentGrpMemb&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecTentGrpMemb r where r.requiredParentUser.requiredLoginId = :loginId")
-	List<CFSecJpaSecTentGrpMemb> findByUserIdx(@Param("loginId") $implJavaAtomType$ requiredLoginId);
+	List<CFSecJpaSecTentGrpMemb> findByUserIdx(@Param("loginId") String requiredLoginId);
 
 	/**
 	 *	CFSecSecTentGrpMembByUserIdxKey entity list reader convenience method for object-based access.
@@ -136,8 +136,8 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentGrpMemb r where r.requiredContainerGroup.requiredSecTentGrpId = :secTentGrpId and r.requiredParentUser.requiredLoginId = :loginId")
-	CFSecJpaSecTentGrpMemb lockByIdIdx(@Param("secTentGrpId") $implJavaAtomType$ requiredSecTentGrpId,
-		@Param("loginId") $implJavaAtomType$ requiredLoginId);
+	CFSecJpaSecTentGrpMemb lockByIdIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId,
+		@Param("loginId") String requiredLoginId);
 
 	/**
 	 *	CFSecSecTentGrpMembByIdIdxKey based lock method for object-based access.
@@ -160,7 +160,7 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentGrpMemb r where r.requiredContainerGroup.requiredSecTentGrpId = :secTentGrpId")
-	List<CFSecJpaSecTentGrpMemb> lockByTentGrpIdx(@Param("secTentGrpId") $implJavaAtomType$ requiredSecTentGrpId);
+	List<CFSecJpaSecTentGrpMemb> lockByTentGrpIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId);
 
 	/**
 	 *	CFSecSecTentGrpMembByTentGrpIdxKey based lock method for object-based access.
@@ -183,7 +183,7 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentGrpMemb r where r.requiredParentUser.requiredLoginId = :loginId")
-	List<CFSecJpaSecTentGrpMemb> lockByUserIdx(@Param("loginId") $implJavaAtomType$ requiredLoginId);
+	List<CFSecJpaSecTentGrpMemb> lockByUserIdx(@Param("loginId") String requiredLoginId);
 
 	/**
 	 *	CFSecSecTentGrpMembByUserIdxKey based lock method for object-based access.
@@ -207,8 +207,8 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentGrpMemb r where r.requiredContainerGroup.requiredSecTentGrpId = :secTentGrpId and r.requiredParentUser.requiredLoginId = :loginId")
-	void deleteByIdIdx(@Param("secTentGrpId") $implJavaAtomType$ requiredSecTentGrpId,
-		@Param("loginId") $implJavaAtomType$ requiredLoginId);
+	void deleteByIdIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId,
+		@Param("loginId") String requiredLoginId);
 
 	/**
 	 *	CFSecSecTentGrpMembByIdIdxKey based lock method for object-based access.
@@ -227,7 +227,7 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentGrpMemb r where r.requiredContainerGroup.requiredSecTentGrpId = :secTentGrpId")
-	void deleteByTentGrpIdx(@Param("secTentGrpId") $implJavaAtomType$ requiredSecTentGrpId);
+	void deleteByTentGrpIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId);
 
 	/**
 	 *	CFSecSecTentGrpMembByTentGrpIdxKey based lock method for object-based access.
@@ -246,7 +246,7 @@ public interface CFSecJpaSecTentGrpMembRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentGrpMemb r where r.requiredParentUser.requiredLoginId = :loginId")
-	void deleteByUserIdx(@Param("loginId") $implJavaAtomType$ requiredLoginId);
+	void deleteByUserIdx(@Param("loginId") String requiredLoginId);
 
 	/**
 	 *	CFSecSecTentGrpMembByUserIdxKey based lock method for object-based access.

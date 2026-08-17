@@ -52,9 +52,9 @@ public class CFSecJpaSecTentGrpMembPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected $implJavaAtomType$ requiredSecTentGrpId;
+	protected ICFLibKeyHash256 requiredSecTentGrpId;
 	@Column( name="login_id", nullable=false, length=32 )
-	protected $implJavaAtomType$ requiredLoginId;
+	protected String requiredLoginId;
 
 	public CFSecJpaSecTentGrpMembPKey() {
 		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentGrpMemb.SECTENTGRPID_INIT_VALUE.toString() );
