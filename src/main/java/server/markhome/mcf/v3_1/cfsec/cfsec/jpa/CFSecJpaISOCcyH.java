@@ -94,13 +94,13 @@ public class CFSecJpaISOCcyH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code", nullable=false, length=3 )
-	protected String requiredISOCode;
+	protected $implJavaAtomType$ requiredISOCode;
 	@Column( name="ccy_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="unit_symbol", nullable=true, length=4 )
-	protected String optionalUnitSymbol;
+	protected $implJavaAtomType$ optionalUnitSymbol;
 	@Column( name="precis", nullable=false )
-	protected short requiredPrecis;
+	protected $implJavaAtomType$ requiredPrecis;
 
     public CFSecJpaISOCcyH() {
             // The primary key member attributes are initialized on construction
@@ -236,12 +236,12 @@ public class CFSecJpaISOCcyH
     }
 
     @Override
-    public short getRequiredISOCcyId() {
+    public $implJavaAtomType$ getRequiredISOCcyId() {
         return( pkey.getRequiredISOCcyId() );
     }
 
     @Override
-    public void setRequiredISOCcyId( short requiredISOCcyId ) {
+    public void setRequiredISOCcyId( $implJavaAtomType$ requiredISOCcyId ) {
         pkey.setRequiredISOCcyId( requiredISOCcyId );
     }
 

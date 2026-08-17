@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecClusGrpByNameIdxKey
 	implements ICFSecSecClusGrpByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	public CFSecJpaSecClusGrpByNameIdxKey() {
 		requiredName = ICFSecProtSecClusGrp.NAME_INIT_VALUE;
 	}

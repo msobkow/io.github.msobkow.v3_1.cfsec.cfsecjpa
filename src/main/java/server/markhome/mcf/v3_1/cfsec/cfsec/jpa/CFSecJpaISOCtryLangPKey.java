@@ -50,9 +50,9 @@ public class CFSecJpaISOCtryLangPKey
 	implements ICFSecISOCtryLangPKey, Comparable<ICFSecISOCtryLangPKey>, Serializable
 {
 	@Column( name="ISOCtryId", nullable=false )
-	protected short requiredISOCtryId;
+	protected $implJavaAtomType$ requiredISOCtryId;
 	@Column( name="ISOLangId", nullable=false )
-	protected short requiredISOLangId;
+	protected $implJavaAtomType$ requiredISOLangId;
 
 	public CFSecJpaISOCtryLangPKey() {
 		requiredISOCtryId = ICFSecPubISOCtryLang.ISOCTRYID_INIT_VALUE;

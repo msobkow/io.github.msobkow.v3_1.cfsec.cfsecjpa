@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOTZoneByUTZNameIdxKey
 	implements ICFSecISOTZoneByUTZNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredTZName;
+	protected $implJavaAtomType$ requiredTZName;
 	public CFSecJpaISOTZoneByUTZNameIdxKey() {
 		requiredTZName = ICFSecPubISOTZone.TZNAME_INIT_VALUE;
 	}

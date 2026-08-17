@@ -65,8 +65,8 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
-	CFSecJpaISOCtryCcy get(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOCcyId") short requiredISOCcyId);
+	CFSecJpaISOCtryCcy get(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId,
+		@Param("iSOCcyId") $implJavaAtomType$ requiredISOCcyId);
 
 	/**
 	 *	CFSecISOCtryCcyPKey based read method for object-based access.
@@ -89,7 +89,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 *		@return List&lt;CFSecJpaISOCtryCcy&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
-	List<CFSecJpaISOCtryCcy> findByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	List<CFSecJpaISOCtryCcy> findByCtryIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	CFSecISOCtryCcyByCtryIdxKey entity list reader convenience method for object-based access.
@@ -110,7 +110,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	 *		@return List&lt;CFSecJpaISOCtryCcy&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
-	List<CFSecJpaISOCtryCcy> findByCcyIdx(@Param("iSOCcyId") short requiredISOCcyId);
+	List<CFSecJpaISOCtryCcy> findByCcyIdx(@Param("iSOCcyId") $implJavaAtomType$ requiredISOCcyId);
 
 	/**
 	 *	CFSecISOCtryCcyByCcyIdxKey entity list reader convenience method for object-based access.
@@ -136,8 +136,8 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
-	CFSecJpaISOCtryCcy lockByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOCcyId") short requiredISOCcyId);
+	CFSecJpaISOCtryCcy lockByIdIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId,
+		@Param("iSOCcyId") $implJavaAtomType$ requiredISOCcyId);
 
 	/**
 	 *	CFSecISOCtryCcyByIdIdxKey based lock method for object-based access.
@@ -160,7 +160,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
-	List<CFSecJpaISOCtryCcy> lockByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	List<CFSecJpaISOCtryCcy> lockByCtryIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	CFSecISOCtryCcyByCtryIdxKey based lock method for object-based access.
@@ -183,7 +183,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtryCcy r where r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
-	List<CFSecJpaISOCtryCcy> lockByCcyIdx(@Param("iSOCcyId") short requiredISOCcyId);
+	List<CFSecJpaISOCtryCcy> lockByCcyIdx(@Param("iSOCcyId") $implJavaAtomType$ requiredISOCcyId);
 
 	/**
 	 *	CFSecISOCtryCcyByCcyIdxKey based lock method for object-based access.
@@ -207,8 +207,8 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
-	void deleteByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOCcyId") short requiredISOCcyId);
+	void deleteByIdIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId,
+		@Param("iSOCcyId") $implJavaAtomType$ requiredISOCcyId);
 
 	/**
 	 *	CFSecISOCtryCcyByIdIdxKey based lock method for object-based access.
@@ -227,7 +227,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtryCcy r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
-	void deleteByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	void deleteByCtryIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	CFSecISOCtryCcyByCtryIdxKey based lock method for object-based access.
@@ -246,7 +246,7 @@ public interface CFSecJpaISOCtryCcyRepository extends JpaRepository<CFSecJpaISOC
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtryCcy r where r.requiredParentCcy.requiredISOCcyId = :iSOCcyId")
-	void deleteByCcyIdx(@Param("iSOCcyId") short requiredISOCcyId);
+	void deleteByCcyIdx(@Param("iSOCcyId") $implJavaAtomType$ requiredISOCcyId);
 
 	/**
 	 *	CFSecISOCtryCcyByCcyIdxKey based lock method for object-based access.

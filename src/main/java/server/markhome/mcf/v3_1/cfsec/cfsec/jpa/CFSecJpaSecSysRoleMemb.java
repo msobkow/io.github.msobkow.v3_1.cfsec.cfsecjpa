@@ -144,7 +144,7 @@ public class CFSecJpaSecSysRoleMemb
 	}
 
 	@Override
-	public void setRequiredContainerSysRole(CFLibDbKeyHash256 argSecSysRoleId) {
+	public void setRequiredContainerSysRole(ICFLibKeyHash256 argSecSysRoleId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
@@ -274,22 +274,22 @@ public class CFSecJpaSecSysRoleMemb
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecSysRoleId() {
+	public $implJavaAtomType$ getRequiredSecSysRoleId() {
 		return( pkey.getRequiredSecSysRoleId() );
 	}
 
 	@Override
-	public void setRequiredSecSysRoleId( CFLibDbKeyHash256 requiredSecSysRoleId ) {
+	public void setRequiredSecSysRoleId( $implJavaAtomType$ requiredSecSysRoleId ) {
 		pkey.setRequiredSecSysRoleId( requiredSecSysRoleId );
 	}
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implJavaAtomType$ getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
 	}
 
 	@Override
-	public void setRequiredLoginId( String requiredLoginId ) {
+	public void setRequiredLoginId( $implJavaAtomType$ requiredLoginId ) {
 		pkey.setRequiredLoginId( requiredLoginId );
 	}
 

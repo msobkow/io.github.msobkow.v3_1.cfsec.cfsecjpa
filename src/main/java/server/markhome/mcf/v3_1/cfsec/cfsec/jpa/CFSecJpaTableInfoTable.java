@@ -289,7 +289,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public void deleteTableInfoByTableNameIdx( ICFSecAuthorization Authorization,
-		String argTableName )
+		$implJavaAtomType$ argTableName )
 	{
 		final String S_ProcName = "deleteTableInfoByTableNameIdx";
 		boolean permissionGranted = canDeleteTableInfo(S_ProcName, Authorization);
@@ -330,7 +330,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public void deleteTableInfoBySuperNameIdx( ICFSecAuthorization Authorization,
-		String argSuperName )
+		$implJavaAtomType$ argSuperName )
 	{
 		final String S_ProcName = "deleteTableInfoBySuperNameIdx";
 		boolean permissionGranted = canDeleteTableInfo(S_ProcName, Authorization);
@@ -371,7 +371,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public void deleteTableInfoBySchemaNameIdx( ICFSecAuthorization Authorization,
-		String argSchemaName )
+		$implJavaAtomType$ argSchemaName )
 	{
 		final String S_ProcName = "deleteTableInfoBySchemaNameIdx";
 		boolean permissionGranted = canDeleteTableInfo(S_ProcName, Authorization);
@@ -414,8 +414,8 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public void deleteTableInfoBySchemaBkCodeIdx( ICFSecAuthorization Authorization,
-		String argSchemaName,
-		int argBackingClassCode )
+		$implJavaAtomType$ argSchemaName,
+		$implJavaAtomType$ argBackingClassCode )
 	{
 		final String S_ProcName = "deleteTableInfoBySchemaBkCodeIdx";
 		boolean permissionGranted = canDeleteTableInfo(S_ProcName, Authorization);
@@ -458,7 +458,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public void deleteTableInfoBySchemaRTCodeIdx( ICFSecAuthorization Authorization,
-		int argRuntimeClassCode )
+		$implJavaAtomType$ argRuntimeClassCode )
 	{
 		final String S_ProcName = "deleteTableInfoBySchemaRTCodeIdx";
 		boolean permissionGranted = canDeleteTableInfo(S_ProcName, Authorization);
@@ -575,7 +575,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		int argTableInfoId )
+		$implJavaAtomType$ argTableInfoId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -601,7 +601,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readDerivedByTableNameIdx( ICFSecAuthorization Authorization,
-		String argTableName )
+		$implJavaAtomType$ argTableName )
 	{
 		final String S_ProcName = "readDerivedByTableNameIdx";
 		boolean permissionGranted = false;
@@ -626,7 +626,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo[] readDerivedBySuperNameIdx( ICFSecAuthorization Authorization,
-		String argSuperName )
+		$implJavaAtomType$ argSuperName )
 	{
 		final String S_ProcName = "readDerivedBySuperNameIdx";
 		boolean permissionGranted = false;
@@ -656,7 +656,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo[] readDerivedBySchemaNameIdx( ICFSecAuthorization Authorization,
-		String argSchemaName )
+		$implJavaAtomType$ argSchemaName )
 	{
 		final String S_ProcName = "readDerivedBySchemaNameIdx";
 		boolean permissionGranted = false;
@@ -689,8 +689,8 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readDerivedBySchemaBkCodeIdx( ICFSecAuthorization Authorization,
-		String argSchemaName,
-		int argBackingClassCode )
+		$implJavaAtomType$ argSchemaName,
+		$implJavaAtomType$ argBackingClassCode )
 	{
 		final String S_ProcName = "readDerivedBySchemaBkCodeIdx";
 		boolean permissionGranted = false;
@@ -717,7 +717,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readDerivedBySchemaRTCodeIdx( ICFSecAuthorization Authorization,
-		int argRuntimeClassCode )
+		$implJavaAtomType$ argRuntimeClassCode )
 	{
 		final String S_ProcName = "readDerivedBySchemaRTCodeIdx";
 		boolean permissionGranted = false;
@@ -814,7 +814,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readRecByIdIdx( ICFSecAuthorization Authorization,
-		int argTableInfoId )
+		$implJavaAtomType$ argTableInfoId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -841,7 +841,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readRecByTableNameIdx( ICFSecAuthorization Authorization,
-		String argTableName )
+		$implJavaAtomType$ argTableName )
 	{
 		final String S_ProcName = "readRecByTableNameIdx";
 		boolean permissionGranted = false;
@@ -867,7 +867,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo[] readRecBySuperNameIdx( ICFSecAuthorization Authorization,
-		String argSuperName )
+		$implJavaAtomType$ argSuperName )
 	{
 		final String S_ProcName = "readRecBySuperNameIdx";
 		boolean permissionGranted = false;
@@ -893,7 +893,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo[] readRecBySchemaNameIdx( ICFSecAuthorization Authorization,
-		String argSchemaName )
+		$implJavaAtomType$ argSchemaName )
 	{
 		final String S_ProcName = "readRecBySchemaNameIdx";
 		boolean permissionGranted = false;
@@ -922,8 +922,8 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readRecBySchemaBkCodeIdx( ICFSecAuthorization Authorization,
-		String argSchemaName,
-		int argBackingClassCode )
+		$implJavaAtomType$ argSchemaName,
+		$implJavaAtomType$ argBackingClassCode )
 	{
 		final String S_ProcName = "readRecBySchemaBkCodeIdx";
 		boolean permissionGranted = false;
@@ -950,7 +950,7 @@ public class CFSecJpaTableInfoTable implements ICFSecTableInfoTable
 	 */
 	@Override
 	public ICFSecTableInfo readRecBySchemaRTCodeIdx( ICFSecAuthorization Authorization,
-		int argRuntimeClassCode )
+		$implJavaAtomType$ argRuntimeClassCode )
 	{
 		final String S_ProcName = "readRecBySchemaRTCodeIdx";
 		boolean permissionGranted = false;

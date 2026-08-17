@@ -69,7 +69,7 @@ public class CFSecJpaSecClusGrpHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecClusGrpId;
+	protected $implJavaAtomType$ requiredSecClusGrpId;
 
 	public CFSecJpaSecClusGrpHPKey() {
 		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;

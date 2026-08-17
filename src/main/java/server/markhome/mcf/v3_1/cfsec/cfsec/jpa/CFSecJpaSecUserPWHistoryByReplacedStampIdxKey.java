@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 	implements ICFSecSecUserPWHistoryByReplacedStampIdxKey, Comparable<Object>, Serializable
 {
-	protected LocalDateTime requiredPWReplacedStamp;
+	protected $implJavaAtomType$ requiredPWReplacedStamp;
 	public CFSecJpaSecUserPWHistoryByReplacedStampIdxKey() {
 		requiredPWReplacedStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 	}

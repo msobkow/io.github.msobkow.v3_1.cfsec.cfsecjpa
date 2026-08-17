@@ -97,9 +97,9 @@ public class CFSecJpaSecClusGrpH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredClusterId;
+	protected $implJavaAtomType$ requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 
     public CFSecJpaSecClusGrpH() {
             // The primary key member attributes are initialized on construction
@@ -233,12 +233,12 @@ public class CFSecJpaSecClusGrpH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
+    public $implJavaAtomType$ getRequiredSecClusGrpId() {
         return( pkey.getRequiredSecClusGrpId() );
     }
 
     @Override
-    public void setRequiredSecClusGrpId( CFLibDbKeyHash256 requiredSecClusGrpId ) {
+    public void setRequiredSecClusGrpId( $implJavaAtomType$ requiredSecClusGrpId ) {
         pkey.setRequiredSecClusGrpId( requiredSecClusGrpId );
     }
 

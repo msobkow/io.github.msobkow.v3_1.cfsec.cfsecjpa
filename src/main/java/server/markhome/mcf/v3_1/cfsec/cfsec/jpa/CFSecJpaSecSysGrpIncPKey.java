@@ -52,9 +52,9 @@ public class CFSecJpaSecSysGrpIncPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecSysGrpId;
+	protected $implJavaAtomType$ requiredSecSysGrpId;
 	@Column( name="inc_name", nullable=false, length=64 )
-	protected String requiredInclName;
+	protected $implJavaAtomType$ requiredInclName;
 
 	public CFSecJpaSecSysGrpIncPKey() {
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysGrpInc.SECSYSGRPID_INIT_VALUE.toString() );

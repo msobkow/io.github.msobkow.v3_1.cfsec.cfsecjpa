@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 	implements ICFSecSecSysRoleEnablesByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredEnableName;
+	protected $implJavaAtomType$ requiredEnableName;
 	public CFSecJpaSecSysRoleEnablesByNameIdxKey() {
 		requiredEnableName = ICFSecProtSecSysRoleEnables.ENABLENAME_INIT_VALUE;
 	}

@@ -62,7 +62,7 @@ public class CFSecJpaSecUserPWReset
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecUserId;
+	protected $implJavaAtomType$ requiredSecUserId;
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -95,13 +95,13 @@ public class CFSecJpaSecUserPWReset
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="sent_emailaddr", nullable=false, length=512 )
-	protected String requiredSentToEMailAddr;
+	protected $implJavaAtomType$ requiredSentToEMailAddr;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="pwdrstuuid6", nullable=false, length=CFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected CFLibUuid6 requiredPasswordResetUuid6;
+	protected $implJavaAtomType$ requiredPasswordResetUuid6;
 	@Column( name="newacct", nullable=false )
-	protected boolean requiredNewAccount;
+	protected $implJavaAtomType$ requiredNewAccount;
 
 	public CFSecJpaSecUserPWReset() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserPWReset.SECUSERID_INIT_VALUE.toString() );
@@ -149,7 +149,7 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public void setRequiredContainerUser(CFLibDbKeyHash256 argSecUserId) {
+	public void setRequiredContainerUser(ICFLibKeyHash256 argSecUserId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -215,12 +215,12 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecUserId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
 

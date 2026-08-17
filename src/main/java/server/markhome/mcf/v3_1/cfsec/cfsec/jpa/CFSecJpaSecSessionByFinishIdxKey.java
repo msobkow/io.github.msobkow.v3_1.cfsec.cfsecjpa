@@ -43,8 +43,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSessionByFinishIdxKey
 	implements ICFSecSecSessionByFinishIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredSecUserId;
-	protected LocalDateTime optionalFinish;
+	protected $implJavaAtomType$ requiredSecUserId;
+	protected $implJavaAtomType$ optionalFinish;
 	public CFSecJpaSecSessionByFinishIdxKey() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECUSERID_INIT_VALUE.toString() );
 		optionalFinish = null;

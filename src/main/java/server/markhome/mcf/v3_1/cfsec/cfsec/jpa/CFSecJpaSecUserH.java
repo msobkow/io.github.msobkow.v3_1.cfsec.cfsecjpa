@@ -94,17 +94,17 @@ public class CFSecJpaSecUserH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="login_id", nullable=false, length=32 )
-	protected String requiredLoginId;
+	protected $implJavaAtomType$ requiredLoginId;
 	@Column( name="acct_status", nullable=false )
-	protected ICFSecPubSchema.SecAccountStatusEnum requiredAccountStatus;
+	protected $implJavaAtomType$ requiredAccountStatus;
 	@Column( name="dflt_sysgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltSysGrpName;
+	protected $implJavaAtomType$ optionalDfltSysGrpName;
 	@Column( name="dflt_clusgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltClusGrpName;
+	protected $implJavaAtomType$ optionalDfltClusGrpName;
 	@Column( name="dflt_tentgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltTentGrpName;
+	protected $implJavaAtomType$ optionalDfltTentGrpName;
 	@Column( name="email_addr", nullable=false, length=512 )
-	protected String requiredEMailAddress;
+	protected $implJavaAtomType$ requiredEMailAddress;
 
     public CFSecJpaSecUserH() {
             // The primary key member attributes are initialized on construction
@@ -242,12 +242,12 @@ public class CFSecJpaSecUserH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredSecUserId() {
+    public $implJavaAtomType$ getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( CFLibDbKeyHash256 requiredSecUserId ) {
+    public void setRequiredSecUserId( $implJavaAtomType$ requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 

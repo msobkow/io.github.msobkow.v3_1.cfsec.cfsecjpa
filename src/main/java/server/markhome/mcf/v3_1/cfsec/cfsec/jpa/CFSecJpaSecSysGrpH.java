@@ -94,9 +94,9 @@ public class CFSecJpaSecSysGrpH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="sec_level", nullable=false )
-	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
+	protected $implJavaAtomType$ requiredSecLevel;
 
     public CFSecJpaSecSysGrpH() {
             // The primary key member attributes are initialized on construction
@@ -230,12 +230,12 @@ public class CFSecJpaSecSysGrpH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
+    public $implJavaAtomType$ getRequiredSecSysGrpId() {
         return( pkey.getRequiredSecSysGrpId() );
     }
 
     @Override
-    public void setRequiredSecSysGrpId( CFLibDbKeyHash256 requiredSecSysGrpId ) {
+    public void setRequiredSecSysGrpId( $implJavaAtomType$ requiredSecSysGrpId ) {
         pkey.setRequiredSecSysGrpId( requiredSecSysGrpId );
     }
 

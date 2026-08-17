@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 	implements ICFSecSecUserPWResetBySentEMAddrIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredSentToEMailAddr;
+	protected $implJavaAtomType$ requiredSentToEMailAddr;
 	public CFSecJpaSecUserPWResetBySentEMAddrIdxKey() {
 		requiredSentToEMailAddr = ICFSecProtSecUserPWReset.SENTTOEMAILADDR_INIT_VALUE;
 	}

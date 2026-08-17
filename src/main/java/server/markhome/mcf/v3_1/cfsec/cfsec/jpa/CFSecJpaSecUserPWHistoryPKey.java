@@ -52,9 +52,9 @@ public class CFSecJpaSecUserPWHistoryPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecUserId;
+	protected $implJavaAtomType$ requiredSecUserId;
 	@Column( name="PWSetStamp", nullable=false )
-	protected LocalDateTime requiredPWSetStamp;
+	protected $implJavaAtomType$ requiredPWSetStamp;
 
 	public CFSecJpaSecUserPWHistoryPKey() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );

@@ -65,8 +65,8 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentLang.requiredISOLangId = :iSOLangId")
-	CFSecJpaISOCtryLang get(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOLangId") short requiredISOLangId);
+	CFSecJpaISOCtryLang get(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId,
+		@Param("iSOLangId") $implJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	CFSecISOCtryLangPKey based read method for object-based access.
@@ -89,7 +89,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 *		@return List&lt;CFSecJpaISOCtryLang&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
-	List<CFSecJpaISOCtryLang> findByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	List<CFSecJpaISOCtryLang> findByCtryIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	CFSecISOCtryLangByCtryIdxKey entity list reader convenience method for object-based access.
@@ -110,7 +110,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	 *		@return List&lt;CFSecJpaISOCtryLang&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaISOCtryLang r where r.requiredParentLang.requiredISOLangId = :iSOLangId")
-	List<CFSecJpaISOCtryLang> findByLangIdx(@Param("iSOLangId") short requiredISOLangId);
+	List<CFSecJpaISOCtryLang> findByLangIdx(@Param("iSOLangId") $implJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	CFSecISOCtryLangByLangIdxKey entity list reader convenience method for object-based access.
@@ -136,8 +136,8 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentLang.requiredISOLangId = :iSOLangId")
-	CFSecJpaISOCtryLang lockByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOLangId") short requiredISOLangId);
+	CFSecJpaISOCtryLang lockByIdIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId,
+		@Param("iSOLangId") $implJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	CFSecISOCtryLangByIdIdxKey based lock method for object-based access.
@@ -160,7 +160,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
-	List<CFSecJpaISOCtryLang> lockByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	List<CFSecJpaISOCtryLang> lockByCtryIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	CFSecISOCtryLangByCtryIdxKey based lock method for object-based access.
@@ -183,7 +183,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtryLang r where r.requiredParentLang.requiredISOLangId = :iSOLangId")
-	List<CFSecJpaISOCtryLang> lockByLangIdx(@Param("iSOLangId") short requiredISOLangId);
+	List<CFSecJpaISOCtryLang> lockByLangIdx(@Param("iSOLangId") $implJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	CFSecISOCtryLangByLangIdxKey based lock method for object-based access.
@@ -207,8 +207,8 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId and r.requiredParentLang.requiredISOLangId = :iSOLangId")
-	void deleteByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOLangId") short requiredISOLangId);
+	void deleteByIdIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId,
+		@Param("iSOLangId") $implJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	CFSecISOCtryLangByIdIdxKey based lock method for object-based access.
@@ -227,7 +227,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtryLang r where r.requiredContainerCtry.requiredISOCtryId = :iSOCtryId")
-	void deleteByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	void deleteByCtryIdx(@Param("iSOCtryId") $implJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	CFSecISOCtryLangByCtryIdxKey based lock method for object-based access.
@@ -246,7 +246,7 @@ public interface CFSecJpaISOCtryLangRepository extends JpaRepository<CFSecJpaISO
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtryLang r where r.requiredParentLang.requiredISOLangId = :iSOLangId")
-	void deleteByLangIdx(@Param("iSOLangId") short requiredISOLangId);
+	void deleteByLangIdx(@Param("iSOLangId") $implJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	CFSecISOCtryLangByLangIdxKey based lock method for object-based access.

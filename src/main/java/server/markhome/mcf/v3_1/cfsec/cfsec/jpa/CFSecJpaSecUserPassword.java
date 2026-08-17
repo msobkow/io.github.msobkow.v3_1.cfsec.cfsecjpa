@@ -60,7 +60,7 @@ public class CFSecJpaSecUserPassword
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecUserId;
+	protected $implJavaAtomType$ requiredSecUserId;
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -68,9 +68,9 @@ public class CFSecJpaSecUserPassword
 
 
 	@Column( name="PWSetStamp", nullable=false )
-	protected LocalDateTime requiredPWSetStamp;
+	protected $implJavaAtomType$ requiredPWSetStamp;
 	@Column( name="pwd_hash", nullable=false, length=256 )
-	protected String requiredPasswordHash;
+	protected $implJavaAtomType$ requiredPasswordHash;
 
 	public CFSecJpaSecUserPassword() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPassword.SECUSERID_INIT_VALUE.toString() );
@@ -117,7 +117,7 @@ public class CFSecJpaSecUserPassword
 	}
 
 	@Override
-	public void setRequiredContainerUser(CFLibDbKeyHash256 argSecUserId) {
+	public void setRequiredContainerUser(ICFLibKeyHash256 argSecUserId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -131,12 +131,12 @@ public class CFSecJpaSecUserPassword
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecUserId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
 

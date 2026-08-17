@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOCtryLangByLangIdxKey
 	implements ICFSecISOCtryLangByLangIdxKey, Comparable<Object>, Serializable
 {
-	protected short requiredISOLangId;
+	protected $implJavaAtomType$ requiredISOLangId;
 	public CFSecJpaISOCtryLangByLangIdxKey() {
 		requiredISOLangId = ICFSecPubISOCtryLang.ISOLANGID_INIT_VALUE;
 	}

@@ -63,7 +63,7 @@ public class CFSecJpaSecTentRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecTentRoleId;
+	protected $implJavaAtomType$ requiredSecTentRoleId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerRole")
 	protected Set<CFSecJpaSecTentRoleMemb> optionalChildrenMembByRole;
 	protected int requiredRevision;
@@ -103,9 +103,9 @@ public class CFSecJpaSecTentRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 
 	public CFSecJpaSecTentRole() {
 		requiredSecTentRoleId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentRole.SECTENTROLEID_INIT_VALUE.toString() );
@@ -158,7 +158,7 @@ public class CFSecJpaSecTentRole
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(CFLibDbKeyHash256 argTenantId) {
+	public void setRequiredOwnerTenant(ICFLibKeyHash256 argTenantId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
@@ -271,12 +271,12 @@ public class CFSecJpaSecTentRole
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecTentRoleId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecTentRoleId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecTentRoleId) {
 		this.requiredSecTentRoleId = requiredSecTentRoleId;
 	}
 

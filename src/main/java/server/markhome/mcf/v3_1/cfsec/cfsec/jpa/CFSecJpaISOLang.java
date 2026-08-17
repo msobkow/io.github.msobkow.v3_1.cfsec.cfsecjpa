@@ -60,7 +60,7 @@ public class CFSecJpaISOLang
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ISOLangIdGenSeq")
 	@SequenceGenerator(name = "ISOLangIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOLangId", nullable=false )
-	protected short requiredISOLangId;
+	protected $implJavaAtomType$ requiredISOLangId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentLang")
 	protected Set<CFSecJpaISOCtryLang> optionalChildrenCtry;
 	protected int requiredRevision;
@@ -92,11 +92,11 @@ public class CFSecJpaISOLang
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code3", nullable=false, length=3 )
-	protected String requiredISO6392Code;
+	protected $implJavaAtomType$ requiredISO6392Code;
 	@Column( name="iso_code2", nullable=true, length=2 )
-	protected String optionalISO6391Code;
+	protected $implJavaAtomType$ optionalISO6391Code;
 	@Column( name="eng_name", nullable=false, length=64 )
-	protected String requiredEnglishName;
+	protected $implJavaAtomType$ requiredEnglishName;
 
 	public CFSecJpaISOLang() {
 		requiredISOLangId = ICFSecPubISOLang.ISOLANGID_INIT_VALUE;
@@ -169,12 +169,12 @@ public class CFSecJpaISOLang
 	}
 
 	@Override
-	public Short getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredISOLangId();
 	}
 
 	@Override
-	public void setPKey(Short requiredISOLangId) {
+	public void setPKey($implJavaOptAtomType$ requiredISOLangId) {
 		this.requiredISOLangId = requiredISOLangId;
 	}
 

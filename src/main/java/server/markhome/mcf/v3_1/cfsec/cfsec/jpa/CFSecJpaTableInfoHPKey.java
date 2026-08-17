@@ -67,7 +67,7 @@ public class CFSecJpaTableInfoHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="TableInfoId", nullable=false )
-	protected int requiredTableInfoId;
+	protected $implJavaAtomType$ requiredTableInfoId;
 
 	public CFSecJpaTableInfoHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

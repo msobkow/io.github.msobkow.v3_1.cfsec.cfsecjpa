@@ -56,7 +56,7 @@ public class CFSecJpaSysClusterH
 		@AttributeOverride(name="sgltn_id", column = @Column( name="sgltn_id", nullable=false ) )
 	})
     protected CFSecJpaSysClusterHPKey pkey;
-	protected CFLibDbKeyHash256 requiredClusterId;
+	protected $implJavaAtomType$ requiredClusterId;
 
     public CFSecJpaSysClusterH() {
             // The primary key member attributes are initialized on construction
@@ -137,12 +137,12 @@ public class CFSecJpaSysClusterH
     }
 
     @Override
-    public int getRequiredSingletonId() {
+    public $implJavaAtomType$ getRequiredSingletonId() {
         return( pkey.getRequiredSingletonId() );
     }
 
     @Override
-    public void setRequiredSingletonId( int requiredSingletonId ) {
+    public void setRequiredSingletonId( $implJavaAtomType$ requiredSingletonId ) {
         pkey.setRequiredSingletonId( requiredSingletonId );
     }
 

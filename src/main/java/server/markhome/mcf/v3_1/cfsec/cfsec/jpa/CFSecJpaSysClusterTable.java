@@ -290,7 +290,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public void deleteSysClusterByClusterIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId )
+		$implJavaAtomType$ argClusterId )
 	{
 		final String S_ProcName = "deleteSysClusterByClusterIdx";
 		boolean permissionGranted = canDeleteSysCluster(S_ProcName, Authorization);
@@ -407,7 +407,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public ICFSecSysCluster readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		int argSingletonId )
+		$implJavaAtomType$ argSingletonId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -432,7 +432,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public ICFSecSysCluster[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId )
+		$implJavaAtomType$ argClusterId )
 	{
 		final String S_ProcName = "readDerivedByClusterIdx";
 		boolean permissionGranted = false;
@@ -534,7 +534,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public ICFSecSysCluster readRecByIdIdx( ICFSecAuthorization Authorization,
-		int argSingletonId )
+		$implJavaAtomType$ argSingletonId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -560,7 +560,7 @@ public class CFSecJpaSysClusterTable implements ICFSecSysClusterTable
 	 */
 	@Override
 	public ICFSecSysCluster[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId )
+		$implJavaAtomType$ argClusterId )
 	{
 		final String S_ProcName = "readRecByClusterIdx";
 		boolean permissionGranted = false;

@@ -67,7 +67,7 @@ public class CFSecJpaISOCcyHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="ISOCcyId", nullable=false )
-	protected short requiredISOCcyId;
+	protected $implJavaAtomType$ requiredISOCcyId;
 
 	public CFSecJpaISOCcyHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

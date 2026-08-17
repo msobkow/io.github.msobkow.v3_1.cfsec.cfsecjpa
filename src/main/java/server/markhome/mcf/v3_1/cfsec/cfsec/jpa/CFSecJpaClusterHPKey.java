@@ -69,7 +69,7 @@ public class CFSecJpaClusterHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredId;
+	protected $implJavaAtomType$ requiredId;
 
 	public CFSecJpaClusterHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

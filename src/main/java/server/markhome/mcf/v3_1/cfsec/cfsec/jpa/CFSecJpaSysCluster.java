@@ -58,7 +58,7 @@ public class CFSecJpaSysCluster
 {
 	@Id
 	@Column( name="sgltn_id", nullable=false )
-	protected int requiredSingletonId;
+	protected $implJavaAtomType$ requiredSingletonId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -68,7 +68,7 @@ public class CFSecJpaSysCluster
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="sys_clus_id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredClusterId;
+	protected $implJavaAtomType$ requiredClusterId;
 
 	public CFSecJpaSysCluster() {
 		requiredSingletonId = ICFSecPubSysCluster.SINGLETONID_INIT_VALUE;
@@ -114,7 +114,7 @@ public class CFSecJpaSysCluster
 	}
 
 	@Override
-	public void setRequiredContainerCluster(CFLibDbKeyHash256 argClusterId) {
+	public void setRequiredContainerCluster(ICFLibKeyHash256 argClusterId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCluster", 0, "ICFSecSchema.getBackingCFSec()");
@@ -128,12 +128,12 @@ public class CFSecJpaSysCluster
 	}
 
 	@Override
-	public Integer getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSingletonId();
 	}
 
 	@Override
-	public void setPKey(Integer requiredSingletonId) {
+	public void setPKey($implJavaOptAtomType$ requiredSingletonId) {
 		this.requiredSingletonId = requiredSingletonId;
 	}
 

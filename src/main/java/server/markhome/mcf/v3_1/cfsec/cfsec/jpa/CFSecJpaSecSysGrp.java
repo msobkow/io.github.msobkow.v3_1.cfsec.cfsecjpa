@@ -60,7 +60,7 @@ public class CFSecJpaSecSysGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecSysGrpId;
+	protected $implJavaAtomType$ requiredSecSysGrpId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecSysGrpInc> optionalComponentsIncByGrp;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
@@ -109,9 +109,9 @@ public class CFSecJpaSecSysGrp
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	@Column( name="sec_level", nullable=false )
-	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
+	protected $implJavaAtomType$ requiredSecLevel;
 
 	public CFSecJpaSecSysGrp() {
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSysGrp.SECSYSGRPID_INIT_VALUE.toString() );
@@ -230,12 +230,12 @@ public class CFSecJpaSecSysGrp
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecSysGrpId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecSysGrpId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecSysGrpId) {
 		this.requiredSecSysGrpId = requiredSecSysGrpId;
 	}
 

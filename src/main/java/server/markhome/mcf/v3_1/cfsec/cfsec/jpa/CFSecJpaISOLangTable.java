@@ -295,7 +295,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public void deleteISOLangByCode3Idx( ICFSecAuthorization Authorization,
-		String argISO6392Code )
+		$implJavaAtomType$ argISO6392Code )
 	{
 		final String S_ProcName = "deleteISOLangByCode3Idx";
 		boolean permissionGranted = canDeleteISOLang(S_ProcName, Authorization);
@@ -336,7 +336,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public void deleteISOLangByCode2Idx( ICFSecAuthorization Authorization,
-		String argISO6391Code )
+		$implJavaAtomType$ argISO6391Code )
 	{
 		final String S_ProcName = "deleteISOLangByCode2Idx";
 		boolean permissionGranted = canDeleteISOLang(S_ProcName, Authorization);
@@ -453,7 +453,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public ICFSecISOLang readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		short argISOLangId )
+		$implJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -479,7 +479,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public ICFSecISOLang readDerivedByCode3Idx( ICFSecAuthorization Authorization,
-		String argISO6392Code )
+		$implJavaAtomType$ argISO6392Code )
 	{
 		final String S_ProcName = "readDerivedByCode3Idx";
 		boolean permissionGranted = false;
@@ -504,7 +504,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public ICFSecISOLang[] readDerivedByCode2Idx( ICFSecAuthorization Authorization,
-		String argISO6391Code )
+		$implJavaAtomType$ argISO6391Code )
 	{
 		final String S_ProcName = "readDerivedByCode2Idx";
 		boolean permissionGranted = false;
@@ -606,7 +606,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public ICFSecISOLang readRecByIdIdx( ICFSecAuthorization Authorization,
-		short argISOLangId )
+		$implJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -633,7 +633,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public ICFSecISOLang readRecByCode3Idx( ICFSecAuthorization Authorization,
-		String argISO6392Code )
+		$implJavaAtomType$ argISO6392Code )
 	{
 		final String S_ProcName = "readRecByCode3Idx";
 		boolean permissionGranted = false;
@@ -659,7 +659,7 @@ public class CFSecJpaISOLangTable implements ICFSecISOLangTable
 	 */
 	@Override
 	public ICFSecISOLang[] readRecByCode2Idx( ICFSecAuthorization Authorization,
-		String argISO6391Code )
+		$implJavaAtomType$ argISO6391Code )
 	{
 		final String S_ProcName = "readRecByCode2Idx";
 		boolean permissionGranted = false;

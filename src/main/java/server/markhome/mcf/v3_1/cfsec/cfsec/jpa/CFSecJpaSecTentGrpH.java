@@ -97,9 +97,9 @@ public class CFSecJpaSecTentGrpH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 
     public CFSecJpaSecTentGrpH() {
             // The primary key member attributes are initialized on construction
@@ -233,12 +233,12 @@ public class CFSecJpaSecTentGrpH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
+    public $implJavaAtomType$ getRequiredSecTentGrpId() {
         return( pkey.getRequiredSecTentGrpId() );
     }
 
     @Override
-    public void setRequiredSecTentGrpId( CFLibDbKeyHash256 requiredSecTentGrpId ) {
+    public void setRequiredSecTentGrpId( $implJavaAtomType$ requiredSecTentGrpId ) {
         pkey.setRequiredSecTentGrpId( requiredSecTentGrpId );
     }
 

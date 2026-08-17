@@ -64,7 +64,7 @@ public class CFSecJpaSecSession
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecSessionId;
+	protected $implJavaAtomType$ requiredSecSessionId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -77,15 +77,15 @@ public class CFSecJpaSecSession
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecUserId;
+	protected $implJavaAtomType$ requiredSecUserId;
 	@Column( name="start_ts", nullable=false )
-	protected LocalDateTime requiredStart;
+	protected $implJavaAtomType$ requiredStart;
 	@Column( name="finish_ts", nullable=true )
-	protected LocalDateTime optionalFinish;
+	protected $implJavaAtomType$ optionalFinish;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecProxyId", nullable=true, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 optionalSecProxyId;
+	protected $implJavaAtomType$ optionalSecProxyId;
 
 	public CFSecJpaSecSession() {
 		requiredSecSessionId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECSESSIONID_INIT_VALUE.toString() );
@@ -134,7 +134,7 @@ public class CFSecJpaSecSession
 	}
 
 	@Override
-	public void setRequiredContainerSecUser(CFLibDbKeyHash256 argSecUserId) {
+	public void setRequiredContainerSecUser(ICFLibKeyHash256 argSecUserId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSecUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -182,7 +182,7 @@ public class CFSecJpaSecSession
 	}
 
 	@Override
-	public void setRequiredParentSecProxy(CFLibDbKeyHash256 argSecProxyId) {
+	public void setRequiredParentSecProxy(ICFLibKeyHash256 argSecProxyId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentSecProxy", 0, "ICFSecSchema.getBackingCFSec()");
@@ -196,12 +196,12 @@ public class CFSecJpaSecSession
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecSessionId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecSessionId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecSessionId) {
 		this.requiredSecSessionId = requiredSecSessionId;
 	}
 

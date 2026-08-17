@@ -43,8 +43,8 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 	implements ICFSecTableInfoBySchemaBkCodeIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredSchemaName;
-	protected int requiredBackingClassCode;
+	protected $implJavaAtomType$ requiredSchemaName;
+	protected $implJavaAtomType$ requiredBackingClassCode;
 	public CFSecJpaTableInfoBySchemaBkCodeIdxKey() {
 		requiredSchemaName = ICFSecPubTableInfo.SCHEMANAME_INIT_VALUE;
 		requiredBackingClassCode = ICFSecPubTableInfo.BACKINGCLASSCODE_INIT_VALUE;

@@ -139,7 +139,7 @@ public class CFSecJpaSecTentGrpMemb
 	}
 
 	@Override
-	public void setRequiredContainerGroup(CFLibDbKeyHash256 argSecTentGrpId) {
+	public void setRequiredContainerGroup(ICFLibKeyHash256 argSecTentGrpId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerGroup", 0, "ICFSecSchema.getBackingCFSec()");
@@ -269,22 +269,22 @@ public class CFSecJpaSecTentGrpMemb
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecTentGrpId() {
+	public $implJavaAtomType$ getRequiredSecTentGrpId() {
 		return( pkey.getRequiredSecTentGrpId() );
 	}
 
 	@Override
-	public void setRequiredSecTentGrpId( CFLibDbKeyHash256 requiredSecTentGrpId ) {
+	public void setRequiredSecTentGrpId( $implJavaAtomType$ requiredSecTentGrpId ) {
 		pkey.setRequiredSecTentGrpId( requiredSecTentGrpId );
 	}
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implJavaAtomType$ getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
 	}
 
 	@Override
-	public void setRequiredLoginId( String requiredLoginId ) {
+	public void setRequiredLoginId( $implJavaAtomType$ requiredLoginId ) {
 		pkey.setRequiredLoginId( requiredLoginId );
 	}
 

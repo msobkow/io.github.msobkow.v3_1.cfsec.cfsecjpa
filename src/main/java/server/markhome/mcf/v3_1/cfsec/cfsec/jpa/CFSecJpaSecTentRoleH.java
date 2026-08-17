@@ -97,9 +97,9 @@ public class CFSecJpaSecTentRoleH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredTenantId;
+	protected $implJavaAtomType$ requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 
     public CFSecJpaSecTentRoleH() {
             // The primary key member attributes are initialized on construction
@@ -233,12 +233,12 @@ public class CFSecJpaSecTentRoleH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredSecTentRoleId() {
+    public $implJavaAtomType$ getRequiredSecTentRoleId() {
         return( pkey.getRequiredSecTentRoleId() );
     }
 
     @Override
-    public void setRequiredSecTentRoleId( CFLibDbKeyHash256 requiredSecTentRoleId ) {
+    public void setRequiredSecTentRoleId( $implJavaAtomType$ requiredSecTentRoleId ) {
         pkey.setRequiredSecTentRoleId( requiredSecTentRoleId );
     }
 

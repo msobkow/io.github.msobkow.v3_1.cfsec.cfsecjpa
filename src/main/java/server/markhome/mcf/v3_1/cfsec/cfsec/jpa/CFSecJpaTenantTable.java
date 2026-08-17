@@ -276,7 +276,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public void deleteTenantByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argKey )
+		ICFLibKeyHash256 argKey )
 	{
 		final String S_ProcName = "deleteTenantByIdIdx";
 		boolean permissionGranted = canDeleteTenant(S_ProcName, Authorization);
@@ -296,7 +296,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public void deleteTenantByClusterIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId )
+		$implJavaAtomType$ argClusterId )
 	{
 		final String S_ProcName = "deleteTenantByClusterIdx";
 		boolean permissionGranted = canDeleteTenant(S_ProcName, Authorization);
@@ -339,8 +339,8 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public void deleteTenantByUNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId,
-		String argTenantName )
+		$implJavaAtomType$ argClusterId,
+		$implJavaAtomType$ argTenantName )
 	{
 		final String S_ProcName = "deleteTenantByUNameIdx";
 		boolean permissionGranted = canDeleteTenant(S_ProcName, Authorization);
@@ -387,7 +387,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadTenant(S_ProcName, Authorization);
@@ -411,7 +411,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant lockDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateTenant(S_ProcName, Authorization);
@@ -459,7 +459,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -484,7 +484,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant[] readDerivedByClusterIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId )
+		$implJavaAtomType$ argClusterId )
 	{
 		final String S_ProcName = "readDerivedByClusterIdx";
 		boolean permissionGranted = false;
@@ -517,8 +517,8 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId,
-		String argTenantName )
+		$implJavaAtomType$ argClusterId,
+		$implJavaAtomType$ argTenantName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -550,7 +550,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadTenant(S_ProcName, Authorization);
@@ -575,7 +575,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant lockRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateTenant(S_ProcName, Authorization);
@@ -614,7 +614,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant[] pageAllRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 priorId )
+		$implJavaOptAtomType$ priorId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadTenant(S_ProcName, Authorization);
@@ -639,7 +639,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readRecByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argId )
+		$implJavaAtomType$ argId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -665,7 +665,7 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant[] readRecByClusterIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId )
+		$implJavaAtomType$ argClusterId )
 	{
 		final String S_ProcName = "readRecByClusterIdx";
 		boolean permissionGranted = false;
@@ -694,8 +694,8 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant readRecByUNameIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId,
-		String argTenantName )
+		$implJavaAtomType$ argClusterId,
+		$implJavaAtomType$ argTenantName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;
@@ -724,8 +724,8 @@ public class CFSecJpaTenantTable implements ICFSecTenantTable
 	 */
 	@Override
 	public ICFSecTenant[] pageRecByClusterIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argClusterId,
-		CFLibDbKeyHash256 priorId )
+		$implJavaAtomType$ argClusterId,
+		$implJavaOptAtomType$ priorId )
 	{
 		final String S_ProcName = "pageRecByClusterIdx";
 		boolean permissionGranted = false;

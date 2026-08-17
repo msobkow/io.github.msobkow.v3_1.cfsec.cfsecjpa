@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserByEMAddrIdxKey
 	implements ICFSecSecUserByEMAddrIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredEMailAddress;
+	protected $implJavaAtomType$ requiredEMailAddress;
 	public CFSecJpaSecUserByEMAddrIdxKey() {
 		requiredEMailAddress = ICFSecProtSecUser.EMAILADDRESS_INIT_VALUE;
 	}

@@ -50,9 +50,9 @@ public class CFSecJpaISOCtryCcyPKey
 	implements ICFSecISOCtryCcyPKey, Comparable<ICFSecISOCtryCcyPKey>, Serializable
 {
 	@Column( name="ISOCtryId", nullable=false )
-	protected short requiredISOCtryId;
+	protected $implJavaAtomType$ requiredISOCtryId;
 	@Column( name="ISOCcyId", nullable=false )
-	protected short requiredISOCcyId;
+	protected $implJavaAtomType$ requiredISOCcyId;
 
 	public CFSecJpaISOCtryCcyPKey() {
 		requiredISOCtryId = ICFSecPubISOCtryCcy.ISOCTRYID_INIT_VALUE;

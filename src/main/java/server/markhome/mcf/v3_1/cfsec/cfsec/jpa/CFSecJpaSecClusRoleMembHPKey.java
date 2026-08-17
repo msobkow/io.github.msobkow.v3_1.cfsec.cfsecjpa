@@ -70,9 +70,9 @@ public class CFSecJpaSecClusRoleMembHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecClusRoleId;
+	protected $implJavaAtomType$ requiredSecClusRoleId;
 	@Column( name="login_id", nullable=false, length=32 )
-	protected String requiredLoginId;
+	protected $implJavaAtomType$ requiredLoginId;
 
 	public CFSecJpaSecClusRoleMembHPKey() {
 		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;

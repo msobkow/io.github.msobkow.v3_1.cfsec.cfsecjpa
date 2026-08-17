@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecTentGrpMembByTentGrpIdxKey
 	implements ICFSecSecTentGrpMembByTentGrpIdxKey, Comparable<Object>, Serializable
 {
-	protected CFLibDbKeyHash256 requiredSecTentGrpId;
+	protected $implJavaAtomType$ requiredSecTentGrpId;
 	public CFSecJpaSecTentGrpMembByTentGrpIdxKey() {
 		requiredSecTentGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecTentGrpMemb.SECTENTGRPID_INIT_VALUE.toString() );
 	}

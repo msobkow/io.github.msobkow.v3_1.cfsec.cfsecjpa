@@ -68,9 +68,9 @@ public class CFSecJpaSecUserPWHistory
 
 
 	@Column( name="PWReplacedStamp", nullable=false )
-	protected LocalDateTime requiredPWReplacedStamp;
+	protected $implJavaAtomType$ requiredPWReplacedStamp;
 	@Column( name="pwd_hash", nullable=false, length=256 )
-	protected String requiredPasswordHash;
+	protected $implJavaAtomType$ requiredPasswordHash;
 
 	public CFSecJpaSecUserPWHistory() {
 		pkey = new CFSecJpaSecUserPWHistoryPKey();
@@ -99,22 +99,22 @@ public class CFSecJpaSecUserPWHistory
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecUserId() {
+	public $implJavaAtomType$ getRequiredSecUserId() {
 		return( pkey.getRequiredSecUserId() );
 	}
 
 	@Override
-	public void setRequiredSecUserId( CFLibDbKeyHash256 requiredSecUserId ) {
+	public void setRequiredSecUserId( $implJavaAtomType$ requiredSecUserId ) {
 		pkey.setRequiredSecUserId( requiredSecUserId );
 	}
 
 	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
+	public $implJavaAtomType$ getRequiredPWSetStamp() {
 		return( pkey.getRequiredPWSetStamp() );
 	}
 
 	@Override
-	public void setRequiredPWSetStamp( LocalDateTime requiredPWSetStamp ) {
+	public void setRequiredPWSetStamp( $implJavaAtomType$ requiredPWSetStamp ) {
 		pkey.setRequiredPWSetStamp( requiredPWSetStamp );
 	}
 

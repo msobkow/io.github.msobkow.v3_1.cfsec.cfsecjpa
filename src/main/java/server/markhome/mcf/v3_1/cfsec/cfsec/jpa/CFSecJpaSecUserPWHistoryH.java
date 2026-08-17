@@ -57,8 +57,8 @@ public class CFSecJpaSecUserPWHistoryH
 		@AttributeOverride(name="PWSetStamp", column = @Column( name="PWSetStamp", nullable=false ) )
 	})
     protected CFSecJpaSecUserPWHistoryHPKey pkey;
-	protected LocalDateTime requiredPWReplacedStamp;
-	protected String requiredPasswordHash;
+	protected $implJavaAtomType$ requiredPWReplacedStamp;
+	protected $implJavaAtomType$ requiredPasswordHash;
 
     public CFSecJpaSecUserPWHistoryH() {
             // The primary key member attributes are initialized on construction
@@ -139,22 +139,22 @@ public class CFSecJpaSecUserPWHistoryH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredSecUserId() {
+    public $implJavaAtomType$ getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( CFLibDbKeyHash256 requiredSecUserId ) {
+    public void setRequiredSecUserId( $implJavaAtomType$ requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 
     @Override
-    public LocalDateTime getRequiredPWSetStamp() {
+    public $implJavaAtomType$ getRequiredPWSetStamp() {
         return( pkey.getRequiredPWSetStamp() );
     }
 
     @Override
-    public void setRequiredPWSetStamp( LocalDateTime requiredPWSetStamp ) {
+    public void setRequiredPWSetStamp( $implJavaAtomType$ requiredPWSetStamp ) {
         pkey.setRequiredPWSetStamp( requiredPWSetStamp );
     }
 

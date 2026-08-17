@@ -278,8 +278,8 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public void deleteSecSysRoleEnablesByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId,
-		String argEnableName )
+		$implJavaAtomType$ argSecSysRoleId,
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "deleteSecSysRoleEnablesByIdIdx";
 		boolean permissionGranted = canDeleteSecSysRoleEnables(S_ProcName, Authorization);
@@ -321,7 +321,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public void deleteSecSysRoleEnablesBySysRoleIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId )
+		$implJavaAtomType$ argSecSysRoleId )
 	{
 		final String S_ProcName = "deleteSecSysRoleEnablesBySysRoleIdx";
 		boolean permissionGranted = canDeleteSecSysRoleEnables(S_ProcName, Authorization);
@@ -362,7 +362,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public void deleteSecSysRoleEnablesByNameIdx( ICFSecAuthorization Authorization,
-		String argEnableName )
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "deleteSecSysRoleEnablesByNameIdx";
 		boolean permissionGranted = canDeleteSecSysRoleEnables(S_ProcName, Authorization);
@@ -429,8 +429,8 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables readDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId,
-		String argEnableName )
+		$implJavaAtomType$ argSecSysRoleId,
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecSysRoleEnables(S_ProcName, Authorization);
@@ -505,8 +505,8 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId,
-		String argEnableName )
+		$implJavaAtomType$ argSecSysRoleId,
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -532,7 +532,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables[] readDerivedBySysRoleIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId )
+		$implJavaAtomType$ argSecSysRoleId )
 	{
 		final String S_ProcName = "readDerivedBySysRoleIdx";
 		boolean permissionGranted = false;
@@ -562,7 +562,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables[] readDerivedByNameIdx( ICFSecAuthorization Authorization,
-		String argEnableName )
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "readDerivedByNameIdx";
 		boolean permissionGranted = false;
@@ -620,8 +620,8 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables readRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId,
-		String argEnableName )
+		$implJavaAtomType$ argSecSysRoleId,
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecSysRoleEnables(S_ProcName, Authorization);
@@ -685,8 +685,8 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables[] pageAllRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 priorSecSysRoleId,
-		String priorEnableName )
+		$implJavaOptAtomType$ priorSecSysRoleId,
+		$implJavaOptAtomType$ priorEnableName )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecSysRoleEnables(S_ProcName, Authorization);
@@ -713,8 +713,8 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables readRecByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId,
-		String argEnableName )
+		$implJavaAtomType$ argSecSysRoleId,
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -740,7 +740,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables[] readRecBySysRoleIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId )
+		$implJavaAtomType$ argSecSysRoleId )
 	{
 		final String S_ProcName = "readRecBySysRoleIdx";
 		boolean permissionGranted = false;
@@ -766,7 +766,7 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables[] readRecByNameIdx( ICFSecAuthorization Authorization,
-		String argEnableName )
+		$implJavaAtomType$ argEnableName )
 	{
 		final String S_ProcName = "readRecByNameIdx";
 		boolean permissionGranted = false;
@@ -792,9 +792,9 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables[] pageRecBySysRoleIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecSysRoleId,
-		CFLibDbKeyHash256 priorSecSysRoleId,
-		String priorEnableName )
+		$implJavaAtomType$ argSecSysRoleId,
+		$implJavaOptAtomType$ priorSecSysRoleId,
+		$implJavaOptAtomType$ priorEnableName )
 	{
 		final String S_ProcName = "pageRecBySysRoleIdx";
 		boolean permissionGranted = false;
@@ -820,9 +820,9 @@ public class CFSecJpaSecSysRoleEnablesTable implements ICFSecSecSysRoleEnablesTa
 	 */
 	@Override
 	public ICFSecSecSysRoleEnables[] pageRecByNameIdx( ICFSecAuthorization Authorization,
-		String argEnableName,
-		CFLibDbKeyHash256 priorSecSysRoleId,
-		String priorEnableName )
+		$implJavaAtomType$ argEnableName,
+		$implJavaOptAtomType$ priorSecSysRoleId,
+		$implJavaOptAtomType$ priorEnableName )
 	{
 		final String S_ProcName = "pageRecByNameIdx";
 		boolean permissionGranted = false;

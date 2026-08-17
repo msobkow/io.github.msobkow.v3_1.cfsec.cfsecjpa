@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTableInfoBySuperNameIdxKey
 	implements ICFSecTableInfoBySuperNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String optionalSuperName;
+	protected $implJavaAtomType$ optionalSuperName;
 	public CFSecJpaTableInfoBySuperNameIdxKey() {
 		optionalSuperName = null;
 	}

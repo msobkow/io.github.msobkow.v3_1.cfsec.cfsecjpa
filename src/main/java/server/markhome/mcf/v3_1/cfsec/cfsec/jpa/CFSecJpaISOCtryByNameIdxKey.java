@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOCtryByNameIdxKey
 	implements ICFSecISOCtryByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 	public CFSecJpaISOCtryByNameIdxKey() {
 		requiredName = ICFSecPubISOCtry.NAME_INIT_VALUE;
 	}

@@ -59,7 +59,7 @@ public class CFSecJpaSecSysRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecSysRoleId;
+	protected $implJavaAtomType$ requiredSecSysRoleId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
 	protected Set<CFSecJpaSecSysRoleEnables> optionalComponentsEnabledByRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
@@ -93,7 +93,7 @@ public class CFSecJpaSecSysRole
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 
 	public CFSecJpaSecSysRole() {
 		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSysRole.SECSYSROLEID_INIT_VALUE.toString() );
@@ -170,12 +170,12 @@ public class CFSecJpaSecSysRole
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecSysRoleId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecSysRoleId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecSysRoleId) {
 		this.requiredSecSysRoleId = requiredSecSysRoleId;
 	}
 

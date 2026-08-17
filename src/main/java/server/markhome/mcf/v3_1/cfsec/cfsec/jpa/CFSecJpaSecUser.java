@@ -120,7 +120,7 @@ public class CFSecJpaSecUser
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecUserId;
+	protected $implJavaAtomType$ requiredSecUserId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSecUser")
 	protected Set<CFSecJpaSecSession> optionalComponentsSecSess;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredParentSecProxy")
@@ -175,17 +175,17 @@ public class CFSecJpaSecUser
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="login_id", nullable=false, length=32 )
-	protected String requiredLoginId;
+	protected $implJavaAtomType$ requiredLoginId;
 	@Column( name="acct_status", nullable=false )
-	protected ICFSecPubSchema.SecAccountStatusEnum requiredAccountStatus;
+	protected $implJavaAtomType$ requiredAccountStatus;
 	@Column( name="dflt_sysgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltSysGrpName;
+	protected $implJavaAtomType$ optionalDfltSysGrpName;
 	@Column( name="dflt_clusgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltClusGrpName;
+	protected $implJavaAtomType$ optionalDfltClusGrpName;
 	@Column( name="dflt_tentgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltTentGrpName;
+	protected $implJavaAtomType$ optionalDfltTentGrpName;
 	@Column( name="email_addr", nullable=false, length=512 )
-	protected String requiredEMailAddress;
+	protected $implJavaAtomType$ requiredEMailAddress;
 
 	public CFSecJpaSecUser() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecUser.SECUSERID_INIT_VALUE.toString() );
@@ -305,12 +305,12 @@ public class CFSecJpaSecUser
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecUserId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecUserId) {
 		this.requiredSecUserId = requiredSecUserId;
 	}
 

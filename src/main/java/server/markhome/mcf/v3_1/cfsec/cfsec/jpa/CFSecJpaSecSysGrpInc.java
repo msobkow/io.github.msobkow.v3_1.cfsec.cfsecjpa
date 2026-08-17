@@ -144,7 +144,7 @@ public class CFSecJpaSecSysGrpInc
 	}
 
 	@Override
-	public void setRequiredContainerGroup(CFLibDbKeyHash256 argSecSysGrpId) {
+	public void setRequiredContainerGroup(ICFLibKeyHash256 argSecSysGrpId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerGroup", 0, "ICFSecSchema.getBackingCFSec()");
@@ -274,22 +274,22 @@ public class CFSecJpaSecSysGrpInc
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
+	public $implJavaAtomType$ getRequiredSecSysGrpId() {
 		return( pkey.getRequiredSecSysGrpId() );
 	}
 
 	@Override
-	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 requiredSecSysGrpId ) {
+	public void setRequiredSecSysGrpId( $implJavaAtomType$ requiredSecSysGrpId ) {
 		pkey.setRequiredSecSysGrpId( requiredSecSysGrpId );
 	}
 
 	@Override
-	public String getRequiredInclName() {
+	public $implJavaAtomType$ getRequiredInclName() {
 		return( pkey.getRequiredInclName() );
 	}
 
 	@Override
-	public void setRequiredInclName( String requiredInclName ) {
+	public void setRequiredInclName( $implJavaAtomType$ requiredInclName ) {
 		pkey.setRequiredInclName( requiredInclName );
 	}
 

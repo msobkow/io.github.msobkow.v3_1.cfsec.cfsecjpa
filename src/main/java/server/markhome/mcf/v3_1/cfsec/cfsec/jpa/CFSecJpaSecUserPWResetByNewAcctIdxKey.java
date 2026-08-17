@@ -43,7 +43,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWResetByNewAcctIdxKey
 	implements ICFSecSecUserPWResetByNewAcctIdxKey, Comparable<Object>, Serializable
 {
-	protected boolean requiredNewAccount;
+	protected $implJavaAtomType$ requiredNewAccount;
 	public CFSecJpaSecUserPWResetByNewAcctIdxKey() {
 		requiredNewAccount = ICFSecProtSecUserPWReset.NEWACCOUNT_INIT_VALUE;
 	}

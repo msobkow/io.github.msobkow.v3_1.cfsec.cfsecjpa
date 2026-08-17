@@ -63,7 +63,7 @@ public class CFSecJpaSecUserEMConf
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected CFLibDbKeyHash256 requiredSecUserId;
+	protected $implJavaAtomType$ requiredSecUserId;
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -96,15 +96,15 @@ public class CFSecJpaSecUserEMConf
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="conf_emailaddr", nullable=false, length=512 )
-	protected String requiredConfirmEMailAddr;
+	protected $implJavaAtomType$ requiredConfirmEMailAddr;
 	@Column( name="conf_sent", nullable=false )
-	protected LocalDateTime requiredEMailSentStamp;
+	protected $implJavaAtomType$ requiredEMailSentStamp;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="conf_uuid6", nullable=false, length=CFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected CFLibUuid6 requiredEMConfirmationUuid6;
+	protected $implJavaAtomType$ requiredEMConfirmationUuid6;
 	@Column( name="conf_newacct", nullable=false )
-	protected boolean requiredNewAccount;
+	protected $implJavaAtomType$ requiredNewAccount;
 
 	public CFSecJpaSecUserEMConf() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserEMConf.SECUSERID_INIT_VALUE.toString() );
@@ -153,7 +153,7 @@ public class CFSecJpaSecUserEMConf
 	}
 
 	@Override
-	public void setRequiredContainerUser(CFLibDbKeyHash256 argSecUserId) {
+	public void setRequiredContainerUser(ICFLibKeyHash256 argSecUserId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -219,12 +219,12 @@ public class CFSecJpaSecUserEMConf
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getPKey() {
+	public $implJavaOptAtomType$ getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey(CFLibDbKeyHash256 requiredSecUserId) {
+	public void setPKey($implJavaOptAtomType$ requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
 

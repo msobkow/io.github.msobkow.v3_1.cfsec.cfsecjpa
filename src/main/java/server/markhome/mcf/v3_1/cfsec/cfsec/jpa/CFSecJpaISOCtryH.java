@@ -94,9 +94,9 @@ public class CFSecJpaISOCtryH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code", nullable=false, length=2 )
-	protected String requiredISOCode;
+	protected $implJavaAtomType$ requiredISOCode;
 	@Column( name="country_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implJavaAtomType$ requiredName;
 
     public CFSecJpaISOCtryH() {
             // The primary key member attributes are initialized on construction
@@ -230,12 +230,12 @@ public class CFSecJpaISOCtryH
     }
 
     @Override
-    public short getRequiredISOCtryId() {
+    public $implJavaAtomType$ getRequiredISOCtryId() {
         return( pkey.getRequiredISOCtryId() );
     }
 
     @Override
-    public void setRequiredISOCtryId( short requiredISOCtryId ) {
+    public void setRequiredISOCtryId( $implJavaAtomType$ requiredISOCtryId ) {
         pkey.setRequiredISOCtryId( requiredISOCtryId );
     }
 

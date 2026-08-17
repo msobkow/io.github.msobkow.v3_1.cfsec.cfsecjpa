@@ -57,7 +57,7 @@ public class CFSecJpaSysClusterHPKey
 
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	protected int requiredSingletonId;
+	protected $implJavaAtomType$ requiredSingletonId;
 
 	public CFSecJpaSysClusterHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;

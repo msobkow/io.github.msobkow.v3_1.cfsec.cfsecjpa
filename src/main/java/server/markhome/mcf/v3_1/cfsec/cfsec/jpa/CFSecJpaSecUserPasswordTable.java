@@ -270,7 +270,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public void deleteSecUserPasswordByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argKey )
+		ICFLibKeyHash256 argKey )
 	{
 		final String S_ProcName = "deleteSecUserPasswordByIdIdx";
 		boolean permissionGranted = canDeleteSecUserPassword(S_ProcName, Authorization);
@@ -290,7 +290,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public void deleteSecUserPasswordBySetStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWSetStamp )
+		$implJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "deleteSecUserPasswordBySetStampIdx";
 		boolean permissionGranted = canDeleteSecUserPassword(S_ProcName, Authorization);
@@ -335,7 +335,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword readDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecUserPassword(S_ProcName, Authorization);
@@ -359,7 +359,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword lockDerived( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecUserPassword(S_ProcName, Authorization);
@@ -407,7 +407,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecUserId )
+		$implJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -432,7 +432,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword[] readDerivedBySetStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWSetStamp )
+		$implJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readDerivedBySetStampIdx";
 		boolean permissionGranted = false;
@@ -465,7 +465,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword readRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecUserPassword(S_ProcName, Authorization);
@@ -490,7 +490,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword lockRec( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 PKey )
+		ICFLibKeyHash256 PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecUserPassword(S_ProcName, Authorization);
@@ -534,7 +534,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword readRecByIdIdx( ICFSecAuthorization Authorization,
-		CFLibDbKeyHash256 argSecUserId )
+		$implJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -560,7 +560,7 @@ public class CFSecJpaSecUserPasswordTable implements ICFSecSecUserPasswordTable
 	 */
 	@Override
 	public ICFSecSecUserPassword[] readRecBySetStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWSetStamp )
+		$implJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readRecBySetStampIdx";
 		boolean permissionGranted = false;

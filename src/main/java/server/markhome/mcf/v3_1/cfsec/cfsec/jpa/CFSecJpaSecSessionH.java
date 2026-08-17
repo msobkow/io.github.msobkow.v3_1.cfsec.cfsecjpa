@@ -56,10 +56,10 @@ public class CFSecJpaSecSessionH
 		@AttributeOverride(name="SecSessionId", column = @Column( name="SecSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     protected CFSecJpaSecSessionHPKey pkey;
-	protected CFLibDbKeyHash256 requiredSecUserId;
-	protected LocalDateTime requiredStart;
-	protected LocalDateTime optionalFinish;
-	protected CFLibDbKeyHash256 optionalSecProxyId;
+	protected $implJavaAtomType$ requiredSecUserId;
+	protected $implJavaAtomType$ requiredStart;
+	protected $implJavaAtomType$ optionalFinish;
+	protected $implJavaAtomType$ optionalSecProxyId;
 
     public CFSecJpaSecSessionH() {
             // The primary key member attributes are initialized on construction
@@ -143,12 +143,12 @@ public class CFSecJpaSecSessionH
     }
 
     @Override
-    public CFLibDbKeyHash256 getRequiredSecSessionId() {
+    public $implJavaAtomType$ getRequiredSecSessionId() {
         return( pkey.getRequiredSecSessionId() );
     }
 
     @Override
-    public void setRequiredSecSessionId( CFLibDbKeyHash256 requiredSecSessionId ) {
+    public void setRequiredSecSessionId( $implJavaAtomType$ requiredSecSessionId ) {
         pkey.setRequiredSecSessionId( requiredSecSessionId );
     }
 

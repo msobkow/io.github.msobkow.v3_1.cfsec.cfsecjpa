@@ -178,8 +178,8 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSysGrpInc find(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId,
-		@Param("inclName") String requiredInclName) {
+	public CFSecJpaSecSysGrpInc find(@Param("secSysGrpId") $implJavaAtomType$ requiredSecSysGrpId,
+		@Param("inclName") $implJavaAtomType$ requiredInclName) {
 		return( cfsec31SecSysGrpIncRepository.get(requiredSecSysGrpId,
 			requiredInclName));
 	}
@@ -216,7 +216,7 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@return List&lt;CFSecJpaSecSysGrpInc&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysGrpInc> findBySysGrpIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId) {
+	public List<CFSecJpaSecSysGrpInc> findBySysGrpIdx(@Param("secSysGrpId") $implJavaAtomType$ requiredSecSysGrpId) {
 		return( cfsec31SecSysGrpIncRepository.findBySysGrpIdx(requiredSecSysGrpId));
 	}
 
@@ -240,7 +240,7 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@return List&lt;CFSecJpaSecSysGrpInc&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysGrpInc> findByNameIdx(@Param("inclName") String requiredInclName) {
+	public List<CFSecJpaSecSysGrpInc> findByNameIdx(@Param("inclName") $implJavaAtomType$ requiredInclName) {
 		return( cfsec31SecSysGrpIncRepository.findByNameIdx(requiredInclName));
 	}
 
@@ -267,8 +267,8 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSysGrpInc lockByIdIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId,
-		@Param("inclName") String requiredInclName) {
+	public CFSecJpaSecSysGrpInc lockByIdIdx(@Param("secSysGrpId") $implJavaAtomType$ requiredSecSysGrpId,
+		@Param("inclName") $implJavaAtomType$ requiredInclName) {
 		return( cfsec31SecSysGrpIncRepository.lockByIdIdx(requiredSecSysGrpId,
 			requiredInclName));
 	}
@@ -293,7 +293,7 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysGrpInc> lockBySysGrpIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId) {
+	public List<CFSecJpaSecSysGrpInc> lockBySysGrpIdx(@Param("secSysGrpId") $implJavaAtomType$ requiredSecSysGrpId) {
 		return( cfsec31SecSysGrpIncRepository.lockBySysGrpIdx(requiredSecSysGrpId));
 	}
 
@@ -317,7 +317,7 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysGrpInc> lockByNameIdx(@Param("inclName") String requiredInclName) {
+	public List<CFSecJpaSecSysGrpInc> lockByNameIdx(@Param("inclName") $implJavaAtomType$ requiredInclName) {
 		return( cfsec31SecSysGrpIncRepository.lockByNameIdx(requiredInclName));
 	}
 
@@ -342,8 +342,8 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@param requiredInclName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId,
-		@Param("inclName") String requiredInclName) {
+	public void deleteByIdIdx(@Param("secSysGrpId") $implJavaAtomType$ requiredSecSysGrpId,
+		@Param("inclName") $implJavaAtomType$ requiredInclName) {
 		cfsec31SecSysGrpIncRepository.deleteByIdIdx(requiredSecSysGrpId,
 			requiredInclName);
 	}
@@ -364,7 +364,7 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@param requiredSecSysGrpId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySysGrpIdx(@Param("secSysGrpId") CFLibDbKeyHash256 requiredSecSysGrpId) {
+	public void deleteBySysGrpIdx(@Param("secSysGrpId") $implJavaAtomType$ requiredSecSysGrpId) {
 		cfsec31SecSysGrpIncRepository.deleteBySysGrpIdx(requiredSecSysGrpId);
 	}
 
@@ -384,7 +384,7 @@ public class CFSecJpaSecSysGrpIncService {
 	 *		@param requiredInclName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByNameIdx(@Param("inclName") String requiredInclName) {
+	public void deleteByNameIdx(@Param("inclName") $implJavaAtomType$ requiredInclName) {
 		cfsec31SecSysGrpIncRepository.deleteByNameIdx(requiredInclName);
 	}
 

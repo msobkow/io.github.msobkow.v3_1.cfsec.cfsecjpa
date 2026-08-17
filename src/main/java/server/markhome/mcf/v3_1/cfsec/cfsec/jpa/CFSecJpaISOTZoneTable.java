@@ -297,8 +297,8 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public void deleteISOTZoneByOffsetIdx( ICFSecAuthorization Authorization,
-		short argTZHourOffset,
-		short argTZMinOffset )
+		$implJavaAtomType$ argTZHourOffset,
+		$implJavaAtomType$ argTZMinOffset )
 	{
 		final String S_ProcName = "deleteISOTZoneByOffsetIdx";
 		boolean permissionGranted = canDeleteISOTZone(S_ProcName, Authorization);
@@ -341,7 +341,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public void deleteISOTZoneByUTZNameIdx( ICFSecAuthorization Authorization,
-		String argTZName )
+		$implJavaAtomType$ argTZName )
 	{
 		final String S_ProcName = "deleteISOTZoneByUTZNameIdx";
 		boolean permissionGranted = canDeleteISOTZone(S_ProcName, Authorization);
@@ -382,7 +382,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public void deleteISOTZoneByIso8601Idx( ICFSecAuthorization Authorization,
-		String argIso8601 )
+		$implJavaAtomType$ argIso8601 )
 	{
 		final String S_ProcName = "deleteISOTZoneByIso8601Idx";
 		boolean permissionGranted = canDeleteISOTZone(S_ProcName, Authorization);
@@ -499,7 +499,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		short argISOTZoneId )
+		$implJavaAtomType$ argISOTZoneId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -526,8 +526,8 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone[] readDerivedByOffsetIdx( ICFSecAuthorization Authorization,
-		short argTZHourOffset,
-		short argTZMinOffset )
+		$implJavaAtomType$ argTZHourOffset,
+		$implJavaAtomType$ argTZMinOffset )
 	{
 		final String S_ProcName = "readDerivedByOffsetIdx";
 		boolean permissionGranted = false;
@@ -559,7 +559,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone readDerivedByUTZNameIdx( ICFSecAuthorization Authorization,
-		String argTZName )
+		$implJavaAtomType$ argTZName )
 	{
 		final String S_ProcName = "readDerivedByUTZNameIdx";
 		boolean permissionGranted = false;
@@ -584,7 +584,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone[] readDerivedByIso8601Idx( ICFSecAuthorization Authorization,
-		String argIso8601 )
+		$implJavaAtomType$ argIso8601 )
 	{
 		final String S_ProcName = "readDerivedByIso8601Idx";
 		boolean permissionGranted = false;
@@ -686,7 +686,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone readRecByIdIdx( ICFSecAuthorization Authorization,
-		short argISOTZoneId )
+		$implJavaAtomType$ argISOTZoneId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -714,8 +714,8 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone[] readRecByOffsetIdx( ICFSecAuthorization Authorization,
-		short argTZHourOffset,
-		short argTZMinOffset )
+		$implJavaAtomType$ argTZHourOffset,
+		$implJavaAtomType$ argTZMinOffset )
 	{
 		final String S_ProcName = "readRecByOffsetIdx";
 		boolean permissionGranted = false;
@@ -742,7 +742,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone readRecByUTZNameIdx( ICFSecAuthorization Authorization,
-		String argTZName )
+		$implJavaAtomType$ argTZName )
 	{
 		final String S_ProcName = "readRecByUTZNameIdx";
 		boolean permissionGranted = false;
@@ -768,7 +768,7 @@ public class CFSecJpaISOTZoneTable implements ICFSecISOTZoneTable
 	 */
 	@Override
 	public ICFSecISOTZone[] readRecByIso8601Idx( ICFSecAuthorization Authorization,
-		String argIso8601 )
+		$implJavaAtomType$ argIso8601 )
 	{
 		final String S_ProcName = "readRecByIso8601Idx";
 		boolean permissionGranted = false;

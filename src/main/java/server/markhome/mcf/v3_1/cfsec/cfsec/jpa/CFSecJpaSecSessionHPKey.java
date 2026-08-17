@@ -57,7 +57,7 @@ public class CFSecJpaSecSessionHPKey
 
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	protected CFLibDbKeyHash256 requiredSecSessionId;
+	protected $implJavaAtomType$ requiredSecSessionId;
 
 	public CFSecJpaSecSessionHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
