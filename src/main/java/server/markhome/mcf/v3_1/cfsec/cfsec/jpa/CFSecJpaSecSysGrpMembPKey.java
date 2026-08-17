@@ -63,11 +63,11 @@ public class CFSecJpaSecSysGrpMembPKey
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecSysGrpId() {
+	public ICFLibKeyHash256 getRequiredSecSysGrpId() {
 		return(requiredSecSysGrpId);
 	}
 
-	public void setRequiredSecSysGrpId( CFLibDbKeyHash256 value ) {
+	public void setRequiredSecSysGrpId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecSysGrpId",

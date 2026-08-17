@@ -282,11 +282,11 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecClusGrpId() {
+	public ICFLibKeyHash256 getRequiredSecClusGrpId() {
 		return(getPKey().getRequiredSecClusGrpId());
 	}
 
-	public void setRequiredSecClusGrpId( CFLibDbKeyHash256 value ) {
+	public void setRequiredSecClusGrpId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecClusGrpId",
@@ -307,11 +307,11 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredClusterId() {
+	public ICFLibKeyHash256 getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
+	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",

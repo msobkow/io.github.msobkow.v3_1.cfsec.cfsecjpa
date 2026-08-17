@@ -50,11 +50,11 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecUserId() {
+	public ICFLibKeyHash256 getRequiredSecUserId() {
 		return(getPKey().getRequiredSecUserId());
 	}
 
-	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",

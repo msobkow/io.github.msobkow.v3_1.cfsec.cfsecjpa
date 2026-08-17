@@ -50,11 +50,11 @@ public class CFSecJpaSecSessionBySecUserIdxKey
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecUserId() {
+	public ICFLibKeyHash256 getRequiredSecUserId() {
 		return(requiredSecUserId);
 	}
 
-	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",

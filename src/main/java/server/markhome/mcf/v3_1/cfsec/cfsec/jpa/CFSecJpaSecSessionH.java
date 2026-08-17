@@ -154,11 +154,11 @@ public class CFSecJpaSecSessionH
     }
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredSecUserId() {
+	public ICFLibKeyHash256 getRequiredSecUserId() {
 		return(requiredSecUserId);
 	}
 
-	public void setRequiredSecUserId( CFLibDbKeyHash256 value ) {
+	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
@@ -193,11 +193,11 @@ public class CFSecJpaSecSessionH
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getOptionalSecProxyId() {
+	public ICFLibKeyHash256 getOptionalSecProxyId() {
 		return(optionalSecProxyId);
 	}
 
-	public void setOptionalSecProxyId( CFLibDbKeyHash256 value ) {
+	public void setOptionalSecProxyId( ICFLibKeyHash256 value ) {
 		optionalSecProxyId = value;
 	}
 

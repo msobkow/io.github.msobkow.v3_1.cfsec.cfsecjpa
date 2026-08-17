@@ -238,11 +238,11 @@ public class CFSecJpaTenant
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredId() {
+	public ICFLibKeyHash256 getRequiredId() {
 		return(getPKey().getRequiredId());
 	}
 
-	public void setRequiredId( CFLibDbKeyHash256 value ) {
+	public void setRequiredId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredId",
@@ -263,11 +263,11 @@ public class CFSecJpaTenant
 	}
 
 	@Override
-	public CFLibDbKeyHash256 getRequiredClusterId() {
+	public ICFLibKeyHash256 getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( CFLibDbKeyHash256 value ) {
+	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",
