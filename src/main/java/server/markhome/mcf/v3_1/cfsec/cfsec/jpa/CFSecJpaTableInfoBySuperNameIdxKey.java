@@ -213,7 +213,7 @@ public class CFSecJpaTableInfoBySuperNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecTableInfoBySuperNameIdxKey, ICFSecTableInfo$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecTableInfoBySuperNameIdxKey, ICFSecTableInfo, ICFSecTableInfoH");
 		}
 	}
 

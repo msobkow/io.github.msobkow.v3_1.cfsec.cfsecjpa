@@ -203,7 +203,7 @@ public class CFSecJpaSysClusterByClusterIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSysClusterByClusterIdxKey, ICFSecSysCluster$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSysClusterByClusterIdxKey, ICFSecSysCluster, ICFSecSysClusterH");
 		}
 	}
 

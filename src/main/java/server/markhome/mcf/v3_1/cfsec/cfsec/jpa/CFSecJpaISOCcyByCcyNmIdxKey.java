@@ -213,7 +213,7 @@ public class CFSecJpaISOCcyByCcyNmIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOCcyByCcyNmIdxKey, ICFSecISOCcy$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecISOCcyByCcyNmIdxKey, ICFSecISOCcy, ICFSecISOCcyH");
 		}
 	}
 

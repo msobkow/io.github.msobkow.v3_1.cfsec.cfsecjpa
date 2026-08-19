@@ -205,7 +205,7 @@ public class CFSecJpaSecUserEMConfBySentStampIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserEMConfBySentStampIdxKey, ICFSecSecUserEMConf$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserEMConfBySentStampIdxKey, ICFSecSecUserEMConf, ICFSecSecUserEMConfH");
 		}
 	}
 

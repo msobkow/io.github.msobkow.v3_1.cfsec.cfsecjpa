@@ -203,7 +203,7 @@ public class CFSecJpaSecTentGrpByTenantIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecTentGrpByTenantIdxKey, ICFSecSecTentGrp$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecTentGrpByTenantIdxKey, ICFSecSecTentGrp, ICFSecSecTentGrpH");
 		}
 	}
 

@@ -798,7 +798,7 @@ public class CFSecJpaSecClusGrpHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecClusGrpPKey, ICFSecSecClusGrp$emitHPKeyHistoryClassNames$" );
+				"ICFSecSecClusGrpPKey, ICFSecSecClusGrp, CFSecSecClusGrpHPKey, CFSecSecClusGrpH" );
 		}
 	}
 

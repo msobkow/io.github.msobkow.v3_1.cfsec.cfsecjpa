@@ -154,7 +154,7 @@ public class CFSecJpaSecUserPWResetByNewAcctIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWResetByNewAcctIdxKey, ICFSecSecUserPWReset$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserPWResetByNewAcctIdxKey, ICFSecSecUserPWReset, ICFSecSecUserPWResetH");
 		}
 	}
 

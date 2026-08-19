@@ -310,7 +310,7 @@ public class CFSecJpaSecSessionByStartIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSessionByStartIdxKey, ICFSecSecSession$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecSessionByStartIdxKey, ICFSecSecSession, ICFSecSecSessionH");
 		}
 	}
 

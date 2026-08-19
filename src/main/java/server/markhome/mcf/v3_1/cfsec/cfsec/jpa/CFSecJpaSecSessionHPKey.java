@@ -1089,7 +1089,7 @@ public class CFSecJpaSecSessionHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSessionPKey, ICFSecSecSession$emitHPKeyHistoryClassNames$" );
+				"ICFSecSecSessionPKey, ICFSecSecSession, CFSecSecSessionHPKey, CFSecSecSessionH" );
 		}
 	}
 

@@ -203,7 +203,7 @@ public class CFSecJpaSecTentRoleMembByTentRoleIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecTentRoleMembByTentRoleIdxKey, ICFSecSecTentRoleMemb$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecTentRoleMembByTentRoleIdxKey, ICFSecSecTentRoleMemb, ICFSecSecTentRoleMembH");
 		}
 	}
 

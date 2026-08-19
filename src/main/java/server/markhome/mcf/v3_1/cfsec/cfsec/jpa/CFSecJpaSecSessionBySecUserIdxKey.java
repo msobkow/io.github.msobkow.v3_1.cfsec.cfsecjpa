@@ -203,7 +203,7 @@ public class CFSecJpaSecSessionBySecUserIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecSessionBySecUserIdxKey, ICFSecSecSession$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecSessionBySecUserIdxKey, ICFSecSecSession, ICFSecSecSessionH");
 		}
 	}
 

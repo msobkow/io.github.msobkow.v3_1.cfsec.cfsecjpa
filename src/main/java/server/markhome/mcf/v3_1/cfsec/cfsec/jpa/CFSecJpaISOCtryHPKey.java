@@ -922,7 +922,7 @@ public class CFSecJpaISOCtryHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOCtryPKey, ICFSecISOCtry$emitHPKeyHistoryClassNames$" );
+				"ICFSecISOCtryPKey, ICFSecISOCtry, CFSecISOCtryHPKey, CFSecISOCtryH" );
 		}
 	}
 

@@ -213,7 +213,7 @@ public class CFSecJpaSecClusRoleByNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecClusRoleByNameIdxKey, ICFSecSecClusRole$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecClusRoleByNameIdxKey, ICFSecSecClusRole, ICFSecSecClusRoleH");
 		}
 	}
 

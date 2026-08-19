@@ -318,7 +318,7 @@ public class CFSecJpaSecTentRoleByUNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecTentRoleByUNameIdxKey, ICFSecSecTentRole$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecTentRoleByUNameIdxKey, ICFSecSecTentRole, ICFSecSecTentRoleH");
 		}
 	}
 

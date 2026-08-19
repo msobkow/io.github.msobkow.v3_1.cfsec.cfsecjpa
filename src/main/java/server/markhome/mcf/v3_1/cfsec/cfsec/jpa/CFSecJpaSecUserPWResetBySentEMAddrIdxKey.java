@@ -213,7 +213,7 @@ public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWResetBySentEMAddrIdxKey, ICFSecSecUserPWReset$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserPWResetBySentEMAddrIdxKey, ICFSecSecUserPWReset, ICFSecSecUserPWResetH");
 		}
 	}
 

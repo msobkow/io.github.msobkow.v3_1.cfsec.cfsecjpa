@@ -213,7 +213,7 @@ public class CFSecJpaISOLangByCode3IdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOLangByCode3IdxKey, ICFSecISOLang$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecISOLangByCode3IdxKey, ICFSecISOLang, ICFSecISOLangH");
 		}
 	}
 

@@ -1101,7 +1101,7 @@ public class CFSecJpaClusterHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecClusterPKey, ICFSecCluster$emitHPKeyHistoryClassNames$" );
+				"ICFSecClusterPKey, ICFSecCluster, CFSecClusterHPKey, CFSecClusterH" );
 		}
 	}
 

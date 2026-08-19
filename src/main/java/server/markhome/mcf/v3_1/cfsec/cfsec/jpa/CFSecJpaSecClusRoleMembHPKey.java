@@ -1130,7 +1130,7 @@ public class CFSecJpaSecClusRoleMembHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecClusRoleMembPKey, ICFSecSecClusRoleMemb$emitHPKeyHistoryClassNames$" );
+				"ICFSecSecClusRoleMembPKey, ICFSecSecClusRoleMemb, CFSecSecClusRoleMembHPKey, CFSecSecClusRoleMembH" );
 		}
 	}
 

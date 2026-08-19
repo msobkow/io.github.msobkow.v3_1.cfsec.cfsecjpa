@@ -1130,7 +1130,7 @@ public class CFSecJpaSecClusGrpMembHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecClusGrpMembPKey, ICFSecSecClusGrpMemb$emitHPKeyHistoryClassNames$" );
+				"ICFSecSecClusGrpMembPKey, ICFSecSecClusGrpMemb, CFSecSecClusGrpMembHPKey, CFSecSecClusGrpMembH" );
 		}
 	}
 

@@ -213,7 +213,7 @@ public class CFSecJpaISOCtryByNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOCtryByNameIdxKey, ICFSecISOCtry$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecISOCtryByNameIdxKey, ICFSecISOCtry, ICFSecISOCtryH");
 		}
 	}
 

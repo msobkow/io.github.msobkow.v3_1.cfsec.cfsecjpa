@@ -655,7 +655,7 @@ public class CFSecJpaSecUserPWHistoryHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWHistoryPKey, ICFSecSecUserPWHistory$emitHPKeyHistoryClassNames$" );
+				"ICFSecSecUserPWHistoryPKey, ICFSecSecUserPWHistory, CFSecSecUserPWHistoryHPKey, CFSecSecUserPWHistoryH" );
 		}
 	}
 

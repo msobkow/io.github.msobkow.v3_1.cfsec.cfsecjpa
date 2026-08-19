@@ -205,7 +205,7 @@ public class CFSecJpaSecUserPWHistoryBySetStampIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWHistoryBySetStampIdxKey, ICFSecSecUserPWHistory$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserPWHistoryBySetStampIdxKey, ICFSecSecUserPWHistory, ICFSecSecUserPWHistoryH");
 		}
 	}
 

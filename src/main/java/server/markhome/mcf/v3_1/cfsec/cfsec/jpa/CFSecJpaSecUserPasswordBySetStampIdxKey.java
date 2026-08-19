@@ -205,7 +205,7 @@ public class CFSecJpaSecUserPasswordBySetStampIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPasswordBySetStampIdxKey, ICFSecSecUserPassword$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserPasswordBySetStampIdxKey, ICFSecSecUserPassword, ICFSecSecUserPasswordH");
 		}
 	}
 

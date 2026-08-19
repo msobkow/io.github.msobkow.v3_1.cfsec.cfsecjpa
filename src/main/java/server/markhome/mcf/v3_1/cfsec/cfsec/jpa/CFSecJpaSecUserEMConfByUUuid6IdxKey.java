@@ -202,7 +202,7 @@ public class CFSecJpaSecUserEMConfByUUuid6IdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserEMConfByUUuid6IdxKey, ICFSecSecUserEMConf$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserEMConfByUUuid6IdxKey, ICFSecSecUserEMConf, ICFSecSecUserEMConfH");
 		}
 	}
 

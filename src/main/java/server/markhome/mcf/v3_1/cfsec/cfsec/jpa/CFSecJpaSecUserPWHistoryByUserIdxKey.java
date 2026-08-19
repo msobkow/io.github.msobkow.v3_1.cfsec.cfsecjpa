@@ -203,7 +203,7 @@ public class CFSecJpaSecUserPWHistoryByUserIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserPWHistoryByUserIdxKey, ICFSecSecUserPWHistory$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserPWHistoryByUserIdxKey, ICFSecSecUserPWHistory, ICFSecSecUserPWHistoryH");
 		}
 	}
 

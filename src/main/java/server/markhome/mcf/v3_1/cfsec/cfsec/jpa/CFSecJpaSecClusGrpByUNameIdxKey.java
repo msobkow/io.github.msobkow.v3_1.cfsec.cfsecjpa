@@ -318,7 +318,7 @@ public class CFSecJpaSecClusGrpByUNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecClusGrpByUNameIdxKey, ICFSecSecClusGrp$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecClusGrpByUNameIdxKey, ICFSecSecClusGrp, ICFSecSecClusGrpH");
 		}
 	}
 

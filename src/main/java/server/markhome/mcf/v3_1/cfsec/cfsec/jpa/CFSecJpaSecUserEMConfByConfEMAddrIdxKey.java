@@ -213,7 +213,7 @@ public class CFSecJpaSecUserEMConfByConfEMAddrIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserEMConfByConfEMAddrIdxKey, ICFSecSecUserEMConf$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserEMConfByConfEMAddrIdxKey, ICFSecSecUserEMConf, ICFSecSecUserEMConfH");
 		}
 	}
 

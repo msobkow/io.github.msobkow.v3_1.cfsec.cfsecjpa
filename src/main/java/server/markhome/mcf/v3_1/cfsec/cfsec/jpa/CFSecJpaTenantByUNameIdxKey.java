@@ -318,7 +318,7 @@ public class CFSecJpaTenantByUNameIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecTenantByUNameIdxKey, ICFSecTenant$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecTenantByUNameIdxKey, ICFSecTenant, ICFSecTenantH");
 		}
 	}
 

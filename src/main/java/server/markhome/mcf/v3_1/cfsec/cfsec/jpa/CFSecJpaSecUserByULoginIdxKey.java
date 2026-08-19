@@ -213,7 +213,7 @@ public class CFSecJpaSecUserByULoginIdxKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecSecUserByULoginIdxKey, ICFSecSecUser$emitIndexKeyEqualsHistoryClass$");
+				"ICFSecSecUserByULoginIdxKey, ICFSecSecUser, ICFSecSecUserH");
 		}
 	}
 

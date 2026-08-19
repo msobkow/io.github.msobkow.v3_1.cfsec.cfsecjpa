@@ -922,7 +922,7 @@ public class CFSecJpaISOTZoneHPKey
 				"compareTo",
 				"obj",
 				obj,
-				"ICFSecISOTZonePKey, ICFSecISOTZone$emitHPKeyHistoryClassNames$" );
+				"ICFSecISOTZonePKey, ICFSecISOTZone, CFSecISOTZoneHPKey, CFSecISOTZoneH" );
 		}
 	}
 
