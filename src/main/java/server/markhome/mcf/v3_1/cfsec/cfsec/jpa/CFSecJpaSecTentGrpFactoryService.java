@@ -53,11 +53,13 @@ public class CFSecJpaSecTentGrpFactoryService
     public CFSecJpaSecTentGrpFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpHPKey newHPKey() {
         ICFSecSecTentGrpHPKey hpkey = new CFSecJpaSecTentGrpHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpHPKey ensureHPKey(ICFSecSecTentGrpHPKey key) {
 		if (key == null) {
 			return( null );
@@ -70,18 +72,19 @@ public class CFSecJpaSecTentGrpFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());
-			mapped.setRequiredSecTentGrpId( key.getRequiredSecTentGrpId() );
+			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpByTenantIdxKey newByTenantIdxKey() {
 		ICFSecSecTentGrpByTenantIdxKey key = new CFSecJpaSecTentGrpByTenantIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpByTenantIdxKey ensureByTenantIdxKey(ICFSecSecTentGrpByTenantIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -90,18 +93,19 @@ public class CFSecJpaSecTentGrpFactoryService
 			return( (CFSecJpaSecTentGrpByTenantIdxKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpByTenantIdxKey mapped = new CFSecJpaSecTentGrpByTenantIdxKey();
-			mapped.setRequiredTenantId( key.getRequiredTenantId() );
+			CFSecJpaSecTentGrpByTenantIdxKey mapped = new CFSecJpaSecTentGrpByTenantIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpByNameIdxKey newByNameIdxKey() {
 		ICFSecSecTentGrpByNameIdxKey key = new CFSecJpaSecTentGrpByNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpByNameIdxKey ensureByNameIdxKey(ICFSecSecTentGrpByNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -110,18 +114,19 @@ public class CFSecJpaSecTentGrpFactoryService
 			return( (CFSecJpaSecTentGrpByNameIdxKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpByNameIdxKey mapped = new CFSecJpaSecTentGrpByNameIdxKey();
-			mapped.setRequiredName( key.getRequiredName() );
+			CFSecJpaSecTentGrpByNameIdxKey mapped = new CFSecJpaSecTentGrpByNameIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpByUNameIdxKey newByUNameIdxKey() {
 		ICFSecSecTentGrpByUNameIdxKey key = new CFSecJpaSecTentGrpByUNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpByUNameIdxKey ensureByUNameIdxKey(ICFSecSecTentGrpByUNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -130,19 +135,19 @@ public class CFSecJpaSecTentGrpFactoryService
 			return( (CFSecJpaSecTentGrpByUNameIdxKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpByUNameIdxKey mapped = new CFSecJpaSecTentGrpByUNameIdxKey();
-			mapped.setRequiredTenantId( key.getRequiredTenantId() );
-			mapped.setRequiredName( key.getRequiredName() );
+			CFSecJpaSecTentGrpByUNameIdxKey mapped = new CFSecJpaSecTentGrpByUNameIdxKey();$implBuffCopyKeyAttrToMapped$$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrp newRec() {
         ICFSecSecTentGrp rec = new CFSecJpaSecTentGrp();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrp ensureRec(ICFSecSecTentGrp rec) {
 		if( rec == null ) {
 			return( null );
@@ -170,6 +175,7 @@ public class CFSecJpaSecTentGrpFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpH ensureHRec(ICFSecSecTentGrpH hrec) {
 		if( hrec == null ) {
 			return( null );

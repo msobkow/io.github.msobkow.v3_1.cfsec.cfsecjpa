@@ -53,11 +53,13 @@ public class CFSecJpaSecUserEMConfFactoryService
     public CFSecJpaSecUserEMConfFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserEMConfHPKey newHPKey() {
         ICFSecSecUserEMConfHPKey hpkey = new CFSecJpaSecUserEMConfHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserEMConfHPKey ensureHPKey(ICFSecSecUserEMConfHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaSecUserEMConfFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserEMConfByUUuid6IdxKey newByUUuid6IdxKey() {
 		ICFSecSecUserEMConfByUUuid6IdxKey key = new CFSecJpaSecUserEMConfByUUuid6IdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserEMConfByUUuid6IdxKey ensureByUUuid6IdxKey(ICFSecSecUserEMConfByUUuid6IdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaSecUserEMConfFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserEMConfByConfEMAddrIdxKey newByConfEMAddrIdxKey() {
 		ICFSecSecUserEMConfByConfEMAddrIdxKey key = new CFSecJpaSecUserEMConfByConfEMAddrIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserEMConfByConfEMAddrIdxKey ensureByConfEMAddrIdxKey(ICFSecSecUserEMConfByConfEMAddrIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFSecJpaSecUserEMConfFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserEMConfBySentStampIdxKey newBySentStampIdxKey() {
 		ICFSecSecUserEMConfBySentStampIdxKey key = new CFSecJpaSecUserEMConfBySentStampIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserEMConfBySentStampIdxKey ensureBySentStampIdxKey(ICFSecSecUserEMConfBySentStampIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -137,11 +145,13 @@ public class CFSecJpaSecUserEMConfFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserEMConfByNewAcctIdxKey newByNewAcctIdxKey() {
 		ICFSecSecUserEMConfByNewAcctIdxKey key = new CFSecJpaSecUserEMConfByNewAcctIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserEMConfByNewAcctIdxKey ensureByNewAcctIdxKey(ICFSecSecUserEMConfByNewAcctIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -157,11 +167,13 @@ public class CFSecJpaSecUserEMConfFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserEMConf newRec() {
         ICFSecSecUserEMConf rec = new CFSecJpaSecUserEMConf();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserEMConf ensureRec(ICFSecSecUserEMConf rec) {
 		if( rec == null ) {
 			return( null );
@@ -189,6 +201,7 @@ public class CFSecJpaSecUserEMConfFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserEMConfH ensureHRec(ICFSecSecUserEMConfH hrec) {
 		if( hrec == null ) {
 			return( null );

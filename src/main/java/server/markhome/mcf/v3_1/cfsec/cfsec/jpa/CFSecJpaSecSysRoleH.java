@@ -53,7 +53,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "SecSysRoleUNameIdx_h", columnList = "safe_name", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecSysRoleH
     implements ICFSecSecSysRoleH, Comparable<Object>, Serializable

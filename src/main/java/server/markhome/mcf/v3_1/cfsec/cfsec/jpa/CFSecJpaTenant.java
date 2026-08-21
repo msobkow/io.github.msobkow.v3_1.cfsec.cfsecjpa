@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "TenantClusterIdxCluster", columnList = "ClusterIdCluster", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaTenant
 	implements Comparable<Object>,

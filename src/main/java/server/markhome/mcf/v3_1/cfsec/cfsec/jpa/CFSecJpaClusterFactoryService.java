@@ -53,11 +53,13 @@ public class CFSecJpaClusterFactoryService
     public CFSecJpaClusterFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecClusterHPKey newHPKey() {
         ICFSecClusterHPKey hpkey = new CFSecJpaClusterHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaClusterHPKey ensureHPKey(ICFSecClusterHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaClusterFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecClusterByUDomNameIdxKey newByUDomNameIdxKey() {
 		ICFSecClusterByUDomNameIdxKey key = new CFSecJpaClusterByUDomNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaClusterByUDomNameIdxKey ensureByUDomNameIdxKey(ICFSecClusterByUDomNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaClusterFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecClusterByUDescrIdxKey newByUDescrIdxKey() {
 		ICFSecClusterByUDescrIdxKey key = new CFSecJpaClusterByUDescrIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaClusterByUDescrIdxKey ensureByUDescrIdxKey(ICFSecClusterByUDescrIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFSecJpaClusterFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecCluster newRec() {
         ICFSecCluster rec = new CFSecJpaCluster();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaCluster ensureRec(ICFSecCluster rec) {
 		if( rec == null ) {
 			return( null );
@@ -149,6 +157,7 @@ public class CFSecJpaClusterFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaClusterH ensureHRec(ICFSecClusterH hrec) {
 		if( hrec == null ) {
 			return( null );

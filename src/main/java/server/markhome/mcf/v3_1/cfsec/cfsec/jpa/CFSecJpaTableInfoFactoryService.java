@@ -53,11 +53,13 @@ public class CFSecJpaTableInfoFactoryService
     public CFSecJpaTableInfoFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTableInfoHPKey newHPKey() {
         ICFSecTableInfoHPKey hpkey = new CFSecJpaTableInfoHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfoHPKey ensureHPKey(ICFSecTableInfoHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaTableInfoFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTableInfoByTableNameIdxKey newByTableNameIdxKey() {
 		ICFSecTableInfoByTableNameIdxKey key = new CFSecJpaTableInfoByTableNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfoByTableNameIdxKey ensureByTableNameIdxKey(ICFSecTableInfoByTableNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaTableInfoFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTableInfoBySuperNameIdxKey newBySuperNameIdxKey() {
 		ICFSecTableInfoBySuperNameIdxKey key = new CFSecJpaTableInfoBySuperNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfoBySuperNameIdxKey ensureBySuperNameIdxKey(ICFSecTableInfoBySuperNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFSecJpaTableInfoFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTableInfoBySchemaNameIdxKey newBySchemaNameIdxKey() {
 		ICFSecTableInfoBySchemaNameIdxKey key = new CFSecJpaTableInfoBySchemaNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfoBySchemaNameIdxKey ensureBySchemaNameIdxKey(ICFSecTableInfoBySchemaNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -137,11 +145,13 @@ public class CFSecJpaTableInfoFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTableInfoBySchemaBkCodeIdxKey newBySchemaBkCodeIdxKey() {
 		ICFSecTableInfoBySchemaBkCodeIdxKey key = new CFSecJpaTableInfoBySchemaBkCodeIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfoBySchemaBkCodeIdxKey ensureBySchemaBkCodeIdxKey(ICFSecTableInfoBySchemaBkCodeIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -158,11 +168,13 @@ public class CFSecJpaTableInfoFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTableInfoBySchemaRTCodeIdxKey newBySchemaRTCodeIdxKey() {
 		ICFSecTableInfoBySchemaRTCodeIdxKey key = new CFSecJpaTableInfoBySchemaRTCodeIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfoBySchemaRTCodeIdxKey ensureBySchemaRTCodeIdxKey(ICFSecTableInfoBySchemaRTCodeIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -178,11 +190,13 @@ public class CFSecJpaTableInfoFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTableInfo newRec() {
         ICFSecTableInfo rec = new CFSecJpaTableInfo();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfo ensureRec(ICFSecTableInfo rec) {
 		if( rec == null ) {
 			return( null );
@@ -210,6 +224,7 @@ public class CFSecJpaTableInfoFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTableInfoH ensureHRec(ICFSecTableInfoH hrec) {
 		if( hrec == null ) {
 			return( null );

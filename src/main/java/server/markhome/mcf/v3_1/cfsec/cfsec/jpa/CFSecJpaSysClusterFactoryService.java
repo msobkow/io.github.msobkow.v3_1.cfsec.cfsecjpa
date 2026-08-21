@@ -53,11 +53,13 @@ public class CFSecJpaSysClusterFactoryService
     public CFSecJpaSysClusterFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSysClusterHPKey newHPKey() {
         ICFSecSysClusterHPKey hpkey = new CFSecJpaSysClusterHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSysClusterHPKey ensureHPKey(ICFSecSysClusterHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaSysClusterFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSysClusterByClusterIdxKey newByClusterIdxKey() {
 		ICFSecSysClusterByClusterIdxKey key = new CFSecJpaSysClusterByClusterIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSysClusterByClusterIdxKey ensureByClusterIdxKey(ICFSecSysClusterByClusterIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaSysClusterFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSysCluster newRec() {
         ICFSecSysCluster rec = new CFSecJpaSysCluster();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSysCluster ensureRec(ICFSecSysCluster rec) {
 		if( rec == null ) {
 			return( null );
@@ -129,6 +135,7 @@ public class CFSecJpaSysClusterFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSysClusterH ensureHRec(ICFSecSysClusterH hrec) {
 		if( hrec == null ) {
 			return( null );

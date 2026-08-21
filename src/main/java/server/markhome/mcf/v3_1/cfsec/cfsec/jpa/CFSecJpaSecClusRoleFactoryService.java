@@ -53,11 +53,13 @@ public class CFSecJpaSecClusRoleFactoryService
     public CFSecJpaSecClusRoleFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusRoleHPKey newHPKey() {
         ICFSecSecClusRoleHPKey hpkey = new CFSecJpaSecClusRoleHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusRoleHPKey ensureHPKey(ICFSecSecClusRoleHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaSecClusRoleFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusRoleByClusterIdxKey newByClusterIdxKey() {
 		ICFSecSecClusRoleByClusterIdxKey key = new CFSecJpaSecClusRoleByClusterIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusRoleByClusterIdxKey ensureByClusterIdxKey(ICFSecSecClusRoleByClusterIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaSecClusRoleFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusRoleByNameIdxKey newByNameIdxKey() {
 		ICFSecSecClusRoleByNameIdxKey key = new CFSecJpaSecClusRoleByNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusRoleByNameIdxKey ensureByNameIdxKey(ICFSecSecClusRoleByNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFSecJpaSecClusRoleFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusRoleByUNameIdxKey newByUNameIdxKey() {
 		ICFSecSecClusRoleByUNameIdxKey key = new CFSecJpaSecClusRoleByUNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusRoleByUNameIdxKey ensureByUNameIdxKey(ICFSecSecClusRoleByUNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -138,11 +146,13 @@ public class CFSecJpaSecClusRoleFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusRole newRec() {
         ICFSecSecClusRole rec = new CFSecJpaSecClusRole();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusRole ensureRec(ICFSecSecClusRole rec) {
 		if( rec == null ) {
 			return( null );
@@ -170,6 +180,7 @@ public class CFSecJpaSecClusRoleFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusRoleH ensureHRec(ICFSecSecClusRoleH hrec) {
 		if( hrec == null ) {
 			return( null );

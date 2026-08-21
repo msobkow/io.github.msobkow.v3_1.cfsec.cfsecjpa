@@ -65,7 +65,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 *
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
-	@Query("select r from CFSecJpaSecSysRoleMemb r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.$optionalorrequired$ParentUser.requiredLoginId = :loginId")
 	CFSecJpaSecSysRoleMemb get(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
 		@Param("loginId") String requiredLoginId);
 
@@ -89,7 +89,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 *
 	 *		@return List&lt;CFSecJpaSecSysRoleMemb&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecSysRoleMemb r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
+	@Query("select r from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
 	List<CFSecJpaSecSysRoleMemb> findBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
 
 	/**
@@ -110,7 +110,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 *
 	 *		@return List&lt;CFSecJpaSecSysRoleMemb&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
-	@Query("select r from CFSecJpaSecSysRoleMemb r where r.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ParentUser.requiredLoginId = :loginId")
 	List<CFSecJpaSecSysRoleMemb> findByLoginIdx(@Param("loginId") String requiredLoginId);
 
 	/**
@@ -136,7 +136,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSysRoleMemb r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.$optionalorrequired$ParentUser.requiredLoginId = :loginId")
 	CFSecJpaSecSysRoleMemb lockByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
 		@Param("loginId") String requiredLoginId);
 
@@ -160,7 +160,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSysRoleMemb r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
+	@Query("select r from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
 	List<CFSecJpaSecSysRoleMemb> lockBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
 
 	/**
@@ -183,7 +183,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 */
 	@Transactional
 	@Lock(LockModeType.WRITE)
-	@Query("select r from CFSecJpaSecSysRoleMemb r where r.requiredParentUser.requiredLoginId = :loginId")
+	@Query("select r from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ParentUser.requiredLoginId = :loginId")
 	List<CFSecJpaSecSysRoleMemb> lockByLoginIdx(@Param("loginId") String requiredLoginId);
 
 	/**
@@ -207,7 +207,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSysRoleMemb r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.requiredParentUser.requiredLoginId = :loginId")
+	@Query("delete from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.$optionalorrequired$ParentUser.requiredLoginId = :loginId")
 	void deleteByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
 		@Param("loginId") String requiredLoginId);
 
@@ -227,7 +227,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSysRoleMemb r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
+	@Query("delete from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
 	void deleteBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
 
 	/**
@@ -246,7 +246,7 @@ public interface CFSecJpaSecSysRoleMembRepository extends JpaRepository<CFSecJpa
 	 */
 	@Transactional
 	@Modifying
-	@Query("delete from CFSecJpaSecSysRoleMemb r where r.requiredParentUser.requiredLoginId = :loginId")
+	@Query("delete from CFSecJpaSecSysRoleMemb r where r.$optionalorrequired$ParentUser.requiredLoginId = :loginId")
 	void deleteByLoginIdx(@Param("loginId") String requiredLoginId);
 
 	/**

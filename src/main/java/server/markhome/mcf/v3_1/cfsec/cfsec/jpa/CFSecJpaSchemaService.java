@@ -152,6 +152,7 @@ public class CFSecJpaSchemaService {
 	private CFSecJpaSysClusterService sysclusterService;
 
 
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapSchema(CFSecPubTableData tableData[]) {
 		bootstrapSecurity();
 		bootstrapAllTablesSecurity(tableData);
@@ -1198,12 +1199,12 @@ public class CFSecJpaSchemaService {
 		}
 	}		
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapAllTablesSecurity(CFSecPubTableData tableData[]) {
 		bootstrapAllTablesSecurity(ICFSecSchema.getSysClusterId(), ICFSecSchema.getSysTenantId(), tableData);
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapAllTablesSecurity(CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, CFSecPubTableData tableData[]) {
 		LocalDateTime now = LocalDateTime.now();
 		ICFSecSecSession bootstrapSession;
@@ -1269,7 +1270,7 @@ public class CFSecJpaSchemaService {
 		}
 	}
 
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public void bootstrapAllTablesSecurity(ICFSecAuthorization auth,
 		CFLibDbKeyHash256 systemUID,
 		ICFSecSecSession bootstrapSession,
@@ -1386,7 +1387,7 @@ public class CFSecJpaSchemaService {
 	 *		@param parmLoginId The LoginId of the user being authorized.
 	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	long countSysSecurityPermsByLoginId(String parmPermName, String parmLoginId) {
 		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
 		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countSysSecurityPermsByLoginId", Long.class);
@@ -1409,7 +1410,7 @@ public class CFSecJpaSchemaService {
 	 *		@param parmUserId The UserId of the user being authorized.
 	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	long countSysSecurityPermsByUserId(String parmPermName, CFLibDbKeyHash256 parmUserId) {
 		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
 		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countSysSecurityPermsByUserId", Long.class);
@@ -1433,7 +1434,7 @@ public class CFSecJpaSchemaService {
 	 *		@param parmClusterId The ClusterId of the permission to be checked (not necessarily the user's current cluster)
 	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	long countClusSecurityPermsByLoginId(String parmPermName, String parmLoginId, CFLibDbKeyHash256 parmClusterId) {
 		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
 		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countClusSecurityPermsByLoginId", Long.class);
@@ -1458,7 +1459,7 @@ public class CFSecJpaSchemaService {
 	 *		@param parmClusterId The ClusterId of the permission to be checked (not necessarily the user's current cluster)
 	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	long countClusSecurityPermsByUserId(String parmPermName, CFLibDbKeyHash256 parmUserId, CFLibDbKeyHash256 parmClusterId) {
 		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
 		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countClusSecurityPermsByUserId", Long.class);
@@ -1483,7 +1484,7 @@ public class CFSecJpaSchemaService {
 	 *		@param parmTenantId The TenantId of the permission to be checked (not necessarily the user's current tenant)
 	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	long countTentSecurityPermsByLoginId(String parmPermName, String parmLoginId, CFLibDbKeyHash256 parmTenantId) {
 		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
 		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countTentSecurityPermsByLoginId", Long.class);
@@ -1508,7 +1509,7 @@ public class CFSecJpaSchemaService {
 	 *		@param parmTenantId The TenantId of the permission to be checked (not necessarily the user's current tenant)
 	 *		@return The number of authorizations for the specified permission and user, with an 8-level deep union in play.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	long countTentSecurityPermsByUserId(String parmPermName, CFLibDbKeyHash256 parmUserId, CFLibDbKeyHash256 parmTenantId) {
 		EntityManager em = cfsec31EntityManagerFactory.getNativeEntityManagerFactory().createEntityManager();
 		TypedQuery<Long> query = em.createNamedQuery("cFSec31SecUser.countTentSecurityPermsByUserId", Long.class);
@@ -1533,7 +1534,7 @@ public class CFSecJpaSchemaService {
 	 *	@param userLogin 
 	 *	@return null if the userLogin does not exist, is null, is empty, or is blank. Otherwise the DbKey for the user.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFLibDbKeyHash256 mapUserLoginToUserId(String userLogin) {
 		final String S_ProcName = "mapUserLoginToUserId";
 		if (userLogin == null || userLogin.isEmpty() || userLogin.isBlank()) {
@@ -1554,7 +1555,7 @@ public class CFSecJpaSchemaService {
 	 *	@param userId
 	 *	@return null if the userId does not exist or is null. Otherwise the userLogin for the user.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public String mapUserIdToUserLogin(CFLibDbKeyHash256 userId) {
 		final String S_ProcName = "mapUserIdToUserLogin";
 		if (userId == null || userId.isNull()) {
@@ -1581,7 +1582,7 @@ public class CFSecJpaSchemaService {
 	 *
 	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfTenantGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, CFLibDbKeyHash256 tenantId, String permissionName) {
 		if (userId == null || userId.isNull()) {
 			return(false);
@@ -1621,7 +1622,7 @@ public class CFSecJpaSchemaService {
 	 *
 	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfClusterGroup(CFLibDbKeyHash256 userId, CFLibDbKeyHash256 clusterId, String permissionName) {
 		if (userId == null || userId.isNull()) {
 			return(false);
@@ -1652,7 +1653,7 @@ public class CFSecJpaSchemaService {
 	 *
 	 *	@return true if the user is a member of the tenant role or group, the equivalent cluster admin role or group, or the equivalent system admin role or group, otherwise false.
 	 */
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public boolean probeMemberOfSystemGroup(CFLibDbKeyHash256 userId, String permissionName) {
 		if (userId == null || userId.isNull()) {
 			return(false);

@@ -74,24 +74,24 @@ public class CFSecJpaSecSysRoleEnablesService {
 		if (data == null) {
 			return( null );
 		}
-		if (data.getRequiredContainerSysRole() == null) {
+		if (data.get$OptionalOrRequired$ContainerSysRole() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.requiredContainerSysRole",
-				"data.requiredContainerSysRole",
+				"data.$optionalorrequired$ContainerSysRole",
+				"data.$optionalorrequired$ContainerSysRole",
 				"SecSysRole",
 				"SecSysRole",
 				null);
 		}
-		if (data.getRequiredParentEnableGroup() == null) {
+		if (data.get$OptionalOrRequired$ParentEnableGroup() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Parent",
 				"Parent",
-				"data.requiredParentEnableGroup",
-				"data.requiredParentEnableGroup",
+				"data.$optionalorrequired$ParentEnableGroup",
+				"data.$optionalorrequired$ParentEnableGroup",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
@@ -134,24 +134,24 @@ public class CFSecJpaSecSysRoleEnablesService {
 				0,
 				"data.getPKey()");
 		}
-		if (data.getRequiredContainerSysRole() == null) {
+		if (data.get$OptionalOrRequired$ContainerSysRole() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.requiredContainerSysRole",
-				"data.requiredContainerSysRole",
+				"data.$optionalorrequired$ContainerSysRole",
+				"data.$optionalorrequired$ContainerSysRole",
 				"SecSysRole",
 				"SecSysRole",
 				null);
 		}
-		if (data.getRequiredParentEnableGroup() == null) {
+		if (data.get$OptionalOrRequired$ParentEnableGroup() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Parent",
 				"Parent",
-				"data.requiredParentEnableGroup",
-				"data.requiredParentEnableGroup",
+				"data.$optionalorrequired$ParentEnableGroup",
+				"data.$optionalorrequired$ParentEnableGroup",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);

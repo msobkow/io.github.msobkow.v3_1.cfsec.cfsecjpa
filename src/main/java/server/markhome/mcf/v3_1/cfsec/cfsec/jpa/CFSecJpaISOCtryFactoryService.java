@@ -53,11 +53,13 @@ public class CFSecJpaISOCtryFactoryService
     public CFSecJpaISOCtryFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryHPKey newHPKey() {
         ICFSecISOCtryHPKey hpkey = new CFSecJpaISOCtryHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryHPKey ensureHPKey(ICFSecISOCtryHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaISOCtryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryByISOCodeIdxKey newByISOCodeIdxKey() {
 		ICFSecISOCtryByISOCodeIdxKey key = new CFSecJpaISOCtryByISOCodeIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryByISOCodeIdxKey ensureByISOCodeIdxKey(ICFSecISOCtryByISOCodeIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaISOCtryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryByNameIdxKey newByNameIdxKey() {
 		ICFSecISOCtryByNameIdxKey key = new CFSecJpaISOCtryByNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryByNameIdxKey ensureByNameIdxKey(ICFSecISOCtryByNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFSecJpaISOCtryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtry newRec() {
         ICFSecISOCtry rec = new CFSecJpaISOCtry();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtry ensureRec(ICFSecISOCtry rec) {
 		if( rec == null ) {
 			return( null );
@@ -149,6 +157,7 @@ public class CFSecJpaISOCtryFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryH ensureHRec(ICFSecISOCtryH hrec) {
 		if( hrec == null ) {
 			return( null );

@@ -53,7 +53,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecUserEMConfIdIdxUser", columnList = "SecUserIdUser", unique = true)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecUserEMConf
 	implements Comparable<Object>,

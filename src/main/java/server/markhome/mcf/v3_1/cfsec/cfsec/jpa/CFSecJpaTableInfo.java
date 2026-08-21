@@ -54,7 +54,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "TableInfoSuperNameIdxSuperRef", columnList = "sup_nameSuperRef", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaTableInfo
 	implements Comparable<Object>,

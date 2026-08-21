@@ -54,7 +54,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "ISOCtryCcyCcyIdx_h", columnList = "ISOCcyId", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaISOCtryCcyH
     implements ICFSecISOCtryCcyH, Comparable<Object>, Serializable

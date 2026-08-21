@@ -53,11 +53,13 @@ public class CFSecJpaSecUserPWResetFactoryService
     public CFSecJpaSecUserPWResetFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWResetHPKey newHPKey() {
         ICFSecSecUserPWResetHPKey hpkey = new CFSecJpaSecUserPWResetHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWResetHPKey ensureHPKey(ICFSecSecUserPWResetHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaSecUserPWResetFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWResetByUUuid6IdxKey newByUUuid6IdxKey() {
 		ICFSecSecUserPWResetByUUuid6IdxKey key = new CFSecJpaSecUserPWResetByUUuid6IdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWResetByUUuid6IdxKey ensureByUUuid6IdxKey(ICFSecSecUserPWResetByUUuid6IdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaSecUserPWResetFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWResetBySentEMAddrIdxKey newBySentEMAddrIdxKey() {
 		ICFSecSecUserPWResetBySentEMAddrIdxKey key = new CFSecJpaSecUserPWResetBySentEMAddrIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWResetBySentEMAddrIdxKey ensureBySentEMAddrIdxKey(ICFSecSecUserPWResetBySentEMAddrIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFSecJpaSecUserPWResetFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWResetByNewAcctIdxKey newByNewAcctIdxKey() {
 		ICFSecSecUserPWResetByNewAcctIdxKey key = new CFSecJpaSecUserPWResetByNewAcctIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWResetByNewAcctIdxKey ensureByNewAcctIdxKey(ICFSecSecUserPWResetByNewAcctIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -137,11 +145,13 @@ public class CFSecJpaSecUserPWResetFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWReset newRec() {
         ICFSecSecUserPWReset rec = new CFSecJpaSecUserPWReset();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWReset ensureRec(ICFSecSecUserPWReset rec) {
 		if( rec == null ) {
 			return( null );
@@ -169,6 +179,7 @@ public class CFSecJpaSecUserPWResetFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWResetH ensureHRec(ICFSecSecUserPWResetH hrec) {
 		if( hrec == null ) {
 			return( null );

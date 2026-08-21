@@ -52,7 +52,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecTentGrpMembLoginIdxUser", columnList = "login_idUser", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecTentGrpMemb
 	implements Comparable<Object>,
@@ -68,10 +68,10 @@ public class CFSecJpaSecTentGrpMemb
 	CFSecJpaSecTentGrpMembPKey pkey = new CFSecJpaSecTentGrpMembPKey();
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecTentGrpIdGroup", referencedColumnName="SecTentGrpId" )
-	protected CFSecJpaSecTentGrp requiredContainerGroup;
+	protected CFSecJpaSecTentGrp $OptionalOrRequired$ContainerGroup;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="login_idUser", referencedColumnName="login_id" )
-	protected CFSecJpaSecUser requiredParentUser;
+	protected CFSecJpaSecUser $OptionalOrRequired$ParentUser;
 	protected int requiredRevision;
 
 
@@ -111,19 +111,19 @@ public class CFSecJpaSecTentGrpMemb
 	}
 
 	@Override
-	public ICFSecSecTentGrp getRequiredContainerGroup() {
-		return(requiredContainerGroup);
+	public ICFSecSecTentGrp get$OptionalOrRequired$ContainerGroup() {
+		return($OptionalOrRequired$ContainerGroup);
 	}
 
 	@Override
-	public void setRequiredContainerGroup(ICFSecSecTentGrp argObj) {
+	public void set$OptionalOrRequired$ContainerGroup(ICFSecSecTentGrp argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setContainerGroup", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecTentGrp) {
-			requiredContainerGroup = (CFSecJpaSecTentGrp)argObj;
-			if (requiredContainerGroup != null) {
-				getPKey().setRequiredSecTentGrpId(requiredContainerGroup.getRequiredSecTentGrpId());
+			$OptionalOrRequired$ContainerGroup = (CFSecJpaSecTentGrp)argObj;
+			if ($OptionalOrRequired$ContainerGroup != null) {
+				getPKey().setRequiredSecTentGrpId($OptionalOrRequired$ContainerGroup.getRequiredSecTentGrpId());
 			}
 			else {
 			}
@@ -135,38 +135,38 @@ public class CFSecJpaSecTentGrpMemb
 	}
 
 	@Override
-	public void setRequiredContainerGroup(ICFSecProtSecTentGrp argObj) {
-		setRequiredContainerGroup(argObj.getRequiredSecTentGrpId());
+	public void set$OptionalOrRequired$ContainerGroup(ICFSecProtSecTentGrp argObj) {
+		set$OptionalOrRequired$ContainerGroup(argObj.getRequiredSecTentGrpId());
 	}
 
 	@Override
-	public void setRequiredContainerGroup(ICFLibKeyHash256 argSecTentGrpId) {
+	public void set$OptionalOrRequired$ContainerGroup(ICFLibKeyHash256 argSecTentGrpId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerGroup", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ContainerGroup", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecTentGrpTable targetTable = targetBackingSchema.getTableSecTentGrp();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerGroup", 0, "ICFSecSchema.getBackingCFSec().getTableSecTentGrp()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ContainerGroup", 0, "ICFSecSchema.getBackingCFSec().getTableSecTentGrp()");
 		}
 		ICFSecSecTentGrp targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecTentGrpId);
-		setRequiredContainerGroup(targetRec);
+		set$OptionalOrRequired$ContainerGroup(targetRec);
 	}
 
 	@Override
-	public ICFSecSecUser getRequiredParentUser() {
-		return(requiredParentUser);
+	public ICFSecSecUser get$OptionalOrRequired$ParentUser() {
+		return($OptionalOrRequired$ParentUser);
 	}
 
 	@Override
-	public void setRequiredParentUser(ICFSecSecUser argObj) {
+	public void set$OptionalOrRequired$ParentUser(ICFSecSecUser argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setParentUser", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecUser) {
-			requiredParentUser = (CFSecJpaSecUser)argObj;
-			if (requiredParentUser != null) {
-				getPKey().setRequiredLoginId(requiredParentUser.getRequiredLoginId());
+			$OptionalOrRequired$ParentUser = (CFSecJpaSecUser)argObj;
+			if ($OptionalOrRequired$ParentUser != null) {
+				getPKey().setRequiredLoginId($OptionalOrRequired$ParentUser.getRequiredLoginId());
 			}
 			else {
 			}
@@ -178,27 +178,27 @@ public class CFSecJpaSecTentGrpMemb
 	}
 
 	@Override
-	public void setRequiredParentUser(ICFSecProtSecUser argObj) {
-		setRequiredParentUser(argObj.getRequiredLoginId());
+	public void set$OptionalOrRequired$ParentUser(ICFSecProtSecUser argObj) {
+		set$OptionalOrRequired$ParentUser(argObj.getRequiredLoginId());
 	}
 
 	@Override
-	public void setRequiredParentUser(ICFSecPubSecUser argObj) {
-		setRequiredParentUser(argObj.getRequiredLoginId());
+	public void set$OptionalOrRequired$ParentUser(ICFSecPubSecUser argObj) {
+		set$OptionalOrRequired$ParentUser(argObj.getRequiredLoginId());
 	}
 
 	@Override
-	public void setRequiredParentUser(String argLoginId) {
+	public void set$OptionalOrRequired$ParentUser(String argLoginId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ParentUser", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecUserTable targetTable = targetBackingSchema.getTableSecUser();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec().getTableSecUser()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ParentUser", 0, "ICFSecSchema.getBackingCFSec().getTableSecUser()");
 		}
 		ICFSecSecUser targetRec = targetTable.readDerivedByULoginIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argLoginId);
-		setRequiredParentUser(targetRec);
+		set$OptionalOrRequired$ParentUser(targetRec);
 	}
 
 	@Override
@@ -661,8 +661,8 @@ public class CFSecJpaSecTentGrpMemb
 
 	@Override
 	public void setSecTentGrpMemb( ICFSecSecTentGrpMemb src ) {
-		setRequiredContainerGroup(src.getRequiredContainerGroup());
-		setRequiredParentUser(src.getRequiredParentUser());
+		set$OptionalOrRequired$ContainerGroup(src.get$OptionalOrRequired$ContainerGroup());
+		set$OptionalOrRequired$ParentUser(src.get$OptionalOrRequired$ParentUser());
 		setRequiredSecTentGrpId(src.getRequiredSecTentGrpId());
 		setRequiredLoginId(src.getRequiredLoginId());
 		setRequiredRevision( src.getRequiredRevision() );
@@ -679,8 +679,8 @@ public class CFSecJpaSecTentGrpMemb
 
 	@Override
 	public void setSecTentGrpMemb( ICFSecSecTentGrpMembH src ) {
-		setRequiredContainerGroup(src.getRequiredSecTentGrpId());
-		setRequiredParentUser(src.getRequiredLoginId());
+		set$OptionalOrRequired$ContainerGroup(src.getRequiredSecTentGrpId());
+		set$OptionalOrRequired$ParentUser(src.getRequiredLoginId());
 		setRequiredSecTentGrpId(src.getRequiredSecTentGrpId());
 		setRequiredLoginId(src.getRequiredLoginId());
 	}

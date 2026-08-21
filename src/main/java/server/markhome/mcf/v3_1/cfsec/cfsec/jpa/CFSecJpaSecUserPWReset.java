@@ -52,7 +52,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecUserPWResetIdIdxUser", columnList = "SecUserIdUser", unique = true)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecUserPWReset
 	implements Comparable<Object>,

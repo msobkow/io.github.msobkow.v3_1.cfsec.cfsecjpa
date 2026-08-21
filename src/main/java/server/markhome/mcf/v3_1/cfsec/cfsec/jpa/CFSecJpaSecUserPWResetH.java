@@ -55,7 +55,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "SecUserPWResetNewAcctIdx_h", columnList = "newacct", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecUserPWResetH
     implements ICFSecSecUserPWResetH, Comparable<Object>, Serializable

@@ -53,11 +53,13 @@ public class CFSecJpaSecTentGrpMembFactoryService
     public CFSecJpaSecTentGrpMembFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpMembPKey newPKey() {
         ICFSecSecTentGrpMembPKey pkey = new CFSecJpaSecTentGrpMembPKey();
         return( pkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpMembPKey ensurePKey(ICFSecSecTentGrpMembPKey key) {
 		if (key == null) {
 			return( null );
@@ -66,19 +68,19 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			return( (CFSecJpaSecTentGrpMembPKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpMembPKey mapped = new CFSecJpaSecTentGrpMembPKey();
-			mapped.setRequiredSecTentGrpId( key.getRequiredSecTentGrpId() );
-			mapped.setRequiredLoginId( key.getRequiredLoginId() );
+			CFSecJpaSecTentGrpMembPKey mapped = new CFSecJpaSecTentGrpMembPKey();$maybeImplBuffCopyKeyAttrToMapped$$maybeImplBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpMembHPKey newHPKey() {
         ICFSecSecTentGrpMembHPKey hpkey = new CFSecJpaSecTentGrpMembHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpMembHPKey ensureHPKey(ICFSecSecTentGrpMembHPKey key) {
 		if (key == null) {
 			return( null );
@@ -91,19 +93,19 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());
-			mapped.setRequiredSecTentGrpId( key.getRequiredSecTentGrpId() );
-			mapped.setRequiredLoginId( key.getRequiredLoginId() );
+			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpMembByTentGrpIdxKey newByTentGrpIdxKey() {
 		ICFSecSecTentGrpMembByTentGrpIdxKey key = new CFSecJpaSecTentGrpMembByTentGrpIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpMembByTentGrpIdxKey ensureByTentGrpIdxKey(ICFSecSecTentGrpMembByTentGrpIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -112,18 +114,19 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			return( (CFSecJpaSecTentGrpMembByTentGrpIdxKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpMembByTentGrpIdxKey mapped = new CFSecJpaSecTentGrpMembByTentGrpIdxKey();
-			mapped.setRequiredSecTentGrpId( key.getRequiredSecTentGrpId() );
+			CFSecJpaSecTentGrpMembByTentGrpIdxKey mapped = new CFSecJpaSecTentGrpMembByTentGrpIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpMembByUserIdxKey newByUserIdxKey() {
 		ICFSecSecTentGrpMembByUserIdxKey key = new CFSecJpaSecTentGrpMembByUserIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpMembByUserIdxKey ensureByUserIdxKey(ICFSecSecTentGrpMembByUserIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -132,18 +135,19 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			return( (CFSecJpaSecTentGrpMembByUserIdxKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpMembByUserIdxKey mapped = new CFSecJpaSecTentGrpMembByUserIdxKey();
-			mapped.setRequiredLoginId( key.getRequiredLoginId() );
+			CFSecJpaSecTentGrpMembByUserIdxKey mapped = new CFSecJpaSecTentGrpMembByUserIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecTentGrpMemb newRec() {
         ICFSecSecTentGrpMemb rec = new CFSecJpaSecTentGrpMemb();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpMemb ensureRec(ICFSecSecTentGrpMemb rec) {
 		if( rec == null ) {
 			return( null );
@@ -171,6 +175,7 @@ public class CFSecJpaSecTentGrpMembFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecTentGrpMembH ensureHRec(ICFSecSecTentGrpMembH hrec) {
 		if( hrec == null ) {
 			return( null );

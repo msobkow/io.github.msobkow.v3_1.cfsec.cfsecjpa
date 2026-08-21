@@ -52,7 +52,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecSysGrpIncNameIdxSubGroup", columnList = "inc_nameSubGroup", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecSysGrpInc
 	implements Comparable<Object>,

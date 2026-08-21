@@ -54,7 +54,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "SecSysGrpIncNameIdx_h", columnList = "inc_name", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecSysGrpIncH
     implements ICFSecSecSysGrpIncH, Comparable<Object>, Serializable

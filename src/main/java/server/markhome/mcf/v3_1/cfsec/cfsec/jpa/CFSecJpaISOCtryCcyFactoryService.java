@@ -53,11 +53,13 @@ public class CFSecJpaISOCtryCcyFactoryService
     public CFSecJpaISOCtryCcyFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryCcyPKey newPKey() {
         ICFSecISOCtryCcyPKey pkey = new CFSecJpaISOCtryCcyPKey();
         return( pkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryCcyPKey ensurePKey(ICFSecISOCtryCcyPKey key) {
 		if (key == null) {
 			return( null );
@@ -74,11 +76,13 @@ public class CFSecJpaISOCtryCcyFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryCcyHPKey newHPKey() {
         ICFSecISOCtryCcyHPKey hpkey = new CFSecJpaISOCtryCcyHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryCcyHPKey ensureHPKey(ICFSecISOCtryCcyHPKey key) {
 		if (key == null) {
 			return( null );
@@ -99,11 +103,13 @@ public class CFSecJpaISOCtryCcyFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryCcyByCtryIdxKey newByCtryIdxKey() {
 		ICFSecISOCtryCcyByCtryIdxKey key = new CFSecJpaISOCtryCcyByCtryIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryCcyByCtryIdxKey ensureByCtryIdxKey(ICFSecISOCtryCcyByCtryIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -119,11 +125,13 @@ public class CFSecJpaISOCtryCcyFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryCcyByCcyIdxKey newByCcyIdxKey() {
 		ICFSecISOCtryCcyByCcyIdxKey key = new CFSecJpaISOCtryCcyByCcyIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryCcyByCcyIdxKey ensureByCcyIdxKey(ICFSecISOCtryCcyByCcyIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -139,11 +147,13 @@ public class CFSecJpaISOCtryCcyFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOCtryCcy newRec() {
         ICFSecISOCtryCcy rec = new CFSecJpaISOCtryCcy();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryCcy ensureRec(ICFSecISOCtryCcy rec) {
 		if( rec == null ) {
 			return( null );
@@ -171,6 +181,7 @@ public class CFSecJpaISOCtryCcyFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOCtryCcyH ensureHRec(ICFSecISOCtryCcyH hrec) {
 		if( hrec == null ) {
 			return( null );

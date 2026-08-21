@@ -54,7 +54,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "ISOCtryLangLangIdx_h", columnList = "ISOLangId", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaISOCtryLangH
     implements ICFSecISOCtryLangH, Comparable<Object>, Serializable

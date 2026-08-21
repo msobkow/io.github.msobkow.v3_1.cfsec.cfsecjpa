@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "ISOLang6391Idx", columnList = "iso_code2", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaISOLang
 	implements Comparable<Object>,

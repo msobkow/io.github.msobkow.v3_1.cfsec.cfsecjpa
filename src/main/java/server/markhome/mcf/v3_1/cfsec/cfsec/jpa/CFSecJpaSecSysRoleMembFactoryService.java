@@ -53,11 +53,13 @@ public class CFSecJpaSecSysRoleMembFactoryService
     public CFSecJpaSecSysRoleMembFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSysRoleMembPKey newPKey() {
         ICFSecSecSysRoleMembPKey pkey = new CFSecJpaSecSysRoleMembPKey();
         return( pkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSysRoleMembPKey ensurePKey(ICFSecSecSysRoleMembPKey key) {
 		if (key == null) {
 			return( null );
@@ -66,19 +68,19 @@ public class CFSecJpaSecSysRoleMembFactoryService
 			return( (CFSecJpaSecSysRoleMembPKey)key );
 		}
 		else {
-			CFSecJpaSecSysRoleMembPKey mapped = new CFSecJpaSecSysRoleMembPKey();
-			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
-			mapped.setRequiredLoginId( key.getRequiredLoginId() );
+			CFSecJpaSecSysRoleMembPKey mapped = new CFSecJpaSecSysRoleMembPKey();$maybeImplBuffCopyKeyAttrToMapped$$maybeImplBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSysRoleMembHPKey newHPKey() {
         ICFSecSecSysRoleMembHPKey hpkey = new CFSecJpaSecSysRoleMembHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSysRoleMembHPKey ensureHPKey(ICFSecSecSysRoleMembHPKey key) {
 		if (key == null) {
 			return( null );
@@ -91,19 +93,19 @@ public class CFSecJpaSecSysRoleMembFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());
-			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
-			mapped.setRequiredLoginId( key.getRequiredLoginId() );
+			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSysRoleMembBySysRoleIdxKey newBySysRoleIdxKey() {
 		ICFSecSecSysRoleMembBySysRoleIdxKey key = new CFSecJpaSecSysRoleMembBySysRoleIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSysRoleMembBySysRoleIdxKey ensureBySysRoleIdxKey(ICFSecSecSysRoleMembBySysRoleIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -112,18 +114,19 @@ public class CFSecJpaSecSysRoleMembFactoryService
 			return( (CFSecJpaSecSysRoleMembBySysRoleIdxKey)key );
 		}
 		else {
-			CFSecJpaSecSysRoleMembBySysRoleIdxKey mapped = new CFSecJpaSecSysRoleMembBySysRoleIdxKey();
-			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
+			CFSecJpaSecSysRoleMembBySysRoleIdxKey mapped = new CFSecJpaSecSysRoleMembBySysRoleIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSysRoleMembByLoginIdxKey newByLoginIdxKey() {
 		ICFSecSecSysRoleMembByLoginIdxKey key = new CFSecJpaSecSysRoleMembByLoginIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSysRoleMembByLoginIdxKey ensureByLoginIdxKey(ICFSecSecSysRoleMembByLoginIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -132,18 +135,19 @@ public class CFSecJpaSecSysRoleMembFactoryService
 			return( (CFSecJpaSecSysRoleMembByLoginIdxKey)key );
 		}
 		else {
-			CFSecJpaSecSysRoleMembByLoginIdxKey mapped = new CFSecJpaSecSysRoleMembByLoginIdxKey();
-			mapped.setRequiredLoginId( key.getRequiredLoginId() );
+			CFSecJpaSecSysRoleMembByLoginIdxKey mapped = new CFSecJpaSecSysRoleMembByLoginIdxKey();$implBuffCopyKeyAttrToMapped$
 			return( mapped );
 		}
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSysRoleMemb newRec() {
         ICFSecSecSysRoleMemb rec = new CFSecJpaSecSysRoleMemb();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSysRoleMemb ensureRec(ICFSecSecSysRoleMemb rec) {
 		if( rec == null ) {
 			return( null );
@@ -171,6 +175,7 @@ public class CFSecJpaSecSysRoleMembFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSysRoleMembH ensureHRec(ICFSecSecSysRoleMembH hrec) {
 		if( hrec == null ) {
 			return( null );

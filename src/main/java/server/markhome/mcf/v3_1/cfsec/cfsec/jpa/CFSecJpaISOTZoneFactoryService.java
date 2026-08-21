@@ -53,11 +53,13 @@ public class CFSecJpaISOTZoneFactoryService
     public CFSecJpaISOTZoneFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOTZoneHPKey newHPKey() {
         ICFSecISOTZoneHPKey hpkey = new CFSecJpaISOTZoneHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOTZoneHPKey ensureHPKey(ICFSecISOTZoneHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaISOTZoneFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOTZoneByOffsetIdxKey newByOffsetIdxKey() {
 		ICFSecISOTZoneByOffsetIdxKey key = new CFSecJpaISOTZoneByOffsetIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOTZoneByOffsetIdxKey ensureByOffsetIdxKey(ICFSecISOTZoneByOffsetIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -98,11 +102,13 @@ public class CFSecJpaISOTZoneFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOTZoneByUTZNameIdxKey newByUTZNameIdxKey() {
 		ICFSecISOTZoneByUTZNameIdxKey key = new CFSecJpaISOTZoneByUTZNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOTZoneByUTZNameIdxKey ensureByUTZNameIdxKey(ICFSecISOTZoneByUTZNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -118,11 +124,13 @@ public class CFSecJpaISOTZoneFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOTZoneByIso8601IdxKey newByIso8601IdxKey() {
 		ICFSecISOTZoneByIso8601IdxKey key = new CFSecJpaISOTZoneByIso8601IdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOTZoneByIso8601IdxKey ensureByIso8601IdxKey(ICFSecISOTZoneByIso8601IdxKey key) {
 		if (key == null) {
 			return( null );
@@ -138,11 +146,13 @@ public class CFSecJpaISOTZoneFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecISOTZone newRec() {
         ICFSecISOTZone rec = new CFSecJpaISOTZone();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOTZone ensureRec(ICFSecISOTZone rec) {
 		if( rec == null ) {
 			return( null );
@@ -170,6 +180,7 @@ public class CFSecJpaISOTZoneFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaISOTZoneH ensureHRec(ICFSecISOTZoneH hrec) {
 		if( hrec == null ) {
 			return( null );

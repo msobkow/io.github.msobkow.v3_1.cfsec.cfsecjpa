@@ -53,7 +53,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecClusRoleNameIdxSysRole", columnList = "safe_nameSysRole", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecClusRole
 	implements Comparable<Object>,

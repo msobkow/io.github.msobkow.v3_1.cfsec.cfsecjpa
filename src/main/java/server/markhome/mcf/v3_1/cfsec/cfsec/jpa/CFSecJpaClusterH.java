@@ -54,7 +54,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "ClusterUDescrNameIdx_h", columnList = "Description", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaClusterH
     implements ICFSecClusterH, Comparable<Object>, Serializable

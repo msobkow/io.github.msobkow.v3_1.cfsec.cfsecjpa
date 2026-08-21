@@ -55,7 +55,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "SecClusGrpUNameIdx_h", columnList = "ClusterId, safe_name", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecClusGrpH
     implements ICFSecSecClusGrpH, Comparable<Object>, Serializable

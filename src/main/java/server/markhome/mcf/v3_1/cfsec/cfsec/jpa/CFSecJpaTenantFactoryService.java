@@ -53,11 +53,13 @@ public class CFSecJpaTenantFactoryService
     public CFSecJpaTenantFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTenantHPKey newHPKey() {
         ICFSecTenantHPKey hpkey = new CFSecJpaTenantHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTenantHPKey ensureHPKey(ICFSecTenantHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaTenantFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTenantByClusterIdxKey newByClusterIdxKey() {
 		ICFSecTenantByClusterIdxKey key = new CFSecJpaTenantByClusterIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTenantByClusterIdxKey ensureByClusterIdxKey(ICFSecTenantByClusterIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaTenantFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTenantByUNameIdxKey newByUNameIdxKey() {
 		ICFSecTenantByUNameIdxKey key = new CFSecJpaTenantByUNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTenantByUNameIdxKey ensureByUNameIdxKey(ICFSecTenantByUNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -118,11 +124,13 @@ public class CFSecJpaTenantFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecTenant newRec() {
         ICFSecTenant rec = new CFSecJpaTenant();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTenant ensureRec(ICFSecTenant rec) {
 		if( rec == null ) {
 			return( null );
@@ -150,6 +158,7 @@ public class CFSecJpaTenantFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaTenantH ensureHRec(ICFSecTenantH hrec) {
 		if( hrec == null ) {
 			return( null );

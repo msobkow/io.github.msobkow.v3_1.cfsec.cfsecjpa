@@ -54,7 +54,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "SecSysRoleMembLoginIdx_h", columnList = "login_id", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecSysRoleMembH
     implements ICFSecSecSysRoleMembH, Comparable<Object>, Serializable

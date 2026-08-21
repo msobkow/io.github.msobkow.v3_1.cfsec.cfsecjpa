@@ -53,11 +53,13 @@ public class CFSecJpaSecSessionFactoryService
     public CFSecJpaSecSessionFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSessionHPKey newHPKey() {
         ICFSecSecSessionHPKey hpkey = new CFSecJpaSecSessionHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSessionHPKey ensureHPKey(ICFSecSecSessionHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaSecSessionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSessionBySecUserIdxKey newBySecUserIdxKey() {
 		ICFSecSecSessionBySecUserIdxKey key = new CFSecJpaSecSessionBySecUserIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSessionBySecUserIdxKey ensureBySecUserIdxKey(ICFSecSecSessionBySecUserIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaSecSessionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSessionByStartIdxKey newByStartIdxKey() {
 		ICFSecSecSessionByStartIdxKey key = new CFSecJpaSecSessionByStartIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSessionByStartIdxKey ensureByStartIdxKey(ICFSecSecSessionByStartIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -118,11 +124,13 @@ public class CFSecJpaSecSessionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSessionByFinishIdxKey newByFinishIdxKey() {
 		ICFSecSecSessionByFinishIdxKey key = new CFSecJpaSecSessionByFinishIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSessionByFinishIdxKey ensureByFinishIdxKey(ICFSecSecSessionByFinishIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -139,11 +147,13 @@ public class CFSecJpaSecSessionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSessionBySecProxyIdxKey newBySecProxyIdxKey() {
 		ICFSecSecSessionBySecProxyIdxKey key = new CFSecJpaSecSessionBySecProxyIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSessionBySecProxyIdxKey ensureBySecProxyIdxKey(ICFSecSecSessionBySecProxyIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -159,11 +169,13 @@ public class CFSecJpaSecSessionFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecSession newRec() {
         ICFSecSecSession rec = new CFSecJpaSecSession();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSession ensureRec(ICFSecSecSession rec) {
 		if( rec == null ) {
 			return( null );
@@ -191,6 +203,7 @@ public class CFSecJpaSecSessionFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecSessionH ensureHRec(ICFSecSecSessionH hrec) {
 		if( hrec == null ) {
 			return( null );

@@ -53,7 +53,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecTentGrpNameIdxSysGrp", columnList = "safe_nameSysGrp", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecTentGrp
 	implements Comparable<Object>,
@@ -65,16 +65,16 @@ public class CFSecJpaSecTentGrp
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected ICFLibKeyHash256 requiredSecTentGrpId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
-	protected Set<CFSecJpaSecTentGrpMemb> optionalChildrenMembByGrp;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="$OptionalOrRequired$ContainerGroup")
+	protected Set<CFSecJpaSecTentGrpMemb> $OptionalOrRequired$ChildrenMembByGrp;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="TenantIdTenant", referencedColumnName="Id" )
-	protected CFSecJpaTenant requiredOwnerTenant;
+	protected CFSecJpaTenant $OptionalOrRequired$OwnerTenant;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="safe_nameSysGrp", referencedColumnName="safe_name" )
-	protected CFSecJpaSecSysGrp requiredContainerSysGrp;
+	protected CFSecJpaSecSysGrp $OptionalOrRequired$ContainerSysGrp;
 
 	@AttributeOverrides({
 		@AttributeOverride( name="bytes", column = @Column( name="CreatedByUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
@@ -120,25 +120,25 @@ public class CFSecJpaSecTentGrp
 	}
 
 	@Override
-	public List<ICFSecSecTentGrpMemb> getOptionalChildrenMembByGrp() {
-		List<ICFSecSecTentGrpMemb> retlist = (optionalChildrenMembByGrp != null) ? new ArrayList<>(optionalChildrenMembByGrp) : new ArrayList<>();
+	public List<ICFSecSecTentGrpMemb> get$OptionalOrRequired$ChildrenMembByGrp() {
+		List<ICFSecSecTentGrpMemb> retlist = ($OptionalOrRequired$ChildrenMembByGrp != null) ? new ArrayList<>($OptionalOrRequired$ChildrenMembByGrp) : new ArrayList<>();
 		return( retlist );
 	}
 
 	@Override
-	public ICFSecTenant getRequiredOwnerTenant() {
-		return(requiredOwnerTenant);
+	public ICFSecTenant get$OptionalOrRequired$OwnerTenant() {
+		return($OptionalOrRequired$OwnerTenant);
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(ICFSecTenant argObj) {
+	public void set$OptionalOrRequired$OwnerTenant(ICFSecTenant argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setOwnerTenant", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaTenant) {
-			requiredOwnerTenant = (CFSecJpaTenant)argObj;
-			if (requiredOwnerTenant != null) {
-				requiredTenantId = requiredOwnerTenant.getRequiredId();
+			$OptionalOrRequired$OwnerTenant = (CFSecJpaTenant)argObj;
+			if ($OptionalOrRequired$OwnerTenant != null) {
+				requiredTenantId = $OptionalOrRequired$OwnerTenant.getRequiredId();
 			}
 			else {
 			}
@@ -149,43 +149,43 @@ public class CFSecJpaSecTentGrp
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(ICFSecProtTenant argObj) {
-		setRequiredOwnerTenant(argObj.getRequiredId());
+	public void set$OptionalOrRequired$OwnerTenant(ICFSecProtTenant argObj) {
+		set$OptionalOrRequired$OwnerTenant(argObj.getRequiredId());
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(ICFSecPubTenant argObj) {
-		setRequiredOwnerTenant(argObj.getRequiredId());
+	public void set$OptionalOrRequired$OwnerTenant(ICFSecPubTenant argObj) {
+		set$OptionalOrRequired$OwnerTenant(argObj.getRequiredId());
 	}
 
 	@Override
-	public void setRequiredOwnerTenant(ICFLibKeyHash256 argTenantId) {
+	public void set$OptionalOrRequired$OwnerTenant(ICFLibKeyHash256 argTenantId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$OwnerTenant", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecTenantTable targetTable = targetBackingSchema.getTableTenant();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$OwnerTenant", 0, "ICFSecSchema.getBackingCFSec().getTableTenant()");
 		}
 		ICFSecTenant targetRec = targetTable.readDerived(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argTenantId);
-		setRequiredOwnerTenant(targetRec);
+		set$OptionalOrRequired$OwnerTenant(targetRec);
 	}
 
 	@Override
-	public ICFSecSecSysGrp getRequiredContainerSysGrp() {
-		return(requiredContainerSysGrp);
+	public ICFSecSecSysGrp get$OptionalOrRequired$ContainerSysGrp() {
+		return($OptionalOrRequired$ContainerSysGrp);
 	}
 
 	@Override
-	public void setRequiredContainerSysGrp(ICFSecSecSysGrp argObj) {
+	public void set$OptionalOrRequired$ContainerSysGrp(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setContainerSysGrp", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
-			requiredContainerSysGrp = (CFSecJpaSecSysGrp)argObj;
-			if (requiredContainerSysGrp != null) {
-				requiredName = requiredContainerSysGrp.getRequiredName();
+			$OptionalOrRequired$ContainerSysGrp = (CFSecJpaSecSysGrp)argObj;
+			if ($OptionalOrRequired$ContainerSysGrp != null) {
+				requiredName = $OptionalOrRequired$ContainerSysGrp.getRequiredName();
 			}
 			else {
 			}
@@ -196,27 +196,27 @@ public class CFSecJpaSecTentGrp
 	}
 
 	@Override
-	public void setRequiredContainerSysGrp(ICFSecProtSecSysGrp argObj) {
-		setRequiredContainerSysGrp(argObj.getRequiredName());
+	public void set$OptionalOrRequired$ContainerSysGrp(ICFSecProtSecSysGrp argObj) {
+		set$OptionalOrRequired$ContainerSysGrp(argObj.getRequiredName());
 	}
 
 	@Override
-	public void setRequiredContainerSysGrp(ICFSecPubSecSysGrp argObj) {
-		setRequiredContainerSysGrp(argObj.getRequiredName());
+	public void set$OptionalOrRequired$ContainerSysGrp(ICFSecPubSecSysGrp argObj) {
+		set$OptionalOrRequired$ContainerSysGrp(argObj.getRequiredName());
 	}
 
 	@Override
-	public void setRequiredContainerSysGrp(String argName) {
+	public void set$OptionalOrRequired$ContainerSysGrp(String argName) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysGrp", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ContainerSysGrp", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecSysGrpTable targetTable = targetBackingSchema.getTableSecSysGrp();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysGrp", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ContainerSysGrp", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
 		}
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argName);
-		setRequiredContainerSysGrp(targetRec);
+		set$OptionalOrRequired$ContainerSysGrp(targetRec);
 	}
 
 	@Override
@@ -822,8 +822,8 @@ public class CFSecJpaSecTentGrp
 		setCreatedAt( src.getCreatedAt() );
 		setUpdatedByUserId( src.getUpdatedByUserId() );
 		setUpdatedAt( src.getUpdatedAt() );
-		setRequiredOwnerTenant(src.getRequiredOwnerTenant());
-		setRequiredContainerSysGrp(src.getRequiredContainerSysGrp());
+		set$OptionalOrRequired$OwnerTenant(src.get$OptionalOrRequired$OwnerTenant());
+		set$OptionalOrRequired$ContainerSysGrp(src.get$OptionalOrRequired$ContainerSysGrp());
 		setRequiredTenantId(src.getRequiredTenantId());
 		setRequiredName(src.getRequiredName());
 	}
@@ -836,8 +836,8 @@ public class CFSecJpaSecTentGrp
 	@Override
 	public void setSecTentGrp( ICFSecSecTentGrpH src ) {
 		setRequiredSecTentGrpId(src.getRequiredSecTentGrpId());
-		setRequiredOwnerTenant(src.getRequiredTenantId());
-		setRequiredContainerSysGrp(src.getRequiredName());
+		set$OptionalOrRequired$OwnerTenant(src.getRequiredTenantId());
+		set$OptionalOrRequired$ContainerSysGrp(src.getRequiredName());
 		setRequiredTenantId(src.getRequiredTenantId());
 		setRequiredName(src.getRequiredName());
 	}

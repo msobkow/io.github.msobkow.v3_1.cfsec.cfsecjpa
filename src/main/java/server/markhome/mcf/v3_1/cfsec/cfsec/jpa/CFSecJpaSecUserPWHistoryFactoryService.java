@@ -53,11 +53,13 @@ public class CFSecJpaSecUserPWHistoryFactoryService
     public CFSecJpaSecUserPWHistoryFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWHistoryPKey newPKey() {
         ICFSecSecUserPWHistoryPKey pkey = new CFSecJpaSecUserPWHistoryPKey();
         return( pkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWHistoryPKey ensurePKey(ICFSecSecUserPWHistoryPKey key) {
 		if (key == null) {
 			return( null );
@@ -74,11 +76,13 @@ public class CFSecJpaSecUserPWHistoryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWHistoryHPKey newHPKey() {
         ICFSecSecUserPWHistoryHPKey hpkey = new CFSecJpaSecUserPWHistoryHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWHistoryHPKey ensureHPKey(ICFSecSecUserPWHistoryHPKey key) {
 		if (key == null) {
 			return( null );
@@ -99,11 +103,13 @@ public class CFSecJpaSecUserPWHistoryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWHistoryByUserIdxKey newByUserIdxKey() {
 		ICFSecSecUserPWHistoryByUserIdxKey key = new CFSecJpaSecUserPWHistoryByUserIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWHistoryByUserIdxKey ensureByUserIdxKey(ICFSecSecUserPWHistoryByUserIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -119,11 +125,13 @@ public class CFSecJpaSecUserPWHistoryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWHistoryBySetStampIdxKey newBySetStampIdxKey() {
 		ICFSecSecUserPWHistoryBySetStampIdxKey key = new CFSecJpaSecUserPWHistoryBySetStampIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWHistoryBySetStampIdxKey ensureBySetStampIdxKey(ICFSecSecUserPWHistoryBySetStampIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -139,11 +147,13 @@ public class CFSecJpaSecUserPWHistoryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWHistoryByReplacedStampIdxKey newByReplacedStampIdxKey() {
 		ICFSecSecUserPWHistoryByReplacedStampIdxKey key = new CFSecJpaSecUserPWHistoryByReplacedStampIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWHistoryByReplacedStampIdxKey ensureByReplacedStampIdxKey(ICFSecSecUserPWHistoryByReplacedStampIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -159,11 +169,13 @@ public class CFSecJpaSecUserPWHistoryFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecUserPWHistory newRec() {
         ICFSecSecUserPWHistory rec = new CFSecJpaSecUserPWHistory();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWHistory ensureRec(ICFSecSecUserPWHistory rec) {
 		if( rec == null ) {
 			return( null );
@@ -191,6 +203,7 @@ public class CFSecJpaSecUserPWHistoryFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecUserPWHistoryH ensureHRec(ICFSecSecUserPWHistoryH hrec) {
 		if( hrec == null ) {
 			return( null );

@@ -62,6 +62,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateClusterIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -71,7 +72,7 @@ public class CFSecJpaIdGenService {
 	*
 	*		@return The next short value for the ISOCcyIdGen type.
 	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	@SequenceGenerator(name = "ISOCcyIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	public short generateISOCcyIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "generateISOCcyIdGen" );
@@ -82,7 +83,7 @@ public class CFSecJpaIdGenService {
 	*
 	*		@return The next integer value for the TableInfoIdGen type.
 	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	@SequenceGenerator(name = "cfsec_tblinfoidgenseq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	public int generateTableInfoIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "generateTableInfoIdGen" );
@@ -93,7 +94,7 @@ public class CFSecJpaIdGenService {
 	*
 	*		@return The next short value for the ISOCtryIdGen type.
 	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	@SequenceGenerator(name = "ISOCtryIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	public short generateISOCtryIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "generateISOCtryIdGen" );
@@ -104,7 +105,7 @@ public class CFSecJpaIdGenService {
 	*
 	*		@return The next short value for the ISOLangIdGen type.
 	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	@SequenceGenerator(name = "ISOLangIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	public short generateISOLangIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "generateISOLangIdGen" );
@@ -115,7 +116,7 @@ public class CFSecJpaIdGenService {
 	*
 	*		@return The next short value for the ISOTZoneIdGen type.
 	*/
-	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	@SequenceGenerator(name = "ISOTZoneIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	public short generateISOTZoneIdGen() {
 		throw new CFLibNotImplementedYetException( getClass(), "generateISOTZoneIdGen" );
@@ -126,6 +127,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateSecSessionIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -135,6 +137,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateSecUserIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -144,6 +147,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateTenantIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -153,6 +157,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateSecSysGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -162,6 +167,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateSecClusGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -171,6 +177,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateSecClusRoleIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -180,6 +187,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateSecTentGrpIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}
@@ -189,6 +197,7 @@ public class CFSecJpaIdGenService {
 	 *
 	 *		@return A cryptographically-random generated CFLibDBKeyHash128 value
 	 */
+	@Transactional(propagation = Propagation.MANDATORY, noRollbackFor = NoResultException.class, transactionManager = "cfsecTransactionManager")
 	public CFLibDbKeyHash256 generateSecTentRoleIdGen() {
 		return( new CFLibDbKeyHash256(0) );
 	}

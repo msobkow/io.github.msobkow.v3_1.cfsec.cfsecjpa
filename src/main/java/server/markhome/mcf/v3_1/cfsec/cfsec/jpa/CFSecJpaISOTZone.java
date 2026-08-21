@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "ISOTZoneIso8601Idx", columnList = "Iso8601", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaISOTZone
 	implements Comparable<Object>,

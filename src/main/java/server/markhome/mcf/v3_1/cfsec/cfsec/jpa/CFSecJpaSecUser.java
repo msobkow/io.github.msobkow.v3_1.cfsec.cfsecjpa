@@ -50,7 +50,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecUserUEMailAddrIdx", columnList = "email_addr", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @NamedQuery(name="cFSec31SecUser.countSysSecurityPermsByLoginId",
 	query="select count(*) from ("
 		+ "select sg0.requiredName as requiredName from CFSecJpaSecSysGrp sg0 join sg0.optionalChildrenMembByGrp mb0 join mb0.requiredParentUser pu0 where sg0.requiredName = :parmPermName and pu0.requiredLoginId = :parmLoginId"

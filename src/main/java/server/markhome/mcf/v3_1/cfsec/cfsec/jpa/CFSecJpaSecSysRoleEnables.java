@@ -52,7 +52,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 		@Index(name = "SecSysRoleEnableNameIdxEnableGroup", columnList = "enable_nameEnableGroup", unique = false)
 	}
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaSecSysRoleEnables
 	implements Comparable<Object>,
@@ -68,10 +68,10 @@ public class CFSecJpaSecSysRoleEnables
 	CFSecJpaSecSysRoleEnablesPKey pkey = new CFSecJpaSecSysRoleEnablesPKey();
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecSysRoleIdSysRole", referencedColumnName="SecSysRoleId" )
-	protected CFSecJpaSecSysRole requiredContainerSysRole;
+	protected CFSecJpaSecSysRole $OptionalOrRequired$ContainerSysRole;
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="enable_nameEnableGroup", referencedColumnName="safe_name" )
-	protected CFSecJpaSecSysGrp requiredParentEnableGroup;
+	protected CFSecJpaSecSysGrp $OptionalOrRequired$ParentEnableGroup;
 	protected int requiredRevision;
 
 
@@ -111,19 +111,19 @@ public class CFSecJpaSecSysRoleEnables
 	}
 
 	@Override
-	public ICFSecSecSysRole getRequiredContainerSysRole() {
-		return(requiredContainerSysRole);
+	public ICFSecSecSysRole get$OptionalOrRequired$ContainerSysRole() {
+		return($OptionalOrRequired$ContainerSysRole);
 	}
 
 	@Override
-	public void setRequiredContainerSysRole(ICFSecSecSysRole argObj) {
+	public void set$OptionalOrRequired$ContainerSysRole(ICFSecSecSysRole argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setContainerSysRole", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecSysRole) {
-			requiredContainerSysRole = (CFSecJpaSecSysRole)argObj;
-			if (requiredContainerSysRole != null) {
-				getPKey().setRequiredSecSysRoleId(requiredContainerSysRole.getRequiredSecSysRoleId());
+			$OptionalOrRequired$ContainerSysRole = (CFSecJpaSecSysRole)argObj;
+			if ($OptionalOrRequired$ContainerSysRole != null) {
+				getPKey().setRequiredSecSysRoleId($OptionalOrRequired$ContainerSysRole.getRequiredSecSysRoleId());
 			}
 			else {
 			}
@@ -135,43 +135,43 @@ public class CFSecJpaSecSysRoleEnables
 	}
 
 	@Override
-	public void setRequiredContainerSysRole(ICFSecProtSecSysRole argObj) {
-		setRequiredContainerSysRole(argObj.getRequiredSecSysRoleId());
+	public void set$OptionalOrRequired$ContainerSysRole(ICFSecProtSecSysRole argObj) {
+		set$OptionalOrRequired$ContainerSysRole(argObj.getRequiredSecSysRoleId());
 	}
 
 	@Override
-	public void setRequiredContainerSysRole(ICFSecPubSecSysRole argObj) {
-		setRequiredContainerSysRole(argObj.getRequiredSecSysRoleId());
+	public void set$OptionalOrRequired$ContainerSysRole(ICFSecPubSecSysRole argObj) {
+		set$OptionalOrRequired$ContainerSysRole(argObj.getRequiredSecSysRoleId());
 	}
 
 	@Override
-	public void setRequiredContainerSysRole(ICFLibKeyHash256 argSecSysRoleId) {
+	public void set$OptionalOrRequired$ContainerSysRole(ICFLibKeyHash256 argSecSysRoleId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecSysRoleTable targetTable = targetBackingSchema.getTableSecSysRole();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysRole()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ContainerSysRole", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysRole()");
 		}
 		ICFSecSecSysRole targetRec = targetTable.readDerivedByIdIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argSecSysRoleId);
-		setRequiredContainerSysRole(targetRec);
+		set$OptionalOrRequired$ContainerSysRole(targetRec);
 	}
 
 	@Override
-	public ICFSecSecSysGrp getRequiredParentEnableGroup() {
-		return(requiredParentEnableGroup);
+	public ICFSecSecSysGrp get$OptionalOrRequired$ParentEnableGroup() {
+		return($OptionalOrRequired$ParentEnableGroup);
 	}
 
 	@Override
-	public void setRequiredParentEnableGroup(ICFSecSecSysGrp argObj) {
+	public void set$OptionalOrRequired$ParentEnableGroup(ICFSecSecSysGrp argObj) {
 		if(argObj == null) {
 			throw new CFLibNullArgumentException(getClass(), "setParentEnableGroup", 1, "argObj");
 		}
 		else if (argObj instanceof CFSecJpaSecSysGrp) {
-			requiredParentEnableGroup = (CFSecJpaSecSysGrp)argObj;
-			if (requiredParentEnableGroup != null) {
-				getPKey().setRequiredEnableName(requiredParentEnableGroup.getRequiredName());
+			$OptionalOrRequired$ParentEnableGroup = (CFSecJpaSecSysGrp)argObj;
+			if ($OptionalOrRequired$ParentEnableGroup != null) {
+				getPKey().setRequiredEnableName($OptionalOrRequired$ParentEnableGroup.getRequiredName());
 			}
 			else {
 			}
@@ -183,27 +183,27 @@ public class CFSecJpaSecSysRoleEnables
 	}
 
 	@Override
-	public void setRequiredParentEnableGroup(ICFSecProtSecSysGrp argObj) {
-		setRequiredParentEnableGroup(argObj.getRequiredName());
+	public void set$OptionalOrRequired$ParentEnableGroup(ICFSecProtSecSysGrp argObj) {
+		set$OptionalOrRequired$ParentEnableGroup(argObj.getRequiredName());
 	}
 
 	@Override
-	public void setRequiredParentEnableGroup(ICFSecPubSecSysGrp argObj) {
-		setRequiredParentEnableGroup(argObj.getRequiredName());
+	public void set$OptionalOrRequired$ParentEnableGroup(ICFSecPubSecSysGrp argObj) {
+		set$OptionalOrRequired$ParentEnableGroup(argObj.getRequiredName());
 	}
 
 	@Override
-	public void setRequiredParentEnableGroup(String argEnableName) {
+	public void set$OptionalOrRequired$ParentEnableGroup(String argEnableName) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentEnableGroup", 0, "ICFSecSchema.getBackingCFSec()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ParentEnableGroup", 0, "ICFSecSchema.getBackingCFSec()");
 		}
 		ICFSecSecSysGrpTable targetTable = targetBackingSchema.getTableSecSysGrp();
 		if (targetTable == null) {
-			throw new CFLibNullArgumentException(getClass(), "setRequiredParentEnableGroup", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
+			throw new CFLibNullArgumentException(getClass(), "set$OptionalOrRequired$ParentEnableGroup", 0, "ICFSecSchema.getBackingCFSec().getTableSecSysGrp()");
 		}
 		ICFSecSecSysGrp targetRec = targetTable.readDerivedByUNameIdx(ICFSecSchema.getAuthorizationCallback().getEffectiveAuthorization(), argEnableName);
-		setRequiredParentEnableGroup(targetRec);
+		set$OptionalOrRequired$ParentEnableGroup(targetRec);
 	}
 
 	@Override
@@ -666,8 +666,8 @@ public class CFSecJpaSecSysRoleEnables
 
 	@Override
 	public void setSecSysRoleEnables( ICFSecSecSysRoleEnables src ) {
-		setRequiredContainerSysRole(src.getRequiredContainerSysRole());
-		setRequiredParentEnableGroup(src.getRequiredParentEnableGroup());
+		set$OptionalOrRequired$ContainerSysRole(src.get$OptionalOrRequired$ContainerSysRole());
+		set$OptionalOrRequired$ParentEnableGroup(src.get$OptionalOrRequired$ParentEnableGroup());
 		setRequiredSecSysRoleId(src.getRequiredSecSysRoleId());
 		setRequiredEnableName(src.getRequiredEnableName());
 		setRequiredRevision( src.getRequiredRevision() );
@@ -684,8 +684,8 @@ public class CFSecJpaSecSysRoleEnables
 
 	@Override
 	public void setSecSysRoleEnables( ICFSecSecSysRoleEnablesH src ) {
-		setRequiredContainerSysRole(src.getRequiredSecSysRoleId());
-		setRequiredParentEnableGroup(src.getRequiredEnableName());
+		set$OptionalOrRequired$ContainerSysRole(src.getRequiredSecSysRoleId());
+		set$OptionalOrRequired$ParentEnableGroup(src.getRequiredEnableName());
 		setRequiredSecSysRoleId(src.getRequiredSecSysRoleId());
 		setRequiredEnableName(src.getRequiredEnableName());
 	}

@@ -57,7 +57,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
         @Index(name = "TableInfoSchemaRTCodeIdx_h", columnList = "runtm_clscode", unique = false)
     }
 )
-@Transactional(Transactional.TxType.SUPPORTS)
+@Transactional(Transactional.TxType.REQUIRED)
 @PersistenceContext(unitName = "CFSecPU")
 public class CFSecJpaTableInfoH
     implements ICFSecTableInfoH, Comparable<Object>, Serializable

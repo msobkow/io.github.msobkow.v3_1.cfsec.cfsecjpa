@@ -53,11 +53,13 @@ public class CFSecJpaSecClusGrpFactoryService
     public CFSecJpaSecClusGrpFactoryService() { }
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusGrpHPKey newHPKey() {
         ICFSecSecClusGrpHPKey hpkey = new CFSecJpaSecClusGrpHPKey();
         return( hpkey );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusGrpHPKey ensureHPKey(ICFSecSecClusGrpHPKey key) {
 		if (key == null) {
 			return( null );
@@ -77,11 +79,13 @@ public class CFSecJpaSecClusGrpFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusGrpByClusterIdxKey newByClusterIdxKey() {
 		ICFSecSecClusGrpByClusterIdxKey key = new CFSecJpaSecClusGrpByClusterIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusGrpByClusterIdxKey ensureByClusterIdxKey(ICFSecSecClusGrpByClusterIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -97,11 +101,13 @@ public class CFSecJpaSecClusGrpFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusGrpByNameIdxKey newByNameIdxKey() {
 		ICFSecSecClusGrpByNameIdxKey key = new CFSecJpaSecClusGrpByNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusGrpByNameIdxKey ensureByNameIdxKey(ICFSecSecClusGrpByNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -117,11 +123,13 @@ public class CFSecJpaSecClusGrpFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusGrpByUNameIdxKey newByUNameIdxKey() {
 		ICFSecSecClusGrpByUNameIdxKey key = new CFSecJpaSecClusGrpByUNameIdxKey();
 	return( key );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusGrpByUNameIdxKey ensureByUNameIdxKey(ICFSecSecClusGrpByUNameIdxKey key) {
 		if (key == null) {
 			return( null );
@@ -138,11 +146,13 @@ public class CFSecJpaSecClusGrpFactoryService
 	}
 
     @Override
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
     public ICFSecSecClusGrp newRec() {
         ICFSecSecClusGrp rec = new CFSecJpaSecClusGrp();
         return( rec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusGrp ensureRec(ICFSecSecClusGrp rec) {
 		if( rec == null ) {
 			return( null );
@@ -170,6 +180,7 @@ public class CFSecJpaSecClusGrpFactoryService
         return( hrec );
     }
 
+	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
 	public CFSecJpaSecClusGrpH ensureHRec(ICFSecSecClusGrpH hrec) {
 		if( hrec == null ) {
 			return( null );
