@@ -520,7 +520,7 @@ public class CFSecJpaSecTentGrpMembTable implements ICFSecSecTentGrpMembTable
 		ICFSecSecTentGrpMemb retval = schema.getJpaHooksSchema().getSecTentGrpMembService().find(argSecTentGrpId,
 		argLoginId);
 		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
-				ICFSecTenant tenant = retval.get$OptionalOrRequired$ContainerGroup().get$OptionalOrRequired$OwnerTenant();
+				ICFSecTenant tenant = retval.getRequiredContainerGroup().getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();

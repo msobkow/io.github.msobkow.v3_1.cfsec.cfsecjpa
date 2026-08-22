@@ -513,7 +513,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 		}
 		ICFSecSecTentGrp retval = schema.getJpaHooksSchema().getSecTentGrpService().find(argSecTentGrpId);
 		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
-				ICFSecTenant tenant = retval.get$OptionalOrRequired$OwnerTenant();
+				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();
@@ -612,7 +612,7 @@ public class CFSecJpaSecTentGrpTable implements ICFSecSecTentGrpTable
 		ICFSecSecTentGrp retval = schema.getJpaHooksSchema().getSecTentGrpService().findByUNameIdx(argTenantId,
 		argName);
 		if(retval != null && !ICFSecSchema.getSystemId().equals(Authorization.getSecUserId())) {
-				ICFSecTenant tenant = retval.get$OptionalOrRequired$OwnerTenant();
+				ICFSecTenant tenant = retval.getRequiredOwnerTenant();
 				ICFSecCluster cluster = tenant.getRequiredContainerCluster();
 			CFLibDbKeyHash256 effClusterId = cluster.getRequiredId();
 			CFLibDbKeyHash256 effTenantId = tenant.getRequiredId();

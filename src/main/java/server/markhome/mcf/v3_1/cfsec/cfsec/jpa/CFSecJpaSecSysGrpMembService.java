@@ -74,24 +74,24 @@ public class CFSecJpaSecSysGrpMembService {
 		if (data == null) {
 			return( null );
 		}
-		if (data.get$OptionalOrRequired$ContainerGroup() == null) {
+		if (data.getRequiredContainerGroup() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.$optionalorrequired$ContainerGroup",
-				"data.$optionalorrequired$ContainerGroup",
+				"data.requiredContainerGroup",
+				"data.requiredContainerGroup",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
 		}
-		if (data.get$OptionalOrRequired$ParentUser() == null) {
+		if (data.getRequiredParentUser() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Parent",
 				"Parent",
-				"data.$optionalorrequired$ParentUser",
-				"data.$optionalorrequired$ParentUser",
+				"data.requiredParentUser",
+				"data.requiredParentUser",
 				"SecUser",
 				"SecUser",
 				null);
@@ -134,24 +134,24 @@ public class CFSecJpaSecSysGrpMembService {
 				0,
 				"data.getPKey()");
 		}
-		if (data.get$OptionalOrRequired$ContainerGroup() == null) {
+		if (data.getRequiredContainerGroup() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.$optionalorrequired$ContainerGroup",
-				"data.$optionalorrequired$ContainerGroup",
+				"data.requiredContainerGroup",
+				"data.requiredContainerGroup",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
 		}
-		if (data.get$OptionalOrRequired$ParentUser() == null) {
+		if (data.getRequiredParentUser() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Parent",
 				"Parent",
-				"data.$optionalorrequired$ParentUser",
-				"data.$optionalorrequired$ParentUser",
+				"data.requiredParentUser",
+				"data.requiredParentUser",
 				"SecUser",
 				"SecUser",
 				null);

@@ -76,24 +76,24 @@ public class CFSecJpaSecTentGrpService {
 		}
 		ICFLibKeyHash256 originalRequiredSecTentGrpId = data.getRequiredSecTentGrpId();
 		boolean generatedRequiredSecTentGrpId = false;
-		if (data.get$OptionalOrRequired$OwnerTenant() == null) {
+		if (data.getRequiredOwnerTenant() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Owner",
 				"Owner",
-				"data.$optionalorrequired$OwnerTenant",
-				"data.$optionalorrequired$OwnerTenant",
+				"data.requiredOwnerTenant",
+				"data.requiredOwnerTenant",
 				"Tenant",
 				"Tenant",
 				null);
 		}
-		if (data.get$OptionalOrRequired$ContainerSysGrp() == null) {
+		if (data.getRequiredContainerSysGrp() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.$optionalorrequired$ContainerSysGrp",
-				"data.$optionalorrequired$ContainerSysGrp",
+				"data.requiredContainerSysGrp",
+				"data.requiredContainerSysGrp",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
@@ -155,24 +155,24 @@ public class CFSecJpaSecTentGrpService {
 				0,
 				"data.getPKey()");
 		}
-		if (data.get$OptionalOrRequired$OwnerTenant() == null) {
+		if (data.getRequiredOwnerTenant() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Owner",
 				"Owner",
-				"data.$optionalorrequired$OwnerTenant",
-				"data.$optionalorrequired$OwnerTenant",
+				"data.requiredOwnerTenant",
+				"data.requiredOwnerTenant",
 				"Tenant",
 				"Tenant",
 				null);
 		}
-		if (data.get$OptionalOrRequired$ContainerSysGrp() == null) {
+		if (data.getRequiredContainerSysGrp() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.$optionalorrequired$ContainerSysGrp",
-				"data.$optionalorrequired$ContainerSysGrp",
+				"data.requiredContainerSysGrp",
+				"data.requiredContainerSysGrp",
 				"SecSysGrp",
 				"SecSysGrp",
 				null);
@@ -196,8 +196,8 @@ public class CFSecJpaSecTentGrpService {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
 		}
 		// Apply superior data relationships of CFSecSecTentGrp to existing object
-		existing.set$OptionalOrRequired$OwnerTenant(data.get$OptionalOrRequired$OwnerTenant());
-		existing.set$OptionalOrRequired$ContainerSysGrp(data.get$OptionalOrRequired$ContainerSysGrp());
+		existing.setRequiredOwnerTenant(data.getRequiredOwnerTenant());
+		existing.setRequiredContainerSysGrp(data.getRequiredContainerSysGrp());
 		// Apply data columns of CFSecSecTentGrp to existing object
 		existing.setRequiredTenantId(data.getRequiredTenantId());
 		existing.setRequiredName(data.getRequiredName());

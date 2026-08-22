@@ -74,24 +74,24 @@ public class CFSecJpaSecSysRoleMembService {
 		if (data == null) {
 			return( null );
 		}
-		if (data.get$OptionalOrRequired$ContainerSysRole() == null) {
+		if (data.getRequiredContainerSysRole() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.$optionalorrequired$ContainerSysRole",
-				"data.$optionalorrequired$ContainerSysRole",
+				"data.requiredContainerSysRole",
+				"data.requiredContainerSysRole",
 				"SecSysRole",
 				"SecSysRole",
 				null);
 		}
-		if (data.get$OptionalOrRequired$ParentUser() == null) {
+		if (data.getRequiredParentUser() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Parent",
 				"Parent",
-				"data.$optionalorrequired$ParentUser",
-				"data.$optionalorrequired$ParentUser",
+				"data.requiredParentUser",
+				"data.requiredParentUser",
 				"SecUser",
 				"SecUser",
 				null);
@@ -134,24 +134,24 @@ public class CFSecJpaSecSysRoleMembService {
 				0,
 				"data.getPKey()");
 		}
-		if (data.get$OptionalOrRequired$ContainerSysRole() == null) {
+		if (data.getRequiredContainerSysRole() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Container",
 				"Container",
-				"data.$optionalorrequired$ContainerSysRole",
-				"data.$optionalorrequired$ContainerSysRole",
+				"data.requiredContainerSysRole",
+				"data.requiredContainerSysRole",
 				"SecSysRole",
 				"SecSysRole",
 				null);
 		}
-		if (data.get$OptionalOrRequired$ParentUser() == null) {
+		if (data.getRequiredParentUser() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
 				S_ProcName,
 				"Parent",
 				"Parent",
-				"data.$optionalorrequired$ParentUser",
-				"data.$optionalorrequired$ParentUser",
+				"data.requiredParentUser",
+				"data.requiredParentUser",
 				"SecUser",
 				"SecUser",
 				null);

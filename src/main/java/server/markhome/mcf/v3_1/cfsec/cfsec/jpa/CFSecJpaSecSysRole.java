@@ -61,10 +61,10 @@ public class CFSecJpaSecSysRole
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
 	protected ICFLibKeyHash256 requiredSecSysRoleId;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="$OptionalOrRequired$ContainerSysRole")
-	protected Set<CFSecJpaSecSysRoleEnables> $OptionalOrRequired$ComponentsEnabledByRole;
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="$OptionalOrRequired$ContainerSysRole")
-	protected Set<CFSecJpaSecSysRoleMemb> $OptionalOrRequired$ChildrenMembByRole;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
+	protected Set<CFSecJpaSecSysRoleEnables> optionalComponentsEnabledByRole;
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
+	protected Set<CFSecJpaSecSysRoleMemb> optionalChildrenMembByRole;
 	protected int requiredRevision;
 
 
@@ -107,14 +107,14 @@ public class CFSecJpaSecSysRole
 	}
 
 	@Override
-	public List<ICFSecSecSysRoleEnables> get$OptionalOrRequired$ComponentsEnabledByRole() {
-		List<ICFSecSecSysRoleEnables> retlist = ($OptionalOrRequired$ComponentsEnabledByRole != null) ? new ArrayList<>($OptionalOrRequired$ComponentsEnabledByRole) : new ArrayList<>();
+	public List<ICFSecSecSysRoleEnables> getOptionalComponentsEnabledByRole() {
+		List<ICFSecSecSysRoleEnables> retlist = (optionalComponentsEnabledByRole != null) ? new ArrayList<>(optionalComponentsEnabledByRole) : new ArrayList<>();
 		return( retlist );
 	}
 
 	@Override
-	public List<ICFSecSecSysRoleMemb> get$OptionalOrRequired$ChildrenMembByRole() {
-		List<ICFSecSecSysRoleMemb> retlist = ($OptionalOrRequired$ChildrenMembByRole != null) ? new ArrayList<>($OptionalOrRequired$ChildrenMembByRole) : new ArrayList<>();
+	public List<ICFSecSecSysRoleMemb> getOptionalChildrenMembByRole() {
+		List<ICFSecSecSysRoleMemb> retlist = (optionalChildrenMembByRole != null) ? new ArrayList<>(optionalChildrenMembByRole) : new ArrayList<>();
 		return( retlist );
 	}
 

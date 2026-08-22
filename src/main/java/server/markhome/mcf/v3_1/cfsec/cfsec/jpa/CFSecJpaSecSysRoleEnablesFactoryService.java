@@ -68,7 +68,9 @@ public class CFSecJpaSecSysRoleEnablesFactoryService
 			return( (CFSecJpaSecSysRoleEnablesPKey)key );
 		}
 		else {
-			CFSecJpaSecSysRoleEnablesPKey mapped = new CFSecJpaSecSysRoleEnablesPKey();$maybeImplBuffCopyKeyAttrToMapped$$maybeImplBuffCopyKeyAttrToMapped$
+			CFSecJpaSecSysRoleEnablesPKey mapped = new CFSecJpaSecSysRoleEnablesPKey();
+			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
+			mapped.setRequiredEnableName( key.getRequiredEnableName() );
 			return( mapped );
 		}
 	}
@@ -93,7 +95,9 @@ public class CFSecJpaSecSysRoleEnablesFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$$implBuffCopyKeyAttrToMapped$
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
+			mapped.setRequiredEnableName( key.getRequiredEnableName() );
 			return( mapped );
 		}
 	}
@@ -114,7 +118,8 @@ public class CFSecJpaSecSysRoleEnablesFactoryService
 			return( (CFSecJpaSecSysRoleEnablesBySysRoleIdxKey)key );
 		}
 		else {
-			CFSecJpaSecSysRoleEnablesBySysRoleIdxKey mapped = new CFSecJpaSecSysRoleEnablesBySysRoleIdxKey();$implBuffCopyKeyAttrToMapped$
+			CFSecJpaSecSysRoleEnablesBySysRoleIdxKey mapped = new CFSecJpaSecSysRoleEnablesBySysRoleIdxKey();
+			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
 			return( mapped );
 		}
 	}
@@ -135,7 +140,8 @@ public class CFSecJpaSecSysRoleEnablesFactoryService
 			return( (CFSecJpaSecSysRoleEnablesByNameIdxKey)key );
 		}
 		else {
-			CFSecJpaSecSysRoleEnablesByNameIdxKey mapped = new CFSecJpaSecSysRoleEnablesByNameIdxKey();$implBuffCopyKeyAttrToMapped$
+			CFSecJpaSecSysRoleEnablesByNameIdxKey mapped = new CFSecJpaSecSysRoleEnablesByNameIdxKey();
+			mapped.setRequiredEnableName( key.getRequiredEnableName() );
 			return( mapped );
 		}
 	}

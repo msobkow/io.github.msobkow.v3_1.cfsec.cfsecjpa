@@ -68,7 +68,9 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			return( (CFSecJpaSecTentGrpMembPKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpMembPKey mapped = new CFSecJpaSecTentGrpMembPKey();$maybeImplBuffCopyKeyAttrToMapped$$maybeImplBuffCopyKeyAttrToMapped$
+			CFSecJpaSecTentGrpMembPKey mapped = new CFSecJpaSecTentGrpMembPKey();
+			mapped.setRequiredSecTentGrpId( key.getRequiredSecTentGrpId() );
+			mapped.setRequiredLoginId( key.getRequiredLoginId() );
 			return( mapped );
 		}
 	}
@@ -93,7 +95,9 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$$implBuffCopyKeyAttrToMapped$
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredSecTentGrpId( key.getRequiredSecTentGrpId() );
+			mapped.setRequiredLoginId( key.getRequiredLoginId() );
 			return( mapped );
 		}
 	}
@@ -114,7 +118,8 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			return( (CFSecJpaSecTentGrpMembByTentGrpIdxKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpMembByTentGrpIdxKey mapped = new CFSecJpaSecTentGrpMembByTentGrpIdxKey();$implBuffCopyKeyAttrToMapped$
+			CFSecJpaSecTentGrpMembByTentGrpIdxKey mapped = new CFSecJpaSecTentGrpMembByTentGrpIdxKey();
+			mapped.setRequiredSecTentGrpId( key.getRequiredSecTentGrpId() );
 			return( mapped );
 		}
 	}
@@ -135,7 +140,8 @@ public class CFSecJpaSecTentGrpMembFactoryService
 			return( (CFSecJpaSecTentGrpMembByUserIdxKey)key );
 		}
 		else {
-			CFSecJpaSecTentGrpMembByUserIdxKey mapped = new CFSecJpaSecTentGrpMembByUserIdxKey();$implBuffCopyKeyAttrToMapped$
+			CFSecJpaSecTentGrpMembByUserIdxKey mapped = new CFSecJpaSecTentGrpMembByUserIdxKey();
+			mapped.setRequiredLoginId( key.getRequiredLoginId() );
 			return( mapped );
 		}
 	}

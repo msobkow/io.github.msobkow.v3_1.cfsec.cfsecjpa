@@ -72,7 +72,8 @@ public class CFSecJpaSecSysRoleFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredSecSysRoleId( key.getRequiredSecSysRoleId() );
 			return( mapped );
 		}
 	}
@@ -93,7 +94,8 @@ public class CFSecJpaSecSysRoleFactoryService
 			return( (CFSecJpaSecSysRoleByUNameIdxKey)key );
 		}
 		else {
-			CFSecJpaSecSysRoleByUNameIdxKey mapped = new CFSecJpaSecSysRoleByUNameIdxKey();$implBuffCopyKeyAttrToMapped$
+			CFSecJpaSecSysRoleByUNameIdxKey mapped = new CFSecJpaSecSysRoleByUNameIdxKey();
+			mapped.setRequiredName( key.getRequiredName() );
 			return( mapped );
 		}
 	}
