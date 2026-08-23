@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+    <persistence-unit name="CFSec31PU" transaction-type="RESOURCE_LOCAL">
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaCluster</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaClusterH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTenant</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTenantH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTableInfo</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaTableInfoH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCcy</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCcyH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCtry</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCtryH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCtryCcy</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCtryCcyH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCtryLang</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOCtryLangH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOLang</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOLangH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOTZone</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaISOTZoneH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUser</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUserH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUserPassword</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUserEMConf</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUserEMConfH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUserPWReset</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUserPWResetH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecUserPWHistory</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysGrp</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysGrpH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysGrpInc</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysGrpIncH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysGrpMemb</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysGrpMembH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrp</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpMemb</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusGrpMembH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrp</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpMemb</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentGrpMembH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRole</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleEnables</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleEnablesH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleMemb</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSysRoleMembH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusRole</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusRoleH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusRoleMemb</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecClusRoleMembH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentRole</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentRoleH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentRoleMemb</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecTentRoleMembH</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSecSession</class>
+        <class>server.markhome.mcf.v3_1.cfsec.cfsec.jpa.CFSecJpaSysCluster</class>
+        <properties>
+            <!-- Example properties, adjust for your DBMS -->
+            <property name="hibernate.transaction.jta.platform" value="org.hibernate.engine.transaction.jta.platform.internal.SpringJtaPlatform"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/cfsec31"/>
+            <property name="jakarta.persistence.jdbc.user" value="youruser"/>
+            <property name="jakarta.persistence.jdbc.password" value="yourpassword"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="false"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
