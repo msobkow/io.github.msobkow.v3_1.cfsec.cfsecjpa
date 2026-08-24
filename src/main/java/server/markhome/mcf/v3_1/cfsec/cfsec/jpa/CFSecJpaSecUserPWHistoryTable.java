@@ -273,8 +273,8 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public void deleteSecUserPWHistoryByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argSecUserId,
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "deleteSecUserPWHistoryByIdIdx";
 		boolean permissionGranted = canDeleteSecUserPWHistory(S_ProcName, Authorization);
@@ -316,7 +316,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public void deleteSecUserPWHistoryByUserIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "deleteSecUserPWHistoryByUserIdx";
 		boolean permissionGranted = canDeleteSecUserPWHistory(S_ProcName, Authorization);
@@ -357,7 +357,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public void deleteSecUserPWHistoryBySetStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "deleteSecUserPWHistoryBySetStampIdx";
 		boolean permissionGranted = canDeleteSecUserPWHistory(S_ProcName, Authorization);
@@ -398,7 +398,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public void deleteSecUserPWHistoryByReplacedStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWReplacedStamp )
+		$implIJavaAtomType$ argPWReplacedStamp )
 	{
 		final String S_ProcName = "deleteSecUserPWHistoryByReplacedStampIdx";
 		boolean permissionGranted = canDeleteSecUserPWHistory(S_ProcName, Authorization);
@@ -465,8 +465,8 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argSecUserId,
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
@@ -541,8 +541,8 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argSecUserId,
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -569,7 +569,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readDerivedByUserIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readDerivedByUserIdx";
 		boolean permissionGranted = false;
@@ -595,7 +595,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readDerivedBySetStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readDerivedBySetStampIdx";
 		boolean permissionGranted = false;
@@ -621,7 +621,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readDerivedByReplacedStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWReplacedStamp )
+		$implIJavaAtomType$ argPWReplacedStamp )
 	{
 		final String S_ProcName = "readDerivedByReplacedStampIdx";
 		boolean permissionGranted = false;
@@ -674,8 +674,8 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argSecUserId,
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecUserPWHistory(S_ProcName, Authorization);
@@ -739,7 +739,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory[] pageAllRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 priorSecUserId,
+		$implIJavaOptAtomType$ priorSecUserId,
 		LocalDateTime priorPWSetStamp )
 	{
 		final String S_ProcName = "pageAllRec";
@@ -767,8 +767,8 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argSecUserId,
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -795,7 +795,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readRecByUserIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readRecByUserIdx";
 		boolean permissionGranted = false;
@@ -822,7 +822,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readRecBySetStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWSetStamp )
+		$implIJavaAtomType$ argPWSetStamp )
 	{
 		final String S_ProcName = "readRecBySetStampIdx";
 		boolean permissionGranted = false;
@@ -849,7 +849,7 @@ public class CFSecJpaSecUserPWHistoryTable implements ICFSecSecUserPWHistoryTabl
 	 */
 	@Override
 	public ICFSecSecUserPWHistory readRecByReplacedStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argPWReplacedStamp )
+		$implIJavaAtomType$ argPWReplacedStamp )
 	{
 		final String S_ProcName = "readRecByReplacedStampIdx";
 		boolean permissionGranted = false;

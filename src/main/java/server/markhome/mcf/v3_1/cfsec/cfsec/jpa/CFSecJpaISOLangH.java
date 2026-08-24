@@ -95,11 +95,11 @@ public class CFSecJpaISOLangH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code3", nullable=false, length=3 )
-	protected String requiredISO6392Code;
+	protected $implIJavaAtomType$ requiredISO6392Code;
 	@Column( name="iso_code2", nullable=true, length=2 )
-	protected String optionalISO6391Code;
+	protected $implIJavaAtomType$ optionalISO6391Code;
 	@Column( name="eng_name", nullable=false, length=64 )
-	protected String requiredEnglishName;
+	protected $implIJavaAtomType$ requiredEnglishName;
 
     public CFSecJpaISOLangH() {
             // The primary key member attributes are initialized on construction
@@ -234,21 +234,21 @@ public class CFSecJpaISOLangH
     }
 
     @Override
-    public short getRequiredISOLangId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredISOLangId() {
         return( pkey.getRequiredISOLangId() );
     }
 
     @Override
-    public void setRequiredISOLangId( short requiredISOLangId ) {
+    public void setRequiredISOLangId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredISOLangId ) {
         pkey.setRequiredISOLangId( requiredISOLangId );
     }
 
 	@Override
-	public String getRequiredISO6392Code() {
+	public $implIJavaAtomType$ getRequiredISO6392Code() {
 		return(requiredISO6392Code);
 	}
 
-	public void setRequiredISO6392Code( String value ) {
+	public void setRequiredISO6392Code( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredISO6392Code",
@@ -267,11 +267,11 @@ public class CFSecJpaISOLangH
 	}
 
 	@Override
-	public String getOptionalISO6391Code() {
+	public $implIJavaAtomType$ getOptionalISO6391Code() {
 		return(optionalISO6391Code);
 	}
 
-	public void setOptionalISO6391Code( String value ) {
+	public void setOptionalISO6391Code( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 2 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalISO6391Code",
@@ -284,11 +284,11 @@ public class CFSecJpaISOLangH
 	}
 
 	@Override
-	public String getRequiredEnglishName() {
+	public $implIJavaAtomType$ getRequiredEnglishName() {
 		return(requiredEnglishName);
 	}
 
-	public void setRequiredEnglishName( String value ) {
+	public void setRequiredEnglishName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEnglishName",

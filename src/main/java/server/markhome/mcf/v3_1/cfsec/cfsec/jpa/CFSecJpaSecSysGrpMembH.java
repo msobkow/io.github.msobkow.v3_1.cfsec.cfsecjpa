@@ -226,22 +226,22 @@ public class CFSecJpaSecSysGrpMembH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecSysGrpId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecSysGrpId() {
         return( pkey.getRequiredSecSysGrpId() );
     }
 
     @Override
-    public void setRequiredSecSysGrpId( ICFLibKeyHash256 requiredSecSysGrpId ) {
+    public void setRequiredSecSysGrpId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecSysGrpId ) {
         pkey.setRequiredSecSysGrpId( requiredSecSysGrpId );
     }
 
     @Override
-    public String getRequiredLoginId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredLoginId() {
         return( pkey.getRequiredLoginId() );
     }
 
     @Override
-    public void setRequiredLoginId( String requiredLoginId ) {
+    public void setRequiredLoginId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredLoginId ) {
         pkey.setRequiredLoginId( requiredLoginId );
     }
 

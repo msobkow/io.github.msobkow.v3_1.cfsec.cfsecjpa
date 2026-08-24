@@ -95,9 +95,9 @@ public class CFSecJpaClusterH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="FullDomName", nullable=false, length=192 )
-	protected String requiredFullDomName;
+	protected $implIJavaAtomType$ requiredFullDomName;
 	@Column( name="Description", nullable=false, length=128 )
-	protected String requiredDescription;
+	protected $implIJavaAtomType$ requiredDescription;
 
     public CFSecJpaClusterH() {
             // The primary key member attributes are initialized on construction
@@ -231,21 +231,21 @@ public class CFSecJpaClusterH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( ICFLibKeyHash256 requiredId ) {
+    public void setRequiredId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 
 	@Override
-	public String getRequiredFullDomName() {
+	public $implIJavaAtomType$ getRequiredFullDomName() {
 		return(requiredFullDomName);
 	}
 
-	public void setRequiredFullDomName( String value ) {
+	public void setRequiredFullDomName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",
@@ -264,11 +264,11 @@ public class CFSecJpaClusterH
 	}
 
 	@Override
-	public String getRequiredDescription() {
+	public $implIJavaAtomType$ getRequiredDescription() {
 		return(requiredDescription);
 	}
 
-	public void setRequiredDescription( String value ) {
+	public void setRequiredDescription( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredDescription",

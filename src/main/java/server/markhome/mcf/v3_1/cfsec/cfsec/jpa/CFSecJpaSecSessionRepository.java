@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecSession, ICFLibKeyHash256> {
+public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecSession, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecSession r where r.requiredSecSessionId = :secSessionId")
-	CFSecJpaSecSession get(@Param("secSessionId") ICFLibKeyHash256 requiredSecSessionId);
+	CFSecJpaSecSession get(@Param("secSessionId") $implIJavaAtomType$ requiredSecSessionId);
 
 	// CFSecJpaSecSession specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId")
-	List<CFSecJpaSecSession> findBySecUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	List<CFSecJpaSecSession> findBySecUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	CFSecSecSessionBySecUserIdxKey entity list reader convenience method for object-based access.
@@ -99,8 +99,8 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.requiredStart = :start")
-	CFSecJpaSecSession findByStartIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("start") LocalDateTime requiredStart);
+	CFSecJpaSecSession findByStartIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("start") $implIJavaAtomType$ requiredStart);
 
 	/**
 	 *	CFSecSecSessionByStartIdxKey entity reader convenience method for object-based access.
@@ -122,8 +122,8 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
-	List<CFSecJpaSecSession> findByFinishIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("finish") LocalDateTime optionalFinish);
+	List<CFSecJpaSecSession> findByFinishIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("finish") $implIJavaAtomType$ optionalFinish);
 
 	/**
 	 *	CFSecSecSessionByFinishIdxKey entity list reader convenience method for object-based access.
@@ -144,7 +144,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecSession r where r.requiredParentSecProxy.requiredSecUserId = :secProxyId")
-	List<CFSecJpaSecSession> findBySecProxyIdx(@Param("secProxyId") ICFLibKeyHash256 optionalSecProxyId);
+	List<CFSecJpaSecSession> findBySecProxyIdx(@Param("secProxyId") $implIJavaAtomType$ optionalSecProxyId);
 
 	/**
 	 *	CFSecSecSessionBySecProxyIdxKey entity list reader convenience method for object-based access.
@@ -169,7 +169,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSession r where r.requiredSecSessionId = :secSessionId")
-	CFSecJpaSecSession lockByIdIdx(@Param("secSessionId") ICFLibKeyHash256 requiredSecSessionId);
+	CFSecJpaSecSession lockByIdIdx(@Param("secSessionId") $implIJavaAtomType$ requiredSecSessionId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -181,7 +181,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId")
-	List<CFSecJpaSecSession> lockBySecUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	List<CFSecJpaSecSession> lockBySecUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	CFSecSecSessionBySecUserIdxKey based lock method for object-based access.
@@ -205,8 +205,8 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.requiredStart = :start")
-	CFSecJpaSecSession lockByStartIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("start") LocalDateTime requiredStart);
+	CFSecJpaSecSession lockByStartIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("start") $implIJavaAtomType$ requiredStart);
 
 	/**
 	 *	CFSecSecSessionByStartIdxKey based lock method for object-based access.
@@ -230,8 +230,8 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
-	List<CFSecJpaSecSession> lockByFinishIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("finish") LocalDateTime optionalFinish);
+	List<CFSecJpaSecSession> lockByFinishIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("finish") $implIJavaAtomType$ optionalFinish);
 
 	/**
 	 *	CFSecSecSessionByFinishIdxKey based lock method for object-based access.
@@ -254,7 +254,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSession r where r.requiredParentSecProxy.requiredSecUserId = :secProxyId")
-	List<CFSecJpaSecSession> lockBySecProxyIdx(@Param("secProxyId") ICFLibKeyHash256 optionalSecProxyId);
+	List<CFSecJpaSecSession> lockBySecProxyIdx(@Param("secProxyId") $implIJavaAtomType$ optionalSecProxyId);
 
 	/**
 	 *	CFSecSecSessionBySecProxyIdxKey based lock method for object-based access.
@@ -277,7 +277,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSession r where r.requiredSecSessionId = :secSessionId")
-	void deleteByIdIdx(@Param("secSessionId") ICFLibKeyHash256 requiredSecSessionId);
+	void deleteByIdIdx(@Param("secSessionId") $implIJavaAtomType$ requiredSecSessionId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -287,7 +287,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId")
-	void deleteBySecUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	void deleteBySecUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	CFSecSecSessionBySecUserIdxKey based lock method for object-based access.
@@ -307,8 +307,8 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.requiredStart = :start")
-	void deleteByStartIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("start") LocalDateTime requiredStart);
+	void deleteByStartIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("start") $implIJavaAtomType$ requiredStart);
 
 	/**
 	 *	CFSecSecSessionByStartIdxKey based lock method for object-based access.
@@ -328,8 +328,8 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSession r where r.requiredContainerSecUser.requiredSecUserId = :secUserId and r.optionalFinish = :finish")
-	void deleteByFinishIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("finish") LocalDateTime optionalFinish);
+	void deleteByFinishIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("finish") $implIJavaAtomType$ optionalFinish);
 
 	/**
 	 *	CFSecSecSessionByFinishIdxKey based lock method for object-based access.
@@ -348,7 +348,7 @@ public interface CFSecJpaSecSessionRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSession r where r.requiredParentSecProxy.requiredSecUserId = :secProxyId")
-	void deleteBySecProxyIdx(@Param("secProxyId") ICFLibKeyHash256 optionalSecProxyId);
+	void deleteBySecProxyIdx(@Param("secProxyId") $implIJavaAtomType$ optionalSecProxyId);
 
 	/**
 	 *	CFSecSecSessionBySecProxyIdxKey based lock method for object-based access.

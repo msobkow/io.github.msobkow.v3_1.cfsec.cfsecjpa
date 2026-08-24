@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, ICFLibKeyHash256> {
+public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaTenant r where r.requiredId = :id")
-	CFSecJpaTenant get(@Param("id") ICFLibKeyHash256 requiredId);
+	CFSecJpaTenant get(@Param("id") $implIJavaAtomType$ requiredId);
 
 	// CFSecJpaTenant specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	 *		@return List&lt;CFSecJpaTenant&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaTenant> findByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId);
+	List<CFSecJpaTenant> findByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId);
 
 	/**
 	 *	CFSecTenantByClusterIdxKey entity list reader convenience method for object-based access.
@@ -99,8 +99,8 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredTenantName = :tenantName")
-	CFSecJpaTenant findByUNameIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId,
-		@Param("tenantName") String requiredTenantName);
+	CFSecJpaTenant findByUNameIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId,
+		@Param("tenantName") $implIJavaAtomType$ requiredTenantName);
 
 	/**
 	 *	CFSecTenantByUNameIdxKey entity reader convenience method for object-based access.
@@ -125,7 +125,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTenant r where r.requiredId = :id")
-	CFSecJpaTenant lockByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	CFSecJpaTenant lockByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -137,7 +137,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaTenant> lockByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId);
+	List<CFSecJpaTenant> lockByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId);
 
 	/**
 	 *	CFSecTenantByClusterIdxKey based lock method for object-based access.
@@ -161,8 +161,8 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredTenantName = :tenantName")
-	CFSecJpaTenant lockByUNameIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId,
-		@Param("tenantName") String requiredTenantName);
+	CFSecJpaTenant lockByUNameIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId,
+		@Param("tenantName") $implIJavaAtomType$ requiredTenantName);
 
 	/**
 	 *	CFSecTenantByUNameIdxKey based lock method for object-based access.
@@ -185,7 +185,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTenant r where r.requiredId = :id")
-	void deleteByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	void deleteByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -195,7 +195,7 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId);
 
 	/**
 	 *	CFSecTenantByClusterIdxKey based lock method for object-based access.
@@ -215,8 +215,8 @@ public interface CFSecJpaTenantRepository extends JpaRepository<CFSecJpaTenant, 
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTenant r where r.requiredContainerCluster.requiredId = :clusterId and r.requiredTenantName = :tenantName")
-	void deleteByUNameIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId,
-		@Param("tenantName") String requiredTenantName);
+	void deleteByUNameIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId,
+		@Param("tenantName") $implIJavaAtomType$ requiredTenantName);
 
 	/**
 	 *	CFSecTenantByUNameIdxKey based lock method for object-based access.

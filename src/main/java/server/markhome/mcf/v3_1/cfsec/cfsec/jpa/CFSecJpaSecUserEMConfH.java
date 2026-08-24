@@ -97,15 +97,15 @@ public class CFSecJpaSecUserEMConfH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="conf_emailaddr", nullable=false, length=512 )
-	protected String requiredConfirmEMailAddr;
+	protected $implIJavaAtomType$ requiredConfirmEMailAddr;
 	@Column( name="conf_sent", nullable=false )
-	protected LocalDateTime requiredEMailSentStamp;
+	protected $implIJavaAtomType$ requiredEMailSentStamp;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="conf_uuid6", nullable=false, length=ICFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected ICFLibUuid6 requiredEMConfirmationUuid6;
+	protected $implIJavaAtomType$ requiredEMConfirmationUuid6;
 	@Column( name="conf_newacct", nullable=false )
-	protected boolean requiredNewAccount;
+	protected $implIJavaAtomType$ requiredNewAccount;
 
     public CFSecJpaSecUserEMConfH() {
             // The primary key member attributes are initialized on construction
@@ -240,21 +240,21 @@ public class CFSecJpaSecUserEMConfH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecUserId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
+    public void setRequiredSecUserId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 
 	@Override
-	public String getRequiredConfirmEMailAddr() {
+	public $implIJavaAtomType$ getRequiredConfirmEMailAddr() {
 		return(requiredConfirmEMailAddr);
 	}
 
-	public void setRequiredConfirmEMailAddr( String value ) {
+	public void setRequiredConfirmEMailAddr( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredConfirmEMailAddr",
@@ -273,11 +273,11 @@ public class CFSecJpaSecUserEMConfH
 	}
 
 	@Override
-	public LocalDateTime getRequiredEMailSentStamp() {
+	public $implIJavaAtomType$ getRequiredEMailSentStamp() {
 		return(requiredEMailSentStamp);
 	}
 
-	public void setRequiredEMailSentStamp( LocalDateTime value ) {
+	public void setRequiredEMailSentStamp( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMailSentStamp",
@@ -288,11 +288,11 @@ public class CFSecJpaSecUserEMConfH
 	}
 
 	@Override
-	public ICFLibUuid6 getRequiredEMConfirmationUuid6() {
+	public $implIJavaAtomType$ getRequiredEMConfirmationUuid6() {
 		return(requiredEMConfirmationUuid6);
 	}
 
-	public void setRequiredEMConfirmationUuid6( ICFLibUuid6 value ) {
+	public void setRequiredEMConfirmationUuid6( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMConfirmationUuid6",
@@ -303,11 +303,11 @@ public class CFSecJpaSecUserEMConfH
 	}
 
 	@Override
-	public boolean getRequiredNewAccount() {
+	public $implIJavaAtomType$ getRequiredNewAccount() {
 		return(requiredNewAccount);
 	}
 
-	public void setRequiredNewAccount( boolean value ) {
+	public void setRequiredNewAccount( $implIJavaAtomType$ value ) {
 		requiredNewAccount = value;
 	}
 

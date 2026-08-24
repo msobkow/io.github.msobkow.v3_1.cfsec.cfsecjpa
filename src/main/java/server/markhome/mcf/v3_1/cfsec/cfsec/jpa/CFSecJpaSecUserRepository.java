@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser, ICFLibKeyHash256> {
+public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUser r where r.requiredSecUserId = :secUserId")
-	CFSecJpaSecUser get(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUser get(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	// CFSecJpaSecUser specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUser r where r.requiredLoginId = :loginId")
-	CFSecJpaSecUser findByULoginIdx(@Param("loginId") String requiredLoginId);
+	CFSecJpaSecUser findByULoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId);
 
 	/**
 	 *	CFSecSecUserByULoginIdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	 *		@return List&lt;CFSecJpaSecUser&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecUser r where r.requiredEMailAddress = :eMailAddress")
-	List<CFSecJpaSecUser> findByEMAddrIdx(@Param("eMailAddress") String requiredEMailAddress);
+	List<CFSecJpaSecUser> findByEMAddrIdx(@Param("eMailAddress") $implIJavaAtomType$ requiredEMailAddress);
 
 	/**
 	 *	CFSecSecUserByEMAddrIdxKey entity list reader convenience method for object-based access.
@@ -123,7 +123,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUser r where r.requiredSecUserId = :secUserId")
-	CFSecJpaSecUser lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUser lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -135,7 +135,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUser r where r.requiredLoginId = :loginId")
-	CFSecJpaSecUser lockByULoginIdx(@Param("loginId") String requiredLoginId);
+	CFSecJpaSecUser lockByULoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId);
 
 	/**
 	 *	CFSecSecUserByULoginIdxKey based lock method for object-based access.
@@ -158,7 +158,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUser r where r.requiredEMailAddress = :eMailAddress")
-	List<CFSecJpaSecUser> lockByEMAddrIdx(@Param("eMailAddress") String requiredEMailAddress);
+	List<CFSecJpaSecUser> lockByEMAddrIdx(@Param("eMailAddress") $implIJavaAtomType$ requiredEMailAddress);
 
 	/**
 	 *	CFSecSecUserByEMAddrIdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUser r where r.requiredSecUserId = :secUserId")
-	void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -191,7 +191,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUser r where r.requiredLoginId = :loginId")
-	void deleteByULoginIdx(@Param("loginId") String requiredLoginId);
+	void deleteByULoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId);
 
 	/**
 	 *	CFSecSecUserByULoginIdxKey based lock method for object-based access.
@@ -210,7 +210,7 @@ public interface CFSecJpaSecUserRepository extends JpaRepository<CFSecJpaSecUser
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUser r where r.requiredEMailAddress = :eMailAddress")
-	void deleteByEMAddrIdx(@Param("eMailAddress") String requiredEMailAddress);
+	void deleteByEMAddrIdx(@Param("eMailAddress") $implIJavaAtomType$ requiredEMailAddress);
 
 	/**
 	 *	CFSecSecUserByEMAddrIdxKey based lock method for object-based access.

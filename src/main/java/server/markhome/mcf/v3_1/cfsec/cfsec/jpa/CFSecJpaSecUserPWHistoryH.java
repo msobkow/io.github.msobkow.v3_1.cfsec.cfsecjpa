@@ -58,8 +58,8 @@ public class CFSecJpaSecUserPWHistoryH
 		@AttributeOverride(name="PWSetStamp", column = @Column( name="PWSetStamp", nullable=false ) )
 	})
     protected CFSecJpaSecUserPWHistoryHPKey pkey;
-	protected LocalDateTime requiredPWReplacedStamp;
-	protected String requiredPasswordHash;
+	protected $implIJavaAtomType$ requiredPWReplacedStamp;
+	protected $implIJavaAtomType$ requiredPasswordHash;
 
     public CFSecJpaSecUserPWHistoryH() {
             // The primary key member attributes are initialized on construction
@@ -140,31 +140,31 @@ public class CFSecJpaSecUserPWHistoryH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecUserId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
+    public void setRequiredSecUserId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 
     @Override
-    public LocalDateTime getRequiredPWSetStamp() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredPWSetStamp() {
         return( pkey.getRequiredPWSetStamp() );
     }
 
     @Override
-    public void setRequiredPWSetStamp( LocalDateTime requiredPWSetStamp ) {
+    public void setRequiredPWSetStamp( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredPWSetStamp ) {
         pkey.setRequiredPWSetStamp( requiredPWSetStamp );
     }
 
 	@Override
-	public LocalDateTime getRequiredPWReplacedStamp() {
+	public $implIJavaAtomType$ getRequiredPWReplacedStamp() {
 		return(requiredPWReplacedStamp);
 	}
 
-	public void setRequiredPWReplacedStamp( LocalDateTime value ) {
+	public void setRequiredPWReplacedStamp( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPWReplacedStamp",
@@ -175,11 +175,11 @@ public class CFSecJpaSecUserPWHistoryH
 	}
 
 	@Override
-	public String getRequiredPasswordHash() {
+	public $implIJavaAtomType$ getRequiredPasswordHash() {
 		return(requiredPasswordHash);
 	}
 
-	public void setRequiredPasswordHash( String value ) {
+	public void setRequiredPasswordHash( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordHash",

@@ -71,9 +71,9 @@ public class CFSecJpaSecSysRoleEnablesHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecSysRoleId;
+	protected $implIJavaAtomType$ requiredSecSysRoleId;
 	@Column( name="enable_name", nullable=false, length=64 )
-	protected String requiredEnableName;
+	protected $implIJavaAtomType$ requiredEnableName;
 
 	public CFSecJpaSecSysRoleEnablesHPKey() {
 		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;
@@ -136,11 +136,11 @@ public class CFSecJpaSecSysRoleEnablesHPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysRoleId() {
+	public $implIJavaAtomType$ getRequiredSecSysRoleId() {
 		return(requiredSecSysRoleId);
 	}
 
-	public void setRequiredSecSysRoleId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecSysRoleId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecSysRoleId",
@@ -151,11 +151,11 @@ public class CFSecJpaSecSysRoleEnablesHPKey
 	}
 
 	@Override
-	public String getRequiredEnableName() {
+	public $implIJavaAtomType$ getRequiredEnableName() {
 		return(requiredEnableName);
 	}
 
-	public void setRequiredEnableName( String value ) {
+	public void setRequiredEnableName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEnableName",

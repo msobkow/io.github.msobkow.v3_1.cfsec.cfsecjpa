@@ -226,22 +226,22 @@ public class CFSecJpaSecTentRoleMembH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecTentRoleId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecTentRoleId() {
         return( pkey.getRequiredSecTentRoleId() );
     }
 
     @Override
-    public void setRequiredSecTentRoleId( ICFLibKeyHash256 requiredSecTentRoleId ) {
+    public void setRequiredSecTentRoleId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecTentRoleId ) {
         pkey.setRequiredSecTentRoleId( requiredSecTentRoleId );
     }
 
     @Override
-    public String getRequiredLoginId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredLoginId() {
         return( pkey.getRequiredLoginId() );
     }
 
     @Override
-    public void setRequiredLoginId( String requiredLoginId ) {
+    public void setRequiredLoginId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredLoginId ) {
         pkey.setRequiredLoginId( requiredLoginId );
     }
 

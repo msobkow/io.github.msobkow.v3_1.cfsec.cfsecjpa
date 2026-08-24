@@ -44,16 +44,16 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWResetByUUuid6IdxKey
 	implements ICFSecSecUserPWResetByUUuid6IdxKey, Comparable<Object>, Serializable
 {
-	protected ICFLibUuid6 requiredPasswordResetUuid6;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredPasswordResetUuid6;
 	public CFSecJpaSecUserPWResetByUUuid6IdxKey() {
 	}
 
 	@Override
-	public ICFLibUuid6 getRequiredPasswordResetUuid6() {
+	public $implIJavaAtomType$ getRequiredPasswordResetUuid6() {
 		return(requiredPasswordResetUuid6);
 	}
 
-	public void setRequiredPasswordResetUuid6( ICFLibUuid6 value ) {
+	public void setRequiredPasswordResetUuid6( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordResetUuid6",

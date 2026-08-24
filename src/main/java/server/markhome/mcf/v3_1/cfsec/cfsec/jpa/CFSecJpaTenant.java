@@ -62,7 +62,7 @@ public class CFSecJpaTenant
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredId;
+	protected $implIJavaAtomType$ requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerTenant")
 	protected Set<CFSecJpaSecTentGrp> optionalComponentsSecGroup;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerTenant")
@@ -101,9 +101,9 @@ public class CFSecJpaTenant
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredClusterId;
+	protected $implIJavaAtomType$ requiredClusterId;
 	@Column( name="TenantName", nullable=false, length=192 )
-	protected String requiredTenantName;
+	protected $implIJavaAtomType$ requiredTenantName;
 
 	public CFSecJpaTenant() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFSecPubTenant.ID_INIT_VALUE.toString() );
@@ -162,7 +162,7 @@ public class CFSecJpaTenant
 	}
 
 	@Override
-	public void setRequiredContainerCluster(ICFLibKeyHash256 argClusterId) {
+	public void setRequiredContainerCluster($implIJavaAtomType$ argClusterId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCluster", 0, "ICFSecSchema.getBackingCFSec()");
@@ -228,21 +228,21 @@ public class CFSecJpaTenant
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredId) {
 		this.requiredId = requiredId;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredId() {
+	public $implIJavaAtomType$ getRequiredId() {
 		return(getPKey().getRequiredId());
 	}
 
-	public void setRequiredId( ICFLibKeyHash256 value ) {
+	public void setRequiredId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredId",
@@ -263,11 +263,11 @@ public class CFSecJpaTenant
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredClusterId() {
+	public $implIJavaAtomType$ getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
+	public void setRequiredClusterId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",
@@ -278,11 +278,11 @@ public class CFSecJpaTenant
 	}
 
 	@Override
-	public String getRequiredTenantName() {
+	public $implIJavaAtomType$ getRequiredTenantName() {
 		return(requiredTenantName);
 	}
 
-	public void setRequiredTenantName( String value ) {
+	public void setRequiredTenantName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTenantName",

@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOTZoneByIso8601IdxKey
 	implements ICFSecISOTZoneByIso8601IdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredIso8601;
+	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredIso8601;
 	public CFSecJpaISOTZoneByIso8601IdxKey() {
 		requiredIso8601 = ICFSecPubISOTZone.ISO8601_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredIso8601() {
+	public $implIJavaAtomType$ getRequiredIso8601() {
 		return(requiredIso8601);
 	}
 
-	public void setRequiredIso8601( String value ) {
+	public void setRequiredIso8601( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredIso8601",

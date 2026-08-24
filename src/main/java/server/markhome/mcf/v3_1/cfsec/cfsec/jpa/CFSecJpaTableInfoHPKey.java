@@ -68,7 +68,7 @@ public class CFSecJpaTableInfoHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="TableInfoId", nullable=false )
-	protected int requiredTableInfoId;
+	protected $implIJavaAtomType$ requiredTableInfoId;
 
 	public CFSecJpaTableInfoHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -130,12 +130,12 @@ public class CFSecJpaTableInfoHPKey
 	}
 
 	@Override
-	public int getRequiredTableInfoId() {
+	public $implIJavaAtomType$ getRequiredTableInfoId() {
 		return(requiredTableInfoId);
 	}
 
 	@Override
-	public void setRequiredTableInfoId( int value ) {
+	public void setRequiredTableInfoId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubTableInfo.TABLEINFOID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTableInfoId",

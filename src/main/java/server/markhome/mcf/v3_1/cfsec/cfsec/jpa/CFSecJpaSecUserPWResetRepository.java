@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpaSecUserPWReset, ICFLibKeyHash256> {
+public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpaSecUserPWReset, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserPWReset get(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUserPWReset get(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	// CFSecJpaSecUserPWReset specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredPasswordResetUuid6 = :passwordResetUuid6")
-	CFSecJpaSecUserPWReset findByUUuid6Idx(@Param("passwordResetUuid6") ICFLibUuid6 requiredPasswordResetUuid6);
+	CFSecJpaSecUserPWReset findByUUuid6Idx(@Param("passwordResetUuid6") $implIJavaAtomType$ requiredPasswordResetUuid6);
 
 	/**
 	 *	CFSecSecUserPWResetByUUuid6IdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	 *		@return List&lt;CFSecJpaSecUserPWReset&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredSentToEMailAddr = :sentToEMailAddr")
-	List<CFSecJpaSecUserPWReset> findBySentEMAddrIdx(@Param("sentToEMailAddr") String requiredSentToEMailAddr);
+	List<CFSecJpaSecUserPWReset> findBySentEMAddrIdx(@Param("sentToEMailAddr") $implIJavaAtomType$ requiredSentToEMailAddr);
 
 	/**
 	 *	CFSecSecUserPWResetBySentEMAddrIdxKey entity list reader convenience method for object-based access.
@@ -119,7 +119,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	 *		@return List&lt;CFSecJpaSecUserPWReset&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredNewAccount = :newAccount")
-	List<CFSecJpaSecUserPWReset> findByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount);
+	List<CFSecJpaSecUserPWReset> findByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount);
 
 	/**
 	 *	CFSecSecUserPWResetByNewAcctIdxKey entity list reader convenience method for object-based access.
@@ -144,7 +144,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserPWReset lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUserPWReset lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -156,7 +156,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredPasswordResetUuid6 = :passwordResetUuid6")
-	CFSecJpaSecUserPWReset lockByUUuid6Idx(@Param("passwordResetUuid6") ICFLibUuid6 requiredPasswordResetUuid6);
+	CFSecJpaSecUserPWReset lockByUUuid6Idx(@Param("passwordResetUuid6") $implIJavaAtomType$ requiredPasswordResetUuid6);
 
 	/**
 	 *	CFSecSecUserPWResetByUUuid6IdxKey based lock method for object-based access.
@@ -179,7 +179,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredSentToEMailAddr = :sentToEMailAddr")
-	List<CFSecJpaSecUserPWReset> lockBySentEMAddrIdx(@Param("sentToEMailAddr") String requiredSentToEMailAddr);
+	List<CFSecJpaSecUserPWReset> lockBySentEMAddrIdx(@Param("sentToEMailAddr") $implIJavaAtomType$ requiredSentToEMailAddr);
 
 	/**
 	 *	CFSecSecUserPWResetBySentEMAddrIdxKey based lock method for object-based access.
@@ -202,7 +202,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPWReset r where r.requiredNewAccount = :newAccount")
-	List<CFSecJpaSecUserPWReset> lockByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount);
+	List<CFSecJpaSecUserPWReset> lockByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount);
 
 	/**
 	 *	CFSecSecUserPWResetByNewAcctIdxKey based lock method for object-based access.
@@ -225,7 +225,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWReset r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -235,7 +235,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWReset r where r.requiredPasswordResetUuid6 = :passwordResetUuid6")
-	void deleteByUUuid6Idx(@Param("passwordResetUuid6") ICFLibUuid6 requiredPasswordResetUuid6);
+	void deleteByUUuid6Idx(@Param("passwordResetUuid6") $implIJavaAtomType$ requiredPasswordResetUuid6);
 
 	/**
 	 *	CFSecSecUserPWResetByUUuid6IdxKey based lock method for object-based access.
@@ -254,7 +254,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWReset r where r.requiredSentToEMailAddr = :sentToEMailAddr")
-	void deleteBySentEMAddrIdx(@Param("sentToEMailAddr") String requiredSentToEMailAddr);
+	void deleteBySentEMAddrIdx(@Param("sentToEMailAddr") $implIJavaAtomType$ requiredSentToEMailAddr);
 
 	/**
 	 *	CFSecSecUserPWResetBySentEMAddrIdxKey based lock method for object-based access.
@@ -273,7 +273,7 @@ public interface CFSecJpaSecUserPWResetRepository extends JpaRepository<CFSecJpa
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPWReset r where r.requiredNewAccount = :newAccount")
-	void deleteByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount);
+	void deleteByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount);
 
 	/**
 	 *	CFSecSecUserPWResetByNewAcctIdxKey based lock method for object-based access.

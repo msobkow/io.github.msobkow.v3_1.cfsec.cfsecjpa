@@ -179,8 +179,8 @@ public class CFSecJpaISOCtryLangService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCtryLang find(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOLangId") short requiredISOLangId) {
+	public CFSecJpaISOCtryLang find(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId,
+		@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		return( cfsec31ISOCtryLangRepository.get(requiredISOCtryId,
 			requiredISOLangId));
 	}
@@ -217,7 +217,7 @@ public class CFSecJpaISOCtryLangService {
 	 *		@return List&lt;CFSecJpaISOCtryLang&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOCtryLang> findByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId) {
+	public List<CFSecJpaISOCtryLang> findByCtryIdx(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId) {
 		return( cfsec31ISOCtryLangRepository.findByCtryIdx(requiredISOCtryId));
 	}
 
@@ -241,7 +241,7 @@ public class CFSecJpaISOCtryLangService {
 	 *		@return List&lt;CFSecJpaISOCtryLang&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOCtryLang> findByLangIdx(@Param("iSOLangId") short requiredISOLangId) {
+	public List<CFSecJpaISOCtryLang> findByLangIdx(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		return( cfsec31ISOCtryLangRepository.findByLangIdx(requiredISOLangId));
 	}
 
@@ -268,8 +268,8 @@ public class CFSecJpaISOCtryLangService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCtryLang lockByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOLangId") short requiredISOLangId) {
+	public CFSecJpaISOCtryLang lockByIdIdx(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId,
+		@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		return( cfsec31ISOCtryLangRepository.lockByIdIdx(requiredISOCtryId,
 			requiredISOLangId));
 	}
@@ -294,7 +294,7 @@ public class CFSecJpaISOCtryLangService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOCtryLang> lockByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId) {
+	public List<CFSecJpaISOCtryLang> lockByCtryIdx(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId) {
 		return( cfsec31ISOCtryLangRepository.lockByCtryIdx(requiredISOCtryId));
 	}
 
@@ -318,7 +318,7 @@ public class CFSecJpaISOCtryLangService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOCtryLang> lockByLangIdx(@Param("iSOLangId") short requiredISOLangId) {
+	public List<CFSecJpaISOCtryLang> lockByLangIdx(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		return( cfsec31ISOCtryLangRepository.lockByLangIdx(requiredISOLangId));
 	}
 
@@ -343,8 +343,8 @@ public class CFSecJpaISOCtryLangService {
 	 *		@param requiredISOLangId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("iSOCtryId") short requiredISOCtryId,
-		@Param("iSOLangId") short requiredISOLangId) {
+	public void deleteByIdIdx(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId,
+		@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		cfsec31ISOCtryLangRepository.deleteByIdIdx(requiredISOCtryId,
 			requiredISOLangId);
 	}
@@ -365,7 +365,7 @@ public class CFSecJpaISOCtryLangService {
 	 *		@param requiredISOCtryId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByCtryIdx(@Param("iSOCtryId") short requiredISOCtryId) {
+	public void deleteByCtryIdx(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId) {
 		cfsec31ISOCtryLangRepository.deleteByCtryIdx(requiredISOCtryId);
 	}
 
@@ -385,7 +385,7 @@ public class CFSecJpaISOCtryLangService {
 	 *		@param requiredISOLangId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByLangIdx(@Param("iSOLangId") short requiredISOLangId) {
+	public void deleteByLangIdx(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		cfsec31ISOCtryLangRepository.deleteByLangIdx(requiredISOLangId);
 	}
 

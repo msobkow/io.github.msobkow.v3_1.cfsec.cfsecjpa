@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaSecUserEMConf, ICFLibKeyHash256> {
+public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaSecUserEMConf, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserEMConf get(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUserEMConf get(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	// CFSecJpaSecUserEMConf specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredEMConfirmationUuid6 = :eMConfirmationUuid6")
-	CFSecJpaSecUserEMConf findByUUuid6Idx(@Param("eMConfirmationUuid6") ICFLibUuid6 requiredEMConfirmationUuid6);
+	CFSecJpaSecUserEMConf findByUUuid6Idx(@Param("eMConfirmationUuid6") $implIJavaAtomType$ requiredEMConfirmationUuid6);
 
 	/**
 	 *	CFSecSecUserEMConfByUUuid6IdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	 *		@return List&lt;CFSecJpaSecUserEMConf&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredConfirmEMailAddr = :confirmEMailAddr")
-	List<CFSecJpaSecUserEMConf> findByConfEMAddrIdx(@Param("confirmEMailAddr") String requiredConfirmEMailAddr);
+	List<CFSecJpaSecUserEMConf> findByConfEMAddrIdx(@Param("confirmEMailAddr") $implIJavaAtomType$ requiredConfirmEMailAddr);
 
 	/**
 	 *	CFSecSecUserEMConfByConfEMAddrIdxKey entity list reader convenience method for object-based access.
@@ -119,7 +119,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	 *		@return List&lt;CFSecJpaSecUserEMConf&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredEMailSentStamp = :eMailSentStamp")
-	List<CFSecJpaSecUserEMConf> findBySentStampIdx(@Param("eMailSentStamp") LocalDateTime requiredEMailSentStamp);
+	List<CFSecJpaSecUserEMConf> findBySentStampIdx(@Param("eMailSentStamp") $implIJavaAtomType$ requiredEMailSentStamp);
 
 	/**
 	 *	CFSecSecUserEMConfBySentStampIdxKey entity list reader convenience method for object-based access.
@@ -140,7 +140,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	 *		@return List&lt;CFSecJpaSecUserEMConf&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredNewAccount = :newAccount")
-	List<CFSecJpaSecUserEMConf> findByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount);
+	List<CFSecJpaSecUserEMConf> findByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount);
 
 	/**
 	 *	CFSecSecUserEMConfByNewAcctIdxKey entity list reader convenience method for object-based access.
@@ -165,7 +165,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserEMConf lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUserEMConf lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -177,7 +177,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredEMConfirmationUuid6 = :eMConfirmationUuid6")
-	CFSecJpaSecUserEMConf lockByUUuid6Idx(@Param("eMConfirmationUuid6") ICFLibUuid6 requiredEMConfirmationUuid6);
+	CFSecJpaSecUserEMConf lockByUUuid6Idx(@Param("eMConfirmationUuid6") $implIJavaAtomType$ requiredEMConfirmationUuid6);
 
 	/**
 	 *	CFSecSecUserEMConfByUUuid6IdxKey based lock method for object-based access.
@@ -200,7 +200,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredConfirmEMailAddr = :confirmEMailAddr")
-	List<CFSecJpaSecUserEMConf> lockByConfEMAddrIdx(@Param("confirmEMailAddr") String requiredConfirmEMailAddr);
+	List<CFSecJpaSecUserEMConf> lockByConfEMAddrIdx(@Param("confirmEMailAddr") $implIJavaAtomType$ requiredConfirmEMailAddr);
 
 	/**
 	 *	CFSecSecUserEMConfByConfEMAddrIdxKey based lock method for object-based access.
@@ -223,7 +223,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredEMailSentStamp = :eMailSentStamp")
-	List<CFSecJpaSecUserEMConf> lockBySentStampIdx(@Param("eMailSentStamp") LocalDateTime requiredEMailSentStamp);
+	List<CFSecJpaSecUserEMConf> lockBySentStampIdx(@Param("eMailSentStamp") $implIJavaAtomType$ requiredEMailSentStamp);
 
 	/**
 	 *	CFSecSecUserEMConfBySentStampIdxKey based lock method for object-based access.
@@ -246,7 +246,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserEMConf r where r.requiredNewAccount = :newAccount")
-	List<CFSecJpaSecUserEMConf> lockByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount);
+	List<CFSecJpaSecUserEMConf> lockByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount);
 
 	/**
 	 *	CFSecSecUserEMConfByNewAcctIdxKey based lock method for object-based access.
@@ -269,7 +269,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserEMConf r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -279,7 +279,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserEMConf r where r.requiredEMConfirmationUuid6 = :eMConfirmationUuid6")
-	void deleteByUUuid6Idx(@Param("eMConfirmationUuid6") ICFLibUuid6 requiredEMConfirmationUuid6);
+	void deleteByUUuid6Idx(@Param("eMConfirmationUuid6") $implIJavaAtomType$ requiredEMConfirmationUuid6);
 
 	/**
 	 *	CFSecSecUserEMConfByUUuid6IdxKey based lock method for object-based access.
@@ -298,7 +298,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserEMConf r where r.requiredConfirmEMailAddr = :confirmEMailAddr")
-	void deleteByConfEMAddrIdx(@Param("confirmEMailAddr") String requiredConfirmEMailAddr);
+	void deleteByConfEMAddrIdx(@Param("confirmEMailAddr") $implIJavaAtomType$ requiredConfirmEMailAddr);
 
 	/**
 	 *	CFSecSecUserEMConfByConfEMAddrIdxKey based lock method for object-based access.
@@ -317,7 +317,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserEMConf r where r.requiredEMailSentStamp = :eMailSentStamp")
-	void deleteBySentStampIdx(@Param("eMailSentStamp") LocalDateTime requiredEMailSentStamp);
+	void deleteBySentStampIdx(@Param("eMailSentStamp") $implIJavaAtomType$ requiredEMailSentStamp);
 
 	/**
 	 *	CFSecSecUserEMConfBySentStampIdxKey based lock method for object-based access.
@@ -336,7 +336,7 @@ public interface CFSecJpaSecUserEMConfRepository extends JpaRepository<CFSecJpaS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserEMConf r where r.requiredNewAccount = :newAccount")
-	void deleteByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount);
+	void deleteByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount);
 
 	/**
 	 *	CFSecSecUserEMConfByNewAcctIdxKey based lock method for object-based access.

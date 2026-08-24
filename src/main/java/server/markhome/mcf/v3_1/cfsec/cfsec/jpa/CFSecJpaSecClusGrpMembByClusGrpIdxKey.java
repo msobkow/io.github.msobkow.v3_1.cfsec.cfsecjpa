@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecClusGrpMembByClusGrpIdxKey
 	implements ICFSecSecClusGrpMembByClusGrpIdxKey, Comparable<Object>, Serializable
 {
-	protected ICFLibKeyHash256 requiredSecClusGrpId;
+	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecClusGrpId;
 	public CFSecJpaSecClusGrpMembByClusGrpIdxKey() {
 		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrpMemb.SECCLUSGRPID_INIT_VALUE.toString() );
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecClusGrpId() {
+	public $implIJavaAtomType$ getRequiredSecClusGrpId() {
 		return(getPKey().getRequiredSecClusGrpId());
 	}
 
-	public void setRequiredSecClusGrpId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecClusGrpId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecClusGrpId",

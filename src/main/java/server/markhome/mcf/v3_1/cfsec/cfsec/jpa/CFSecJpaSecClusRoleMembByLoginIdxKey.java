@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecClusRoleMembByLoginIdxKey
 	implements ICFSecSecClusRoleMembByLoginIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredLoginId;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredLoginId;
 	public CFSecJpaSecClusRoleMembByLoginIdxKey() {
 		requiredLoginId = ICFSecProtSecClusRoleMemb.LOGINID_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implIJavaAtomType$ getRequiredLoginId() {
 		return(getPKey().getRequiredLoginId());
 	}
 
-	public void setRequiredLoginId( String value ) {
+	public void setRequiredLoginId( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredLoginId",

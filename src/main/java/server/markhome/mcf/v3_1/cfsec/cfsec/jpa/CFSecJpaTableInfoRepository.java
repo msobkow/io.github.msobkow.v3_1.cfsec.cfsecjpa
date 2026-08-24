@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTableInfo, Integer> {
+public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTableInfo, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaTableInfo r where r.requiredTableInfoId = :tableInfoId")
-	CFSecJpaTableInfo get(@Param("tableInfoId") int requiredTableInfoId);
+	CFSecJpaTableInfo get(@Param("tableInfoId") $implIJavaAtomType$ requiredTableInfoId);
 
 	// CFSecJpaTableInfo specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaTableInfo r where r.requiredTableName = :tableName")
-	CFSecJpaTableInfo findByTableNameIdx(@Param("tableName") String requiredTableName);
+	CFSecJpaTableInfo findByTableNameIdx(@Param("tableName") $implIJavaAtomType$ requiredTableName);
 
 	/**
 	 *	CFSecTableInfoByTableNameIdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	 *		@return List&lt;CFSecJpaTableInfo&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaTableInfo r where r.optionalParentSuperRef.requiredTableName = :superName")
-	List<CFSecJpaTableInfo> findBySuperNameIdx(@Param("superName") String optionalSuperName);
+	List<CFSecJpaTableInfo> findBySuperNameIdx(@Param("superName") $implIJavaAtomType$ optionalSuperName);
 
 	/**
 	 *	CFSecTableInfoBySuperNameIdxKey entity list reader convenience method for object-based access.
@@ -119,7 +119,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	 *		@return List&lt;CFSecJpaTableInfo&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaTableInfo r where r.requiredSchemaName = :schemaName")
-	List<CFSecJpaTableInfo> findBySchemaNameIdx(@Param("schemaName") String requiredSchemaName);
+	List<CFSecJpaTableInfo> findBySchemaNameIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName);
 
 	/**
 	 *	CFSecTableInfoBySchemaNameIdxKey entity list reader convenience method for object-based access.
@@ -141,8 +141,8 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaTableInfo r where r.requiredSchemaName = :schemaName and r.requiredBackingClassCode = :backingClassCode")
-	CFSecJpaTableInfo findBySchemaBkCodeIdx(@Param("schemaName") String requiredSchemaName,
-		@Param("backingClassCode") int requiredBackingClassCode);
+	CFSecJpaTableInfo findBySchemaBkCodeIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName,
+		@Param("backingClassCode") $implIJavaAtomType$ requiredBackingClassCode);
 
 	/**
 	 *	CFSecTableInfoBySchemaBkCodeIdxKey entity reader convenience method for object-based access.
@@ -163,7 +163,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaTableInfo r where r.requiredRuntimeClassCode = :runtimeClassCode")
-	CFSecJpaTableInfo findBySchemaRTCodeIdx(@Param("runtimeClassCode") int requiredRuntimeClassCode);
+	CFSecJpaTableInfo findBySchemaRTCodeIdx(@Param("runtimeClassCode") $implIJavaAtomType$ requiredRuntimeClassCode);
 
 	/**
 	 *	CFSecTableInfoBySchemaRTCodeIdxKey entity reader convenience method for object-based access.
@@ -188,7 +188,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTableInfo r where r.requiredTableInfoId = :tableInfoId")
-	CFSecJpaTableInfo lockByIdIdx(@Param("tableInfoId") int requiredTableInfoId);
+	CFSecJpaTableInfo lockByIdIdx(@Param("tableInfoId") $implIJavaAtomType$ requiredTableInfoId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -200,7 +200,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTableInfo r where r.requiredTableName = :tableName")
-	CFSecJpaTableInfo lockByTableNameIdx(@Param("tableName") String requiredTableName);
+	CFSecJpaTableInfo lockByTableNameIdx(@Param("tableName") $implIJavaAtomType$ requiredTableName);
 
 	/**
 	 *	CFSecTableInfoByTableNameIdxKey based lock method for object-based access.
@@ -223,7 +223,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTableInfo r where r.optionalParentSuperRef.requiredTableName = :superName")
-	List<CFSecJpaTableInfo> lockBySuperNameIdx(@Param("superName") String optionalSuperName);
+	List<CFSecJpaTableInfo> lockBySuperNameIdx(@Param("superName") $implIJavaAtomType$ optionalSuperName);
 
 	/**
 	 *	CFSecTableInfoBySuperNameIdxKey based lock method for object-based access.
@@ -246,7 +246,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTableInfo r where r.requiredSchemaName = :schemaName")
-	List<CFSecJpaTableInfo> lockBySchemaNameIdx(@Param("schemaName") String requiredSchemaName);
+	List<CFSecJpaTableInfo> lockBySchemaNameIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName);
 
 	/**
 	 *	CFSecTableInfoBySchemaNameIdxKey based lock method for object-based access.
@@ -270,8 +270,8 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTableInfo r where r.requiredSchemaName = :schemaName and r.requiredBackingClassCode = :backingClassCode")
-	CFSecJpaTableInfo lockBySchemaBkCodeIdx(@Param("schemaName") String requiredSchemaName,
-		@Param("backingClassCode") int requiredBackingClassCode);
+	CFSecJpaTableInfo lockBySchemaBkCodeIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName,
+		@Param("backingClassCode") $implIJavaAtomType$ requiredBackingClassCode);
 
 	/**
 	 *	CFSecTableInfoBySchemaBkCodeIdxKey based lock method for object-based access.
@@ -294,7 +294,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaTableInfo r where r.requiredRuntimeClassCode = :runtimeClassCode")
-	CFSecJpaTableInfo lockBySchemaRTCodeIdx(@Param("runtimeClassCode") int requiredRuntimeClassCode);
+	CFSecJpaTableInfo lockBySchemaRTCodeIdx(@Param("runtimeClassCode") $implIJavaAtomType$ requiredRuntimeClassCode);
 
 	/**
 	 *	CFSecTableInfoBySchemaRTCodeIdxKey based lock method for object-based access.
@@ -317,7 +317,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTableInfo r where r.requiredTableInfoId = :tableInfoId")
-	void deleteByIdIdx(@Param("tableInfoId") int requiredTableInfoId);
+	void deleteByIdIdx(@Param("tableInfoId") $implIJavaAtomType$ requiredTableInfoId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -327,7 +327,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTableInfo r where r.requiredTableName = :tableName")
-	void deleteByTableNameIdx(@Param("tableName") String requiredTableName);
+	void deleteByTableNameIdx(@Param("tableName") $implIJavaAtomType$ requiredTableName);
 
 	/**
 	 *	CFSecTableInfoByTableNameIdxKey based lock method for object-based access.
@@ -346,7 +346,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTableInfo r where r.optionalParentSuperRef.requiredTableName = :superName")
-	void deleteBySuperNameIdx(@Param("superName") String optionalSuperName);
+	void deleteBySuperNameIdx(@Param("superName") $implIJavaAtomType$ optionalSuperName);
 
 	/**
 	 *	CFSecTableInfoBySuperNameIdxKey based lock method for object-based access.
@@ -365,7 +365,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTableInfo r where r.requiredSchemaName = :schemaName")
-	void deleteBySchemaNameIdx(@Param("schemaName") String requiredSchemaName);
+	void deleteBySchemaNameIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName);
 
 	/**
 	 *	CFSecTableInfoBySchemaNameIdxKey based lock method for object-based access.
@@ -385,8 +385,8 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTableInfo r where r.requiredSchemaName = :schemaName and r.requiredBackingClassCode = :backingClassCode")
-	void deleteBySchemaBkCodeIdx(@Param("schemaName") String requiredSchemaName,
-		@Param("backingClassCode") int requiredBackingClassCode);
+	void deleteBySchemaBkCodeIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName,
+		@Param("backingClassCode") $implIJavaAtomType$ requiredBackingClassCode);
 
 	/**
 	 *	CFSecTableInfoBySchemaBkCodeIdxKey based lock method for object-based access.
@@ -405,7 +405,7 @@ public interface CFSecJpaTableInfoRepository extends JpaRepository<CFSecJpaTable
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaTableInfo r where r.requiredRuntimeClassCode = :runtimeClassCode")
-	void deleteBySchemaRTCodeIdx(@Param("runtimeClassCode") int requiredRuntimeClassCode);
+	void deleteBySchemaRTCodeIdx(@Param("runtimeClassCode") $implIJavaAtomType$ requiredRuntimeClassCode);
 
 	/**
 	 *	CFSecTableInfoBySchemaRTCodeIdxKey based lock method for object-based access.

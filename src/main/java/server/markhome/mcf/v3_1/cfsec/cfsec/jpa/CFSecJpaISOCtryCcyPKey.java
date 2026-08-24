@@ -51,9 +51,9 @@ public class CFSecJpaISOCtryCcyPKey
 	implements ICFSecISOCtryCcyPKey, Comparable<ICFSecISOCtryCcyPKey>, Serializable
 {
 	@Column( name="ISOCtryId", nullable=false )
-	protected short requiredISOCtryId;
+	protected $implIJavaAtomType$ requiredISOCtryId;
 	@Column( name="ISOCcyId", nullable=false )
-	protected short requiredISOCcyId;
+	protected $implIJavaAtomType$ requiredISOCcyId;
 
 	public CFSecJpaISOCtryCcyPKey() {
 		requiredISOCtryId = ICFSecPubISOCtryCcy.ISOCTRYID_INIT_VALUE;
@@ -61,12 +61,12 @@ public class CFSecJpaISOCtryCcyPKey
 	}
 
 	@Override
-	public short getRequiredISOCtryId() {
+	public $implIJavaAtomType$ getRequiredISOCtryId() {
 		return(requiredISOCtryId);
 	}
 
 	@Override
-	public void setRequiredISOCtryId( short value ) {
+	public void setRequiredISOCtryId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCtryCcy.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
@@ -79,12 +79,12 @@ public class CFSecJpaISOCtryCcyPKey
 	}
 
 	@Override
-	public short getRequiredISOCcyId() {
+	public $implIJavaAtomType$ getRequiredISOCcyId() {
 		return(requiredISOCcyId);
 	}
 
 	@Override
-	public void setRequiredISOCcyId( short value ) {
+	public void setRequiredISOCcyId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCtryCcy.ISOCCYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCcyId",

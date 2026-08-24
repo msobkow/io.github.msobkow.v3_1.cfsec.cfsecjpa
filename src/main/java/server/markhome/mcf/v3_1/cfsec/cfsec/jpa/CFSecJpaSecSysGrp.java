@@ -61,7 +61,7 @@ public class CFSecJpaSecSysGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecSysGrpId;
+	protected $implIJavaAtomType$ requiredSecSysGrpId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecSysGrpInc> optionalComponentsIncByGrp;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
@@ -110,9 +110,9 @@ public class CFSecJpaSecSysGrp
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 	@Column( name="sec_level", nullable=false )
-	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
+	protected $implIJavaAtomType$ requiredSecLevel;
 
 	public CFSecJpaSecSysGrp() {
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSysGrp.SECSYSGRPID_INIT_VALUE.toString() );
@@ -231,21 +231,21 @@ public class CFSecJpaSecSysGrp
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredSecSysGrpId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredSecSysGrpId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredSecSysGrpId) {
 		this.requiredSecSysGrpId = requiredSecSysGrpId;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysGrpId() {
+	public $implIJavaAtomType$ getRequiredSecSysGrpId() {
 		return(getPKey().getRequiredSecSysGrpId());
 	}
 
-	public void setRequiredSecSysGrpId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecSysGrpId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecSysGrpId",
@@ -266,11 +266,11 @@ public class CFSecJpaSecSysGrp
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -289,11 +289,11 @@ public class CFSecJpaSecSysGrp
 	}
 
 	@Override
-	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
+	public $implIJavaAtomType$ getRequiredSecLevel() {
 		return(requiredSecLevel);
 	}
 
-	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
+	public void setRequiredSecLevel( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecLevel",

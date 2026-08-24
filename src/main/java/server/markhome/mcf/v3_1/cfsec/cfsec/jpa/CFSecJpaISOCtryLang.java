@@ -145,7 +145,7 @@ public class CFSecJpaISOCtryLang
 	}
 
 	@Override
-	public void setRequiredContainerCtry(short argISOCtryId) {
+	public void setRequiredContainerCtry($implIJavaAtomType$ argISOCtryId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec()");
@@ -193,7 +193,7 @@ public class CFSecJpaISOCtryLang
 	}
 
 	@Override
-	public void setRequiredParentLang(short argISOLangId) {
+	public void setRequiredParentLang($implIJavaAtomType$ argISOLangId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentLang", 0, "ICFSecSchema.getBackingCFSec()");
@@ -275,22 +275,22 @@ public class CFSecJpaISOCtryLang
 	}
 
 	@Override
-	public short getRequiredISOCtryId() {
+	public $implIJavaAtomType$ getRequiredISOCtryId() {
 		return( pkey.getRequiredISOCtryId() );
 	}
 
 	@Override
-	public void setRequiredISOCtryId( short requiredISOCtryId ) {
+	public void setRequiredISOCtryId( $implIJavaAtomType$ requiredISOCtryId ) {
 		pkey.setRequiredISOCtryId( requiredISOCtryId );
 	}
 
 	@Override
-	public short getRequiredISOLangId() {
+	public $implIJavaAtomType$ getRequiredISOLangId() {
 		return( pkey.getRequiredISOLangId() );
 	}
 
 	@Override
-	public void setRequiredISOLangId( short requiredISOLangId ) {
+	public void setRequiredISOLangId( $implIJavaAtomType$ requiredISOLangId ) {
 		pkey.setRequiredISOLangId( requiredISOLangId );
 	}
 

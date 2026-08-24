@@ -70,7 +70,7 @@ public class CFSecJpaSecUserHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecUserId;
+	protected $implIJavaAtomType$ requiredSecUserId;
 
 	public CFSecJpaSecUserHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -132,11 +132,11 @@ public class CFSecJpaSecUserHPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecUserId() {
+	public $implIJavaAtomType$ getRequiredSecUserId() {
 		return(requiredSecUserId);
 	}
 
-	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecUserId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",

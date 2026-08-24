@@ -57,8 +57,8 @@ public class CFSecJpaSecUserPasswordH
 		@AttributeOverride(name="SecUserId", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     protected CFSecJpaSecUserPasswordHPKey pkey;
-	protected LocalDateTime requiredPWSetStamp;
-	protected String requiredPasswordHash;
+	protected $implIJavaAtomType$ requiredPWSetStamp;
+	protected $implIJavaAtomType$ requiredPasswordHash;
 
     public CFSecJpaSecUserPasswordH() {
             // The primary key member attributes are initialized on construction
@@ -139,21 +139,21 @@ public class CFSecJpaSecUserPasswordH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecUserId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
+    public void setRequiredSecUserId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 
 	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
+	public $implIJavaAtomType$ getRequiredPWSetStamp() {
 		return(requiredPWSetStamp);
 	}
 
-	public void setRequiredPWSetStamp( LocalDateTime value ) {
+	public void setRequiredPWSetStamp( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPWSetStamp",
@@ -164,11 +164,11 @@ public class CFSecJpaSecUserPasswordH
 	}
 
 	@Override
-	public String getRequiredPasswordHash() {
+	public $implIJavaAtomType$ getRequiredPasswordHash() {
 		return(requiredPasswordHash);
 	}
 
-	public void setRequiredPasswordHash( String value ) {
+	public void setRequiredPasswordHash( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordHash",

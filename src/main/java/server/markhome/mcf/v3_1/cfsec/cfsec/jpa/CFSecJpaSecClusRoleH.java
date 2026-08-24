@@ -98,9 +98,9 @@ public class CFSecJpaSecClusRoleH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredClusterId;
+	protected $implIJavaAtomType$ requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
     public CFSecJpaSecClusRoleH() {
             // The primary key member attributes are initialized on construction
@@ -234,21 +234,21 @@ public class CFSecJpaSecClusRoleH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecClusRoleId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecClusRoleId() {
         return( pkey.getRequiredSecClusRoleId() );
     }
 
     @Override
-    public void setRequiredSecClusRoleId( ICFLibKeyHash256 requiredSecClusRoleId ) {
+    public void setRequiredSecClusRoleId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecClusRoleId ) {
         pkey.setRequiredSecClusRoleId( requiredSecClusRoleId );
     }
 
 	@Override
-	public ICFLibKeyHash256 getRequiredClusterId() {
+	public $implIJavaAtomType$ getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
+	public void setRequiredClusterId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",
@@ -259,11 +259,11 @@ public class CFSecJpaSecClusRoleH
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

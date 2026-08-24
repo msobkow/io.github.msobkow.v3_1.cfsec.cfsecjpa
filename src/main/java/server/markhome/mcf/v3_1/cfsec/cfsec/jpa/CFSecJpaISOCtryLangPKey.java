@@ -51,9 +51,9 @@ public class CFSecJpaISOCtryLangPKey
 	implements ICFSecISOCtryLangPKey, Comparable<ICFSecISOCtryLangPKey>, Serializable
 {
 	@Column( name="ISOCtryId", nullable=false )
-	protected short requiredISOCtryId;
+	protected $implIJavaAtomType$ requiredISOCtryId;
 	@Column( name="ISOLangId", nullable=false )
-	protected short requiredISOLangId;
+	protected $implIJavaAtomType$ requiredISOLangId;
 
 	public CFSecJpaISOCtryLangPKey() {
 		requiredISOCtryId = ICFSecPubISOCtryLang.ISOCTRYID_INIT_VALUE;
@@ -61,12 +61,12 @@ public class CFSecJpaISOCtryLangPKey
 	}
 
 	@Override
-	public short getRequiredISOCtryId() {
+	public $implIJavaAtomType$ getRequiredISOCtryId() {
 		return(requiredISOCtryId);
 	}
 
 	@Override
-	public void setRequiredISOCtryId( short value ) {
+	public void setRequiredISOCtryId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
@@ -79,12 +79,12 @@ public class CFSecJpaISOCtryLangPKey
 	}
 
 	@Override
-	public short getRequiredISOLangId() {
+	public $implIJavaAtomType$ getRequiredISOLangId() {
 		return(requiredISOLangId);
 	}
 
 	@Override
-	public void setRequiredISOLangId( short value ) {
+	public void setRequiredISOLangId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCtryLang.ISOLANGID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOLangId",

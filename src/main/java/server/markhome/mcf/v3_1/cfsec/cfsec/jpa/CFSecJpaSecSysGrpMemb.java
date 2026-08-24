@@ -145,7 +145,7 @@ public class CFSecJpaSecSysGrpMemb
 	}
 
 	@Override
-	public void setRequiredContainerGroup(ICFLibKeyHash256 argSecSysGrpId) {
+	public void setRequiredContainerGroup($implIJavaAtomType$ argSecSysGrpId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerGroup", 0, "ICFSecSchema.getBackingCFSec()");
@@ -193,7 +193,7 @@ public class CFSecJpaSecSysGrpMemb
 	}
 
 	@Override
-	public void setRequiredParentUser(String argLoginId) {
+	public void setRequiredParentUser($implIJavaAtomType$ argLoginId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -275,22 +275,22 @@ public class CFSecJpaSecSysGrpMemb
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysGrpId() {
+	public $implIJavaAtomType$ getRequiredSecSysGrpId() {
 		return( pkey.getRequiredSecSysGrpId() );
 	}
 
 	@Override
-	public void setRequiredSecSysGrpId( ICFLibKeyHash256 requiredSecSysGrpId ) {
+	public void setRequiredSecSysGrpId( $implIJavaAtomType$ requiredSecSysGrpId ) {
 		pkey.setRequiredSecSysGrpId( requiredSecSysGrpId );
 	}
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implIJavaAtomType$ getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
 	}
 
 	@Override
-	public void setRequiredLoginId( String requiredLoginId ) {
+	public void setRequiredLoginId( $implIJavaAtomType$ requiredLoginId ) {
 		pkey.setRequiredLoginId( requiredLoginId );
 	}
 

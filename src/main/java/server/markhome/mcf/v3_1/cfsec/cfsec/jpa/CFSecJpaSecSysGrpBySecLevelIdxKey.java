@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSysGrpBySecLevelIdxKey
 	implements ICFSecSecSysGrpBySecLevelIdxKey, Comparable<Object>, Serializable
 {
-	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecLevel;
 	public CFSecJpaSecSysGrpBySecLevelIdxKey() {
 		requiredSecLevel = ICFSecPubSecSysGrp.SECLEVEL_INIT_VALUE;
 	}
 
 	@Override
-	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
+	public $implIJavaAtomType$ getRequiredSecLevel() {
 		return(requiredSecLevel);
 	}
 
-	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
+	public void setRequiredSecLevel( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecLevel",

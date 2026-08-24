@@ -98,9 +98,9 @@ public class CFSecJpaSecClusGrpH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredClusterId;
+	protected $implIJavaAtomType$ requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
     public CFSecJpaSecClusGrpH() {
             // The primary key member attributes are initialized on construction
@@ -234,21 +234,21 @@ public class CFSecJpaSecClusGrpH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecClusGrpId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecClusGrpId() {
         return( pkey.getRequiredSecClusGrpId() );
     }
 
     @Override
-    public void setRequiredSecClusGrpId( ICFLibKeyHash256 requiredSecClusGrpId ) {
+    public void setRequiredSecClusGrpId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecClusGrpId ) {
         pkey.setRequiredSecClusGrpId( requiredSecClusGrpId );
     }
 
 	@Override
-	public ICFLibKeyHash256 getRequiredClusterId() {
+	public $implIJavaAtomType$ getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
+	public void setRequiredClusterId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",
@@ -259,11 +259,11 @@ public class CFSecJpaSecClusGrpH
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

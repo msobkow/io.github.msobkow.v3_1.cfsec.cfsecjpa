@@ -74,7 +74,7 @@ public class CFSecJpaSecSessionService {
 		if (data == null) {
 			return( null );
 		}
-		ICFLibKeyHash256 originalRequiredSecSessionId = data.getRequiredSecSessionId();
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredSecSessionId = data.getRequiredSecSessionId();
 		boolean generatedRequiredSecSessionId = false;
 		if (data.getRequiredContainerSecUser() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
@@ -111,8 +111,8 @@ public class CFSecJpaSecSessionService {
 				"data.requiredStart");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecSessionRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecSession)(cfsec31SecSessionRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecSessionRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaSecSession)(cfsec31SecSessionRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -187,7 +187,7 @@ public class CFSecJpaSecSessionService {
 				"data.requiredStart");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaSecSession existing = cfsec31SecSessionRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFSecJpaSecSession existing = cfsec31SecSessionRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -212,7 +212,7 @@ public class CFSecJpaSecSessionService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSession find(@Param("secSessionId") ICFLibKeyHash256 requiredSecSessionId) {
+	public CFSecJpaSecSession find(@Param("secSessionId") $implIJavaAtomType$ requiredSecSessionId) {
 		return( cfsec31SecSessionRepository.get(requiredSecSessionId));
 	}
 
@@ -236,7 +236,7 @@ public class CFSecJpaSecSessionService {
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSession> findBySecUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public List<CFSecJpaSecSession> findBySecUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecSessionRepository.findBySecUserIdx(requiredSecUserId));
 	}
 
@@ -261,8 +261,8 @@ public class CFSecJpaSecSessionService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSession findByStartIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("start") LocalDateTime requiredStart) {
+	public CFSecJpaSecSession findByStartIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("start") $implIJavaAtomType$ requiredStart) {
 		return( cfsec31SecSessionRepository.findByStartIdx(requiredSecUserId,
 			requiredStart));
 	}
@@ -288,8 +288,8 @@ public class CFSecJpaSecSessionService {
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSession> findByFinishIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("finish") LocalDateTime optionalFinish) {
+	public List<CFSecJpaSecSession> findByFinishIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("finish") $implIJavaAtomType$ optionalFinish) {
 		return( cfsec31SecSessionRepository.findByFinishIdx(requiredSecUserId,
 			optionalFinish));
 	}
@@ -314,7 +314,7 @@ public class CFSecJpaSecSessionService {
 	 *		@return List&lt;CFSecJpaSecSession&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSession> findBySecProxyIdx(@Param("secProxyId") ICFLibKeyHash256 optionalSecProxyId) {
+	public List<CFSecJpaSecSession> findBySecProxyIdx(@Param("secProxyId") $implIJavaAtomType$ optionalSecProxyId) {
 		return( cfsec31SecSessionRepository.findBySecProxyIdx(optionalSecProxyId));
 	}
 
@@ -340,7 +340,7 @@ public class CFSecJpaSecSessionService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSession lockByIdIdx(@Param("secSessionId") ICFLibKeyHash256 requiredSecSessionId) {
+	public CFSecJpaSecSession lockByIdIdx(@Param("secSessionId") $implIJavaAtomType$ requiredSecSessionId) {
 		return( cfsec31SecSessionRepository.lockByIdIdx(requiredSecSessionId));
 	}
 
@@ -352,7 +352,7 @@ public class CFSecJpaSecSessionService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSession> lockBySecUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public List<CFSecJpaSecSession> lockBySecUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecSessionRepository.lockBySecUserIdx(requiredSecUserId));
 	}
 
@@ -377,8 +377,8 @@ public class CFSecJpaSecSessionService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSession lockByStartIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("start") LocalDateTime requiredStart) {
+	public CFSecJpaSecSession lockByStartIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("start") $implIJavaAtomType$ requiredStart) {
 		return( cfsec31SecSessionRepository.lockByStartIdx(requiredSecUserId,
 			requiredStart));
 	}
@@ -404,8 +404,8 @@ public class CFSecJpaSecSessionService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSession> lockByFinishIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("finish") LocalDateTime optionalFinish) {
+	public List<CFSecJpaSecSession> lockByFinishIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("finish") $implIJavaAtomType$ optionalFinish) {
 		return( cfsec31SecSessionRepository.lockByFinishIdx(requiredSecUserId,
 			optionalFinish));
 	}
@@ -430,7 +430,7 @@ public class CFSecJpaSecSessionService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSession> lockBySecProxyIdx(@Param("secProxyId") ICFLibKeyHash256 optionalSecProxyId) {
+	public List<CFSecJpaSecSession> lockBySecProxyIdx(@Param("secProxyId") $implIJavaAtomType$ optionalSecProxyId) {
 		return( cfsec31SecSessionRepository.lockBySecProxyIdx(optionalSecProxyId));
 	}
 
@@ -454,7 +454,7 @@ public class CFSecJpaSecSessionService {
 	 *		@param requiredSecSessionId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secSessionId") ICFLibKeyHash256 requiredSecSessionId) {
+	public void deleteByIdIdx(@Param("secSessionId") $implIJavaAtomType$ requiredSecSessionId) {
 		cfsec31SecSessionRepository.deleteByIdIdx(requiredSecSessionId);
 	}
 
@@ -464,7 +464,7 @@ public class CFSecJpaSecSessionService {
 	 *		@param requiredSecUserId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySecUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public void deleteBySecUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		cfsec31SecSessionRepository.deleteBySecUserIdx(requiredSecUserId);
 	}
 
@@ -485,8 +485,8 @@ public class CFSecJpaSecSessionService {
 	 *		@param requiredStart
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByStartIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("start") LocalDateTime requiredStart) {
+	public void deleteByStartIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("start") $implIJavaAtomType$ requiredStart) {
 		cfsec31SecSessionRepository.deleteByStartIdx(requiredSecUserId,
 			requiredStart);
 	}
@@ -508,8 +508,8 @@ public class CFSecJpaSecSessionService {
 	 *		@param optionalFinish
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByFinishIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("finish") LocalDateTime optionalFinish) {
+	public void deleteByFinishIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("finish") $implIJavaAtomType$ optionalFinish) {
 		cfsec31SecSessionRepository.deleteByFinishIdx(requiredSecUserId,
 			optionalFinish);
 	}
@@ -530,7 +530,7 @@ public class CFSecJpaSecSessionService {
 	 *		@param optionalSecProxyId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySecProxyIdx(@Param("secProxyId") ICFLibKeyHash256 optionalSecProxyId) {
+	public void deleteBySecProxyIdx(@Param("secProxyId") $implIJavaAtomType$ optionalSecProxyId) {
 		cfsec31SecSessionRepository.deleteBySecProxyIdx(optionalSecProxyId);
 	}
 

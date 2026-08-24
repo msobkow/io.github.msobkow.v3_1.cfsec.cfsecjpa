@@ -95,13 +95,13 @@ public class CFSecJpaISOCcyH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code", nullable=false, length=3 )
-	protected String requiredISOCode;
+	protected $implIJavaAtomType$ requiredISOCode;
 	@Column( name="ccy_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 	@Column( name="unit_symbol", nullable=true, length=4 )
-	protected String optionalUnitSymbol;
+	protected $implIJavaAtomType$ optionalUnitSymbol;
 	@Column( name="precis", nullable=false )
-	protected short requiredPrecis;
+	protected $implIJavaAtomType$ requiredPrecis;
 
     public CFSecJpaISOCcyH() {
             // The primary key member attributes are initialized on construction
@@ -237,21 +237,21 @@ public class CFSecJpaISOCcyH
     }
 
     @Override
-    public short getRequiredISOCcyId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredISOCcyId() {
         return( pkey.getRequiredISOCcyId() );
     }
 
     @Override
-    public void setRequiredISOCcyId( short requiredISOCcyId ) {
+    public void setRequiredISOCcyId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredISOCcyId ) {
         pkey.setRequiredISOCcyId( requiredISOCcyId );
     }
 
 	@Override
-	public String getRequiredISOCode() {
+	public $implIJavaAtomType$ getRequiredISOCode() {
 		return(requiredISOCode);
 	}
 
-	public void setRequiredISOCode( String value ) {
+	public void setRequiredISOCode( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredISOCode",
@@ -270,11 +270,11 @@ public class CFSecJpaISOCcyH
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -293,11 +293,11 @@ public class CFSecJpaISOCcyH
 	}
 
 	@Override
-	public String getOptionalUnitSymbol() {
+	public $implIJavaAtomType$ getOptionalUnitSymbol() {
 		return(optionalUnitSymbol);
 	}
 
-	public void setOptionalUnitSymbol( String value ) {
+	public void setOptionalUnitSymbol( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 4 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalUnitSymbol",
@@ -310,12 +310,12 @@ public class CFSecJpaISOCcyH
 	}
 
 	@Override
-	public short getRequiredPrecis() {
+	public $implIJavaAtomType$ getRequiredPrecis() {
 		return(requiredPrecis);
 	}
 
 	@Override
-	public void setRequiredPrecis( short value ) {
+	public void setRequiredPrecis( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCcy.PRECIS_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredPrecis",

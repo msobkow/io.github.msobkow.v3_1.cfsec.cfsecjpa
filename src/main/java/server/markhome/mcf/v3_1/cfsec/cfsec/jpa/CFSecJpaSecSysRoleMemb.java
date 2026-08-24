@@ -145,7 +145,7 @@ public class CFSecJpaSecSysRoleMemb
 	}
 
 	@Override
-	public void setRequiredContainerSysRole(ICFLibKeyHash256 argSecSysRoleId) {
+	public void setRequiredContainerSysRole($implIJavaAtomType$ argSecSysRoleId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysRole", 0, "ICFSecSchema.getBackingCFSec()");
@@ -193,7 +193,7 @@ public class CFSecJpaSecSysRoleMemb
 	}
 
 	@Override
-	public void setRequiredParentUser(String argLoginId) {
+	public void setRequiredParentUser($implIJavaAtomType$ argLoginId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -275,22 +275,22 @@ public class CFSecJpaSecSysRoleMemb
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysRoleId() {
+	public $implIJavaAtomType$ getRequiredSecSysRoleId() {
 		return( pkey.getRequiredSecSysRoleId() );
 	}
 
 	@Override
-	public void setRequiredSecSysRoleId( ICFLibKeyHash256 requiredSecSysRoleId ) {
+	public void setRequiredSecSysRoleId( $implIJavaAtomType$ requiredSecSysRoleId ) {
 		pkey.setRequiredSecSysRoleId( requiredSecSysRoleId );
 	}
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implIJavaAtomType$ getRequiredLoginId() {
 		return( pkey.getRequiredLoginId() );
 	}
 
 	@Override
-	public void setRequiredLoginId( String requiredLoginId ) {
+	public void setRequiredLoginId( $implIJavaAtomType$ requiredLoginId ) {
 		pkey.setRequiredLoginId( requiredLoginId );
 	}
 

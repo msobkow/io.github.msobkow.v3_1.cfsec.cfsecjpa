@@ -70,7 +70,7 @@ public class CFSecJpaSecSysGrpHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecSysGrpId;
+	protected $implIJavaAtomType$ requiredSecSysGrpId;
 
 	public CFSecJpaSecSysGrpHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -132,11 +132,11 @@ public class CFSecJpaSecSysGrpHPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysGrpId() {
+	public $implIJavaAtomType$ getRequiredSecSysGrpId() {
 		return(requiredSecSysGrpId);
 	}
 
-	public void setRequiredSecSysGrpId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecSysGrpId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecSysGrpId",

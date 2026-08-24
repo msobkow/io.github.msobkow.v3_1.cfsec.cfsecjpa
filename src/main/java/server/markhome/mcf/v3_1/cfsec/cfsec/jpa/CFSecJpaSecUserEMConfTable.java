@@ -277,7 +277,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public void deleteSecUserEMConfByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		final String S_ProcName = "deleteSecUserEMConfByIdIdx";
 		boolean permissionGranted = canDeleteSecUserEMConf(S_ProcName, Authorization);
@@ -297,7 +297,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public void deleteSecUserEMConfByUUuid6Idx( ICFSecAuthorization Authorization,
-		ICFLibUuid6 argEMConfirmationUuid6 )
+		$implIJavaAtomType$ argEMConfirmationUuid6 )
 	{
 		final String S_ProcName = "deleteSecUserEMConfByUUuid6Idx";
 		boolean permissionGranted = canDeleteSecUserEMConf(S_ProcName, Authorization);
@@ -338,7 +338,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public void deleteSecUserEMConfByConfEMAddrIdx( ICFSecAuthorization Authorization,
-		String argConfirmEMailAddr )
+		$implIJavaAtomType$ argConfirmEMailAddr )
 	{
 		final String S_ProcName = "deleteSecUserEMConfByConfEMAddrIdx";
 		boolean permissionGranted = canDeleteSecUserEMConf(S_ProcName, Authorization);
@@ -379,7 +379,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public void deleteSecUserEMConfBySentStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argEMailSentStamp )
+		$implIJavaAtomType$ argEMailSentStamp )
 	{
 		final String S_ProcName = "deleteSecUserEMConfBySentStampIdx";
 		boolean permissionGranted = canDeleteSecUserEMConf(S_ProcName, Authorization);
@@ -420,7 +420,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public void deleteSecUserEMConfByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount )
+		$implIJavaAtomType$ argNewAccount )
 	{
 		final String S_ProcName = "deleteSecUserEMConfByNewAcctIdx";
 		boolean permissionGranted = canDeleteSecUserEMConf(S_ProcName, Authorization);
@@ -465,7 +465,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecUserEMConf(S_ProcName, Authorization);
@@ -489,7 +489,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecUserEMConf(S_ProcName, Authorization);
@@ -537,7 +537,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -563,7 +563,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf readDerivedByUUuid6Idx( ICFSecAuthorization Authorization,
-		ICFLibUuid6 argEMConfirmationUuid6 )
+		$implIJavaAtomType$ argEMConfirmationUuid6 )
 	{
 		final String S_ProcName = "readDerivedByUUuid6Idx";
 		boolean permissionGranted = false;
@@ -588,7 +588,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] readDerivedByConfEMAddrIdx( ICFSecAuthorization Authorization,
-		String argConfirmEMailAddr )
+		$implIJavaAtomType$ argConfirmEMailAddr )
 	{
 		final String S_ProcName = "readDerivedByConfEMAddrIdx";
 		boolean permissionGranted = false;
@@ -618,7 +618,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] readDerivedBySentStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argEMailSentStamp )
+		$implIJavaAtomType$ argEMailSentStamp )
 	{
 		final String S_ProcName = "readDerivedBySentStampIdx";
 		boolean permissionGranted = false;
@@ -648,7 +648,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] readDerivedByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount )
+		$implIJavaAtomType$ argNewAccount )
 	{
 		final String S_ProcName = "readDerivedByNewAcctIdx";
 		boolean permissionGranted = false;
@@ -681,7 +681,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecUserEMConf(S_ProcName, Authorization);
@@ -706,7 +706,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecUserEMConf(S_ProcName, Authorization);
@@ -745,7 +745,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] pageAllRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecUserEMConf(S_ProcName, Authorization);
@@ -770,7 +770,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -797,7 +797,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf readRecByUUuid6Idx( ICFSecAuthorization Authorization,
-		ICFLibUuid6 argEMConfirmationUuid6 )
+		$implIJavaAtomType$ argEMConfirmationUuid6 )
 	{
 		final String S_ProcName = "readRecByUUuid6Idx";
 		boolean permissionGranted = false;
@@ -823,7 +823,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] readRecByConfEMAddrIdx( ICFSecAuthorization Authorization,
-		String argConfirmEMailAddr )
+		$implIJavaAtomType$ argConfirmEMailAddr )
 	{
 		final String S_ProcName = "readRecByConfEMAddrIdx";
 		boolean permissionGranted = false;
@@ -849,7 +849,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] readRecBySentStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argEMailSentStamp )
+		$implIJavaAtomType$ argEMailSentStamp )
 	{
 		final String S_ProcName = "readRecBySentStampIdx";
 		boolean permissionGranted = false;
@@ -875,7 +875,7 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] readRecByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount )
+		$implIJavaAtomType$ argNewAccount )
 	{
 		final String S_ProcName = "readRecByNewAcctIdx";
 		boolean permissionGranted = false;
@@ -901,8 +901,8 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] pageRecByConfEMAddrIdx( ICFSecAuthorization Authorization,
-		String argConfirmEMailAddr,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaAtomType$ argConfirmEMailAddr,
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageRecByConfEMAddrIdx";
 		boolean permissionGranted = false;
@@ -928,8 +928,8 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] pageRecBySentStampIdx( ICFSecAuthorization Authorization,
-		LocalDateTime argEMailSentStamp,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaAtomType$ argEMailSentStamp,
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageRecBySentStampIdx";
 		boolean permissionGranted = false;
@@ -955,8 +955,8 @@ public class CFSecJpaSecUserEMConfTable implements ICFSecSecUserEMConfTable
 	 */
 	@Override
 	public ICFSecSecUserEMConf[] pageRecByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaAtomType$ argNewAccount,
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageRecByNewAcctIdx";
 		boolean permissionGranted = false;

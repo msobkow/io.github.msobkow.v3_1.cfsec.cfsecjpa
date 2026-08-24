@@ -57,10 +57,10 @@ public class CFSecJpaSecSessionH
 		@AttributeOverride(name="SecSessionId", column = @Column( name="SecSessionId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
     protected CFSecJpaSecSessionHPKey pkey;
-	protected ICFLibKeyHash256 requiredSecUserId;
-	protected LocalDateTime requiredStart;
-	protected LocalDateTime optionalFinish;
-	protected ICFLibKeyHash256 optionalSecProxyId;
+	protected $implIJavaAtomType$ requiredSecUserId;
+	protected $implIJavaAtomType$ requiredStart;
+	protected $implIJavaAtomType$ optionalFinish;
+	protected $implIJavaAtomType$ optionalSecProxyId;
 
     public CFSecJpaSecSessionH() {
             // The primary key member attributes are initialized on construction
@@ -144,21 +144,21 @@ public class CFSecJpaSecSessionH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecSessionId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecSessionId() {
         return( pkey.getRequiredSecSessionId() );
     }
 
     @Override
-    public void setRequiredSecSessionId( ICFLibKeyHash256 requiredSecSessionId ) {
+    public void setRequiredSecSessionId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecSessionId ) {
         pkey.setRequiredSecSessionId( requiredSecSessionId );
     }
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecUserId() {
+	public $implIJavaAtomType$ getRequiredSecUserId() {
 		return(requiredSecUserId);
 	}
 
-	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecUserId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
@@ -169,11 +169,11 @@ public class CFSecJpaSecSessionH
 	}
 
 	@Override
-	public LocalDateTime getRequiredStart() {
+	public $implIJavaAtomType$ getRequiredStart() {
 		return(requiredStart);
 	}
 
-	public void setRequiredStart( LocalDateTime value ) {
+	public void setRequiredStart( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredStart",
@@ -184,20 +184,20 @@ public class CFSecJpaSecSessionH
 	}
 
 	@Override
-	public LocalDateTime getOptionalFinish() {
+	public $implIJavaAtomType$ getOptionalFinish() {
 		return(optionalFinish);
 	}
 
-	public void setOptionalFinish( LocalDateTime value ) {
+	public void setOptionalFinish( $implIJavaAtomType$ value ) {
 		optionalFinish = value;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getOptionalSecProxyId() {
+	public $implIJavaAtomType$ getOptionalSecProxyId() {
 		return(optionalSecProxyId);
 	}
 
-	public void setOptionalSecProxyId( ICFLibKeyHash256 value ) {
+	public void setOptionalSecProxyId( $implIJavaAtomType$ value ) {
 		optionalSecProxyId = value;
 	}
 

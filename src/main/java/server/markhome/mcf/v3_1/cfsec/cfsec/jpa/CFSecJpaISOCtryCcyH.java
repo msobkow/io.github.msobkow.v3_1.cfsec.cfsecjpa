@@ -226,22 +226,22 @@ public class CFSecJpaISOCtryCcyH
     }
 
     @Override
-    public short getRequiredISOCtryId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredISOCtryId() {
         return( pkey.getRequiredISOCtryId() );
     }
 
     @Override
-    public void setRequiredISOCtryId( short requiredISOCtryId ) {
+    public void setRequiredISOCtryId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredISOCtryId ) {
         pkey.setRequiredISOCtryId( requiredISOCtryId );
     }
 
     @Override
-    public short getRequiredISOCcyId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredISOCcyId() {
         return( pkey.getRequiredISOCcyId() );
     }
 
     @Override
-    public void setRequiredISOCcyId( short requiredISOCcyId ) {
+    public void setRequiredISOCcyId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredISOCcyId ) {
         pkey.setRequiredISOCcyId( requiredISOCcyId );
     }
 

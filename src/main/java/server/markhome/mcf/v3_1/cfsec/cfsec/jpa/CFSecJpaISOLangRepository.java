@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang, Short> {
+public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang, $implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOLang r where r.requiredISOLangId = :iSOLangId")
-	CFSecJpaISOLang get(@Param("iSOLangId") short requiredISOLangId);
+	CFSecJpaISOLang get(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId);
 
 	// CFSecJpaISOLang specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOLang r where r.requiredISO6392Code = :iSO6392Code")
-	CFSecJpaISOLang findByCode3Idx(@Param("iSO6392Code") String requiredISO6392Code);
+	CFSecJpaISOLang findByCode3Idx(@Param("iSO6392Code") $implIJavaAtomType$ requiredISO6392Code);
 
 	/**
 	 *	CFSecISOLangByCode3IdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	 *		@return List&lt;CFSecJpaISOLang&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaISOLang r where r.optionalISO6391Code = :iSO6391Code")
-	List<CFSecJpaISOLang> findByCode2Idx(@Param("iSO6391Code") String optionalISO6391Code);
+	List<CFSecJpaISOLang> findByCode2Idx(@Param("iSO6391Code") $implIJavaAtomType$ optionalISO6391Code);
 
 	/**
 	 *	CFSecISOLangByCode2IdxKey entity list reader convenience method for object-based access.
@@ -123,7 +123,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOLang r where r.requiredISOLangId = :iSOLangId")
-	CFSecJpaISOLang lockByIdIdx(@Param("iSOLangId") short requiredISOLangId);
+	CFSecJpaISOLang lockByIdIdx(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -135,7 +135,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOLang r where r.requiredISO6392Code = :iSO6392Code")
-	CFSecJpaISOLang lockByCode3Idx(@Param("iSO6392Code") String requiredISO6392Code);
+	CFSecJpaISOLang lockByCode3Idx(@Param("iSO6392Code") $implIJavaAtomType$ requiredISO6392Code);
 
 	/**
 	 *	CFSecISOLangByCode3IdxKey based lock method for object-based access.
@@ -158,7 +158,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOLang r where r.optionalISO6391Code = :iSO6391Code")
-	List<CFSecJpaISOLang> lockByCode2Idx(@Param("iSO6391Code") String optionalISO6391Code);
+	List<CFSecJpaISOLang> lockByCode2Idx(@Param("iSO6391Code") $implIJavaAtomType$ optionalISO6391Code);
 
 	/**
 	 *	CFSecISOLangByCode2IdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOLang r where r.requiredISOLangId = :iSOLangId")
-	void deleteByIdIdx(@Param("iSOLangId") short requiredISOLangId);
+	void deleteByIdIdx(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -191,7 +191,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOLang r where r.requiredISO6392Code = :iSO6392Code")
-	void deleteByCode3Idx(@Param("iSO6392Code") String requiredISO6392Code);
+	void deleteByCode3Idx(@Param("iSO6392Code") $implIJavaAtomType$ requiredISO6392Code);
 
 	/**
 	 *	CFSecISOLangByCode3IdxKey based lock method for object-based access.
@@ -210,7 +210,7 @@ public interface CFSecJpaISOLangRepository extends JpaRepository<CFSecJpaISOLang
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOLang r where r.optionalISO6391Code = :iSO6391Code")
-	void deleteByCode2Idx(@Param("iSO6391Code") String optionalISO6391Code);
+	void deleteByCode2Idx(@Param("iSO6391Code") $implIJavaAtomType$ optionalISO6391Code);
 
 	/**
 	 *	CFSecISOLangByCode2IdxKey based lock method for object-based access.

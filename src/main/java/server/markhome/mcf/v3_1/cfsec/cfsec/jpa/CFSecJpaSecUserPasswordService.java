@@ -98,8 +98,8 @@ public class CFSecJpaSecUserPasswordService {
 				"data.requiredPasswordHash");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserPasswordRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecUserPassword)(cfsec31SecUserPasswordRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserPasswordRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaSecUserPassword)(cfsec31SecUserPasswordRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -156,7 +156,7 @@ public class CFSecJpaSecUserPasswordService {
 				"data.requiredPasswordHash");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaSecUserPassword existing = cfsec31SecUserPasswordRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFSecJpaSecUserPassword existing = cfsec31SecUserPasswordRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -177,7 +177,7 @@ public class CFSecJpaSecUserPasswordService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPassword find(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserPassword find(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserPasswordRepository.get(requiredSecUserId));
 	}
 
@@ -201,7 +201,7 @@ public class CFSecJpaSecUserPasswordService {
 	 *		@return List&lt;CFSecJpaSecUserPassword&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserPassword> findBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public List<CFSecJpaSecUserPassword> findBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		return( cfsec31SecUserPasswordRepository.findBySetStampIdx(requiredPWSetStamp));
 	}
 
@@ -227,7 +227,7 @@ public class CFSecJpaSecUserPasswordService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPassword lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserPassword lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserPasswordRepository.lockByIdIdx(requiredSecUserId));
 	}
 
@@ -239,7 +239,7 @@ public class CFSecJpaSecUserPasswordService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserPassword> lockBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public List<CFSecJpaSecUserPassword> lockBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		return( cfsec31SecUserPasswordRepository.lockBySetStampIdx(requiredPWSetStamp));
 	}
 
@@ -263,7 +263,7 @@ public class CFSecJpaSecUserPasswordService {
 	 *		@param requiredSecUserId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		cfsec31SecUserPasswordRepository.deleteByIdIdx(requiredSecUserId);
 	}
 
@@ -273,7 +273,7 @@ public class CFSecJpaSecUserPasswordService {
 	 *		@param requiredPWSetStamp
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public void deleteBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		cfsec31SecUserPasswordRepository.deleteBySetStampIdx(requiredPWSetStamp);
 	}
 

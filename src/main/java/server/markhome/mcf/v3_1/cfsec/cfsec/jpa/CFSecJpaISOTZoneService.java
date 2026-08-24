@@ -74,7 +74,7 @@ public class CFSecJpaISOTZoneService {
 		if (data == null) {
 			return( null );
 		}
-		short originalRequiredISOTZoneId = data.getRequiredISOTZoneId();
+		$implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredISOTZoneId = data.getRequiredISOTZoneId();
 		boolean generatedRequiredISOTZoneId = false;
 		if(data.getRequiredIso8601() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -127,8 +127,8 @@ public class CFSecJpaISOTZoneService {
 				"data.requiredDescription");
 		}
 		try {
-			if(data.getPKey() != null && cfsec31ISOTZoneRepository.existsById((Short)data.getPKey())) {
-				return( (CFSecJpaISOTZone)(cfsec31ISOTZoneRepository.findById((Short)(data.getPKey())).get()));
+			if(data.getPKey() != null && cfsec31ISOTZoneRepository.existsById(($implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaISOTZone)(cfsec31ISOTZoneRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -218,7 +218,7 @@ public class CFSecJpaISOTZoneService {
 				"data.requiredDescription");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaISOTZone existing = cfsec31ISOTZoneRepository.findById((Short)(data.getPKey()))
+		CFSecJpaISOTZone existing = cfsec31ISOTZoneRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -245,7 +245,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOTZone find(@Param("iSOTZoneId") short requiredISOTZoneId) {
+	public CFSecJpaISOTZone find(@Param("iSOTZoneId") $implIJavaAtomType$ requiredISOTZoneId) {
 		return( cfsec31ISOTZoneRepository.get(requiredISOTZoneId));
 	}
 
@@ -270,8 +270,8 @@ public class CFSecJpaISOTZoneService {
 	 *		@return List&lt;CFSecJpaISOTZone&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOTZone> findByOffsetIdx(@Param("tZHourOffset") short requiredTZHourOffset,
-		@Param("tZMinOffset") short requiredTZMinOffset) {
+	public List<CFSecJpaISOTZone> findByOffsetIdx(@Param("tZHourOffset") $implIJavaAtomType$ requiredTZHourOffset,
+		@Param("tZMinOffset") $implIJavaAtomType$ requiredTZMinOffset) {
 		return( cfsec31ISOTZoneRepository.findByOffsetIdx(requiredTZHourOffset,
 			requiredTZMinOffset));
 	}
@@ -296,7 +296,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOTZone findByUTZNameIdx(@Param("tZName") String requiredTZName) {
+	public CFSecJpaISOTZone findByUTZNameIdx(@Param("tZName") $implIJavaAtomType$ requiredTZName) {
 		return( cfsec31ISOTZoneRepository.findByUTZNameIdx(requiredTZName));
 	}
 
@@ -320,7 +320,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@return List&lt;CFSecJpaISOTZone&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOTZone> findByIso8601Idx(@Param("iso8601") String requiredIso8601) {
+	public List<CFSecJpaISOTZone> findByIso8601Idx(@Param("iso8601") $implIJavaAtomType$ requiredIso8601) {
 		return( cfsec31ISOTZoneRepository.findByIso8601Idx(requiredIso8601));
 	}
 
@@ -346,7 +346,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOTZone lockByIdIdx(@Param("iSOTZoneId") short requiredISOTZoneId) {
+	public CFSecJpaISOTZone lockByIdIdx(@Param("iSOTZoneId") $implIJavaAtomType$ requiredISOTZoneId) {
 		return( cfsec31ISOTZoneRepository.lockByIdIdx(requiredISOTZoneId));
 	}
 
@@ -359,8 +359,8 @@ public class CFSecJpaISOTZoneService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOTZone> lockByOffsetIdx(@Param("tZHourOffset") short requiredTZHourOffset,
-		@Param("tZMinOffset") short requiredTZMinOffset) {
+	public List<CFSecJpaISOTZone> lockByOffsetIdx(@Param("tZHourOffset") $implIJavaAtomType$ requiredTZHourOffset,
+		@Param("tZMinOffset") $implIJavaAtomType$ requiredTZMinOffset) {
 		return( cfsec31ISOTZoneRepository.lockByOffsetIdx(requiredTZHourOffset,
 			requiredTZMinOffset));
 	}
@@ -385,7 +385,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOTZone lockByUTZNameIdx(@Param("tZName") String requiredTZName) {
+	public CFSecJpaISOTZone lockByUTZNameIdx(@Param("tZName") $implIJavaAtomType$ requiredTZName) {
 		return( cfsec31ISOTZoneRepository.lockByUTZNameIdx(requiredTZName));
 	}
 
@@ -409,7 +409,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOTZone> lockByIso8601Idx(@Param("iso8601") String requiredIso8601) {
+	public List<CFSecJpaISOTZone> lockByIso8601Idx(@Param("iso8601") $implIJavaAtomType$ requiredIso8601) {
 		return( cfsec31ISOTZoneRepository.lockByIso8601Idx(requiredIso8601));
 	}
 
@@ -433,7 +433,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@param requiredISOTZoneId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("iSOTZoneId") short requiredISOTZoneId) {
+	public void deleteByIdIdx(@Param("iSOTZoneId") $implIJavaAtomType$ requiredISOTZoneId) {
 		cfsec31ISOTZoneRepository.deleteByIdIdx(requiredISOTZoneId);
 	}
 
@@ -444,8 +444,8 @@ public class CFSecJpaISOTZoneService {
 	 *		@param requiredTZMinOffset
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByOffsetIdx(@Param("tZHourOffset") short requiredTZHourOffset,
-		@Param("tZMinOffset") short requiredTZMinOffset) {
+	public void deleteByOffsetIdx(@Param("tZHourOffset") $implIJavaAtomType$ requiredTZHourOffset,
+		@Param("tZMinOffset") $implIJavaAtomType$ requiredTZMinOffset) {
 		cfsec31ISOTZoneRepository.deleteByOffsetIdx(requiredTZHourOffset,
 			requiredTZMinOffset);
 	}
@@ -466,7 +466,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@param requiredTZName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUTZNameIdx(@Param("tZName") String requiredTZName) {
+	public void deleteByUTZNameIdx(@Param("tZName") $implIJavaAtomType$ requiredTZName) {
 		cfsec31ISOTZoneRepository.deleteByUTZNameIdx(requiredTZName);
 	}
 
@@ -486,7 +486,7 @@ public class CFSecJpaISOTZoneService {
 	 *		@param requiredIso8601
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIso8601Idx(@Param("iso8601") String requiredIso8601) {
+	public void deleteByIso8601Idx(@Param("iso8601") $implIJavaAtomType$ requiredIso8601) {
 		cfsec31ISOTZoneRepository.deleteByIso8601Idx(requiredIso8601);
 	}
 

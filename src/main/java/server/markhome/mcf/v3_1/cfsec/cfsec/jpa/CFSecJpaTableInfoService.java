@@ -74,7 +74,7 @@ public class CFSecJpaTableInfoService {
 		if (data == null) {
 			return( null );
 		}
-		int originalRequiredTableInfoId = data.getRequiredTableInfoId();
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredTableInfoId = data.getRequiredTableInfoId();
 		boolean generatedRequiredTableInfoId = false;
 		if(data.getRequiredSchemaName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -117,8 +117,8 @@ public class CFSecJpaTableInfoService {
 				"data.requiredCodeVis");
 		}
 		try {
-			if(data.getPKey() != null && cfsec31TableInfoRepository.existsById((Integer)data.getPKey())) {
-				return( (CFSecJpaTableInfo)(cfsec31TableInfoRepository.findById((Integer)(data.getPKey())).get()));
+			if(data.getPKey() != null && cfsec31TableInfoRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaTableInfo)(cfsec31TableInfoRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -195,7 +195,7 @@ public class CFSecJpaTableInfoService {
 				"data.requiredCodeVis");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaTableInfo existing = cfsec31TableInfoRepository.findById((Integer)(data.getPKey()))
+		CFSecJpaTableInfo existing = cfsec31TableInfoRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -224,7 +224,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo find(@Param("tableInfoId") int requiredTableInfoId) {
+	public CFSecJpaTableInfo find(@Param("tableInfoId") $implIJavaAtomType$ requiredTableInfoId) {
 		return( cfsec31TableInfoRepository.get(requiredTableInfoId));
 	}
 
@@ -248,7 +248,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo findByTableNameIdx(@Param("tableName") String requiredTableName) {
+	public CFSecJpaTableInfo findByTableNameIdx(@Param("tableName") $implIJavaAtomType$ requiredTableName) {
 		return( cfsec31TableInfoRepository.findByTableNameIdx(requiredTableName));
 	}
 
@@ -272,7 +272,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return List&lt;CFSecJpaTableInfo&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaTableInfo> findBySuperNameIdx(@Param("superName") String optionalSuperName) {
+	public List<CFSecJpaTableInfo> findBySuperNameIdx(@Param("superName") $implIJavaAtomType$ optionalSuperName) {
 		return( cfsec31TableInfoRepository.findBySuperNameIdx(optionalSuperName));
 	}
 
@@ -296,7 +296,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return List&lt;CFSecJpaTableInfo&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaTableInfo> findBySchemaNameIdx(@Param("schemaName") String requiredSchemaName) {
+	public List<CFSecJpaTableInfo> findBySchemaNameIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName) {
 		return( cfsec31TableInfoRepository.findBySchemaNameIdx(requiredSchemaName));
 	}
 
@@ -321,8 +321,8 @@ public class CFSecJpaTableInfoService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo findBySchemaBkCodeIdx(@Param("schemaName") String requiredSchemaName,
-		@Param("backingClassCode") int requiredBackingClassCode) {
+	public CFSecJpaTableInfo findBySchemaBkCodeIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName,
+		@Param("backingClassCode") $implIJavaAtomType$ requiredBackingClassCode) {
 		return( cfsec31TableInfoRepository.findBySchemaBkCodeIdx(requiredSchemaName,
 			requiredBackingClassCode));
 	}
@@ -347,7 +347,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo findBySchemaRTCodeIdx(@Param("runtimeClassCode") int requiredRuntimeClassCode) {
+	public CFSecJpaTableInfo findBySchemaRTCodeIdx(@Param("runtimeClassCode") $implIJavaAtomType$ requiredRuntimeClassCode) {
 		return( cfsec31TableInfoRepository.findBySchemaRTCodeIdx(requiredRuntimeClassCode));
 	}
 
@@ -373,7 +373,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo lockByIdIdx(@Param("tableInfoId") int requiredTableInfoId) {
+	public CFSecJpaTableInfo lockByIdIdx(@Param("tableInfoId") $implIJavaAtomType$ requiredTableInfoId) {
 		return( cfsec31TableInfoRepository.lockByIdIdx(requiredTableInfoId));
 	}
 
@@ -385,7 +385,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo lockByTableNameIdx(@Param("tableName") String requiredTableName) {
+	public CFSecJpaTableInfo lockByTableNameIdx(@Param("tableName") $implIJavaAtomType$ requiredTableName) {
 		return( cfsec31TableInfoRepository.lockByTableNameIdx(requiredTableName));
 	}
 
@@ -409,7 +409,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaTableInfo> lockBySuperNameIdx(@Param("superName") String optionalSuperName) {
+	public List<CFSecJpaTableInfo> lockBySuperNameIdx(@Param("superName") $implIJavaAtomType$ optionalSuperName) {
 		return( cfsec31TableInfoRepository.lockBySuperNameIdx(optionalSuperName));
 	}
 
@@ -433,7 +433,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaTableInfo> lockBySchemaNameIdx(@Param("schemaName") String requiredSchemaName) {
+	public List<CFSecJpaTableInfo> lockBySchemaNameIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName) {
 		return( cfsec31TableInfoRepository.lockBySchemaNameIdx(requiredSchemaName));
 	}
 
@@ -458,8 +458,8 @@ public class CFSecJpaTableInfoService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo lockBySchemaBkCodeIdx(@Param("schemaName") String requiredSchemaName,
-		@Param("backingClassCode") int requiredBackingClassCode) {
+	public CFSecJpaTableInfo lockBySchemaBkCodeIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName,
+		@Param("backingClassCode") $implIJavaAtomType$ requiredBackingClassCode) {
 		return( cfsec31TableInfoRepository.lockBySchemaBkCodeIdx(requiredSchemaName,
 			requiredBackingClassCode));
 	}
@@ -484,7 +484,7 @@ public class CFSecJpaTableInfoService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaTableInfo lockBySchemaRTCodeIdx(@Param("runtimeClassCode") int requiredRuntimeClassCode) {
+	public CFSecJpaTableInfo lockBySchemaRTCodeIdx(@Param("runtimeClassCode") $implIJavaAtomType$ requiredRuntimeClassCode) {
 		return( cfsec31TableInfoRepository.lockBySchemaRTCodeIdx(requiredRuntimeClassCode));
 	}
 
@@ -508,7 +508,7 @@ public class CFSecJpaTableInfoService {
 	 *		@param requiredTableInfoId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("tableInfoId") int requiredTableInfoId) {
+	public void deleteByIdIdx(@Param("tableInfoId") $implIJavaAtomType$ requiredTableInfoId) {
 		cfsec31TableInfoRepository.deleteByIdIdx(requiredTableInfoId);
 	}
 
@@ -518,7 +518,7 @@ public class CFSecJpaTableInfoService {
 	 *		@param requiredTableName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByTableNameIdx(@Param("tableName") String requiredTableName) {
+	public void deleteByTableNameIdx(@Param("tableName") $implIJavaAtomType$ requiredTableName) {
 		cfsec31TableInfoRepository.deleteByTableNameIdx(requiredTableName);
 	}
 
@@ -538,7 +538,7 @@ public class CFSecJpaTableInfoService {
 	 *		@param optionalSuperName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySuperNameIdx(@Param("superName") String optionalSuperName) {
+	public void deleteBySuperNameIdx(@Param("superName") $implIJavaAtomType$ optionalSuperName) {
 		cfsec31TableInfoRepository.deleteBySuperNameIdx(optionalSuperName);
 	}
 
@@ -558,7 +558,7 @@ public class CFSecJpaTableInfoService {
 	 *		@param requiredSchemaName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySchemaNameIdx(@Param("schemaName") String requiredSchemaName) {
+	public void deleteBySchemaNameIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName) {
 		cfsec31TableInfoRepository.deleteBySchemaNameIdx(requiredSchemaName);
 	}
 
@@ -579,8 +579,8 @@ public class CFSecJpaTableInfoService {
 	 *		@param requiredBackingClassCode
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySchemaBkCodeIdx(@Param("schemaName") String requiredSchemaName,
-		@Param("backingClassCode") int requiredBackingClassCode) {
+	public void deleteBySchemaBkCodeIdx(@Param("schemaName") $implIJavaAtomType$ requiredSchemaName,
+		@Param("backingClassCode") $implIJavaAtomType$ requiredBackingClassCode) {
 		cfsec31TableInfoRepository.deleteBySchemaBkCodeIdx(requiredSchemaName,
 			requiredBackingClassCode);
 	}
@@ -601,7 +601,7 @@ public class CFSecJpaTableInfoService {
 	 *		@param requiredRuntimeClassCode
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySchemaRTCodeIdx(@Param("runtimeClassCode") int requiredRuntimeClassCode) {
+	public void deleteBySchemaRTCodeIdx(@Param("runtimeClassCode") $implIJavaAtomType$ requiredRuntimeClassCode) {
 		cfsec31TableInfoRepository.deleteBySchemaRTCodeIdx(requiredRuntimeClassCode);
 	}
 

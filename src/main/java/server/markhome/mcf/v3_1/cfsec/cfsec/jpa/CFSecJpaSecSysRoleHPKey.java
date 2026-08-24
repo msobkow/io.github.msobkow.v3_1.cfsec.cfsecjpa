@@ -70,7 +70,7 @@ public class CFSecJpaSecSysRoleHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecSysRoleId;
+	protected $implIJavaAtomType$ requiredSecSysRoleId;
 
 	public CFSecJpaSecSysRoleHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -132,11 +132,11 @@ public class CFSecJpaSecSysRoleHPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysRoleId() {
+	public $implIJavaAtomType$ getRequiredSecSysRoleId() {
 		return(requiredSecSysRoleId);
 	}
 
-	public void setRequiredSecSysRoleId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecSysRoleId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecSysRoleId",

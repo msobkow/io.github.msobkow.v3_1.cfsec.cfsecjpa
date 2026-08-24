@@ -59,7 +59,7 @@ public class CFSecJpaSysCluster
 {
 	@Id
 	@Column( name="sgltn_id", nullable=false )
-	protected int requiredSingletonId;
+	protected $implIJavaAtomType$ requiredSingletonId;
 	protected int requiredRevision;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional=false)
@@ -69,7 +69,7 @@ public class CFSecJpaSysCluster
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="sys_clus_id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredClusterId;
+	protected $implIJavaAtomType$ requiredClusterId;
 
 	public CFSecJpaSysCluster() {
 		requiredSingletonId = ICFSecPubSysCluster.SINGLETONID_INIT_VALUE;
@@ -115,7 +115,7 @@ public class CFSecJpaSysCluster
 	}
 
 	@Override
-	public void setRequiredContainerCluster(ICFLibKeyHash256 argClusterId) {
+	public void setRequiredContainerCluster($implIJavaAtomType$ argClusterId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCluster", 0, "ICFSecSchema.getBackingCFSec()");
@@ -129,22 +129,22 @@ public class CFSecJpaSysCluster
 	}
 
 	@Override
-	public Integer getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredSingletonId();
 	}
 
 	@Override
-	public void setPKey(Integer requiredSingletonId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredSingletonId) {
 		this.requiredSingletonId = requiredSingletonId;
 	}
 
 	@Override
-	public int getRequiredSingletonId() {
+	public $implIJavaAtomType$ getRequiredSingletonId() {
 		return(getPKey().getRequiredSingletonId());
 	}
 
 	@Override
-	public void setRequiredSingletonId( int value ) {
+	public void setRequiredSingletonId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubSysCluster.SINGLETONID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredSingletonId",
@@ -175,11 +175,11 @@ public class CFSecJpaSysCluster
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredClusterId() {
+	public $implIJavaAtomType$ getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
+	public void setRequiredClusterId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",

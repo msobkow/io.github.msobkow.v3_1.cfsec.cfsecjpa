@@ -60,7 +60,7 @@ public class CFSecJpaSecSysRole
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecSysRoleId;
+	protected $implIJavaAtomType$ requiredSecSysRoleId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
 	protected Set<CFSecJpaSecSysRoleEnables> optionalComponentsEnabledByRole;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerSysRole")
@@ -94,7 +94,7 @@ public class CFSecJpaSecSysRole
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
 	public CFSecJpaSecSysRole() {
 		requiredSecSysRoleId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSysRole.SECSYSROLEID_INIT_VALUE.toString() );
@@ -171,21 +171,21 @@ public class CFSecJpaSecSysRole
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredSecSysRoleId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredSecSysRoleId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredSecSysRoleId) {
 		this.requiredSecSysRoleId = requiredSecSysRoleId;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysRoleId() {
+	public $implIJavaAtomType$ getRequiredSecSysRoleId() {
 		return(getPKey().getRequiredSecSysRoleId());
 	}
 
-	public void setRequiredSecSysRoleId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecSysRoleId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecSysRoleId",
@@ -206,11 +206,11 @@ public class CFSecJpaSecSysRole
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

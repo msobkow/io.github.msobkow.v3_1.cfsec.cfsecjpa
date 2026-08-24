@@ -63,7 +63,7 @@ public class CFSecJpaSecUserPWReset
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecUserId;
+	protected $implIJavaAtomType$ requiredSecUserId;
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -96,13 +96,13 @@ public class CFSecJpaSecUserPWReset
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="sent_emailaddr", nullable=false, length=512 )
-	protected String requiredSentToEMailAddr;
+	protected $implIJavaAtomType$ requiredSentToEMailAddr;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="pwdrstuuid6", nullable=false, length=ICFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected ICFLibUuid6 requiredPasswordResetUuid6;
+	protected $implIJavaAtomType$ requiredPasswordResetUuid6;
 	@Column( name="newacct", nullable=false )
-	protected boolean requiredNewAccount;
+	protected $implIJavaAtomType$ requiredNewAccount;
 
 	public CFSecJpaSecUserPWReset() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecProtSecUserPWReset.SECUSERID_INIT_VALUE.toString() );
@@ -150,7 +150,7 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public void setRequiredContainerUser(ICFLibKeyHash256 argSecUserId) {
+	public void setRequiredContainerUser($implIJavaAtomType$ argSecUserId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -216,21 +216,21 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredSecUserId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecUserId() {
+	public $implIJavaAtomType$ getRequiredSecUserId() {
 		return(getPKey().getRequiredSecUserId());
 	}
 
-	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecUserId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
@@ -251,11 +251,11 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public String getRequiredSentToEMailAddr() {
+	public $implIJavaAtomType$ getRequiredSentToEMailAddr() {
 		return(requiredSentToEMailAddr);
 	}
 
-	public void setRequiredSentToEMailAddr( String value ) {
+	public void setRequiredSentToEMailAddr( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSentToEMailAddr",
@@ -274,11 +274,11 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public ICFLibUuid6 getRequiredPasswordResetUuid6() {
+	public $implIJavaAtomType$ getRequiredPasswordResetUuid6() {
 		return(requiredPasswordResetUuid6);
 	}
 
-	public void setRequiredPasswordResetUuid6( ICFLibUuid6 value ) {
+	public void setRequiredPasswordResetUuid6( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordResetUuid6",
@@ -289,11 +289,11 @@ public class CFSecJpaSecUserPWReset
 	}
 
 	@Override
-	public boolean getRequiredNewAccount() {
+	public $implIJavaAtomType$ getRequiredNewAccount() {
 		return(requiredNewAccount);
 	}
 
-	public void setRequiredNewAccount( boolean value ) {
+	public void setRequiredNewAccount( $implIJavaAtomType$ value ) {
 		requiredNewAccount = value;
 	}
 

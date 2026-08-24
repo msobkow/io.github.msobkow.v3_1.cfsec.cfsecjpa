@@ -277,7 +277,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public void deleteSecUserPWResetByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		final String S_ProcName = "deleteSecUserPWResetByIdIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
@@ -297,7 +297,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public void deleteSecUserPWResetByUUuid6Idx( ICFSecAuthorization Authorization,
-		ICFLibUuid6 argPasswordResetUuid6 )
+		$implIJavaAtomType$ argPasswordResetUuid6 )
 	{
 		final String S_ProcName = "deleteSecUserPWResetByUUuid6Idx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
@@ -338,7 +338,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public void deleteSecUserPWResetBySentEMAddrIdx( ICFSecAuthorization Authorization,
-		String argSentToEMailAddr )
+		$implIJavaAtomType$ argSentToEMailAddr )
 	{
 		final String S_ProcName = "deleteSecUserPWResetBySentEMAddrIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
@@ -379,7 +379,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public void deleteSecUserPWResetByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount )
+		$implIJavaAtomType$ argNewAccount )
 	{
 		final String S_ProcName = "deleteSecUserPWResetByNewAcctIdx";
 		boolean permissionGranted = canDeleteSecUserPWReset(S_ProcName, Authorization);
@@ -424,7 +424,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
@@ -448,7 +448,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecUserPWReset(S_ProcName, Authorization);
@@ -496,7 +496,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -522,7 +522,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset readDerivedByUUuid6Idx( ICFSecAuthorization Authorization,
-		ICFLibUuid6 argPasswordResetUuid6 )
+		$implIJavaAtomType$ argPasswordResetUuid6 )
 	{
 		final String S_ProcName = "readDerivedByUUuid6Idx";
 		boolean permissionGranted = false;
@@ -547,7 +547,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset[] readDerivedBySentEMAddrIdx( ICFSecAuthorization Authorization,
-		String argSentToEMailAddr )
+		$implIJavaAtomType$ argSentToEMailAddr )
 	{
 		final String S_ProcName = "readDerivedBySentEMAddrIdx";
 		boolean permissionGranted = false;
@@ -577,7 +577,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset[] readDerivedByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount )
+		$implIJavaAtomType$ argNewAccount )
 	{
 		final String S_ProcName = "readDerivedByNewAcctIdx";
 		boolean permissionGranted = false;
@@ -610,7 +610,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
@@ -635,7 +635,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecUserPWReset(S_ProcName, Authorization);
@@ -674,7 +674,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset[] pageAllRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecUserPWReset(S_ProcName, Authorization);
@@ -699,7 +699,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -726,7 +726,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset readRecByUUuid6Idx( ICFSecAuthorization Authorization,
-		ICFLibUuid6 argPasswordResetUuid6 )
+		$implIJavaAtomType$ argPasswordResetUuid6 )
 	{
 		final String S_ProcName = "readRecByUUuid6Idx";
 		boolean permissionGranted = false;
@@ -752,7 +752,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset[] readRecBySentEMAddrIdx( ICFSecAuthorization Authorization,
-		String argSentToEMailAddr )
+		$implIJavaAtomType$ argSentToEMailAddr )
 	{
 		final String S_ProcName = "readRecBySentEMAddrIdx";
 		boolean permissionGranted = false;
@@ -778,7 +778,7 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset[] readRecByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount )
+		$implIJavaAtomType$ argNewAccount )
 	{
 		final String S_ProcName = "readRecByNewAcctIdx";
 		boolean permissionGranted = false;
@@ -804,8 +804,8 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset[] pageRecBySentEMAddrIdx( ICFSecAuthorization Authorization,
-		String argSentToEMailAddr,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaAtomType$ argSentToEMailAddr,
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageRecBySentEMAddrIdx";
 		boolean permissionGranted = false;
@@ -831,8 +831,8 @@ public class CFSecJpaSecUserPWResetTable implements ICFSecSecUserPWResetTable
 	 */
 	@Override
 	public ICFSecSecUserPWReset[] pageRecByNewAcctIdx( ICFSecAuthorization Authorization,
-		boolean argNewAccount,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaAtomType$ argNewAccount,
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageRecByNewAcctIdx";
 		boolean permissionGranted = false;

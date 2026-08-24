@@ -277,7 +277,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public void deleteSecSysRoleByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		final String S_ProcName = "deleteSecSysRoleByIdIdx";
 		boolean permissionGranted = canDeleteSecSysRole(S_ProcName, Authorization);
@@ -297,7 +297,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public void deleteSecSysRoleByUNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "deleteSecSysRoleByUNameIdx";
 		boolean permissionGranted = canDeleteSecSysRole(S_ProcName, Authorization);
@@ -342,7 +342,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
@@ -366,7 +366,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecSysRole(S_ProcName, Authorization);
@@ -414,7 +414,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysRoleId )
+		$implIJavaAtomType$ argSecSysRoleId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -440,7 +440,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole readDerivedByUNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readDerivedByUNameIdx";
 		boolean permissionGranted = false;
@@ -468,7 +468,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecSysRole(S_ProcName, Authorization);
@@ -493,7 +493,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecSysRole(S_ProcName, Authorization);
@@ -537,7 +537,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysRoleId )
+		$implIJavaAtomType$ argSecSysRoleId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -564,7 +564,7 @@ public class CFSecJpaSecSysRoleTable implements ICFSecSecSysRoleTable
 	 */
 	@Override
 	public ICFSecSecSysRole readRecByUNameIdx( ICFSecAuthorization Authorization,
-		String argName )
+		$implIJavaAtomType$ argName )
 	{
 		final String S_ProcName = "readRecByUNameIdx";
 		boolean permissionGranted = false;

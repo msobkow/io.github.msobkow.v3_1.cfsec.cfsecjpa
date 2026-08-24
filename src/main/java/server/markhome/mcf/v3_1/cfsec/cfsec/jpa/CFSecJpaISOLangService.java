@@ -74,7 +74,7 @@ public class CFSecJpaISOLangService {
 		if (data == null) {
 			return( null );
 		}
-		short originalRequiredISOLangId = data.getRequiredISOLangId();
+		$implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredISOLangId = data.getRequiredISOLangId();
 		boolean generatedRequiredISOLangId = false;
 		if(data.getRequiredISO6392Code() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -89,8 +89,8 @@ public class CFSecJpaISOLangService {
 				"data.requiredEnglishName");
 		}
 		try {
-			if(data.getPKey() != null && cfsec31ISOLangRepository.existsById((Short)data.getPKey())) {
-				return( (CFSecJpaISOLang)(cfsec31ISOLangRepository.findById((Short)(data.getPKey())).get()));
+			if(data.getPKey() != null && cfsec31ISOLangRepository.existsById(($implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaISOLang)(cfsec31ISOLangRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -142,7 +142,7 @@ public class CFSecJpaISOLangService {
 				"data.requiredEnglishName");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaISOLang existing = cfsec31ISOLangRepository.findById((Short)(data.getPKey()))
+		CFSecJpaISOLang existing = cfsec31ISOLangRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -166,7 +166,7 @@ public class CFSecJpaISOLangService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOLang find(@Param("iSOLangId") short requiredISOLangId) {
+	public CFSecJpaISOLang find(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		return( cfsec31ISOLangRepository.get(requiredISOLangId));
 	}
 
@@ -190,7 +190,7 @@ public class CFSecJpaISOLangService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOLang findByCode3Idx(@Param("iSO6392Code") String requiredISO6392Code) {
+	public CFSecJpaISOLang findByCode3Idx(@Param("iSO6392Code") $implIJavaAtomType$ requiredISO6392Code) {
 		return( cfsec31ISOLangRepository.findByCode3Idx(requiredISO6392Code));
 	}
 
@@ -214,7 +214,7 @@ public class CFSecJpaISOLangService {
 	 *		@return List&lt;CFSecJpaISOLang&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOLang> findByCode2Idx(@Param("iSO6391Code") String optionalISO6391Code) {
+	public List<CFSecJpaISOLang> findByCode2Idx(@Param("iSO6391Code") $implIJavaAtomType$ optionalISO6391Code) {
 		return( cfsec31ISOLangRepository.findByCode2Idx(optionalISO6391Code));
 	}
 
@@ -240,7 +240,7 @@ public class CFSecJpaISOLangService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOLang lockByIdIdx(@Param("iSOLangId") short requiredISOLangId) {
+	public CFSecJpaISOLang lockByIdIdx(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		return( cfsec31ISOLangRepository.lockByIdIdx(requiredISOLangId));
 	}
 
@@ -252,7 +252,7 @@ public class CFSecJpaISOLangService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOLang lockByCode3Idx(@Param("iSO6392Code") String requiredISO6392Code) {
+	public CFSecJpaISOLang lockByCode3Idx(@Param("iSO6392Code") $implIJavaAtomType$ requiredISO6392Code) {
 		return( cfsec31ISOLangRepository.lockByCode3Idx(requiredISO6392Code));
 	}
 
@@ -276,7 +276,7 @@ public class CFSecJpaISOLangService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaISOLang> lockByCode2Idx(@Param("iSO6391Code") String optionalISO6391Code) {
+	public List<CFSecJpaISOLang> lockByCode2Idx(@Param("iSO6391Code") $implIJavaAtomType$ optionalISO6391Code) {
 		return( cfsec31ISOLangRepository.lockByCode2Idx(optionalISO6391Code));
 	}
 
@@ -300,7 +300,7 @@ public class CFSecJpaISOLangService {
 	 *		@param requiredISOLangId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("iSOLangId") short requiredISOLangId) {
+	public void deleteByIdIdx(@Param("iSOLangId") $implIJavaAtomType$ requiredISOLangId) {
 		cfsec31ISOLangRepository.deleteByIdIdx(requiredISOLangId);
 	}
 
@@ -310,7 +310,7 @@ public class CFSecJpaISOLangService {
 	 *		@param requiredISO6392Code
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByCode3Idx(@Param("iSO6392Code") String requiredISO6392Code) {
+	public void deleteByCode3Idx(@Param("iSO6392Code") $implIJavaAtomType$ requiredISO6392Code) {
 		cfsec31ISOLangRepository.deleteByCode3Idx(requiredISO6392Code);
 	}
 
@@ -330,7 +330,7 @@ public class CFSecJpaISOLangService {
 	 *		@param optionalISO6391Code
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByCode2Idx(@Param("iSO6391Code") String optionalISO6391Code) {
+	public void deleteByCode2Idx(@Param("iSO6391Code") $implIJavaAtomType$ optionalISO6391Code) {
 		cfsec31ISOLangRepository.deleteByCode2Idx(optionalISO6391Code);
 	}
 

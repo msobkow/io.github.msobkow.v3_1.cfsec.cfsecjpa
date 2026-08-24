@@ -278,8 +278,8 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public void deleteISOCtryCcyByIdIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "deleteISOCtryCcyByIdIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
@@ -321,7 +321,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public void deleteISOCtryCcyByCtryIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId )
+		$implIJavaAtomType$ argISOCtryId )
 	{
 		final String S_ProcName = "deleteISOCtryCcyByCtryIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
@@ -362,7 +362,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public void deleteISOCtryCcyByCcyIdx( ICFSecAuthorization Authorization,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "deleteISOCtryCcyByCcyIdx";
 		boolean permissionGranted = canDeleteISOCtryCcy(S_ProcName, Authorization);
@@ -429,8 +429,8 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy readDerived( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
@@ -505,8 +505,8 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -532,7 +532,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy[] readDerivedByCtryIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId )
+		$implIJavaAtomType$ argISOCtryId )
 	{
 		final String S_ProcName = "readDerivedByCtryIdx";
 		boolean permissionGranted = false;
@@ -562,7 +562,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy[] readDerivedByCcyIdx( ICFSecAuthorization Authorization,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "readDerivedByCcyIdx";
 		boolean permissionGranted = false;
@@ -620,8 +620,8 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy readRec( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadISOCtryCcy(S_ProcName, Authorization);
@@ -692,8 +692,8 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy readRecByIdIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -719,7 +719,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy[] readRecByCtryIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId )
+		$implIJavaAtomType$ argISOCtryId )
 	{
 		final String S_ProcName = "readRecByCtryIdx";
 		boolean permissionGranted = false;
@@ -745,7 +745,7 @@ public class CFSecJpaISOCtryCcyTable implements ICFSecISOCtryCcyTable
 	 */
 	@Override
 	public ICFSecISOCtryCcy[] readRecByCcyIdx( ICFSecAuthorization Authorization,
-		short argISOCcyId )
+		$implIJavaAtomType$ argISOCcyId )
 	{
 		final String S_ProcName = "readRecByCcyIdx";
 		boolean permissionGranted = false;

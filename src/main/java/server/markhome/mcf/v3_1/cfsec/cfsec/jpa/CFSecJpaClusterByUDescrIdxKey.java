@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaClusterByUDescrIdxKey
 	implements ICFSecClusterByUDescrIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredDescription;
+	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredDescription;
 	public CFSecJpaClusterByUDescrIdxKey() {
 		requiredDescription = ICFSecPubCluster.DESCRIPTION_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredDescription() {
+	public $implIJavaAtomType$ getRequiredDescription() {
 		return(requiredDescription);
 	}
 
-	public void setRequiredDescription( String value ) {
+	public void setRequiredDescription( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredDescription",

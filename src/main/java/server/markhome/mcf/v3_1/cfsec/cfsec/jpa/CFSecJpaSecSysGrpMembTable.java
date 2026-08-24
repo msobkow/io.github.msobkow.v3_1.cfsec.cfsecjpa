@@ -279,8 +279,8 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public void deleteSecSysGrpMembByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecSysGrpId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "deleteSecSysGrpMembByIdIdx";
 		boolean permissionGranted = canDeleteSecSysGrpMemb(S_ProcName, Authorization);
@@ -322,7 +322,7 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public void deleteSecSysGrpMembBySysGrpIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId )
+		$implIJavaAtomType$ argSecSysGrpId )
 	{
 		final String S_ProcName = "deleteSecSysGrpMembBySysGrpIdx";
 		boolean permissionGranted = canDeleteSecSysGrpMemb(S_ProcName, Authorization);
@@ -363,7 +363,7 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public void deleteSecSysGrpMembByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "deleteSecSysGrpMembByLoginIdx";
 		boolean permissionGranted = canDeleteSecSysGrpMemb(S_ProcName, Authorization);
@@ -430,8 +430,8 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecSysGrpId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecSysGrpMemb(S_ProcName, Authorization);
@@ -506,8 +506,8 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecSysGrpId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -533,7 +533,7 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb[] readDerivedBySysGrpIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId )
+		$implIJavaAtomType$ argSecSysGrpId )
 	{
 		final String S_ProcName = "readDerivedBySysGrpIdx";
 		boolean permissionGranted = false;
@@ -563,7 +563,7 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb[] readDerivedByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readDerivedByLoginIdx";
 		boolean permissionGranted = false;
@@ -621,8 +621,8 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecSysGrpId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecSysGrpMemb(S_ProcName, Authorization);
@@ -686,8 +686,8 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb[] pageAllRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 priorSecSysGrpId,
-		String priorLoginId )
+		$implIJavaOptAtomType$ priorSecSysGrpId,
+		$implIJavaOptAtomType$ priorLoginId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecSysGrpMemb(S_ProcName, Authorization);
@@ -714,8 +714,8 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecSysGrpId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -741,7 +741,7 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb[] readRecBySysGrpIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId )
+		$implIJavaAtomType$ argSecSysGrpId )
 	{
 		final String S_ProcName = "readRecBySysGrpIdx";
 		boolean permissionGranted = false;
@@ -767,7 +767,7 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb[] readRecByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readRecByLoginIdx";
 		boolean permissionGranted = false;
@@ -793,9 +793,9 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb[] pageRecBySysGrpIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecSysGrpId,
-		ICFLibKeyHash256 priorSecSysGrpId,
-		String priorLoginId )
+		$implIJavaAtomType$ argSecSysGrpId,
+		$implIJavaOptAtomType$ priorSecSysGrpId,
+		$implIJavaOptAtomType$ priorLoginId )
 	{
 		final String S_ProcName = "pageRecBySysGrpIdx";
 		boolean permissionGranted = false;
@@ -821,9 +821,9 @@ public class CFSecJpaSecSysGrpMembTable implements ICFSecSecSysGrpMembTable
 	 */
 	@Override
 	public ICFSecSecSysGrpMemb[] pageRecByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId,
-		ICFLibKeyHash256 priorSecSysGrpId,
-		String priorLoginId )
+		$implIJavaAtomType$ argLoginId,
+		$implIJavaOptAtomType$ priorSecSysGrpId,
+		$implIJavaOptAtomType$ priorLoginId )
 	{
 		final String S_ProcName = "pageRecByLoginIdx";
 		boolean permissionGranted = false;

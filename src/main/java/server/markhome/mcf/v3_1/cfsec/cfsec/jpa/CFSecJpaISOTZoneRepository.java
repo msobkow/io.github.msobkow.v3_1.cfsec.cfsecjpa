@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZone, Short> {
+public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZone, $implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOTZone r where r.requiredISOTZoneId = :iSOTZoneId")
-	CFSecJpaISOTZone get(@Param("iSOTZoneId") short requiredISOTZoneId);
+	CFSecJpaISOTZone get(@Param("iSOTZoneId") $implIJavaAtomType$ requiredISOTZoneId);
 
 	// CFSecJpaISOTZone specified index readers
 
@@ -78,8 +78,8 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	 *		@return List&lt;CFSecJpaISOTZone&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaISOTZone r where r.requiredTZHourOffset = :tZHourOffset and r.requiredTZMinOffset = :tZMinOffset")
-	List<CFSecJpaISOTZone> findByOffsetIdx(@Param("tZHourOffset") short requiredTZHourOffset,
-		@Param("tZMinOffset") short requiredTZMinOffset);
+	List<CFSecJpaISOTZone> findByOffsetIdx(@Param("tZHourOffset") $implIJavaAtomType$ requiredTZHourOffset,
+		@Param("tZMinOffset") $implIJavaAtomType$ requiredTZMinOffset);
 
 	/**
 	 *	CFSecISOTZoneByOffsetIdxKey entity list reader convenience method for object-based access.
@@ -100,7 +100,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOTZone r where r.requiredTZName = :tZName")
-	CFSecJpaISOTZone findByUTZNameIdx(@Param("tZName") String requiredTZName);
+	CFSecJpaISOTZone findByUTZNameIdx(@Param("tZName") $implIJavaAtomType$ requiredTZName);
 
 	/**
 	 *	CFSecISOTZoneByUTZNameIdxKey entity reader convenience method for object-based access.
@@ -121,7 +121,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	 *		@return List&lt;CFSecJpaISOTZone&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaISOTZone r where r.requiredIso8601 = :iso8601")
-	List<CFSecJpaISOTZone> findByIso8601Idx(@Param("iso8601") String requiredIso8601);
+	List<CFSecJpaISOTZone> findByIso8601Idx(@Param("iso8601") $implIJavaAtomType$ requiredIso8601);
 
 	/**
 	 *	CFSecISOTZoneByIso8601IdxKey entity list reader convenience method for object-based access.
@@ -146,7 +146,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOTZone r where r.requiredISOTZoneId = :iSOTZoneId")
-	CFSecJpaISOTZone lockByIdIdx(@Param("iSOTZoneId") short requiredISOTZoneId);
+	CFSecJpaISOTZone lockByIdIdx(@Param("iSOTZoneId") $implIJavaAtomType$ requiredISOTZoneId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -159,8 +159,8 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOTZone r where r.requiredTZHourOffset = :tZHourOffset and r.requiredTZMinOffset = :tZMinOffset")
-	List<CFSecJpaISOTZone> lockByOffsetIdx(@Param("tZHourOffset") short requiredTZHourOffset,
-		@Param("tZMinOffset") short requiredTZMinOffset);
+	List<CFSecJpaISOTZone> lockByOffsetIdx(@Param("tZHourOffset") $implIJavaAtomType$ requiredTZHourOffset,
+		@Param("tZMinOffset") $implIJavaAtomType$ requiredTZMinOffset);
 
 	/**
 	 *	CFSecISOTZoneByOffsetIdxKey based lock method for object-based access.
@@ -183,7 +183,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOTZone r where r.requiredTZName = :tZName")
-	CFSecJpaISOTZone lockByUTZNameIdx(@Param("tZName") String requiredTZName);
+	CFSecJpaISOTZone lockByUTZNameIdx(@Param("tZName") $implIJavaAtomType$ requiredTZName);
 
 	/**
 	 *	CFSecISOTZoneByUTZNameIdxKey based lock method for object-based access.
@@ -206,7 +206,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOTZone r where r.requiredIso8601 = :iso8601")
-	List<CFSecJpaISOTZone> lockByIso8601Idx(@Param("iso8601") String requiredIso8601);
+	List<CFSecJpaISOTZone> lockByIso8601Idx(@Param("iso8601") $implIJavaAtomType$ requiredIso8601);
 
 	/**
 	 *	CFSecISOTZoneByIso8601IdxKey based lock method for object-based access.
@@ -229,7 +229,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOTZone r where r.requiredISOTZoneId = :iSOTZoneId")
-	void deleteByIdIdx(@Param("iSOTZoneId") short requiredISOTZoneId);
+	void deleteByIdIdx(@Param("iSOTZoneId") $implIJavaAtomType$ requiredISOTZoneId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -240,8 +240,8 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOTZone r where r.requiredTZHourOffset = :tZHourOffset and r.requiredTZMinOffset = :tZMinOffset")
-	void deleteByOffsetIdx(@Param("tZHourOffset") short requiredTZHourOffset,
-		@Param("tZMinOffset") short requiredTZMinOffset);
+	void deleteByOffsetIdx(@Param("tZHourOffset") $implIJavaAtomType$ requiredTZHourOffset,
+		@Param("tZMinOffset") $implIJavaAtomType$ requiredTZMinOffset);
 
 	/**
 	 *	CFSecISOTZoneByOffsetIdxKey based lock method for object-based access.
@@ -260,7 +260,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOTZone r where r.requiredTZName = :tZName")
-	void deleteByUTZNameIdx(@Param("tZName") String requiredTZName);
+	void deleteByUTZNameIdx(@Param("tZName") $implIJavaAtomType$ requiredTZName);
 
 	/**
 	 *	CFSecISOTZoneByUTZNameIdxKey based lock method for object-based access.
@@ -279,7 +279,7 @@ public interface CFSecJpaISOTZoneRepository extends JpaRepository<CFSecJpaISOTZo
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOTZone r where r.requiredIso8601 = :iso8601")
-	void deleteByIso8601Idx(@Param("iso8601") String requiredIso8601);
+	void deleteByIso8601Idx(@Param("iso8601") $implIJavaAtomType$ requiredIso8601);
 
 	/**
 	 *	CFSecISOTZoneByIso8601IdxKey based lock method for object-based access.

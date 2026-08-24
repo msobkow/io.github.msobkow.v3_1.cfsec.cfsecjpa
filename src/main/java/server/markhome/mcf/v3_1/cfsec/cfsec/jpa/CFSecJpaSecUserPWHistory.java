@@ -69,9 +69,9 @@ public class CFSecJpaSecUserPWHistory
 
 
 	@Column( name="PWReplacedStamp", nullable=false )
-	protected LocalDateTime requiredPWReplacedStamp;
+	protected $implIJavaAtomType$ requiredPWReplacedStamp;
 	@Column( name="pwd_hash", nullable=false, length=256 )
-	protected String requiredPasswordHash;
+	protected $implIJavaAtomType$ requiredPasswordHash;
 
 	public CFSecJpaSecUserPWHistory() {
 		pkey = new CFSecJpaSecUserPWHistoryPKey();
@@ -100,22 +100,22 @@ public class CFSecJpaSecUserPWHistory
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecUserId() {
+	public $implIJavaAtomType$ getRequiredSecUserId() {
 		return( pkey.getRequiredSecUserId() );
 	}
 
 	@Override
-	public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
+	public void setRequiredSecUserId( $implIJavaAtomType$ requiredSecUserId ) {
 		pkey.setRequiredSecUserId( requiredSecUserId );
 	}
 
 	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
+	public $implIJavaAtomType$ getRequiredPWSetStamp() {
 		return( pkey.getRequiredPWSetStamp() );
 	}
 
 	@Override
-	public void setRequiredPWSetStamp( LocalDateTime requiredPWSetStamp ) {
+	public void setRequiredPWSetStamp( $implIJavaAtomType$ requiredPWSetStamp ) {
 		pkey.setRequiredPWSetStamp( requiredPWSetStamp );
 	}
 
@@ -130,11 +130,11 @@ public class CFSecJpaSecUserPWHistory
 	}
 
 	@Override
-	public LocalDateTime getRequiredPWReplacedStamp() {
+	public $implIJavaAtomType$ getRequiredPWReplacedStamp() {
 		return(requiredPWReplacedStamp);
 	}
 
-	public void setRequiredPWReplacedStamp( LocalDateTime value ) {
+	public void setRequiredPWReplacedStamp( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPWReplacedStamp",
@@ -145,11 +145,11 @@ public class CFSecJpaSecUserPWHistory
 	}
 
 	@Override
-	public String getRequiredPasswordHash() {
+	public $implIJavaAtomType$ getRequiredPasswordHash() {
 		return(requiredPasswordHash);
 	}
 
-	public void setRequiredPasswordHash( String value ) {
+	public void setRequiredPasswordHash( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordHash",

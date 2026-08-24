@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecTentRoleByNameIdxKey
 	implements ICFSecSecTentRoleByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredName;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredName;
 	public CFSecJpaSecTentRoleByNameIdxKey() {
 		requiredName = ICFSecProtSecTentRole.NAME_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

@@ -74,7 +74,7 @@ public class CFSecJpaSecTentGrpService {
 		if (data == null) {
 			return( null );
 		}
-		ICFLibKeyHash256 originalRequiredSecTentGrpId = data.getRequiredSecTentGrpId();
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredSecTentGrpId = data.getRequiredSecTentGrpId();
 		boolean generatedRequiredSecTentGrpId = false;
 		if (data.getRequiredOwnerTenant() == null) {
 			throw new CFLibUnresolvedRelationException(getClass(),
@@ -111,8 +111,8 @@ public class CFSecJpaSecTentGrpService {
 				"data.requiredName");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecTentGrpRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecTentGrp)(cfsec31SecTentGrpRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecTentGrpRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaSecTentGrp)(cfsec31SecTentGrpRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -190,7 +190,7 @@ public class CFSecJpaSecTentGrpService {
 				"data.requiredName");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaSecTentGrp existing = cfsec31SecTentGrpRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFSecJpaSecTentGrp existing = cfsec31SecTentGrpRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -215,7 +215,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecTentGrp find(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId) {
+	public CFSecJpaSecTentGrp find(@Param("secTentGrpId") $implIJavaAtomType$ requiredSecTentGrpId) {
 		return( cfsec31SecTentGrpRepository.get(requiredSecTentGrpId));
 	}
 
@@ -239,7 +239,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return List&lt;CFSecJpaSecTentGrp&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecTentGrp> findByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public List<CFSecJpaSecTentGrp> findByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		return( cfsec31SecTentGrpRepository.findByTenantIdx(requiredTenantId));
 	}
 
@@ -263,7 +263,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return List&lt;CFSecJpaSecTentGrp&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecTentGrp> findByNameIdx(@Param("name") String requiredName) {
+	public List<CFSecJpaSecTentGrp> findByNameIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfsec31SecTentGrpRepository.findByNameIdx(requiredName));
 	}
 
@@ -288,8 +288,8 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecTentGrp findByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName) {
+	public CFSecJpaSecTentGrp findByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfsec31SecTentGrpRepository.findByUNameIdx(requiredTenantId,
 			requiredName));
 	}
@@ -316,7 +316,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecTentGrp lockByIdIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId) {
+	public CFSecJpaSecTentGrp lockByIdIdx(@Param("secTentGrpId") $implIJavaAtomType$ requiredSecTentGrpId) {
 		return( cfsec31SecTentGrpRepository.lockByIdIdx(requiredSecTentGrpId));
 	}
 
@@ -328,7 +328,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecTentGrp> lockByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public List<CFSecJpaSecTentGrp> lockByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		return( cfsec31SecTentGrpRepository.lockByTenantIdx(requiredTenantId));
 	}
 
@@ -352,7 +352,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecTentGrp> lockByNameIdx(@Param("name") String requiredName) {
+	public List<CFSecJpaSecTentGrp> lockByNameIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfsec31SecTentGrpRepository.lockByNameIdx(requiredName));
 	}
 
@@ -377,8 +377,8 @@ public class CFSecJpaSecTentGrpService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecTentGrp lockByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName) {
+	public CFSecJpaSecTentGrp lockByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfsec31SecTentGrpRepository.lockByUNameIdx(requiredTenantId,
 			requiredName));
 	}
@@ -403,7 +403,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@param requiredSecTentGrpId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId) {
+	public void deleteByIdIdx(@Param("secTentGrpId") $implIJavaAtomType$ requiredSecTentGrpId) {
 		cfsec31SecTentGrpRepository.deleteByIdIdx(requiredSecTentGrpId);
 	}
 
@@ -413,7 +413,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@param requiredTenantId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId) {
+	public void deleteByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId) {
 		cfsec31SecTentGrpRepository.deleteByTenantIdx(requiredTenantId);
 	}
 
@@ -433,7 +433,7 @@ public class CFSecJpaSecTentGrpService {
 	 *		@param requiredName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByNameIdx(@Param("name") String requiredName) {
+	public void deleteByNameIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		cfsec31SecTentGrpRepository.deleteByNameIdx(requiredName);
 	}
 
@@ -454,8 +454,8 @@ public class CFSecJpaSecTentGrpService {
 	 *		@param requiredName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName) {
+	public void deleteByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName) {
 		cfsec31SecTentGrpRepository.deleteByUNameIdx(requiredTenantId,
 			requiredName);
 	}

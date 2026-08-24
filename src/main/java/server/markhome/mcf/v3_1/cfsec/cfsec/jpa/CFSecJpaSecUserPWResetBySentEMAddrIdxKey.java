@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWResetBySentEMAddrIdxKey
 	implements ICFSecSecUserPWResetBySentEMAddrIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredSentToEMailAddr;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSentToEMailAddr;
 	public CFSecJpaSecUserPWResetBySentEMAddrIdxKey() {
 		requiredSentToEMailAddr = ICFSecProtSecUserPWReset.SENTTOEMAILADDR_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredSentToEMailAddr() {
+	public $implIJavaAtomType$ getRequiredSentToEMailAddr() {
 		return(requiredSentToEMailAddr);
 	}
 
-	public void setRequiredSentToEMailAddr( String value ) {
+	public void setRequiredSentToEMailAddr( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSentToEMailAddr",

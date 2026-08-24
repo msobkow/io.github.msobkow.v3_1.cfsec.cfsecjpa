@@ -53,9 +53,9 @@ public class CFSecJpaSecSysGrpMembPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecSysGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecSysGrpId;
+	protected $implIJavaAtomType$ requiredSecSysGrpId;
 	@Column( name="login_id", nullable=false, length=32 )
-	protected String requiredLoginId;
+	protected $implIJavaAtomType$ requiredLoginId;
 
 	public CFSecJpaSecSysGrpMembPKey() {
 		requiredSecSysGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecSysGrpMemb.SECSYSGRPID_INIT_VALUE.toString() );
@@ -63,11 +63,11 @@ public class CFSecJpaSecSysGrpMembPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecSysGrpId() {
+	public $implIJavaAtomType$ getRequiredSecSysGrpId() {
 		return(requiredSecSysGrpId);
 	}
 
-	public void setRequiredSecSysGrpId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecSysGrpId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecSysGrpId",
@@ -78,11 +78,11 @@ public class CFSecJpaSecSysGrpMembPKey
 	}
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implIJavaAtomType$ getRequiredLoginId() {
 		return(requiredLoginId);
 	}
 
-	public void setRequiredLoginId( String value ) {
+	public void setRequiredLoginId( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredLoginId",

@@ -68,7 +68,7 @@ public class CFSecJpaISOCcyHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="ISOCcyId", nullable=false )
-	protected short requiredISOCcyId;
+	protected $implIJavaAtomType$ requiredISOCcyId;
 
 	public CFSecJpaISOCcyHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -130,12 +130,12 @@ public class CFSecJpaISOCcyHPKey
 	}
 
 	@Override
-	public short getRequiredISOCcyId() {
+	public $implIJavaAtomType$ getRequiredISOCcyId() {
 		return(requiredISOCcyId);
 	}
 
 	@Override
-	public void setRequiredISOCcyId( short value ) {
+	public void setRequiredISOCcyId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCcy.ISOCCYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCcyId",

@@ -62,7 +62,7 @@ public class CFSecJpaISOTZone
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ISOTZoneIdGenSeq")
 	@SequenceGenerator(name = "ISOTZoneIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOTZoneId", nullable=false )
-	protected short requiredISOTZoneId;
+	protected $implIJavaAtomType$ requiredISOTZoneId;
 	protected int requiredRevision;
 
 
@@ -92,17 +92,17 @@ public class CFSecJpaISOTZone
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="Iso8601", nullable=false, length=6 )
-	protected String requiredIso8601;
+	protected $implIJavaAtomType$ requiredIso8601;
 	@Column( name="TZName", nullable=false, length=64 )
-	protected String requiredTZName;
+	protected $implIJavaAtomType$ requiredTZName;
 	@Column( name="TZHourOffset", nullable=false )
-	protected short requiredTZHourOffset;
+	protected $implIJavaAtomType$ requiredTZHourOffset;
 	@Column( name="TZMinOffset", nullable=false )
-	protected short requiredTZMinOffset;
+	protected $implIJavaAtomType$ requiredTZMinOffset;
 	@Column( name="Description", nullable=false, length=128 )
-	protected String requiredDescription;
+	protected $implIJavaAtomType$ requiredDescription;
 	@Column( name="Visible", nullable=false )
-	protected boolean requiredVisible;
+	protected $implIJavaAtomType$ requiredVisible;
 
 	public CFSecJpaISOTZone() {
 		requiredISOTZoneId = ICFSecPubISOTZone.ISOTZONEID_INIT_VALUE;
@@ -172,22 +172,22 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public Short getPKey() {
+	public $implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredISOTZoneId();
 	}
 
 	@Override
-	public void setPKey(Short requiredISOTZoneId) {
+	public void setPKey($implCommaIJavaOptAtomType empty empty )$ requiredISOTZoneId) {
 		this.requiredISOTZoneId = requiredISOTZoneId;
 	}
 
 	@Override
-	public short getRequiredISOTZoneId() {
+	public $implIJavaAtomType$ getRequiredISOTZoneId() {
 		return(getPKey().getRequiredISOTZoneId());
 	}
 
 	@Override
-	public void setRequiredISOTZoneId( short value ) {
+	public void setRequiredISOTZoneId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOTZone.ISOTZONEID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOTZoneId",
@@ -210,11 +210,11 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public String getRequiredIso8601() {
+	public $implIJavaAtomType$ getRequiredIso8601() {
 		return(requiredIso8601);
 	}
 
-	public void setRequiredIso8601( String value ) {
+	public void setRequiredIso8601( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredIso8601",
@@ -233,11 +233,11 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public String getRequiredTZName() {
+	public $implIJavaAtomType$ getRequiredTZName() {
 		return(requiredTZName);
 	}
 
-	public void setRequiredTZName( String value ) {
+	public void setRequiredTZName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTZName",
@@ -256,12 +256,12 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public short getRequiredTZHourOffset() {
+	public $implIJavaAtomType$ getRequiredTZHourOffset() {
 		return(requiredTZHourOffset);
 	}
 
 	@Override
-	public void setRequiredTZHourOffset( short value ) {
+	public void setRequiredTZHourOffset( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZHourOffset",
@@ -282,12 +282,12 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public short getRequiredTZMinOffset() {
+	public $implIJavaAtomType$ getRequiredTZMinOffset() {
 		return(requiredTZMinOffset);
 	}
 
 	@Override
-	public void setRequiredTZMinOffset( short value ) {
+	public void setRequiredTZMinOffset( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZMinOffset",
@@ -308,11 +308,11 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public String getRequiredDescription() {
+	public $implIJavaAtomType$ getRequiredDescription() {
 		return(requiredDescription);
 	}
 
-	public void setRequiredDescription( String value ) {
+	public void setRequiredDescription( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredDescription",
@@ -331,11 +331,11 @@ public class CFSecJpaISOTZone
 	}
 
 	@Override
-	public boolean getRequiredVisible() {
+	public $implIJavaAtomType$ getRequiredVisible() {
 		return(requiredVisible);
 	}
 
-	public void setRequiredVisible( boolean value ) {
+	public void setRequiredVisible( $implIJavaAtomType$ value ) {
 		requiredVisible = value;
 	}
 

@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOLangByCode2IdxKey
 	implements ICFSecISOLangByCode2IdxKey, Comparable<Object>, Serializable
 {
-	protected String optionalISO6391Code;
+	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ optionalISO6391Code;
 	public CFSecJpaISOLangByCode2IdxKey() {
 		optionalISO6391Code = null;
 	}
 
 	@Override
-	public String getOptionalISO6391Code() {
+	public $implIJavaAtomType$ getOptionalISO6391Code() {
 		return(optionalISO6391Code);
 	}
 
-	public void setOptionalISO6391Code( String value ) {
+	public void setOptionalISO6391Code( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 2 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalISO6391Code",

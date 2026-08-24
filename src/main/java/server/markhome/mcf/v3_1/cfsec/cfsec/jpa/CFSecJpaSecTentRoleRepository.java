@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSecTentRole, ICFLibKeyHash256> {
+public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSecTentRole, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredSecTentRoleId = :secTentRoleId")
-	CFSecJpaSecTentRole get(@Param("secTentRoleId") ICFLibKeyHash256 requiredSecTentRoleId);
+	CFSecJpaSecTentRole get(@Param("secTentRoleId") $implIJavaAtomType$ requiredSecTentRoleId);
 
 	// CFSecJpaSecTentRole specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 *		@return List&lt;CFSecJpaSecTentRole&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId")
-	List<CFSecJpaSecTentRole> findByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFSecJpaSecTentRole> findByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFSecSecTentRoleByTenantIdxKey entity list reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 *		@return List&lt;CFSecJpaSecTentRole&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerSysRole.requiredName = :name")
-	List<CFSecJpaSecTentRole> findByNameIdx(@Param("name") String requiredName);
+	List<CFSecJpaSecTentRole> findByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentRoleByNameIdxKey entity list reader convenience method for object-based access.
@@ -120,8 +120,8 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysRole.requiredName = :name")
-	CFSecJpaSecTentRole findByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName);
+	CFSecJpaSecTentRole findByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentRoleByUNameIdxKey entity reader convenience method for object-based access.
@@ -146,7 +146,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredSecTentRoleId = :secTentRoleId")
-	CFSecJpaSecTentRole lockByIdIdx(@Param("secTentRoleId") ICFLibKeyHash256 requiredSecTentRoleId);
+	CFSecJpaSecTentRole lockByIdIdx(@Param("secTentRoleId") $implIJavaAtomType$ requiredSecTentRoleId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -158,7 +158,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId")
-	List<CFSecJpaSecTentRole> lockByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFSecJpaSecTentRole> lockByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFSecSecTentRoleByTenantIdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredContainerSysRole.requiredName = :name")
-	List<CFSecJpaSecTentRole> lockByNameIdx(@Param("name") String requiredName);
+	List<CFSecJpaSecTentRole> lockByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentRoleByNameIdxKey based lock method for object-based access.
@@ -205,8 +205,8 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysRole.requiredName = :name")
-	CFSecJpaSecTentRole lockByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName);
+	CFSecJpaSecTentRole lockByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentRoleByUNameIdxKey based lock method for object-based access.
@@ -229,7 +229,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentRole r where r.requiredSecTentRoleId = :secTentRoleId")
-	void deleteByIdIdx(@Param("secTentRoleId") ICFLibKeyHash256 requiredSecTentRoleId);
+	void deleteByIdIdx(@Param("secTentRoleId") $implIJavaAtomType$ requiredSecTentRoleId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -239,7 +239,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId")
-	void deleteByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	void deleteByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFSecSecTentRoleByTenantIdxKey based lock method for object-based access.
@@ -258,7 +258,7 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentRole r where r.requiredContainerSysRole.requiredName = :name")
-	void deleteByNameIdx(@Param("name") String requiredName);
+	void deleteByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentRoleByNameIdxKey based lock method for object-based access.
@@ -278,8 +278,8 @@ public interface CFSecJpaSecTentRoleRepository extends JpaRepository<CFSecJpaSec
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentRole r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysRole.requiredName = :name")
-	void deleteByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName);
+	void deleteByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentRoleByUNameIdxKey based lock method for object-based access.

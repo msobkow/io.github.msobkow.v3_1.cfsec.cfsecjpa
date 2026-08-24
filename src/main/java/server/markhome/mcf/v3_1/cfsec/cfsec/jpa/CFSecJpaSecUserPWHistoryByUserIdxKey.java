@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWHistoryByUserIdxKey
 	implements ICFSecSecUserPWHistoryByUserIdxKey, Comparable<Object>, Serializable
 {
-	protected ICFLibKeyHash256 requiredSecUserId;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecUserId;
 	public CFSecJpaSecUserPWHistoryByUserIdxKey() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPWHistory.SECUSERID_INIT_VALUE.toString() );
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecUserId() {
+	public $implIJavaAtomType$ getRequiredSecUserId() {
 		return(getPKey().getRequiredSecUserId());
 	}
 
-	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecUserId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",

@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSysGrpIncByNameIdxKey
 	implements ICFSecSecSysGrpIncByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredInclName;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredInclName;
 	public CFSecJpaSecSysGrpIncByNameIdxKey() {
 		requiredInclName = ICFSecProtSecSysGrpInc.INCLNAME_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredInclName() {
+	public $implIJavaAtomType$ getRequiredInclName() {
 		return(getPKey().getRequiredInclName());
 	}
 
-	public void setRequiredInclName( String value ) {
+	public void setRequiredInclName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredInclName",

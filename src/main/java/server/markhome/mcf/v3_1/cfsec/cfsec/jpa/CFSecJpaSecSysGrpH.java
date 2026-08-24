@@ -95,9 +95,9 @@ public class CFSecJpaSecSysGrpH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 	@Column( name="sec_level", nullable=false )
-	protected ICFSecPubSchema.SecLevelEnum requiredSecLevel;
+	protected $implIJavaAtomType$ requiredSecLevel;
 
     public CFSecJpaSecSysGrpH() {
             // The primary key member attributes are initialized on construction
@@ -231,21 +231,21 @@ public class CFSecJpaSecSysGrpH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecSysGrpId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecSysGrpId() {
         return( pkey.getRequiredSecSysGrpId() );
     }
 
     @Override
-    public void setRequiredSecSysGrpId( ICFLibKeyHash256 requiredSecSysGrpId ) {
+    public void setRequiredSecSysGrpId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecSysGrpId ) {
         pkey.setRequiredSecSysGrpId( requiredSecSysGrpId );
     }
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",
@@ -264,11 +264,11 @@ public class CFSecJpaSecSysGrpH
 	}
 
 	@Override
-	public ICFSecPubSchema.SecLevelEnum getRequiredSecLevel() {
+	public $implIJavaAtomType$ getRequiredSecLevel() {
 		return(requiredSecLevel);
 	}
 
-	public void setRequiredSecLevel( ICFSecPubSchema.SecLevelEnum value ) {
+	public void setRequiredSecLevel( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecLevel",

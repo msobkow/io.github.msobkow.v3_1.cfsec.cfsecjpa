@@ -145,7 +145,7 @@ public class CFSecJpaISOCtryCcy
 	}
 
 	@Override
-	public void setRequiredContainerCtry(short argISOCtryId) {
+	public void setRequiredContainerCtry($implIJavaAtomType$ argISOCtryId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerCtry", 0, "ICFSecSchema.getBackingCFSec()");
@@ -193,7 +193,7 @@ public class CFSecJpaISOCtryCcy
 	}
 
 	@Override
-	public void setRequiredParentCcy(short argISOCcyId) {
+	public void setRequiredParentCcy($implIJavaAtomType$ argISOCcyId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredParentCcy", 0, "ICFSecSchema.getBackingCFSec()");
@@ -275,22 +275,22 @@ public class CFSecJpaISOCtryCcy
 	}
 
 	@Override
-	public short getRequiredISOCtryId() {
+	public $implIJavaAtomType$ getRequiredISOCtryId() {
 		return( pkey.getRequiredISOCtryId() );
 	}
 
 	@Override
-	public void setRequiredISOCtryId( short requiredISOCtryId ) {
+	public void setRequiredISOCtryId( $implIJavaAtomType$ requiredISOCtryId ) {
 		pkey.setRequiredISOCtryId( requiredISOCtryId );
 	}
 
 	@Override
-	public short getRequiredISOCcyId() {
+	public $implIJavaAtomType$ getRequiredISOCcyId() {
 		return( pkey.getRequiredISOCcyId() );
 	}
 
 	@Override
-	public void setRequiredISOCcyId( short requiredISOCcyId ) {
+	public void setRequiredISOCcyId( $implIJavaAtomType$ requiredISOCcyId ) {
 		pkey.setRequiredISOCcyId( requiredISOCcyId );
 	}
 

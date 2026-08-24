@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaClusterByUDomNameIdxKey
 	implements ICFSecClusterByUDomNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredFullDomName;
+	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredFullDomName;
 	public CFSecJpaClusterByUDomNameIdxKey() {
 		requiredFullDomName = ICFSecPubCluster.FULLDOMNAME_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredFullDomName() {
+	public $implIJavaAtomType$ getRequiredFullDomName() {
 		return(requiredFullDomName);
 	}
 
-	public void setRequiredFullDomName( String value ) {
+	public void setRequiredFullDomName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",

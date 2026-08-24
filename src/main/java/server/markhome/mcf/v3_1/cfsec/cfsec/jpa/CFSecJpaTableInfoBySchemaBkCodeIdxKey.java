@@ -44,19 +44,19 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 	implements ICFSecTableInfoBySchemaBkCodeIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredSchemaName;
-	protected int requiredBackingClassCode;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSchemaName;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredBackingClassCode;
 	public CFSecJpaTableInfoBySchemaBkCodeIdxKey() {
 		requiredSchemaName = ICFSecPubTableInfo.SCHEMANAME_INIT_VALUE;
 		requiredBackingClassCode = ICFSecPubTableInfo.BACKINGCLASSCODE_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredSchemaName() {
+	public $implIJavaAtomType$ getRequiredSchemaName() {
 		return(requiredSchemaName);
 	}
 
-	public void setRequiredSchemaName( String value ) {
+	public void setRequiredSchemaName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSchemaName",
@@ -75,12 +75,12 @@ public class CFSecJpaTableInfoBySchemaBkCodeIdxKey
 	}
 
 	@Override
-	public int getRequiredBackingClassCode() {
+	public $implIJavaAtomType$ getRequiredBackingClassCode() {
 		return(requiredBackingClassCode);
 	}
 
 	@Override
-	public void setRequiredBackingClassCode( int value ) {
+	public void setRequiredBackingClassCode( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubTableInfo.BACKINGCLASSCODE_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredBackingClassCode",

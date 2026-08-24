@@ -98,8 +98,8 @@ public class CFSecJpaSecUserPWResetService {
 				"data.requiredPasswordResetUuid6");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserPWResetRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecUserPWReset)(cfsec31SecUserPWResetRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserPWResetRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaSecUserPWReset)(cfsec31SecUserPWResetRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -159,7 +159,7 @@ public class CFSecJpaSecUserPWResetService {
 				"data.requiredPasswordResetUuid6");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaSecUserPWReset existing = cfsec31SecUserPWResetRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFSecJpaSecUserPWReset existing = cfsec31SecUserPWResetRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -183,7 +183,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWReset find(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserPWReset find(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserPWResetRepository.get(requiredSecUserId));
 	}
 
@@ -207,7 +207,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWReset findByUUuid6Idx(@Param("passwordResetUuid6") ICFLibUuid6 requiredPasswordResetUuid6) {
+	public CFSecJpaSecUserPWReset findByUUuid6Idx(@Param("passwordResetUuid6") $implIJavaAtomType$ requiredPasswordResetUuid6) {
 		return( cfsec31SecUserPWResetRepository.findByUUuid6Idx(requiredPasswordResetUuid6));
 	}
 
@@ -231,7 +231,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return List&lt;CFSecJpaSecUserPWReset&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserPWReset> findBySentEMAddrIdx(@Param("sentToEMailAddr") String requiredSentToEMailAddr) {
+	public List<CFSecJpaSecUserPWReset> findBySentEMAddrIdx(@Param("sentToEMailAddr") $implIJavaAtomType$ requiredSentToEMailAddr) {
 		return( cfsec31SecUserPWResetRepository.findBySentEMAddrIdx(requiredSentToEMailAddr));
 	}
 
@@ -255,7 +255,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return List&lt;CFSecJpaSecUserPWReset&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserPWReset> findByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount) {
+	public List<CFSecJpaSecUserPWReset> findByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount) {
 		return( cfsec31SecUserPWResetRepository.findByNewAcctIdx(requiredNewAccount));
 	}
 
@@ -281,7 +281,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWReset lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserPWReset lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserPWResetRepository.lockByIdIdx(requiredSecUserId));
 	}
 
@@ -293,7 +293,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWReset lockByUUuid6Idx(@Param("passwordResetUuid6") ICFLibUuid6 requiredPasswordResetUuid6) {
+	public CFSecJpaSecUserPWReset lockByUUuid6Idx(@Param("passwordResetUuid6") $implIJavaAtomType$ requiredPasswordResetUuid6) {
 		return( cfsec31SecUserPWResetRepository.lockByUUuid6Idx(requiredPasswordResetUuid6));
 	}
 
@@ -317,7 +317,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserPWReset> lockBySentEMAddrIdx(@Param("sentToEMailAddr") String requiredSentToEMailAddr) {
+	public List<CFSecJpaSecUserPWReset> lockBySentEMAddrIdx(@Param("sentToEMailAddr") $implIJavaAtomType$ requiredSentToEMailAddr) {
 		return( cfsec31SecUserPWResetRepository.lockBySentEMAddrIdx(requiredSentToEMailAddr));
 	}
 
@@ -341,7 +341,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserPWReset> lockByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount) {
+	public List<CFSecJpaSecUserPWReset> lockByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount) {
 		return( cfsec31SecUserPWResetRepository.lockByNewAcctIdx(requiredNewAccount));
 	}
 
@@ -365,7 +365,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@param requiredSecUserId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		cfsec31SecUserPWResetRepository.deleteByIdIdx(requiredSecUserId);
 	}
 
@@ -375,7 +375,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@param requiredPasswordResetUuid6
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUUuid6Idx(@Param("passwordResetUuid6") ICFLibUuid6 requiredPasswordResetUuid6) {
+	public void deleteByUUuid6Idx(@Param("passwordResetUuid6") $implIJavaAtomType$ requiredPasswordResetUuid6) {
 		cfsec31SecUserPWResetRepository.deleteByUUuid6Idx(requiredPasswordResetUuid6);
 	}
 
@@ -395,7 +395,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@param requiredSentToEMailAddr
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySentEMAddrIdx(@Param("sentToEMailAddr") String requiredSentToEMailAddr) {
+	public void deleteBySentEMAddrIdx(@Param("sentToEMailAddr") $implIJavaAtomType$ requiredSentToEMailAddr) {
 		cfsec31SecUserPWResetRepository.deleteBySentEMAddrIdx(requiredSentToEMailAddr);
 	}
 
@@ -415,7 +415,7 @@ public class CFSecJpaSecUserPWResetService {
 	 *		@param requiredNewAccount
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount) {
+	public void deleteByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount) {
 		cfsec31SecUserPWResetRepository.deleteByNewAcctIdx(requiredNewAccount);
 	}
 

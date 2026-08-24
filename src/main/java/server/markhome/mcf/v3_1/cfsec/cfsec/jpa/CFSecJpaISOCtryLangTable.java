@@ -278,8 +278,8 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public void deleteISOCtryLangByIdIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "deleteISOCtryLangByIdIdx";
 		boolean permissionGranted = canDeleteISOCtryLang(S_ProcName, Authorization);
@@ -321,7 +321,7 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public void deleteISOCtryLangByCtryIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId )
+		$implIJavaAtomType$ argISOCtryId )
 	{
 		final String S_ProcName = "deleteISOCtryLangByCtryIdx";
 		boolean permissionGranted = canDeleteISOCtryLang(S_ProcName, Authorization);
@@ -362,7 +362,7 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public void deleteISOCtryLangByLangIdx( ICFSecAuthorization Authorization,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "deleteISOCtryLangByLangIdx";
 		boolean permissionGranted = canDeleteISOCtryLang(S_ProcName, Authorization);
@@ -429,8 +429,8 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang readDerived( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadISOCtryLang(S_ProcName, Authorization);
@@ -505,8 +505,8 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -532,7 +532,7 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang[] readDerivedByCtryIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId )
+		$implIJavaAtomType$ argISOCtryId )
 	{
 		final String S_ProcName = "readDerivedByCtryIdx";
 		boolean permissionGranted = false;
@@ -562,7 +562,7 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang[] readDerivedByLangIdx( ICFSecAuthorization Authorization,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readDerivedByLangIdx";
 		boolean permissionGranted = false;
@@ -620,8 +620,8 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang readRec( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadISOCtryLang(S_ProcName, Authorization);
@@ -692,8 +692,8 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang readRecByIdIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOCtryId,
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -719,7 +719,7 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang[] readRecByCtryIdx( ICFSecAuthorization Authorization,
-		short argISOCtryId )
+		$implIJavaAtomType$ argISOCtryId )
 	{
 		final String S_ProcName = "readRecByCtryIdx";
 		boolean permissionGranted = false;
@@ -745,7 +745,7 @@ public class CFSecJpaISOCtryLangTable implements ICFSecISOCtryLangTable
 	 */
 	@Override
 	public ICFSecISOCtryLang[] readRecByLangIdx( ICFSecAuthorization Authorization,
-		short argISOLangId )
+		$implIJavaAtomType$ argISOLangId )
 	{
 		final String S_ProcName = "readRecByLangIdx";
 		boolean permissionGranted = false;

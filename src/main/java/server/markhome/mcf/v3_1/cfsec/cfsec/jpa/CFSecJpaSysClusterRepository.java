@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysCluster, Integer> {
+public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysCluster, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSysCluster r where r.requiredSingletonId = :singletonId")
-	CFSecJpaSysCluster get(@Param("singletonId") int requiredSingletonId);
+	CFSecJpaSysCluster get(@Param("singletonId") $implIJavaAtomType$ requiredSingletonId);
 
 	// CFSecJpaSysCluster specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	 *		@return List&lt;CFSecJpaSysCluster&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSysCluster r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId);
+	List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId);
 
 	/**
 	 *	CFSecSysClusterByClusterIdxKey entity list reader convenience method for object-based access.
@@ -102,7 +102,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSysCluster r where r.requiredSingletonId = :singletonId")
-	CFSecJpaSysCluster lockByIdIdx(@Param("singletonId") int requiredSingletonId);
+	CFSecJpaSysCluster lockByIdIdx(@Param("singletonId") $implIJavaAtomType$ requiredSingletonId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -114,7 +114,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSysCluster r where r.requiredContainerCluster.requiredId = :clusterId")
-	List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId);
+	List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId);
 
 	/**
 	 *	CFSecSysClusterByClusterIdxKey based lock method for object-based access.
@@ -137,7 +137,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSysCluster r where r.requiredSingletonId = :singletonId")
-	void deleteByIdIdx(@Param("singletonId") int requiredSingletonId);
+	void deleteByIdIdx(@Param("singletonId") $implIJavaAtomType$ requiredSingletonId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -147,7 +147,7 @@ public interface CFSecJpaSysClusterRepository extends JpaRepository<CFSecJpaSysC
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSysCluster r where r.requiredContainerCluster.requiredId = :clusterId")
-	void deleteByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId);
+	void deleteByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId);
 
 	/**
 	 *	CFSecSysClusterByClusterIdxKey based lock method for object-based access.

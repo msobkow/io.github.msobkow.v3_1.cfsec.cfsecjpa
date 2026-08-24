@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserByEMAddrIdxKey
 	implements ICFSecSecUserByEMAddrIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredEMailAddress;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredEMailAddress;
 	public CFSecJpaSecUserByEMAddrIdxKey() {
 		requiredEMailAddress = ICFSecProtSecUser.EMAILADDRESS_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredEMailAddress() {
+	public $implIJavaAtomType$ getRequiredEMailAddress() {
 		return(requiredEMailAddress);
 	}
 
-	public void setRequiredEMailAddress( String value ) {
+	public void setRequiredEMailAddress( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMailAddress",

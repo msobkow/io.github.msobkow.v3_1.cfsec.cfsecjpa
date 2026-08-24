@@ -44,18 +44,18 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOCtryLangByCtryIdxKey
 	implements ICFSecISOCtryLangByCtryIdxKey, Comparable<Object>, Serializable
 {
-	protected short requiredISOCtryId;
+	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredISOCtryId;
 	public CFSecJpaISOCtryLangByCtryIdxKey() {
 		requiredISOCtryId = ICFSecPubISOCtryLang.ISOCTRYID_INIT_VALUE;
 	}
 
 	@Override
-	public short getRequiredISOCtryId() {
+	public $implIJavaAtomType$ getRequiredISOCtryId() {
 		return(getPKey().getRequiredISOCtryId());
 	}
 
 	@Override
-	public void setRequiredISOCtryId( short value ) {
+	public void setRequiredISOCtryId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCtryLang.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",

@@ -279,8 +279,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public void deleteSecClusRoleMembByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecClusRoleId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "deleteSecClusRoleMembByIdIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
@@ -322,7 +322,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public void deleteSecClusRoleMembByClusRoleIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId )
+		$implIJavaAtomType$ argSecClusRoleId )
 	{
 		final String S_ProcName = "deleteSecClusRoleMembByClusRoleIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
@@ -363,7 +363,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public void deleteSecClusRoleMembByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "deleteSecClusRoleMembByLoginIdx";
 		boolean permissionGranted = canDeleteSecClusRoleMemb(S_ProcName, Authorization);
@@ -430,8 +430,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecClusRoleId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
@@ -506,8 +506,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecClusRoleId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -540,7 +540,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb[] readDerivedByClusRoleIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId )
+		$implIJavaAtomType$ argSecClusRoleId )
 	{
 		final String S_ProcName = "readDerivedByClusRoleIdx";
 		boolean permissionGranted = false;
@@ -570,7 +570,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb[] readDerivedByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readDerivedByLoginIdx";
 		boolean permissionGranted = false;
@@ -628,8 +628,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecClusRoleId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
@@ -693,8 +693,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb[] pageAllRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 priorSecClusRoleId,
-		String priorLoginId )
+		$implIJavaOptAtomType$ priorSecClusRoleId,
+		$implIJavaOptAtomType$ priorLoginId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecClusRoleMemb(S_ProcName, Authorization);
@@ -721,8 +721,8 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId,
-		String argLoginId )
+		$implIJavaAtomType$ argSecClusRoleId,
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -748,7 +748,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb[] readRecByClusRoleIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId )
+		$implIJavaAtomType$ argSecClusRoleId )
 	{
 		final String S_ProcName = "readRecByClusRoleIdx";
 		boolean permissionGranted = false;
@@ -774,7 +774,7 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb[] readRecByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readRecByLoginIdx";
 		boolean permissionGranted = false;
@@ -800,9 +800,9 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb[] pageRecByClusRoleIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecClusRoleId,
-		ICFLibKeyHash256 priorSecClusRoleId,
-		String priorLoginId )
+		$implIJavaAtomType$ argSecClusRoleId,
+		$implIJavaOptAtomType$ priorSecClusRoleId,
+		$implIJavaOptAtomType$ priorLoginId )
 	{
 		final String S_ProcName = "pageRecByClusRoleIdx";
 		boolean permissionGranted = false;
@@ -828,9 +828,9 @@ public class CFSecJpaSecClusRoleMembTable implements ICFSecSecClusRoleMembTable
 	 */
 	@Override
 	public ICFSecSecClusRoleMemb[] pageRecByLoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId,
-		ICFLibKeyHash256 priorSecClusRoleId,
-		String priorLoginId )
+		$implIJavaAtomType$ argLoginId,
+		$implIJavaOptAtomType$ priorSecClusRoleId,
+		$implIJavaOptAtomType$ priorLoginId )
 	{
 		final String S_ProcName = "pageRecByLoginIdx";
 		boolean permissionGranted = false;

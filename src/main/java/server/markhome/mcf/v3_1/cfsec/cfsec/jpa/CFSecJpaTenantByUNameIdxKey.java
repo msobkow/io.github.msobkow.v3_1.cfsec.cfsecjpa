@@ -44,19 +44,19 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTenantByUNameIdxKey
 	implements ICFSecTenantByUNameIdxKey, Comparable<Object>, Serializable
 {
-	protected ICFLibKeyHash256 requiredClusterId;
-	protected String requiredTenantName;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredClusterId;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredTenantName;
 	public CFSecJpaTenantByUNameIdxKey() {
 		requiredClusterId = CFLibDbKeyHash256.fromHex( ICFSecPubTenant.CLUSTERID_INIT_VALUE.toString() );
 		requiredTenantName = ICFSecPubTenant.TENANTNAME_INIT_VALUE;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredClusterId() {
+	public $implIJavaAtomType$ getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
+	public void setRequiredClusterId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",
@@ -67,11 +67,11 @@ public class CFSecJpaTenantByUNameIdxKey
 	}
 
 	@Override
-	public String getRequiredTenantName() {
+	public $implIJavaAtomType$ getRequiredTenantName() {
 		return(requiredTenantName);
 	}
 
-	public void setRequiredTenantName( String value ) {
+	public void setRequiredTenantName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTenantName",

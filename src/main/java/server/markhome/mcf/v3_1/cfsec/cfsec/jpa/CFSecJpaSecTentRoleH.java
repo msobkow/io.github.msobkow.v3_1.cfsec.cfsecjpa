@@ -98,9 +98,9 @@ public class CFSecJpaSecTentRoleH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="TenantId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredTenantId;
+	protected $implIJavaAtomType$ requiredTenantId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
     public CFSecJpaSecTentRoleH() {
             // The primary key member attributes are initialized on construction
@@ -234,21 +234,21 @@ public class CFSecJpaSecTentRoleH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecTentRoleId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecTentRoleId() {
         return( pkey.getRequiredSecTentRoleId() );
     }
 
     @Override
-    public void setRequiredSecTentRoleId( ICFLibKeyHash256 requiredSecTentRoleId ) {
+    public void setRequiredSecTentRoleId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecTentRoleId ) {
         pkey.setRequiredSecTentRoleId( requiredSecTentRoleId );
     }
 
 	@Override
-	public ICFLibKeyHash256 getRequiredTenantId() {
+	public $implIJavaAtomType$ getRequiredTenantId() {
 		return(requiredTenantId);
 	}
 
-	public void setRequiredTenantId( ICFLibKeyHash256 value ) {
+	public void setRequiredTenantId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTenantId",
@@ -259,11 +259,11 @@ public class CFSecJpaSecTentRoleH
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

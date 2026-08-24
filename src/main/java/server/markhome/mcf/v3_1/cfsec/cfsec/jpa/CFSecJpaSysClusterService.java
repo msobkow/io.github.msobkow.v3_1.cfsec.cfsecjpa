@@ -92,8 +92,8 @@ public class CFSecJpaSysClusterService {
 				"data.requiredClusterId");
 		}
 		try {
-			if(data.getPKey() != null && cfsec31SysClusterRepository.existsById((Integer)data.getPKey())) {
-				return( (CFSecJpaSysCluster)(cfsec31SysClusterRepository.findById((Integer)(data.getPKey())).get()));
+			if(data.getPKey() != null && cfsec31SysClusterRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaSysCluster)(cfsec31SysClusterRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -144,7 +144,7 @@ public class CFSecJpaSysClusterService {
 				"data.requiredClusterId");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaSysCluster existing = cfsec31SysClusterRepository.findById((Integer)(data.getPKey()))
+		CFSecJpaSysCluster existing = cfsec31SysClusterRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -165,7 +165,7 @@ public class CFSecJpaSysClusterService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSysCluster find(@Param("singletonId") int requiredSingletonId) {
+	public CFSecJpaSysCluster find(@Param("singletonId") $implIJavaAtomType$ requiredSingletonId) {
 		return( cfsec31SysClusterRepository.get(requiredSingletonId));
 	}
 
@@ -189,7 +189,7 @@ public class CFSecJpaSysClusterService {
 	 *		@return List&lt;CFSecJpaSysCluster&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId) {
+	public List<CFSecJpaSysCluster> findByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId) {
 		return( cfsec31SysClusterRepository.findByClusterIdx(requiredClusterId));
 	}
 
@@ -215,7 +215,7 @@ public class CFSecJpaSysClusterService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSysCluster lockByIdIdx(@Param("singletonId") int requiredSingletonId) {
+	public CFSecJpaSysCluster lockByIdIdx(@Param("singletonId") $implIJavaAtomType$ requiredSingletonId) {
 		return( cfsec31SysClusterRepository.lockByIdIdx(requiredSingletonId));
 	}
 
@@ -227,7 +227,7 @@ public class CFSecJpaSysClusterService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId) {
+	public List<CFSecJpaSysCluster> lockByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId) {
 		return( cfsec31SysClusterRepository.lockByClusterIdx(requiredClusterId));
 	}
 
@@ -251,7 +251,7 @@ public class CFSecJpaSysClusterService {
 	 *		@param requiredSingletonId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("singletonId") int requiredSingletonId) {
+	public void deleteByIdIdx(@Param("singletonId") $implIJavaAtomType$ requiredSingletonId) {
 		cfsec31SysClusterRepository.deleteByIdIdx(requiredSingletonId);
 	}
 
@@ -261,7 +261,7 @@ public class CFSecJpaSysClusterService {
 	 *		@param requiredClusterId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusterIdx(@Param("clusterId") ICFLibKeyHash256 requiredClusterId) {
+	public void deleteByClusterIdx(@Param("clusterId") $implIJavaAtomType$ requiredClusterId) {
 		cfsec31SysClusterRepository.deleteByClusterIdx(requiredClusterId);
 	}
 

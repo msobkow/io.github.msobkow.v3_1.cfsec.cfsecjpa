@@ -44,16 +44,16 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserEMConfByUUuid6IdxKey
 	implements ICFSecSecUserEMConfByUUuid6IdxKey, Comparable<Object>, Serializable
 {
-	protected ICFLibUuid6 requiredEMConfirmationUuid6;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredEMConfirmationUuid6;
 	public CFSecJpaSecUserEMConfByUUuid6IdxKey() {
 	}
 
 	@Override
-	public ICFLibUuid6 getRequiredEMConfirmationUuid6() {
+	public $implIJavaAtomType$ getRequiredEMConfirmationUuid6() {
 		return(requiredEMConfirmationUuid6);
 	}
 
-	public void setRequiredEMConfirmationUuid6( ICFLibUuid6 value ) {
+	public void setRequiredEMConfirmationUuid6( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMConfirmationUuid6",

@@ -179,8 +179,8 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSysRoleEnables find(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
-		@Param("enableName") String requiredEnableName) {
+	public CFSecJpaSecSysRoleEnables find(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId,
+		@Param("enableName") $implIJavaAtomType$ requiredEnableName) {
 		return( cfsec31SecSysRoleEnablesRepository.get(requiredSecSysRoleId,
 			requiredEnableName));
 	}
@@ -217,7 +217,7 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@return List&lt;CFSecJpaSecSysRoleEnables&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysRoleEnables> findBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId) {
+	public List<CFSecJpaSecSysRoleEnables> findBySysRoleIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId) {
 		return( cfsec31SecSysRoleEnablesRepository.findBySysRoleIdx(requiredSecSysRoleId));
 	}
 
@@ -241,7 +241,7 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@return List&lt;CFSecJpaSecSysRoleEnables&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysRoleEnables> findByNameIdx(@Param("enableName") String requiredEnableName) {
+	public List<CFSecJpaSecSysRoleEnables> findByNameIdx(@Param("enableName") $implIJavaAtomType$ requiredEnableName) {
 		return( cfsec31SecSysRoleEnablesRepository.findByNameIdx(requiredEnableName));
 	}
 
@@ -268,8 +268,8 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecSysRoleEnables lockByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
-		@Param("enableName") String requiredEnableName) {
+	public CFSecJpaSecSysRoleEnables lockByIdIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId,
+		@Param("enableName") $implIJavaAtomType$ requiredEnableName) {
 		return( cfsec31SecSysRoleEnablesRepository.lockByIdIdx(requiredSecSysRoleId,
 			requiredEnableName));
 	}
@@ -294,7 +294,7 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysRoleEnables> lockBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId) {
+	public List<CFSecJpaSecSysRoleEnables> lockBySysRoleIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId) {
 		return( cfsec31SecSysRoleEnablesRepository.lockBySysRoleIdx(requiredSecSysRoleId));
 	}
 
@@ -318,7 +318,7 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecSysRoleEnables> lockByNameIdx(@Param("enableName") String requiredEnableName) {
+	public List<CFSecJpaSecSysRoleEnables> lockByNameIdx(@Param("enableName") $implIJavaAtomType$ requiredEnableName) {
 		return( cfsec31SecSysRoleEnablesRepository.lockByNameIdx(requiredEnableName));
 	}
 
@@ -343,8 +343,8 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@param requiredEnableName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
-		@Param("enableName") String requiredEnableName) {
+	public void deleteByIdIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId,
+		@Param("enableName") $implIJavaAtomType$ requiredEnableName) {
 		cfsec31SecSysRoleEnablesRepository.deleteByIdIdx(requiredSecSysRoleId,
 			requiredEnableName);
 	}
@@ -365,7 +365,7 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@param requiredSecSysRoleId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId) {
+	public void deleteBySysRoleIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId) {
 		cfsec31SecSysRoleEnablesRepository.deleteBySysRoleIdx(requiredSecSysRoleId);
 	}
 
@@ -385,7 +385,7 @@ public class CFSecJpaSecSysRoleEnablesService {
 	 *		@param requiredEnableName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByNameIdx(@Param("enableName") String requiredEnableName) {
+	public void deleteByNameIdx(@Param("enableName") $implIJavaAtomType$ requiredEnableName) {
 		cfsec31SecSysRoleEnablesRepository.deleteByNameIdx(requiredEnableName);
 	}
 

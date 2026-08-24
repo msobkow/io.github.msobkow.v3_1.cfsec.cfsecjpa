@@ -104,8 +104,8 @@ public class CFSecJpaSecUserEMConfService {
 				"data.requiredEMConfirmationUuid6");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserEMConfRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecUserEMConf)(cfsec31SecUserEMConfRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserEMConfRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaSecUserEMConf)(cfsec31SecUserEMConfRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -171,7 +171,7 @@ public class CFSecJpaSecUserEMConfService {
 				"data.requiredEMConfirmationUuid6");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaSecUserEMConf existing = cfsec31SecUserEMConfRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFSecJpaSecUserEMConf existing = cfsec31SecUserEMConfRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -196,7 +196,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserEMConf find(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserEMConf find(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserEMConfRepository.get(requiredSecUserId));
 	}
 
@@ -220,7 +220,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserEMConf findByUUuid6Idx(@Param("eMConfirmationUuid6") ICFLibUuid6 requiredEMConfirmationUuid6) {
+	public CFSecJpaSecUserEMConf findByUUuid6Idx(@Param("eMConfirmationUuid6") $implIJavaAtomType$ requiredEMConfirmationUuid6) {
 		return( cfsec31SecUserEMConfRepository.findByUUuid6Idx(requiredEMConfirmationUuid6));
 	}
 
@@ -244,7 +244,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return List&lt;CFSecJpaSecUserEMConf&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserEMConf> findByConfEMAddrIdx(@Param("confirmEMailAddr") String requiredConfirmEMailAddr) {
+	public List<CFSecJpaSecUserEMConf> findByConfEMAddrIdx(@Param("confirmEMailAddr") $implIJavaAtomType$ requiredConfirmEMailAddr) {
 		return( cfsec31SecUserEMConfRepository.findByConfEMAddrIdx(requiredConfirmEMailAddr));
 	}
 
@@ -268,7 +268,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return List&lt;CFSecJpaSecUserEMConf&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserEMConf> findBySentStampIdx(@Param("eMailSentStamp") LocalDateTime requiredEMailSentStamp) {
+	public List<CFSecJpaSecUserEMConf> findBySentStampIdx(@Param("eMailSentStamp") $implIJavaAtomType$ requiredEMailSentStamp) {
 		return( cfsec31SecUserEMConfRepository.findBySentStampIdx(requiredEMailSentStamp));
 	}
 
@@ -292,7 +292,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return List&lt;CFSecJpaSecUserEMConf&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserEMConf> findByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount) {
+	public List<CFSecJpaSecUserEMConf> findByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount) {
 		return( cfsec31SecUserEMConfRepository.findByNewAcctIdx(requiredNewAccount));
 	}
 
@@ -318,7 +318,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserEMConf lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserEMConf lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserEMConfRepository.lockByIdIdx(requiredSecUserId));
 	}
 
@@ -330,7 +330,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserEMConf lockByUUuid6Idx(@Param("eMConfirmationUuid6") ICFLibUuid6 requiredEMConfirmationUuid6) {
+	public CFSecJpaSecUserEMConf lockByUUuid6Idx(@Param("eMConfirmationUuid6") $implIJavaAtomType$ requiredEMConfirmationUuid6) {
 		return( cfsec31SecUserEMConfRepository.lockByUUuid6Idx(requiredEMConfirmationUuid6));
 	}
 
@@ -354,7 +354,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserEMConf> lockByConfEMAddrIdx(@Param("confirmEMailAddr") String requiredConfirmEMailAddr) {
+	public List<CFSecJpaSecUserEMConf> lockByConfEMAddrIdx(@Param("confirmEMailAddr") $implIJavaAtomType$ requiredConfirmEMailAddr) {
 		return( cfsec31SecUserEMConfRepository.lockByConfEMAddrIdx(requiredConfirmEMailAddr));
 	}
 
@@ -378,7 +378,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserEMConf> lockBySentStampIdx(@Param("eMailSentStamp") LocalDateTime requiredEMailSentStamp) {
+	public List<CFSecJpaSecUserEMConf> lockBySentStampIdx(@Param("eMailSentStamp") $implIJavaAtomType$ requiredEMailSentStamp) {
 		return( cfsec31SecUserEMConfRepository.lockBySentStampIdx(requiredEMailSentStamp));
 	}
 
@@ -402,7 +402,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUserEMConf> lockByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount) {
+	public List<CFSecJpaSecUserEMConf> lockByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount) {
 		return( cfsec31SecUserEMConfRepository.lockByNewAcctIdx(requiredNewAccount));
 	}
 
@@ -426,7 +426,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@param requiredSecUserId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		cfsec31SecUserEMConfRepository.deleteByIdIdx(requiredSecUserId);
 	}
 
@@ -436,7 +436,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@param requiredEMConfirmationUuid6
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUUuid6Idx(@Param("eMConfirmationUuid6") ICFLibUuid6 requiredEMConfirmationUuid6) {
+	public void deleteByUUuid6Idx(@Param("eMConfirmationUuid6") $implIJavaAtomType$ requiredEMConfirmationUuid6) {
 		cfsec31SecUserEMConfRepository.deleteByUUuid6Idx(requiredEMConfirmationUuid6);
 	}
 
@@ -456,7 +456,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@param requiredConfirmEMailAddr
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByConfEMAddrIdx(@Param("confirmEMailAddr") String requiredConfirmEMailAddr) {
+	public void deleteByConfEMAddrIdx(@Param("confirmEMailAddr") $implIJavaAtomType$ requiredConfirmEMailAddr) {
 		cfsec31SecUserEMConfRepository.deleteByConfEMAddrIdx(requiredConfirmEMailAddr);
 	}
 
@@ -476,7 +476,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@param requiredEMailSentStamp
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySentStampIdx(@Param("eMailSentStamp") LocalDateTime requiredEMailSentStamp) {
+	public void deleteBySentStampIdx(@Param("eMailSentStamp") $implIJavaAtomType$ requiredEMailSentStamp) {
 		cfsec31SecUserEMConfRepository.deleteBySentStampIdx(requiredEMailSentStamp);
 	}
 
@@ -496,7 +496,7 @@ public class CFSecJpaSecUserEMConfService {
 	 *		@param requiredNewAccount
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByNewAcctIdx(@Param("newAccount") boolean requiredNewAccount) {
+	public void deleteByNewAcctIdx(@Param("newAccount") $implIJavaAtomType$ requiredNewAccount) {
 		cfsec31SecUserEMConfRepository.deleteByNewAcctIdx(requiredNewAccount);
 	}
 

@@ -61,7 +61,7 @@ public class CFSecJpaSecUserPassword
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecUserId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecUserId;
+	protected $implIJavaAtomType$ requiredSecUserId;
 	@OneToOne(fetch=FetchType.LAZY, optional=false)
 	@JoinColumn( name="SecUserIdUser", referencedColumnName="SecUserId" )
 	protected CFSecJpaSecUser requiredContainerUser;
@@ -69,9 +69,9 @@ public class CFSecJpaSecUserPassword
 
 
 	@Column( name="PWSetStamp", nullable=false )
-	protected LocalDateTime requiredPWSetStamp;
+	protected $implIJavaAtomType$ requiredPWSetStamp;
 	@Column( name="pwd_hash", nullable=false, length=256 )
-	protected String requiredPasswordHash;
+	protected $implIJavaAtomType$ requiredPasswordHash;
 
 	public CFSecJpaSecUserPassword() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecSecUserPassword.SECUSERID_INIT_VALUE.toString() );
@@ -118,7 +118,7 @@ public class CFSecJpaSecUserPassword
 	}
 
 	@Override
-	public void setRequiredContainerUser(ICFLibKeyHash256 argSecUserId) {
+	public void setRequiredContainerUser($implIJavaAtomType$ argSecUserId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerUser", 0, "ICFSecSchema.getBackingCFSec()");
@@ -132,21 +132,21 @@ public class CFSecJpaSecUserPassword
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredSecUserId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredSecUserId) {
+	public void setPKey($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ requiredSecUserId) {
 		setRequiredContainerUser(requiredSecUserId);
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecUserId() {
+	public $implIJavaAtomType$ getRequiredSecUserId() {
 		return(getPKey().getRequiredSecUserId());
 	}
 
-	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecUserId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
@@ -167,11 +167,11 @@ public class CFSecJpaSecUserPassword
 	}
 
 	@Override
-	public LocalDateTime getRequiredPWSetStamp() {
+	public $implIJavaAtomType$ getRequiredPWSetStamp() {
 		return(requiredPWSetStamp);
 	}
 
-	public void setRequiredPWSetStamp( LocalDateTime value ) {
+	public void setRequiredPWSetStamp( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPWSetStamp",
@@ -182,11 +182,11 @@ public class CFSecJpaSecUserPassword
 	}
 
 	@Override
-	public String getRequiredPasswordHash() {
+	public $implIJavaAtomType$ getRequiredPasswordHash() {
 		return(requiredPasswordHash);
 	}
 
-	public void setRequiredPasswordHash( String value ) {
+	public void setRequiredPasswordHash( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordHash",

@@ -226,22 +226,22 @@ public class CFSecJpaSecSysRoleEnablesH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecSysRoleId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecSysRoleId() {
         return( pkey.getRequiredSecSysRoleId() );
     }
 
     @Override
-    public void setRequiredSecSysRoleId( ICFLibKeyHash256 requiredSecSysRoleId ) {
+    public void setRequiredSecSysRoleId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecSysRoleId ) {
         pkey.setRequiredSecSysRoleId( requiredSecSysRoleId );
     }
 
     @Override
-    public String getRequiredEnableName() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredEnableName() {
         return( pkey.getRequiredEnableName() );
     }
 
     @Override
-    public void setRequiredEnableName( String requiredEnableName ) {
+    public void setRequiredEnableName( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredEnableName ) {
         pkey.setRequiredEnableName( requiredEnableName );
     }
 

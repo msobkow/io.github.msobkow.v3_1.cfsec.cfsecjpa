@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry, Short> {
+public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry, $implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOCtry r where r.requiredISOCtryId = :iSOCtryId")
-	CFSecJpaISOCtry get(@Param("iSOCtryId") short requiredISOCtryId);
+	CFSecJpaISOCtry get(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId);
 
 	// CFSecJpaISOCtry specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOCtry r where r.requiredISOCode = :iSOCode")
-	CFSecJpaISOCtry findByISOCodeIdx(@Param("iSOCode") String requiredISOCode);
+	CFSecJpaISOCtry findByISOCodeIdx(@Param("iSOCode") $implIJavaAtomType$ requiredISOCode);
 
 	/**
 	 *	CFSecISOCtryByISOCodeIdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaISOCtry r where r.requiredName = :name")
-	CFSecJpaISOCtry findByNameIdx(@Param("name") String requiredName);
+	CFSecJpaISOCtry findByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecISOCtryByNameIdxKey entity reader convenience method for object-based access.
@@ -123,7 +123,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtry r where r.requiredISOCtryId = :iSOCtryId")
-	CFSecJpaISOCtry lockByIdIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	CFSecJpaISOCtry lockByIdIdx(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -135,7 +135,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtry r where r.requiredISOCode = :iSOCode")
-	CFSecJpaISOCtry lockByISOCodeIdx(@Param("iSOCode") String requiredISOCode);
+	CFSecJpaISOCtry lockByISOCodeIdx(@Param("iSOCode") $implIJavaAtomType$ requiredISOCode);
 
 	/**
 	 *	CFSecISOCtryByISOCodeIdxKey based lock method for object-based access.
@@ -158,7 +158,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaISOCtry r where r.requiredName = :name")
-	CFSecJpaISOCtry lockByNameIdx(@Param("name") String requiredName);
+	CFSecJpaISOCtry lockByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecISOCtryByNameIdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtry r where r.requiredISOCtryId = :iSOCtryId")
-	void deleteByIdIdx(@Param("iSOCtryId") short requiredISOCtryId);
+	void deleteByIdIdx(@Param("iSOCtryId") $implIJavaAtomType$ requiredISOCtryId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -191,7 +191,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtry r where r.requiredISOCode = :iSOCode")
-	void deleteByISOCodeIdx(@Param("iSOCode") String requiredISOCode);
+	void deleteByISOCodeIdx(@Param("iSOCode") $implIJavaAtomType$ requiredISOCode);
 
 	/**
 	 *	CFSecISOCtryByISOCodeIdxKey based lock method for object-based access.
@@ -210,7 +210,7 @@ public interface CFSecJpaISOCtryRepository extends JpaRepository<CFSecJpaISOCtry
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaISOCtry r where r.requiredName = :name")
-	void deleteByNameIdx(@Param("name") String requiredName);
+	void deleteByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecISOCtryByNameIdxKey based lock method for object-based access.

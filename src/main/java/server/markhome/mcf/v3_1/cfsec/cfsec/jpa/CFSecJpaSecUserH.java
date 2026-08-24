@@ -95,17 +95,17 @@ public class CFSecJpaSecUserH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="login_id", nullable=false, length=32 )
-	protected String requiredLoginId;
+	protected $implIJavaAtomType$ requiredLoginId;
 	@Column( name="acct_status", nullable=false )
-	protected ICFSecPubSchema.SecAccountStatusEnum requiredAccountStatus;
+	protected $implIJavaAtomType$ requiredAccountStatus;
 	@Column( name="dflt_sysgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltSysGrpName;
+	protected $implIJavaAtomType$ optionalDfltSysGrpName;
 	@Column( name="dflt_clusgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltClusGrpName;
+	protected $implIJavaAtomType$ optionalDfltClusGrpName;
 	@Column( name="dflt_tentgrp_nm", nullable=true, length=64 )
-	protected String optionalDfltTentGrpName;
+	protected $implIJavaAtomType$ optionalDfltTentGrpName;
 	@Column( name="email_addr", nullable=false, length=512 )
-	protected String requiredEMailAddress;
+	protected $implIJavaAtomType$ requiredEMailAddress;
 
     public CFSecJpaSecUserH() {
             // The primary key member attributes are initialized on construction
@@ -243,21 +243,21 @@ public class CFSecJpaSecUserH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecUserId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
+    public void setRequiredSecUserId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implIJavaAtomType$ getRequiredLoginId() {
 		return(requiredLoginId);
 	}
 
-	public void setRequiredLoginId( String value ) {
+	public void setRequiredLoginId( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredLoginId",
@@ -276,11 +276,11 @@ public class CFSecJpaSecUserH
 	}
 
 	@Override
-	public ICFSecPubSchema.SecAccountStatusEnum getRequiredAccountStatus() {
+	public $implIJavaAtomType$ getRequiredAccountStatus() {
 		return(requiredAccountStatus);
 	}
 
-	public void setRequiredAccountStatus( ICFSecPubSchema.SecAccountStatusEnum value ) {
+	public void setRequiredAccountStatus( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredAccountStatus",
@@ -291,11 +291,11 @@ public class CFSecJpaSecUserH
 	}
 
 	@Override
-	public String getOptionalDfltSysGrpName() {
+	public $implIJavaAtomType$ getOptionalDfltSysGrpName() {
 		return(optionalDfltSysGrpName);
 	}
 
-	public void setOptionalDfltSysGrpName( String value ) {
+	public void setOptionalDfltSysGrpName( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalDfltSysGrpName",
@@ -308,11 +308,11 @@ public class CFSecJpaSecUserH
 	}
 
 	@Override
-	public String getOptionalDfltClusGrpName() {
+	public $implIJavaAtomType$ getOptionalDfltClusGrpName() {
 		return(optionalDfltClusGrpName);
 	}
 
-	public void setOptionalDfltClusGrpName( String value ) {
+	public void setOptionalDfltClusGrpName( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalDfltClusGrpName",
@@ -325,11 +325,11 @@ public class CFSecJpaSecUserH
 	}
 
 	@Override
-	public String getOptionalDfltTentGrpName() {
+	public $implIJavaAtomType$ getOptionalDfltTentGrpName() {
 		return(optionalDfltTentGrpName);
 	}
 
-	public void setOptionalDfltTentGrpName( String value ) {
+	public void setOptionalDfltTentGrpName( $implIJavaAtomType$ value ) {
 		if( value != null && value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalDfltTentGrpName",
@@ -342,11 +342,11 @@ public class CFSecJpaSecUserH
 	}
 
 	@Override
-	public String getRequiredEMailAddress() {
+	public $implIJavaAtomType$ getRequiredEMailAddress() {
 		return(requiredEMailAddress);
 	}
 
-	public void setRequiredEMailAddress( String value ) {
+	public void setRequiredEMailAddress( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMailAddress",

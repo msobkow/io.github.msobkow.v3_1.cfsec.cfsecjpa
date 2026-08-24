@@ -74,7 +74,7 @@ public class CFSecJpaISOCcyService {
 		if (data == null) {
 			return( null );
 		}
-		short originalRequiredISOCcyId = data.getRequiredISOCcyId();
+		$implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredISOCcyId = data.getRequiredISOCcyId();
 		boolean generatedRequiredISOCcyId = false;
 		if(data.getRequiredISOCode() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -105,8 +105,8 @@ public class CFSecJpaISOCcyService {
 				ICFSecISOCcy.PRECIS_MAX_VALUE );
 		}
 		try {
-			if(data.getPKey() != null && cfsec31ISOCcyRepository.existsById((Short)data.getPKey())) {
-				return( (CFSecJpaISOCcy)(cfsec31ISOCcyRepository.findById((Short)(data.getPKey())).get()));
+			if(data.getPKey() != null && cfsec31ISOCcyRepository.existsById(($implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaISOCcy)(cfsec31ISOCcyRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -174,7 +174,7 @@ public class CFSecJpaISOCcyService {
 				ICFSecISOCcy.PRECIS_MAX_VALUE );
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaISOCcy existing = cfsec31ISOCcyRepository.findById((Short)(data.getPKey()))
+		CFSecJpaISOCcy existing = cfsec31ISOCcyRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -199,7 +199,7 @@ public class CFSecJpaISOCcyService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCcy find(@Param("iSOCcyId") short requiredISOCcyId) {
+	public CFSecJpaISOCcy find(@Param("iSOCcyId") $implIJavaAtomType$ requiredISOCcyId) {
 		return( cfsec31ISOCcyRepository.get(requiredISOCcyId));
 	}
 
@@ -223,7 +223,7 @@ public class CFSecJpaISOCcyService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCcy findByCcyCdIdx(@Param("iSOCode") String requiredISOCode) {
+	public CFSecJpaISOCcy findByCcyCdIdx(@Param("iSOCode") $implIJavaAtomType$ requiredISOCode) {
 		return( cfsec31ISOCcyRepository.findByCcyCdIdx(requiredISOCode));
 	}
 
@@ -247,7 +247,7 @@ public class CFSecJpaISOCcyService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCcy findByCcyNmIdx(@Param("name") String requiredName) {
+	public CFSecJpaISOCcy findByCcyNmIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfsec31ISOCcyRepository.findByCcyNmIdx(requiredName));
 	}
 
@@ -273,7 +273,7 @@ public class CFSecJpaISOCcyService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCcy lockByIdIdx(@Param("iSOCcyId") short requiredISOCcyId) {
+	public CFSecJpaISOCcy lockByIdIdx(@Param("iSOCcyId") $implIJavaAtomType$ requiredISOCcyId) {
 		return( cfsec31ISOCcyRepository.lockByIdIdx(requiredISOCcyId));
 	}
 
@@ -285,7 +285,7 @@ public class CFSecJpaISOCcyService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCcy lockByCcyCdIdx(@Param("iSOCode") String requiredISOCode) {
+	public CFSecJpaISOCcy lockByCcyCdIdx(@Param("iSOCode") $implIJavaAtomType$ requiredISOCode) {
 		return( cfsec31ISOCcyRepository.lockByCcyCdIdx(requiredISOCode));
 	}
 
@@ -309,7 +309,7 @@ public class CFSecJpaISOCcyService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaISOCcy lockByCcyNmIdx(@Param("name") String requiredName) {
+	public CFSecJpaISOCcy lockByCcyNmIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		return( cfsec31ISOCcyRepository.lockByCcyNmIdx(requiredName));
 	}
 
@@ -333,7 +333,7 @@ public class CFSecJpaISOCcyService {
 	 *		@param requiredISOCcyId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("iSOCcyId") short requiredISOCcyId) {
+	public void deleteByIdIdx(@Param("iSOCcyId") $implIJavaAtomType$ requiredISOCcyId) {
 		cfsec31ISOCcyRepository.deleteByIdIdx(requiredISOCcyId);
 	}
 
@@ -343,7 +343,7 @@ public class CFSecJpaISOCcyService {
 	 *		@param requiredISOCode
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByCcyCdIdx(@Param("iSOCode") String requiredISOCode) {
+	public void deleteByCcyCdIdx(@Param("iSOCode") $implIJavaAtomType$ requiredISOCode) {
 		cfsec31ISOCcyRepository.deleteByCcyCdIdx(requiredISOCode);
 	}
 
@@ -363,7 +363,7 @@ public class CFSecJpaISOCcyService {
 	 *		@param requiredName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByCcyNmIdx(@Param("name") String requiredName) {
+	public void deleteByCcyNmIdx(@Param("name") $implIJavaAtomType$ requiredName) {
 		cfsec31ISOCcyRepository.deleteByCcyNmIdx(requiredName);
 	}
 

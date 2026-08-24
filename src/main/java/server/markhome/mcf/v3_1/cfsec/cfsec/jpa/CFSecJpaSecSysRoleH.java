@@ -94,7 +94,7 @@ public class CFSecJpaSecSysRoleH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
     public CFSecJpaSecSysRoleH() {
             // The primary key member attributes are initialized on construction
@@ -227,21 +227,21 @@ public class CFSecJpaSecSysRoleH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecSysRoleId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecSysRoleId() {
         return( pkey.getRequiredSecSysRoleId() );
     }
 
     @Override
-    public void setRequiredSecSysRoleId( ICFLibKeyHash256 requiredSecSysRoleId ) {
+    public void setRequiredSecSysRoleId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecSysRoleId ) {
         pkey.setRequiredSecSysRoleId( requiredSecSysRoleId );
     }
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

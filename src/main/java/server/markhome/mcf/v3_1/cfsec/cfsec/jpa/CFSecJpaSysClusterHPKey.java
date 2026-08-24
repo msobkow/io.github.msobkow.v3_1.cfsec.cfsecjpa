@@ -58,7 +58,7 @@ public class CFSecJpaSysClusterHPKey
 
 	protected CFLibDbKeyHash256 auditSessionId;
 
-	protected int requiredSingletonId;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSingletonId;
 
 	public CFSecJpaSysClusterHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -120,12 +120,12 @@ public class CFSecJpaSysClusterHPKey
 	}
 
 	@Override
-	public int getRequiredSingletonId() {
+	public $implIJavaAtomType$ getRequiredSingletonId() {
 		return(requiredSingletonId);
 	}
 
 	@Override
-	public void setRequiredSingletonId( int value ) {
+	public void setRequiredSingletonId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubSysCluster.SINGLETONID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredSingletonId",

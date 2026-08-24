@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSysRoleEnablesByNameIdxKey
 	implements ICFSecSecSysRoleEnablesByNameIdxKey, Comparable<Object>, Serializable
 {
-	protected String requiredEnableName;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredEnableName;
 	public CFSecJpaSecSysRoleEnablesByNameIdxKey() {
 		requiredEnableName = ICFSecProtSecSysRoleEnables.ENABLENAME_INIT_VALUE;
 	}
 
 	@Override
-	public String getRequiredEnableName() {
+	public $implIJavaAtomType$ getRequiredEnableName() {
 		return(getPKey().getRequiredEnableName());
 	}
 
-	public void setRequiredEnableName( String value ) {
+	public void setRequiredEnableName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEnableName",

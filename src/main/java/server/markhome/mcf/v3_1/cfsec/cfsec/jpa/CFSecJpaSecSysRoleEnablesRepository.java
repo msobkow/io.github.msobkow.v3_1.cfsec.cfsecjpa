@@ -66,8 +66,8 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecSysRoleEnables r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.requiredParentEnableGroup.requiredName = :enableName")
-	CFSecJpaSecSysRoleEnables get(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
-		@Param("enableName") String requiredEnableName);
+	CFSecJpaSecSysRoleEnables get(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId,
+		@Param("enableName") $implIJavaAtomType$ requiredEnableName);
 
 	/**
 	 *	CFSecSecSysRoleEnablesPKey based read method for object-based access.
@@ -90,7 +90,7 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	 *		@return List&lt;CFSecJpaSecSysRoleEnables&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecSysRoleEnables r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
-	List<CFSecJpaSecSysRoleEnables> findBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
+	List<CFSecJpaSecSysRoleEnables> findBySysRoleIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId);
 
 	/**
 	 *	CFSecSecSysRoleEnablesBySysRoleIdxKey entity list reader convenience method for object-based access.
@@ -111,7 +111,7 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	 *		@return List&lt;CFSecJpaSecSysRoleEnables&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecSysRoleEnables r where r.requiredParentEnableGroup.requiredName = :enableName")
-	List<CFSecJpaSecSysRoleEnables> findByNameIdx(@Param("enableName") String requiredEnableName);
+	List<CFSecJpaSecSysRoleEnables> findByNameIdx(@Param("enableName") $implIJavaAtomType$ requiredEnableName);
 
 	/**
 	 *	CFSecSecSysRoleEnablesByNameIdxKey entity list reader convenience method for object-based access.
@@ -137,8 +137,8 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysRoleEnables r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.requiredParentEnableGroup.requiredName = :enableName")
-	CFSecJpaSecSysRoleEnables lockByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
-		@Param("enableName") String requiredEnableName);
+	CFSecJpaSecSysRoleEnables lockByIdIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId,
+		@Param("enableName") $implIJavaAtomType$ requiredEnableName);
 
 	/**
 	 *	CFSecSecSysRoleEnablesByIdIdxKey based lock method for object-based access.
@@ -161,7 +161,7 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysRoleEnables r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
-	List<CFSecJpaSecSysRoleEnables> lockBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
+	List<CFSecJpaSecSysRoleEnables> lockBySysRoleIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId);
 
 	/**
 	 *	CFSecSecSysRoleEnablesBySysRoleIdxKey based lock method for object-based access.
@@ -184,7 +184,7 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysRoleEnables r where r.requiredParentEnableGroup.requiredName = :enableName")
-	List<CFSecJpaSecSysRoleEnables> lockByNameIdx(@Param("enableName") String requiredEnableName);
+	List<CFSecJpaSecSysRoleEnables> lockByNameIdx(@Param("enableName") $implIJavaAtomType$ requiredEnableName);
 
 	/**
 	 *	CFSecSecSysRoleEnablesByNameIdxKey based lock method for object-based access.
@@ -208,8 +208,8 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysRoleEnables r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId and r.requiredParentEnableGroup.requiredName = :enableName")
-	void deleteByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId,
-		@Param("enableName") String requiredEnableName);
+	void deleteByIdIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId,
+		@Param("enableName") $implIJavaAtomType$ requiredEnableName);
 
 	/**
 	 *	CFSecSecSysRoleEnablesByIdIdxKey based lock method for object-based access.
@@ -228,7 +228,7 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysRoleEnables r where r.requiredContainerSysRole.requiredSecSysRoleId = :secSysRoleId")
-	void deleteBySysRoleIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
+	void deleteBySysRoleIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId);
 
 	/**
 	 *	CFSecSecSysRoleEnablesBySysRoleIdxKey based lock method for object-based access.
@@ -247,7 +247,7 @@ public interface CFSecJpaSecSysRoleEnablesRepository extends JpaRepository<CFSec
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysRoleEnables r where r.requiredParentEnableGroup.requiredName = :enableName")
-	void deleteByNameIdx(@Param("enableName") String requiredEnableName);
+	void deleteByNameIdx(@Param("enableName") $implIJavaAtomType$ requiredEnableName);
 
 	/**
 	 *	CFSecSecSysRoleEnablesByNameIdxKey based lock method for object-based access.

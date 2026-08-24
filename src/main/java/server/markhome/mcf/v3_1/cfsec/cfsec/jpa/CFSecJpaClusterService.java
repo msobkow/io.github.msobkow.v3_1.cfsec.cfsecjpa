@@ -74,7 +74,7 @@ public class CFSecJpaClusterService {
 		if (data == null) {
 			return( null );
 		}
-		ICFLibKeyHash256 originalRequiredId = data.getRequiredId();
+		$implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredId = data.getRequiredId();
 		boolean generatedRequiredId = false;
 		if(data.getRequiredFullDomName() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -89,8 +89,8 @@ public class CFSecJpaClusterService {
 				"data.requiredDescription");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31ClusterRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFSecJpaCluster)(cfsec31ClusterRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31ClusterRepository.existsById(($implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaCluster)(cfsec31ClusterRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -146,7 +146,7 @@ public class CFSecJpaClusterService {
 				"data.requiredDescription");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaCluster existing = cfsec31ClusterRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFSecJpaCluster existing = cfsec31ClusterRepository.findById(($implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -169,7 +169,7 @@ public class CFSecJpaClusterService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster find(@Param("id") ICFLibKeyHash256 requiredId) {
+	public CFSecJpaCluster find(@Param("id") $implIJavaAtomType$ requiredId) {
 		return( cfsec31ClusterRepository.get(requiredId));
 	}
 
@@ -193,7 +193,7 @@ public class CFSecJpaClusterService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster findByUDomNameIdx(@Param("fullDomName") String requiredFullDomName) {
+	public CFSecJpaCluster findByUDomNameIdx(@Param("fullDomName") $implIJavaAtomType$ requiredFullDomName) {
 		return( cfsec31ClusterRepository.findByUDomNameIdx(requiredFullDomName));
 	}
 
@@ -217,7 +217,7 @@ public class CFSecJpaClusterService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster findByUDescrIdx(@Param("description") String requiredDescription) {
+	public CFSecJpaCluster findByUDescrIdx(@Param("description") $implIJavaAtomType$ requiredDescription) {
 		return( cfsec31ClusterRepository.findByUDescrIdx(requiredDescription));
 	}
 
@@ -243,7 +243,7 @@ public class CFSecJpaClusterService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster lockByIdIdx(@Param("id") ICFLibKeyHash256 requiredId) {
+	public CFSecJpaCluster lockByIdIdx(@Param("id") $implIJavaAtomType$ requiredId) {
 		return( cfsec31ClusterRepository.lockByIdIdx(requiredId));
 	}
 
@@ -255,7 +255,7 @@ public class CFSecJpaClusterService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster lockByUDomNameIdx(@Param("fullDomName") String requiredFullDomName) {
+	public CFSecJpaCluster lockByUDomNameIdx(@Param("fullDomName") $implIJavaAtomType$ requiredFullDomName) {
 		return( cfsec31ClusterRepository.lockByUDomNameIdx(requiredFullDomName));
 	}
 
@@ -279,7 +279,7 @@ public class CFSecJpaClusterService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaCluster lockByUDescrIdx(@Param("description") String requiredDescription) {
+	public CFSecJpaCluster lockByUDescrIdx(@Param("description") $implIJavaAtomType$ requiredDescription) {
 		return( cfsec31ClusterRepository.lockByUDescrIdx(requiredDescription));
 	}
 
@@ -303,7 +303,7 @@ public class CFSecJpaClusterService {
 	 *		@param requiredId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("id") ICFLibKeyHash256 requiredId) {
+	public void deleteByIdIdx(@Param("id") $implIJavaAtomType$ requiredId) {
 		cfsec31ClusterRepository.deleteByIdIdx(requiredId);
 	}
 
@@ -313,7 +313,7 @@ public class CFSecJpaClusterService {
 	 *		@param requiredFullDomName
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUDomNameIdx(@Param("fullDomName") String requiredFullDomName) {
+	public void deleteByUDomNameIdx(@Param("fullDomName") $implIJavaAtomType$ requiredFullDomName) {
 		cfsec31ClusterRepository.deleteByUDomNameIdx(requiredFullDomName);
 	}
 
@@ -333,7 +333,7 @@ public class CFSecJpaClusterService {
 	 *		@param requiredDescription
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUDescrIdx(@Param("description") String requiredDescription) {
+	public void deleteByUDescrIdx(@Param("description") $implIJavaAtomType$ requiredDescription) {
 		cfsec31ClusterRepository.deleteByUDescrIdx(requiredDescription);
 	}
 

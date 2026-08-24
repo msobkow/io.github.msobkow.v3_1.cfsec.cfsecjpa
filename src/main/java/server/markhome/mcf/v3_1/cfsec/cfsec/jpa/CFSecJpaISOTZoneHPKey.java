@@ -68,7 +68,7 @@ public class CFSecJpaISOTZoneHPKey
 	protected CFLibDbKeyHash256 auditSessionId;
 
 	@Column( name="ISOTZoneId", nullable=false )
-	protected short requiredISOTZoneId;
+	protected $implIJavaAtomType$ requiredISOTZoneId;
 
 	public CFSecJpaISOTZoneHPKey() {
 		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
@@ -130,12 +130,12 @@ public class CFSecJpaISOTZoneHPKey
 	}
 
 	@Override
-	public short getRequiredISOTZoneId() {
+	public $implIJavaAtomType$ getRequiredISOTZoneId() {
 		return(requiredISOTZoneId);
 	}
 
 	@Override
-	public void setRequiredISOTZoneId( short value ) {
+	public void setRequiredISOTZoneId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOTZone.ISOTZONEID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOTZoneId",

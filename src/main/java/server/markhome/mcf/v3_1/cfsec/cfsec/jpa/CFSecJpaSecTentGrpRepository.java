@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecTentGrp, ICFLibKeyHash256> {
+public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecTentGrp, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredSecTentGrpId = :secTentGrpId")
-	CFSecJpaSecTentGrp get(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId);
+	CFSecJpaSecTentGrp get(@Param("secTentGrpId") $implIJavaAtomType$ requiredSecTentGrpId);
 
 	// CFSecJpaSecTentGrp specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	 *		@return List&lt;CFSecJpaSecTentGrp&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredOwnerTenant.requiredId = :tenantId")
-	List<CFSecJpaSecTentGrp> findByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFSecJpaSecTentGrp> findByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFSecSecTentGrpByTenantIdxKey entity list reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	 *		@return List&lt;CFSecJpaSecTentGrp&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredContainerSysGrp.requiredName = :name")
-	List<CFSecJpaSecTentGrp> findByNameIdx(@Param("name") String requiredName);
+	List<CFSecJpaSecTentGrp> findByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentGrpByNameIdxKey entity list reader convenience method for object-based access.
@@ -120,8 +120,8 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysGrp.requiredName = :name")
-	CFSecJpaSecTentGrp findByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName);
+	CFSecJpaSecTentGrp findByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentGrpByUNameIdxKey entity reader convenience method for object-based access.
@@ -146,7 +146,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredSecTentGrpId = :secTentGrpId")
-	CFSecJpaSecTentGrp lockByIdIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId);
+	CFSecJpaSecTentGrp lockByIdIdx(@Param("secTentGrpId") $implIJavaAtomType$ requiredSecTentGrpId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -158,7 +158,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredOwnerTenant.requiredId = :tenantId")
-	List<CFSecJpaSecTentGrp> lockByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	List<CFSecJpaSecTentGrp> lockByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFSecSecTentGrpByTenantIdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredContainerSysGrp.requiredName = :name")
-	List<CFSecJpaSecTentGrp> lockByNameIdx(@Param("name") String requiredName);
+	List<CFSecJpaSecTentGrp> lockByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentGrpByNameIdxKey based lock method for object-based access.
@@ -205,8 +205,8 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecTentGrp r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysGrp.requiredName = :name")
-	CFSecJpaSecTentGrp lockByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName);
+	CFSecJpaSecTentGrp lockByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentGrpByUNameIdxKey based lock method for object-based access.
@@ -229,7 +229,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentGrp r where r.requiredSecTentGrpId = :secTentGrpId")
-	void deleteByIdIdx(@Param("secTentGrpId") ICFLibKeyHash256 requiredSecTentGrpId);
+	void deleteByIdIdx(@Param("secTentGrpId") $implIJavaAtomType$ requiredSecTentGrpId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -239,7 +239,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentGrp r where r.requiredOwnerTenant.requiredId = :tenantId")
-	void deleteByTenantIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId);
+	void deleteByTenantIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId);
 
 	/**
 	 *	CFSecSecTentGrpByTenantIdxKey based lock method for object-based access.
@@ -258,7 +258,7 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentGrp r where r.requiredContainerSysGrp.requiredName = :name")
-	void deleteByNameIdx(@Param("name") String requiredName);
+	void deleteByNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentGrpByNameIdxKey based lock method for object-based access.
@@ -278,8 +278,8 @@ public interface CFSecJpaSecTentGrpRepository extends JpaRepository<CFSecJpaSecT
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecTentGrp r where r.requiredOwnerTenant.requiredId = :tenantId and r.requiredContainerSysGrp.requiredName = :name")
-	void deleteByUNameIdx(@Param("tenantId") ICFLibKeyHash256 requiredTenantId,
-		@Param("name") String requiredName);
+	void deleteByUNameIdx(@Param("tenantId") $implIJavaAtomType$ requiredTenantId,
+		@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecTentGrpByUNameIdxKey based lock method for object-based access.

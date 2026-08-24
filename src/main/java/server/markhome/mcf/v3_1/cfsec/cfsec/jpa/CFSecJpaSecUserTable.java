@@ -277,7 +277,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public void deleteSecUserByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ argKey )
 	{
 		final String S_ProcName = "deleteSecUserByIdIdx";
 		boolean permissionGranted = canDeleteSecUser(S_ProcName, Authorization);
@@ -297,7 +297,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public void deleteSecUserByULoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "deleteSecUserByULoginIdx";
 		boolean permissionGranted = canDeleteSecUser(S_ProcName, Authorization);
@@ -338,7 +338,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public void deleteSecUserByEMAddrIdx( ICFSecAuthorization Authorization,
-		String argEMailAddress )
+		$implIJavaAtomType$ argEMailAddress )
 	{
 		final String S_ProcName = "deleteSecUserByEMAddrIdx";
 		boolean permissionGranted = canDeleteSecUser(S_ProcName, Authorization);
@@ -383,7 +383,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser readDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadSecUser(S_ProcName, Authorization);
@@ -407,7 +407,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser lockDerived( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateSecUser(S_ProcName, Authorization);
@@ -455,7 +455,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser readDerivedByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readDerivedByIdIdx";
 		boolean permissionGranted = false;
@@ -481,7 +481,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser readDerivedByULoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readDerivedByULoginIdx";
 		boolean permissionGranted = false;
@@ -509,7 +509,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser[] readDerivedByEMAddrIdx( ICFSecAuthorization Authorization,
-		String argEMailAddress )
+		$implIJavaAtomType$ argEMailAddress )
 	{
 		final String S_ProcName = "readDerivedByEMAddrIdx";
 		boolean permissionGranted = false;
@@ -542,7 +542,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser readRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadSecUser(S_ProcName, Authorization);
@@ -567,7 +567,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser lockRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 PKey )
+		$iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateSecUser(S_ProcName, Authorization);
@@ -606,7 +606,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser[] pageAllRec( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageAllRec";
 		boolean permissionGranted = canReadSecUser(S_ProcName, Authorization);
@@ -631,7 +631,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser readRecByIdIdx( ICFSecAuthorization Authorization,
-		ICFLibKeyHash256 argSecUserId )
+		$implIJavaAtomType$ argSecUserId )
 	{
 		final String S_ProcName = "readRecByIdIdx";
 		boolean permissionGranted = false;
@@ -658,7 +658,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser readRecByULoginIdx( ICFSecAuthorization Authorization,
-		String argLoginId )
+		$implIJavaAtomType$ argLoginId )
 	{
 		final String S_ProcName = "readRecByULoginIdx";
 		boolean permissionGranted = false;
@@ -687,7 +687,7 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser[] readRecByEMAddrIdx( ICFSecAuthorization Authorization,
-		String argEMailAddress )
+		$implIJavaAtomType$ argEMailAddress )
 	{
 		final String S_ProcName = "readRecByEMAddrIdx";
 		boolean permissionGranted = false;
@@ -713,8 +713,8 @@ public class CFSecJpaSecUserTable implements ICFSecSecUserTable
 	 */
 	@Override
 	public ICFSecSecUser[] pageRecByEMAddrIdx( ICFSecAuthorization Authorization,
-		String argEMailAddress,
-		ICFLibKeyHash256 priorSecUserId )
+		$implIJavaAtomType$ argEMailAddress,
+		$implIJavaOptAtomType$ priorSecUserId )
 	{
 		final String S_ProcName = "pageRecByEMAddrIdx";
 		boolean permissionGranted = false;

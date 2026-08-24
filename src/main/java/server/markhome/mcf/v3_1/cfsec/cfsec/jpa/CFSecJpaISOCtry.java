@@ -61,7 +61,7 @@ public class CFSecJpaISOCtry
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="ISOCtryIdGenSeq")
 	@SequenceGenerator(name = "ISOCtryIdGenSeq", allocationSize = 1, initialValue = 0, schema = "CFSec31")
 	@Column( name="ISOCtryId", nullable=false )
-	protected short requiredISOCtryId;
+	protected $implIJavaAtomType$ requiredISOCtryId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCtry")
 	protected Set<CFSecJpaISOCtryCcy> optionalComponentsCcy;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCtry")
@@ -95,9 +95,9 @@ public class CFSecJpaISOCtry
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code", nullable=false, length=2 )
-	protected String requiredISOCode;
+	protected $implIJavaAtomType$ requiredISOCode;
 	@Column( name="country_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
 	public CFSecJpaISOCtry() {
 		requiredISOCtryId = ICFSecPubISOCtry.ISOCTRYID_INIT_VALUE;
@@ -175,22 +175,22 @@ public class CFSecJpaISOCtry
 	}
 
 	@Override
-	public Short getPKey() {
+	public $implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredISOCtryId();
 	}
 
 	@Override
-	public void setPKey(Short requiredISOCtryId) {
+	public void setPKey($implCommaIJavaOptAtomType empty empty )$ requiredISOCtryId) {
 		this.requiredISOCtryId = requiredISOCtryId;
 	}
 
 	@Override
-	public short getRequiredISOCtryId() {
+	public $implIJavaAtomType$ getRequiredISOCtryId() {
 		return(getPKey().getRequiredISOCtryId());
 	}
 
 	@Override
-	public void setRequiredISOCtryId( short value ) {
+	public void setRequiredISOCtryId( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOCtry.ISOCTRYID_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredISOCtryId",
@@ -213,11 +213,11 @@ public class CFSecJpaISOCtry
 	}
 
 	@Override
-	public String getRequiredISOCode() {
+	public $implIJavaAtomType$ getRequiredISOCode() {
 		return(requiredISOCode);
 	}
 
-	public void setRequiredISOCode( String value ) {
+	public void setRequiredISOCode( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredISOCode",
@@ -236,11 +236,11 @@ public class CFSecJpaISOCtry
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

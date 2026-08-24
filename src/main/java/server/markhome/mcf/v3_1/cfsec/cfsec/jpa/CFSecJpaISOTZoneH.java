@@ -96,17 +96,17 @@ public class CFSecJpaISOTZoneH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="Iso8601", nullable=false, length=6 )
-	protected String requiredIso8601;
+	protected $implIJavaAtomType$ requiredIso8601;
 	@Column( name="TZName", nullable=false, length=64 )
-	protected String requiredTZName;
+	protected $implIJavaAtomType$ requiredTZName;
 	@Column( name="TZHourOffset", nullable=false )
-	protected short requiredTZHourOffset;
+	protected $implIJavaAtomType$ requiredTZHourOffset;
 	@Column( name="TZMinOffset", nullable=false )
-	protected short requiredTZMinOffset;
+	protected $implIJavaAtomType$ requiredTZMinOffset;
 	@Column( name="Description", nullable=false, length=128 )
-	protected String requiredDescription;
+	protected $implIJavaAtomType$ requiredDescription;
 	@Column( name="Visible", nullable=false )
-	protected boolean requiredVisible;
+	protected $implIJavaAtomType$ requiredVisible;
 
     public CFSecJpaISOTZoneH() {
             // The primary key member attributes are initialized on construction
@@ -244,21 +244,21 @@ public class CFSecJpaISOTZoneH
     }
 
     @Override
-    public short getRequiredISOTZoneId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredISOTZoneId() {
         return( pkey.getRequiredISOTZoneId() );
     }
 
     @Override
-    public void setRequiredISOTZoneId( short requiredISOTZoneId ) {
+    public void setRequiredISOTZoneId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredISOTZoneId ) {
         pkey.setRequiredISOTZoneId( requiredISOTZoneId );
     }
 
 	@Override
-	public String getRequiredIso8601() {
+	public $implIJavaAtomType$ getRequiredIso8601() {
 		return(requiredIso8601);
 	}
 
-	public void setRequiredIso8601( String value ) {
+	public void setRequiredIso8601( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredIso8601",
@@ -277,11 +277,11 @@ public class CFSecJpaISOTZoneH
 	}
 
 	@Override
-	public String getRequiredTZName() {
+	public $implIJavaAtomType$ getRequiredTZName() {
 		return(requiredTZName);
 	}
 
-	public void setRequiredTZName( String value ) {
+	public void setRequiredTZName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTZName",
@@ -300,12 +300,12 @@ public class CFSecJpaISOTZoneH
 	}
 
 	@Override
-	public short getRequiredTZHourOffset() {
+	public $implIJavaAtomType$ getRequiredTZHourOffset() {
 		return(requiredTZHourOffset);
 	}
 
 	@Override
-	public void setRequiredTZHourOffset( short value ) {
+	public void setRequiredTZHourOffset( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZHourOffset",
@@ -326,12 +326,12 @@ public class CFSecJpaISOTZoneH
 	}
 
 	@Override
-	public short getRequiredTZMinOffset() {
+	public $implIJavaAtomType$ getRequiredTZMinOffset() {
 		return(requiredTZMinOffset);
 	}
 
 	@Override
-	public void setRequiredTZMinOffset( short value ) {
+	public void setRequiredTZMinOffset( $implIJavaAtomType$ value ) {
 		if( value < ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZMinOffset",
@@ -352,11 +352,11 @@ public class CFSecJpaISOTZoneH
 	}
 
 	@Override
-	public String getRequiredDescription() {
+	public $implIJavaAtomType$ getRequiredDescription() {
 		return(requiredDescription);
 	}
 
-	public void setRequiredDescription( String value ) {
+	public void setRequiredDescription( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredDescription",
@@ -375,11 +375,11 @@ public class CFSecJpaISOTZoneH
 	}
 
 	@Override
-	public boolean getRequiredVisible() {
+	public $implIJavaAtomType$ getRequiredVisible() {
 		return(requiredVisible);
 	}
 
-	public void setRequiredVisible( boolean value ) {
+	public void setRequiredVisible( $implIJavaAtomType$ value ) {
 		requiredVisible = value;
 	}
 

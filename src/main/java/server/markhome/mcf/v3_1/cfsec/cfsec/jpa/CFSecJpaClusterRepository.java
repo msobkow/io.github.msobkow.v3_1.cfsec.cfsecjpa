@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster, ICFLibKeyHash256> {
+public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster, $implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaCluster r where r.requiredId = :id")
-	CFSecJpaCluster get(@Param("id") ICFLibKeyHash256 requiredId);
+	CFSecJpaCluster get(@Param("id") $implIJavaAtomType$ requiredId);
 
 	// CFSecJpaCluster specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaCluster r where r.requiredFullDomName = :fullDomName")
-	CFSecJpaCluster findByUDomNameIdx(@Param("fullDomName") String requiredFullDomName);
+	CFSecJpaCluster findByUDomNameIdx(@Param("fullDomName") $implIJavaAtomType$ requiredFullDomName);
 
 	/**
 	 *	CFSecClusterByUDomNameIdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaCluster r where r.requiredDescription = :description")
-	CFSecJpaCluster findByUDescrIdx(@Param("description") String requiredDescription);
+	CFSecJpaCluster findByUDescrIdx(@Param("description") $implIJavaAtomType$ requiredDescription);
 
 	/**
 	 *	CFSecClusterByUDescrIdxKey entity reader convenience method for object-based access.
@@ -123,7 +123,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaCluster r where r.requiredId = :id")
-	CFSecJpaCluster lockByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	CFSecJpaCluster lockByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -135,7 +135,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaCluster r where r.requiredFullDomName = :fullDomName")
-	CFSecJpaCluster lockByUDomNameIdx(@Param("fullDomName") String requiredFullDomName);
+	CFSecJpaCluster lockByUDomNameIdx(@Param("fullDomName") $implIJavaAtomType$ requiredFullDomName);
 
 	/**
 	 *	CFSecClusterByUDomNameIdxKey based lock method for object-based access.
@@ -158,7 +158,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaCluster r where r.requiredDescription = :description")
-	CFSecJpaCluster lockByUDescrIdx(@Param("description") String requiredDescription);
+	CFSecJpaCluster lockByUDescrIdx(@Param("description") $implIJavaAtomType$ requiredDescription);
 
 	/**
 	 *	CFSecClusterByUDescrIdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaCluster r where r.requiredId = :id")
-	void deleteByIdIdx(@Param("id") ICFLibKeyHash256 requiredId);
+	void deleteByIdIdx(@Param("id") $implIJavaAtomType$ requiredId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -191,7 +191,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaCluster r where r.requiredFullDomName = :fullDomName")
-	void deleteByUDomNameIdx(@Param("fullDomName") String requiredFullDomName);
+	void deleteByUDomNameIdx(@Param("fullDomName") $implIJavaAtomType$ requiredFullDomName);
 
 	/**
 	 *	CFSecClusterByUDomNameIdxKey based lock method for object-based access.
@@ -210,7 +210,7 @@ public interface CFSecJpaClusterRepository extends JpaRepository<CFSecJpaCluster
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaCluster r where r.requiredDescription = :description")
-	void deleteByUDescrIdx(@Param("description") String requiredDescription);
+	void deleteByUDescrIdx(@Param("description") $implIJavaAtomType$ requiredDescription);
 
 	/**
 	 *	CFSecClusterByUDescrIdxKey based lock method for object-based access.

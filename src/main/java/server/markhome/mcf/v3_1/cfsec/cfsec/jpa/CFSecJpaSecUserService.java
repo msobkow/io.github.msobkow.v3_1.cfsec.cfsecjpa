@@ -74,7 +74,7 @@ public class CFSecJpaSecUserService {
 		if (data == null) {
 			return( null );
 		}
-		ICFLibKeyHash256 originalRequiredSecUserId = data.getRequiredSecUserId();
+		$iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ originalRequiredSecUserId = data.getRequiredSecUserId();
 		boolean generatedRequiredSecUserId = false;
 		if(data.getRequiredLoginId() == null) {
 			throw new CFLibNullArgumentException(getClass(),
@@ -95,8 +95,8 @@ public class CFSecJpaSecUserService {
 				"data.requiredEMailAddress");
 		}
 		try {
-			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserRepository.existsById((ICFLibKeyHash256)data.getPKey())) {
-				return( (CFSecJpaSecUser)(cfsec31SecUserRepository.findById((ICFLibKeyHash256)(data.getPKey())).get()));
+			if(data.getPKey() != null && !data.getPKey().isNull() && cfsec31SecUserRepository.existsById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)data.getPKey())) {
+				return( (CFSecJpaSecUser)(cfsec31SecUserRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey())).get()));
 			}
 			if (data.getRequiredRevision() <= 0) {
 				data.setRequiredRevision(1);
@@ -158,7 +158,7 @@ public class CFSecJpaSecUserService {
 				"data.requiredEMailAddress");
 		}
 		// Ensure the entity exists and that the revision matches
-		CFSecJpaSecUser existing = cfsec31SecUserRepository.findById((ICFLibKeyHash256)(data.getPKey()))
+		CFSecJpaSecUser existing = cfsec31SecUserRepository.findById(($iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$)(data.getPKey()))
 			.orElseThrow(() -> new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey()));
 		if (existing.getRequiredRevision() != data.getRequiredRevision()) {
 			throw new CFLibCollisionDetectedException(getClass(), S_ProcName, data.getPKey());
@@ -185,7 +185,7 @@ public class CFSecJpaSecUserService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUser find(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUser find(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserRepository.get(requiredSecUserId));
 	}
 
@@ -209,7 +209,7 @@ public class CFSecJpaSecUserService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUser findByULoginIdx(@Param("loginId") String requiredLoginId) {
+	public CFSecJpaSecUser findByULoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		return( cfsec31SecUserRepository.findByULoginIdx(requiredLoginId));
 	}
 
@@ -233,7 +233,7 @@ public class CFSecJpaSecUserService {
 	 *		@return List&lt;CFSecJpaSecUser&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUser> findByEMAddrIdx(@Param("eMailAddress") String requiredEMailAddress) {
+	public List<CFSecJpaSecUser> findByEMAddrIdx(@Param("eMailAddress") $implIJavaAtomType$ requiredEMailAddress) {
 		return( cfsec31SecUserRepository.findByEMAddrIdx(requiredEMailAddress));
 	}
 
@@ -259,7 +259,7 @@ public class CFSecJpaSecUserService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUser lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUser lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserRepository.lockByIdIdx(requiredSecUserId));
 	}
 
@@ -271,7 +271,7 @@ public class CFSecJpaSecUserService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUser lockByULoginIdx(@Param("loginId") String requiredLoginId) {
+	public CFSecJpaSecUser lockByULoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		return( cfsec31SecUserRepository.lockByULoginIdx(requiredLoginId));
 	}
 
@@ -295,7 +295,7 @@ public class CFSecJpaSecUserService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecUser> lockByEMAddrIdx(@Param("eMailAddress") String requiredEMailAddress) {
+	public List<CFSecJpaSecUser> lockByEMAddrIdx(@Param("eMailAddress") $implIJavaAtomType$ requiredEMailAddress) {
 		return( cfsec31SecUserRepository.lockByEMAddrIdx(requiredEMailAddress));
 	}
 
@@ -319,7 +319,7 @@ public class CFSecJpaSecUserService {
 	 *		@param requiredSecUserId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		cfsec31SecUserRepository.deleteByIdIdx(requiredSecUserId);
 	}
 
@@ -329,7 +329,7 @@ public class CFSecJpaSecUserService {
 	 *		@param requiredLoginId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByULoginIdx(@Param("loginId") String requiredLoginId) {
+	public void deleteByULoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		cfsec31SecUserRepository.deleteByULoginIdx(requiredLoginId);
 	}
 
@@ -349,7 +349,7 @@ public class CFSecJpaSecUserService {
 	 *		@param requiredEMailAddress
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByEMAddrIdx(@Param("eMailAddress") String requiredEMailAddress) {
+	public void deleteByEMAddrIdx(@Param("eMailAddress") $implIJavaAtomType$ requiredEMailAddress) {
 		cfsec31SecUserRepository.deleteByEMAddrIdx(requiredEMailAddress);
 	}
 

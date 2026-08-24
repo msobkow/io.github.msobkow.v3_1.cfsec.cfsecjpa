@@ -156,8 +156,8 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory find(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public CFSecJpaSecUserPWHistory find(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		return( cfsec31SecUserPWHistoryRepository.get(requiredSecUserId,
 			requiredPWSetStamp));
 	}
@@ -194,7 +194,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory findByUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserPWHistory findByUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserPWHistoryRepository.findByUserIdx(requiredSecUserId));
 	}
 
@@ -218,7 +218,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory findBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public CFSecJpaSecUserPWHistory findBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		return( cfsec31SecUserPWHistoryRepository.findBySetStampIdx(requiredPWSetStamp));
 	}
 
@@ -242,7 +242,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The found entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory findByReplacedStampIdx(@Param("pWReplacedStamp") LocalDateTime requiredPWReplacedStamp) {
+	public CFSecJpaSecUserPWHistory findByReplacedStampIdx(@Param("pWReplacedStamp") $implIJavaAtomType$ requiredPWReplacedStamp) {
 		return( cfsec31SecUserPWHistoryRepository.findByReplacedStampIdx(requiredPWReplacedStamp));
 	}
 
@@ -269,8 +269,8 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public CFSecJpaSecUserPWHistory lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		return( cfsec31SecUserPWHistoryRepository.lockByIdIdx(requiredSecUserId,
 			requiredPWSetStamp));
 	}
@@ -295,7 +295,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory lockByUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public CFSecJpaSecUserPWHistory lockByUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		return( cfsec31SecUserPWHistoryRepository.lockByUserIdx(requiredSecUserId));
 	}
 
@@ -319,7 +319,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory lockBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public CFSecJpaSecUserPWHistory lockBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		return( cfsec31SecUserPWHistoryRepository.lockBySetStampIdx(requiredPWSetStamp));
 	}
 
@@ -343,7 +343,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecUserPWHistory lockByReplacedStampIdx(@Param("pWReplacedStamp") LocalDateTime requiredPWReplacedStamp) {
+	public CFSecJpaSecUserPWHistory lockByReplacedStampIdx(@Param("pWReplacedStamp") $implIJavaAtomType$ requiredPWReplacedStamp) {
 		return( cfsec31SecUserPWHistoryRepository.lockByReplacedStampIdx(requiredPWReplacedStamp));
 	}
 
@@ -368,8 +368,8 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@param requiredPWSetStamp
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId,
-		@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId,
+		@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		cfsec31SecUserPWHistoryRepository.deleteByIdIdx(requiredSecUserId,
 			requiredPWSetStamp);
 	}
@@ -390,7 +390,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@param requiredSecUserId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByUserIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId) {
+	public void deleteByUserIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId) {
 		cfsec31SecUserPWHistoryRepository.deleteByUserIdx(requiredSecUserId);
 	}
 
@@ -410,7 +410,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@param requiredPWSetStamp
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp) {
+	public void deleteBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp) {
 		cfsec31SecUserPWHistoryRepository.deleteBySetStampIdx(requiredPWSetStamp);
 	}
 
@@ -430,7 +430,7 @@ public class CFSecJpaSecUserPWHistoryService {
 	 *		@param requiredPWReplacedStamp
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByReplacedStampIdx(@Param("pWReplacedStamp") LocalDateTime requiredPWReplacedStamp) {
+	public void deleteByReplacedStampIdx(@Param("pWReplacedStamp") $implIJavaAtomType$ requiredPWReplacedStamp) {
 		cfsec31SecUserPWHistoryRepository.deleteByReplacedStampIdx(requiredPWReplacedStamp);
 	}
 

@@ -70,7 +70,7 @@ public class CFSecJpaSecTentGrpHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecTentGrpId;
+	protected $implIJavaAtomType$ requiredSecTentGrpId;
 
 	public CFSecJpaSecTentGrpHPKey() {
 		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;
@@ -132,11 +132,11 @@ public class CFSecJpaSecTentGrpHPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecTentGrpId() {
+	public $implIJavaAtomType$ getRequiredSecTentGrpId() {
 		return(requiredSecTentGrpId);
 	}
 
-	public void setRequiredSecTentGrpId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecTentGrpId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecTentGrpId",

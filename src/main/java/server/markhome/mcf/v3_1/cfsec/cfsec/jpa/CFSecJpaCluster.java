@@ -61,7 +61,7 @@ public class CFSecJpaCluster
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="Id", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredId;
+	protected $implIJavaAtomType$ requiredId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerCluster")
 	protected Set<CFSecJpaTenant> optionalComponentsTenant;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredOwnerCluster")
@@ -99,9 +99,9 @@ public class CFSecJpaCluster
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="FullDomName", nullable=false, length=192 )
-	protected String requiredFullDomName;
+	protected $implIJavaAtomType$ requiredFullDomName;
 	@Column( name="Description", nullable=false, length=128 )
-	protected String requiredDescription;
+	protected $implIJavaAtomType$ requiredDescription;
 
 	public CFSecJpaCluster() {
 		requiredId = CFLibDbKeyHash256.fromHex( ICFSecPubCluster.ID_INIT_VALUE.toString() );
@@ -191,21 +191,21 @@ public class CFSecJpaCluster
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredId) {
+	public void setPKey($implCommaIJavaOptAtomType empty empty )$ requiredId) {
 		this.requiredId = requiredId;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredId() {
+	public $implIJavaAtomType$ getRequiredId() {
 		return(getPKey().getRequiredId());
 	}
 
-	public void setRequiredId( ICFLibKeyHash256 value ) {
+	public void setRequiredId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredId",
@@ -226,11 +226,11 @@ public class CFSecJpaCluster
 	}
 
 	@Override
-	public String getRequiredFullDomName() {
+	public $implIJavaAtomType$ getRequiredFullDomName() {
 		return(requiredFullDomName);
 	}
 
-	public void setRequiredFullDomName( String value ) {
+	public void setRequiredFullDomName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",
@@ -249,11 +249,11 @@ public class CFSecJpaCluster
 	}
 
 	@Override
-	public String getRequiredDescription() {
+	public $implIJavaAtomType$ getRequiredDescription() {
 		return(requiredDescription);
 	}
 
-	public void setRequiredDescription( String value ) {
+	public void setRequiredDescription( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredDescription",

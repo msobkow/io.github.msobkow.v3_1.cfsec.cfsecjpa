@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSysGrp, ICFLibKeyHash256> {
+public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSysGrp, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredSecSysGrpId = :secSysGrpId")
-	CFSecJpaSecSysGrp get(@Param("secSysGrpId") ICFLibKeyHash256 requiredSecSysGrpId);
+	CFSecJpaSecSysGrp get(@Param("secSysGrpId") $implIJavaAtomType$ requiredSecSysGrpId);
 
 	// CFSecJpaSecSysGrp specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredName = :name")
-	CFSecJpaSecSysGrp findByUNameIdx(@Param("name") String requiredName);
+	CFSecJpaSecSysGrp findByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecSysGrpByUNameIdxKey entity reader convenience method for object-based access.
@@ -98,7 +98,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	 *		@return List&lt;CFSecJpaSecSysGrp&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredSecLevel = :secLevel")
-	List<CFSecJpaSecSysGrp> findBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel);
+	List<CFSecJpaSecSysGrp> findBySecLevelIdx(@Param("secLevel") $implIJavaAtomType$ requiredSecLevel);
 
 	/**
 	 *	CFSecSecSysGrpBySecLevelIdxKey entity list reader convenience method for object-based access.
@@ -123,7 +123,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredSecSysGrpId = :secSysGrpId")
-	CFSecJpaSecSysGrp lockByIdIdx(@Param("secSysGrpId") ICFLibKeyHash256 requiredSecSysGrpId);
+	CFSecJpaSecSysGrp lockByIdIdx(@Param("secSysGrpId") $implIJavaAtomType$ requiredSecSysGrpId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -135,7 +135,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredName = :name")
-	CFSecJpaSecSysGrp lockByUNameIdx(@Param("name") String requiredName);
+	CFSecJpaSecSysGrp lockByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecSysGrpByUNameIdxKey based lock method for object-based access.
@@ -158,7 +158,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysGrp r where r.requiredSecLevel = :secLevel")
-	List<CFSecJpaSecSysGrp> lockBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel);
+	List<CFSecJpaSecSysGrp> lockBySecLevelIdx(@Param("secLevel") $implIJavaAtomType$ requiredSecLevel);
 
 	/**
 	 *	CFSecSecSysGrpBySecLevelIdxKey based lock method for object-based access.
@@ -181,7 +181,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysGrp r where r.requiredSecSysGrpId = :secSysGrpId")
-	void deleteByIdIdx(@Param("secSysGrpId") ICFLibKeyHash256 requiredSecSysGrpId);
+	void deleteByIdIdx(@Param("secSysGrpId") $implIJavaAtomType$ requiredSecSysGrpId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -191,7 +191,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysGrp r where r.requiredName = :name")
-	void deleteByUNameIdx(@Param("name") String requiredName);
+	void deleteByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecSysGrpByUNameIdxKey based lock method for object-based access.
@@ -210,7 +210,7 @@ public interface CFSecJpaSecSysGrpRepository extends JpaRepository<CFSecJpaSecSy
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysGrp r where r.requiredSecLevel = :secLevel")
-	void deleteBySecLevelIdx(@Param("secLevel") ICFSecPubSchema.SecLevelEnum requiredSecLevel);
+	void deleteBySecLevelIdx(@Param("secLevel") $implIJavaAtomType$ requiredSecLevel);
 
 	/**
 	 *	CFSecSecSysGrpBySecLevelIdxKey based lock method for object-based access.

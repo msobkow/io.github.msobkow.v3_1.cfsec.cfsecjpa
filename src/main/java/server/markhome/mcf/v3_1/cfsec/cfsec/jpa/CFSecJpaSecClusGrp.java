@@ -64,7 +64,7 @@ public class CFSecJpaSecClusGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecClusGrpId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecClusGrpId;
+	protected $implIJavaAtomType$ requiredSecClusGrpId;
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="requiredContainerGroup")
 	protected Set<CFSecJpaSecClusGrpMemb> optionalChildrenMembByGrp;
 	protected int requiredRevision;
@@ -104,9 +104,9 @@ public class CFSecJpaSecClusGrp
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredClusterId;
+	protected $implIJavaAtomType$ requiredClusterId;
 	@Column( name="safe_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
 	public CFSecJpaSecClusGrp() {
 		requiredSecClusGrpId = CFLibDbKeyHash256.fromHex( ICFSecProtSecClusGrp.SECCLUSGRPID_INIT_VALUE.toString() );
@@ -159,7 +159,7 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public void setRequiredOwnerCluster(ICFLibKeyHash256 argClusterId) {
+	public void setRequiredOwnerCluster($implIJavaAtomType$ argClusterId) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredOwnerCluster", 0, "ICFSecSchema.getBackingCFSec()");
@@ -206,7 +206,7 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public void setRequiredContainerSysGrp(String argName) {
+	public void setRequiredContainerSysGrp($implIJavaAtomType$ argName) {
 		ICFSecSchema targetBackingSchema = ICFSecSchema.getBackingCFSec();
 		if (targetBackingSchema == null) {
 			throw new CFLibNullArgumentException(getClass(), "setRequiredContainerSysGrp", 0, "ICFSecSchema.getBackingCFSec()");
@@ -272,21 +272,21 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public ICFLibKeyHash256 getPKey() {
+	public $implCommaIJavaOptAtomType empty empty )$ getPKey() {
 		return getRequiredSecClusGrpId();
 	}
 
 	@Override
-	public void setPKey(ICFLibKeyHash256 requiredSecClusGrpId) {
+	public void setPKey($implCommaIJavaOptAtomType empty empty )$ requiredSecClusGrpId) {
 		this.requiredSecClusGrpId = requiredSecClusGrpId;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecClusGrpId() {
+	public $implIJavaAtomType$ getRequiredSecClusGrpId() {
 		return(getPKey().getRequiredSecClusGrpId());
 	}
 
-	public void setRequiredSecClusGrpId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecClusGrpId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecClusGrpId",
@@ -307,11 +307,11 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredClusterId() {
+	public $implIJavaAtomType$ getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
+	public void setRequiredClusterId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",
@@ -322,11 +322,11 @@ public class CFSecJpaSecClusGrp
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

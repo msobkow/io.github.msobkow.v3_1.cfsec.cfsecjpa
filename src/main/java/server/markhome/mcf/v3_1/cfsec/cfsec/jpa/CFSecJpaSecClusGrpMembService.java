@@ -179,8 +179,8 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@return The retrieved entity, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecClusGrpMemb find(@Param("secClusGrpId") ICFLibKeyHash256 requiredSecClusGrpId,
-		@Param("loginId") String requiredLoginId) {
+	public CFSecJpaSecClusGrpMemb find(@Param("secClusGrpId") $implIJavaAtomType$ requiredSecClusGrpId,
+		@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		return( cfsec31SecClusGrpMembRepository.get(requiredSecClusGrpId,
 			requiredLoginId));
 	}
@@ -217,7 +217,7 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@return List&lt;CFSecJpaSecClusGrpMemb&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecClusGrpMemb> findByClusGrpIdx(@Param("secClusGrpId") ICFLibKeyHash256 requiredSecClusGrpId) {
+	public List<CFSecJpaSecClusGrpMemb> findByClusGrpIdx(@Param("secClusGrpId") $implIJavaAtomType$ requiredSecClusGrpId) {
 		return( cfsec31SecClusGrpMembRepository.findByClusGrpIdx(requiredSecClusGrpId));
 	}
 
@@ -241,7 +241,7 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@return List&lt;CFSecJpaSecClusGrpMemb&gt; of the found entities, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecClusGrpMemb> findByLoginIdx(@Param("loginId") String requiredLoginId) {
+	public List<CFSecJpaSecClusGrpMemb> findByLoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		return( cfsec31SecClusGrpMembRepository.findByLoginIdx(requiredLoginId));
 	}
 
@@ -268,8 +268,8 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@return The locked entity, refreshed from the data store, or null if no such entity exists.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public CFSecJpaSecClusGrpMemb lockByIdIdx(@Param("secClusGrpId") ICFLibKeyHash256 requiredSecClusGrpId,
-		@Param("loginId") String requiredLoginId) {
+	public CFSecJpaSecClusGrpMemb lockByIdIdx(@Param("secClusGrpId") $implIJavaAtomType$ requiredSecClusGrpId,
+		@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		return( cfsec31SecClusGrpMembRepository.lockByIdIdx(requiredSecClusGrpId,
 			requiredLoginId));
 	}
@@ -294,7 +294,7 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecClusGrpMemb> lockByClusGrpIdx(@Param("secClusGrpId") ICFLibKeyHash256 requiredSecClusGrpId) {
+	public List<CFSecJpaSecClusGrpMemb> lockByClusGrpIdx(@Param("secClusGrpId") $implIJavaAtomType$ requiredSecClusGrpId) {
 		return( cfsec31SecClusGrpMembRepository.lockByClusGrpIdx(requiredSecClusGrpId));
 	}
 
@@ -318,7 +318,7 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@return A list of locked entities, refreshed from the data store, or an empty list if no such entities exist.
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public List<CFSecJpaSecClusGrpMemb> lockByLoginIdx(@Param("loginId") String requiredLoginId) {
+	public List<CFSecJpaSecClusGrpMemb> lockByLoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		return( cfsec31SecClusGrpMembRepository.lockByLoginIdx(requiredLoginId));
 	}
 
@@ -343,8 +343,8 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@param requiredLoginId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByIdIdx(@Param("secClusGrpId") ICFLibKeyHash256 requiredSecClusGrpId,
-		@Param("loginId") String requiredLoginId) {
+	public void deleteByIdIdx(@Param("secClusGrpId") $implIJavaAtomType$ requiredSecClusGrpId,
+		@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		cfsec31SecClusGrpMembRepository.deleteByIdIdx(requiredSecClusGrpId,
 			requiredLoginId);
 	}
@@ -365,7 +365,7 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@param requiredSecClusGrpId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByClusGrpIdx(@Param("secClusGrpId") ICFLibKeyHash256 requiredSecClusGrpId) {
+	public void deleteByClusGrpIdx(@Param("secClusGrpId") $implIJavaAtomType$ requiredSecClusGrpId) {
 		cfsec31SecClusGrpMembRepository.deleteByClusGrpIdx(requiredSecClusGrpId);
 	}
 
@@ -385,7 +385,7 @@ public class CFSecJpaSecClusGrpMembService {
 	 *		@param requiredLoginId
 	 */
 	@Transactional(propagation = Propagation.REQUIRED, noRollbackFor = NoResultException.class, transactionManager = "cfsec31TransactionManager")
-	public void deleteByLoginIdx(@Param("loginId") String requiredLoginId) {
+	public void deleteByLoginIdx(@Param("loginId") $implIJavaAtomType$ requiredLoginId) {
 		cfsec31SecClusGrpMembRepository.deleteByLoginIdx(requiredLoginId);
 	}
 

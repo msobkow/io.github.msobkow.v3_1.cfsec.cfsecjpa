@@ -71,9 +71,9 @@ public class CFSecJpaSecTentRoleMembHPKey
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="SecTentRoleId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredSecTentRoleId;
+	protected $implIJavaAtomType$ requiredSecTentRoleId;
 	@Column( name="login_id", nullable=false, length=32 )
-	protected String requiredLoginId;
+	protected $implIJavaAtomType$ requiredLoginId;
 
 	public CFSecJpaSecTentRoleMembHPKey() {
 		auditClusterId = ICFSecProtCluster.ID_INIT_VALUE;
@@ -136,11 +136,11 @@ public class CFSecJpaSecTentRoleMembHPKey
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecTentRoleId() {
+	public $implIJavaAtomType$ getRequiredSecTentRoleId() {
 		return(requiredSecTentRoleId);
 	}
 
-	public void setRequiredSecTentRoleId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecTentRoleId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecTentRoleId",
@@ -151,11 +151,11 @@ public class CFSecJpaSecTentRoleMembHPKey
 	}
 
 	@Override
-	public String getRequiredLoginId() {
+	public $implIJavaAtomType$ getRequiredLoginId() {
 		return(requiredLoginId);
 	}
 
-	public void setRequiredLoginId( String value ) {
+	public void setRequiredLoginId( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredLoginId",

@@ -95,9 +95,9 @@ public class CFSecJpaISOCtryH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="iso_code", nullable=false, length=2 )
-	protected String requiredISOCode;
+	protected $implIJavaAtomType$ requiredISOCode;
 	@Column( name="country_name", nullable=false, length=64 )
-	protected String requiredName;
+	protected $implIJavaAtomType$ requiredName;
 
     public CFSecJpaISOCtryH() {
             // The primary key member attributes are initialized on construction
@@ -231,21 +231,21 @@ public class CFSecJpaISOCtryH
     }
 
     @Override
-    public short getRequiredISOCtryId() {
+    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredISOCtryId() {
         return( pkey.getRequiredISOCtryId() );
     }
 
     @Override
-    public void setRequiredISOCtryId( short requiredISOCtryId ) {
+    public void setRequiredISOCtryId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredISOCtryId ) {
         pkey.setRequiredISOCtryId( requiredISOCtryId );
     }
 
 	@Override
-	public String getRequiredISOCode() {
+	public $implIJavaAtomType$ getRequiredISOCode() {
 		return(requiredISOCode);
 	}
 
-	public void setRequiredISOCode( String value ) {
+	public void setRequiredISOCode( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredISOCode",
@@ -264,11 +264,11 @@ public class CFSecJpaISOCtryH
 	}
 
 	@Override
-	public String getRequiredName() {
+	public $implIJavaAtomType$ getRequiredName() {
 		return(requiredName);
 	}
 
-	public void setRequiredName( String value ) {
+	public void setRequiredName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredName",

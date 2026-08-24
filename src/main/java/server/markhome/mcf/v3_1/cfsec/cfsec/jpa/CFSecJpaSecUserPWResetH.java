@@ -96,13 +96,13 @@ public class CFSecJpaSecUserPWResetH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="sent_emailaddr", nullable=false, length=512 )
-	protected String requiredSentToEMailAddr;
+	protected $implIJavaAtomType$ requiredSentToEMailAddr;
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="pwdrstuuid6", nullable=false, length=ICFLibUuid6.TOTAL_BYTES ) )
 	})
-	protected ICFLibUuid6 requiredPasswordResetUuid6;
+	protected $implIJavaAtomType$ requiredPasswordResetUuid6;
 	@Column( name="newacct", nullable=false )
-	protected boolean requiredNewAccount;
+	protected $implIJavaAtomType$ requiredNewAccount;
 
     public CFSecJpaSecUserPWResetH() {
             // The primary key member attributes are initialized on construction
@@ -236,21 +236,21 @@ public class CFSecJpaSecUserPWResetH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredSecUserId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredSecUserId() {
         return( pkey.getRequiredSecUserId() );
     }
 
     @Override
-    public void setRequiredSecUserId( ICFLibKeyHash256 requiredSecUserId ) {
+    public void setRequiredSecUserId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecUserId ) {
         pkey.setRequiredSecUserId( requiredSecUserId );
     }
 
 	@Override
-	public String getRequiredSentToEMailAddr() {
+	public $implIJavaAtomType$ getRequiredSentToEMailAddr() {
 		return(requiredSentToEMailAddr);
 	}
 
-	public void setRequiredSentToEMailAddr( String value ) {
+	public void setRequiredSentToEMailAddr( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSentToEMailAddr",
@@ -269,11 +269,11 @@ public class CFSecJpaSecUserPWResetH
 	}
 
 	@Override
-	public ICFLibUuid6 getRequiredPasswordResetUuid6() {
+	public $implIJavaAtomType$ getRequiredPasswordResetUuid6() {
 		return(requiredPasswordResetUuid6);
 	}
 
-	public void setRequiredPasswordResetUuid6( ICFLibUuid6 value ) {
+	public void setRequiredPasswordResetUuid6( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPasswordResetUuid6",
@@ -284,11 +284,11 @@ public class CFSecJpaSecUserPWResetH
 	}
 
 	@Override
-	public boolean getRequiredNewAccount() {
+	public $implIJavaAtomType$ getRequiredNewAccount() {
 		return(requiredNewAccount);
 	}
 
-	public void setRequiredNewAccount( boolean value ) {
+	public void setRequiredNewAccount( $implIJavaAtomType$ value ) {
 		requiredNewAccount = value;
 	}
 

@@ -44,19 +44,19 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecSessionByFinishIdxKey
 	implements ICFSecSecSessionByFinishIdxKey, Comparable<Object>, Serializable
 {
-	protected ICFLibKeyHash256 requiredSecUserId;
-	protected LocalDateTime optionalFinish;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSecUserId;
+	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ optionalFinish;
 	public CFSecJpaSecSessionByFinishIdxKey() {
 		requiredSecUserId = CFLibDbKeyHash256.fromHex( ICFSecPubSecSession.SECUSERID_INIT_VALUE.toString() );
 		optionalFinish = null;
 	}
 
 	@Override
-	public ICFLibKeyHash256 getRequiredSecUserId() {
+	public $implIJavaAtomType$ getRequiredSecUserId() {
 		return(requiredSecUserId);
 	}
 
-	public void setRequiredSecUserId( ICFLibKeyHash256 value ) {
+	public void setRequiredSecUserId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSecUserId",
@@ -67,11 +67,11 @@ public class CFSecJpaSecSessionByFinishIdxKey
 	}
 
 	@Override
-	public LocalDateTime getOptionalFinish() {
+	public $implIJavaAtomType$ getOptionalFinish() {
 		return(optionalFinish);
 	}
 
-	public void setOptionalFinish( LocalDateTime value ) {
+	public void setOptionalFinish( $implIJavaAtomType$ value ) {
 		optionalFinish = value;
 	}
 

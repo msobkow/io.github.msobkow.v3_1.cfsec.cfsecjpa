@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJpaSecUserPassword, ICFLibKeyHash256> {
+public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJpaSecUserPassword, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJp
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecUserPassword r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserPassword get(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUserPassword get(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	// CFSecJpaSecUserPassword specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJp
 	 *		@return List&lt;CFSecJpaSecUserPassword&gt; of the found entities, typically from the JPA cache, or an empty list if no such entities exist.
 	 */
 	@Query("select r from CFSecJpaSecUserPassword r where r.requiredPWSetStamp = :pWSetStamp")
-	List<CFSecJpaSecUserPassword> findBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
+	List<CFSecJpaSecUserPassword> findBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPasswordBySetStampIdxKey entity list reader convenience method for object-based access.
@@ -102,7 +102,7 @@ public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJp
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPassword r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	CFSecJpaSecUserPassword lockByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	CFSecJpaSecUserPassword lockByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based lock database instance for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -114,7 +114,7 @@ public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJp
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecUserPassword r where r.requiredPWSetStamp = :pWSetStamp")
-	List<CFSecJpaSecUserPassword> lockBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
+	List<CFSecJpaSecUserPassword> lockBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPasswordBySetStampIdxKey based lock method for object-based access.
@@ -137,7 +137,7 @@ public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJp
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPassword r where r.requiredContainerUser.requiredSecUserId = :secUserId")
-	void deleteByIdIdx(@Param("secUserId") ICFLibKeyHash256 requiredSecUserId);
+	void deleteByIdIdx(@Param("secUserId") $implIJavaAtomType$ requiredSecUserId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -147,7 +147,7 @@ public interface CFSecJpaSecUserPasswordRepository extends JpaRepository<CFSecJp
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecUserPassword r where r.requiredPWSetStamp = :pWSetStamp")
-	void deleteBySetStampIdx(@Param("pWSetStamp") LocalDateTime requiredPWSetStamp);
+	void deleteBySetStampIdx(@Param("pWSetStamp") $implIJavaAtomType$ requiredPWSetStamp);
 
 	/**
 	 *	CFSecSecUserPasswordBySetStampIdxKey based lock method for object-based access.

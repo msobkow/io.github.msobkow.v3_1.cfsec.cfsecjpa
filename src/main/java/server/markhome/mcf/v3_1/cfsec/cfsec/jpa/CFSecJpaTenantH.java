@@ -97,9 +97,9 @@ public class CFSecJpaTenantH
 	@AttributeOverrides({
 		@AttributeOverride(name="bytes", column = @Column( name="ClusterId", nullable=false, length=CFLibDbKeyHash256.HASH_LENGTH ) )
 	})
-	protected ICFLibKeyHash256 requiredClusterId;
+	protected $implIJavaAtomType$ requiredClusterId;
 	@Column( name="TenantName", nullable=false, length=192 )
-	protected String requiredTenantName;
+	protected $implIJavaAtomType$ requiredTenantName;
 
     public CFSecJpaTenantH() {
             // The primary key member attributes are initialized on construction
@@ -233,21 +233,21 @@ public class CFSecJpaTenantH
     }
 
     @Override
-    public ICFLibKeyHash256 getRequiredId() {
+    public $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( ICFLibKeyHash256 requiredId ) {
+    public void setRequiredId( $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 
 	@Override
-	public ICFLibKeyHash256 getRequiredClusterId() {
+	public $implIJavaAtomType$ getRequiredClusterId() {
 		return(requiredClusterId);
 	}
 
-	public void setRequiredClusterId( ICFLibKeyHash256 value ) {
+	public void setRequiredClusterId( $implIJavaAtomType$ value ) {
 		if( value == null || value.isNull() ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredClusterId",
@@ -258,11 +258,11 @@ public class CFSecJpaTenantH
 	}
 
 	@Override
-	public String getRequiredTenantName() {
+	public $implIJavaAtomType$ getRequiredTenantName() {
 		return(requiredTenantName);
 	}
 
-	public void setRequiredTenantName( String value ) {
+	public void setRequiredTenantName( $implIJavaAtomType$ value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTenantName",

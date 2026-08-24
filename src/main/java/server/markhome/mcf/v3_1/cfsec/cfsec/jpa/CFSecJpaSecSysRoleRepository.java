@@ -51,7 +51,7 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
  *	The manufactured repositories try to provide a rich, do-it-all interface to the JPA data store, with both object and argument-based implementations of the interface defined.
  */
 @Transactional(readOnly = true)
-public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecSysRole, ICFLibKeyHash256> {
+public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecSysRole, $iterate Columns ( lone implIJavaOptAtomType first implIJavaOptAtomType each implCommaIJavaOptAtomType empty empty )$> {
 
 	@Transactional
 	@Modifying
@@ -65,7 +65,7 @@ public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecS
 	 *		@return The retrieved entity, usually from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecSysRole r where r.requiredSecSysRoleId = :secSysRoleId")
-	CFSecJpaSecSysRole get(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
+	CFSecJpaSecSysRole get(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId);
 
 	// CFSecJpaSecSysRole specified index readers
 
@@ -77,7 +77,7 @@ public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecS
 	 *		@return The found entity, typically from the JPA cache, or null if no such entity exists.
 	 */
 	@Query("select r from CFSecJpaSecSysRole r where r.requiredName = :name")
-	CFSecJpaSecSysRole findByUNameIdx(@Param("name") String requiredName);
+	CFSecJpaSecSysRole findByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecSysRoleByUNameIdxKey entity reader convenience method for object-based access.
@@ -102,7 +102,7 @@ public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysRole r where r.requiredSecSysRoleId = :secSysRoleId")
-	CFSecJpaSecSysRole lockByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
+	CFSecJpaSecSysRole lockByIdIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId);
 
 	/**
 	 *	Argument-based lock database entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity locks, which may or may not imply an actual database lock during the transaction.
@@ -114,7 +114,7 @@ public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Lock(LockModeType.WRITE)
 	@Query("select r from CFSecJpaSecSysRole r where r.requiredName = :name")
-	CFSecJpaSecSysRole lockByUNameIdx(@Param("name") String requiredName);
+	CFSecJpaSecSysRole lockByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecSysRoleByUNameIdxKey based lock method for object-based access.
@@ -137,7 +137,7 @@ public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysRole r where r.requiredSecSysRoleId = :secSysRoleId")
-	void deleteByIdIdx(@Param("secSysRoleId") ICFLibKeyHash256 requiredSecSysRoleId);
+	void deleteByIdIdx(@Param("secSysRoleId") $implIJavaAtomType$ requiredSecSysRoleId);
 
 	/**
 	 *	Argument-based delete entity for compatibility with the current MSS code factory code base, uses @Transactional to acquire a JPA entity lock, which may or may not imply an actual database lock during the transaction.
@@ -147,7 +147,7 @@ public interface CFSecJpaSecSysRoleRepository extends JpaRepository<CFSecJpaSecS
 	@Transactional
 	@Modifying
 	@Query("delete from CFSecJpaSecSysRole r where r.requiredName = :name")
-	void deleteByUNameIdx(@Param("name") String requiredName);
+	void deleteByUNameIdx(@Param("name") $implIJavaAtomType$ requiredName);
 
 	/**
 	 *	CFSecSecSysRoleByUNameIdxKey based lock method for object-based access.
