@@ -276,7 +276,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public void deleteClusterByIdIdx( ICFSecAuthorization Authorization,
-		$implCommaIJavaOptAtomType empty empty )$ argKey )
+		$implIJavaOptAtomType$ argKey )
 	{
 		final String S_ProcName = "deleteClusterByIdIdx";
 		boolean permissionGranted = canDeleteCluster(S_ProcName, Authorization);
@@ -382,7 +382,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster readDerived( ICFSecAuthorization Authorization,
-		$implCommaIJavaOptAtomType empty empty )$ PKey )
+		$implIJavaOptAtomType$ PKey )
 	{
 		final String S_ProcName = "readDerived";
 		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
@@ -406,7 +406,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster lockDerived( ICFSecAuthorization Authorization,
-		$implCommaIJavaOptAtomType empty empty )$ PKey )
+		$implIJavaOptAtomType$ PKey )
 	{
 		final String S_ProcName = "lockDerived";
 		boolean permissionGranted = canUpdateCluster(S_ProcName, Authorization);
@@ -537,7 +537,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster readRec( ICFSecAuthorization Authorization,
-		$implCommaIJavaOptAtomType empty empty )$ PKey )
+		$implIJavaOptAtomType$ PKey )
 	{
 		final String S_ProcName = "readRec";
 		boolean permissionGranted = canReadCluster(S_ProcName, Authorization);
@@ -562,7 +562,7 @@ public class CFSecJpaClusterTable implements ICFSecClusterTable
 	 */
 	@Override
 	public ICFSecCluster lockRec( ICFSecAuthorization Authorization,
-		$implCommaIJavaOptAtomType empty empty )$ PKey )
+		$implIJavaOptAtomType$ PKey )
 	{
 		final String S_ProcName = "lockRec";
 		boolean permissionGranted = canUpdateCluster(S_ProcName, Authorization);

@@ -102,8 +102,8 @@ public class CFSecJpaClusterH
     public CFSecJpaClusterH() {
             // The primary key member attributes are initialized on construction
             pkey = new CFSecJpaClusterHPKey();
-		requiredFullDomName = ICFSecPubCluster.FULLDOMNAME_INIT_VALUE;
-		requiredDescription = ICFSecPubCluster.DESCRIPTION_INIT_VALUE;
+		requiredFullDomName = ICFSec$emitScopingMidfix$Cluster.FULLDOMNAME_INIT_VALUE;
+		requiredDescription = ICFSec$emitScopingMidfix$Cluster.DESCRIPTION_INIT_VALUE;
     }
 
     @Override
@@ -231,12 +231,12 @@ public class CFSecJpaClusterH
     }
 
     @Override
-    public $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ getRequiredId() {
+    public $implIJavaAtomType$ getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredId ) {
+    public void setRequiredId( $implIJavaAtomType$ requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 

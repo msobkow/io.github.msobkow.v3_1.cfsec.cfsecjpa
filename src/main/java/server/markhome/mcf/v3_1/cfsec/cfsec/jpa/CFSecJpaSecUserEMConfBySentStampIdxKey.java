@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserEMConfBySentStampIdxKey
 	implements ICFSecSecUserEMConfBySentStampIdxKey, Comparable<Object>, Serializable
 {
-	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredEMailSentStamp;
+	protected LocalDateTime requiredEMailSentStamp;
 	public CFSecJpaSecUserEMConfBySentStampIdxKey() {
 		requiredEMailSentStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredEMailSentStamp() {
+	public LocalDateTime getRequiredEMailSentStamp() {
 		return(requiredEMailSentStamp);
 	}
 
-	public void setRequiredEMailSentStamp( $implIJavaAtomType$ value ) {
+	public void setRequiredEMailSentStamp( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredEMailSentStamp",

@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTableInfoBySchemaNameIdxKey
 	implements ICFSecTableInfoBySchemaNameIdxKey, Comparable<Object>, Serializable
 {
-	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredSchemaName;
+	protected String requiredSchemaName;
 	public CFSecJpaTableInfoBySchemaNameIdxKey() {
 		requiredSchemaName = ICFSecPubTableInfo.SCHEMANAME_INIT_VALUE;
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredSchemaName() {
+	public String getRequiredSchemaName() {
 		return(requiredSchemaName);
 	}
 
-	public void setRequiredSchemaName( $implIJavaAtomType$ value ) {
+	public void setRequiredSchemaName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredSchemaName",

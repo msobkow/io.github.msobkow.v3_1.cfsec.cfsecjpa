@@ -73,12 +73,12 @@ public class CFSecJpaClusterHPKey
 	protected $implIJavaAtomType$ requiredId;
 
 	public CFSecJpaClusterHPKey() {
-		auditClusterId = ICFSecPubCluster.ID_INIT_VALUE;
+		auditClusterId = ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE;
 		auditStamp = LocalDateTime.now();
 		auditActionId = 0;
 		requiredRevision = 1;
 		auditSessionId = CFLibDbKeyHash256.nullGet();
-		requiredId = CFLibDbKeyHash256.fromHex( ICFSecPubCluster.ID_INIT_VALUE.toString() );
+		requiredId = CFLibDbKeyHash256.fromHex( ICFSec$emitScopingMidfix$Cluster.ID_INIT_VALUE.toString() );
 	}
 
 	@Override

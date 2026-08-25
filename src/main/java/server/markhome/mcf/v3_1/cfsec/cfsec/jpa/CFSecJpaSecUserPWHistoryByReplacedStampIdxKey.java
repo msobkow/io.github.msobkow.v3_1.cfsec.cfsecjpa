@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaSecUserPWHistoryByReplacedStampIdxKey
 	implements ICFSecSecUserPWHistoryByReplacedStampIdxKey, Comparable<Object>, Serializable
 {
-	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredPWReplacedStamp;
+	protected LocalDateTime requiredPWReplacedStamp;
 	public CFSecJpaSecUserPWHistoryByReplacedStampIdxKey() {
 		requiredPWReplacedStamp = CFLibXmlUtil.parseTimestamp("2020-01-01T00:00:00");
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredPWReplacedStamp() {
+	public LocalDateTime getRequiredPWReplacedStamp() {
 		return(requiredPWReplacedStamp);
 	}
 
-	public void setRequiredPWReplacedStamp( $implIJavaAtomType$ value ) {
+	public void setRequiredPWReplacedStamp( LocalDateTime value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredPWReplacedStamp",

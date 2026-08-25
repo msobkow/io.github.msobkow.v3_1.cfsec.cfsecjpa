@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOTZoneByUTZNameIdxKey
 	implements ICFSecISOTZoneByUTZNameIdxKey, Comparable<Object>, Serializable
 {
-	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredTZName;
+	protected String requiredTZName;
 	public CFSecJpaISOTZoneByUTZNameIdxKey() {
 		requiredTZName = ICFSecPubISOTZone.TZNAME_INIT_VALUE;
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredTZName() {
+	public String getRequiredTZName() {
 		return(requiredTZName);
 	}
 
-	public void setRequiredTZName( $implIJavaAtomType$ value ) {
+	public void setRequiredTZName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredTZName",

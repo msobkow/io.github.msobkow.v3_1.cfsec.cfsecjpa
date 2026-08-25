@@ -44,17 +44,17 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaTableInfoBySuperNameIdxKey
 	implements ICFSecTableInfoBySuperNameIdxKey, Comparable<Object>, Serializable
 {
-	protected $iterate Columns ( lone implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ optionalSuperName;
+	protected String optionalSuperName;
 	public CFSecJpaTableInfoBySuperNameIdxKey() {
 		optionalSuperName = null;
 	}
 
 	@Override
-	public $implIJavaAtomType$ getOptionalSuperName() {
+	public String getOptionalSuperName() {
 		return(optionalSuperName);
 	}
 
-	public void setOptionalSuperName( $implIJavaAtomType$ value ) {
+	public void setOptionalSuperName( String value ) {
 		if( value != null && value.length() > 64 ) {
 			throw new CFLibArgumentOverflowException( getClass(),
 				"setOptionalSuperName",

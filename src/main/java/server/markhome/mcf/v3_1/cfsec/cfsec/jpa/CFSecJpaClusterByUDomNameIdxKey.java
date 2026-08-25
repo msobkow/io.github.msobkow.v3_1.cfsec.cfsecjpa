@@ -44,9 +44,9 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaClusterByUDomNameIdxKey
 	implements ICFSecClusterByUDomNameIdxKey, Comparable<Object>, Serializable
 {
-	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredFullDomName;
+	protected $implIJavaAtomType$ requiredFullDomName;
 	public CFSecJpaClusterByUDomNameIdxKey() {
-		requiredFullDomName = ICFSecPubCluster.FULLDOMNAME_INIT_VALUE;
+		requiredFullDomName = ICFSec$emitScopingMidfix$Cluster.FULLDOMNAME_INIT_VALUE;
 	}
 
 	@Override

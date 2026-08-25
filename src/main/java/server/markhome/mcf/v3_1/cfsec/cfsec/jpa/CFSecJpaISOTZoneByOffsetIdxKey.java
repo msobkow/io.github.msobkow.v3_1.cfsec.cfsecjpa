@@ -44,20 +44,20 @@ import server.markhome.mcf.v3_1.cfsec.cfsec.*;
 public class CFSecJpaISOTZoneByOffsetIdxKey
 	implements ICFSecISOTZoneByOffsetIdxKey, Comparable<Object>, Serializable
 {
-	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredTZHourOffset;
-	protected $implIJavaAtomType first implIJavaAtomType each implCommaIJavaAtomType empty empty )$ requiredTZMinOffset;
+	protected short requiredTZHourOffset;
+	protected short requiredTZMinOffset;
 	public CFSecJpaISOTZoneByOffsetIdxKey() {
 		requiredTZHourOffset = ICFSecPubISOTZone.TZHOUROFFSET_INIT_VALUE;
 		requiredTZMinOffset = ICFSecPubISOTZone.TZMINOFFSET_INIT_VALUE;
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredTZHourOffset() {
+	public short getRequiredTZHourOffset() {
 		return(requiredTZHourOffset);
 	}
 
 	@Override
-	public void setRequiredTZHourOffset( $implIJavaAtomType$ value ) {
+	public void setRequiredTZHourOffset( short value ) {
 		if( value < ICFSecPubISOTZone.TZHOUROFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZHourOffset",
@@ -78,12 +78,12 @@ public class CFSecJpaISOTZoneByOffsetIdxKey
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredTZMinOffset() {
+	public short getRequiredTZMinOffset() {
 		return(requiredTZMinOffset);
 	}
 
 	@Override
-	public void setRequiredTZMinOffset( $implIJavaAtomType$ value ) {
+	public void setRequiredTZMinOffset( short value ) {
 		if( value < ICFSecPubISOTZone.TZMINOFFSET_MIN_VALUE ) {
 			throw new CFLibArgumentUnderflowException( getClass(),
 				"setRequiredTZMinOffset",
