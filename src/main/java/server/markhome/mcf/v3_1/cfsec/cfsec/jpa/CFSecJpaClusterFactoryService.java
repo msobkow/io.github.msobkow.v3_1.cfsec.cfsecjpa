@@ -72,7 +72,8 @@ public class CFSecJpaClusterFactoryService
 			mapped.setAuditClusterId(key.getAuditClusterId());
 			mapped.setAuditActionId(key.getAuditActionId());
 			mapped.setAuditSessionId(key.getAuditSessionId());
-			mapped.setAuditStamp(key.getAuditStamp());$implBuffCopyKeyAttrToMapped$
+			mapped.setAuditStamp(key.getAuditStamp());
+			mapped.setRequiredId( key.getRequiredId() );
 			return( mapped );
 		}
 	}
@@ -93,7 +94,8 @@ public class CFSecJpaClusterFactoryService
 			return( (CFSecJpaClusterByUDomNameIdxKey)key );
 		}
 		else {
-			CFSecJpaClusterByUDomNameIdxKey mapped = new CFSecJpaClusterByUDomNameIdxKey();$implBuffCopyKeyAttrToMapped$
+			CFSecJpaClusterByUDomNameIdxKey mapped = new CFSecJpaClusterByUDomNameIdxKey();
+			mapped.setRequiredFullDomName( key.getRequiredFullDomName() );
 			return( mapped );
 		}
 	}
@@ -114,7 +116,8 @@ public class CFSecJpaClusterFactoryService
 			return( (CFSecJpaClusterByUDescrIdxKey)key );
 		}
 		else {
-			CFSecJpaClusterByUDescrIdxKey mapped = new CFSecJpaClusterByUDescrIdxKey();$implBuffCopyKeyAttrToMapped$
+			CFSecJpaClusterByUDescrIdxKey mapped = new CFSecJpaClusterByUDescrIdxKey();
+			mapped.setRequiredDescription( key.getRequiredDescription() );
 			return( mapped );
 		}
 	}

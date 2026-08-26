@@ -95,15 +95,15 @@ public class CFSecJpaClusterH
 	@Column(name="UpdatedAt", nullable=false)
 	protected LocalDateTime updatedAt = LocalDateTime.now();
 	@Column( name="FullDomName", nullable=false, length=192 )
-	protected $implIJavaAtomType$ requiredFullDomName;
+	protected String requiredFullDomName;
 	@Column( name="Description", nullable=false, length=128 )
-	protected $implIJavaAtomType$ requiredDescription;
+	protected String requiredDescription;
 
     public CFSecJpaClusterH() {
             // The primary key member attributes are initialized on construction
             pkey = new CFSecJpaClusterHPKey();
-		requiredFullDomName = ICFSec$emitScopingMidfix$Cluster.FULLDOMNAME_INIT_VALUE;
-		requiredDescription = ICFSec$emitScopingMidfix$Cluster.DESCRIPTION_INIT_VALUE;
+		requiredFullDomName = ICFSecPubCluster.FULLDOMNAME_INIT_VALUE;
+		requiredDescription = ICFSecPubCluster.DESCRIPTION_INIT_VALUE;
     }
 
     @Override
@@ -231,21 +231,21 @@ public class CFSecJpaClusterH
     }
 
     @Override
-    public $implIJavaAtomType$ getRequiredId() {
+    public ICFLibKeyHash256 getRequiredId() {
         return( pkey.getRequiredId() );
     }
 
     @Override
-    public void setRequiredId( $implIJavaAtomType$ requiredId ) {
+    public void setRequiredId( ICFLibKeyHash256 requiredId ) {
         pkey.setRequiredId( requiredId );
     }
 
 	@Override
-	public $implIJavaAtomType$ getRequiredFullDomName() {
+	public String getRequiredFullDomName() {
 		return(requiredFullDomName);
 	}
 
-	public void setRequiredFullDomName( $implIJavaAtomType$ value ) {
+	public void setRequiredFullDomName( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredFullDomName",
@@ -264,11 +264,11 @@ public class CFSecJpaClusterH
 	}
 
 	@Override
-	public $implIJavaAtomType$ getRequiredDescription() {
+	public String getRequiredDescription() {
 		return(requiredDescription);
 	}
 
-	public void setRequiredDescription( $implIJavaAtomType$ value ) {
+	public void setRequiredDescription( String value ) {
 		if( value == null ) {
 			throw new CFLibNullArgumentException( getClass(),
 				"setRequiredDescription",
