@@ -642,7 +642,7 @@ public class CFSecJpaClusterH
     }
 
     public String getXmlAttrFragment() {
-        String ret = pkey.getXmlAttrFragment() 
+        String ret = pkey.getXmlAttrFragment()
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ " RequiredFullDomName=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredFullDomName() ) + "\""
 			+ " RequiredDescription=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredDescription() ) + "\"";

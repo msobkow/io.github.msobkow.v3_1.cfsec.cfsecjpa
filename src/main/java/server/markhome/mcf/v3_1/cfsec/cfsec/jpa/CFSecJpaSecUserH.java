@@ -982,7 +982,7 @@ public class CFSecJpaSecUserH
     }
 
     public String getXmlAttrFragment() {
-        String ret = pkey.getXmlAttrFragment() 
+        String ret = pkey.getXmlAttrFragment()
 			+ " RequiredRevision=\"" + Integer.toString( getRequiredRevision() ) + "\""
 			+ " RequiredLoginId=" + "\"" + StringEscapeUtils.escapeXml11( getRequiredLoginId() ) + "\""
 			+ " RequiredAccountStatus=" + "\"" + getRequiredAccountStatus().toString() + "\""
